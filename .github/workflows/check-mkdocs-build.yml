@@ -1,0 +1,43 @@
+name: CheckMkDocsBuild
+on:
+  # Trigger the workflow on a new pull request on main
+  pull_request_target:
+    branches:
+      - main
+
+jobs:
+  build-docs-site:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Allow to move dotfiles
+        run: |
+          # move also dotfile with *
+          shopt -s dotglob
+
+      - name: Clone Tanssi MKDocs
+        run: |
+          # clone mkdocs repo locally
+          git clone https://${{ secrets.REPO_SCOPED_TOKEN }}@github.com/moondance-labs/tanssi-mkdocs.git
+
+      - name: Move tanssi-docs contents to mkdocs repository
+        run: |
+          mkdir tanssi-mkdocs/tanssi-docs
+          mv * tanssi-mkdocs/tanssi-docs &> /dev/null || echo "Error with mv expected due to recursively moving all contents into subfolder"
+
+      - name: Install pip requirements
+        run: |
+          cd tanssi-mkdocs
+          # upgrade pip
+          pip3 install --upgrade pip setuptools==65.7.0
+          # install dependencies quietly
+          pip3 install -r requirements.txt &> /dev/null && echo "Dependencies installed" || echo "Error while installing dependencies"
+
+      - name: Build mkdocs
+        run: |
+          cd tanssi-mkdocs
+          # change destination build folder in mkdocs YAML to local site/
+          sed -i "s/'site_dir'.*/'site_dir': 'site'/" mkdocs.yml
+          # build project
+          python3 -m mkdocs build
