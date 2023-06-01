@@ -5,7 +5,9 @@ description: ...
 
 # Example Example Example
 
-## H2
+![Banner](/images/example/example-banner.png)
+
+## Introduction
 
 Hello
 
@@ -44,11 +46,18 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 | [Moonbeam Development Node](/builders/get-started/networks/moonbeam-dev){target=_blank} | Local TestNet |                                      None                                      |         DEV         |          18           |
 
 
-### Three
+### Learn Something
 
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
 
-#### four
+```js
+--8<-- 'code/example.js'
+```
+
+--8<-- 'text/example.md'
+
+
+#### Learn something else
 
 ```js
 const simpleDexAddress = "INSERT-ADDRESS-OF-DEX";

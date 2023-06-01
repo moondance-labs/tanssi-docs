@@ -93,6 +93,10 @@ for (let i = 0; i < links.length; i++) {
         externalLinkModalContainer.style.display = 'none';
       };
     };
+  } else {
+    if (!href.startsWith(origin)) {
+      links[i].setAttribute('target', '_blank');
+    }
   }
 }
 

@@ -1,3 +1,6 @@
 nav:
  - index.md
- - main-section
+ - 'About': 'https://tanssi.network/'
+ - developers
+ - learn
+ - 'Resource Center': 'https://tanssi.network/resources'
