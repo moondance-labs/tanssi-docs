@@ -1,3 +1,6 @@
 nav:
  - index.md
- - example-page.md
+ - polkadot.md
+ - parachains.md
+ - parathreads.md
+

@@ -1,5 +1,6 @@
 ---
 title: Learn
 description: Tanssi docs....
-template: index-page.html
 ---
+
+In this section wou will find useful introductory information
