@@ -3,6 +3,4 @@ hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
-  - 'How it works': 'how-it-works.md'
-
-  
+  - 'Technical Features': 'technical.md'
