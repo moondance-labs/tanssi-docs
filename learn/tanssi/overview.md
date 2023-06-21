@@ -9,7 +9,7 @@ Tanssi is a protocol that makes deploying blockchains with custom logic specific
 
 AppChains provides the ultimate control over the logic that powers the runtime the blockchain is using. Consequently, they offer an excellent way for projects to scale and build optimized solutions for their product, resulting in a superior user experience.
 
-## The Problem
+## The Problem {: #the-problem}
 
 AppChains typically have to deal with the following problems:
 
@@ -21,7 +21,7 @@ AppChains typically have to deal with the following problems:
 
 - **Slow Time to Market** - AppChain's infrastructure complexities diver developer focus from application logic, which is the key driver for intuitive interfaces and seamless user experience, which is critical for adoption
 
-## What Tanssi Provides
+## What Tanssi Provides {: #what-tanssi-provides}
 
 Tanssi addresses the most common AppChain problems by:
 
