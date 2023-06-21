@@ -2,6 +2,7 @@ title: Learn
 hide: false
 nav:
   - index.md
-  - polkadot
   - tanssi
-  - deploy-on-tanssi
+  - framework
+
+

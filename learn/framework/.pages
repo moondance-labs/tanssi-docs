@@ -1,0 +1,7 @@
+title: Substrate Framework
+hide: false
+nav:
+  - index.md
+  - 'Overview': 'overview.md'
+  - 'Modules': 'modules.md'
+  - 'Templates': 'templates.md'
