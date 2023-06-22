@@ -15,7 +15,7 @@ Building an Appchain from scratch is a very complex task that requires deep know
 
 - **Distributed Network** - A network architecture to enable nodes to communicate, validate transactions, and synchronize the blockchain data is key to maintaining a shared ledger in a decentralized network
 
-- **Data Structure** - Besides the list of blocks, where each block contains a set of transactions along with a reference to the previous block, Merkle trees are widely used to store the state of the network
+- **Data Structures** - Besides the list of blocks, where each block contains a set of transactions along with a reference to the previous block, an optimized and performant strategy to store the state of the network is needed
 
 - **Governance** - Define how decisions are made, how upgrades or modifications are implemented, and how conflicts are resolved within the network
 
