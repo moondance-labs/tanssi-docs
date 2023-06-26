@@ -5,7 +5,7 @@ description: Substrate is a powerful blockchain development framework that provi
 
 # Overview {: #overview } 
 
-## Building An Appchain From Scratch {: #building-an-appchain-from-scratch } 
+## Building an Appchain from Scratch {: #building-an-appchain-from-scratch } 
 
 Building an Appchain from scratch is a very complex task that requires deep knowledge in a wide range of areas, including (but not limited to):
 
