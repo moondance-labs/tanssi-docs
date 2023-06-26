@@ -11,7 +11,7 @@ Substrate Framework provides complete and ready-to-use implementations of the ma
 
 When it comes to building the Runtime, which is essentially the heart of a Substrate-based blockchain, the desired state transition rules must be defined, reflecting the intended behavior and features of the blockchain. 
 
-To build the Runtime, Substrate provides many built-in modules -called pallets- that can be freely used as building blocks to compose and interact with any other custom-made modules, allowing teams to create a unique behavior according to the specific requirements of their Appchain.
+To build the Runtime, Substrate provides many built-in modules (called pallets) that can be freely used as building blocks to compose and interact with any other custom-made modules, allowing teams to create a unique behavior according to the specific requirements of their Appchain.
 
 ## Built-in Modules {: #buit-in-modules } 
 

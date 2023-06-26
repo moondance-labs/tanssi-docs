@@ -5,7 +5,7 @@ description: Substrate is a powerful blockchain development framework that provi
 
 # Overview {: #overview } 
 
-## Building an Appchain from scratch {: #building-an-appchain-from-scratch } 
+## Building An Appchain From Scratch {: #building-an-appchain-from-scratch } 
 
 Building an Appchain from scratch is a very complex task that requires deep knowledge in a wide range of areas, including (but not limited to):
 
@@ -49,9 +49,9 @@ Rust is a programming language that has unique features that have made it the mo
 
 In addition to a great experience for developers, Rust excels in many areas:
 
-- **Memory safety** - Rust compiler enforces strict compile-time checks to prevent common programming errors such as null pointer dereferences, buffer overflows, and data races. Additionally, memory is managed through a novel system of ownership -checked by the compiler- which eliminates the necessity of a garbage collector
+- **Memory safety** - Rust compiler enforces strict compile-time checks to prevent common programming errors such as null pointer dereferences, buffer overflows, and data races. Additionally, memory is managed through a novel system of ownership (checked by the compiler) which eliminates the necessity of a garbage collector
 - **Performance** - Rust achieves performance comparable to C and C++ by providing low-level control over system resources and minimizing runtime overhead. It has a zero-cost abstraction principle, similar to the "what you don't use you don't pay for" from C++, meaning that abstractions have no extra overhead
-- **Concurrency** - Rust has built-in features that make it easy to write concurrent and parallel code without introducing data races. It provides lightweight threads called -tasks- and a powerful ownership model that ensures safe sharing of data between threads
+- **Concurrency** - Rust has built-in features that make it easy to write concurrent and parallel code without introducing data races. It provides lightweight threads (tasks) and a powerful ownership model that ensures the safe sharing of data between threads
 - **Expressive and safe abstractions** - Rust offers a rich set of modern language features, such as pattern matching, algebraic data types, closures, and type inference, allowing developers to write and read expressive and concise code. Rust compiler enforces the strong type system preventing many runtime errors at compile-time
 - **Cross-platform compatibility** - Rust is designed to work well on a variety of platforms and architectures. It supports major operating systems like Windows, macOS, and Linux, as well as embedded systems and WebAssembly. This versatility allows developers to write code that can be deployed across different environments
 - **Growing ecosystem** - Rust has a rapidly growing ecosystem with a vibrant community and a rich collection of libraries and tools. The official package manager, Cargo, simplifies dependency management, building, and testing

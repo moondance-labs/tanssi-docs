@@ -5,15 +5,15 @@ description: Substrate is a powerful blockchain development framework that provi
 
 # Templates {: #templates } 
 
-## Starting point {: #starting-point } 
+## Starting Point {: #starting-point } 
 
 To start building an Appchain, there are some useful templates to kick-start the development process:
 
 - **[Node Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - This node template contains a default configuration to quickly run and operate what would represent a single node in a blockchain
 - **[Front end Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - This template contains a web client developed using ReactJS and PolkadotJs API to interact with your Appchain with an easy-to-grasp UI
-- **[Appchain Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - This template contains a default configuration to run an Appchain -a Parachain within the Polkadot ecosystem-
+- **[Appchain Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - This template contains a default configuration to run an Appchain (a Parachain within the Polkadot ecosystem)
 
-## Running and testing the network {: #running-and-testing-the-network } 
+## Running and Testing The Network {: #running-and-testing-the-network } 
 
 Becoming a Tanssi ContainerChain brings along the benefits of being part of a mature ecosystem, leveraging the inherited security of the relay chain and the ability to communicate and share assets and data with other siblings ContainerChains and Parachains.
 
