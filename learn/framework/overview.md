@@ -27,7 +27,7 @@ Substrate is a flexible, modular and highly customizable framework to build Bloc
 
 When developing an Appchain, Substrate represents a great head start by providing a ready-to-use set of implementations of the main building blocks a project needs: 
 
-- **Consensus Algorithms** - There are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality)
+- **Consensus Algorithms** - There are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality), but due to the high degree of customization Substrate offers, teams can always choose to develop their specific consensus to adapt to the use case needs, as the Moonbeam team did with [Nimbus Parachain Consensus Framework](https://docs.moonbeam.network/learn/features/consensus/){target=blank}
 
 - **Runtime Modules** - Many built-in modules can be selected and configured into your Appchain, such as accounts, balances, staking, governance, identity, and more
 
@@ -50,10 +50,16 @@ Rust is a programming language that has unique features that have made it the mo
 In addition to a great experience for developers, Rust excels in many areas:
 
 - **Memory safety** - Rust compiler enforces strict compile-time checks to prevent common programming errors such as null pointer dereferences, buffer overflows, and data races. Additionally, memory is managed through a novel system of ownership (checked by the compiler) which eliminates the necessity of a garbage collector
+
 - **Performance** - Rust achieves performance comparable to C and C++ by providing low-level control over system resources and minimizing runtime overhead. It has a zero-cost abstraction principle, similar to the "what you don't use you don't pay for" from C++, meaning that abstractions have no extra overhead
+
 - **Concurrency** - Rust has built-in features that make it easy to write concurrent and parallel code without introducing data races. It provides lightweight threads (tasks) and a powerful ownership model that ensures the safe sharing of data between threads
+
 - **Expressive and safe abstractions** - Rust offers a rich set of modern language features, such as pattern matching, algebraic data types, closures, and type inference, allowing developers to write and read expressive and concise code. Rust compiler enforces the strong type system preventing many runtime errors at compile-time
+
 - **Cross-platform compatibility** - Rust is designed to work well on a variety of platforms and architectures. It supports major operating systems like Windows, macOS, and Linux, as well as embedded systems and WebAssembly. This versatility allows developers to write code that can be deployed across different environments
+
 - **Growing ecosystem** - Rust has a rapidly growing ecosystem with a vibrant community and a rich collection of libraries and tools. The official package manager, Cargo, simplifies dependency management, building, and testing
+
 - **Interoperability** - Rust provides seamless interoperability with existing codebases written in C and C++. It has a Foreign Function Interface (FFI) that allows Rust code to interface with code written in other languages, enabling developers to gradually introduce Rust into existing projects, like the Linux kernel
 
