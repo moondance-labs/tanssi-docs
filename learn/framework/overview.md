@@ -41,7 +41,7 @@ When developing an Appchain, Substrate represents a great head start by providin
 
 Every feature Substrate offer can be used as-is, extended, customized or replaced to meet the specific requirements of the use case of the Appchain.
 
-Substrate eases and accelerates the development of new Appchains, and, teaming up with Tanssi to manage the infrastructure and deployment, launching a new Appchain becomes easier than ever!
+Substrate streamlines and speeds up the process of developing new Appchains. When used in conjunction with Tanssi, which helps in handling the infrastructure and overseeing the deployment, the task of launching a new Appchain becomes significantly simpler!
 
 ## Rust Programming Language {: #rust-programming-language}
 
