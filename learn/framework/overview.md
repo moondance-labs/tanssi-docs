@@ -17,19 +17,19 @@ Building an Appchain from scratch is a very complex task that requires deep know
 
 - **Data Structures** - Besides the list of blocks, where each block contains a set of transactions along with a reference to the previous block, an optimized and performant strategy to store the state of the network is needed
 
-- **Governance** - Define how decisions are made, how upgrades or modifications are implemented, and how conflicts are resolved within the network
+- **Governance** - When building a permissionless Appchain a voting mechanism is key to keep the Appchain evolving and reflecting the community will, but in any case, it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
-Fortunately, there is no need to write implementations of these blockchain components for there is an awesome open-source framework called [Substrate](https://substrate.io/){target=_blank}.
+Fortunately, there is no need to write implementations of these blockchain components for there is an awesome open-source framework called [Substrate](https://substrate.io/){target=_blank}, which is the same Tanssi is built on, leveraging all the base implementations it includes and its modularity and flexibility to reach a high degree of customization.
 
 ## Substrate Framework {: #substrate-framework}
 
-Substrate is a flexible, modular and highly customizable framework to build Blockchains that is based on [Rust Programming Language](https://www.rust-lang.org){target=_blank}.
+Substrate is an extremely performant, flexible, modular and highly customizable framework to build Blockchains that is based on [Rust Programming Language](https://www.rust-lang.org){target=_blank}. It is the base upon which the polkadot relay chain itself is built and also the many parachains in the ecosystem, such as [Moonbeam](https://moonbeam.network){target=blank} and Tanssi. 
 
 When developing an Appchain, Substrate represents a great head start by providing a ready-to-use set of implementations of the main building blocks a project needs: 
 
 - **Consensus Algorithms** - There are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality), but due to the high degree of customization Substrate offers, teams can always choose to develop their specific consensus to adapt to the use case needs, as the Moonbeam team did with [Nimbus Parachain Consensus Framework](https://docs.moonbeam.network/learn/features/consensus/){target=blank}
 
-- **Runtime Modules** - Many built-in modules can be selected and configured into your Appchain, such as accounts, balances, staking, governance, identity, and more
+- **Runtime Modules** - Many built-in modules (explained in detail in the [modules](/learn/framework/modules) section) can be selected and configured into your Appchain, such as accounts, balances, staking, governance, identity, and more
 
 - **Networking** - Built-in protocols and libraries for establishing connections, propagating transactions and blocks, synchronizing the blockchain state, and managing network interactions
 
