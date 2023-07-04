@@ -45,7 +45,7 @@ Substrate eases and accelerates the development of new Appchains, and, teaming u
 
 ## Rust Programming Language {: #rust-programming-language}
 
-Rust is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages){target=blank}.
+[Rust](https://www.rust-lang.org){target=_blank} is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages){target=blank}.
 
 In addition to a great experience for developers, Rust excels in many areas:
 
