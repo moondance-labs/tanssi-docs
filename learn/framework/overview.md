@@ -17,13 +17,17 @@ Building an Appchain from scratch is a very complex task that requires deep know
 
 - **Data Structures** - Besides the list of blocks, where each block contains a set of transactions along with a reference to the previous block, an optimized and performant strategy to store the state of the network is needed
 
-- **Governance** - When building a permissionless Appchain a voting mechanism is key to keep the Appchain evolving and reflecting the community will, but in any case, it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
+- **Governance** - If the Appchain is designed to be permissionless, a voting mechanism is important in order to keep it evolving and reflecting the community will
+
+- **Upgradeability** - It is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
 Fortunately, there is no need to write implementations of these blockchain components for there is an awesome open-source framework called [Substrate](https://substrate.io/){target=_blank}, which is the same Tanssi is built on, leveraging all the base implementations it includes and its modularity and flexibility to reach a high degree of customization.
 
 ## Substrate Framework {: #substrate-framework}
 
-Substrate is an extremely performant, flexible, modular and highly customizable framework to build Blockchains that is based on [Rust Programming Language](#rust-programming-language). It is the base upon which the polkadot relay chain itself is built and also the many parachains in the ecosystem, such as [Moonbeam](https://moonbeam.network){target=blank} and Tanssi. 
+Substrate is an extremely performant, flexible, modular and highly customizable framework to build Blockchains, and is the base upon which the polkadot relay chain itself is built and also the many parachains in the ecosystem, such as [Moonbeam](https://moonbeam.network){target=blank} and Tanssi. 
+
+Many of its great features, such as performance, ease of use, and modularity are owed to the decision made on which programming language to build on, and this is where [Rust Programming Language](#rust-programming-language) was the first choice, being fast, portable, and providing a wonderful model to handle memory, amongst other reasons detailed in the next section.
 
 When developing an Appchain, Substrate represents a great head start by providing a ready-to-use set of implementations of the main building blocks a project needs: 
 
@@ -39,7 +43,7 @@ When developing an Appchain, Substrate represents a great head start by providin
 
 - **RPC APIs** - Substrate provides Remote Procedure Call (RPC) APIs that enable external applications to interact with the Appchain querying blockchain data, submitting transactions, and accessing various functionalities exposed by the runtime
 
-Every feature Substrate offer can be used as-is, extended, customized or replaced to meet the specific requirements of the use case of the Appchain.
+Every feature Substrate offers can be used as-is, extended, customized or replaced to meet the specific requirements of the use case of the Appchain.
 
 Substrate streamlines and speeds up the process of developing new Appchains. When used in conjunction with Tanssi, which helps in handling the infrastructure and overseeing the deployment, the task of launching a new Appchain becomes significantly simpler!
 
@@ -49,7 +53,7 @@ Substrate streamlines and speeds up the process of developing new Appchains. Whe
 
 In addition to a great experience for developers, Rust excels in many areas:
 
-- **Memory safety** - Rust compiler enforces strict compile-time checks to prevent common programming errors such as null pointer dereferences, buffer overflows, and data races. Additionally, memory is managed through a novel system of ownership (checked by the compiler) which eliminates the necessity of a garbage collector
+- **Memory safety** - Rust compiler enforces strict compile-time checks to prevent common programming errors such as null pointer dereferences, buffer overflows, and data races. Additionally, memory is managed through a novel system of ownership (checked by the compiler) which eliminates the necessity for a garbage collector
 
 - **Performance** - Rust achieves performance comparable to C and C++ by providing low-level control over system resources and minimizing runtime overhead. It has a zero-cost abstraction principle, similar to the "what you don't use you don't pay for" from C++, meaning that abstractions have no extra overhead
 
