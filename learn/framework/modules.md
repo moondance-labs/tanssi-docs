@@ -13,6 +13,8 @@ When it comes to building the Runtime, which is essentially the heart of a Subst
 
 To build the Runtime, Substrate provides many built-in modules (called pallets) that can be freely used as building blocks to compose and interact with any other custom-made modules, allowing teams to create a unique behavior according to the specific requirements of their Appchain.
 
+![Built-in modules](/images/learn/framework/modules/modules.png)
+
 ## Built-in Modules {: #buit-in-modules } 
 
 There are three categories for the included modules in the development framework:
