@@ -9,7 +9,7 @@ Tanssi is an Appchain infrastructure protocol that makes deploying blockchains w
 
 Appchains provide the ultimate control over the logic that powers the runtime of the blockchain. Consequently, they offer an excellent way for projects to scale and build optimized solutions for their products, resulting in a superior user experience.
 
-## The Problem {: #the-problem}
+## The Problem with Appchains {: #the-problem-with-appchains}
 
 Developers looking to build Appchains typically have to deal with the following problems:
 
