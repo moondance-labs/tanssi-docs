@@ -19,7 +19,7 @@ Developers looking to build Appchains typically have to deal with the following 
 
 - **Cross-Chain and Interoperability** - Appchains inherently lack cross-chain capabilities to connect to other blockchain ecosystems. Furthermore, developing interoperability solutions requires specialized expertise and meticulous implementation
 
-- **Slow Time to Market** - The complexities of Appchain infrastructure divert developer's focus from application logic, which is the key driver for intuitive interfaces and a seamless user experience, critical for adoption
+- **Slow Time to Market** - the complexities of Appchain infrastructure divert developer's focus from application logic, which is the key driver for intuitive interfaces and a seamless user experience, critical for adoption
 
 ## What Tanssi Provides {: #what-tanssi-provides}
 
