@@ -25,7 +25,7 @@ Fortunately, there is no need to write implementations of these blockchain compo
 
 ## Substrate Framework {: #substrate-framework}
 
-Substrate is an extremely performant, flexible, modular and highly customizable framework to build Blockchains, and is the base upon which the polkadot relay chain itself is built and also the many parachains in the ecosystem, such as [Moonbeam](https://moonbeam.network){target=blank} and Tanssi. 
+Substrate is an extremely performant, flexible, modular and highly customizable framework to build blockchains, and is the base upon which the Polkadot relay chain itself is built and also the many parachains in the ecosystem, such as [Moonbeam](https://moonbeam.network){target=blank} and Tanssi. 
 
 Many of its great features, such as performance, ease of use, and modularity are owed to the decision made on which programming language to build on, and this is where [Rust Programming Language](#rust-programming-language) was the first choice, being fast, portable, and providing a wonderful model to handle memory, amongst other reasons detailed in the next section.
 
