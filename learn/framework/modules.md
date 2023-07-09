@@ -7,7 +7,7 @@ description: Substrate is a blockchain development framework that provides ready
 
 ## Introduction {: #introduction } 
 
-Substrate Framework provides complete and ready-to-use implementations of the main functions an Appchain needs to work properly, including cryptography, consensus, governance and so on. These implementations are fully customizable and could be replaced with custom logic if needed. 
+Substrate Framework provides complete and ready-to-use implementations of the main functions an Appchain needs to work properly, including cryptography, consensus, governance, and so on. These implementations are fully customizable and could be replaced with custom logic if needed.
 
 When it comes to building the Runtime, which is essentially the heart of a Substrate-based blockchain, the desired state transition rules must be defined, reflecting the intended behavior and features of the blockchain. 
 
@@ -15,7 +15,7 @@ To build the Runtime, Substrate provides many built-in modules (called pallets) 
 
 ![Built-in modules](/images/learn/framework/modules/modules-1.png)
 
-## Built-in Modules {: #buit-in-modules } 
+## Built-in Modules {: #built-in-modules } 
 
 There are three categories for the included modules in the development framework:
 
