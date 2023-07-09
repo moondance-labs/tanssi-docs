@@ -1,6 +1,6 @@
 ---
-title: Modules
-description: Substrate is a powerful blockchain development framework that provides many ready-to-use modules called pallets allowing product teams to quickly and easily compose functionality by adding their logic.
+title: Substrate Modules (Pallets) for your Runtime
+description: Substrate is a blockchain development framework that provides ready-to-use modules (pallets) for developers to compose with their custom logic in the Runtime.
 ---
 
 # Modules {: #modules } 
