@@ -15,7 +15,7 @@ To build the Runtime, Substrate provides many built-in modules (called pallets) 
 
 ![Built-in modules](/images/learn/framework/modules/modules.png)
 
-## Built-in Modules {: #buit-in-modules } 
+## Built-in Modules {: #built-in-modules } 
 
 There are three categories for the included modules in the development framework:
 
