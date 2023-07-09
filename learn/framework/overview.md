@@ -9,17 +9,17 @@ description: Substrate is a powerful blockchain development framework that provi
 
 Building an Appchain from scratch is a very complex task that requires deep knowledge in a wide range of areas, including (but not limited to):
 
-- **Consensus Algorithms** - Consensus ensures that all participants in the blockchain network agree on the validity of transactions. Some popular consensus mechanisms include Proof of Work (PoW) and Proof of Stake (PoS)
+- **Consensus Algorithms** - consensus ensures that all participants in the blockchain network agree on the validity of transactions. Some popular consensus mechanisms include Proof of Work (PoW) and Proof of Stake (PoS)
 
-- **Cryptography** - Cryptography plays a crucial role in securing the blockchain. You'll need cryptographic algorithms for tasks like creating digital signatures, verifying transactions, and encrypting data
+- **Cryptography** - cryptography plays a crucial role in securing the blockchain. You'll need cryptographic algorithms for tasks like creating digital signatures, verifying transactions, and encrypting data
 
-- **Distributed Network** - A network architecture to enable nodes to communicate, validate transactions, and synchronize the blockchain data is key to maintaining a shared ledger in a decentralized network
+- **Distributed Network** - a network architecture to enable nodes to communicate, validate transactions, and synchronize the blockchain data is key to maintaining a shared ledger in a decentralized network
 
-- **Data Structures** - Besides the list of blocks, where each block contains a set of transactions along with a reference to the previous block, an optimized and performant strategy to store the state of the network is needed
+- **Data Structures** - besides the list of blocks, where each block contains a set of transactions along with a reference to the previous block, an optimized and performant strategy to store the state of the network is needed
 
-- **Governance** - If the Appchain is designed to be permissionless, a voting mechanism is important in order to keep it evolving and reflecting the community will
+- **Governance** - if the Appchain is designed to be permissionless, a voting mechanism is important in order to keep it evolving and reflecting the community will
 
-- **Upgradeability** - It is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
+- **Upgradeability** - it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
 Fortunately, there is no need to write implementations of these blockchain components for there is an awesome open-source framework called [Substrate](https://substrate.io/){target=_blank}, which is the same Tanssi is built on, leveraging all the base implementations it includes and its modularity and flexibility to reach a high degree of customization.
 
@@ -31,15 +31,15 @@ Many of its great features, such as performance, ease of use, and modularity are
 
 When developing an Appchain, Substrate represents a great head start by providing a ready-to-use set of implementations of the main building blocks a project needs: 
 
-- **Consensus Algorithms** - There are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality), but due to the high degree of customization Substrate offers, teams can always choose to develop their specific consensus to adapt to the use case needs, as the Moonbeam team did with [Nimbus Parachain Consensus Framework](https://docs.moonbeam.network/learn/features/consensus/){target=blank}
+- **Consensus Algorithms** - there are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality), but due to the high degree of customization Substrate offers, teams can always choose to develop their specific consensus to adapt to the use case needs, as the Moonbeam team did with [Nimbus Parachain Consensus Framework](https://docs.moonbeam.network/learn/features/consensus/){target=blank}
 
-- **Runtime Modules** - Many built-in modules (explained in detail in the [modules](/learn/framework/modules) section) can be selected and configured into your Appchain, such as accounts, balances, staking, governance, identity, and more
+- **Runtime Modules** - many built-in modules (explained in detail in the [modules](/learn/framework/modules) section) can be selected and configured into your Appchain, such as accounts, balances, staking, governance, identity, and more
 
-- **Networking** - Built-in protocols and libraries for establishing connections, propagating transactions and blocks, synchronizing the blockchain state, and managing network interactions
+- **Networking** - built-in protocols and libraries for establishing connections, propagating transactions and blocks, synchronizing the blockchain state, and managing network interactions
 
-- **Storage** - Built-in storage mechanisms for efficient data storage and retrieval
+- **Storage** - built-in storage mechanisms for efficient data storage and retrieval
 
-- **Transaction Queue** - Built-in transaction queue system that manages transaction validation, prioritization, and inclusion in blocks, ensuring the consistency and integrity of the Appchain's state
+- **Transaction Queue** - built-in transaction queue system that manages transaction validation, prioritization, and inclusion in blocks, ensuring the consistency and integrity of the Appchain's state
 
 - **RPC APIs** - Substrate provides Remote Procedure Call (RPC) APIs that enable external applications to interact with the Appchain querying blockchain data, submitting transactions, and accessing various functionalities exposed by the runtime
 
