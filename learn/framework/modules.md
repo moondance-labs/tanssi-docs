@@ -7,7 +7,7 @@ description: Substrate is a powerful blockchain development framework that provi
 
 ## Introduction {: #introduction } 
 
-Substrate Framework provides complete and ready-to-use implementations of the main functions an Appchain needs to work properly, including cryptography, consensus, governance and so on. These implementations are fully customizable and could be replaced with custom logic if needed. 
+Substrate Framework provides complete and ready-to-use implementations of the main functions an Appchain needs to work properly, including cryptography, consensus, governance, and so on. These implementations are fully customizable and could be replaced with custom logic if needed.
 
 When it comes to building the Runtime, which is essentially the heart of a Substrate-based blockchain, the desired state transition rules must be defined, reflecting the intended behavior and features of the blockchain. 
 
