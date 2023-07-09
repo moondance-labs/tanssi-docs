@@ -1,6 +1,6 @@
 ---
 title: Appchain Development Framework
-description: Learn all about substrate framework and all its features including XCM, XCMP, and the ready to use templates
+description: Learn about the Appchain Development Framework, Rust Programming Language, Substrate and its features, including XCM and ready-to-use pallets for your Runtime.
 template: subsection-index-page.html
 hide: 
  - toc
