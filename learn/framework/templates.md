@@ -5,13 +5,13 @@ description: Tanssi protocol provides useful templates for building your Appchai
 
 # Templates {: #templates } 
 
-## Starting Point {: #starting-point } 
+## Start building an Appchain {: #star-building } 
 
 To start building an Appchain, there are some useful templates to kick-start the development process:
 
-- **[Node Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - This node template contains a default configuration to quickly run and operate what would represent a single node in a blockchain
-- **[Front end Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - This template contains a web client developed using ReactJS and PolkadotJs API to interact with your Appchain with an easy-to-grasp UI
-- **[Appchain Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - This template contains a default configuration to run an Appchain (a Parachain within the Polkadot ecosystem)
+- **[Node Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - this node template contains a default configuration to quickly run and operate what would represent a single node in a blockchain
+- **[Front end Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - this template contains a web client developed using ReactJS and PolkadotJs API to interact with your Appchain with an easy-to-grasp UI
+- **[Appchain Template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}** - this template contains a default configuration to run an Appchain (a Parachain within the Polkadot ecosystem)
 
 ## Running and Testing the Network {: #running-and-testing-the-network } 
 
