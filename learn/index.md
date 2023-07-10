@@ -1,9 +1,8 @@
 ---
-title: Learn About Tanssi
-description: Learn all about Tanssi, how to build your appchain with the rust language based substrate framework and how easy is to deploy your Appchain in the polkadot web3 ecosystem
+title: Learn About Tanssi Infrastructure Protocol
+description: Learn about Tanssi protocol and how it helps developers to build Appchains, removing the complexities of infrastructure and making deployment easy in the Polkadot Web3 ecosystem.
 template: index-page.html
 hide: 
  - toc
  - feedback
 ---
-
