@@ -1,6 +1,6 @@
 ---
-title: Templates
-description: Substrate is a powerful blockchain development framework that provides many ready-to-use templates for building parachains, nodes and more, and allowing product teams to quickly and easily build Appchains.
+title: Templates Included in Tanssi
+description: Tanssi protocol provides useful templates for building your Appchain, including a ready-to-use EVM template for Ethereum compatibility.
 ---
 
 # Templates {: #templates } 
