@@ -5,7 +5,7 @@ description: Substrate is a blockchain development framework built in Rust Progr
 
 # Overview {: #overview } 
 
-## Building an Appchain from Scratch {: #building-an-appchain-from-scratch } 
+## Introduction {: #introduction } 
 
 Building an Appchain from scratch is a very complex task that requires deep knowledge in a wide range of areas, including (but not limited to):
 
