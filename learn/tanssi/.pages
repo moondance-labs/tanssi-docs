@@ -3,8 +3,4 @@ hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
-  - 'Consensus': 'consensus.md'
-  - 'Out of the Box Integrations': 'integrations.md'
-  - 'Interoperability': 'interoperability.md'
-
-  
+  - 'Technical Features': 'technical.md'
