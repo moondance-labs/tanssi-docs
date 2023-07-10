@@ -1,0 +1,6 @@
+title: Tanssi
+hide: false
+nav:
+  - index.md
+  - 'Overview': 'overview.md'
+  - 'Technical Features': 'technical.md'
