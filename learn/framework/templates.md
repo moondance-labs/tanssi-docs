@@ -17,7 +17,7 @@ To start building an Appchain, there are some useful templates to kick-start the
 
 Becoming a Tanssi ContainerChain brings along the benefits of being part of a mature ecosystem, leveraging the inherited security of the relay chain and the ability to communicate and share assets and data with other siblings ContainerChains and parachains.
 
-The template for an Appchain is a good starting point, as it is [cumulus](https://github.com/paritytech/cumulus/){target=blank} based and includes the additional behavior for parachains to be able to collate and communicate with the relay chain to propose blocks for finalization.
+The template for an Appchain is a good starting point, as it is [Cumulus](https://github.com/paritytech/cumulus/){target=blank}-based and includes the additional behavior for parachains to be able to collate and communicate with the relay chain to propose blocks for finalization.
 
 To test an Appchain, It is needed to get a relay chain instance and the parachain collators up and running, but though it seems hard, there is a great tool to spin up and run a complete network to perform integration tests: [Zombienet](https://github.com/paritytech/zombienet){target=blank}.
 
