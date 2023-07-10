@@ -1,53 +1,47 @@
 ---
 title: Technical Features
-description: Tanssi is an Appchain protocol that eases the process of deploying Appchains so that developers can focus on their custom logic.
+description: XXX.
 ---
 
-# What is Tanssi? {: #what-is-tanssi } 
+# Technical Features of Tanssi{: #techincal-features-tanssi } 
 
-Tanssi is a protocol that makes deploying blockchains with custom logic specific to certain types of applications a breeze. These customized blockchains are normally referred to as Appchains, but in Tanssi terms, they are also known as Container Chains.
+As described in the [overview page](/learn/tanssi/overview){target=_blank}, Tanssi is an infrastructure protocol to streamline Appchain deployments, also known as ContainerChains in Tanssi terms. [Tanssi's architecture](/learn/tanssi/overview#tanssi-architecture){target=_blank} is specifically 
 
-## The Problem
+## Consensus Mechanism {: #consensus-mechanism } 
 
-Appchains normally have to deal with the following problems:
+Decentralization is an important characteristic of any blockchain. It means that there is no central authority bearing full control, regulating the decision-making process or defining or altering the current state of the network at will.
 
-- **Complex Infrastructure Management** - Appchain deployments typically demand handling numerous infrastructural components like block producers, validators, wallets, block explorers, indexers, RPC endpoints, and more. This is both time and resource consuming
+A consensus mechanism is crucial to align the nodes participating in the network and collectively agree on the validity, inclusion, and execution of transactions in the block. By implementing a consensus algorithm, the network as a whole can reach a common understanding of the validity of the state transitions and agreement on the state of the ledger. 
 
-- **Weak & Inefficient Security** - Appchains commonly suffer from having small or weak validator sets. Early-stage Appchains don't have enough economic guarantees to power a robust consensus mechanism. Moreover, paying for full blockchain capacity is inefficient when only a fraction of it is needed
+In the case of Appchains deployed through Tanssi, the consensus mechanism has two different phases:
 
-- **Cross-Chain and Interoperability** - Appchains inherently don't have cross-chain capabilities to connect to other blockchain ecosystems. Furthermore, developing interoperability solutions requires specialized expertise and meticulous implementation
+- **Block Authoring** - Collator nodes agree on the validity, order and inclusion of transactions in new blocks, preserving the liveness of the network
+- **Finalization** - Validators verify the candidate blocks, and if agreed on the validity, the block becomes final, meaning that a block's contents cannot be reverted or modified, and becomes part of the canonical chain
 
-- **Slow Time to Market** - Appchain's infrastructure complexities diver developer focus from application logic, which is the key driver for intuitive interfaces and seamless user experience, which is critical for adoption
+## Block Authoring in a ContainerChain Deployed through Tanssi {: #block-authoring-in-tanssi-containerchain }
 
-## What Tanssi Provides
+Block production is one of the workloads Tanssi deals with, allowing Appchain developers to focus only on product development.
 
-Tanssi addresses the most common Appchain problems by:
+When a ContainerChain is registered in Tanssi and marked as valid to start producing blocks, a set of collators will be assigned to provide their services as block producers for the Appchain. 
+It is important to remark that the Tanssi protocol might change dynamically the collator assignment to a ContainerChain, thus not necessarily the same collator set will be responsible for block production in different moments.
 
-- **Block Production as a Service** - Appchains built with Tanssi will get their block produced by Tanssi incentivized workers (block-producers). Tanssi guarantees Appchain's liveliness and a decentralized set of block-producers
+The collators will produce blocks using Aura (Authority round) consensus, in which each participant awaits for its turn to produce a block, assigning the turns in equal terms.
 
-- **Consensus on Demand** - Appchains will inherent block finality (consensus) from Polkadot, either on a continous basis ([Parachain](XXX)), or on a pay-as-you-go model ([Parathread](XXX)). Consequently, Appchains built with Tanssi will have access to a robust consensus mechanism from the genesis block
+## Finality {: #finality }
 
-- **Modular Blockchain Framework** - Appchains built with Tanssi can build using a modular blockchain framework (called [Substrate](https://substrate.io/){target=_blank}) that enables developers to quicky and easily build optimized blockcahins for any use case. Tanssi will handle most infrastructural complexities so that developers can focus on their Appchain custom logic
+The finality of the block is provided by the polkadot Relay Chain.
+It ensures that the block has been validated meaning that all the state transitions included in the transactions it contains are valid, it is approved and therefore can not be modified, reverted or tampered with.
 
-- **Key Integrations** - Appchains built with Tanssi with have access to key infrastuctural components alongisde block production. Because these Appchains are built with [Substrate](https://substrate.io/){target=_blank}, crucial components like wallets, block explorers, indexers, RPC providers, and others are supported out of the box. Furthermore, Appchains can leverage multiple interoperability protocols to connect to other blockchain ecosystems like Ethereum, Avalance, Binance Smart Chain and more
+## Path of the Block {: #path-of-the-block }
 
+The end-users of a ContainerChain will generate transactions, that land in a transaction pool, awaiting a collator that will execute and include in a block that eventually will be declared as finalized in the relay chain.
+This is the path of a block, from the creation to finalization:
 
-## Main features
-
-Polkadot is layer 0 blockchain that offers essential services to other chains within the ecosystem, including security, consensus and interoperability/communication, leaving the implementation of specific use cases to the parachains while tackling these common problems:
-
-1. Scalability: Polkadot's sharded model allows for the parallel processing of transactions across multiple parachains, significantly improving scalability and overall network capacity while lowering processing times and fees. 
-2. Interoperability: While most blockchain networks operate in isolation, making it difficult for them to communicate and share assets, Polkadot provide native interoperability through XCM (Cross Consensus Message Format), connecting multiple chains facilitating asset transfer capabilities and information exchange.
-3. Governance and Upgrades: Polkadot introduces an on-chain governance model, empowering token holders to participate in decision-making and allowing for efficient upgrades and protocol improvements.
-4. Security: In smaller blockchain networks, security can be a concern due to lower levels of mining or staking participation. Polkadot’s model of shared security guarantees the same high security level even for the smaller parachain within the ecosystem.
-5. Customizability/flexibility: Polkadot's architecture encourages the creation of sovereign blockchains with high specialization, enabling developers to design chains with specific features and functionalities optimized for the unique requeriments of the use case.
-
-The Polkadot Relay Chain serves as the main network that coordinates the overall operation of the platform providing shared security, consensus, and interoperability amongst the connected parachains, to accelerate the development of the web3.
-
-## The technology behind
-
-Polkadot -and the parachains- are built with an open-source blockchain development framework called Substrate, which is bases on Rust programming language.
-
-Substrate makes it easy for teams to develop blockchains, providing pre built core functinalities such as consensus mechanisms, staking & governance, account and assets management, networking and many more ready to use modules and libraries.
-
-The core principles of Substrate are ease of use and performance, allowing teams to create specialized blockchains for any use case, with high level of performance, flexibility, and robustness.
+1. From the assigned set of collators that Tanssi provides to provide services to the ContainerChain, one will be selected via Aura to produce the next block
+2. The collator will produce the next block including as many pending transactions from the pool as the block capacity admits, executing them and computing the state transition
+3. The collator puts forward the proof of validity (PoV). The PoV comprises the block with the list of transactions, the values in the ContainerChain state that the block modifies, and the hashes of the unaffected points in the Merkle tree
+4. The set of validators assigned to this ContainerChain by Polkadot receive the PoV, and check the validity of the state transition derived from the transactions included in the block. 
+5. Once at least half plus one validators agree on the validity of the block, the it is considered backable, and the validators construct the candidate receipt (that will be included in the relay chain) and gossip the [erasure coding](https://wiki.polkadot.network/docs/learn-parachains-protocol#erasure-codes){target=blank} (that will guarantee the availability of the block)
+6. The candidate receipt is added to the transaction pool of the relay chain, along with other receipts from other ContainerChains (or Parachains)
+7. The candidate receipt is included in a relay chain block, that is subject to a verification phase where randomly selected validators must perform secondary checks to test the availability and validity of the candidate receipts inside
+8. Once enough secondary checks have been performed, validators can finally vote for that block in [GRANDPA](https://github.com/w3f/consensus/blob/master/pdf/grandpa.pdf){target=blank} and when it gets more than two-thirds of pre-commits, the block becomes part of the finalized chain
