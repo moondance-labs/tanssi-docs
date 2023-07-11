@@ -1,9 +1,9 @@
 ---
-title: Substrate Modules (Pallets) for your Runtime
-description: Substrate is a blockchain development framework that provides ready-to-use modules (pallets) for developers to compose with their custom logic in the Runtime.
+title: Appchain Modules (Pallets) for your Runtime
+description: Substrate is a blockchain development framework that provides ready-to-use modules (pallets) for developers to compose with their custom logic in their Appchain Runtime.
 ---
 
-# Modules {: #modules } 
+# Appchain Framework Modules {: #appchain-framework-modules } 
 
 ## Introduction {: #introduction } 
 
