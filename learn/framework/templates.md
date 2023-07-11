@@ -3,7 +3,7 @@ title: Templates Included in Tanssi
 description: Tanssi protocol provides useful templates for building your Appchain, including a ready-to-use EVM template for Ethereum compatibility.
 ---
 
-# Templates {: #templates } 
+# Templates Included in Tanssi {: #templates-tanssi } 
 
 ## Start building an Appchain {: #star-building } 
 
