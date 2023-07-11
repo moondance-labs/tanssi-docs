@@ -1,9 +1,8 @@
 ---
-title: Learn About Tanssi
-description: Learn all about Tanssi, the Polkadot web3 ecosystem and how easy is to deploy your Appchain on Tanssi
+title: Learn About Tanssi Infrastructure Protocol
+description: Learn about Tanssi protocol and how it helps developers to build and deploy Appchains by handling infrastructure complexities and providing key integrations.
 template: index-page.html
-hide: 
+hide:
  - toc
  - feedback
 ---
-
