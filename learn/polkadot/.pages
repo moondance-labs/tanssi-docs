@@ -1,9 +1,0 @@
-title: Polkadot
-hide: false
-nav:
-  - index.md
-  - 'Tanssi and Polkadot': 'polkadot.md'
-  - 'Parachains and Parathreads': 'parachains.md'
-  - 'Security': 'security.md'
-  - 'Interoperability: XCM': 'xcm.md'
-  - 'Technology': 'technology.md'
