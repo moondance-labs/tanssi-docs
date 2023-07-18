@@ -17,7 +17,7 @@ Building a new ContainerChain from scratch can be a daunting prospect. Fortunate
 
 - **Customizability** - Appchain templates are a great starting point and are completely customizable. The functionalities and default configurations they include can be modified, replaced, or extended to meet the specific requirements of the use case
 
-- **Upgrade and Compatibility** - Substrate is an evolving framework, with new features, enhancements, and bug fixes being regularly introduced, and the provided Tanssi Appchain templates are kept up to date with these upgrades
+- **Upgrades and Compatibility** - Substrate is an evolving framework, with new features, enhancements, and bug fixes being regularly introduced. The provided Tanssi Appchain templates are kept up-to-date with these upgrades
 
 ## Start building a ContainerChain {: #start-building } 
 
