@@ -26,7 +26,7 @@ To start building a ContainerChain to deploy in Tanssi, some useful Appchain tem
 The process is as simple as:
 
 1. Select one of the templates
-2. Add the specific logic to adapt the runtime to the requeriments of the use case
+2. Add the specific logic to adapt the runtime to the requirements of the use case
 3. Deploy in Tanssi
 
 ![Using Templates to Speed Up the Developmet Process](/images/learn/tanssi/templates/templates-1.png)
