@@ -7,21 +7,29 @@ description: Tanssi is an Appchain protocol that eases the process of deploying 
 
 ## Introduction {: #introduction } 
 
-As presented in the [Overview](/learn/tanssi/overview) article, Tanssi is an Appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic specific to use cases ranging from DeFi, NFTs, Gaming, and any other the developer teams may want to address.
+As presented in the [Overview](/learn/tanssi/overview) article, Tanssi is an Appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic specific to a wide range of use cases, including DeFi, NFTs, Gaming, and any other the developer teams may want to address.
 
-Infrastructure poses a huge challenge for developers, who would need to bootstrap collators for block production, data preservers providing RPC endpoints, and deal with integrations and interoperability assigning precious effort and resources and losing focus on what is really important: the Appchain Runtime, the UX, and the value proposal to the users.
+Infrastructure poses a huge challenge for developers, who would need to bootstrap collators for block production, data preservers, RPC endpoints, and deal with integrations and interoperability assigning precious effort and resources and losing focus on what is really important: the Appchain Runtime, the UX, and the value proposition to the users.
 
 In Tanssi terms, Appchains are called ContainerChains, similar to the concept coined in [Docker](https://www.docker.com){target=blank}, allowing teams to focus on the product while alleviating the deployment-related responsibilities.
 
-In this article, we present how Tanssi solves these problems:
+In this article, we discuss the following technical aspects on how Tanssi works:
 
-- **Block Production as a Service**
-- **Consensus on Demand** 
-- **Modular Blockchain Framework** 
-- **Key Integrations** 
+- **Orchestration  Between Tanssi Network, the ContainerChain, and the Relay Chain**
+- **Implementing Tanssi Protocol in your ContainerChain**
+- **Deploy a new ContainerChain**
+- **Block Production as a Service** 
+
+## Interaction Between the ContainerChain, the Relay Chain and Tanssi Network
+
+
+
+
+## Tanssi Pallets 
+
+Describe de pallets to be implemented in the runtime to support the protocol
 
 ## Starting a New ContainerChain {: #starting-new-containerchain } 
-
 
 After building on top of one of the provided [Appchain Templates]() and finishing the development process, developers are ready to deploy in Tanssi.
 
@@ -47,7 +55,4 @@ The relay chain receives the block, and eventually finalizes it
 
 Describe how blocks are produced and the relation with the relay chain
 
-## Tanssi Pallets 
-
-Describe de pallets to be implemented in the runtime to support the protocol
 
