@@ -7,7 +7,7 @@ description: Tanssi protocol provides useful templates to start building your Ap
 
 ## Introduction {: #introduction } 
 
-Building a new ContainerChain from scratch can be a daunting prospect. Fortunately, thanks to the [Appchain development framework](/learn/framework/overview){target=_blank} used by Tanssi and its modular-oriented architecture, developers can leverage some pre-bundled Appchain templates that help them jumpstart the process and benefit in some aspects, such as:
+Building a new Appchain from scratch can be a daunting prospect. Fortunately, thanks to the [Appchain development framework](/learn/framework/overview){target=_blank} used by Tanssi and its modular-oriented architecture, developers can leverage some pre-bundled Appchain templates that help them jumpstart the process and benefit in some aspects, such as:
 
 - **Head Start** - Appchain templates provide a starting point for your project, saving significant time and effort by providing a basic structure and a set of tested and ready-to-use functionalities. It allows developers to accelerate the construction of prototypes or minimum viable products (MVPs) and reduce the time to market
 
