@@ -19,7 +19,7 @@ Building a new ContainerChain from scratch can be a daunting prospect. Fortunate
 
 - **Upgrades and Compatibility** - Substrate is an evolving framework, with new features, enhancements, and bug fixes being regularly introduced. The provided Tanssi Appchain templates are kept up-to-date with these upgrades
 
-## Start building a ContainerChain {: #start-building } 
+## Start Building a ContainerChain {: #start-building } 
 
 To start building a ContainerChain to deploy in Tanssi, some useful Appchain templates to kick-start the development process are provided in the [official repository](https://github.com/moondance-labs/tanssi){target=blank}.
 
@@ -37,9 +37,10 @@ The two included templates are *Simple* and *EVM*, which are presented in the fo
 
 As presented in the [Overview](/learn/tanssi/overview) article, Appchains deployed through Tanssi (ContainerChains) are fully sovereign, customizable Layer 1 solutions that leverage the benefits of becoming part of the wider Polkadot ecosystem.
 
-As a sibling chain of the other members of the ecosystem (like Tanssi network itself), they must include the necessary behavior to implement their consensus mechanism and be able to interact and synchronize with Polkadot's relay chain.
+As a sibling chain of the other members of the ecosystem (like the Tanssi network itself), they must include the necessary behavior to implement their consensus mechanism and be able to interact and synchronize with Polkadot's relay chain.
 
-Simple Appchain template is based on the [parachain Substrate template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank} featuring [Cumulus](https://github.com/paritytech/cumulus/){target=blank} SDK, which includes all the required functionality for the collators logic, p2p, database, and synchronization layers between the ContainerChain and the relay chain, making the integration of a new ContainerChain into the Polkadot ecosystem a breeze.
+The Simple Appchain template is based on the [Substrate Parachain Template
+](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank} featuring [Cumulus](https://github.com/paritytech/cumulus/){target=blank} SDK, which includes all the required functionality for the collators logic, p2p, database, and synchronization layers between the ContainerChain and the relay chain, making the integration of a new ContainerChain into the Polkadot ecosystem a breeze.
 
 This template also includes Tanssi's pallet [authorities_noting](https://github.com/moondance-labs/tanssi/blob/master/container-chains/pallets/authorities-noting/src/lib.rs){target=blank} to support the protocol, implementing the necessary logic to retrieve and validate the collators set assigned to provide block production services to the ContainerChain, and the logic for the collator to sign the block when the consensus mechanism determines that it is its turn to build it (and thus being rewarded accordingly).
 
@@ -49,6 +50,6 @@ Extending the *Simple template*, this Appchain template provides not only Tanssi
 
 Leveraging the [Frontier project](https://github.com/paritytech/frontier){target=_blank}, this template includes an Ethereum compatibility layer for ContainerChains to allow running unmodified Ethereum DApps. 
 
-Using this template, Containerchains support to deploy and run any existing Smart Contract written in Solidity or Vyper languages with no changes, and by emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=blank}, [Hardhat](https://hardhat.org){target=blank}, [Remix](https://remix.ethereum.org){target=blank}, [Foundry](https://github.com/foundry-rs/foundry){target=blank}, [Truffle](https://trufflesuite.com){target=blank}, and many more out of the box, with no extra adapters.
+Using this template, Containerchains support the deployment and running of any existing Smart Contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=_blank}, [Hardhat](https://hardhat.org){target=_blank}, [Remix](https://remix.ethereum.org){target=_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=_blank}, [Truffle](https://trufflesuite.com){target=_blank}, and many more out of the box, with no extra adapters.
 
-With this EVM template, developers can have a [Moonbeam](https://moonbeam.network){target=blank}-like ContainerChain in no time and add their custom logic and features specific to the use case.
+With this EVM template, developers can have a [Moonbeam](https://moonbeam.network){target=blank}-like ContainerChain in no time and add their own custom logic and features specific to their own use case.
