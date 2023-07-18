@@ -11,7 +11,7 @@ Building a new ContainerChain from scratch can be a daunting prospect. Fortunate
 
 - **Head Start** - Appchain templates provide a starting point for your project, saving significant time and effort by providing a basic structure and a set of tested and ready-to-use functionalities. It allows developers to accelerate the construction of prototypes or minimum viable products (MVPs) and reduce the time to market
 
-- **Consistency** - included Appchain templates follow established design patterns, coding standards, and best practices widely accepted among the Substrate developers community. They also provide a default set of architecture definitions to streamline the blockchain development
+- **Consistency** - included Appchain templates follow established design patterns, coding standards, and best practices widely accepted among the Substrate developer community. They also provide a default set of architecture definitions to streamline blockchain development
 
 - **UX** - Appchain templates cover the most demanded use cases, such as the EVM support for an Ethereum-compatible ContainerChain
 
