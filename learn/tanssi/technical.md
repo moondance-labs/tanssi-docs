@@ -26,11 +26,11 @@ Tanssi Protocol manages a set of collators and assigns them to provide block pro
 
 The assignment algorithm will start distributing the available collators, serving first the Tanssi Network and then the ContainerChains, ordered by the registration date, being served on a first come first served basis. Once the assignment is made, it will be upheld for at least one session.
 
-Every new assignment works intentionally with a one-session delay, so collators may know in advance if they are assigned to serve Tanssi Network, or which of the ContainerChains they are bound to.
+Every new assignment works intentionally with a one-session delay, so collators may know in advance if they are assigned to serve Tanssi Network or one of the ContainerChains.
 
 When a new session starts, Tanssi Protocol will put into effect the queued assignment. It will also calculate the new assignment, considering changes in ContainerChains that might have been activated or deactivated and collators that might have been added or removed from the pool. This new assignment will be queued for the next session.
 
-The following picture shows an example of how the algorithm works by distributing ten available collators, with a minimum threshold of three collators for the Tanssi Network and two collators for the ContainerChains.
+The following picture shows an example of how the algorithm works by distributing ten available collators, with a minimum threshold of three collators for the Tanssi Network and two collators for each of the ContainerChains.
 
 ![Collators Assignment Algorithm](/images/learn/tanssi/technical/light-technical-1.png#only-light)
 ![Collators Assignment Algorithm](/images/learn/tanssi/technical/dark-technical-1.png#only-dark)
@@ -62,23 +62,23 @@ Another important piece of information that Tanssi stores is the latest header f
 
 As a collator node assigned to a ContainerChain deployed in Tanssi, and having a built-in Tanssi node functionality, it is technically feasible to read the state from the relay chain and the state from the Tanssi Network.
 
-Leveraging this ability to access the states, the current collator with the authority to produce a block will read the latest block produced in the relay chain which contains the state root of the latest block produced in Tanssi. With this state root, it will proceed to read the state in Tanssi, and include in the block of the ContainerChain the latest state root of Tanssi Network, the current set of collators assigned to the ContainerChain, and its public signature, to allow Tanssi to know who produced the block and reward the collator.
+Leveraging this ability to access the states, the current collator with the authority to produce a block will read the latest block produced in the relay chain which contains the state root of the latest block produced in Tanssi. With this state root, it will proceed to read the state in Tanssi, and include in the block of the ContainerChain the latest state root of Tanssi Network, the current set of collators assigned to the ContainerChain, and its public signature, allowing Tanssi to know who produced the block and reward the collator.
 
 Once the block is completed with the ContainerChain transactions, it will be proposed, validated, and finalized by the relay chain, which will include the block's header in the relay chain block.
 
 ## Implementing Tanssi Protocol in your ContainerChain 
 
-To make your Appchain Tanssi compliant and ready to become a deployed ContainerChain, referencing the following two pallets is needed:
+To make your Appchain Tanssi compliant and ready to become a deployed ContainerChain, adding references to the following two pallets is required:
 
 -**Authorities Noting pallet** - this pallet has the objective of implementing the necessary logic to read and include in the ContainerChain block the set of collators assigned to provide block production services in the current session
 
 -**Author Inherent pallet** - this pallet is necessary to allow the collator to include in the block its identity and be recognized and awarded as the block producer
 
-It is important to note that both pallets include the information using Inherents, which are a special form of transaction that only the block producer can include.
+It is important to note that both pallets include the mentioned data in the block using Inherents, which are a special form of transaction that only the block producer can include.
 
 ## Deploy a ContainerChain {: #deploy-a-containerchain } 
 
-After building on top of one of the provided [Appchain Templates]() and finishing the development process, developers are ready to deploy in Tanssi.
+After building on top of one of the provided [Appchain Templates](/learn/tanssi/templates) and finishing the development process, developers are ready to deploy their ContainerChain in Tanssi.
 
 This a fairly straightforward step, where the teams need only to generate and upload the [chain specification](https://docs.substrate.io/build/chain-spec/){target=blank} to the Tanssi orchestrator.
 
