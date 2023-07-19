@@ -43,6 +43,9 @@ In the Polkadot ecosystem, the Appchains connected to the relay chain are fully 
 
 We can consider Tanssi Network and the ContainerChains as sibling chains, meaning that there is no hierarchical dependency whatsoever, and we will discuss their responsibility and how they interact with each other through the relay chain in the following sections.
 
+![Sibling Chains](/images/learn/tanssi/technical/light-technical-2.png#only-light)
+![Sibling Chains](/images/learn/tanssi/technical/dark-technical-2.png#only-dark)
+
 ### Relay Chain {: #relay-chain } 
 
 Among many other responsibilities, the relay chain validates and finalizes the blocks produced by any chain participating in the ecosystem (including the ContainerChains and Tanssi Network), storing the most recent headers for each block of each chain.
