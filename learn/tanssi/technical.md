@@ -30,13 +30,18 @@ Every new assignment works intentionally with a one-session delay, so collators 
 
 When a new session starts, Tanssi Protocol will put into effect the queued assignment. It will also calculate the new assignment, considering changes in ContainerChains that might have been activated or deactivated and collators that might have been added or removed from the pool. This new assignment will be queued for the next session.
 
+The following picture shows an example of how the algorithm works by distributing ten available collators, with a minimum threshold of three collators for the Tanssi Network and two collators for the ContainerChains.
+
+![Collators Assignment Algorithm](/images/learn/tanssi/technical/light-technical-1.png#only-light)
+![Collators Assignment Algorithm](/images/learn/tanssi/technical/dark-technical-1.png#only-dark)
+
 ## Block Production {: #block-production } 
 
 Polkadot is a heterogeneous multi-chain ecosystem, where multiple parallel blockchains connect to a central blockchain called the relay chain. To provide block production as a service, Tanssi Protocol masterfully orchestrates and designs the interaction between Tanssi Network, the ContainerChains, and Polkadot's relay chain.
 
 In the Polkadot ecosystem, the Appchains connected to the relay chain are fully sovereign blockchains, having their own rules, consensus mechanisms, and so forth, and this is the case for Tanssi Network and the Appchains deployed through Tanssi as well. 
 
-In the sense of being connected to the relay chain, we can consider Tanssi Network and the ContainerChains as sibling chains, and we will discuss their responsibility and how they interact with each other through the relay chain in the following sections.
+We can consider Tanssi Network and the ContainerChains as sibling chains, meaning that there is no hierarchical dependency whatsoever, and we will discuss their responsibility and how they interact with each other through the relay chain in the following sections.
 
 ### Relay Chain {: #relay-chain } 
 
