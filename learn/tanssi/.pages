@@ -4,3 +4,4 @@ nav:
   - index.md
   - 'Overview': 'overview.md'
   - 'Technical Features': 'technical.md'
+  - 'Included Templates': 'templates.md'
