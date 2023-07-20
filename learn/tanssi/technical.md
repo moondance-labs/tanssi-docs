@@ -1,6 +1,6 @@
 ---
-title: Technical Features
-description: Tanssi is an Appchain protocol that eases the process of deploying Appchains so that developers can focus on their custom logic.
+title: Technical Features of Tanssi
+description: Tanssi provides block production services assigning collators to the ContainerChains, requiring minimal changes to the code for Appchains to be deployed.
 ---
 
 # Technical Features of Tanssi {: #technical-features-of-tanssi } 
