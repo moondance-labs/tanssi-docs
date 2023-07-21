@@ -7,7 +7,7 @@ description: Tanssi provides block production services assigning collators to th
 
 ## Introduction {: #introduction } 
 
-As presented in the [Overview](/learn/tanssi/overview) article, Tanssi is an Appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic specific to a wide range of use cases, including DeFi, NFTs, Gaming, and any other use case development teams may want to address.
+As presented in the [Overview](/learn/tanssi/overview){target=_blank} article, Tanssi is an Appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic specific to a wide range of use cases, including DeFi, NFTs, Gaming, and any other use case development teams may want to address.
 
 Infrastructure poses a huge challenge for developers who would need to bootstrap collators for block production, data preservers, RPC endpoints, and deal with integrations and interoperability, assigning precious effort and resources and losing focus on what is really important: the Appchain Runtime, the UX, and the value proposition to the users.
 
@@ -84,8 +84,8 @@ It is important to note that both pallets include the mentioned data in the bloc
 
 ## Deploy a ContainerChain {: #deploy-a-containerchain } 
 
-After building on top of one of the provided [Appchain Templates](/learn/tanssi/templates) and finishing the development process, developers are ready to deploy their ContainerChain in Tanssi.
+After building on top of one of the provided [Appchain Templates](/learn/tanssi/templates){target=_blank} and finishing the development process, developers are ready to deploy their ContainerChain in Tanssi.
 
-This is a fairly straightforward step, where the teams only need to generate and upload the [chain specification](https://docs.substrate.io/build/chain-spec/){target=blank} to the Tanssi network.
+This is a fairly straightforward step, where the teams only need to generate and upload the [chain specification](https://docs.substrate.io/build/chain-spec/){target=_blank} to the Tanssi network.
 
 The Tanssi network will then assign a set of collators to the newly added ContainerChain that will start producing blocks in the next session, setting the network alive and making it able to receive and execute transactions.
