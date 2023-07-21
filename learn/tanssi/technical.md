@@ -52,19 +52,25 @@ Among many other responsibilities, the relay chain validates and finalizes the b
 
 The Tanssi protocol leverages this feature, relying on the relay chain as a means to provide the necessary data to both, Tanssi and its ContainerChains, allowing them to collaborate and validate the correctness of the block production service.
 
+![Relay chain](/images/learn/tanssi/technical/technical-3.png)
+
 ### Tanssi Network {: #tanssi-newtwork } 
 
 As previously discussed, the Tanssi protocol assigns collators to the Tanssi network itself and the ContainerChains, and the result of this assignment is stored within the chain state.
 
 Another important piece of information that Tanssi stores is the latest header for every ContainerChain. This data is read from the relay chain and, being stored in every Tanssi block, it allows the protocol to keep track of the state in every chain and also to identify and reward accordingly the collator that produced their last block.
 
+![Tanssi Network](/images/learn/tanssi/technical/technical-4.png)
+
 ### ContainerChain {: #containerchain } 
 
-As a collator node assigned to a ContainerChain deployed in Tanssi has built-in Tanssi node functionality, it is technically feasible to read the state from the relay chain and the state from the Tanssi network.
+As a collator node assigned to a ContainerChain deployed in Tanssi has built-in Tanssi node functionality, it is technically feasible to read the state from the Tanssi network and the blocks from the relay chain.
 
 Leveraging this ability to access the states, the current collator with the authority to produce a block will read the latest block produced in the relay chain, which contains the state root of the latest block produced in Tanssi. With this state root, it will proceed to read the state in Tanssi, and include in the block of the ContainerChain the latest state root of the Tanssi network, the current set of collators assigned to the ContainerChain, and its public signature, allowing Tanssi to know who produced the block and reward the collator.
 
 Once the block is completed with the ContainerChain transactions, it will be proposed, validated, and finalized by the relay chain, which will include the block's header in the relay chain block.
+
+![ContainerChain collation](/images/learn/tanssi/technical/technical-5.png)
 
 ## Implementing the Tanssi Protocol in your ContainerChain {: #implementing-tanssi-in-your-containerchain }
 
