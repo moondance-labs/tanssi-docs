@@ -60,8 +60,7 @@ As previously discussed, the Tanssi protocol assigns collators to the Tanssi net
 
 Another important piece of information that Tanssi stores is the latest header for every ContainerChain. This data is read from the relay chain and, being stored in every Tanssi block, it allows the protocol to keep track of the state in every chain and also to identify and reward accordingly the collator that produced their last block.
 
-![Tanssi Network](/images/learn/tanssi/technical/light-technical-4.png#only-light)
-![Tanssi Network](/images/learn/tanssi/technical/dark-technical-4.png#only-dark)
+![Tanssi Network](/images/learn/tanssi/technical/technical-4.png)
 
 ### ContainerChain {: #containerchain } 
 
@@ -71,8 +70,7 @@ Leveraging this ability to access the states, the current collator with the auth
 
 Once the block is completed with the ContainerChain transactions, it will be proposed, validated, and finalized by the relay chain, which will include the block's header in the relay chain block.
 
-![ContainerChain collation](/images/learn/tanssi/technical/light-technical-5.png#only-light)
-![ContainerChain collation](/images/learn/tanssi/technical/dark-technical-5.png#only-dark)
+![ContainerChain collation](/images/learn/tanssi/technical/technical-5.png)
 
 ## Implementing the Tanssi Protocol in your ContainerChain {: #implementing-tanssi-in-your-containerchain }
 
