@@ -27,7 +27,7 @@ Tanssi addresses the most common Appchain problems by:
 
 - **Block Production as a Service** - Appchains built with Tanssi have their blocks produced by Tanssi's incentivized workers (block-producers). Tanssi guarantees the liveness of the Appchain and a decentralized set of block-producers
 
-- **Consensus on Demand** -  Appchains deployed through Tanssi are not Layer 2 solutions, as they inherit block finality (consensus) from Polkadot, either on a continuous basis ([Parachain](XXX)), or on a per block model ([on-demand Parachain](XXX)). Consequently, Appchains built with Tanssi, as Layer 1 solutions, will have access to a robust consensus mechanism from the genesis block
+- **Consensus on Demand** -  Appchains deployed through Tanssi are not Layer 2 solutions, as they inherit block finality (consensus) from Polkadot, either on a continuous basis ([Parachain](https://wiki.polkadot.network/docs/learn-parachains){target=_blank}), or on a per block model ([on-demand Parachain](https://wiki.polkadot.network/docs/learn-parathreads){target=_blank}). Consequently, Appchains built with Tanssi, as Layer 1 solutions, will have access to a robust consensus mechanism from the genesis block
 
 - **Modular Blockchain Framework** - Appchains built with Tanssi can use a modular blockchain framework called [Substrate](https://substrate.io/){target=_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their Appchain's custom logic
 
