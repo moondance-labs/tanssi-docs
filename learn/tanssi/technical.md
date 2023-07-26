@@ -11,14 +11,15 @@ As presented in the [Overview](/learn/tanssi/overview){target=_blank} article, T
 
 Infrastructure poses a huge challenge for developers who would need to bootstrap collators for block production, data preservers, RPC endpoints, and deal with integrations and interoperability, assigning precious effort and resources and losing focus on what is really important: the Appchain Runtime, the UX, and the value proposition to the users.
 
-In Tanssi terms, Appchains are called ContainerChains, similar to the concept coined in [Docker](https://www.docker.com){target=_blank}, allowing teams to focus on the product while alleviating deployment-related issues.
+In Tanssi terms, Appchains are called ContainerChains, similar to the concept coined in [Docker](https://www.docker.com){target=_blank}, allowing teams to focus on the product while alleviating deployment-related issues. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io){target=_blank}, in its role as orchestrator, managing resources to guarantee the liveness and performance of the ContainerChains.
 
 In this article, we discuss the following technical aspects of the Tanssi protocol:
 
-- **Collator assignment**
-- **Block production**
-- **Implementing the Tanssi protocol in your ContainerChain**
-- **Deploying a new ContainerChain**
+- **Block production as a service**
+- **Consensus on demand**
+
+## Block Production as a Service {: #block-production-as-a-service } 
+
 
 ## Collator Assignment {: #collators-assignment } 
 
