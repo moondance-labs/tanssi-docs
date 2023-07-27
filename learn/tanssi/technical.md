@@ -76,9 +76,9 @@ Once the block is completed with the ContainerChain transactions, it will be pro
 
 ![ContainerChain collation](/images/learn/tanssi/technical/technical-5.png)
 
-## Building a Modular ContainerChain Supporting Tanssi Protocol {: #implementing-tanssi-in-your-containerchain }
+## Building a Modular ContainerChain Supporting Tanssi Protocol {: #modular-blockchain-supporting-tanssi }
 
-To make your Appchain Tanssi compliant and ready to become a deployed ContainerChain, adding references to the following two pallets is required:
+To make your Appchain Tanssi compliant and ready to become a deployed ContainerChain, adding references to the following two modules are required:
 
 -**Authorities Noting pallet** - this pallet has the objective of implementing the necessary logic to read and include in the ContainerChain block the set of collators assigned to provide block production services in the current session
 
