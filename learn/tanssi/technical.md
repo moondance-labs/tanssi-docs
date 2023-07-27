@@ -72,7 +72,7 @@ As a collator node assigned to a ContainerChain deployed in Tanssi has built-in 
 
 Leveraging this ability to access the states, the current collator with the authority to produce a block will read the latest block produced in the relay chain, which contains the state root of the latest block produced in Tanssi. With this state root, it will proceed to read the state in Tanssi, and include in the block of the ContainerChain the latest state root of the Tanssi network, the current set of collators assigned to the ContainerChain, and its public signature, allowing Tanssi to know who produced the block and reward the collator.
 
-Once the block is completed with the ContainerChain transactions, it will be proposed, validated, and finalized by the relay chain, which will include the block's header in the relay chain block.
+Once the block is completed with the ContainerChain transactions, it will be proposed as a candidate and handed over to the relay chain validators, which will ensure that the included state proofs match the state proofs from the latest state of Tanssi (preventing unauthorized collation) and that the transactions produced valid state transitions. Having verified the work of the collator, the relay chain will finalize the proposed block, including its candidate receipt in the relay chain block.
 
 ![ContainerChain collation](/images/learn/tanssi/technical/technical-5.png)
 
