@@ -13,41 +13,40 @@ Infrastructure poses a huge challenge for developers who would need to bootstrap
 
 In Tanssi terms, Appchains are called ContainerChains, similar to the concept coined in [Docker](https://www.docker.com){target=_blank}, allowing teams to focus on the product while alleviating deployment-related issues. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io){target=_blank}, in its role as orchestrator, managing resources to guarantee the liveness and performance of the ContainerChains.
 
-In this article, we discuss the following technical aspects of the Tanssi protocol:
+In this article, we discuss how to build and deploy your own Modular Blockchain and the following technical aspects of the Tanssi protocol:
 
 - **Block production as a service**
 - **Consensus on demand**
 
 ## Block Production as a Service {: #block-production-as-a-service } 
 
+Polkadot is a heterogeneous multi-chain ecosystem, where multiple parallel blockchains connect to a central blockchain called the relay chain. To provide block production as a service, the Tanssi protocol masterfully orchestrates and designs the interaction between the Tanssi network, the ContainerChains, and Polkadot's relay chain.
 
-## Collator Assignment {: #collators-assignment } 
+In the Polkadot ecosystem, the Appchains connected to the relay chain are fully sovereign blockchains, having their own rules, consensus mechanisms, and so forth, and this is the case for the Tanssi network and the Appchains deployed through Tanssi as well. 
+
+The Tanssi network and the ContainerChains can be considered sibling chains, meaning that there is no hierarchical dependency whatsoever. Their responsibility and how they interact with each other through the relay chain will be covered in the following sections.
+
+![Sibling Chains](/images/learn/tanssi/technical/light-technical-2.png#only-light)
+![Sibling Chains](/images/learn/tanssi/technical/dark-technical-2.png#only-dark)
+
+### Collator Assignment {: #collators-assignment } 
 
 The Tanssi protocol manages a set of collators and assigns them to provide block production services to the active ContainerChains and the Tanssi network itself.
 
-The assignment algorithm will start distributing the available collators, serving first the Tanssi network and then the ContainerChains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period that has a constant set of collators.
+The assignment algorithm will start distributing the available collators, serving first the Tanssi network and then the ContainerChains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of collators. In the provided [templates](/learn/tanssi/templates), the default session duration is set to 1800 blocks, which translates to (roughly) six hours.
 
-Every new assignment works intentionally with a one-session delay, so collators may know in advance if they are assigned to serve the Tanssi network or one of the ContainerChains.
+Every new assignment works intentionally with a one-session delay, so collators may know in advance if they are assigned to serve the Tanssi network or which one of the ContainerChains.
 
 When a new session starts, the Tanssi protocol will put into effect the queued assignment. It will also calculate the new assignment, considering changes in ContainerChains that might have been activated or deactivated and collators that might have been added or removed from the pool. This new assignment will be queued for the next session.
+
+![Sessions](/images/learn/tanssi/technical/technical-6.png)
 
 The following picture shows an example of how the algorithm works by distributing ten available collators, with a minimum threshold of three collators for the Tanssi network and two collators for each of the ContainerChains.
 
 ![Collators Assignment Algorithm](/images/learn/tanssi/technical/light-technical-1.png#only-light)
 ![Collators Assignment Algorithm](/images/learn/tanssi/technical/dark-technical-1.png#only-dark)
 
-## Block Production {: #block-production } 
-
-Polkadot is a heterogeneous multi-chain ecosystem, where multiple parallel blockchains connect to a central blockchain called the relay chain. To provide block production as a service, the Tanssi protocol masterfully orchestrates and designs the interaction between the Tanssi network, the ContainerChains, and Polkadot's relay chain.
-
-In the Polkadot ecosystem, the Appchains connected to the relay chain are fully sovereign blockchains, having their own rules, consensus mechanisms, and so forth, and this is the case for the Tanssi network and the Appchains deployed through Tanssi as well. 
-
-The Tanssi network and the ContainerChains can be considered as sibling chains, meaning that there is no hierarchical dependency whatsoever. Their responsibility and how they interact with each other through the relay chain will be covered in the following sections.
-
-![Sibling Chains](/images/learn/tanssi/technical/light-technical-2.png#only-light)
-![Sibling Chains](/images/learn/tanssi/technical/dark-technical-2.png#only-dark)
-
-### Relay Chain {: #relay-chain } 
+### The Role of the Relay Chain {: #relay-chain } 
 
 Among many other responsibilities, the relay chain validates and finalizes the blocks produced by any chain participating in the ecosystem (including the ContainerChains and the Tanssi network), storing the most recent headers for each block of each chain.
 
@@ -55,7 +54,7 @@ The Tanssi protocol leverages this feature, relying on the relay chain as a mean
 
 ![Relay chain](/images/learn/tanssi/technical/technical-3.png)
 
-### Tanssi Network {: #tanssi-newtwork } 
+### The Role of the Tanssi Network {: #tanssi-newtwork } 
 
 As previously discussed, the Tanssi protocol assigns collators to the Tanssi network itself and the ContainerChains, and the result of this assignment is stored within the chain state.
 
@@ -63,7 +62,7 @@ Another important piece of information that Tanssi stores is the latest header f
 
 ![Tanssi Network](/images/learn/tanssi/technical/technical-4.png)
 
-### ContainerChain {: #containerchain } 
+### The Role of the ContainerChain {: #containerchain } 
 
 As a collator node assigned to a ContainerChain deployed in Tanssi has built-in Tanssi node functionality, it is technically feasible to read the state from the Tanssi network and the blocks from the relay chain.
 
@@ -73,7 +72,7 @@ Once the block is completed with the ContainerChain transactions, it will be pro
 
 ![ContainerChain collation](/images/learn/tanssi/technical/technical-5.png)
 
-## Implementing the Tanssi Protocol in your ContainerChain {: #implementing-tanssi-in-your-containerchain }
+## Building a Modular ContainerChain Supporting Tanssi Protocol {: #implementing-tanssi-in-your-containerchain }
 
 To make your Appchain Tanssi compliant and ready to become a deployed ContainerChain, adding references to the following two pallets is required:
 
