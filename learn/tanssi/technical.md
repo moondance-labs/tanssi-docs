@@ -48,9 +48,13 @@ The following picture shows an example of how the algorithm works by distributin
 
 ### The Role of the Relay Chain {: #relay-chain } 
 
-Among many other responsibilities, the relay chain validates and finalizes the blocks produced by any chain participating in the ecosystem (including the ContainerChains and the Tanssi network), storing the most recent headers for each block of each chain.
+Among many other responsibilities, the relay chain validates and finalizes the blocks produced by any chain participating in the ecosystem (including the ContainerChains and the Tanssi network), storing a small representation of the most recent proof of validity for each block of each chain. This small representation of the proof of validity to be included in the relay chain block is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
 
-The Tanssi protocol leverages this feature, relying on the relay chain as a means to provide the necessary data to both, Tanssi and its ContainerChains, allowing them to collaborate and validate the correctness of the block production service.
+As mentioned, the Tanssi network and the ContainerChains are sibling chains with no hierarchical dependency. They are communicated only via the relay chain, and therefore, the relay chain plays a key role in the protocol.
+
+By accessing the data stored in the finalized blocks of the relay chain and cross-referencing headers, the collators can learn their assignation for the session, the ContainerChains can confirm that a certain group of collators from Tanssi has been assigned to them, and Tanssi can verify that the author of a container block was the expected one and reward accordingly.
+
+The Tanssi protocol relays on the relay chain as a means to provide the necessary data to both, Tanssi and its ContainerChains, allowing them to collaborate and validate the correctness of the block production service.
 
 ![Relay chain](/images/learn/tanssi/technical/technical-3.png)
 
