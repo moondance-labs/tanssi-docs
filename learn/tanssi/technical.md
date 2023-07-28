@@ -13,7 +13,7 @@ Infrastructure poses a huge challenge for developers who would need to bootstrap
 
 In Tanssi terms, Appchains are called ContainerChains, similar to the concept coined in [Docker](https://www.docker.com){target=_blank}, allowing teams to focus on the product while alleviating deployment-related issues. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io){target=_blank}, in its role as orchestrator, managing resources to guarantee the liveness and performance of the ContainerChains.
 
-In this article, we discuss the necessary aspects to consider when building and deploying your own Modular Blockchain and the following technical aspects of the Tanssi protocol:
+In this article, the necessary aspects to consider when building and deploying your own Modular Blockchain are covered, and also the following technical aspects of the Tanssi protocol:
 
 - **Block production as a service**
 - **Consensus on demand**
