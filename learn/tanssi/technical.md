@@ -41,7 +41,7 @@ When a new session starts, the Tanssi protocol will put into effect the queued a
 
 ![Sessions](/images/learn/tanssi/technical/technical-6.png)
 
-The following picture shows an example of how the algorithm works by distributing ten available collators, with a minimum threshold of three collators for the Tanssi network and two collators for each of the ContainerChains.
+The following picture shows an example of how the algorithm distributes ten available collators, with a minimum threshold of three collators for the Tanssi network and two collators for each of the ContainerChains.
 
 ![Collators Assignment Algorithm](/images/learn/tanssi/technical/light-technical-1.png#only-light)
 ![Collators Assignment Algorithm](/images/learn/tanssi/technical/dark-technical-1.png#only-dark)
