@@ -2,3 +2,5 @@ title: Interact with your ContainerChain
 hide: false
 nav:
   - index.md
+  - 'Substrate API': 'substrate.md'
+  - 'Ethereum API': 'ethereum.md'
