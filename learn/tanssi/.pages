@@ -3,5 +3,5 @@ hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
-  - 'Technical Features': 'technical.md'
-  - 'Included Templates': 'templates.md'
+  - 'Technical Features': 'technical-features.md'
+  - 'Included Templates': 'included-templates.md'

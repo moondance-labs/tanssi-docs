@@ -1,0 +1,8 @@
+title: Deploy your ContainerChain
+hide: false
+nav:
+  - index.md
+  # - 'Locally': 'local.md'
+  # - 'TestNet': 'testnet.md'
+  # - 'Kusama': 'kusama.md'
+  # - 'Polkadot': 'polkadot.md'

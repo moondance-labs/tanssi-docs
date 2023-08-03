@@ -1,6 +1,6 @@
 nav:
- - index.md
- - 'About': 'https://tanssi.network/'
- - developers
- - learn
- - 'Resource Center': 'https://tanssi.network/resources'
+  - index.md
+  - builders
+  - learn
+  - 'Resource Center': 'https://tanssi.network/resources'
+  - 'About': 'https://tanssi.network/'
