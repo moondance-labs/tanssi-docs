@@ -2,7 +2,7 @@ title: Build your ContainerChain
 hide: false
 nav:
   - index.md
-  # - 'Prerequisites': 'prerequisites.md'
+  - 'Prerequisites': 'prerequisites.md'
   # - 'Basic Substrate': 'substrate.md'
   # - 'Templates': 'templates.md'
   # - 'Modifying your ContainerChain': 'modifying.md'
