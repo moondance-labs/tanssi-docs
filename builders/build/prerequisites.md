@@ -1,15 +1,15 @@
 ---
-title: Prerequisites
+title: Prerequisites for building a ContainerChain
 description: Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your ContainerChain.
 ---
 
-# Prerequisites {: #prerequisites } 
+# Prerequisites for Building a ContainerChain {: #prerequisites } 
 
 ## Introduction {: #introduction } 
 
 Deploying a ContainerChain through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.substrate.io/build/chain-spec/){target=_blank} to upload to the Tanssi network and make it go live.
 
-To generate a Substrate chain specification, it is necessary to have a development environment where a Substrate node can be compiled, and to do so, the minimal required software and its installation process will be covered in the next sections of this article.
+To generate a Substrate chain specification, it is necessary to have a development environment where a Substrate node can be compiled, and, to do so, the minimal required software and its installation process will be covered in the next sections of this article.
 
 ## Rust {: #rust } 
 
@@ -21,19 +21,25 @@ To compile the Appchain, the rust compiler, *rustc*, and the package manager, *c
 
 For any system running Linux or MacOS, the following command will do:
 
-=== "Linux & MacOS"
-
-```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-```     
+=== "Linux"
+    ```bash
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    ```
+=== "MacOS"
+    ```bash
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    ```
 
 When the installation process is completed, running the following command verifies that the newly installed compiler works correctly by showing the version number:
 
-=== "Linux & MacOS"
-
-```bash
-rustc --version
-```     
+=== "Linux"
+    ```bash
+    rustc --version
+    ```
+=== "MacOS"
+    ```bash
+    rustc --version
+    ```
 
 There are other methods to install Rust, such as using a package manager. Other options can be found on the [Rust official site](  https://forge.rust-lang.org/infra/other-installation-methods.html){target=_blank}.
 
