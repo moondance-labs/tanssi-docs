@@ -62,7 +62,7 @@ If Git is not present on the system, the following command will install it using
 
 ## Compiling a Template {: #compiling-template } 
 
-With these essential tools installed, the development environment is ready to compile the Tanssi node or one of the included templates.
+With these essential tools installed, the development environment is ready to compile the Tanssi node or one of the [included templates](/learn/tanssi/included-templates).
 
 The following commands build the EVM-compatible template and generate the chain specification:
 
