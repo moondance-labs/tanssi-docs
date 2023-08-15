@@ -41,11 +41,11 @@ When the installation process is completed, running the following command verifi
     rustc --version
     ```
 
-There are other methods to install Rust, such as using a package manager. Other options can be found on the [Rust official site](  https://forge.rust-lang.org/infra/other-installation-methods.html){target=_blank}.
+There are other methods to install Rust, such as using a package manager. Other options can be found on the [Rust official site](https://forge.rust-lang.org/infra/other-installation-methods.html){target=_blank}.
 
 ## Installing Git {: #installing-git } 
 
-Git is recommended to clone the [code repository](https://github.com/moondance-labs/tanssi){target=_blank} of Tanssi, where the node templates can be found. Git is likely shipped within the default OS installation configuration or included in other tools, such as Xcode in MacOS.
+[Git](https://git-scm.com/){target=_blank} is recommended to clone the [code repository](https://github.com/moondance-labs/tanssi){target=_blank} of Tanssi, where the node templates can be found. Git is likely shipped within the default OS installation configuration or included in other tools, such as Xcode in MacOS.
 
 If Git is not present on the system, the following command will install it using a package manager:
 
