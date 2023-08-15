@@ -1,6 +1,6 @@
-title: Interact with your ContainerChain
+title: Substrate API
 hide: false
 nav:
   - index.md
-  - substrate-api
+  - 'Polkadot.js API': 'polkadot-js-api.md'
   # - 'Ethereum API': 'ethereum.md'
