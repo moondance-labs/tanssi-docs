@@ -15,7 +15,7 @@ To generate a Substrate chain specification, it is necessary to have a developme
 
 [Rust](/learn/framework/overview/#rust-programming-language) is a modern, portable, and performant programming language that is the base of the Substrate blockchain development framework.  
 
-To compile the Appchain, the rust compiler, *rustc*, and the package manager, *cargo*, must be installed on the system. 
+To compile the Appchain, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system. 
 
 ### Installing Rust via *rustup* {: #install-via-rustup } 
 
@@ -60,7 +60,7 @@ If Git is not present on the system, the following command will install it using
     brew install git
     ```     
 
-## Checking the Installation {: #checking-installation } 
+## Compiling a Template {: #compiling-template } 
 
 With these essential tools installed, the development environment is ready to compile the Tanssi node or one of the included templates.
 
@@ -83,4 +83,4 @@ cargo build -p container-chain-template-frontier-node --release
 ./target/release/container-chain-template-frontier-node build-spec > chain_spec.json
 ```
 
-After completing these steps, open the *chain_spec.json* file with your preferred text editor.
+After completing these steps, the file `chain_spec.json` can be opened with any text editor. More information about the chain specification and how to change it before deployment will be covered in the article [Modifying your ContainerChain](/builders/build/modifying).
