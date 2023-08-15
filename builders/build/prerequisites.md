@@ -9,7 +9,9 @@ description: Install the basic set of tools and software to set up a local devel
 
 Deploying a ContainerChain through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.substrate.io/build/chain-spec/){target=_blank} to upload to the Tanssi network and make it go live.
 
-To generate a Substrate chain specification, it is necessary to have a development environment where a Substrate node can be compiled, and, to do so, the minimal required software and its installation process will be covered in the next sections of this article.
+Even though Tanssi provides chain specifications for the available templates, it could be necessary to generate a new one to match any changes the use case might need to be implemented in the runtime.
+
+The following sections of this article will cover the minimal required software and its installation process to get a suitable development environment to compile a Substrate node and generate the chain specification.
 
 ## Rust {: #rust } 
 
@@ -19,7 +21,7 @@ To compile the Appchain, the rust compiler, `rustc`, and the package manager, `c
 
 ### Installing Rust via *rustup* {: #install-via-rustup } 
 
-For any system running Linux or MacOS, the following command will do:
+In accordance with the instructions described in the [official Rust documentation](https://www.rust-lang.org/tools/install){target=_blank}, for any system running Linux or MacOS, the following command will do:
 
 === "Linux"
     ```bash
