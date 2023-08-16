@@ -14,7 +14,7 @@ To jumpstart the development process, Tanssi includes two templates:
 - **Baseline Appchain template**
 - **Baseline EVM (Ethereum Virtual Machine) Template**
 
-Both templates implement the common base setup to work as a parachain in the Polkadot ecosystem and to support the Tanssi protocol.
+Both templates implement the standard base setup to work as a parachain in the Polkadot ecosystem and to support the Tanssi protocol.
 
 ## Base Setup {: #base-setup }
 
@@ -31,7 +31,7 @@ Besides Cumulus, a ContanerChain implements the Tanssi modules to support the pr
 
 This base setup is configured in the templates and requires no attention from developers building their Appchain.
 
-## Baseline Appchain template
+## Baseline Appchain Template {: #baseline-appchain-template }
 
 Teams willing to build a substrate runtime can start composing the built-in modules and their custom-made logic with this template, which includes a runtime containing only the minimum required references to other modules.
 
@@ -58,7 +58,7 @@ construct_runtime!(
 );
 ```
 
-## Baseline EVM (Ethereum Virtual Machine) Template
+## Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
 
 Teams building smart contracts on top of an EVM can use this template as a boilerplate, containing all the necessary references to add the extra layer of Ethereum compatibility to a Substrate node: 
 
@@ -66,4 +66,4 @@ Teams building smart contracts on top of an EVM can use this template as a boile
 - **Ethereum** - this module adds the Ethereum block production emulation, so RPC nodes (and DApps) can run without any modification
 - **EVMChainId** - stores the chain id that identifies the Ethereum network
 
-If the use case is developed on top of an EVM, this template requires no additional changes in the runtime and is ready to build and deploy through Tanssi.
+If the use case requires only running on top of an EVM, this template requires no additional changes in the runtime and is ready to build and deploy through Tanssi.
