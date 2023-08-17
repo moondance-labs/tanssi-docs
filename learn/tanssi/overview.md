@@ -3,7 +3,7 @@ title: Overview
 description: Tanssi is an Appchain protocol that eases the process of deploying Appchains so that developers can focus on their custom application logic.
 ---
 
-# What is Tanssi? {: #what-is-tanssi } 
+# What is Tanssi? {: #what-is-tanssi }
 
 Tanssi is an Appchain infrastructure protocol that makes deploying blockchains with custom logic specific to certain types of applications significantly easier than what is available today. These customized blockchains are normally referred to as Appchains, but in Tanssi terms, they are also known as ContainerChains.
 
@@ -44,7 +44,7 @@ A high-level overview of what a ContainerChain looks like in the ecosystem is pr
 ![High-level overview of an Appchain & Tanssi](/images/learn/tanssi/overview/dark-overview-1.png#only-dark)
 ![High-level overview of an Appchain & Tanssi](/images/learn/tanssi/overview/light-overview-1.png#only-light)
 
-One of the core differences between a normal Parachain and a Tanssi-powered ContainerChain is that its block producers (also known as collators) are a subset of Tanssi's. In short, this is possible due to Polkadot's unique architecture, as Tanssi and all of the ContainerChains share a common consensus mechanism. Consequently, each chain is able to retrieve information from other chains in a trustless and decentralized manner, as it is part of the consensus. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical){target=_blank}. 
+One of the core differences between a normal Parachain and a Tanssi-powered ContainerChain is that its block producers (also known as collators) are a subset of Tanssi's. In short, this is possible due to Polkadot's unique architecture, as Tanssi and all of the ContainerChains share a common consensus mechanism. Consequently, each chain is able to retrieve information from other chains in a trustless and decentralized manner, as it is part of the consensus. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical){target=_blank}.
 
 In contrast, each ContainerChain will host its own Data Preservers, which contain full archive nodes of the ContainerChain they are hosted in. Still, they will be incentivized through the data-retrieval-as-a-service provided by Tanssi. These Data Preservers will provide the RPC infrastructure for apps and users that interact with Tanssi and ContainerChains.
 

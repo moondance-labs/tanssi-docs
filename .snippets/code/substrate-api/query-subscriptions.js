@@ -2,7 +2,7 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 
 const main = async () => {
   // Construct API provider
-  const wsProvider = new WsProvider('ContainerChain_WSS_ENDPOINT');
+  const wsProvider = new WsProvider('INSERT_CONTAINERCHAIN_WSS_ENDPOINT');
   const api = await ApiPromise.create({ provider: wsProvider });
 
   // Retrieve the chain name
@@ -10,15 +10,19 @@ const main = async () => {
 
   // Subscribe to the new headers
   await api.rpc.chain.subscribeNewHeads((lastHeader) => {
-    console.log(`${chain}: last block #${lastHeader.number} has hash ${lastHeader.hash}`);
+    console.log(
+      `${chain}: last block #${lastHeader.number} has hash ${lastHeader.hash}`
+    );
   });
 
   // Define wallet address
-  const addr = 'ADDRESS_HERE';
+  const addr = 'INSERT_ADDRESS';
 
   // Subscribe to balance changes for a specified account
   await api.query.system.account(addr, ({ nonce, data: balance }) => {
-    console.log(`Free balance is ${balance.free} with ${balance.reserved} reserved and a nonce of ${nonce}`);
+    console.log(
+      `Free balance is ${balance.free} with ${balance.reserved} reserved and a nonce of ${nonce}`
+    );
 
     // Handle API disconnect here if needed
   });
