@@ -13,13 +13,12 @@ Even though Tanssi provides chain specifications for the available templates, it
 
 The following sections of this article will cover the minimal required software and its installation process to get a suitable development environment to compile a Substrate node and generate the chain specification.
 
-## Rust {: #rust } 
+## Installing Rust {: #installing-rust } 
 
 [Rust](/learn/framework/overview/#rust-programming-language) is a modern, portable, and performant programming language that is the base of the Substrate blockchain development framework.  
 
 To compile the Appchain, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system. 
 
-### Installing Rust via *rustup* {: #install-via-rustup } 
 
 In accordance with the instructions described in the [official Rust documentation](https://www.rust-lang.org/tools/install){target=_blank}, for any system running Linux or MacOS, the following command will do:
 
@@ -62,9 +61,9 @@ If Git is not present on the system, the following command will install it using
     brew install git
     ```     
 
-## Compiling a Template {: #compiling-template } 
+## Verifying the Development Environment {: #verifying-dev-environment} 
 
-With these essential tools installed, the development environment is ready to compile the Tanssi node or one of the [included templates](/learn/tanssi/included-templates).
+With these essential tools installed, the development environment should be ready to work with Substrate and generate new custom chain specifications. To check whether your local development environment is good to go, you can try compiling the Tanssi node or one of the [included templates](/learn/tanssi/included-templates).
 
 The following commands build the EVM-compatible template and generate the chain specification:
 
@@ -85,4 +84,4 @@ cargo build -p container-chain-template-frontier-node --release
 ./target/release/container-chain-template-frontier-node build-spec > chain_spec.json
 ```
 
-After completing these steps, the file `chain_spec.json` can be opened with any text editor. More information about the chain specification and how to change it before deployment will be covered in the article [Modifying your ContainerChain](/builders/build/modifying).
+If everything was correctly installed, the file `chain_spec.json` should have been created. The file can be opened with any text editor. More information about the chain specification and how to change it before deployment will be covered in the article [Modifying your ContainerChain](/builders/build/modifying).
