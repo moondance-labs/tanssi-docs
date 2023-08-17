@@ -33,7 +33,7 @@ This base setup is configured in the templates and requires no attention from de
 
 ## Baseline Appchain Template {: #baseline-appchain-template }
 
-Teams willing to build a substrate runtime can start composing the built-in modules and their custom-made logic with this template, which includes a runtime containing only the minimum required references to other modules.
+Teams willing to build a Substrate runtime can start composing the built-in modules and their custom-made logic with this template, which includes a runtime containing only the minimum required references to other modules.
 
 ```rust
 construct_runtime!(
