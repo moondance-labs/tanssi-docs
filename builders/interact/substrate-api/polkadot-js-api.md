@@ -5,8 +5,6 @@ description: Learn how to use the Polkadot.js API to interact with a ContainerCh
 
 # Polkadot.js API Library
 
-<!-- ![Intro diagram](/images/builders/build/substrate-api/polkadot-js-api/polkadot-js-api-banner.png) -->
-
 ## Introduction {: #introduction }
 
 [Polkadot.js](https://wiki.polkadot.network/docs/polkadotjs){target=_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your ContainerChain! The [Polkadot.js API](https://polkadot.js.org/docs/api/){target=_blank} is one component of the Polkadot.js, and is a library that allows application developers to query a ContainerChain and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
