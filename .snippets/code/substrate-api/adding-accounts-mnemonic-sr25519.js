@@ -7,7 +7,7 @@ const main = async () => {
 
   // Import SR25519 account from mnemonic
   const keyring = new Keyring({ type: 'sr25519' });
-  const mnemonic = 'MNEMONIC_HERE';
+  const mnemonic = 'INSERT_MNEMONIC';
 
   // Extract SR25519 address from mnemonic
   const newPair = keyring.addFromUri(`${mnemonic}`);

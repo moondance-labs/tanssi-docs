@@ -3,9 +3,9 @@ title: Appchain Templates Included in Tanssi
 description: Tanssi protocol provides useful templates to start building your Appchain, including a ready-to-use EVM template for Ethereum compatibility.
 ---
 
-# Appchain Templates Included in Tanssi {: #appchain-templates-included-in-tanssi } 
+# Appchain Templates Included in Tanssi {: #appchain-templates-included-in-tanssi }
 
-## Introduction {: #introduction } 
+## Introduction {: #introduction }
 
 Building a new Appchain from scratch can be a daunting prospect. Fortunately, thanks to the [Appchain development framework](/learn/framework/overview){target=_blank} used by Tanssi and its modular-oriented architecture, developers can leverage some pre-bundled Appchain templates that help them jumpstart the process and benefit in some aspects, such as:
 
@@ -19,7 +19,7 @@ Building a new Appchain from scratch can be a daunting prospect. Fortunately, th
 
 - **Upgrades and Compatibility** - Substrate is an evolving framework, with new features, enhancements, and bug fixes being regularly introduced. The provided Tanssi Appchain templates are kept up-to-date with these upgrades
 
-## Start Building a ContainerChain {: #start-building } 
+## Start Building a ContainerChain {: #start-building }
 
 To start building a ContainerChain to deploy in Tanssi, some useful Appchain templates to kick-start the development process are provided in the [official repository](https://github.com/moondance-labs/tanssi){target=_blank}.
 
@@ -33,7 +33,7 @@ The process is as simple as:
 
 The two included templates are *Baseline Appchain Template* and *Baseline EVM Template*, which are presented in the following sections.
 
-### Baseline Appchain Template  {: #baseline-appchain-template } 
+### Baseline Appchain Template {: #baseline-appchain-template }
 
 As presented in the [Overview](/learn/tanssi/overview) article, Appchains deployed through Tanssi (ContainerChains) are fully sovereign, customizable Layer 1 solutions that leverage the benefits of becoming part of the wider Polkadot ecosystem.
 
@@ -43,11 +43,11 @@ The Baseline Appchain Template is based on the [Substrate Parachain Template](ht
 
 This template also includes Tanssi's [Authorities Noting](https://github.com/moondance-labs/tanssi/blob/master/container-chains/pallets/authorities-noting/src/lib.rs){target=_blank} pallet, which implements the logic for retrieving and validating the set of collators assigned to provide block production services to the ContainerChain. It also includes logic that allows a collator to sign the block when the consensus mechanism determines that it is the collator's turn to produce the block (and thus be rewarded accordingly).
 
-### Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template } 
+### Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
 
 Extending the *Baseline Appchain template*, this template provides not only Tanssi protocol support but an EVM and full Ethereum compatibility.
 
-Leveraging the [Frontier project](https://github.com/paritytech/frontier){target=_blank}, this template includes an Ethereum compatibility layer for ContainerChains to allow running unmodified Ethereum DApps. 
+Leveraging the [Frontier project](https://github.com/paritytech/frontier){target=_blank}, this template includes an Ethereum compatibility layer for ContainerChains to allow running unmodified Ethereum DApps.
 
 Using this template, ContainerChains support the deployment and running of any existing Smart Contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=_blank}, [Hardhat](https://hardhat.org){target=_blank}, [Remix](https://remix.ethereum.org){target=_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=_blank}, [Truffle](https://trufflesuite.com){target=_blank}, and many more out of the box, with no extra adapters.
 

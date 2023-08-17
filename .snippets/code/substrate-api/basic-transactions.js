@@ -3,18 +3,20 @@ import Keyring from '@polkadot/keyring';
 
 const main = async () => {
   // Construct API provider
-  const wsProvider = new WsProvider('ContainerChain_WSS_ENDPOINT');
+  const wsProvider = new WsProvider('INSERT_CONTAINERCHAIN_WSS_ENDPOINT');
   const api = await ApiPromise.create({ provider: wsProvider });
 
   // Create a keyring instance (ECDSA)
   const keyring = new Keyring({ type: 'ethereum' });
 
   // Initialize wallet key pairs
-  const alice = keyring.addFromUri('ALICE_ACCOUNT_PRIVATE_KEY');
-  const bob = 'BOB_ACCOUNT_PUBLIC_KEY';
+  const alice = keyring.addFromUri('INSERT_ALICES_PRIVATE_KEY');
 
   // Form the transaction
-  const tx = await api.tx.balances.transfer(bob, BigInt(12345));
+  const tx = await api.tx.balances.transfer(
+    'INSERT_BOBS_ADDRESS',
+    BigInt(12345)
+  );
 
   // Retrieve the encoded calldata of the transaction
   const encodedCalldata = tx.method.toHex();
