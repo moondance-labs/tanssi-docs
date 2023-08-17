@@ -3,4 +3,5 @@ hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
+  - 'Architecture': 'architecture.md'
   - 'Modularity': 'modules.md'
