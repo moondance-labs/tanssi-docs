@@ -338,6 +338,6 @@ var encoded_tx = encode(txDataArray);
 console.log(keccakAsHex(encoded_tx));
 ```
 
-You can check the respective [NPM repository page](https://www.npmjs.com/package/@polkadot/util-crypto/){target=_blank} for a list of available methods in the @polkadot/util-crypto library and their descriptions.
+You can check the respective [NPM repository page](https://www.npmjs.com/package/@polkadot/util-crypto/){target=_blank} for a list of available methods in the `@polkadot/util-crypto` library and their descriptions.
 
 --8<-- 'text/disclaimers/third-party-content.md'
