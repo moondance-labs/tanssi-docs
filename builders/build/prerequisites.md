@@ -9,7 +9,7 @@ description: Install the basic set of tools and software to set up a local devel
 
 Deploying a ContainerChain through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.substrate.io/build/chain-spec/){target=_blank} to upload to the Tanssi network and make it go live.
 
-Even though Tanssi provides chain specifications for the available templates, it could be necessary to generate a new one to match any changes the use case might need to be implemented in the runtime.
+Even though Tanssi provides chain specifications for the [available templates](/learn/tanssi/included-templates), it could be necessary to generate a new one to match any changes the use case might need to be implemented in the runtime.
 
 The following sections of this article will cover the minimal required software and its installation process to get a suitable development environment to compile a Substrate node and generate the chain specification.
 
@@ -61,27 +61,19 @@ If Git is not present on the system, the following command will install it using
     brew install git
     ```     
 
+To check the correct installation of Git, running the following command in a terminal should display the Git version:
+
+=== "Linux"
+    ```bash
+    git --version
+    ```
+=== "MacOS"
+    ```bash
+    git --version
+    ```
+
 ## Verifying the Development Environment {: #verifying-dev-environment} 
 
-With these essential tools installed, the development environment should be ready to work with Substrate and generate new custom chain specifications. To check whether your local development environment is good to go, you can try compiling the Tanssi node or one of the [included templates](/learn/tanssi/included-templates).
+With these essential tools installed, the development environment should be ready to work with Substrate and generate new custom chain specifications. 
 
-The following commands build the EVM-compatible template and generate the chain specification:
-
-1. Clone the Tanssi code hosted on GitHub
-```bash
-git clone https://github.com/moondance-labs/tanssi
-```
-2. Step into the project folder
-```bash
-cd tanssi
-```
-3. Build the EVM-compatible Appchain template
-```bash
-cargo build -p container-chain-template-frontier-node --release
-```
-4. Generate the chain specification
-```bash
-./target/release/container-chain-template-frontier-node build-spec > chain_spec.json
-```
-
-If everything was correctly installed, the file `chain_spec.json` should have been created. The file can be opened with any text editor. More information about the chain specification and how to change it before deployment will be covered in the article [Modifying your ContainerChain](/builders/build/modifying).
+To check whether your local development environment is good to go, you can try generating the chain specs file by following the steps described in the [basic Substrate](/builders/build/substrate#generating-the-chain-spec) article.
