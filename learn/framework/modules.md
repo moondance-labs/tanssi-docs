@@ -41,21 +41,23 @@ In addition to those previously listed, other modules like [identity](https://pa
 
 The developers creating a new module enjoy complete freedom to express any desired behavior in the core logic of the blockchain, like exposing new transactions, storing sensible information, and validating and enforcing business logic.
 
-As covered in [Architecture](), a module needs to be able to communicate with the core client, exposing the transactions in a very specific way, accesing the storage, coding and decoding the information stored on-chain, and also needs to include many other required wiring code that makes a blockchain work.
+As explained in the [Architecture](/learn/framework/architecture#client-runtime-communication) article, a module needs to be able to communicate with the core client exposing and integrating with a very specific API that allows the runtime to expose the transactions, access the storage, code and decode the information stored on-chain, and also needs to include many other required wiring codes that make the blockchain work.
 
-To improve the developer's experience when writing modules, Substrate relies heavily on [Rust macros](https://doc.rust-lang.org/book/ch19-06-macros.html){target=_blank}, which are special code instructions that generate code. 
+To improve the developer's experience when writing modules, Substrate relies heavily on [Rust macros](https://doc.rust-lang.org/book/ch19-06-macros.html){target=_blank}, which are special code instructions that generate code. The macros expand themselves by adding boilerplate code just before compiling time, allowing this way to keep up to 7X code out of sight of the developers, facilitating them to focus on the specific functional requirements of the module instead of dealing with the technical ones.
 
-The macros expand themselves by adding boilerplate code just before compiling time, allowing this way to keep up to 7X code out of sight of the developers, facilitating them to focus on specific functional requirements of the module instead of dealing with the technical ones.
-
-All custom modules must implement at least these mandatory attribute macros:
+In Substrate, all modules, including the custom-made, must implement at least these mandatory attribute macros:
 
 - **#[frame_support::pallet]** - this attribute is the entry point that marks the module as usable in the runtime
 - **#[pallet::pallet]** - applied to a structure that is used to retrieve module information easily
 - **#[pallet::config]** - is a required attribute to define the configuration for the data types of the module
 
-There are other macros to use, where developers can include the custom logic:
+There are other macros to use, where developers can include their logic:
 
 - **#[pallet::call]** - this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime
 - **#[pallet::error]** - as transactions may not be successful (insufficient funds, for example) and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
 - **#[pallet::event]** - events can be defined and used as a means to provide more information to the user
 - **#[pallet::storage]** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
+
+All these macros are applied to Rust modules, functions, structures, enums, etc. allowing the module to be built and added to the runtime.
+
+In the substrate article of the builders section, adding a built-in and a custom-made module to the runtime will be covered.
