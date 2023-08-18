@@ -9,6 +9,18 @@ description: Substrate is a powerful and modular blockchain framework built in R
 
 
 
+What is a module, what it means to add modules to the runtime
+
+adding a buit-in module to the runtime, explain every thing involved
+loose and toght coupling
+
+Adding a custom module 
+creating the file, implememting macros reference 
+
+compiling the runtime and generating the chain spec
+explain cargo
+
+
 ## Adding a Module to the Runtime {: #adding-a-module }
 
 As the [modularity](learn/framework/modules) article covers, building a Substrate runtime is about composing modules, mixing some of the already provided and ready-to-use and custom-made modules that implement any logic specific to the use case.
