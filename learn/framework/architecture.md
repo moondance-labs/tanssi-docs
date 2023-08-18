@@ -36,7 +36,7 @@ Some of the main components are:
 - **Storage** - this component manages the state storage of the Appchain in a highly efficient key-value database
 - **Consensus** - this component ensures that all the participants in the network agree on the state of the blockchain, validating transactions, state transitions, and the resulting blocks
 
-The default configuration of a Substrate node and the built-in implementations of the components are usually the best choice for most use cases. Still, teams are welcome to innovate and change or replace any piece of what constitutes the node, or even write a completely different implementation of the core client such as [Kagome](https://github.com/soramitsu/kagome#intro){target=_blank} (C++ implementation) and [Gossamer](https://github.com/ChainSafe/gossamer#a-go-implementation-of-the-polkadot-host){target=_blank} (Golang implementation).
+The default configuration of a Substrate node and the built-in implementations of the components are usually the best choice for most use cases. Still, teams are welcome to innovate and change or replace any piece of the node or even write a completely different implementation of the core client, such as [Kagome](https://github.com/soramitsu/kagome#intro){target=_blank} (C++ implementation) and [Gossamer](https://github.com/ChainSafe/gossamer#a-go-implementation-of-the-polkadot-host){target=_blank} (Golang implementation).
 
 ## The Runtime {: #runtime }
 
@@ -52,7 +52,7 @@ The wasm format offers many advantages to a ContainerChain, including:
 
 ## Client-Runtime Communication {: #client-runtime-communication }
 
-As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns, and more than that, at a lower level, their binary representation and execution environments are different: while the node is compiled to be installed and run in a specific platform (be it Linux x64 or any other), the ContainerChain runtime is compiled to a wasm format that is platform-agostic and runs in an isolated execution environment.
+As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different: while the node is compiled to be installed and run in a specific platform (be it Linux x64 or any other), the ContainerChain runtime is compiled to a wasm format that is platform-agostic and runs in an isolated execution environment.
 
  Bearing in mind the separated execution environments, all the communication between the node client and the runtime occurs through a limited and well-defined interface allowing the necessary operations such as: 
 
@@ -62,5 +62,5 @@ As previously described, the two main components of a Substrate node (the core c
 
 - **Consensus and Finality** - the client node coordinates consensus and finalization of the blocks, but it is the runtime responsibility to determine the validity of new blocks, validate transactions, and ensure that the consensus rules are followed
 
-- **Event Notifications** - the runtime emits events during transaction execution, and these events can be used by the client node to keep the external users updated about specific actions or changes in the state
+- **Event Notifications** - the runtime emits events while executing transactions that the client node can use to keep the external users updated about specific actions or changes in the state
 
