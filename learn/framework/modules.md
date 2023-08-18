@@ -37,7 +37,7 @@ Here is a list of some of the most used modules, but there are many more on the 
 
 In addition to those previously listed, other modules like [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=_blank}, and many others that are freely available can speed up the development of the Appchain and, consequently, the time to market.
 
-## Custom Modules {: #custom-modules }
+## Custom-Made Modules {: #custom-modules }
 
 The developers creating a new module enjoy complete freedom to express any desired behavior in the core logic of the blockchain, like exposing new transactions, storing sensible information, and validating and enforcing business logic.
 
@@ -58,6 +58,6 @@ There are other macros, where the functional requirements can be implemented:
 - **#[pallet::event]** - events can be defined and used as a means to provide more information to the user
 - **#[pallet::storage]** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
 
-All these macros are applied to Rust modules, functions, structures, enums, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world.
+All these macros act as attributes that must be applied to the code just above Rust modules, functions, structures, enums, types, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world.
 
 In the [substrate article](/builders/build/substrate) of the builder's section, adding a built-in and a custom-made module to the runtime will be covered.
