@@ -275,7 +275,7 @@ The following code samples will demonstrate how to listen to both native token t
 
 Tanssi and both types of ContainerChains (EVM and non-EVM) can perform Substrate-based native token balance transfers.
 
-The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash` and `transaction status` of native token transfers at both the EVM and Substrate API level. 
+The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash`, and `transaction status` of native token transfers at both the EVM and Substrate API level. 
 
 ```typescript
 --8<-- 'code/substrate-api/sidecar-transfer.ts'
