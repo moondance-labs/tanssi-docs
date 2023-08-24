@@ -181,7 +181,7 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
             |--accessList
             |--oddYParity
             |--r
-            |--s      
+            |--s
         ...
     ```
 
@@ -195,7 +195,7 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
             |--action
             |--value
             |--input
-            |--signature       
+            |--signature
         ...
     ```
 
@@ -210,10 +210,10 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
             |--action
             |--value
             |--input
-            |--accessList 
+            |--accessList
             |--oddYParity
             |--r
-            |--s      
+            |--s
         ...
     ```
 
