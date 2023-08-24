@@ -71,6 +71,7 @@ If the installation and configuration are successful, you should see this output
 Some of the commonly used Substrate API Sidecar endpoints include:
 
  - **GET /blocks​/head** — Get the most recently finalized block. The optional parameter `finalized` can be set to `false` to the get the newest known block, which may not be finalized
+ 
  - **GET /blocks/head/header** — Get the most recently finalized block header. The optional parameter `finalized` can be set to `false` to the get the newest known block header, which may not be finalized
  - **GET /blocks/{blockId}** — Get a block by its height or hash
  - **GET /accounts/{accountId}/balance-info** — Get balance information for an account
@@ -112,7 +113,7 @@ RESPONSE JSON Block Object:
 
 Consequently, information from specific extrinsics (like balance transfers) can be extracted by knowing the module and method called by the extrinsic.
 
-## EVM Field Mapping in Block JSON Object {: #fields-mapping-in-block-json-object }
+## EVM Field Mapping in Block JSON Object {: #evm-fields-mapping-in-block-json-object }
 
 For EVM ContainerChains, the information related to EVM execution of each EVM ContainerChain transaction can be identified by the `method` field under the current extrinsic object, where it is set to:
 
@@ -148,6 +149,12 @@ RESPONSE JSON Block Object:
                         |--3
     ...
 
+```
+
+For example, for Substrate transactions, the "Nonce" and "Signature" fields are under:
+
+```
+extrinsics[extrinsic_number]
 ```
 
 ### EVM Transaction Types and Payload {: #transaction-types-and-payload }
@@ -261,10 +268,15 @@ The EVM field mappings are then summarized as the following:
     |       EVM hash       |      `extrinsics[extrinsic_number].events[event_number].data[2]`       |
     | EVM execution status |      `extrinsics[extrinsic_number].events[event_number].data[3]`       |
 
-!!! note
-    For Substrate transactions, the "Nonce" and "Signature" fields are under `extrinsics[extrinsic_number]`. For EVM transactions, the "Nonce" and "Signature" fields are under `extrinsics[extrinsic_number].args.transaction[transaction_type]`, leaving the "Nonce" and "Signature" under `extrinsics[extrinsic_number]` to be `null`.
+For example, for EVM transactions, the "Nonce" and "Signature" fields are under:
 
-    A successfully executed EVM transaction will return either `succeed: "Stopped"` or `succeed: "Returned"` under the "EVM Execution Status" field.
+```
+extrinsics[extrinsic_number].args.transaction[transaction_type]
+```
+
+Consequently, this leaves the "Nonce" and "Signature" for the Substrate-level field `extrinsics[extrinsic_number]` to be `null`.
+
+A successfully executed EVM transaction will return either `succeed: "Stopped"` or `succeed: "Returned"` under the "EVM Execution Status" field.
 
 ## Monitor Token Balance Transfers {: #monitor-transfers }
 
