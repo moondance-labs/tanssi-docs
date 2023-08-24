@@ -1,21 +1,21 @@
 ---
 title: Framework Architecture
-description: a Substrate node has two main components, the runtime, controlling the state transition of the blockchain, and the client, controlling everything else.
+description: A Substrate node has two main components: the runtime, which controls the state transition of the blockchain, and the client, which controls everything else.
 ---
 
 # Framework Architecture {: #framework-architecture } 
 
 ## Introduction {: #introduction }
 
-Substrate is a software development kit (SDK) for building blockchains. This framework is the foundation and engine powering the Polkadot's relay chain, the parachains (such as the Tanssi network itself), and the ContainerChains deployed through Tanssi. 
+Substrate is a software development kit (SDK) for building blockchains. This framework is the foundation and engine powering Polkadot's relay chain, the parachains (such as the Tanssi network itself), and the ContainerChains deployed through Tanssi. 
 
-Written in the Rust Language and designed with a modular architecture, Substrate is extremely performant, flexible, and highly customizable, making it the best choice for developing blockchains.
+Written in the Rust language and designed with a modular architecture, Substrate is extremely performant, flexible, and highly customizable, making it the best choice for developing blockchains.
 
 In this article, the architecture of a Substrate node is covered.
 
 ## Architecture {: #architecture }
 
-The Substrate framework is designed for maximum customizability, providing a fully functional implementation for every important internal aspect of a blockchain. It allows developers to focus on the specifics of the use case and the runtime characteristics and to change any of the default features (should the need arise).
+The Substrate framework is designed for maximum customizability, providing a fully functional implementation for every important internal aspect of a blockchain. It allows developers to focus on the specifics of the use case and the runtime characteristics, and it provides the ability to change any of the default features (should the need arise).
 
 The architecture of a Substrate node contains two main components:
 
@@ -54,13 +54,13 @@ The Wasm format offers many advantages to a ContainerChain, including:
 
 As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different: while the node is compiled to be installed and run in a specific platform (be it Linux x64 or any other), the ContainerChain runtime is compiled to a Wasm format that is platform-agostic and runs in an isolated execution environment.
 
- Bearing in mind the separated execution environments, all the communication between the node client and the runtime occurs through a limited and well-defined interface allowing the necessary operations such as: 
+ Bearing in mind the separated execution environments, all the communication between the node client and the runtime occurs through a limited and well-defined interface, allowing the necessary operations such as: 
 
 - **Executing Transactions** - when a user submits a transaction to the client node, the node passes this transaction to the runtime through the defined API for its execution
 
-- **State Queries** - the client node can query the current state of the blockchain to retrieve information such as account balances, and any other domain-specific data
+- **State Queries** - the client node can query the current state of the blockchain to retrieve information such as account balances and any other domain-specific data
 
-- **Consensus and Finality** - the client node coordinates consensus and finalization of the blocks, but it is the runtime responsibility to determine the validity of new blocks, validate transactions, and ensure that the consensus rules are followed
+- **Consensus and Finality** - the client node coordinates consensus and finalization of the blocks, but it is the runtime's responsibility to determine the validity of new blocks, validate transactions, and ensure that the consensus rules are followed
 
-- **Event Notifications** - the runtime emits events while executing transactions that the client node can use to keep the external users updated about specific actions or changes in the state
+- **Event Notifications** - the runtime emits events while executing transactions that the client node can use to keep external users updated about specific actions or changes in the state
 
