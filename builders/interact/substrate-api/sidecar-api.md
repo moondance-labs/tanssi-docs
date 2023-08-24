@@ -19,7 +19,7 @@ There are multiple ways of installing and running the Substrate API Sidecar. Thi
 
 To install the Substrate API Sidecar service locally in the current directory, run this from the command line:
 
-```
+```bash
 npm install @substrate/api-sidecar@{{ networks.dancebox.substrate_api_sidecar.stable_version }}
 ```
 
@@ -28,7 +28,7 @@ npm install @substrate/api-sidecar@{{ networks.dancebox.substrate_api_sidecar.st
 
 Substrate API Sidecar v{{ networks.dancebox.substrate_api_sidecar.stable_version }} is the current stable version that has been tested to work with ContainerChains. You can verify the installation was successful by typing from the installation directory root:
 
-```
+```bash
 node_modules/.bin/substrate-api-sidecar --version
 ```
 
@@ -37,23 +37,23 @@ node_modules/.bin/substrate-api-sidecar --version
 In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network you want to connect to. For example, the WSS endpoint of your ContainerChain. Some examples:
 
 === "Dancebox"
-    ```
+    ```bash
     export SAS_SUBSTRATE_URL=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
     ```
 
 === "Dancebox EVM ContainerChain"
-    ```
+    ```bash
     export SAS_SUBSTRATE_URL=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
     ```
 
 === "Your ContainerChain"
-    ```
+    ```bash
     export SAS_SUBSTRATE_URL=INSERT_CONTAINERCHAIN_WSS_ENDPOINT
     ```
 
 After setting the environmental variable, you can use the `echo` command to check that the environmental variable has been set correctly, by typing:
 
-```
+```bash
 echo $SAS_SUBSTRATE_URL
 ```
 
@@ -63,7 +63,7 @@ And it should display the network endpoint you have just set.
 
 With the network endpoint environmental variable set, and from the installation directory root, run:
 
-```
+```bash
 node_modules/.bin/substrate-api-sidecar
 ```
 
@@ -89,7 +89,7 @@ For a full list of API endpoints available on Substrate API Sidecar, please refe
 
 Substrate API Sidecar returns blocks as a JSON object. Part of this JSON object is a nesting structure for individual extrinsics processed in a specific block. Each extrinsic calls a specific method of a given module. Generally speaking, for individual extrinsics, the nesting structure is as following:
 
-```JSON
+```
 RESPONSE JSON Block Object:
     |--extrinsics
         |--{extrinsic_number}
@@ -129,7 +129,7 @@ For EVM ContainerChains, the information related to EVM execution of each EVM Co
 
 The nesting structure for EVM transactions is as following:
 
-```JSON
+```
 RESPONSE JSON Block Object:
     |--extrinsics
         |--{extrinsic_number}
@@ -167,7 +167,7 @@ extrinsics[extrinsic_number]
 EVM ContainerChains currently support three transaction standards: `legacy`, `eip1559`, and `eip2930`. These correspond to the `transaction type` field in the above JSON object diagram. For each transaction type, the transaction payload contains the following fields:
 
 === "EIP1559"
-    ```JSON
+    ```
         ...
         |--eip1559
             |--chainId
@@ -186,7 +186,7 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
     ```
 
 === "Legacy"
-    ```JSON
+    ```
         ...
         |--legacy
             |--nonce
@@ -200,7 +200,7 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
     ```
 
 === "EIP2930"
-    ```JSON
+    ```
         ...
         |--eip2930
             |--chainId
@@ -368,7 +368,7 @@ Read as a JSON object, for a given `pallet` (module) and `method`, the transacti
 
 The relevant nesting structure is as follows:
 
-```JSON
+```
 RESPONSE JSON Block Object:
     ...
     |--number
@@ -446,7 +446,7 @@ GET /pallets/baseFee/storage/baseFeePerGas?at={blockId}
 
 Read as a JSON object, the relevant nesting structure is as follows:
 
-```JSON
+```
 RESPONSE JSON Storage Object:
     |--at
         |--hash
