@@ -19,10 +19,10 @@ The Substrate framework is designed for maximum customizability, providing a ful
 
 The architecture of a Substrate node contains two main components:
 
-- **Core Client** - handles the communication with the outer world (other nodes, DApps, etc.), and many other internal responsibilities, such as storage and communication
+- **Core Client** - handles the communication with the outer world (other nodes, DApps, end users, among others), and many other internal responsibilities, such as storage and communication
 - **Runtime** - implements the custom logic of the Appchain, executes transactions, and manages the state transitions
 
-The end users can interact with the Appchain using the DApps (or directly via the node RPC endpoints) and get data or send transactions, which will remain queued until execution in the runtime.
+The end users can interact with the Appchain using DApps, or directly via the node RPC endpoints, for example, through a wallet. This will then fetch data or send transactions, which will remain queued until execution in the runtime.
 
 ![Basic substrate node architecture](/images/learn/framework/architecture/architecture-1.png)
 
@@ -44,15 +44,15 @@ The runtime plays a crucial role in the operation of the Appchain. It contains t
 
 In Substrate architecture, an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org){target=_blank} byte code. 
 
-The wasm format offers many advantages to a ContainerChain, including:
+The Wasm format offers many advantages to a ContainerChain, including:
 
-- **Portability** - the wasm format is platform-independent, meaning that the same binary can be distributed and run in different nodes using different hardware architectures and operating systems
-- **Deterministic Execution** - the wasm format ensures deterministic execution of code, which means that the same input will always produce the same output. Determinacy is a critical aspect in blockchains to obtain the same state transitions across every node in the network and reach a consensus
-- **Forkless Upgradeability** - Substrate stores the runtime wasm blob on-chain, meaning that the runtime itself becomes part of the state. This design allows upgrading the runtime logic in a forkless way using a transaction
+- **Portability** - the Wasm format is platform-independent, meaning that the same binary can be distributed and run in different nodes using different hardware architectures and operating systems
+- **Deterministic Execution** - the Wasm format ensures deterministic execution of code, which means that the same input will always produce the same output. Determinacy is a critical aspect in blockchains to obtain the same state transitions across every node in the network and reach a consensus
+- **Forkless Upgradeability** - Substrate stores the runtime Wasm blob on-chain, meaning that the runtime itself becomes part of the state. This design allows upgrading the runtime logic in a forkless way using a transaction
 
 ## Client-Runtime Communication {: #client-runtime-communication }
 
-As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different: while the node is compiled to be installed and run in a specific platform (be it Linux x64 or any other), the ContainerChain runtime is compiled to a wasm format that is platform-agostic and runs in an isolated execution environment.
+As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different: while the node is compiled to be installed and run in a specific platform (be it Linux x64 or any other), the ContainerChain runtime is compiled to a Wasm format that is platform-agostic and runs in an isolated execution environment.
 
  Bearing in mind the separated execution environments, all the communication between the node client and the runtime occurs through a limited and well-defined interface allowing the necessary operations such as: 
 
