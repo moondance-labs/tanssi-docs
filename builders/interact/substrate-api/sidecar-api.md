@@ -37,12 +37,12 @@ node_modules/.bin/substrate-api-sidecar --version
 In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network. For example:
 
 === "Dancebox"
-`   export SAS_SUBSTRATE_URL=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
-  `
+`  export SAS_SUBSTRATE_URL=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
+ `
 
 === "Dancebox EVM ContainerChain"
-`   export SAS_SUBSTRATE_URL=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
-  `
+`  export SAS_SUBSTRATE_URL=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+ `
 
 After setting the environmental variable, you can use the `echo` command to check that the environmental variable has been set correctly, by typing:
 
@@ -270,9 +270,9 @@ The following code samples will demonstrate how to listen to both native token t
 
 ### Native Token Transfers { #native-token-transfers }
 
-Both Tanssi, non-EVM ContainerChains and EVM ContainerChains can perform Substrate-based native token balance transfers.
+Tanssi and both types of ContainerChains (EVM and non-EVM) can perform Substrate-based native token balance transfers.
 
-The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=\_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash` and `transaction status` of native token transfers at both the EVM and Substrate API level.
+The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=\_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash`, and `transaction status` of native token transfers at both the EVM and Substrate API level.
 
 ```typescript
 --8 < --'code/substrate-api/sidecar-transfer.ts';
@@ -282,34 +282,33 @@ The following code snippet uses the Axios HTTP client to query the Sidecar endpo
 
 Events emitted by smart contracts such as an ERC-20 token contract deployed on EVM ContainerChains can be decoded from Sidecar block JSON objects. The nesting structure is as following:
 
-```JSON
 RESPONSE JSON Block Object:
-    |--extrinsics
-        |--{extrinsic_number}
-            |--method
-                |--pallet: "ethereum"
-                |--method: "transact"
-            |--signature:
-            |--nonce:
-            |--args
-                |--transaction
-                    |--{transaction_type}
-            |--hash
-            |--events
-                |--{event_number}
-                    |--method
-                        |--pallet: "evm"
-                        |--method: "Log"
-                    |--data
-                        |--0
-                            |-- address
-                            |-- topics
-                                |--0
-                                |--1
-                                |--2
-					        |-- data
-            ...
-    ...
+|--extrinsics
+|--{extrinsic_number}
+|--method
+|--pallet: "ethereum"
+|--method: "transact"
+|--signature:
+|--nonce:
+|--args
+|--transaction
+|--{transaction_type}
+|--hash
+|--events
+|--{event_number}
+|--method
+|--pallet: "evm"
+|--method: "Log"
+|--data
+|--0
+|-- address
+|-- topics
+|--0
+|--1
+|--2
+|-- data
+...
+...
 
 ```
 
@@ -333,7 +332,9 @@ The amount transferred is given in accounting for decimals and in hexadecimal fo
 For Tanssi, non-EVM Continaer chains and EVM ContainerChains, all the information around fee data for transactions sent via the Substrate API can be extracted from the following block endpoint:
 
 ```
+
 GET /blocks/{blockId}
+
 ```
 
 The block endpoints will return data relevant to one or more blocks. You can read more about the block endpoints on the [official Sidecar documentation](https://paritytech.github.io/substrate-api-sidecar/dist/#operations-tag-blocks){target=\_blank}.
@@ -341,9 +342,11 @@ The block endpoints will return data relevant to one or more blocks. You can rea
 Read as a JSON object, for a given `pallet` (module) and `method`, the transaction fee is provided by an associated event with the following extructure:
 
 ```
+
 {event_number}.method.pallet: "transactionPayment"
 {event_number}.method.method: "TransactionFeePaid"
-```
+
+````
 
 The relevant nesting structure is as follows:
 
@@ -372,7 +375,7 @@ RESPONSE JSON Block Object:
                         |--2
     ...
 
-```
+````
 
 The object mappings are summarized as follows:
 
@@ -393,17 +396,17 @@ extrinsics[extrinsic_number].events[event_number].data[1]
 For EVM ContainerChains, users could also send funds via the Ethereum API. To calculate the fee incurred on transactions sent via the Ethereum API, the following formula can be used:
 
 === "EIP-1559"
-`   GasPrice = BaseFee + MaxPriorityFeePerGas < MaxFeePerGas ? 
+`  GasPrice = BaseFee + MaxPriorityFeePerGas < MaxFeePerGas ? 
                 BaseFee + MaxPriorityFeePerGas : 
                 MaxFeePerGas;
     Transaction Fee = (GasPrice * TransactionWeight) / XXX
-  `
+ `
 === "Legacy"
-`   Transaction Fee = (GasPrice * TransactionWeight) / XXX
-  `
+`  Transaction Fee = (GasPrice * TransactionWeight) / XXX
+ `
 === "EIP-2930"
-`   Transaction Fee = (GasPrice * TransactionWeight) / XXX
-  `
+`  Transaction Fee = (GasPrice * TransactionWeight) / XXX
+ `
 
 The following sections describe in more detail each of the components needed to calculate the transaction fee.
 
@@ -439,7 +442,7 @@ The relevant data will be stored in the `value` key of the JSON object. This val
 
 The `GasPrice` is used to specify the gas price of legacy transactions prior to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. The `MaxFeePerGas` and `MaxPriorityFeePerGas` were both introduced in EIP-1559 alongside the `BaseFee`. The `MaxFeePerGas` defines the maximum fee permitted to be paid per unit of gas and is the sum of the `BaseFee` and the `MaxPriorityFeePerGas`. The `MaxPriorityFeePerGas` is the maximum priority fee configured by the sender of a transaction that is used to incentive the prioritization of a transaction in a block.
 
-Although EVm ContainerChains are Ethereum-compatible, they are also Substrate-based chains at its core, and priorities work differently in Substrate than in Ethereum. In Substrate, transactions are not prioritized by gas price. To address this, EVM ContainerChains uses a modified prioritization system that reprioritizes Substrate transactions using an Ethereum-first solution. A Substrate transaction still goes through the validity process, where it is assigned transaction tags, longevity, and a priority. The original priority is then overwritten with a new priority based on the transaction's fee per gas, which is derived from the transaction's tip and weight. If the transaction is an Ethereum transaction, the priority is set according to the priority fee.
+Although EVM ContainerChains are Ethereum-compatible, they are also Substrate-based chains at their core, and priorities work differently in Substrate and in Ethereum. In Substrate, transactions are not prioritized by gas price. To address this, EVM ContainerChains uses a modified prioritization system that reprioritizes Substrate transactions using an Ethereum-first solution. A Substrate transaction still goes through the validity process, where it is assigned transaction tags, longevity, and priority. The original priority is then overwritten with a new priority based on the transaction's fee per gas, which is derived from the transaction's tip and weight. If the transaction is an Ethereum transaction, the priority is set according to the priority fee.
 
 It's important to note that priority is not the sole component responsible for determining the order of transactions in a block. Other components, such as the longevity of a transaction, also play a role in the sorting process.
 
