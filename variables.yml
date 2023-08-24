@@ -1,4 +1,4 @@
 networks:
   dancebox:
     substrate_api_sidecar:
-      stable_version: 14.1.1
+      stable_version: 17.1.2
