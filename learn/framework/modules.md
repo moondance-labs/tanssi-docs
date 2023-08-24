@@ -43,7 +43,7 @@ Developers creating new modules enjoy complete freedom to express any desired be
 
 As explained in the [Architecture](/learn/framework/architecture#client-runtime-communication) article, a module needs to be able to communicate with the core client by exposing and integrating with a very specific API that allows the runtime to expose transactions, access storage, and code and decode information stored on-chain. It also needs to include many other required wiring codes that make the module work in the node.
 
-To improve developer experience when writing modules, Substrate relies heavily on [Rust macros](https://doc.rust-lang.org/book/ch19-06-macros.html){target=_blank}, which are special code instructions that generate code. Macros expand themselves by adding boilerplate code just before compiling time, allowing them to keep up to seven times the amount of code out of sight of the developers. This allows developers to focus on the specific functional requirements of the module instead of dealing with technicalities.
+To improve developer experience when writing modules, Substrate relies heavily on [Rust macros](https://doc.rust-lang.org/book/ch19-06-macros.html){target=_blank}. Macros are special instructions that automatically expand to Rust code just before compile-time, allowing modules to keep up to seven times the amount of code out of sight of the developers. This allows developers to focus on the specific functional requirements when writing modules instead of dealing with technicalities and the necessary scaffolding code.
 
 In Substrate, all modules, including custom-made ones, must implement at least these mandatory attribute macros:
 
