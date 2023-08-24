@@ -46,7 +46,7 @@ In Substrate architecture, an important decision has been made regarding the for
 
 The Wasm format offers many advantages to a ContainerChain, including:
 
-- **Portability** - the Wasm format is platform-independent, meaning that the same binary can be distributed and run in different nodes using different hardware architectures and operating systems
+- **Portability** - the Wasm format is platform-independent, meaning that the same binary can be distributed and run on different nodes using different hardware architectures and operating systems
 - **Deterministic Execution** - the Wasm format ensures deterministic execution of code, which means that the same input will always produce the same output. Determinacy is a critical aspect in blockchains to obtain the same state transitions across every node in the network and reach a consensus
 - **Forkless Upgradeability** - Substrate stores the runtime Wasm blob on-chain, meaning that the runtime itself becomes part of the state. This design allows upgrading the runtime logic in a forkless way using a transaction
 
