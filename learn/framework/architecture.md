@@ -52,7 +52,7 @@ The Wasm format offers many advantages to a ContainerChain, including:
 
 ## Client-Runtime Communication {: #client-runtime-communication }
 
-As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different: while the node is compiled to be installed and run in a specific platform (be it Linux x64 or any other), the ContainerChain runtime is compiled to a Wasm format that is platform-agostic and runs in an isolated execution environment.
+As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different. While the node is compiled to be installed and run on a specific platform (be it Linux x64 or any other), the ContainerChain runtime is compiled to a Wasm format that is platform-agnostic and runs in an isolated execution environment.
 
  Bearing in mind the separated execution environments, all the communication between the node client and the runtime occurs through a limited and well-defined interface, allowing the necessary operations such as: 
 
