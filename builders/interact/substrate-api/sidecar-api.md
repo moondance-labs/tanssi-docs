@@ -24,7 +24,7 @@ npm install @substrate/api-sidecar@{{ networks.dancebox.substrate_api_sidecar.st
 ```
 
 !!! note
-If the current folder does not already have a Node.js project structure, you need to manually created the `node_modules` directory by typing `mkdir node_modules`.
+    If the current folder does not already have a Node.js project structure, you need to manually created the `node_modules` directory by typing `mkdir node_modules`.
 
 Substrate API Sidecar v{{ networks.dancebox.substrate_api_sidecar.stable_version }} is the current stable version that has been tested to work with ContainerChains. You can verify the installation was successful by typing from the installation directory root:
 
@@ -37,12 +37,14 @@ node_modules/.bin/substrate-api-sidecar --version
 In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network. For example:
 
 === "Dancebox"
-`  export SAS_SUBSTRATE_URL=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
- `
+    ```
+    export SAS_SUBSTRATE_URL=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
+    ```
 
 === "Dancebox EVM ContainerChain"
-`  export SAS_SUBSTRATE_URL=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
- `
+    ```
+    export SAS_SUBSTRATE_URL=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+    ```
 
 After setting the environmental variable, you can use the `echo` command to check that the environmental variable has been set correctly, by typing:
 
@@ -68,12 +70,12 @@ If the installation and configuration are successful, you should see this output
 
 Some of the commonly used Substrate API Sidecar endpoints include:
 
-- **GET /blocks​/head** — Get the most recently finalized block. The optional parameter `finalized` can be set to `false` to the get the newest known block, which may not be finalized.
-- **GET /blocks/head/header** — Get the most recently finalized block header. The optional parameter `finalized` can be set to `false` to the get the newest known block header, which may not be finalized.
-- **GET /blocks/{blockId}** — Get a block by its height or hash.
-- **GET /accounts/{accountId}/balance-info** — Get balance information for an account.
-- **GET /node/version** — Get information about the Substrates node's implementation and versioning.
-- **GET /runtime/metadata** — Get the runtime metadata in decoded, JSON form.
+ - **GET /blocks​/head** — Get the most recently finalized block. The optional parameter `finalized` can be set to `false` to the get the newest known block, which may not be finalized
+ - **GET /blocks/head/header** — Get the most recently finalized block header. The optional parameter `finalized` can be set to `false` to the get the newest known block header, which may not be finalized
+ - **GET /blocks/{blockId}** — Get a block by its height or hash
+ - **GET /accounts/{accountId}/balance-info** — Get balance information for an account
+ - **GET /node/version** — Get information about the Substrates node's implementation and versioning
+ - **GET /runtime/metadata** — Get the runtime metadata in decoded, JSON form
 
 For a full list of API endpoints available on Substrate API Sidecar, please refer to the [official documentation](https://paritytech.github.io/substrate-api-sidecar/dist/).
 
@@ -153,7 +155,7 @@ RESPONSE JSON Block Object:
 EVM ContainerChains currently support three transaction standards: `legacy`, `eip1559`, and `eip2930`. These correspond to the `transaction type` field in the above JSON object diagram. For each transaction type, the transaction payload contains the following fields:
 
 === "EIP1559"
-`JSON
+    ```JSON
         ...
         |--eip1559
             |--chainId
@@ -169,10 +171,10 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
             |--r
             |--s      
         ...
-    `
+    ```
 
 === "Legacy"
-`JSON
+    ```JSON
         ...
         |--legacy
             |--nonce
@@ -183,10 +185,10 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
             |--input
             |--signature       
         ...
-    `
+    ```
 
 === "EIP2930"
-`JSON
+    ```JSON
         ...
         |--eip2930
             |--chainId
@@ -201,9 +203,9 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
             |--r
             |--s      
         ...
-    `
+    ```
 
-For more information on the new [EIP1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} and [EIP2930](https://eips.ethereum.org/EIPS/eip-2930){target=\_blank} transaction types and what each field means, please refer to the respective official Ethereum proposal specs.
+For more information on the new [EIP1559](https://eips.ethereum.org/EIPS/eip-1559){target=_blank} and [EIP2930](https://eips.ethereum.org/EIPS/eip-2930){target=_blank} transaction types and what each field means, please refer to the respective official Ethereum proposal specs.
 
 ### Transaction Field Mappings {: #transaction-field-mappings }
 
@@ -217,50 +219,50 @@ To obtain the EVM sender address, recipient address, and EVM hash of any EVM tra
 The EVM field mappings are then summarized as the following:
 
 === "EIP1559"
-| EVM Field | Block JSON Field |
-|:------------------------:|:----------------------------------------------------------------------------:|
-| Chain ID | `extrinsics[extrinsic_number].args.transaction.eip1559.chainId` |
-| Nonce | `extrinsics[extrinsic_number].args.transaction.eip1559.nonce` |
-| Max priority fee per gas | `extrinsics[extrinsic_number].args.transaction.eip1559.maxPriorityFeePerGas` |
-| Max fee per gas | `extrinsics[extrinsic_number].args.transaction.eip1559.maxFeePerGas` |
-| Gas limit | `extrinsics[extrinsic_number].args.transaction.eip1559.gasLimit` |
-| Access list | `extrinsics[extrinsic_number].args.transaction.eip1559.accessList` |
-| Signature | `extrinsics[extrinsic_number].args.transaction.eip1559.oddYParity/r/s` |
-| Sender address | `extrinsics[extrinsic_number].events[event_number].data[0]` |
-| Recipient address | `extrinsics[extrinsic_number].events[event_number].data[1]` |
-| EVM hash | `extrinsics[extrinsic_number].events[event_number].data[2]` |
-| EVM execution status | `extrinsics[extrinsic_number].events[event_number].data[3]` |
+    |        EVM Field         |                               Block JSON Field                               |
+    |:------------------------:|:----------------------------------------------------------------------------:|
+    |         Chain ID         |       `extrinsics[extrinsic_number].args.transaction.eip1559.chainId`        |
+    |          Nonce           |        `extrinsics[extrinsic_number].args.transaction.eip1559.nonce`         |
+    | Max priority fee per gas | `extrinsics[extrinsic_number].args.transaction.eip1559.maxPriorityFeePerGas` |
+    |     Max fee per gas      |     `extrinsics[extrinsic_number].args.transaction.eip1559.maxFeePerGas`     |
+    |        Gas limit         |       `extrinsics[extrinsic_number].args.transaction.eip1559.gasLimit`       |
+    |       Access list        |      `extrinsics[extrinsic_number].args.transaction.eip1559.accessList`      |
+    |        Signature         |    `extrinsics[extrinsic_number].args.transaction.eip1559.oddYParity/r/s`    |
+    |      Sender address      |         `extrinsics[extrinsic_number].events[event_number].data[0]`          |
+    |    Recipient address     |         `extrinsics[extrinsic_number].events[event_number].data[1]`          |
+    |         EVM hash         |         `extrinsics[extrinsic_number].events[event_number].data[2]`          |
+    |   EVM execution status   |         `extrinsics[extrinsic_number].events[event_number].data[3]`          |
 
 === "Legacy"
-| EVM Field | Block JSON Field |
-|:--------------------:|:----------------------------------------------------------------:|
-| Nonce | `extrinsics[extrinsic_number].args.transaction.legacy.nonce` |
-| Gas price | `extrinsics[extrinsic_number].args.transaction.legacy.gasPrice` |
-| Gas limit | `extrinsics[extrinsic_number].args.transaction.legacy.gasLimit` |
-| Value | `extrinsics[extrinsic_number].args.transaction.legacy.value` |
-| Signature | `extrinsics[extrinsic_number].args.transaction.legacy.signature` |
-| Sender address | `extrinsics[extrinsic_number].events[event_number].data[0]` |
-| Recipient address | `extrinsics[extrinsic_number].events[event_number].data[1]` |
-| EVM hash | `extrinsics[extrinsic_number].events[event_number].data[2]` |
-| EVM execution status | `extrinsics[extrinsic_number].events[event_number].data[3]` |
+    |      EVM Field       |                         Block JSON Field                         |
+    |:--------------------:|:----------------------------------------------------------------:|
+    |        Nonce         |   `extrinsics[extrinsic_number].args.transaction.legacy.nonce`   |
+    |      Gas price       | `extrinsics[extrinsic_number].args.transaction.legacy.gasPrice`  |
+    |      Gas limit       | `extrinsics[extrinsic_number].args.transaction.legacy.gasLimit`  |
+    |        Value         |   `extrinsics[extrinsic_number].args.transaction.legacy.value`   |
+    |      Signature       | `extrinsics[extrinsic_number].args.transaction.legacy.signature` |
+    |    Sender address    |   `extrinsics[extrinsic_number].events[event_number].data[0]`    |
+    |  Recipient address   |   `extrinsics[extrinsic_number].events[event_number].data[1]`    |
+    |       EVM hash       |   `extrinsics[extrinsic_number].events[event_number].data[2]`    |
+    | EVM execution status |   `extrinsics[extrinsic_number].events[event_number].data[3]`    |
 
 === "EIP2930"
-| EVM Field | Block JSON Field |
-|:--------------------:|:----------------------------------------------------------------------:|
-| Chain ID | `extrinsics[extrinsic_number].args.transaction.eip2930.chainId` |
-| Nonce | `extrinsics[extrinsic_number].args.transaction.eip2930.nonce` |
-| Gas price | `extrinsics[extrinsic_number].args.transaction.eip2930.gasPrice` |
-| Gas limit | `extrinsics[extrinsic_number].args.transaction.eip2930.gasLimit` |
-| Value | `extrinsics[extrinsic_number].args.transaction.eip2930.value` |
-| Access list | `extrinsics[extrinsic_number].args.transaction.eip2930.accessList` |
-| Signature | `extrinsics[extrinsic_number].args.transaction.eip2930.oddYParity/r/s` |
-| Sender address | `extrinsics[extrinsic_number].events[event_number].data[0]` |
-| Recipient address | `extrinsics[extrinsic_number].events[event_number].data[1]` |
-| EVM hash | `extrinsics[extrinsic_number].events[event_number].data[2]` |
-| EVM execution status | `extrinsics[extrinsic_number].events[event_number].data[3]` |
+    |      EVM Field       |                            Block JSON Field                            |
+    |:--------------------:|:----------------------------------------------------------------------:|
+    |       Chain ID       |    `extrinsics[extrinsic_number].args.transaction.eip2930.chainId`     |
+    |        Nonce         |     `extrinsics[extrinsic_number].args.transaction.eip2930.nonce`      |
+    |      Gas price       |    `extrinsics[extrinsic_number].args.transaction.eip2930.gasPrice`    |
+    |      Gas limit       |    `extrinsics[extrinsic_number].args.transaction.eip2930.gasLimit`    |
+    |        Value         |     `extrinsics[extrinsic_number].args.transaction.eip2930.value`      |
+    |     Access list      |   `extrinsics[extrinsic_number].args.transaction.eip2930.accessList`   |
+    |      Signature       | `extrinsics[extrinsic_number].args.transaction.eip2930.oddYParity/r/s` |
+    |    Sender address    |      `extrinsics[extrinsic_number].events[event_number].data[0]`       |
+    |  Recipient address   |      `extrinsics[extrinsic_number].events[event_number].data[1]`       |
+    |       EVM hash       |      `extrinsics[extrinsic_number].events[event_number].data[2]`       |
+    | EVM execution status |      `extrinsics[extrinsic_number].events[event_number].data[3]`       |
 
 !!! note
-For Substrate transactions, the "Nonce" and "Signature" fields are under `extrinsics[extrinsic_number]`. For EVM transactions, the "Nonce" and "Signature" fields are under `extrinsics[extrinsic_number].args.transaction[transaction_type]`, leaving the "Nonce" and "Signature" under `extrinsics[extrinsic_number]` to be `null`.
+    For Substrate transactions, the "Nonce" and "Signature" fields are under `extrinsics[extrinsic_number]`. For EVM transactions, the "Nonce" and "Signature" fields are under `extrinsics[extrinsic_number].args.transaction[transaction_type]`, leaving the "Nonce" and "Signature" under `extrinsics[extrinsic_number]` to be `null`.
 
     A successfully executed EVM transaction will return either `succeed: "Stopped"` or `succeed: "Returned"` under the "EVM Execution Status" field.
 
@@ -270,52 +272,54 @@ The following code samples will demonstrate how to listen to both native token t
 
 ### Native Token Transfers { #native-token-transfers }
 
-Tanssi and both types of ContainerChains (EVM and non-EVM) can perform Substrate-based native token balance transfers.
+Both Tanssi, non-EVM ContainerChains and EVM ContainerChains can perform Substrate-based native token balance transfers.
 
-The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=\_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash`, and `transaction status` of native token transfers at both the EVM and Substrate API level.
+The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash` and `transaction status` of native token transfers at both the EVM and Substrate API level.
 
 ```typescript
---8 < --'code/substrate-api/sidecar-transfer.ts';
+--8<-- 'code/substrate-api/sidecar-transfer.ts'
 ```
 
 ### ERC-20 Token Transfers {: #erc-20-token-transfers }
 
 Events emitted by smart contracts such as an ERC-20 token contract deployed on EVM ContainerChains can be decoded from Sidecar block JSON objects. The nesting structure is as following:
 
+```JSON
 RESPONSE JSON Block Object:
-|--extrinsics
-|--{extrinsic_number}
-|--method
-|--pallet: "ethereum"
-|--method: "transact"
-|--signature:
-|--nonce:
-|--args
-|--transaction
-|--{transaction_type}
-|--hash
-|--events
-|--{event_number}
-|--method
-|--pallet: "evm"
-|--method: "Log"
-|--data
-|--0
-|-- address
-|-- topics
-|--0
-|--1
-|--2
-|-- data
-...
-...
+    |--extrinsics
+        |--{extrinsic_number}
+            |--method
+                |--pallet: "ethereum"
+                |--method: "transact"
+            |--signature:
+            |--nonce:
+            |--args
+                |--transaction
+                    |--{transaction_type}
+            |--hash
+            |--events
+                |--{event_number}
+                    |--method
+                        |--pallet: "evm"
+                        |--method: "Log"
+                    |--data
+                        |--0
+                            |-- address
+                            |-- topics
+                                |--0
+                                |--1
+                                |--2
+					        |-- data
+            ...
+    ...
 
 ```
 
-ERC-20 token transfers will emit the [`Transfer`](https://eips.ethereum.org/EIPS/eip-20){target=\_blank} event which can be decoded as the following:
+ERC-20 token transfers will emit the [`Transfer`](https://eips.ethereum.org/EIPS/eip-20){target=_blank} event which can be decoded as the following:
+
 
 |     Tx Information      |                           Block JSON Field                            |
-| :---------------------: | :-------------------------------------------------------------------: |
+|:-----------------------:|:---------------------------------------------------------------------:|
 | ERC-20 contract address |  `extrinsics[extrinsic_number].events[event_number].data[0].address`  |
 |  Event signature hash   | `extrinsics[extrinsic_number].events[event_number].data[0].topics[0]` |
 |     Sender address      | `extrinsics[extrinsic_number].events[event_number].data[0].topics[1]` |
@@ -325,28 +329,25 @@ ERC-20 token transfers will emit the [`Transfer`](https://eips.ethereum.org/EIPS
 Other events emitted by EVM smart contracts can be decoded in a similar fashion, but the content of the topics and data fields will change depending on the definition of the specific event.
 
 !!! note
-The amount transferred is given in accounting for decimals and in hexadecimal format.
+    The amount transferred is given in accounting for decimals and in hexadecimal format.
+
 
 ## Substrate API Transaction Fees {: #substrate-api-transaction-fees }
 
 For Tanssi, non-EVM Continaer chains and EVM ContainerChains, all the information around fee data for transactions sent via the Substrate API can be extracted from the following block endpoint:
 
 ```
-
 GET /blocks/{blockId}
-
 ```
 
-The block endpoints will return data relevant to one or more blocks. You can read more about the block endpoints on the [official Sidecar documentation](https://paritytech.github.io/substrate-api-sidecar/dist/#operations-tag-blocks){target=\_blank}.
+The block endpoints will return data relevant to one or more blocks. You can read more about the block endpoints on the [official Sidecar documentation](https://paritytech.github.io/substrate-api-sidecar/dist/#operations-tag-blocks){target=_blank}.
 
 Read as a JSON object, for a given `pallet` (module) and `method`, the transaction fee is provided by an associated event with the following extructure:
 
 ```
-
 {event_number}.method.pallet: "transactionPayment"
 {event_number}.method.method: "TransactionFeePaid"
-
-````
+```
 
 The relevant nesting structure is as follows:
 
@@ -375,15 +376,16 @@ RESPONSE JSON Block Object:
                         |--2
     ...
 
-````
+```
 
 The object mappings are summarized as follows:
 
 |   Tx Information   |                      Block JSON Field                       |
-| :----------------: | :---------------------------------------------------------: |
+|:------------------:|:-----------------------------------------------------------:|
 | Fee paying account | `extrinsics[extrinsic_number].events[event_number].data[0]` |
 |  Total fees paid   | `extrinsics[extrinsic_number].events[event_number].data[1]` |
 |        Tip         | `extrinsics[extrinsic_number].events[event_number].data[2]` |
+
 
 Then, the total transaction fee paid for this extrinsic is mapped to the following field of the block JSON object:
 
@@ -396,23 +398,26 @@ extrinsics[extrinsic_number].events[event_number].data[1]
 For EVM ContainerChains, users could also send funds via the Ethereum API. To calculate the fee incurred on transactions sent via the Ethereum API, the following formula can be used:
 
 === "EIP-1559"
-`  GasPrice = BaseFee + MaxPriorityFeePerGas < MaxFeePerGas ? 
+    ```
+    GasPrice = BaseFee + MaxPriorityFeePerGas < MaxFeePerGas ?
                 BaseFee + MaxPriorityFeePerGas : 
                 MaxFeePerGas;
-    Transaction Fee = (GasPrice * TransactionWeight) / XXX
- `
+    Transaction Fee = (GasPrice * TransactionWeight) / 25000
+    ```
 === "Legacy"
-`  Transaction Fee = (GasPrice * TransactionWeight) / XXX
- `
+    ```
+    Transaction Fee = (GasPrice * TransactionWeight) / 25000
+    ```
 === "EIP-2930"
-`  Transaction Fee = (GasPrice * TransactionWeight) / XXX
- `
+    ```
+    Transaction Fee = (GasPrice * TransactionWeight) / 25000
+    ```
 
 The following sections describe in more detail each of the components needed to calculate the transaction fee.
 
 ### Base Fee {: #base-fee}
 
-The `BaseFee` is the minimum amount charged to send a transaction and is a value set by the network itself. It was introduced in [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. EVM ContainerChains have a dynamic fee mechanism that aims to replicate the [EIP-1559 fee market mechanism](https://eips.ethereum.org/EIPS/eip-1559#specification){target=\_blank}, where the base fee is adjusted based on block congestion.
+The `BaseFee` is the minimum amount charged to send a transaction and is a value set by the network itself. It was introduced in [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=_blank}. EVM ContainerChains have a dynamic fee mechanism that aims to replicate the [EIP-1559 fee market mechanism](https://eips.ethereum.org/EIPS/eip-1559#specification){target=_blank}, where the base fee is adjusted based on block congestion.
 
 For example, for the Dancebox EVM ContainerChain template the minimum gas price is `1 GWei`.
 
@@ -440,9 +445,9 @@ The relevant data will be stored in the `value` key of the JSON object. This val
 
 ### GasPrice, MaxFeePerGas, and MaxPriorityFeePerGas {: #gasprice-maxfeepergas-maxpriorityfeepergas }
 
-The `GasPrice` is used to specify the gas price of legacy transactions prior to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. The `MaxFeePerGas` and `MaxPriorityFeePerGas` were both introduced in EIP-1559 alongside the `BaseFee`. The `MaxFeePerGas` defines the maximum fee permitted to be paid per unit of gas and is the sum of the `BaseFee` and the `MaxPriorityFeePerGas`. The `MaxPriorityFeePerGas` is the maximum priority fee configured by the sender of a transaction that is used to incentive the prioritization of a transaction in a block.
+The `GasPrice` is used to specify the gas price of legacy transactions prior to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=_blank}. The `MaxFeePerGas` and `MaxPriorityFeePerGas` were both introduced in EIP-1559 alongside the `BaseFee`. The `MaxFeePerGas` defines the maximum fee permitted to be paid per unit of gas and is the sum of the `BaseFee` and the `MaxPriorityFeePerGas`. The `MaxPriorityFeePerGas` is the maximum priority fee configured by the sender of a transaction that is used to incentive the prioritization of a transaction in a block.
 
-Although EVM ContainerChains are Ethereum-compatible, they are also Substrate-based chains at their core, and priorities work differently in Substrate and in Ethereum. In Substrate, transactions are not prioritized by gas price. To address this, EVM ContainerChains uses a modified prioritization system that reprioritizes Substrate transactions using an Ethereum-first solution. A Substrate transaction still goes through the validity process, where it is assigned transaction tags, longevity, and priority. The original priority is then overwritten with a new priority based on the transaction's fee per gas, which is derived from the transaction's tip and weight. If the transaction is an Ethereum transaction, the priority is set according to the priority fee.
+Although EVM ContainerChains are Ethereum-compatible, they are also Substrate-based chains at their core, and priorities work differently in Substrate than in Ethereum. In Substrate, transactions are not prioritized by gas price. To address this, EVM ContainerChains uses a modified prioritization system that reprioritizes Substrate transactions using an Ethereum-first solution. A Substrate transaction still goes through the validity process, where it is assigned transaction tags, longevity, and a priority. The original priority is then overwritten with a new priority based on the transaction's fee per gas, which is derived from the transaction's tip and weight. If the transaction is an Ethereum transaction, the priority is set according to the priority fee.
 
 It's important to note that priority is not the sole component responsible for determining the order of transactions in a block. Other components, such as the longevity of a transaction, also play a role in the sorting process.
 
@@ -457,20 +462,20 @@ GET /blocks/{blockId}
 The paths to the relevant values have also truncated and reproduced below:
 
 === "EIP1559"
-| EVM Field | Block JSON Field |
-|:--------------------:|:----------------------------------------------------------------------------:|
-| MaxFeePerGas | `extrinsics[extrinsic_number].args.transaction.eip1559.maxFeePerGas` |
-| MaxPriorityFeePerGas | `extrinsics[extrinsic_number].args.transaction.eip1559.maxPriorityFeePerGas` |
+    |      EVM Field       |                               Block JSON Field                               |
+    |:--------------------:|:----------------------------------------------------------------------------:|
+    |     MaxFeePerGas     |     `extrinsics[extrinsic_number].args.transaction.eip1559.maxFeePerGas`     |
+    | MaxPriorityFeePerGas | `extrinsics[extrinsic_number].args.transaction.eip1559.maxPriorityFeePerGas` |
 
 === "Legacy"
-| EVM Field | Block JSON Field |
-|:---------:|:---------------------------------------------------------------:|
-| GasPrice | `extrinsics[extrinsic_number].args.transaction.legacy.gasPrice` |
+    | EVM Field |                        Block JSON Field                         |
+    |:---------:|:---------------------------------------------------------------:|
+    | GasPrice  | `extrinsics[extrinsic_number].args.transaction.legacy.gasPrice` |
 
 === "EIP2930"
-| EVM Field | Block JSON Field |
-|:---------:|:----------------------------------------------------------------:|
-| GasPrice | `extrinsics[extrinsic_number].args.transaction.eip2930.gasPrice` |
+    | EVM Field |                         Block JSON Field                         |
+    |:---------:|:----------------------------------------------------------------:|
+    | GasPrice  | `extrinsics[extrinsic_number].args.transaction.eip2930.gasPrice` |
 
 ### Transaction Weight {: #transaction-weight}
 
