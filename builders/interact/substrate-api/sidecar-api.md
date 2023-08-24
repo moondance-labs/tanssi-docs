@@ -34,7 +34,7 @@ node_modules/.bin/substrate-api-sidecar --version
 
 ## Setting up the Substrate API Sidecar {: #setting-up-the-substrate-api-sidecar }
 
-In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network. For example:
+In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network you want to connect to. For example, the WSS endpoint of your ContainerChain. Some examples:
 
 === "Dancebox"
     ```
@@ -44,6 +44,11 @@ In the terminal that Sidecar will run, export the environmental variable for the
 === "Dancebox EVM ContainerChain"
     ```
     export SAS_SUBSTRATE_URL=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+    ```
+
+=== "Your ContainerChain"
+    ```
+    export SAS_SUBSTRATE_URL=INSERT_CONTAINERCHAIN_WSS_ENDPOINT
     ```
 
 After setting the environmental variable, you can use the `echo` command to check that the environmental variable has been set correctly, by typing:
