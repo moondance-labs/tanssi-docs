@@ -285,7 +285,6 @@ The following code snippet uses the Axios HTTP client to query the Sidecar endpo
 
 Events emitted by smart contracts such as an ERC-20 token contract deployed on EVM ContainerChains can be decoded from Sidecar block JSON objects. The nesting structure is as following:
 
-```JSON
 RESPONSE JSON Block Object:
     |--extrinsics
         |--{extrinsic_number}
