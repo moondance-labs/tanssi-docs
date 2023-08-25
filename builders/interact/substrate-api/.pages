@@ -3,4 +3,4 @@ hide: false
 nav:
   - index.md
   - 'Polkadot.js API': 'polkadot-js-api.md'
-  # - 'Ethereum API': 'ethereum.md'
+  - 'Sidecar API': 'sidecar-api.md'

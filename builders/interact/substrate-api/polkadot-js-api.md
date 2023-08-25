@@ -257,6 +257,31 @@ console.log(`Submitted with hash ${txHash}`);
 
 Note that the `signAndSend` function can also accept optional parameters, such as the `nonce`. For example, `signAndSend(alice, { nonce: aliceNonce })`. You can use the [sample code from the State Queries](#state-queries){target=_blank} section to retrieve the correct nonce, including transactions in the mempool.
 
+### Fee Information {: #fees}
+
+The transaction endpoint also offers a method to obtain weight information for a given `api.tx.<module>.<method>`. To do so, you'll need to use the `paymentInfo` function after having built the entire transaction with the specific `module` and `method`.
+
+The `paymentInfo` function returns weight information in terms of `refTime` and `proofSize`, which can be used to determine the transaction fee. This is extremely helpful when crafting remote execution calls via XCM.
+
+For example, assuming you've [initialized the API](#creating-an-API-provider-instance), the following snippet shows how you can get the weight info for a simple balance transfer between two accounts:
+
+```javascript
+// Transaction to get weight information
+const tx = api.tx.balances.transfer('INSERT_BOBS_ADDRESS', BigInt(12345));
+
+// Get weight info
+const { partialFee, weight } = await tx.paymentInfo('INSERT_SENDERS_ADDRESS');
+
+console.log(`Transaction weight: ${weight}`);
+console.log(`Transaction fee: ${partialFee.toHuman()}`);
+```
+
+??? code "View the complete script"
+    ```js
+    --8<-- 'code/substrate-api/payment-info.js'
+    ```
+
+
 ### Transaction Events {: #transaction-events }
 
 Any transaction will emit events; at a bare minimum, this will always be a `system.ExtrinsicSuccess` or `system.ExtrinsicFailed` event for the specific transaction. These provide the overall execution result for the transaction, that is, whether the execution has succeeded or failed.
@@ -301,6 +326,21 @@ api.tx.utility
     ```js
     --8<-- 'code/substrate-api/batch-transactions.js'
     ```
+
+## Sample Code for Monitoring Native Token Transfers { #sample-code-for-monitoring-native-token-transfers }
+
+The following code samples will demonstrate how to listen to both types of native token transfers, sent via Substrate or Ethereum API, using either the [Polkadot.js API library](https://polkadot.js.org/docs/api/start){target=_blank} or [Substrate API Sidecar](https://github.com/paritytech/substrate-api-sidecar){target=_blank}. The following code snippets are for demo purposes only and should not be used without modification and further testing in a production environment. 
+
+The following code snippet uses [`subscribeFinalizedHeads`](https://polkadot.js.org/docs/substrate/rpc/#subscribefinalizedheads-header){target=_blank} to subscribe to new finalized block headers, and loops through extrinsics fetched from the block, and retrieves the events of each extrinsic. 
+
+Then, it checks if any event corresponds to a `balances.Transfer` event. If so, it will extract the `from`, `to`, `amount`, and the `tx hash` of the transfer and display it on the console. Note that the `amount` is shown in the smallest unit (Wei).  You can find all the available information about Polkadot.js and the Substrate JSON RPC in their [official documentation site](https://polkadot.js.org/docs/substrate/rpc){target=_blank}.
+
+```typescript
+--8<-- 'code/substrate-api/balance-event.ts'
+```
+
+In addition, you can find more sample code snippets related to more specific cases around balance transfers at this [GitHub page](https://gist.github.com/crystalin/b2ce44a208af60d62b5ecd1bad513bce){target=_blank}.
+
 
 ## Utility Functions {: #utilities }
 
