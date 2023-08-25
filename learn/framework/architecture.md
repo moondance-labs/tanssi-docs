@@ -42,13 +42,15 @@ The default configuration of a Substrate node and the built-in implementations o
 
 The runtime plays a crucial role in the operation of the Appchain. It contains the core logic and rules to meet the requirements of the use case the developers are building, and, therefore, it is responsible for validating the transactions and executing the state transitions.
 
-In Substrate architecture, an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org){target=_blank} byte code. 
+Being the core element in an Appchain, designing the Substrate architecture an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org){target=_blank} byte code. 
 
-The Wasm format offers many advantages to a ContainerChain, including:
+The Wasm format offers many advantages to a deployed ContainerChain, including:
 
 - **Portability** - the Wasm format is platform-independent, meaning that the same binary can be distributed and run on different nodes using different hardware architectures and operating systems
 - **Deterministic Execution** - the Wasm format ensures deterministic execution of code, which means that the same input will always produce the same output. Determinacy is a critical aspect in blockchains to obtain the same state transitions across every node in the network and reach a consensus
 - **Forkless Upgradeability** - Substrate stores the runtime Wasm blob on-chain, meaning that the runtime itself becomes part of the state. This design allows upgrading the runtime logic in a forkless way using a transaction
+
+Besides the format, internally, a Substrate runtime is built by composing different modules, either provided and ready-to-use by Substrate or custom-made. Each one of these modules define, among other things, the transactions they expose, the logic behind them, what needs to be stored in the chain state, the best format to do it, and how they cooperate with other modules composing functionality. More details about building a runtime will be covered in the [modules](/learn/framework/modules) section.
 
 ## Client-Runtime Communication {: #client-runtime-communication }
 
