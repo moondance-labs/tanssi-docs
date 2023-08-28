@@ -1,8 +1,8 @@
 ---
-title: Interact with your ContainerChain
-description: After you deploy your ContainerChain, you can interact with it using Polkadot.js, Sidecar, or the most popular Ethereum tools, such as MetaMask or Hardhat.
+title: Substrate API
+description: Learn how to interact with your ContainerChain through the Substrate API, including how to use the Polkadot.js API and the Substrate Sidecar
 template: subsection-index-page.html
-hide:
+hide: 
  - toc
  - feedback
 ---
