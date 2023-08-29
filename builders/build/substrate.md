@@ -13,7 +13,7 @@ What sets Substrate apart is its modular architecture, which enables the seamles
 
 If the use case requires only EVM (Ethereum virtual machine) compatibility, then the provided template will meet the requirements and require no additional changes, but, teams willing to build a Substrate Appchain will need to add and compose the built-in modules and the custom-made ones into the runtime, compile and generate the chain specification and, finally, deploying through Tanssi protocol to evolve into a live ContainerChain.
 
-In this article, what adding a module involves and how to compile and generate the chain specifications will be covered.
+This article covers what adding a module involves (be it a built-in or a custom-made one) and how to compile and generate the chain specifications.
 
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module }
 
@@ -30,12 +30,12 @@ In the following example, the very popular Substrate module *pallet-assets* will
 
 ### Declare the dependency {: #declare-dependency }
 
-To declare the dependency, open the `Cargo.toml` file located in the folder `runtime` with a text editor and add the module, referencing the code in the official repository of Substrate:
+To declare the dependency and make it available to the runtime, open the `Cargo.toml` file located in the folder `runtime` with a text editor and add the module, referencing the code in the official repository of the Polkadot SDK:
 
 ```toml
 [dependencies]
 ...
-pallet-assets = { git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.43", default-features = false }
+pallet-assets = { git = "https://github.com/paritytech/polkadot-sdk", branch = "polkadot-v0.9.43", default-features = false }
 ...
 ```
 
@@ -56,7 +56,9 @@ std = [
 ```
 ### Configure the Module {: #configure-the-module }
 
-With the dependency declared, now the module can be configured and added to the runtime to use it. It is done in the `lib.rs` file that is located in the folder */runtime/src*:
+With the dependency declared, now the module can be configured and added to the runtime to use it. It is done in the `lib.rs` file that is located in the folder */runtime/src*.
+
+The following code snippet is a basic example that configures the module with types, constants and default values. These values can be adjusted to the specific requirements of the use case.
 
 ```rust
 ...
@@ -93,7 +95,7 @@ impl pallet_assets::Config for Runtime {
 ...
 ```
 
-It is important to note that every built-in module has a different purpose, and therefore, have different needs in term of what must be configured.
+It is important to note that every built-in module has a different purpose, and therefore, have different needs in term of what must be configured. 
 
 ### Add the module to the runtime {: #add-module-to-runtime }
 
@@ -122,6 +124,7 @@ construct_runtime!(
 
 
 3. Finally, add the configuration in the chain specification for the genesis, in the file *chain_spec* located in *container-chains/templates/frontier/node/src*
+
 ```rust
 fn testnet_genesis(
    endowed_accounts: Vec<AccountId>,
@@ -144,7 +147,6 @@ fn testnet_genesis(
 With the module included, this new runtime version has unlocked a new set of functionalities ready to be composed with even more of the Substrate built-in modules or the custom-made ones.
 
 ## Creating a Custom Module 
-
 
 
 ```bash
