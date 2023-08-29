@@ -3,7 +3,7 @@ import Keyring from '@polkadot/keyring';
 
 // Import Ethereum account from private key
 const keyringECDSA = new Keyring({ type: 'ethereum' });
-const privateKeyInput = 'PK_HERE';
+const privateKeyInput = 'INSERT_PK';
 
 // Extract address from private key
 const otherPair = keyringECDSA.addFromUri(privateKeyInput);

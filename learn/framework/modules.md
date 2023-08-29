@@ -3,19 +3,19 @@ title: Appchain Modules (Pallets) for your Runtime
 description: Substrate is a blockchain development framework that provides modules (pallets) ready to be composed with the developer's custom logic in the Appchain Runtime.
 ---
 
-# Appchain Framework Modules {: #appchain-framework-modules } 
+# Appchain Framework Modules {: #appchain-framework-modules }
 
-## Introduction {: #introduction } 
+## Introduction {: #introduction }
 
 Substrate Framework provides complete and ready-to-use implementations of the main functions an Appchain needs to work properly, including cryptography, consensus, governance, and so on. These implementations are fully customizable and could be replaced with custom logic if needed.
 
-When it comes to building the Runtime, which is essentially the heart of a Substrate-based blockchain, the desired state transition rules must be defined, reflecting the intended behavior and features of the blockchain. 
+When it comes to building the Runtime, which is essentially the heart of a Substrate-based blockchain, the desired state transition rules must be defined, reflecting the intended behavior and features of the blockchain.
 
 To build the Runtime, Substrate provides many built-in modules (called pallets) that can be freely used as building blocks to compose and interact with any other custom-made modules, allowing teams to create unique behaviors according to the specific requirements of their Appchain.
 
 ![Built-in modules](/images/learn/framework/modules/modules-1.png)
 
-## Built-in Modules {: #built-in-modules } 
+## Built-in Modules {: #built-in-modules }
 
 There are three categories for the included modules in the development framework:
 
@@ -36,4 +36,3 @@ Here is a list of some of the most used modules, but there are many more on the 
 - **[pallet_staking](https://paritytech.github.io/substrate/master/pallet_staking/index.html){target=_blank}** - the Staking pallet provides functions to administer staked tokens, support rewarding, slashing, depositing, withdrawing, and so on
 
 In addition to those previously listed, other modules like [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=_blank}, and many others that are freely available can speed up the development of the Appchain and, consequently, the time to market.
-
