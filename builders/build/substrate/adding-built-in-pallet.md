@@ -1,41 +1,44 @@
 ---
 title: Basic Substrate
-description: Substrate is a powerful and modular blockchain framework built in Rust that is used to build Polkadot's relay chain, the Tanssi network and the ContainerChains.
+description: Substrate is a modular blockchain framework that includes many ready-to-use modules covering a wide range of common functionalities to include in your runtime.
 ---
 
-# Basic Substrate {: #basic-substrate } 
+# Adding a Built-In Module {: #adding-builtin-module } 
 
 ## Introduction {: #introduction }
 
-Substrate is a powerful and modular software development framework (SDK) for building blockchains. It provides a comprehensive set of tools and libraries that abstract complex blockchain functionalities, allowing developers to focus on building innovative features and applications by focusing on the runtime, which contains the core logic and the rules of the state transition for the use case. 
+Substrate is a powerful and modular software development framework included in the Polkadot SDKs for building blockchains. It provides a comprehensive set of tools and libraries that abstract complex blockchain functionalities, allowing developers to focus on building innovative features and applications by focusing on the runtime, which contains the core logic and the rules of the state transition for the use case. 
 
 What sets Substrate apart is its modular architecture, which enables the seamless integration of pre-built modules and the creation of custom ones, facilitating the development of blockchain protocols. 
 
 If the use case requires only EVM (Ethereum virtual machine) compatibility, then the provided template will meet the requirements and require no additional changes, but, teams willing to build a Substrate Appchain will need to add and compose the built-in modules and the custom-made ones into the runtime, compile and generate the chain specification and, finally, deploying through Tanssi protocol to evolve into a live ContainerChain.
 
-This article covers what adding a module involves (be it a built-in or a custom-made one) and how to compile and generate the chain specifications.
+This article covers what adding a built-in module involves and how to compile and check the new generate the chain specifications.
 
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module }
 
-As the [modularity](learn/framework/modules) article covers, the Substrate framework already includes many built-in modules addressing a wide range of functionalities ready to use in your runtime.
+As the [modularity](/learn/framework/modules) article covers, the Substrate framework already includes many built-in modules addressing a wide range of functionalities ready to use in your runtime.
 
 To add a module, it will be necessary:
 
-1. Declare the module dependency for Cargo, the Rust language package manager, in the file `Cargo.toml`
+1. Make the dependency available within the project by declaring it in [Cargo](https://doc.rust-lang.org/cargo/){target=_blank}, the Rust language package manager
 2. Make the standard (`std`) features of the module available to the compiler
 3. Configure the module
 4. Add the module to the runtime
+5. Add default configuration in the chain specification
 
-In the following example, the very popular Substrate module *pallet-assets* will be added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, specifically in the folder `container-chains/templates/frontier/`.
+In the following example, the very popular Substrate module `pallet-assets` will be added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, specifically in the folder `container-chains/templates/frontier/`.
 
 ### Declare the dependency {: #declare-dependency }
+
+Every package contains a manifest file named `Cargo.toml` stating, among other things, all the dependencies the package relies on, and the ContainerChain runtime is no exception. 
 
 To declare the dependency and make it available to the runtime, open the `Cargo.toml` file located in the folder `runtime` with a text editor and add the module, referencing the code in the official repository of the Polkadot SDK:
 
 ```toml
 [dependencies]
 ...
-pallet-assets = { git = "https://github.com/paritytech/polkadot-sdk", branch = "polkadot-v0.9.43", default-features = false }
+pallet-assets = { git = "https://github.com/paritytech/polkadot-sdk", branch = "master", default-features = false }
 ...
 ```
 
@@ -58,7 +61,7 @@ std = [
 
 With the dependency declared, now the module can be configured and added to the runtime to use it. It is done in the `lib.rs` file that is located in the folder */runtime/src*.
 
-The following code snippet is a basic example that configures the module with types, constants and default values. These values can be adjusted to the specific requirements of the use case.
+The following code snippet is a basic example that configures the module with types, constants and default values. These values must be adjusted to the specific requirements of the use case.
 
 ```rust
 ...
@@ -122,8 +125,9 @@ construct_runtime!(
    }
 ```
 
+### Configure the Module in the Chain Specification {: #configure-chain-specs }
 
-3. Finally, add the configuration in the chain specification for the genesis, in the file *chain_spec* located in *container-chains/templates/frontier/node/src*
+Finally, add the default configuration in the chain specification for the genesis, in the file `chain_spec` located in `container-chains/templates/frontier/node/src`
 
 ```rust
 fn testnet_genesis(
@@ -145,34 +149,3 @@ fn testnet_genesis(
 ```
 
 With the module included, this new runtime version has unlocked a new set of functionalities ready to be composed with even more of the Substrate built-in modules or the custom-made ones.
-
-## Creating a Custom Module 
-
-
-```bash
-
-```
-
-
-## Compiling and generating the chain specification {: #compiling-generating-chain-specs }
-
-The following commands will build and generate the chain specification for EVM-compatible template:
-
-1. Clone the Tanssi code hosted on GitHub
-```bash
-git clone https://github.com/moondance-labs/tanssi
-```
-2. Step into the project folder
-```bash
-cd tanssi
-```
-3. Build the EVM-compatible Appchain template
-```bash
-cargo build -p container-chain-template-frontier-node --release
-```
-4. Generate the chain specification
-```bash
-./target/release/container-chain-template-frontier-node build-spec > chain_spec.json
-```
-
-If everything was correctly installed, the file `chain_spec.json` should have been created. The file can be opened with any text editor. More information about the chain specification and how to change it before deployment will be covered in the article [Modifying your ContainerChain](/builders/build/modifying).

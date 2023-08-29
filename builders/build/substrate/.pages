@@ -1,9 +1,8 @@
-title: Build your ContainerChain
+title: Basic Substrate
 hide: false
 nav:
   - index.md
-  - 'Prerequisites': 'prerequisites.md'
-  - 'Basic Substrate': 'substrate'
+  - 'Adding a Built-In Module': 'adding-built-in-pallet.md'
   # - 'Templates': 'templates.md'
   # - 'Modifying your ContainerChain': 'modifying.md'
   # - 'Test Locally': 'test.md'
