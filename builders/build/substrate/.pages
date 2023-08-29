@@ -3,7 +3,4 @@ hide: false
 nav:
   - index.md
   - 'Adding a Built-In Module': 'adding-built-in-pallet.md'
-  # - 'Templates': 'templates.md'
-  # - 'Modifying your ContainerChain': 'modifying.md'
-  # - 'Test Locally': 'test.md'
-  # - 'Export ChainSpec': 'chainspec.md'
+  # - 'Adding a Custom-Made Module': 'adding-custom-made-pallet.md'
