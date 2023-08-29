@@ -247,7 +247,7 @@ pub enum Event<T: Config> {
 
 This macro initializes a runtime storage structure. In this example, a basic value storage structure is used to persist the list of participants.
 
-In the heavily constrained environment of an AppChain, deciding what to store, and which structure to use can be critical in terms of performance. More on this topic in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=_blank}.
+In the heavily constrained environment of an AppChain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=_blank}.
 
 ```rust
 #[pallet::storage]
