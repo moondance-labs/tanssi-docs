@@ -44,7 +44,7 @@ pallet-assets = { git = "https://github.com/paritytech/polkadot-sdk", branch = "
 
 ### Make the standard features available to the compiler {: #standard-features }
 
-In the `Cargo.toml` file there is a features section where the features from the module marked as standard must be added, to make them available to the compiler to build the runtime binary:
+In the same `Cargo.toml` file located in the `runtime` folder, there is a features section where the features from the module marked as standard must be added. Everything listed in this section will ensure that it is available to the compiler when building the runtime binary, which is ultimately the file that contains all the information to run your ContainerChain.
 
 ```toml
 [features]
@@ -59,7 +59,11 @@ std = [
 ```
 ### Configure the Module {: #configure-the-module }
 
-With the dependency declared, now the module can be configured and added to the runtime to use it. It is done in the `lib.rs` file that is located in the folder */runtime/src*.
+With the dependency declared, now the module can be configured and added to the runtime to use it. To do so, you need to edit the `lib.rs` file that is located in the folder:
+
+CODE SNIPPET 
+ */runtime/src/lib.rs
+
 
 The following code snippet is a basic example that configures the module with types, constants and default values. These values must be adjusted to the specific requirements of the use case.
 
@@ -102,7 +106,7 @@ It is important to note that every built-in module has a different purpose, and 
 
 ### Add the module to the runtime {: #add-module-to-runtime }
 
-In the same `lib.rs` file, located in the folder */runtime/src* there is a section enclosed in the macro 'construct_runtime!()', this is where the pallet must be added to make the compiler include it within the runtime:
+In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro 'construct_runtime!()', this is where the pallet must be added to make the compiler include it within the runtime:
 
 ```rust
 construct_runtime!(
@@ -127,7 +131,11 @@ construct_runtime!(
 
 ### Configure the Module in the Chain Specification {: #configure-chain-specs }
 
-Finally, add the default configuration in the chain specification for the genesis, in the file `chain_spec` located in `container-chains/templates/frontier/node/src`
+Finally, add the default configuration in the chain specification for the genesis, in the file `chain_spec.rs` located in:
+
+CODE SNIPPET
+*/container-chains/templates/frontier/node/src/chain_spec.rs
+
 
 ```rust
 fn testnet_genesis(
