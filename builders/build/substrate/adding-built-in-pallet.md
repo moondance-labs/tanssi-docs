@@ -11,15 +11,17 @@ Substrate is a powerful and modular software development framework included in t
 
 What sets Substrate apart is its modular architecture, which enables the seamless integration of pre-built modules and the creation of custom ones, facilitating the development of blockchain protocols. 
 
-If the use case requires only EVM (Ethereum virtual machine) compatibility, then the provided template will meet the requirements and require no additional changes, but, teams willing to build a Substrate Appchain will need to add and compose the built-in modules and the custom-made ones into the runtime, compile and generate the chain specification and, finally, deploying through Tanssi protocol to evolve into a live ContainerChain.
+If the use case requires only EVM (Ethereum virtual machine) compatibility, then the provided template included in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} will meet the requirements and need no additional changes, but, teams willing to build a Substrate Appchain will need to add and compose the built-in modules and the custom-made ones into the runtime, compile and generate the chain specification and, finally, deploying through Tanssi protocol to evolve into a live ContainerChain.
 
-This article covers what adding a built-in module involves and how to compile and check the new generate the chain specifications.
+In this article, the necessary steps involved when adding a built-in module are covered.
 
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module }
 
-As the [modularity](/learn/framework/modules) article covers, the Substrate framework already includes many built-in modules addressing a wide range of functionalities ready to use in your runtime.
+As introduced in the [modularity](/learn/framework/modules) article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities ready to use in your runtime.
 
-To add a module, it will be necessary:
+Modules are meant to provide the functionality needed in very different use cases such as DeFi, NFTs, or any other, and, therefore, they are basic building blocks inherently abstract that can be configured according to the specific needs of the Appchain.
+
+To add a module, the following steps are necessary:
 
 1. Make the dependency available within the project by declaring it in [Cargo](https://doc.rust-lang.org/cargo/){target=_blank}, the Rust language package manager
 2. Make the standard (`std`) features of the module available to the compiler
@@ -44,7 +46,9 @@ pallet-assets = { git = "https://github.com/paritytech/polkadot-sdk", branch = "
 
 ### Make the standard features available to the compiler {: #standard-features }
 
-In the same `Cargo.toml` file located in the `runtime` folder, there is a features section where the features from the module marked as standard must be added. Everything listed in this section will ensure that it is available to the compiler when building the runtime binary, which is ultimately the file that contains all the information to run your ContainerChain.
+In Cargo, the “features” flags provide a mechanism to tell the compiler to include or leave out certain portions of code, which is a useful mechanism to optimize compile time, minimize binary file sizes, or disable certain behavior (for example, not including unit testing or benchmarking functionality in the runtime intended for production). 
+
+To compile the standard features for the Assets module within the runtime, the same `Cargo.toml` file located in the `runtime` folder must be edited, enabling the flag. Everything listed in this section will ensure that it is available to the compiler when building the runtime binary, which is ultimately the file that contains all the information to run (initially) your ContainerChain.
 
 ```toml
 [features]
