@@ -1,2 +1,0 @@
-!!! note
-    This guide assumes you have Node.js and a package manager (for example, npm or yarn) installed and that you've already initialized a `package.json` file for ES6 modules. To learn how to install Node.js, please check their [official documentation](https://nodejs.org/en/download).

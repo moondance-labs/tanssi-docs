@@ -1,49 +1,44 @@
 ---
 title: How to use Ethers.js Ethereum Library
-description: Follow this tutorial to learn how to use the Ethereum EtherJS Library to send transactions and deploy Solidity smart contracts to Moonbeam.
+description: Follow this tutorial to learn how to use the Ethereum EtherJS Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM ContainerChain.
 ---
 
 # Ethers.js JavaScript Library
 
-![Intro diagram](/images/builders/build/eth-api/libraries/ethers/ethersjs-banner.png)
-
 ## Introduction {: #introduction } 
 
-The [Ethers.js](https://docs.ethers.io/){target=_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to Web3.js. Moonbeam has an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Moonbeam node as if they were doing so on Ethereum. You can read more about Ethers.js on this [blog post](https://medium.com/l4-media/announcing-ethers-js-a-web3-alternative-6f134fdd06f3){target=_blank}.
+The [Ethers.js](https://docs.ethers.io/){target=_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=_blank}. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v5/){target=_blank}.
 
-In this guide, you'll learn how to use the Ethers.js library to send a transaction and deploy a contract on Moonbase Alpha. This guide can be adapted for [Moonbeam](/builders/get-started/networks/moonbeam/){target=_blank}, [Moonriver](/builders/get-started/networks/moonriver/){target=_blank}, or a [Moonbeam development node](/builders/get-started/networks/moonbeam-dev/){target=_blank}.
+In this guide, you'll learn how to use setup the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](XXX){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
+
+--8<-- 'text/common/general-js-tutorial-check.md'
 
 ## Checking Prerequisites {: #checking-prerequisites } 
 
 For the examples in this guide, you will need to have the following:
 
- - An account with funds.
-  --8<-- 'text/faucet/faucet-list-item.md'
- - 
---8<-- 'text/common/endpoint-examples.md'
+ - An account with funds in the Tanssi EVM ContainerChain you are testing with
 
-!!! note
-    --8<-- 'text/common/assumes-mac-or-ubuntu-env.md'
 
-## Create a JavaScript Project {: #create-a-javascript-project }
-
-To get started, you can create a directory to store all of the files you'll be creating throughout this guide:
-
-```
-mkdir ethers-examples && cd ethers-examples
-```
+## Installing Ethers.js {: #install-ethersjs }
 
 For this guide, you'll need to install the Ethers.js library and the Solidity compiler. To install both NPM packages, you can run the following command:
 
-```
-npm install ethers solc@0.8.0
-```
+=== "npm"
+
+    ```bash
+    npm install ethers solc@0.8.0
+    ```
+
+=== "yarn"
+
+    ```bash
+    yarn add ethers solc@0.8.0
+    ```
 
 ## Setting up the Ethers Provider {: #setting-up-the-ethers-provider }
 
 Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Ethers provider](https://docs.ethers.io/v6/api/providers/){target=_blank} to interact with the network.
-
---8<-- 'text/common/endpoint-setup.md'
 
 To create a provider, you can take the following steps:
 
@@ -51,29 +46,30 @@ To create a provider, you can take the following steps:
 2. Define the `providerRPC` object, which can include the network configurations for any of the networks you want to send a transaction on. You'll include the `name`, `rpc`, and `chainId` for each network
 3. Create the `provider` using the `ethers.JsonRpcProvider` method
 
-=== "Moonbeam"
+```js
+// 1. Import ethers
+import { ethers } from "ethers";
 
-    ```js
-    // 1. Import ethers
-    const ethers = require('ethers');
+// 2. Define network configurations
+const providerRPC = {
+  EvmContainer: {
+    name: 'dancebox-evm-container',
+    // Insert your RPC URL here
+    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', 
+    chainId: 5678, // 0x162E in hex,
+  },
+};
+// 3. Create ethers provider
+const provider = new ethers.JsonRpcProvider(
+  providerRPC.EvmContainer.rpc, 
+  {
+    chainId: providerRPC.EvmContainer.chainId,
+    name: providerRPC.EvmContainer.name,
+  }
+);
+```
 
-    // 2. Define network configurations
-    const providerRPC = {
-      moonbeam: {
-        name: 'moonbeam',
-        rpc: 'XXX', // Insert your RPC URL here
-        chainId: XXX, // XXX in hex,
-      },
-    };
-    // 3. Create ethers provider
-    const provider = new ethers.JsonRpcProvider(
-      providerRPC.moonbeam.rpc, 
-      {
-        chainId: providerRPC.moonbeam.chainId,
-        name: providerRPC.moonbeam.name,
-      }
-    );
-    ```
+Save this code snippet as you'll need it for the scripts that are used in the following sections.
 
 ## Send a Transaction {: #send-a-transaction }
 
@@ -111,15 +107,19 @@ const balances = async () => {
   const balanceFrom = ethers.formatEther(await provider.getBalance(addressFrom));
   const balanceTo = ethers.formatEther(await provider.getBalance(addressTo));
 
-  console.log(`The balance of ${addressFrom} is: ${balanceFrom} ETH`);
-  console.log(`The balance of ${addressTo} is: ${balanceTo} ETH`);
+  console.log(`The balance of ${addressFrom} is: ${balanceFrom} UNIT`);
+  console.log(`The balance of ${addressTo} is: ${balanceTo} UNIT`);
 };
 
 // 5. Call the balances function
 balances();
 ```
 
-You can view the [complete script on GitHub](https://raw.githubusercontent.com/moonbeam-foundation/moonbeam-docs/master/.snippets/code/ethers-tx-local/balances.js){target=_blank}.
+??? code "View the complete script"
+
+    ```js
+    --8<-- 'code/ethereum-api/ethersjs/balances.js'
+    ```
 
 To run the script and fetch the account balances, you can run the following command:
 
@@ -127,11 +127,13 @@ To run the script and fetch the account balances, you can run the following comm
 node balances.js
 ```
 
-If successful, the balances for the origin and receiving address will be displayed in your terminal in ETH.
+If successful, the balances for the origin and receiving address will be displayed in your terminal in UNIT.
+
+![Check Balance Ethers.js](/images/builders/interact/ethereum-api/ethersjs/ethersjs-1.png)
 
 ### Send Transaction Script {: #send-transaction-script }
 
-You'll only need one file for executing a transaction between accounts. For this example, you'll be transferring 1 DEV token from an origin address (from which you hold the private key) to another address. To get started, you can create a `transaction.js` file by running:
+You'll only need one file for executing a transaction between accounts. For this example, you'll be transferring 1 UNIT token from an origin address (from which you hold the private key) to another address. To get started, you can create a `transaction.js` file by running:
 
 ```
 touch transaction.js
@@ -152,13 +154,13 @@ Next, you will create the script for this file and complete the following steps:
 // {...}
 
 // 2. Create account variables
-const account_from = {
-  privateKey: 'YOUR-PRIVATE-KEY-HERE',
+const accountFrom = {
+  privateKey: 'YOUR_PRIVATE_KEY_HERE',
 };
-const addressTo = 'ADDRESS-TO-HERE';
+const addressTo = 'ADDRESS_TO_HERE';
 
 // 3. Create wallet
-let wallet = new ethers.Wallet(account_from.privateKey, provider);
+let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
 // 4. Create send function
 const send = async () => {
@@ -180,7 +182,11 @@ const send = async () => {
 send();
 ```
 
-You can view the [complete script on GitHub](https://raw.githubusercontent.com/moonbeam-foundation/moonbeam-docs/master/.snippets/code/ethers-tx-local/transaction.js){target=_blank}.
+??? code "View the complete script"
+
+    ```js
+    --8<-- 'code/ethereum-api/ethersjs/transaction.js'
+    ```
 
 To run the script, you can run the following command in your terminal:
 
@@ -192,7 +198,7 @@ If the transaction was succesful, in your terminal you'll see the transaction ha
 
 You can also use the `balances.js` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
-![Send Tx Etherjs](/images/builders/build/eth-api/libraries/ethers/ethers-1.png)
+![Send Tx Ethers.js](/images/builders/interact/ethereum-api/ethersjs/ethersjs-2.png)
 
 ## Deploy a Contract {: #deploy-a-contract }
 
@@ -224,14 +230,14 @@ Next, you will create the script for this file and complete the following steps:
 
 ```js
 // 1. Import the contract file
-const contractFile = require('./compile');
+import contractFile from './compile';
 
 // 2. Add the Ethers provider logic here:
 // {...}
 
 // 3. Create account variables
-const account_from = {
-  privateKey: 'YOUR-PRIVATE-KEY-HERE',
+const accountFrom = {
+  privateKey: 'YOUR_PRIVATE_KEY_HERE',
 };
 
 // 4. Save the bytecode and ABI
@@ -239,7 +245,7 @@ const bytecode = contractFile.evm.bytecode.object;
 const abi = contractFile.abi;
 
 // 5. Create wallet
-let wallet = new ethers.Wallet(account_from.privateKey, provider);
+let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
 // 6. Create contract instance with signer
 const incrementer = new ethers.ContractFactory(abi, bytecode, wallet);
@@ -259,7 +265,11 @@ const deploy = async () => {
 deploy();
 ```
 
-You can view the [complete script on GitHub](https://raw.githubusercontent.com/moonbeam-foundation/moonbeam-docs/master/.snippets/code/ethers-contract-local/deploy.js){target=_blank}.
+??? code "View the complete script"
+
+    ```js
+    --8<-- 'code/ethereum-api/ethersjs/deploy.js'
+    ```
 
 To run the script, you can enter the following command into your terminal:
 
@@ -269,8 +279,7 @@ node deploy.js
 
 If successful, the contract's address will be displayed in the terminal.
 
-![Deploy Contract Etherjs](/images/builders/build/eth-api/libraries/ethers/ethers-2.png)
-
+![Deploy Contract Etherjs](/images/builders/interact/ethereum-api/ethersjs/ethersjs-3.png)
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
@@ -284,7 +293,7 @@ touch get.js
 
 Then you can take the following steps to create the script:
 
-1. Import the `abi` from the `compile.js` file
+1. Import the `contractFile` from the `compile.js` file, where the ABI of the contract is
 2. [Set up the Ethers provider](#setting-up-the-ethers-provider)
 3. Create the `contractAddress` variable using the address of the deployed contract
 4. Create an instance of the contract using the `ethers.Contract` function and passing in the `contractAddress`, `abi`, and `provider`
@@ -294,16 +303,20 @@ Then you can take the following steps to create the script:
 
 ```js
 // 1. Import the ABI
-const { abi } = require('./compile');
+import contractFile from './compile';
 
 // 2. Add the Ethers provider logic here:
 // {...}
 
 // 3. Contract address variable
-const contractAddress = 'CONTRACT-ADDRESS-HERE';
+const contractAddress = 'CONTRACT_ADDRESS_HERE';
 
 // 4. Create contract instance
-const incrementer = new ethers.Contract(contractAddress, abi, provider);
+const incrementer = new ethers.Contract(
+  contractAddress,
+  contractFile.abi,
+  provider
+);
 
 // 5. Create get function
 const get = async () => {
@@ -319,7 +332,11 @@ const get = async () => {
 get();
 ```
 
-You can view the [complete script on GitHub](https://raw.githubusercontent.com/moonbeam-foundation/moonbeam-docs/master/.snippets/code/ethers-contract-local/get.js){target=_blank}.
+??? code "View the complete script"
+
+    ```js
+    --8<-- 'code/ethereum-api/ethersjs/get.js'
+    ```
 
 To run the script, you can enter the following command in your terminal:
 
@@ -328,6 +345,8 @@ node get.js
 ```
 
 If successful, the value will be displayed in the terminal.
+
+![Get Value from Contract Etherjs](/images/builders/interact/ethereum-api/ethersjs/ethersjs-4.png)
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
@@ -339,7 +358,7 @@ touch increment.js reset.js
 
 Open the `increment.js` file and take the following steps to create the script:
 
-1. Import the `abi` from the `compile.js` file
+1. Import the `contractFile` from the `compile.js` file, where the ABI of the contract is
 2. [Set up the Ethers provider](#setting-up-the-ethers-provider)
 3. Define the `privateKey` for the origin account, the `contractAddress` of the deployed contract, and the `_value` to increment by. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 4. Create a wallet using the `privateKey` and `provider` from the previous steps. The wallet instance is used to sign transactions
@@ -350,23 +369,27 @@ Open the `increment.js` file and take the following steps to create the script:
 
 ```js
 // 1. Import the contract ABI
-const { abi } = require('./compile');
+import contractFile from './compile';
 
 // 2. Add the Ethers provider logic here:
 // {...}
 
 // 3. Create variables
-const account_from = {
-  privateKey: 'YOUR-PRIVATE-KEY-HERE',
+const accountFrom = {
+  privateKey: 'YOUR_PRIVATE_KEY_HERE',
 };
-const contractAddress = 'CONTRACT-ADDRESS-HERE';
+const contractAddress = 'CONTRACT_ADDRESS_HERE';
 const _value = 3;
 
 // 4. Create wallet
-let wallet = new ethers.Wallet(account_from.privateKey, provider);
+let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
 // 5. Create contract instance with signer
-const incrementer = new ethers.Contract(contractAddress, abi, wallet);
+const incrementer = new ethers.Contract(
+  contractAddress,
+  contractFile.abi,
+  wallet
+);
 
 // 6. Create increment function
 const increment = async () => {
@@ -385,7 +408,11 @@ const increment = async () => {
 increment();
 ```
 
-You can view the [complete script on GitHub](https://raw.githubusercontent.com/moonbeam-foundation/moonbeam-docs/master/.snippets/code/ethers-contract-local/increment.js){target=_blank}.
+??? code "View the complete script"
+
+    ```js
+    --8<-- 'code/ethereum-api/ethersjs/increment.js'
+    ```
 
 To run the script, you can enter the following command in your terminal:
 
@@ -395,11 +422,11 @@ node increment.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that value is changing as expected:
 
-![Increment Contract Ethers](/images/builders/build/eth-api/libraries/ethers/ethers-3.png)
+![Increment Contract Ethers](/images/builders/interact/ethereum-api/ethersjs/ethersjs-5.png)
 
 Next you can open the `reset.js` file and take the following steps to create the script:
 
-1. Import the `abi` from the `compile.js` file
+1. Import the `contractFile` from the `compile.js` file, where the ABI of the contract is
 2. [Set up the Ethers provider](#setting-up-the-ethers-provider)
 3. Define the `privateKey` for the origin account and the `contractAddress` of the deployed contract. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 4. Create a wallet using the `privateKey` and `provider` from the previous steps. The wallet instance is used to sign transactions
@@ -410,22 +437,26 @@ Next you can open the `reset.js` file and take the following steps to create the
 
 ```js
 // 1. Import the contract ABI
-const { abi } = require('./compile');
+import contractFile from './compile';
 
 // 2. Add the Ethers provider logic here:
 // {...}
 
 // 3. Create variables
-const account_from = {
-  privateKey: 'YOUR-PRIVATE-KEY-HERE',
+const accountFrom = {
+  privateKey: 'YOUR_PRIVATE_KEY_HERE',
 };
-const contractAddress = 'CONTRACT-ADDRESS-HERE';
+const contractAddress = 'CONTRACT_ADDRESS_HERE';
 
 // 4. Create wallet
-let wallet = new ethers.Wallet(account_from.privateKey, provider);
+let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
 // 5. Create contract instance with signer
-const incrementer = new ethers.Contract(contractAddress, abi, wallet);
+const incrementer = new ethers.Contract(
+  contractAddress,
+  contractFile.abi,
+  wallet
+);
 
 // 6. Create reset function
 const reset = async () => {
@@ -442,7 +473,11 @@ const reset = async () => {
 reset();
 ```
 
-You can view the [complete script on GitHub](https://raw.githubusercontent.com/moonbeam-foundation/moonbeam-docs/master/.snippets/code/ethers-contract-local/reset.js){target=_blank}.
+??? code "View the complete script"
+
+    ```js
+    --8<-- 'code/ethereum-api/ethersjs/reset.js'
+    ```
 
 To run the script, you can enter the following command in your terminal:
 
@@ -452,6 +487,6 @@ node reset.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `reset.js` script to make sure that value is changing as expected:
 
-![Reset Contract Ethers](/images/builders/build/eth-api/libraries/ethers/ethers-4.png)
+![Reset Contract Ethers](/images/builders/interact/ethereum-api/ethersjs/ethersjs-6.png)
 
 --8<-- 'text/disclaimers/third-party-content.md'
