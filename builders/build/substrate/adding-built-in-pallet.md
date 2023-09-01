@@ -76,9 +76,9 @@ The configuration of new modules requires implementing a configuration `trait` f
 impl pallet_assets::Config for Runtime { ... }
 ```
 
-[Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides, only by implementing the configuration trait and its parameters.
+[Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides, only by implementing its configuration trait and parameters.
 
-When defining constant values for a module, they have to be enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the parameters into the correct struct type with functions that allow the runtime to read its type and value in a standardized way.
+When defining constant values for a module, they have to be enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the parameters into the correct struct type with functions that allow the runtime to read its type and values in a standardized way.
 
 It is important to note that every built-in module has a different purpose and, therefore, each of them has different needs in terms of the parameters that must be configured. In the case of the Assets module, the following code snippet shows a basic example of how to configure it with types, constants and default values. However, these values must be carefully adjusted to the specific requirements of the use case.
 
@@ -133,7 +133,7 @@ impl pallet_assets::Config for Runtime {
 
 ### Add the module to the runtime {: #add-module-to-runtime }
 
-In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro 'construct_runtime!()', this is where the pallet must be added to be included within the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now, also the Assets module:
+In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro 'construct_runtime!()', this is where the pallet must be added to be included within the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now, also Assets:
 
 ```rust
 construct_runtime!(
@@ -165,7 +165,7 @@ Finally, add the configuration in the chain specification for the genesis state,
 */node/src/chain_spec.rs
 ```
 
-The function `testnet_genesis`, presented in the following code snippet, defines the initial state for the modules included in the runtime (such as initial funded accounts, for example). After adding the Assets module, it is necessary to initialize it as well, and in the following example, the default values are defined.
+The function `testnet_genesis`, presented in the following code snippet, defines the initial state for the modules included in the runtime (such as initial funded accounts, for example). After adding the Assets module, it is necessary to initialize it as well, and in the following example, its default values are defined.
 
 More about the chain specification and how to configure it will be covered in the article [Modifying Your ContainerChain](/builders/build/modifying).
 
