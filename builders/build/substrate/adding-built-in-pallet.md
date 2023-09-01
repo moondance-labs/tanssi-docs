@@ -63,31 +63,56 @@ std = [
 ```
 ### Configure the Module {: #configure-the-module }
 
-With the dependency declared, now the module can be configured and added to the runtime to use it. To do so, you need to edit the `lib.rs` file that is located in the folder:
+With the dependency declared in the project, now the module can be configured and added to the runtime to be used. To do so, you need to edit the `lib.rs` file that is located at:
 
-CODE SNIPPET 
- */runtime/src/lib.rs
+```
+*/runtime/src/lib.rs
+```
 
+The configuration of new modules requires implementing a configuration `trait` for the module (in this example, for Assets) in the runtime, expressed in Rust as follows:
 
-The following code snippet is a basic example that configures the module with types, constants and default values. These values must be adjusted to the specific requirements of the use case.
+```rust
+// Implements pallet_assets::Config trait in the runtime
+impl pallet_assets::Config for Runtime { ... }
+```
+
+[Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides, only by implementing the configuration trait and its parameters.
+
+When defining constant values for a module, they have to be enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the parameters into the correct struct type with functions that allow the runtime to read its type and value in a standardized way.
+
+It is important to note that every built-in module has a different purpose and, therefore, each of them has different needs in terms of the parameters that must be configured. In the case of the Assets module, the following code snippet shows a basic example of how to configure it with types, constants and default values. However, these values must be carefully adjusted to the specific requirements of the use case.
+
+In this example, some parameters have a description attached. For a detailed description of each parameter, refer to the [official config trait for the Assets module documentation](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=_blank}.
 
 ```rust
 ...
 parameter_types! {
+   // These constants will be converted to structs that allows the runtime to read their type and value in a standardized way
+
+   // The basic amount of funds that must be reserved for an asset
 	pub const AssetDeposit: Balance = 100;
+   // The amount of funds that must be reserved when creating a new approval
 	pub const ApprovalDeposit: Balance = 1;
-	pub const StringLimit: u32 = 50;
 	pub const MetadataDepositBase: Balance = 10;
 	pub const MetadataDepositPerByte: Balance = 1;
+
+   // Maximum lenght for a symbol name
+   pub const StringLimit: u32 = 50;
 }
 
+// Implementing the Assets confif trait for the runtime
 impl pallet_assets::Config for Runtime {
 	type RuntimeEvent = RuntimeEvent;
+   // Stores the balances in an unsigned integer of 128bits
 	type Balance = u128;
+   // The id of an asset can be defined as an unsigned integer of 64 bits
 	type AssetId = u64;
 	type AssetIdParameter = u64;
+   // Uses module Balances as mechanism for currency operations
 	type Currency = Balances;
+   // Defines the allowed origins to create assets
 	type CreateOrigin = frame_support::traits::AsEnsureOriginWithArg<frame_system::EnsureSigned<AccountId>>;
+   // Root can create assets
 	type ForceOrigin = EnsureRoot<AccountId>;
 	type AssetDeposit = AssetDeposit;
 	type AssetAccountDeposit = frame_support::traits::ConstU128<1>;
@@ -106,11 +131,9 @@ impl pallet_assets::Config for Runtime {
 ...
 ```
 
-It is important to note that every built-in module has a different purpose, and therefore, have different needs in term of what must be configured. 
-
 ### Add the module to the runtime {: #add-module-to-runtime }
 
-In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro 'construct_runtime!()', this is where the pallet must be added to make the compiler include it within the runtime:
+In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro 'construct_runtime!()', this is where the pallet must be added to be included within the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now, also the Assets module:
 
 ```rust
 construct_runtime!(
@@ -128,6 +151,7 @@ construct_runtime!(
       Utility: pallet_utility = 5,
       ...
       Balances: pallet_balances = 10,
+      // Assets module is added here
       Assets: pallet_assets = 11,
       ...
    }
@@ -135,11 +159,15 @@ construct_runtime!(
 
 ### Configure the Module in the Chain Specification {: #configure-chain-specs }
 
-Finally, add the default configuration in the chain specification for the genesis, in the file `chain_spec.rs` located in:
+Finally, add the configuration in the chain specification for the genesis state, in the file `chain_spec.rs` located at:
 
-CODE SNIPPET
-*/container-chains/templates/frontier/node/src/chain_spec.rs
+```
+*/node/src/chain_spec.rs
+```
 
+The function `testnet_genesis`, presented in the following code snippet, defines the initial state for the modules included in the runtime (such as initial funded accounts, for example). After adding the Assets module, it is necessary to initialize it as well, and in the following example, the default values are defined.
+
+More about the chain specification and how to configure it will be covered in the article [Modifying Your ContainerChain](/builders/build/modifying).
 
 ```rust
 fn testnet_genesis(
@@ -154,6 +182,7 @@ fn testnet_genesis(
                .to_vec(),
       },
       ...
+      // Add the default state for this module in the genesis state
       assets: Default::default()
       ...
    }
