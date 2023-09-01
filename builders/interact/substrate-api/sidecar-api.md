@@ -13,7 +13,7 @@ Substrate API Sidecar allows applications to access blocks, account balance, and
 
 There are multiple ways of installing and running the Substrate API Sidecar. This guide will describe the steps for installing and running it locally through NPM. For running Substrate API Sidecar through Docker, or building and running it from source, please refer to the [Substrate API Sidecar Github Repository](https://github.com/paritytech/substrate-api-sidecar#readme).
 
---8<-- 'text/common/node-npm.md'
+--8<-- 'text/common/general-js-tutorial-check.md'
 
 ### Installing the Substrate API Sidecar {: #installing-the-substrate-api-sidecar }
 

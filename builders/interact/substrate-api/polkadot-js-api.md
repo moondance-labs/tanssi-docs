@@ -13,7 +13,7 @@ You can use the Polkadot.js API to query on-chain data and send extrinsics from 
 
 Here you will find an overview of the available functionalities and some commonly used code examples to get you started on interacting with your ContainerChain using the Polkadot.js API library.
 
---8<-- 'text/common/node-npm.md'
+--8<-- 'text/common/general-js-tutorial-check.md'
 
 ## Install Polkadot.js API {: #installing-polkadot.js-api-library }
 
