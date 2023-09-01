@@ -11,6 +11,7 @@ const providerRPC = {
   },
 };
 
+// Create ethers provider
 const provider = new ethers.JsonRpcProvider(providerRPC.EvmContainer.rpc, {
   chainId: providerRPC.EvmContainer.chainId,
   name: providerRPC.EvmContainer.name,
