@@ -18,9 +18,9 @@ const provider = new ethers.JsonRpcProvider(providerRPC.EvmContainer.rpc, {
 
 // Define accounts and wallet
 const accountFrom = {
-  privateKey: 'YOUR_PRIVATE_KEY_HERE',
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
-const addressTo = 'ADDRESS_TO_HERE';
+const addressTo = 'INSERT_ADDRESS_TO';
 const wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
 // Create send function
