@@ -11,15 +11,15 @@ Substrate is a powerful and modular software development framework included in t
 
 What sets Substrate apart is its modular architecture, which enables the seamless integration of pre-built modules and the creation of custom ones, facilitating the development of blockchain protocols. 
 
-If the use case requires only EVM (Ethereum virtual machine) compatibility, then the provided template included in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} will meet the requirements and need no additional changes, but, teams willing to build a Substrate Appchain will need to add and compose the built-in modules and the custom-made ones into the runtime, compile and generate the chain specification and, finally, deploying through Tanssi protocol to evolve into a live ContainerChain.
+If the use case requires only EVM (Ethereum virtual machine) compatibility, then the provided template included in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} will meet the requirements and need no additional changes, but teams willing to build a Substrate Appchain will need to add and compose the built-in modules and the custom-made ones into the runtime, compile and generate the chain specification, and, finally, deploy through the Tanssi protocol to evolve into a live ContainerChain.
 
 In this article, the necessary steps involved when adding a built-in module are covered.
 
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module }
 
-As introduced in the [modularity](/learn/framework/modules) article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities ready to use in your runtime.
+As introduced in the [modularity](/learn/framework/modules) article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities, ready to be used in your runtime.
 
-Modules are meant to provide the functionality needed in very different use cases such as DeFi, NFTs, or any other, and, therefore, they are basic building blocks inherently abstract that can be configured according to the specific needs of the Appchain.
+Modules are meant to provide the functionality needed in very different use cases such as DeFi, NFTs, or any other, and, therefore, they are basic building blocks that are inherently abstract and can be configured according to the specific needs of the Appchain.
 
 To add a module, the following steps are necessary:
 
@@ -27,11 +27,11 @@ To add a module, the following steps are necessary:
 2. Make the standard (`std`) features of the module available to the compiler
 3. Configure the module
 4. Add the module to the runtime
-5. Add default configuration in the chain specification
+5. Add the default configuration to the chain specification
 
 In the following example, the very popular Substrate module `pallet-assets` will be added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, specifically in the folder `container-chains/templates/frontier/`.
 
-### Declare the dependency {: #declare-dependency }
+### Declare the Dependency {: #declare-dependency }
 
 Every package contains a manifest file named `Cargo.toml` stating, among other things, all the dependencies the package relies on, and the ContainerChain runtime is no exception. 
 
@@ -44,11 +44,11 @@ pallet-assets = { git = "https://github.com/paritytech/polkadot-sdk", branch = "
 ...
 ```
 
-### Make the standard features available to the compiler {: #standard-features }
+### Make the Standard Features Available to the Compiler {: #standard-features }
 
 In Cargo, the “features” flags provide a mechanism to tell the compiler to include or leave out certain portions of code, which is a useful mechanism to optimize compile time, minimize binary file sizes, or disable certain behavior (for example, not including unit testing or benchmarking functionality in the runtime intended for production). 
 
-To compile the standard features for the Assets module within the runtime, the same `Cargo.toml` file located in the `runtime` folder must be edited, enabling the flag. Everything listed in this section will ensure that it is available to the compiler when building the runtime binary, which is ultimately the file that contains all the information to run (initially) your ContainerChain.
+To compile the standard features for the Assets module within the runtime, the same `Cargo.toml` file in the `runtime` folder must be edited, enabling the flag. Everything listed in this section will ensure that it is available to the compiler when building the runtime binary, which is ultimately the file containing all the information to run your ContainerChain initially.
 
 ```toml
 [features]
@@ -65,7 +65,7 @@ std = [
 
 With the dependency declared in the project, now the module can be configured and added to the runtime. To do so, you need to edit the `lib.rs` file that is located at:
 
-```
+```text
 */runtime/src/lib.rs
 ```
 
@@ -76,7 +76,7 @@ The configuration of new modules requires implementing a configuration `trait` f
 impl pallet_assets::Config for Runtime { ... }
 ```
 
-[Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides, only by implementing its configuration trait and parameters.
+[Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides only by implementing its configuration trait and parameters.
 
 Some of the parameters the trait needs to define might be constant values, in which case, they have to be defined and enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the constants into the correct struct type with functions that allow the runtime to read its type and values in a standardized way. 
 
@@ -136,9 +136,9 @@ impl pallet_assets::Config for Runtime {
 
 The complete configuration of the module contains more parameters, to view a detailed description of each of them, refer to the [official config trait for the Assets module documentation](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=_blank}.
 
-### Add the module to the runtime {: #add-module-to-runtime }
+### Add the Module to the Runtime {: #add-module-to-runtime }
 
-In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro 'construct_runtime!()', this is where the pallet must be added to be included within the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now, also Assets:
+In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro 'construct_runtime!()'. This is where the pallet must be added to be included in the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now also Assets:
 
 ```rust
 construct_runtime!(
@@ -164,9 +164,9 @@ construct_runtime!(
 
 ### Configure the Module in the Chain Specification {: #configure-chain-specs }
 
-Finally, add the configuration in the chain specification for the genesis state, in the file `chain_spec.rs` located at:
+Finally, add the configuration in the chain specification for the genesis state in the file `chain_spec.rs` located at:
 
-```
+```text
 */node/src/chain_spec.rs
 ```
 
@@ -194,4 +194,4 @@ fn testnet_genesis(
 }
 ```
 
-With the module included, this new runtime version has unlocked a new set of functionalities ready to be composed with even more of the Substrate built-in modules or the custom-made ones.
+With the module included, this new runtime version has unlocked a new set of functionalities ready to be composed with even more of the Substrate built-in modules or custom-made ones.
