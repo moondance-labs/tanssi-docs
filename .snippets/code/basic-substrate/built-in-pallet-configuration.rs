@@ -39,7 +39,8 @@ impl pallet_assets::Config for Runtime {
 
     type AssetIdParameter = u64;
     // Defines the allowed origins to create assets
-    type CreateOrigin = frame_support::traits::AsEnsureOriginWithArg<frame_system::EnsureSigned<AccountId>>;
+    type CreateOrigin = 
+        frame_support::traits::AsEnsureOriginWithArg<frame_system::EnsureSigned<AccountId>>;
     // Root can create assets
     type ForceOrigin = EnsureRoot<AccountId>;
     type AssetAccountDeposit = frame_support::traits::ConstU128<1>;
