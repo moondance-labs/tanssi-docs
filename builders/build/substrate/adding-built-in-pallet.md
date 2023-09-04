@@ -63,7 +63,7 @@ std = [
 ```
 ### Configure the Module {: #configure-the-module }
 
-With the dependency declared in the project, now the module can be configured and added to the runtime to be used. To do so, you need to edit the `lib.rs` file that is located at:
+With the dependency declared in the project, now the module can be configured and added to the runtime. To do so, you need to edit the `lib.rs` file that is located at:
 
 ```
 */runtime/src/lib.rs
@@ -78,58 +78,63 @@ impl pallet_assets::Config for Runtime { ... }
 
 [Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides, only by implementing its configuration trait and parameters.
 
-When defining constant values for a module, they have to be enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the parameters into the correct struct type with functions that allow the runtime to read its type and values in a standardized way.
+Some of the parameters the trait needs to define might be constant values, in which case, they have to be defined and enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the constants into the correct struct type with functions that allow the runtime to read its type and values in a standardized way. 
 
-It is important to note that every built-in module has a different purpose and, therefore, each of them has different needs in terms of the parameters that must be configured. In the case of the Assets module, the following code snippet shows a basic example of how to configure it with types, constants and default values. However, these values must be carefully adjusted to the specific requirements of the use case.
-
-In this example, some parameters have a description attached. For a detailed description of each parameter, refer to the [official config trait for the Assets module documentation](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=_blank}.
+The following code snippet shows an example of the constant definitions to be used in the configuration of the module:
 
 ```rust
-...
 parameter_types! {
-   // These constants will be converted to structs that allows the runtime to read their type and value in a standardized way
-
-   // The basic amount of funds that must be reserved for an asset
+   // The amount of funds that must be reserved for an asset
 	pub const AssetDeposit: Balance = 100;
-   // The amount of funds that must be reserved when creating a new approval
+   // The amount of funds that must be reserved when creating 
+   // a new transfer approval
 	pub const ApprovalDeposit: Balance = 1;
+   // The basic amount of funds that must be reserved when adding metadata 
+   // to your asset
 	pub const MetadataDepositBase: Balance = 10;
+   // The additional funds that must be reserved for the number of bytes 
+   // you store in your metadata
 	pub const MetadataDepositPerByte: Balance = 1;
 
-   // Maximum lenght for a symbol name
+   // Maximum lenght for the asset symbol and friendly name
    pub const StringLimit: u32 = 50;
 }
+```
 
-// Implementing the Assets confif trait for the runtime
+It is important to note that every built-in module has a different purpose and, therefore, each of them has different needs in terms of the parameters that must be configured. The following code snippet implements the trait and configures the module Assets, using types and the constants defined previously in the `parameter_types!` macro:
+
+```rust
+// Implementing the Assets config trait for the runtime
 impl pallet_assets::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
+   
    // Stores the balances in an unsigned integer of 128bits
 	type Balance = u128;
    // The id of an asset can be defined as an unsigned integer of 64 bits
 	type AssetId = u64;
-	type AssetIdParameter = u64;
    // Uses module Balances as mechanism for currency operations
 	type Currency = Balances;
-   // Defines the allowed origins to create assets
-	type CreateOrigin = frame_support::traits::AsEnsureOriginWithArg<frame_system::EnsureSigned<AccountId>>;
-   // Root can create assets
-	type ForceOrigin = EnsureRoot<AccountId>;
+
+   // Configure the module by referencing the previously
+   // defined constants
+
 	type AssetDeposit = AssetDeposit;
-	type AssetAccountDeposit = frame_support::traits::ConstU128<1>;
 	type MetadataDepositBase = MetadataDepositBase;
 	type MetadataDepositPerByte = MetadataDepositPerByte;
 	type ApprovalDeposit = ApprovalDeposit;
 	type StringLimit = StringLimit;
-	type Freezer = ();
-	type Extra = ();
-	type WeightInfo = pallet_assets::weights::SubstrateWeight<Runtime>;
-	type RemoveItemsLimit = frame_support::traits::ConstU32<1000>;
-	#[cfg(feature = "runtime-benchmarks")]
-	type BenchmarkHelper = ();
-   type CallbackHandle = ();
+   
+   // More configuration
+   ...
 }
-...
 ```
+
+??? code "View the complete script"
+
+    ```rust
+    --8<-- 'code/basic-substrate/built-in-pallet-configuration.rs'
+    ```
+
+The complete configuration of the module contains more parameters, to view a detailed description of each of them, refer to the [official config trait for the Assets module documentation](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=_blank}.
 
 ### Add the module to the runtime {: #add-module-to-runtime }
 
@@ -169,7 +174,7 @@ The function `testnet_genesis`, presented in the following code snippet, defines
 
 More about the chain specification and how to configure it will be covered in the article [Modifying Your ContainerChain](/builders/build/modifying).
 
-```rust
+```rust hl_lines="14"
 fn testnet_genesis(
    endowed_accounts: Vec<AccountId>,
    id: ParaId,
