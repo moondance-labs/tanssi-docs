@@ -1,5 +1,5 @@
 ---
-title: Web3.py Python Library 
+title: EVM Transactions & Contracts with Web3.py
 description: Learn how to use the Ethereum Web3 Python Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM ContainerChain.
 ---
 
