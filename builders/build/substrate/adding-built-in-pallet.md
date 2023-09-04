@@ -40,7 +40,11 @@ To declare the dependency and make it available to the runtime, open the `Cargo.
 ```toml
 [dependencies]
 ...
-pallet-assets = { git = "https://github.com/paritytech/polkadot-sdk", branch = "master", default-features = false }
+pallet-assets = { 
+   git = "https://github.com/paritytech/polkadot-sdk", 
+   branch = "master", 
+   default-features = false 
+}
 ...
 ```
 
