@@ -11,10 +11,10 @@ web3 = Web3(Web3.HTTPProvider(provider_rpc['evm_containerchain']))
 
 # 3. Create address variables
 account_from = {
-    'private_key': 'YOUR_PRIVATE_KEY_HERE',
-    'address': 'PUBLIC_ADDRESS_OF_PK_HERE',
+    'private_key': 'INSERT_ YOUR_PRIVATE_KEY',
+    'address': 'INSERT_ PUBLIC_ADDRESS_OF_PK',
 }
-address_to = 'ADDRESS_TO_HERE'
+address_to = 'INSERT_ ADDRESS_TO'
 
 print(
     f'Attempting to send transaction from { account_from["address"] } to { address_to }'

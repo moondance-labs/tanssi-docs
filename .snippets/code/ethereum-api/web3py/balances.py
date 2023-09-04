@@ -9,8 +9,8 @@ provider_rpc = {
 web3 = Web3(Web3.HTTPProvider(provider_rpc['evm_containerchain']))
 
 # 2. Create address variables
-address_from = 'ADDRESS_FROM_HERE'
-address_to = 'ADDRESS_TO_HERE'
+address_from = 'INSERT_ADDRESS_FROM'
+address_to = 'INSERT_ADDRESS_TO'
 
 # 4. Fetch balance data
 balance_from = web3.from_wei(web3.eth.get_balance(address_from), 'ether')
