@@ -1,5 +1,5 @@
 ---
-title: Basic Substrate
+title: Adding Built-in Substrate Modules
 description: Substrate is a modular blockchain framework that includes many ready-to-use modules covering a wide range of common functionalities to include in your runtime.
 ---
 
@@ -63,7 +63,7 @@ std = [
 ```
 ### Configure the Module {: #configure-the-module }
 
-With the dependency declared in the project, now the module can be configured and added to the runtime. To do so, you need to edit the `lib.rs` file that is located at:
+With the dependency declared in the project, the module can now be configured and added to the runtime. To do so, you need to edit the `lib.rs` file that is located at:
 
 ```text
 */runtime/src/lib.rs
@@ -101,7 +101,7 @@ parameter_types! {
 }
 ```
 
-It is important to note that every built-in module has a different purpose and, therefore, each of them has different needs in terms of the parameters that must be configured. The following code snippet implements the trait and configures the module Assets, using types and the constants defined previously in the `parameter_types!` macro:
+It is important to note that every built-in module has a different purpose, and, therefore, each of them has different needs in terms of the parameters that must be configured. The following code snippet implements the trait and configures the module Assets, using types and the constants defined previously in the `parameter_types!` macro:
 
 ```rust
 // Implementing the Assets config trait for the runtime
