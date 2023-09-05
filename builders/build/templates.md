@@ -7,14 +7,14 @@ description: Tanssi includes templates to kick-start the development of an Appch
 
 ## Introduction {: #introduction }
 
-ContainerChains deployed through Tanssi are essentially parachains that are capable of interacting with the relay chain and also contain the necessary functionalities to support the Tanssi protocol and the custom logic that applies to the specific use case the developers are addressing.
+ContainerChains deployed through Tanssi are essentially parachains in the Polkadot ecosystem capable of interacting with the relay chain and also contain the necessary functionalities to support the Tanssi protocol and the custom logic that applies to the specific use case the developers are addressing.
 
-To jumpstart the development process, Tanssi includes two templates:
+To jumpstart the development process, Tanssi includes two templates in its [repository](https://github.com/moondance-labs/tanssi){target=_blank}:
 
 - **Baseline Appchain template**
 - **Baseline EVM (Ethereum Virtual Machine) Template**
 
-Both templates implement the standard base setup to work as a parachain in the Polkadot ecosystem and to support the Tanssi protocol.
+Both templates implement the standard base setup to seamlessly integrate within the Polkadot ecosystem and also to support the Tanssi protocol.
 
 ## Base Setup {: #base-setup }
 
