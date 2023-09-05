@@ -19,7 +19,6 @@ For the examples in this guide, you will need to have the following:
 
  - An account with funds in the Tanssi EVM ContainerChain you are testing with
 
-
 ## Installing Ethers.js {: #install-ethersjs }
 
 For this guide, you'll need to install the Ethers.js library and the Solidity compiler. To install both NPM packages, you can run the following command:
