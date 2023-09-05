@@ -142,7 +142,7 @@ The complete configuration of the module contains more parameters, to view a det
 
 ### Add the Module to the Runtime {: #add-module-to-runtime }
 
-In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro 'construct_runtime!()'. This is where the pallet must be added to be included in the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now also Assets:
+In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro `construct_runtime!()`. This is where the pallet must be added to be included in the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now also Assets:
 
 ```rust
 construct_runtime!(
