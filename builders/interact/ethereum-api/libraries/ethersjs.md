@@ -98,8 +98,8 @@ Next, you will create the script for this file and complete the following steps:
 // {...}
 
 // 2. Create address variables
-const addressFrom = 'ADDRESS-FROM-HERE';
-const addressTo = 'ADDRESS-TO-HERE';
+const addressFrom = 'INSERT_ADDRESS_FROM';
+const addressTo = 'INSERT_ADDRESS_TO';
 
 // 3. Create balances function
 const balances = async () => {
