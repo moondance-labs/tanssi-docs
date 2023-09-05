@@ -27,15 +27,15 @@ It is important to note that none of the code presented in this article is inten
 
 ## Creating the Lottery Module Files {: #creating-lottery-module-files } 
 
-Before starting to write code, the files containing the logic need to be created. As modules in Substrate are inherently abstract and can be reused in many different runtimes with different customizations, it is Cargo, the Rust language package manager, the command that creates the module, in the format of a new package.
+Before you begin writing code, you must create the files that contain the logic. Substrate modules are abstract and designed for reuse in various runtimes with different customizations. To achieve this, you'll use Cargo, which is Rust's package manager, to create the module in the form of a new package.
 
-Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, and from the root folder navigate to `pallets`, where the module will be created.
+The first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, and from the root folder navigate to `pallets`, where the module will be created.
 
 ```bash
 cd container-chains/pallets
 ```
 
-Create the module package with cargo:
+Next, create the module package with cargo:
 
 ```bash
 cargo new lottery-example
@@ -47,13 +47,13 @@ By default, Cargo creates the new package in a folder with the provided name (lo
 mv lottery-example/src/main.rs lottery-example/src/lib.rs
 ```
 
-Now the module is created and ready to contain the custom logic.
+Once you've executed all the commands, the module is created and ready to contain the custom logic. that you'll be adding in the following sections.
 
 ## Configure the Module's Dependencies {: #configure-module-dependencies}
 
-Being the module an independent package, it has its own `Cargo.toml` where the module attributes and dependencies must be defined.
+Since the module functions as an independent package, it has its own Cargo.toml file where you must specify the module's attributes and dependencies.
 
-As an example of the attributes, the name of the module, version, authors, and other relevant information can be set.
+For instance, you can use attributes to specify details like the module's name, version, authors, and other pertinent information. For example, in the the `lottery-example` module, the `Cargo.toml` file can be configured as follows:
 
 ```toml
 [package]
@@ -110,11 +110,10 @@ To make the modules highly adaptable, their configuration is abstract enough to 
 
 The implementation of the `#[pallet::config]` macro is mandatory and sets the module's dependency on other modules and the types and values specified by the runtime-specific settings. More about module dependency in the [Substrate documentation](https://docs.substrate.io/build/pallet-coupling/){target=_blank}.
 
+In the custom `loterry-example` module you are building, the module depends on other modules to manage the currency and the random function to select the winner. The module also reads and uses the ticket price and the maximum number of participants directly from the runtime settings.  Consequently, the configuration needs to include these dependencies:
 
-In this example, the lottery module depends on other modules to manage the currency and the random function to select the winner and also reads and uses the ticket price and the maximum number of participants directly from the runtime settings. The configurations for this module are:
-
-1. Events: the module depends on the runtime's definition of an event to be able to emit them.
-2. Currency: this module needs to transfer funds, hence, it needs the definition of the currency system from the runtime
+1. Events: the module depends on the runtime's definition of an event to be able to emit them
+2. Currency: the `lottery-example` module needs to be able to transfer funds, hence, it needs the definition of the currency system from the runtime
 3. Randomness: to fairly select the winner of the prize from the list of participants 
 4. Ticket cost: the price to charge the buyers that participate in the lottery
 5. Maximum number of participants: the top limit of participants allowed in each lottery round
@@ -183,7 +182,7 @@ Every call is enclosed within the `#[pallet::call]` macro, and present the follo
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an Error if anything goes wrong
 
-In this lottery example, we defined two calls with the following logic:
+In this `lottery-example` module, we defined two calls with the following logic:
 
 ```rust
 #[pallet::call]
@@ -228,7 +227,7 @@ Here is the complete implementation of the calls, with the custom lottery logic:
 
 ### Implementing Custom Errors {: #implementing-custom-errors}
 
-The `#[pallet::error]` macro is applied to an enumeration of errors that might occur during the execution. It is important for security reasons to handle all error cases gracefully and never crash in the runtime.
+The `#[pallet::error]` macro is used to annotate an enumeration of potential errors that could occur during execution. It is crucial for security to ensure that all error situations are handled gracefully, without causing the runtime to crash.
 
 ```rust
 // Errors inform users that something went wrong.
@@ -244,7 +243,7 @@ pub enum Error<T> {
 
 The `#[pallet::event]` macro is applied to an enumeration of events to inform the user of any changes in the state or important actions that happened during the execution in the runtime.
 
-The following snippet shows the events defined in the lottery example:
+As an example, for the `lottery-example` module, this macro could be configured with the following events:
 
 ```rust
 #[pallet::event]
@@ -261,7 +260,9 @@ pub enum Event<T: Config> {
 
 ### Implementing Storage for State Persistence {: #implementing-storage }
 
-The `#[pallet::storage]` macro initializes a runtime storage structure. In this example, a basic value storage structure is used to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=_blank}).
+The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of an AppChain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=_blank}.
+
+In this example,  the `lottery-example` module needs a basic value storage structure used to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=_blank}). This can be initialized as follows:
 
 In the heavily constrained environment of an AppChain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=_blank}.
 
@@ -287,7 +288,7 @@ Putting all the pieces together, after implementing all the required macros and 
 
 ## Configure the Runtime {: #configure-runtime }
 
-Finally, with the module finished, it can be included in the runtime. By doing so, the transactions buy_tickets and award_prize will be callable by the users.
+Finally, with the module finished, it can be included in the runtime. By doing so, the transactions `buy_tickets` and `award_prize` will be callable by the users. This also means that the (Polkadot.js API)(/builders/interact/substrate-api/polkadot-js-api/) will be decorated with this module module and all the available calls that it contains.
 
 To configure the runtime, open the `lib.rs` file, that contains the definition for the runtime of the included EVM template and is located in the folder:
 
