@@ -1,13 +1,13 @@
 ---
-title: How to use Ethers.js Ethereum Library
-description: Follow this tutorial to learn how to use the Ethereum EtherJS Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM ContainerChain.
+title: EVM Transactions & Contracts with Ethers.js
+description: Learn how to use the Ethereum EtherJS Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM ContainerChain.
 ---
 
 # Ethers.js JavaScript Library
 
 ## Introduction {: #introduction } 
 
-The [Ethers.js](https://docs.ethers.io/){target=_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=_blank}. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v5/){target=_blank}.
+The [Ethers.js](https://docs.ethers.org/){target=_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=_blank}. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6/){target=_blank}.
 
 In this guide, you'll learn how to use setup the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](XXX){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
 
@@ -37,7 +37,7 @@ For this guide, you'll need to install the Ethers.js library and the Solidity co
 
 ## Setting up the Ethers Provider {: #setting-up-the-ethers-provider }
 
-Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Ethers provider](https://docs.ethers.io/v6/api/providers/){target=_blank} to interact with the network.
+Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Ethers provider](https://docs.ethers.org/v6/api/providers/){target=_blank} to interact with the network.
 
 To create a provider, you can take the following steps:
 
@@ -80,7 +80,7 @@ You can also use the balance script to check the account balances after the tran
 
 You'll only need one file to check the balances of both addresses before and after the transaction is sent.  To get started, you can create a `balances.js` file by running:
 
-```
+```bash
 touch balances.js
 ```
 
@@ -97,8 +97,8 @@ Next, you will create the script for this file and complete the following steps:
 // {...}
 
 // 2. Create address variables
-const addressFrom = 'ADDRESS-FROM-HERE';
-const addressTo = 'ADDRESS-TO-HERE';
+const addressFrom = 'INSERT_ADDRESS_FROM';
+const addressTo = 'INSERT_ADDRESS_TO';
 
 // 3. Create balances function
 const balances = async () => {
@@ -122,7 +122,7 @@ balances();
 
 To run the script and fetch the account balances, you can run the following command:
 
-```
+```bash
 node balances.js
 ```
 
@@ -134,7 +134,7 @@ If successful, the balances for the origin and receiving address will be display
 
 You'll only need one file for executing a transaction between accounts. For this example, you'll be transferring 1 UNIT token from an origin address (from which you hold the private key) to another address. To get started, you can create a `transaction.js` file by running:
 
-```
+```bash
 touch transaction.js
 ```
 
@@ -154,9 +154,9 @@ Next, you will create the script for this file and complete the following steps:
 
 // 2. Create account variables
 const accountFrom = {
-  privateKey: 'YOUR_PRIVATE_KEY_HERE',
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
-const addressTo = 'ADDRESS_TO_HERE';
+const addressTo = 'INSERT_ADDRESS_TO';
 
 // 3. Create wallet
 let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
@@ -189,7 +189,7 @@ send();
 
 To run the script, you can run the following command in your terminal:
 
-```
+```bash
 node transaction.js
 ```
 
@@ -211,7 +211,7 @@ You can also use the `balances.js` script to check that the balances for the ori
 
 With the script for compiling the `Incrementer.sol` contract in place, you can then use the results to send a signed transaction that deploys it. To do so, you can create a file for the deployment script called `deploy.js`:
 
-```
+```bash
 touch deploy.js
 ```
 
@@ -236,7 +236,7 @@ import contractFile from './compile';
 
 // 3. Create account variables
 const accountFrom = {
-  privateKey: 'YOUR_PRIVATE_KEY_HERE',
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
 
 // 4. Save the bytecode and ABI
@@ -272,7 +272,7 @@ deploy();
 
 To run the script, you can enter the following command into your terminal:
 
-```
+```bash
 node deploy.js
 ```
 
@@ -286,7 +286,7 @@ Call methods are the type of interaction that don't modify the contract's storag
 
 To get started, you can create a file and name it `get.js`:
 
-```
+```bash
 touch get.js
 ```
 
@@ -308,7 +308,7 @@ import contractFile from './compile';
 // {...}
 
 // 3. Contract address variable
-const contractAddress = 'CONTRACT_ADDRESS_HERE';
+const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 
 // 4. Create contract instance
 const incrementer = new ethers.Contract(
@@ -339,7 +339,7 @@ get();
 
 To run the script, you can enter the following command in your terminal:
 
-```
+```bash
 node get.js
 ```
 
@@ -351,7 +351,7 @@ If successful, the value will be displayed in the terminal.
 
 Send methods are the type of interaction that modify the contract's storage (change variables), meaning a transaction needs to be signed and sent. In this section, you'll create two scripts: one to increment and one to reset the incrementer. To get started, you can create a file for each script and name them `increment.js` and `reset.js`:
 
-```
+```bash
 touch increment.js reset.js
 ```
 
@@ -375,9 +375,9 @@ import contractFile from './compile';
 
 // 3. Create variables
 const accountFrom = {
-  privateKey: 'YOUR_PRIVATE_KEY_HERE',
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
-const contractAddress = 'CONTRACT_ADDRESS_HERE';
+const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 const _value = 3;
 
 // 4. Create wallet
@@ -415,7 +415,7 @@ increment();
 
 To run the script, you can enter the following command in your terminal:
 
-```
+```bash
 node increment.js
 ```
 
@@ -443,9 +443,9 @@ import contractFile from './compile';
 
 // 3. Create variables
 const accountFrom = {
-  privateKey: 'YOUR_PRIVATE_KEY_HERE',
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
-const contractAddress = 'CONTRACT_ADDRESS_HERE';
+const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 
 // 4. Create wallet
 let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
@@ -480,7 +480,7 @@ reset();
 
 To run the script, you can enter the following command in your terminal:
 
-```
+```bash
 node reset.js
 ```
 

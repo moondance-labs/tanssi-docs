@@ -16,8 +16,8 @@ const provider = new ethers.JsonRpcProvider(providerRPC.EvmContainer.rpc, {
 });
 
 // Define addresses
-const addressFrom = 'ADDRESS_FROM_HERE';
-const addressTo = 'ADDRESS_TO_HERE';
+const addressFrom = 'INSERT_ADDRESS_FROM';
+const addressTo = 'INSERT_ADDRESS_TO';
 
 // Create balances function
 const balances = async () => {
