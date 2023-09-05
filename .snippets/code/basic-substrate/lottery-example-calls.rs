@@ -41,8 +41,13 @@ impl<T: Config> Pallet<T> {
             }
         };
 
-        // 5. Transfers the ticket cost to the module's account, to be hold until transferred to the winner
-        T::Currency::transfer(&buyer, &Self::get_pallet_account(), T::TicketCost::get(), ExistenceRequirement::KeepAlive)?;
+        // 5. Transfers the ticket cost to the module's account
+        // to be hold until transferred to the winner
+        T::Currency::transfer(
+            &buyer, 
+            &Self::get_pallet_account(), 
+            T::TicketCost::get(), 
+            ExistenceRequirement::KeepAlive)?;
         
         // 6. Notify the event
         Self::deposit_event(Event::TicketBought { who: buyer });
@@ -71,7 +76,11 @@ impl<T: Config> Pallet<T> {
 
                 // 4. Transfers the total prize to the winner's account
                 let prize = T::Currency::free_balance(&Self::get_pallet_account());
-                T::Currency::transfer(&Self::get_pallet_account(), &winner, prize, ExistenceRequirement::AllowDeath)?;
+                T::Currency::transfer(
+                    &Self::get_pallet_account(), 
+                    &winner, 
+                    prize, 
+                    ExistenceRequirement::AllowDeath)?;
 
                 // 5. Resets the participants list, and gets ready for another lottery round
                 Participants::<T>::kill();

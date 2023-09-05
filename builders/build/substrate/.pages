@@ -1,0 +1,5 @@
+title: Basic Substrate
+hide: false
+nav:
+  - index.md
+  - 'Adding a Custom-Made Module': 'adding-custom-made-module.md'
