@@ -10,7 +10,6 @@ parameter_types! {
     // The additional funds that must be reserved for the number of bytes 
     // you store in your metadata
     pub const MetadataDepositPerByte: Balance = 1;
-
     // Maximum lenght for the asset symbol and friendly name
     pub const StringLimit: u32 = 50;
 }
@@ -28,7 +27,6 @@ impl pallet_assets::Config for Runtime {
 
     // Configure the module by referencing the previously
     // defined constants
-
     type AssetDeposit = AssetDeposit;
     type MetadataDepositBase = MetadataDepositBase;
     type MetadataDepositPerByte = MetadataDepositPerByte;
@@ -36,7 +34,6 @@ impl pallet_assets::Config for Runtime {
     type StringLimit = StringLimit;
 
     // More configuration
-
     type AssetIdParameter = u64;
     // Defines the allowed origins to create assets
     type CreateOrigin = 
