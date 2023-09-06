@@ -238,6 +238,8 @@ Here is the complete implementation of the calls, with the custom lottery logic:
 
 The `#[pallet::error]` macro is used to annotate an enumeration of potential errors that could occur during execution. It is crucial for security to ensure that all error situations are handled gracefully, without causing the runtime to crash.
 
+The following example of this macro implementation shows the errors that might occur in the lottery module:
+
 ```rust
 // Errors inform users that something went wrong.
 #[pallet::error]
