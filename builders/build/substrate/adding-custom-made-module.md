@@ -296,9 +296,9 @@ Putting all the pieces together, after implementing all the required macros and 
 
 ## Configure the Runtime {: #configure-runtime }
 
-Finally, with the module finished, it can be included in the runtime. By doing so, the transactions `buy_tickets` and `award_prize` will be callable by the users. This also means that the (Polkadot.js API)(/builders/interact/substrate-api/polkadot-js-api/) will be decorated with this module module and all the available calls that it contains.
+Finally, with the module finished, it can be included in the runtime. By doing so, the transactions `buy_tickets` and `award_prize` will be callable by the users. This also means that the (Polkadot.js API)(/builders/interact/substrate-api/polkadot-js-api/) will be decorated with this module and all the available calls that it contains.
 
-To configure the runtime, open the `lib.rs` file, that contains the definition for the runtime of the included EVM template and is located in the folder:
+To configure the runtime, open the `lib.rs` file, which contains the definition for the runtime of the included template and is located (in case of using the EVM-compatible) in the folder:
 
 ```text
 */container-chains/templates/frontier/runtime/src/
