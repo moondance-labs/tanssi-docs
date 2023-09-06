@@ -113,6 +113,8 @@ pub mod pallet {
 }
 ```
 
+The next step would be to add the third mandatory macro (`#[pallet::config]`) and all the custom logic, as shown in the following sections.
+
 ### Implementing the Module Configuration {: #implementing-module-configuration }
 
 To make the modules highly adaptable, their configuration is abstract enough to allow them to be adapted to the specific requirements of the use case the runtime implements.
