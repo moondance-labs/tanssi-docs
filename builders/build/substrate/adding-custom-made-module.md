@@ -125,7 +125,7 @@ In the custom `loterry-example` module you are building, the module depends on o
 
 1. Events: the module depends on the runtime's definition of an event to be able to emit them
 2. Currency: the `lottery-example` module needs to be able to transfer funds, hence, it needs the definition of the currency system from the runtime
-3. Randomness: to fairly select the winner of the prize from the list of participants 
+3. Randomness: this module is used to fairly select the winner of the prize from the list of participants. It generates the random numbers using the past block hashes and the current block's number as seed
 4. Ticket cost: the price to charge the buyers that participate in the lottery
 5. Maximum number of participants: the top limit of participants allowed in each lottery round
 6. Module Id: the module unique identifier is required to access the module account to hold the participant's funds until transferred to the winner
