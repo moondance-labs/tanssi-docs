@@ -3,11 +3,11 @@ title: Adding a Custom-Made Module
 description: Substrate is a modular blockchain framework that makes it easy to build unique and innovative Appchains composing built-in modules with custom-made ones.
 ---
 
-# Adding a Custom Made Module {: #adding-custom-made-module } 
+# Adding a Custom-Made Module {: #adding-custom-made-module } 
 
 ## Introduction {: #introduction }
 
-By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building an Appchain and accelerates the deployment and evolution into a ContainerChain, nevertheless, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules. 
+By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building an Appchain and accelerates the deployment and evolution into a ContainerChain. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules. 
 
 The example presented in the [Modularity](/learn/framework/modules/#custom-module-example){target=_blank} article shows a simple lottery module exposing two transactions:
 
@@ -32,13 +32,13 @@ To follow the steps in this guide, you will need to have the following:
 - **Clone the Tanssi repository from Github**
 - **Rust compiler and Cargo package manager**
 
-More about how to install Rust and Cargo in the [prerequisites article](/builders/build/prerequisites/#installing-rust){target=_blank}.
+More about how to install Rust and Cargo is in the [prerequisites article](/builders/build/prerequisites/#installing-rust){target=_blank}.
 
 ## Creating the Lottery Module Files {: #creating-lottery-module-files } 
 
 Before you begin writing code, you must create the files that contain the logic. Substrate modules are abstract and designed for reuse in various runtimes with different customizations. To achieve this, you'll use Cargo, which is Rust's package manager, to create the module in the form of a new package.
 
-As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, and from the root folder navigate to `pallets`, where the module will be created.
+As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
 
 ```bash
 cd container-chains/pallets
@@ -50,13 +50,13 @@ Next, create the module package with cargo:
 cargo new lottery-example
 ```
 
-By default, Cargo creates the new package in a folder with the provided name (lottery-example, in this case) containing a manifest file, `Cargo.toml`, and a `src` folder, with a `main.rs` file. To respect the naming convention used in Substrate, the `main.rs` file is renamed to `lib.rs`:
+By default, Cargo creates the new package in a folder with the provided name (`lottery-example`, in this case), containing a manifest file, `Cargo.toml`, and a `src` folder with a `main.rs` file. To respect the naming convention used in Substrate, the `main.rs` file is renamed to `lib.rs`:
 
 ```bash
 mv lottery-example/src/main.rs lottery-example/src/lib.rs
 ```
 
-Once you've executed all the commands, the module is created and ready to contain the custom logic. that you'll be adding in the following sections.
+Once you've executed all the commands, the module is created and ready to contain the custom logic that you'll be adding in the following sections.
 
 ## Configure the Module's Dependencies {: #configure-module-dependencies}
 
@@ -74,7 +74,7 @@ homepage = ""
 ...
 ```
 
-This file also defines the module's dependencies, such as the core functionality that allows seamless integration with the runtime and other modules, access to storage, events emission, and more. 
+This file also defines the module's dependencies, such as the core functionality that allows seamless integration with the runtime and other modules, access to storage, event emission, and more. 
 
 The full example of the `Cargo.toml` file sets, besides the attributes, the dependencies required by Substrate:
 
@@ -92,7 +92,7 @@ As presented in the [custom-made module](/learn/framework/modules/#custom-module
 2. `#[pallet::pallet]` - applied to a structure that is used to retrieve module information easily
 3. `#[pallet::config]` - is a required attribute to define the configuration for the data types of the module
 4. `#[pallet::call]` -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
-5. `#[pallet::error]` - as transactions may not be successful (insufficient funds, as an error example) and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+5. `#[pallet::error]` - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
 6. `#[pallet::event]` - events can be defined and used as a means to provide more information to the user
 7. `#[pallet::storage]` - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
 
@@ -119,9 +119,9 @@ The next step would be to add the third mandatory macro (`#[pallet::config]`) an
 
 To make the modules highly adaptable, their configuration is abstract enough to allow them to be adapted to the specific requirements of the use case the runtime implements.
 
-The implementation of the `#[pallet::config]` macro is mandatory and sets the module's dependency on other modules and the types and values specified by the runtime-specific settings. More about module dependency in the [Substrate documentation](https://docs.substrate.io/build/pallet-coupling/){target=_blank}.
+The implementation of the `#[pallet::config]` macro is mandatory and sets the module's dependency on other modules and the types and values specified by the runtime-specific settings. More about module dependencies is in the [Substrate documentation](https://docs.substrate.io/build/pallet-coupling/){target=_blank}.
 
-In the custom `loterry-example` module you are building, the module depends on other modules to manage the currency and the random function to select the winner. The module also reads and uses the ticket price and the maximum number of participants directly from the runtime settings.  Consequently, the configuration needs to include these dependencies:
+In the custom `lottery-example` module you are building, the module depends on other modules to manage the currency and the random function to select the winner. The module also reads and uses the ticket price and the maximum number of participants directly from the runtime settings.  Consequently, the configuration needs to include these dependencies:
 
 1. Events: the module depends on the runtime's definition of an event to be able to emit them
 2. Currency: the `lottery-example` module needs to be able to transfer funds, hence, it needs the definition of the currency system from the runtime
@@ -160,7 +160,7 @@ pub trait Config: frame_system::Config {
 }
 ```
 
-This abstract definition of dependencies is crucial to avoid coupling to a specific use case, and to enable the modules to serve as basic building blocks to Substrate Appchains.
+This abstract definition of dependencies is crucial to avoid coupling to a specific use case and to enable the modules to serve as basic building blocks for Substrate Appchains.
 
 ### Implementing Transactions {: #implementing-transactions } 
 
@@ -169,7 +169,7 @@ Calls represent the behavior a runtime exposes in the form of transactions that 
 Every call is enclosed within the `#[pallet::call]` macro, and present the following elements: 
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees/){target=_blank}
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees/){target=_blank}
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an Error if anything goes wrong
 
@@ -224,9 +224,9 @@ impl<T: Config> Pallet<T> {
 }
 ```
 
-These calls also emit events, to keep the user informed and can return errors, should any of the validations go wrong.
+These calls also emit events to keep the user informed and can return errors should any of the validations go wrong.
 
-Here is the complete implementation of the calls, with the custom lottery logic:
+Here is the complete implementation of the calls with the custom lottery logic:
 
 ??? code "View the complete calls code"
 
@@ -236,7 +236,7 @@ Here is the complete implementation of the calls, with the custom lottery logic:
 
 ### Implementing Custom Errors {: #implementing-custom-errors}
 
-The `#[pallet::error]` macro is used to annotate an enumeration of potential errors that could occur during execution. It is crucial for security to ensure that all error situations are handled gracefully, without causing the runtime to crash.
+The `#[pallet::error]` macro is used to annotate an enumeration of potential errors that could occur during execution. It is crucial for security to ensure that all error situations are handled gracefully without causing the runtime to crash.
 
 The following example of this macro implementation shows the errors that might occur in the lottery module:
 
@@ -271,9 +271,9 @@ pub enum Event<T: Config> {
 
 ### Implementing Storage for State Persistence {: #implementing-storage }
 
-The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of an AppChain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=_blank}.
+The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of an Appchain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=_blank}.
 
-In this example,  the `lottery-example` module needs a basic value storage structure used to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=_blank}). This can be initialized as follows:
+In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=_blank}). This can be initialized as follows:
 
 ```rust
 #[pallet::storage]
@@ -286,7 +286,7 @@ pub(super) type Participants<T: Config> = StorageValue<
 ```
 ### The Complete Module {: #complete-module }
 
-Putting all the pieces together, after implementing all the required macros and adding the custom logic, now the module is complete and ready to be used in the runtime. 
+To put all the pieces together, after implementing all the required macros and adding the custom logic, the module is now complete and ready to be used in the runtime.
 
 ??? code "View the complete module file"
 
@@ -296,7 +296,7 @@ Putting all the pieces together, after implementing all the required macros and 
 
 ## Configure the Runtime {: #configure-runtime }
 
-Finally, with the module finished, it can be included in the runtime. By doing so, the transactions `buy_tickets` and `award_prize` will be callable by the users. This also means that the (Polkadot.js API)(/builders/interact/substrate-api/polkadot-js-api/) will be decorated with this module and all the available calls that it contains.
+Finally, with the module finished, it can be included in the runtime. By doing so, the transactions `buy_tickets` and `award_prize` will be callable by the users. This also means that the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api/){target=_blank} will be decorated with this module and all the available calls that it contains.
 
 To configure the runtime, open the `lib.rs` file, which contains the definition for the runtime of the included template and is located (in case of using the EVM-compatible) in the folder:
 
@@ -328,7 +328,7 @@ impl pallet_lottery_example::Config for Runtime {
 }
 ```
 
-With the modules configured, add in the macro `construct_runtime!` (that defines the modules that will be included when building the runtime) add the randomness and lottery module.
+With the modules configured, add the macro `construct_runtime!` (that defines the modules that will be included when building the runtime) and the randomness and lottery modules.
 
 ```rust
 construct_runtime!(
@@ -342,6 +342,6 @@ construct_runtime!(
 )
 ```
 
-With everything set, the Apchain has now support for a basic implementation of a lottery.
+With everything set, the Appchain now has support for a basic implementation of a lottery.
 
 --8<-- 'text/disclaimers/third-party-content.md'
