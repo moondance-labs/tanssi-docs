@@ -36,3 +36,41 @@ Here is a list of some of the most used modules, but there are many more on the 
 - **[pallet_staking](https://paritytech.github.io/substrate/master/pallet_staking/index.html){target=_blank}** - the Staking pallet provides functions to administer staked tokens, support rewarding, slashing, depositing, withdrawing, and so on
 
 In addition to those previously listed, other modules like [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=_blank}, and many others that are freely available can speed up the development of the Appchain and, consequently, the time to market.
+
+## Custom-Made Modules {: #custom-modules }
+
+Developers creating new modules enjoy complete freedom to express any desired behavior in the core logic of the blockchain, like exposing new transactions, storing sensible information, and validating and enforcing business logic.
+
+As explained in the [Architecture](/learn/framework/architecture#client-runtime-communication) article, a module needs to be able to communicate with the core client by exposing and integrating with a very specific API that allows the runtime to expose transactions, access storage, and code and decode information stored on-chain. It also needs to include many other required wiring codes that make the module work in the node.
+
+To improve developer experience when writing modules, Substrate relies heavily on [Rust macros](https://doc.rust-lang.org/book/ch19-06-macros.html){target=_blank}. Macros are special instructions that automatically expand to Rust code just before compile-time, allowing modules to keep up to seven times the amount of code out of sight of the developers. This allows developers to focus on the specific functional requirements when writing modules instead of dealing with technicalities and the necessary scaffolding code.
+
+In Substrate, all modules, including custom-made ones, must implement at least these mandatory attribute macros:
+
+- **#[frame_support::pallet]** - this attribute is the entry point that marks the module as usable in the runtime
+- **#[pallet::pallet]** - applied to a structure that is used to retrieve module information easily
+- **#[pallet::config]** - is a required attribute to define the configuration for the data types of the module
+
+There are other macros where the functional requirements can be implemented:
+
+- **#[pallet::call]** - this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
+- **#[pallet::error]** - as transactions may not be successful (insufficient funds, for example) and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+- **#[pallet::event]** - events can be defined and used as a means to provide more information to the user
+- **#[pallet::storage]** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
+
+All these macros act as attributes that must be applied to the code just above Rust modules, functions, structures, enums, types, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world, as exposed in the following section.
+
+### Custom Module Example { #custom-module-example }
+
+As an example of a custom module, the following code (not intended for production use) showcases the use of the previously mentioned macros by presenting a simple lottery with minimal functionality, exposing two transactions:
+
+- **buy_ticket** - this transaction verifies that the user signing the request has not already bought a ticket and has enough funds to pay for it. If everything is fine, the module transfers the ticket price to a special account and registers the user as a participant for the prize
+
+- **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
+
+```rust
+--8<-- 'code/modules/lottery-example.rs'
+```
+
+For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Substrate article](/builders/build/substrate) in the Builder's section.
+
