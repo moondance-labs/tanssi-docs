@@ -275,9 +275,6 @@ The `#[pallet::storage]` macro initializes a runtime storage structure.  In the 
 
 In this example,  the `lottery-example` module needs a basic value storage structure used to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=_blank}). This can be initialized as follows:
 
-In the heavily constrained environment of an AppChain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=_blank}.
-
-
 ```rust
 #[pallet::storage]
 #[pallet::getter(fn get_participants)]
