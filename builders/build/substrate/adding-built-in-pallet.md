@@ -3,7 +3,7 @@ title: Adding Built-in Substrate Modules
 description: Substrate is a modular blockchain framework that includes many ready-to-use modules covering a wide range of common functionalities to include in your runtime.
 ---
 
-# Adding a Built-In Module {: #adding-builtin-module } 
+# Adding a Built-in Module {: #adding-builtin-module } 
 
 ## Introduction {: #introduction }
 
@@ -15,7 +15,7 @@ If the use case requires only EVM (Ethereum virtual machine) compatibility, then
 
 In this article, the necessary steps involved when adding a built-in module are covered.
 
-## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module }
+## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module-to-runtime }
 
 As introduced in the [modularity](/learn/framework/modules) article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities, ready to be used in your runtime.
 
