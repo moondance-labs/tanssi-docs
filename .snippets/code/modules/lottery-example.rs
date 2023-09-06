@@ -31,25 +31,25 @@ pub mod pallet {
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
 
-		// 1. Event definition
+		// Event definition
 		type RuntimeEvent: From<Event<Self>> 
 			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
 
-		// 2. Currency 
+		// Currency 
 		type Currency: Currency<Self::AccountId>;
 
-		// 3. Randomness
+		// Randomness
 		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
 
-		// 4. Ticket cost
+		// Ticket cost
 		#[pallet::constant]
 		type TicketCost: Get<BalanceOf<Self>>;
 
-		// 5. Maximum number of participants
+		// Maximum number of participants
 		#[pallet::constant]
 		type MaxParticipants: Get<u32>;
 
-		// 6. Module Id
+		// Module Id
 		#[pallet::constant]
 		type PalletId: Get<PalletId>;
 	}

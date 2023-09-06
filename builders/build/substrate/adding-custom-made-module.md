@@ -44,7 +44,7 @@ As mentioned in the prerequisites section, the first step is to clone the [Tanss
 cd container-chains/pallets
 ```
 
-Next, create the module package with cargo:
+Next, create the module package with Cargo:
 
 ```bash
 cargo new lottery-example
@@ -88,13 +88,13 @@ The full example of the `Cargo.toml` file sets, besides the attributes, the depe
 
 As presented in the [custom-made module](/learn/framework/modules/#custom-modules){target=_blank} section of the modularity article, creating a module involves implementing the following attribute macros, of which the first three are mandatory:
 
-1. `#[frame_support::pallet]` - this attribute is the entry point that marks the module as usable in the runtime
-2. `#[pallet::pallet]` - applied to a structure that is used to retrieve module information easily
-3. `#[pallet::config]` - is a required attribute to define the configuration for the data types of the module
-4. `#[pallet::call]` -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
-5. `#[pallet::error]` - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
-6. `#[pallet::event]` - events can be defined and used as a means to provide more information to the user
-7. `#[pallet::storage]` - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
+- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+- **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
+- **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
+- **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
+- **`#[pallet::error]`** - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+- **`#[pallet::event]`** - events can be defined and used as a means to provide more information to the user
+- **`#[pallet::storage]`** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
 
 ### Implementing the Module Basic Structure {: #implementing-basic-structure }
 
@@ -123,12 +123,12 @@ The implementation of the `#[pallet::config]` macro is mandatory and sets the mo
 
 In the custom `lottery-example` module you are building, the module depends on other modules to manage the currency and the random function to select the winner. The module also reads and uses the ticket price and the maximum number of participants directly from the runtime settings.  Consequently, the configuration needs to include these dependencies:
 
-1. Events: the module depends on the runtime's definition of an event to be able to emit them
-2. Currency: the `lottery-example` module needs to be able to transfer funds, hence, it needs the definition of the currency system from the runtime
-3. Randomness: this module is used to fairly select the winner of the prize from the list of participants. It generates the random numbers using the past block hashes and the current block's number as seed
-4. Ticket cost: the price to charge the buyers that participate in the lottery
-5. Maximum number of participants: the top limit of participants allowed in each lottery round
-6. Module Id: the module unique identifier is required to access the module account to hold the participant's funds until transferred to the winner
+- **Events** - the module depends on the runtime's definition of an event to be able to emit them
+- **Currency** - the `lottery-example` module needs to be able to transfer funds, hence, it needs the definition of the currency system from the runtime
+- **Randomness** - this module is used to fairly select the winner of the prize from the list of participants. It generates the random numbers using the past block hashes and the current block's number as seed
+- **Ticket cost** - the price to charge the buyers that participate in the lottery
+- **Maximum number of participants** - the top limit of participants allowed in each lottery round
+- **Module Id** - the module unique identifier is required to access the module account to hold the participant's funds until transferred to the winner
 
 The implementation of the described configuration for this example is shown in the following code snippet:
 
@@ -136,25 +136,25 @@ The implementation of the described configuration for this example is shown in t
 #[pallet::config]
 pub trait Config: frame_system::Config {
 
-    // 1. Event definition
+    // Event definition
     type RuntimeEvent: From<Event<Self>> 
         + IsType<<Self as frame_system::Config>::RuntimeEvent>;
 
-    // 2. Currency 
+    // Currency 
     type Currency: Currency<Self::AccountId>;
 
-    // 3. Randomness
+    // Randomness
     type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
 
-    // 4. Ticket cost
+    // Ticket cost
     #[pallet::constant]
     type TicketCost: Get<BalanceOf<Self>>;
 
-    // 5. Maximum number of participants
+    // Maximum number of participants
     #[pallet::constant]
     type MaxParticipants: Get<u32>;
 
-    // 6. Module Id
+    // Module Id
     #[pallet::constant]
     type PalletId: Get<PalletId>;
 }
@@ -171,7 +171,7 @@ Every call is enclosed within the `#[pallet::call]` macro, and present the follo
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
 - **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees/){target=_blank}
 - **Origin** - identifies the signing account making the call
-- **Result** - the return value of the call, which might be an Error if anything goes wrong
+- **Result** - the return value of the call, which might be an `Error` if anything goes wrong
 
 The following snippet presents the general structure of the mentioned macro implementation and the call elements:
 
