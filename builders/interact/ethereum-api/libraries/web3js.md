@@ -19,13 +19,7 @@ For the examples in this guide, you will need to have the following:
 
  - An account with funds in the Tanssi EVM ContainerChain you are testing with
 
-## Create a JavaScript Project {: #create-a-javascript-project }
-
-To get started, you can create a directory to store all of the files you'll be creating throughout this guide:
-
-```bash
-mkdir web3-examples && cd web3-examples
-```
+## Installing Web3Js {: #installing-web3js }
 
 For this guide, you'll need to install the Web3.js library and the Solidity compiler. To install both NPM packages, you can run the following command:
 
@@ -42,21 +36,26 @@ For this guide, you'll need to install the Web3.js library and the Solidity comp
     ```
 
 
-## Setup Web3.js with Tanssi {: #setup-web3-with-tanssi }
+## Setting up the Web3 Provider {: #setting-up-the-web3-provider }
 
-You can configure Web3.js to work with a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](XXX){target=_blank} TestNet, or your own Tanssi EVM ContainerChain by simply changing the endpoint.
+Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an Ethers provider to interact with the network.
+
+To set up a Web3 instance, you can take the following steps:
+
+1. Import the `Web3` library.
+2. Create the Web3 instance and specify the RPC url. You can configure Web3.js to work with a Tanssi EVM ContainerChain running in Tanssi's Dancebox TestNet, or your own Tanssi EVM ContainerChain by simply changing the endpoint.
 
 --8<-- 'text/common/endpoint-setup.md'
 
-The simplest way to get started configuring your project is as follows:
-
 ```js
-// Import Web3
+// 1. Import Web3
 const Web3 = require('web3');
 
-// Create Web3 instance and insert your RPC url
+// 2. Create Web3 instance and insert your RPC url
 const web3 = new Web3('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'); 
 ```
+
+Save this code snippet as you'll need it for the scripts that are used in the following sections.
 
 ## Send a Transaction {: #send-a-transaction }
 
@@ -74,7 +73,7 @@ touch balances.js
 
 Next, you will create the script for this file and complete the following steps:
 
-1. [Set up the Web3 provider](#setup-web3-with-tanssi)
+1. [Set up the Web3 provider](#setting-up-the-web3-provider)
 2. Define the `addressFrom` and `addressTo` variables
 3. Create the asynchronous `balances` function which wraps the `web3.eth.getBalance` method
 4. Use the `web3.eth.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `web3.utils.fromWei` function to transform the balance into a more readable number in ETH
