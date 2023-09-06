@@ -164,9 +164,16 @@ This abstract definition of dependencies is crucial to avoid coupling to a speci
 
 ### Implementing Transactions {: #implementing-transactions } 
 
-Calls represent the behavior a runtime exposes, in the form of transactions that can be dispatched for processing. By implementing the macro `#[pallet::call]`, the custom logic can be added to the module.
+Calls represent the behavior a runtime exposes in the form of transactions that can be dispatched for processing, exposing the custom logic added to the module.
 
-This is the general structure of the macro implementation, and the calls definition:
+Every call is enclosed within the `#[pallet::call]` macro, and present the following elements: 
+
+- **Call Index** - is a mandatory unique identifier for every dispatchable call
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees/){target=_blank}
+- **Origin** - identifies the signing account making the call
+- **Result** - the return value of the call, which might be an Error if anything goes wrong
+
+The following snippet presents the general structure of the mentioned macro implementation and the call elements:
 
 ```rust
 #[pallet::call]
@@ -183,13 +190,6 @@ impl<T: Config> Pallet<T> {
     // Other calls
 }
 ```
-
-Every call is enclosed within the `#[pallet::call]` macro, and present the following elements: 
-
-- **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees/){target=_blank}
-- **Origin** - identifies the signing account making the call
-- **Result** - the return value of the call, which might be an Error if anything goes wrong
 
 In this `lottery-example` module, we defined two calls with the following logic:
 
