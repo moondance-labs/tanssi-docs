@@ -25,11 +25,20 @@ In this article, the following steps, necessary to build and add the example mod
 
 --8<-- 'text/common/not-for-production-code-guard.md'
 
+## Checking Prerequisites {: #checking-prerequisites }
+
+To follow the steps in this guide, you will need to have the following:
+
+- **Clone the Tanssi repository from Github**
+- **Rust compiler and Cargo package manager**
+
+More about how to install Rust and Cargo in the [prerequisites article](/builders/build/prerequisites/#installing-rust){target=_blank}.
+
 ## Creating the Lottery Module Files {: #creating-lottery-module-files } 
 
 Before you begin writing code, you must create the files that contain the logic. Substrate modules are abstract and designed for reuse in various runtimes with different customizations. To achieve this, you'll use Cargo, which is Rust's package manager, to create the module in the form of a new package.
 
-The first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, and from the root folder navigate to `pallets`, where the module will be created.
+As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, and from the root folder navigate to `pallets`, where the module will be created.
 
 ```bash
 cd container-chains/pallets
