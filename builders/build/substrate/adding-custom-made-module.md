@@ -23,7 +23,7 @@ In this article, the following steps, necessary to build and add the example mod
 3. Adding custom logic
 4. Configure the runtime with the new module
 
-It is important to note that none of the code presented in this article is intended for production use.
+--8<-- 'text/common/not-for-production-code-guard.md'
 
 ## Creating the Lottery Module Files {: #creating-lottery-module-files } 
 
