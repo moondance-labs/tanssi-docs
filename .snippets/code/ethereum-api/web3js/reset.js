@@ -1,34 +1,44 @@
+// 1. Import Web3 and the contract abi
 const Web3 = require('web3');
 const { abi } = require('./compile');
 
+// 2. Add the Web3 provider logic here:
 const providerRPC = {
   development: 'http://localhost:9944',
   dancebox: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network',
 };
 const web3 = new Web3(providerRPC.development); // Change to correct network
 
-const account_from = {
-  privateKey: 'YOUR-PRIVATE-KEY-HERE',
+// 3. Create variables
+const accountFrom = {
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
-const contractAddress = 'CONTRACT-ADDRESS-HERE';
+const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 
+// 4. Create Contract Instance
 const incrementer = new web3.eth.Contract(abi, contractAddress);
+
+// 5. Build reset tx
 const resetTx = incrementer.methods.reset();
 
+// 6. Create reset function
 const reset = async () => {
   console.log(`Calling the reset function in contract at address: ${contractAddress}`);
 
+  // 7. Sign tx with PK
   const createTransaction = await web3.eth.accounts.signTransaction(
     {
       to: contractAddress,
       data: resetTx.encodeABI(),
       gas: await resetTx.estimateGas(),
     },
-    account_from.privateKey
+    accountFrom.privateKey
   );
 
+  // 8. Send tx and wait for receipt
   const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
   console.log(`Tx successful with hash: ${createReceipt.transactionHash}`);
 };
 
+// 9. Call reset function
 reset();

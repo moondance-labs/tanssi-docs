@@ -29,9 +29,18 @@ mkdir web3-examples && cd web3-examples
 
 For this guide, you'll need to install the Web3.js library and the Solidity compiler. To install both NPM packages, you can run the following command:
 
-```bash
-npm install web3 solc@0.8.0
-```
+=== "npm"
+
+    ```bash
+    npm install ethers solc@0.8.0
+    ```
+
+=== "yarn"
+
+    ```bash
+    yarn add ethers solc@0.8.0
+    ```
+
 
 ## Setup Web3.js with Tanssi {: #setup-web3-with-tanssi }
 
@@ -42,6 +51,7 @@ You can configure Web3.js to work with a Tanssi EVM ContainerChain running in Ta
 The simplest way to get started configuring your project is as follows:
 
 ```js
+// Import Web3
 const Web3 = require('web3');
 
 // Create Web3 instance and insert your RPC url
@@ -75,8 +85,8 @@ Next, you will create the script for this file and complete the following steps:
 // {...}
 
 // 2. Create address variables
-const addressFrom = 'ADDRESS-FROM-HERE';
-const addressTo = 'ADDRESS-TO-HERE';
+const addressFrom = 'INSERT_ADDRESS_FROM';
+const addressTo = 'INSERT_ADDRESS_TO';
 
 // 3. Create balances function
 const balances = async () => {
@@ -129,10 +139,10 @@ Next, you will create the script for this file and complete the following steps:
 
 // 2. Create account variables
 const accountFrom = {
-  privateKey: 'YOUR-PRIVATE-KEY-HERE',
-  address: 'PUBLIC-ADDRESS-OF-PK-HERE',
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
+  address: 'INSERT_PUBLIC_ADDRESS_OF_PK',
 };
-const addressTo = 'ADDRESS-TO-HERE'; // Change addressTo
+const addressTo = 'INSERT_ADDRESS_TO'; // Change to address
 
 // 3. Create send function
 const send = async () => {
@@ -213,8 +223,8 @@ const contractFile = require('./compile');
 
 // 3. Create address variables
 const accountFrom = {
-  privateKey: 'YOUR-PRIVATE-KEY-HERE',
-  address: 'PUBLIC-ADDRESS-OF-PK-HERE',
+  privateKey: 'INSERT_PRIVATE_KEY',
+  address: 'INSERT_PUBLIC_ADDRESS_OF_PK',
 };
 
 // 4. Get the bytecode and API
@@ -296,7 +306,7 @@ const { abi } = require('./compile');
 // {...}
 
 // 3. Create address variables
-const contractAddress = 'CONTRACT-ADDRESS-HERE';
+const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 
 // 4. Create contract instance
 const incrementer = new web3.eth.Contract(abi, contractAddress);
@@ -358,9 +368,9 @@ const { abi } = require('./compile');
 
 // 3. Create variables
 const accountFrom = {
-  privateKey: 'YOUR-PRIVATE-KEY-HERE',
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
-const contractAddress = 'CONTRACT-ADDRESS-HERE';
+const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 const _value = 3;
 
 // 4. Create contract instance
@@ -375,7 +385,7 @@ const increment = async () => {
     `Calling the increment by ${_value} function in contract at address: ${contractAddress}`
   );
 
-  // Sign Tx with PK
+  // 7. Sign Tx with PK
   const createTransaction = await web3.eth.accounts.signTransaction(
     {
       to: contractAddress,
@@ -385,7 +395,7 @@ const increment = async () => {
     accountFrom.privateKey
   );
 
-  // Send Tx and Wait for Receipt
+  // 8. Send Tx and Wait for Receipt
   const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
   console.log(`Tx successful with hash: ${createReceipt.transactionHash}`);
 };
@@ -431,9 +441,9 @@ const { abi } = require('./compile');
 
 // 3. Create variables
 const accountFrom = {
-  privateKey: 'YOUR-PRIVATE-KEY-HERE',
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
-const contractAddress = 'CONTRACT-ADDRESS-HERE';
+const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 
 // 4. Create Contract Instance
 const incrementer = new web3.eth.Contract(abi, contractAddress);
