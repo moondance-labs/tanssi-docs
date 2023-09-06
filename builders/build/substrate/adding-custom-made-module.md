@@ -141,9 +141,7 @@ pub trait Config: frame_system::Config {
         + IsType<<Self as frame_system::Config>::RuntimeEvent>;
 
     // 2. Currency 
-    type Currency: Currency<Self::AccountId> 
-        + ReservableCurrency<Self::AccountId>
-        + LockableCurrency<Self::AccountId>;
+    type Currency: Currency<Self::AccountId>;
 
     // 3. Randomness
     type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
