@@ -296,7 +296,7 @@ Then you can take the following steps to create the script:
 3. Create the `contractAddress` variable using the address of the deployed contract
 4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and  `contractAddress`
 5. Create the asynchronous `get` function
-6. Use the contract instance to call one of the contract's methods and pass in any inputs if necessary. For this example, you will call the `number` method which doesn't require any inputs. You can use `await` which will return the value requested once the request promise resolves
+6. Use the contract instance to call one of the contract's methods and pass in any inputs if necessary. For this example, you will call the `number` method, which doesn't require any inputs. You can use `await`, which will return the value requested once the request promise resolves
 7. Lastly, call the `get` function
 
 ```js
