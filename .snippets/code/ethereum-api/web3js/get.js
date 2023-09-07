@@ -1,28 +1,28 @@
-// 1. Import web3 and the contract file
+// Import web3 and the contract file
 const Web3 = require('web3');
 const { abi } = require('./compile');
 
-// 2. Add the Web3 provider logic here:
+// Add the Web3 provider logic here:
 const providerRPC = {
-  dancebox: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network',
+  EvmContainer: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
 };
-const web3 = new Web3(providerRPC.dancebox); // Change to correct network
+const web3 = new Web3(providerRPC.EvmContainer);
 
-// 3. Create address variables
+// Create address variables
 const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 
-// 4. Create contract instance
+// Create contract instance
 const incrementer = new web3.eth.Contract(abi, contractAddress);
 
-// 5. Create get function
+// Create get function
 const get = async () => {
   console.log(`Making a call to contract at address: ${contractAddress}`);
 
-  // 6. Call contract
+  // Call contract
   const data = await incrementer.methods.number().call();
 
   console.log(`The current number stored is: ${data}`);
 };
 
-// 7. Call get function
+// Call get function
 get();

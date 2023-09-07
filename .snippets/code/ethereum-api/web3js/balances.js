@@ -1,19 +1,19 @@
 // Import Web3
 const Web3 = require('web3');
 
-// 1. Add the Web3 provider logic here:
+// Add the Web3 provider logic here:
 const providerRPC = {
-  dancebox: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network',
+  EvmContainer: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
 };
-const web3 = new Web3(providerRPC.dancebox); // Change to correct network
+const web3 = new Web3(providerRPC.EvmContainer);
 
-// 2. Create address variables
+// Create address variables
 const addressFrom = 'INSERT_ADDRESS_FROM';
 const addressTo = 'INSERT_ADDRESS_TO';
 
-// 3. Create balances function
+// Create balances function
 const balances = async () => {
-  // 4. Fetch balance info
+  // Fetch balance info
   const balanceFrom = web3.utils.fromWei(
     await web3.eth.getBalance(addressFrom),
     'ether'
@@ -23,9 +23,9 @@ const balances = async () => {
     'ether'
   );
 
-  console.log(`The balance of ${addressFrom} is: ${balanceFrom} UNITS`);
-  console.log(`The balance of ${addressTo} is: ${balanceTo} UNITS`);
+  console.log(`The balance of ${addressFrom} is: ${balanceFrom} UNIT`);
+  console.log(`The balance of ${addressTo} is: ${balanceTo} UNIT`);
 };
 
-// 5. Call balances function
+// Call balances function
 balances();

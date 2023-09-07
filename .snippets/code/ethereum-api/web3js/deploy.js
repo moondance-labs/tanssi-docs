@@ -1,37 +1,37 @@
-// 1. Import web3 and the contract file
+// Import web3 and the contract file
 const Web3 = require('web3');
 const contractFile = require('./compile');
 
-// 2. Add the Web3 provider logic here
+// Add the Web3 provider logic here
 const providerRPC = {
-  dancebox: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network',
+  EvmContainer: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
 };
-const web3 = new Web3(providerRPC.dancebox); // Change to correct network
+const web3 = new Web3(providerRPC.EvmContainer);
 
-// 3. Create address variables
+// Create address variables
 const accountFrom = {
   privateKey: 'INSERT_PRIVATE_KEY',
   address: 'INSERT_PUBLIC_ADDRESS_OF_PK',
 };
 
-// 4. Get the bytecode and API
+// Get the bytecode and API
 const bytecode = contractFile.evm.bytecode.object;
 const abi = contractFile.abi;
 
-// 5. Create deploy function
+// Create deploy function
 const deploy = async () => {
   console.log(`Attempting to deploy from account ${accountFrom.address}`);
 
-  // 6. Create contract instance
+  // Create contract instance
   const incrementer = new web3.eth.Contract(abi);
 
-  // 7. Create constructor tx
+  // Create constructor tx with initial value of 5
   const incrementerTx = incrementer.deploy({
     data: bytecode,
     arguments: [5],
   });
 
-  // 8. Sign transacation and send
+  // Sign transacation and send
   const createTransaction = await web3.eth.accounts.signTransaction(
     {
       data: incrementerTx.encodeABI(),
@@ -40,12 +40,12 @@ const deploy = async () => {
     accountFrom.privateKey
   );
 
-  // 9. Send tx and wait for receipt
+  // Send tx and wait for receipt
   const createReceipt = await web3.eth.sendSignedTransaction(
     createTransaction.rawTransaction
   );
   console.log(`Contract deployed at address: ${createReceipt.contractAddress}`);
 };
 
-// 10. Call deploy function
+// Call deploy function
 deploy();

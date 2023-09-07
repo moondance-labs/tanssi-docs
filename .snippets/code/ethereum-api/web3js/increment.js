@@ -1,33 +1,33 @@
-// 1. Import Web3 and the contract abi
+// Import Web3 and the contract abi
 const Web3 = require('web3');
 const { abi } = require('./compile');
 
-// 2. Add the Web3 provider logic here:
+// Add the Web3 provider logic here:
 const providerRPC = {
-  dancebox: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network',
+  EvmContainer: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
 };
-const web3 = new Web3(providerRPC.dancebox); //Change to correct network
+const web3 = new Web3(providerRPC.EvmContainer);
 
-// 3. Create variables
+// Create variables
 const accountFrom = {
   privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
 const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 const _value = 3;
 
-// 4. Create contract instance
+// Create contract instance
 const incrementer = new web3.eth.Contract(abi, contractAddress);
 
-// 5. Build increment tx
+// Build increment tx
 const incrementTx = incrementer.methods.increment(_value);
 
-// 6. Create increment function
+// Create increment function
 const increment = async () => {
   console.log(
     `Calling the increment by ${_value} function in contract at address: ${contractAddress}`
   );
 
-  // 7. Sign Tx with PK
+  // Sign Tx with PK
   const createTransaction = await web3.eth.accounts.signTransaction(
     {
       to: contractAddress,
@@ -37,12 +37,12 @@ const increment = async () => {
     accountFrom.privateKey
   );
 
-  // 8. Send Tx and Wait for Receipt
+  // Send Tx and Wait for Receipt
   const createReceipt = await web3.eth.sendSignedTransaction(
     createTransaction.rawTransaction
   );
   console.log(`Tx successful with hash: ${createReceipt.transactionHash}`);
 };
 
-// 9. Call increment function
+// Call increment function
 increment();

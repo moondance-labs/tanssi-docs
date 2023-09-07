@@ -21,42 +21,34 @@ For the examples in this guide, you will need to have the following:
 
 ## Installing Web3Js {: #installing-web3js }
 
-To get started, you'll need to start a basic JavaScript project. First, create a directory to store all of the files you'll be creating throughout this guide and initialize the project with the following command:
-
-```bash
-mkdir web3-examples && cd web3-examples && npm init --y
-```
-
 For this guide, you'll need to install the Web3.js library and the Solidity compiler. To install both NPM packages, you can run the following command:
 
 === "npm"
 
     ```bash
-    npm install ethers solc@0.8.0
+    npm install web3 solc@0.8.0
     ```
 
 === "yarn"
 
     ```bash
-    yarn add ethers solc@0.8.0
+    yarn add web3 solc@0.8.0
     ```
 
 ## Setting up the Web3 Provider {: #setting-up-the-web3-provider }
 
-Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an Ethers provider to interact with the network.
+Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an Web3.js provider to interact with the network.
 
-To set up a Web3 instance, you can take the following steps:
+To set up a Web3 provider, you can take the following steps:
 
 1. Import the `Web3` library.
-2. Create the Web3 instance and specify the RPC url. You can configure Web3.js to work with a Tanssi EVM ContainerChain running in Tanssi's Dancebox TestNet, or your own Tanssi EVM ContainerChain by simply changing the endpoint.
-
---8<-- 'text/common/endpoint-setup.md'
+2. Create the Web3 provider and specify the RPC url. You can configure Web3.js to work with a Tanssi EVM ContainerChain running in Tanssi's Dancebox TestNet, or your own Tanssi EVM ContainerChain by simply changing the endpoint.
 
 ```js
 // 1. Import Web3
 const Web3 = require('web3');
 
-// 2. Create Web3 instance and insert your RPC url
+// 2. Create Web3 provider and insert your RPC url
 const web3 = new Web3(
   'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
 );
