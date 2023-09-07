@@ -7,17 +7,23 @@ description: This guide walks you through how to connect MetaMask, a browser-bas
 
 ## Introduction {: #introduction } 
 
-Developers building dApps on top of Tanssi EVM ContainerChains can leverage their Ethereum compatibility features integrate known Ethereum wallets, such as [MetaMask](https://metamask.io/){target=_blank}. By doing so, they can use the injected library MetaMask provides to interact with the Tanssi EVM ContainerChain.
+Developers building dApps on top of Tanssi EVM ContainerChains can leverage their Ethereum compatibility features by integrating known Ethereum wallets, such as [MetaMask](https://metamask.io/){target=_blank}. By doing so, they can use the injected library MetaMask provides to interact with the Tanssi EVM ContainerChain.
 
 This guide takes you through all the necessary steps: from installing Metamask, to setting up a wallet, and finally connecting it to your Tanssi EVM ContainerChain.
 
+!!! note
+    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
+
 ## Install the MetaMask Extension {: #install-the-metamask-extension } 
 
-First, you'll start with a fresh and default [MetaMask](https://metamask.io/){target=_blank} installation from the Chrome store. After downloading, installing, and initializing the extension, follow the **Get Started** guide. In there, you need to create a wallet, set a password, and store your secret backup phrase (this gives direct access to your funds, so make sure to store these in a secure place). 
+First, you'll start with a fresh and default [MetaMask](https://metamask.io/){target=_blank} installation from the Chrome store. After downloading, installing, and initializing the extension, follow the **Get Started** steps to [setup the wallet](#setup-a-wallet). In there, you need to create a wallet, set a password, and store your secret backup phrase (this gives direct access to your funds, so make sure to store these in a secure place). 
+
+!!! note
+    The Metamask browser extension is compatible with Chrome, Chromium based browsers (such as Microsoft Edge and Opera), and Firefox. Metamask is also available as a mobile app for iOS and Android devices.
 
 ## Setup a Wallet {: #setup-a-wallet } 
 
-After installing [MetaMask](https://metamask.io){target=_blank}, the setup will automatically open a new task with a welcome screen. Here, you are oferred two options:
+After installing [MetaMask](https://metamask.io){target=_blank}, the setup will automatically open a new task with a welcome screen. Here, you are offered two options:
 
 - **Create a new wallet** - you'll go through some steps to get a new seed phrase. Ensure you store this phrase securely and you don't share it publicly
 - **Import an existing wallet** - you already have a seed phrase stored, and you want to restore an account from that recovery phrase
@@ -83,7 +89,7 @@ To do so, fill in the following information:
 
 ![Add network in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-8.png)
 
-Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted a button to **Switch to Moonbase Alpha**, the network added in this example.
+Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted a button to **Switch to EVM ContainerChain Dancebox**, the network added in this example.
 
 ![Successfully added a network in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-9.png)
 
