@@ -26,7 +26,9 @@ web3.eth.set_gas_price_strategy(rpc_gas_price_strategy)
 # 5. Sign tx with PK
 tx_create = web3.eth.account.sign_transaction(
     {
-        "nonce": web3.eth.get_transaction_count(account_from["address"]),
+        "nonce": web3.eth.get_transaction_count(
+            Web3.to_checksum_address(account_from["address"])
+        ),
         "gasPrice": web3.eth.generate_gas_price(),
         "gas": 21000,
         "to": Web3.to_checksum_address(address_to),
