@@ -18,14 +18,14 @@ const provider = new ethers.JsonRpcProvider(providerRPC.EvmContainer.rpc, {
 });
 
 // Create variables
-const account_from = {
-  privateKey: 'YOUR_PRIVATE_KEY_HERE',
+const accountFrom = {
+  privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
-const contractAddress = 'CONTRACT_ADDRESS_HERE';
+const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 const _value = 3;
 
 // Create wallet
-let wallet = new ethers.Wallet(account_from.privateKey, provider);
+let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
 // Create contract instance with signer
 const incrementer = new ethers.Contract(
