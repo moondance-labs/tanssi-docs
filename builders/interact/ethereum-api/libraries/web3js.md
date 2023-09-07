@@ -420,7 +420,7 @@ To run the script, you can enter the following command in your terminal:
 node increment.js
 ```
 
-If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that value is changing as expected:
+If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that the value is changing as expected.
 
 ![Increment and check value Web3js](/images/builders/interact/ethereum-api/web3js/web3js-5.png)
 
