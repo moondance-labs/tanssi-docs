@@ -345,7 +345,7 @@ If successful, the value will be displayed in the terminal.
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
-Send methods are the type of interaction that modify the contract's storage (change variables), meaning a transaction needs to be signed and sent. In this section, you'll create two scripts: one to increment and one to reset the incrementer. To get started, you can create a file for each script and name them `increment.js` and `reset.js`:
+Send methods are the type of interactions that modify the contract's storage (change variables), meaning a transaction needs to be signed and sent. In this section, you'll create two scripts: one to increment and one to reset the incrementer. To get started, you can create a file for each script and name them `increment.js` and `reset.js`:
 
 ```bash
 touch increment.js reset.js
