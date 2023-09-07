@@ -281,7 +281,7 @@ If successful, the contract's address will be displayed in the terminal.
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
-Call methods are the type of interaction that don't modify the contract's storage (change variables), meaning no transaction needs to be sent. They simply read various storage variables of the deployed contract.
+Call methods are the type of interactions that don't modify the contract's storage (change variables), meaning no transaction needs to be sent. They simply read various storage variables of the deployed contract.
 
 To get started, you can create a file and name it `get.js`:
 
