@@ -7,19 +7,19 @@ const source = fs.readFileSync('Incrementer.sol', 'utf8');
 
 // 3. Create input object
 const input = {
-   language: 'Solidity',
-   sources: {
-      'Incrementer.sol': {
-         content: source,
+  language: 'Solidity',
+  sources: {
+    'Incrementer.sol': {
+      content: source,
+    },
+  },
+  settings: {
+    outputSelection: {
+      '*': {
+        '*': ['*'],
       },
-   },
-   settings: {
-      outputSelection: {
-         '*': {
-            '*': ['*'],
-         },
-      },
-   },
+    },
+  },
 };
 // 4. Compile the contract
 const tempFile = JSON.parse(solc.compile(JSON.stringify(input)));

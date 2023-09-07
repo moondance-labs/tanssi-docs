@@ -41,7 +41,9 @@ const deploy = async () => {
   );
 
   // 9. Send tx and wait for receipt
-  const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
   console.log(`Contract deployed at address: ${createReceipt.contractAddress}`);
 };
 

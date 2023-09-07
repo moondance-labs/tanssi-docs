@@ -38,7 +38,9 @@ const increment = async () => {
   );
 
   // 8. Send Tx and Wait for Receipt
-  const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
   console.log(`Tx successful with hash: ${createReceipt.transactionHash}`);
 };
 

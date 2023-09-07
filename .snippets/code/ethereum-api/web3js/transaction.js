@@ -16,9 +16,11 @@ const addressTo = 'INSERT_ADDRESS_TO'; // Change to address
 
 // 3. Create send function
 const send = async () => {
-  console.log(`Attempting to send transaction from ${accountFrom.address} to ${addressTo}`);
+  console.log(
+    `Attempting to send transaction from ${accountFrom.address} to ${addressTo}`
+  );
 
-// 4. Sign tx with PK
+  // 4. Sign tx with PK
   const createTransaction = await web3.eth.accounts.signTransaction(
     {
       gas: 21000,
@@ -29,8 +31,12 @@ const send = async () => {
   );
 
   // 5. Send tx and wait for receipt
-  const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
-  console.log(`Transaction successful with hash: ${createReceipt.transactionHash}`);
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
+  console.log(
+    `Transaction successful with hash: ${createReceipt.transactionHash}`
+  );
 };
 
 // 6. Call send function

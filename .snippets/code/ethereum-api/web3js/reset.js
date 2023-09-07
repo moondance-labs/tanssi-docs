@@ -23,7 +23,9 @@ const resetTx = incrementer.methods.reset();
 
 // 6. Create reset function
 const reset = async () => {
-  console.log(`Calling the reset function in contract at address: ${contractAddress}`);
+  console.log(
+    `Calling the reset function in contract at address: ${contractAddress}`
+  );
 
   // 7. Sign tx with PK
   const createTransaction = await web3.eth.accounts.signTransaction(
@@ -36,7 +38,9 @@ const reset = async () => {
   );
 
   // 8. Send tx and wait for receipt
-  const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
   console.log(`Tx successful with hash: ${createReceipt.transactionHash}`);
 };
 
