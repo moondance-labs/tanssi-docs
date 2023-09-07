@@ -7,17 +7,17 @@ description: Follow this tutorial to learn how to use the Ethereum Web3 JavaScri
 
 ## Introduction {: #introduction }
 
-[Web3.js](https://web3js.readthedocs.io/){target=_blank} is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with JavaScript. Tanssi EVM ContainerChains have an Ethereum-like API that is fully compatible with Ethereum-style JSON RPC invocations.  Therefore, developers can leverage this compatibility and use the Web3.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Web3.js, check out their [documentation site](https://web3js.readthedocs.io/en/v1.10.0/){target=_blank}.
+[Web3.js](https://web3js.readthedocs.io/){target=\_blank} is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with JavaScript. Tanssi EVM ContainerChains have an Ethereum-like API that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Web3.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Web3.js, check out their [documentation site](https://web3js.readthedocs.io/en/v1.10.0/){target=\_blank}.
 
-In this guide, you'll learn how to set up the Web3.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use the Web3.js library to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](XXX){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
+In this guide, you'll learn how to set up the Web3.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use the Web3.js library to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](XXX){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
 
 --8<-- 'text/common/general-js-tutorial-check.md'
 
-## Checking Prerequisites {: #checking-prerequisites } 
+## Checking Prerequisites {: #checking-prerequisites }
 
 For the examples in this guide, you will need to have the following:
 
- - An account with funds in the Tanssi EVM ContainerChain you are testing with
+- An account with funds in the Tanssi EVM ContainerChain you are testing with
 
 ## Installing Web3Js {: #installing-web3js }
 
@@ -41,7 +41,6 @@ For this guide, you'll need to install the Web3.js library and the Solidity comp
     yarn add ethers solc@0.8.0
     ```
 
-
 ## Setting up the Web3 Provider {: #setting-up-the-web3-provider }
 
 Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an Ethers provider to interact with the network.
@@ -58,7 +57,9 @@ To set up a Web3 instance, you can take the following steps:
 const Web3 = require('web3');
 
 // 2. Create Web3 instance and insert your RPC url
-const web3 = new Web3('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'); 
+const web3 = new Web3(
+  'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+);
 ```
 
 Save this code snippet as you'll need it for the scripts that are used in the following sections.
@@ -71,7 +72,7 @@ You can also use the balance script to check the account balances after the tran
 
 ### Check Balances Script {: #check-balances-script }
 
-You'll only need one file to check the balances of both addresses before and after the transaction is sent.  To get started, you can create a `balances.js` file by running:
+You'll only need one file to check the balances of both addresses before and after the transaction is sent. To get started, you can create a `balances.js` file by running:
 
 ```bash
 touch balances.js
@@ -96,8 +97,14 @@ const addressTo = 'INSERT_ADDRESS_TO';
 // 3. Create balances function
 const balances = async () => {
   // 4. Fetch balance info
-  const balanceFrom = web3.utils.fromWei(await web3.eth.getBalance(addressFrom), 'ether');
-  const balanceTo = web3.utils.fromWei(await web3.eth.getBalance(addressTo), 'ether');
+  const balanceFrom = web3.utils.fromWei(
+    await web3.eth.getBalance(addressFrom),
+    'ether'
+  );
+  const balanceTo = web3.utils.fromWei(
+    await web3.eth.getBalance(addressTo),
+    'ether'
+  );
 
   console.log(`The balance of ${addressFrom} is: ${balanceFrom} UNITS`);
   console.log(`The balance of ${addressTo} is: ${balanceTo} UNITS`);
@@ -153,7 +160,9 @@ const addressTo = 'INSERT_ADDRESS_TO'; // Change to address
 
 // 3. Create send function
 const send = async () => {
-  console.log(`Attempting to send transaction from ${accountFrom.address} to ${addressTo}`);
+  console.log(
+    `Attempting to send transaction from ${accountFrom.address} to ${addressTo}`
+  );
 
   // 4. Sign tx with PK
   const createTransaction = await web3.eth.accounts.signTransaction(
@@ -166,8 +175,12 @@ const send = async () => {
   );
 
   // 5. Send tx and wait for receipt
-  const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
-  console.log(`Transaction successful with hash: ${createReceipt.transactionHash}`);
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
+  console.log(
+    `Transaction successful with hash: ${createReceipt.transactionHash}`
+  );
 };
 
 // 6. Call send function
@@ -261,7 +274,9 @@ const deploy = async () => {
   );
 
   // 9. Send tx and wait for receipt
-  const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
   console.log(`Contract deployed at address: ${createReceipt.contractAddress}`);
 };
 
@@ -300,7 +315,7 @@ Then you can take the following steps to create the script:
 1. Import the `abi` from the `compile.js` file
 2. [Set up the Web3 provider](#setup-web3-with-tanssi)
 3. Create the `contractAddress` variable using the address of the deployed contract
-4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and  `contractAddress`
+4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and `contractAddress`
 5. Create the asynchronous `get` function
 6. Use the contract instance to call one of the contract's methods and pass in any inputs if necessary. For this example, you will call the `number` method, which doesn't require any inputs. You can use `await`, which will return the value requested once the request promise resolves
 7. Lastly, call the `get` function
@@ -348,7 +363,6 @@ If successful, the value will be displayed in the terminal.
 
 ![Get contract variable value Web3js](/images/builders/interact/ethereum-api/web3js/web3js-4.png)
 
-
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
 Send methods are the type of interactions that modify the contract's storage (change variables), meaning a transaction needs to be signed and sent. In this section, you'll create two scripts: one to increment and one to reset the incrementer. To get started, you can create a file for each script and name them `increment.js` and `reset.js`:
@@ -362,7 +376,7 @@ Open the `increment.js` file and take the following steps to create the script:
 1. Import the `abi` from the `compile.js` file
 2. [Set up the Web3 provider](#setup-web3-with-tanssi)
 3. Define the `privateKey` for the origin account, the `contractAddress` of the deployed contract, and the `_value` to increment by. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
-4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and  `contractAddress`
+4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and `contractAddress`
 5. Use the contract instance to build the increment transaction using the `methods.increment` function and passing in the `_value` as an input
 6. Create the asynchronous `increment` function
 7. Use the contract instance and the increment transaction you previously created to sign the transaction with the sender's private key. You'll use the `web3.eth.accounts.signTransaction` function and specify the `to` address, the `data`, and the `gas` for the transaction
@@ -406,7 +420,9 @@ const increment = async () => {
   );
 
   // 8. Send Tx and Wait for Receipt
-  const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
   console.log(`Tx successful with hash: ${createReceipt.transactionHash}`);
 };
 
@@ -435,7 +451,7 @@ Next you can open the `reset.js` file and take the following steps to create the
 1. Import the `abi` from the `compile.js` file
 2. [Set up the Web3 provider](#setup-web3-with-moonbeam)
 3. Define the `privateKey` for the origin account and the `contractAddress` of the deployed contract. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
-4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and  `contractAddress`
+4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and `contractAddress`
 5. Use the contract instance to build the reset transaction using the `methods.reset` function
 6. Create the asynchronous `reset` function
 7. Use the contract instance and the reset transaction you previously created to sign the transaction with the sender's private key. You'll use the `web3.eth.accounts.signTransaction` function and specify the `to` address, the `data`, and the `gas` for the transaction
@@ -463,7 +479,9 @@ const resetTx = incrementer.methods.reset();
 
 // 6. Create reset function
 const reset = async () => {
-  console.log(`Calling the reset function in contract at address: ${contractAddress}`);
+  console.log(
+    `Calling the reset function in contract at address: ${contractAddress}`
+  );
 
   // 7. Sign tx with PK
   const createTransaction = await web3.eth.accounts.signTransaction(
@@ -476,7 +494,9 @@ const reset = async () => {
   );
 
   // 8. Send tx and wait for receipt
-  const createReceipt = await web3.eth.sendSignedTransaction(createTransaction.rawTransaction);
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
   console.log(`Tx successful with hash: ${createReceipt.transactionHash}`);
 };
 
