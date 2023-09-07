@@ -1,6 +1,6 @@
 ---
 title: EVM Transactions & Contracts with Web3.js
-description: Follow this tutorial to learn how to use the Ethereum Web3 JavaScript Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM ContainerChain.
+description: Learn how to use the Ethereum Web3 JavaScript Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM ContainerChain.
 ---
 
 # Web3.js JavaScript Library
