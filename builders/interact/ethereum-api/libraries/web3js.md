@@ -1,5 +1,5 @@
 ---
-title: Send Transactions & Deploy Contracts with Web3.js
+title: EVM Transactions & Contracts with Web3.js
 description: Follow this tutorial to learn how to use the Ethereum Web3 JavaScript Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM ContainerChain.
 ---
 
@@ -20,6 +20,12 @@ For the examples in this guide, you will need to have the following:
  - An account with funds in the Tanssi EVM ContainerChain you are testing with
 
 ## Installing Web3Js {: #installing-web3js }
+
+To get started, you'll need to start a basic JavaScript project. First, create a directory to store all of the files you'll be creating throughout this guide and initialize the project with the following command:
+
+```bash
+mkdir web3-examples && cd web3-examples && npm init --y
+```
 
 For this guide, you'll need to install the Web3.js library and the Solidity compiler. To install both NPM packages, you can run the following command:
 
@@ -76,7 +82,7 @@ Next, you will create the script for this file and complete the following steps:
 1. [Set up the Web3 provider](#setting-up-the-web3-provider)
 2. Define the `addressFrom` and `addressTo` variables
 3. Create the asynchronous `balances` function which wraps the `web3.eth.getBalance` method
-4. Use the `web3.eth.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `web3.utils.fromWei` function to transform the balance into a more readable number in ETH
+4. Use the `web3.eth.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `web3.utils.fromWei` function to transform the balance into a more readable number in `UNITS`
 5. Lastly, run the `balances` function
 
 ```js
