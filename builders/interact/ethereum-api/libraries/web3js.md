@@ -129,7 +129,7 @@ Next, you will create the script for this file and complete the following steps:
 
 1. [Set up the Web3 provider](#setup-web3-with-tanssi)
 2. Define the `addressFrom`, including the `privateKey`, and the `addressTo` variables. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
-3. Create the asynchronous `send` function which wraps the transaction object and the sign and send transaction functions
+3. Create the asynchronous `send` function, which wraps the transaction object, and the sign and send transaction functions
 4. Create and sign the transaction using the `web3.eth.accounts.signTransaction` function. Pass in the `gas`, `addressTo`, and `value` for the transaction along with the sender's `privateKey`
 5. Send the signed transaction using the `web3.eth.sendSignedTransaction` method and pass in the raw transaction. Then use `await` to wait until the transaction is processed and the transaction receipt is returned
 6. Lastly, run the `send` function
