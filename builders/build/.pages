@@ -3,7 +3,7 @@ hide: false
 nav:
   - index.md
   - 'Prerequisites': 'prerequisites.md'
-  - 'substrate'
+  - substrate
   # - 'Templates': 'templates.md'
   # - 'Modifying your ContainerChain': 'modifying.md'
   # - 'Test Locally': 'test.md'
