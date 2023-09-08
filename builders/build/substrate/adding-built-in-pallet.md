@@ -11,9 +11,9 @@ Substrate is a powerful and modular software development framework included in t
 
 What sets Substrate apart is its modular architecture, which enables the seamless integration of pre-built modules and the creation of custom ones, facilitating the development of blockchain protocols. 
 
-If the use case requires only EVM (Ethereum virtual machine) compatibility, then the provided template included in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} will meet the requirements and need no additional changes, but teams willing to build a Substrate Appchain will need to add and compose the built-in modules and the custom-made ones into the runtime, compile and generate the chain specification, and, finally, deploy through the Tanssi protocol to evolve into a live ContainerChain.
+For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=\_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate Appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform into a live ContainerChain.
 
-In this article, the necessary steps involved when adding a built-in module are covered.
+This article focuses on the necessary steps for adding a built-in module.
 
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module-to-runtime }
 
@@ -29,13 +29,13 @@ To add a module, the following steps are necessary:
 4. Add the module to the runtime
 5. Add the default configuration to the chain specification
 
-In the following example, the very popular Substrate module `pallet-assets` will be added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, specifically in the folder `container-chains/templates/frontier/`.
+In the following example, the popular Substrate module `pallet-assets` is added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, specifically in the folder `container-chains/templates/frontier/`.
 
 ### Declare the Dependency {: #declare-dependency }
 
 Every package contains a manifest file named `Cargo.toml` stating, among other things, all the dependencies the package relies on, and the ContainerChain runtime is no exception. 
 
-To declare the dependency and make it available to the runtime, open the `Cargo.toml` file located in the folder `runtime` with a text editor and add the module, referencing the code in the official repository of the Polkadot SDK:
+Therefore, the first step, is to declare the dependency and make it available to the runtime, open the `Cargo.toml` file located in the folder `runtime` with a text editor and add the module, referencing the code in the official repository of the Polkadot SDK:
 
 ```toml
 [dependencies]
