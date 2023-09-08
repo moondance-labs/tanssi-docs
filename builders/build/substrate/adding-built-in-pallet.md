@@ -11,7 +11,7 @@ Substrate is a powerful and modular software development framework included in t
 
 What sets Substrate apart is its modular architecture, which enables the seamless integration of pre-built modules and the creation of custom ones, facilitating the development of blockchain protocols. 
 
-For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate Appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform into a live ContainerChain.
+For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate Appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live ContainerChain.
 
 This article focuses on the necessary steps for adding a built-in module.
 
