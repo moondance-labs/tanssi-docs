@@ -16,9 +16,9 @@ As presented in the [Included Templates](/learn/tanssi/included-templates#baseli
 
 In this article, the required base setup and how to use the templates as a starting point to start building your Appchain are presented.
 
-## Base Setup - Integrating Into Polkadot's ecosystem {: #base-setup-integrating-into-polkadot }
+## Base Setup To Connect To Polkadot {: #base-setup-to-polkadot }
 
-To integrate smoothly into the Polkadot ecosystem, the ContainerChains must implement the [Cumulus SDK](https://github.com/paritytech/cumulus){target=_blank}, which manages many aspects, including: 
+To seamlessly integrate into the Polkadot ecosystem, ContainerChains must adopt the [Cumulus SDK](https://github.com/paritytech/cumulus){target=_blank}. This SDK handles various aspects, such as:
 
 - **Consensus** - Cumulus adds the necessary functionality to allow the collators to produce, gossip and validate the blocks, and coordinate with the relay chain to get notified about the block's finality 
 - **[XCM](https://wiki.polkadot.network/docs/learn-xcm){target=_blank}** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a ContainerChain to communicate and interoperate with the other sibling chains within the ecosystem
@@ -26,7 +26,7 @@ To integrate smoothly into the Polkadot ecosystem, the ContainerChains must impl
 
 More information about how to configure Cumulus SDK to integrate an Appchain into the Polkadot's ecosystem can be found in the [official Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template).
 
-## Base Setup - Supporting the Tanssi Protocol {: #base-setup-supporting-tanssi }
+## Base Setup to Support the Tanssi Protocol {: #base-setup-supporting-tanssi }
 
 Besides Cumulus, a ContanerChain must implement the Tanssi modules to support the protocol and benefit safely from Tanssi's block production as a service:
 
