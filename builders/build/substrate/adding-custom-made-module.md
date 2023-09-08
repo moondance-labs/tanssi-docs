@@ -12,7 +12,7 @@ By providing a comprehensive library of pre-built modules addressing many common
 The example presented in the [Modularity](/learn/framework/modules/#custom-module-example){target=_blank} article shows a simple lottery module exposing two transactions:
 
 - **Buy tickets** - this function manages a user's entry into the lottery. In essence, it verifies that the participant has a sufficient balance, is not already participating, and takes care of transferring funds to register the user for the lottery
-- **Award prize**
+- **Award prize** - this function that handles a user entering into the lottery. At a high level, it fetches a pseudo random number to obtain a winner and handles the award distribution
 
 The implementation of those transactions also uses storage, emits events, defines custom errors, and relies on other modules to handle currency (to charge for the tickets and transfer the total amount to the winner) and randomize the winner selection.
 
