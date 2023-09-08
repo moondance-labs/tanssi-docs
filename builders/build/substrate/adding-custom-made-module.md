@@ -11,7 +11,7 @@ By providing a comprehensive library of pre-built modules addressing many common
 
 The example presented in the [Modularity](/learn/framework/modules/#custom-module-example){target=_blank} article shows a simple lottery module exposing two transactions:
 
-- **Buy tickets**
+- **Buy tickets** - this function manages a user's entry into the lottery. In essence, it verifies that the participant has a sufficient balance, is not already participating, and takes care of transferring funds to register the user for the lottery
 - **Award prize**
 
 The implementation of those transactions also uses storage, emits events, defines custom errors, and relies on other modules to handle currency (to charge for the tickets and transfer the total amount to the winner) and randomize the winner selection.
@@ -32,11 +32,11 @@ To follow the steps in this guide, you will need to have the following:
 - Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} from Github
 - Rust compiler and Cargo package manager
 
-More about how to install Rust and Cargo is in the [prerequisites article](/builders/build/prerequisites/#installing-rust){target=_blank}.
+You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/prerequisites/#installing-rust){target=_blank}.
 
 ## Creating the Lottery Module Files {: #creating-lottery-module-files } 
 
-Before you begin writing code, you must create the files that contain the logic. Substrate modules are abstract and designed for reuse in various runtimes with different customizations. To achieve this, you'll use Cargo, which is Rust's package manager, to create the module in the form of a new package.
+Before starting your coding process, it's essential to create the files containing your logic. Substrate modules are abstract and intended for reuse across different runtimes with various customizations. To achieve this, you'll use Cargo, Rust's package manager, to create the module as a new package.
 
 As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
 
