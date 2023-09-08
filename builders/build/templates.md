@@ -43,11 +43,11 @@ Since the template already contains the necessary configuration for seamless int
 
 ## Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
 
-For teams developing their applications on top of an EVM (Ethereum Virtual machine), this template is a foundational starting point. It contains all the essential references to add the extra layer of Ethereum compatibility to a Substrate node: 
+For teams developing their applications on top of an EVM (Ethereum Virtual machine), this template is a foundational starting point. It contains all the essential modules to add the extra layer of Ethereum compatibility to a Substrate node: 
 
-- **EVM** - this referece adds the execution layer for Ethereum apps
-- **Ethereum** - this reference adds the Ethereum block production emulation to allow the RPC nodes (and DApps) to run without any modification
-- **EVMChainId** - stores the chain identifier that identifies the Ethereum network
+- **`EVM`** - this referece adds the execution layer for Ethereum apps
+- **`Ethereum`** - this reference adds the Ethereum block production emulation to allow the RPC nodes (and DApps) to run without any modification
+- **`EVMChainId`** - stores the chain identifier that identifies the Ethereum network
 
 Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime. This means that this template is ready to be built and deployed through Tanssi.
 
