@@ -29,8 +29,8 @@ In this article, the following steps, necessary to build and add the example mod
 
 To follow the steps in this guide, you will need to have the following:
 
-- **Clone the Tanssi repository from Github**
-- **Rust compiler and Cargo package manager**
+- Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} from Github
+- Rust compiler and Cargo package manager
 
 More about how to install Rust and Cargo is in the [prerequisites article](/builders/build/prerequisites/#installing-rust){target=_blank}.
 
