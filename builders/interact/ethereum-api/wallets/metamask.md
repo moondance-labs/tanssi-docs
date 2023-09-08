@@ -60,7 +60,7 @@ You should end up with an imported **Account 2** that looks like this:
 Once you have [MetaMask](https://metamask.io/){target=_blank} installed and have created or imported an account, you can connect it to your Tanssi EVM ContainerChain. To do so, take the following steps:
 
 1. Click in the upper left network selector menu
-2. Select **Add Network**.
+2. Select **Add Network**
 
 ![Add new network in Metamask menu](/images/builders/interact/ethereum-api/wallets/metamask/metamask-6.png)
 
@@ -82,14 +82,14 @@ To do so, fill in the following information:
 
 1. **Network name** - name that represents the network you are connecting to
 2. **RPC URL** - RPC endpoint of the network 
-3. **Chain ID** - Chain ID
+3. **Chain ID** - chain ID of the Ethereum compatible network
 4. **Symbol** - (optional) symbol of the native token of the network
 5. **Block Explorer** - (optional) URL of the block explorer
 6. Once you've verified all the information, click on **Save**
 
 ![Add network in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-8.png)
 
-Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted a button to **Switch to EVM ContainerChain Dancebox**, the network added in this example.
+Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted to **Switch to EVM ContainerChain Dancebox**, the network added in this example.
 
 ![Successfully added a network in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-9.png)
 
