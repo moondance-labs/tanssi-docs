@@ -16,12 +16,13 @@ pub mod pallet {
 	{
 		sp_runtime::traits::AccountIdConversion,
 		traits:: {
-			Currency, LockableCurrency, ReservableCurrency, ExistenceRequirement, Randomness
+			Currency, ExistenceRequirement, Randomness
 		},
 		PalletId,
 	};
 
-	type BalanceOf<T> = <<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
+	type BalanceOf<T> = 
+		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
 
 	#[pallet::pallet]
 	pub struct Pallet<T>(_);
@@ -30,23 +31,25 @@ pub mod pallet {
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
 
-		/// Because this pallet emits events, it depends on the runtime's definition of an event.
-		type RuntimeEvent: From<Event<Self>> + IsType<<Self as frame_system::Config>::RuntimeEvent>;
+		// Event definition
+		type RuntimeEvent: From<Event<Self>> 
+			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
 
-        /// This module depends on other modules, such as balances and randomness
-		type Currency: Currency<Self::AccountId> 
-			+ ReservableCurrency<Self::AccountId>
-			+ LockableCurrency<Self::AccountId>;
+		// Currency 
+		type Currency: Currency<Self::AccountId>;
 
+		// Randomness
 		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
 
-        /// Some values that must be configured when adding the module to the runtime
+		// Ticket cost
 		#[pallet::constant]
 		type TicketCost: Get<BalanceOf<Self>>;
 
+		// Maximum number of participants
 		#[pallet::constant]
 		type MaxParticipants: Get<u32>;
 
+		// Module Id
 		#[pallet::constant]
 		type PalletId: Get<PalletId>;
 	}
@@ -91,19 +94,21 @@ pub mod pallet {
 
 	#[pallet::call]
 	impl<T: Config> Pallet<T> {
-		
+
 		#[pallet::call_index(0)]
 		#[pallet::weight(0)]
 		pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
 			let buyer = ensure_signed(origin)?;
 
-			// Checks that the user has enough balance to afford the ticket price
+			// 2. Checks that the user has enough balance to afford the ticket price
 			ensure!(
 				T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
 				Error::<T>::NotEnoughCurrency
 			);
 
-			// Checks that the user do not have a ticket yet
+			// 3. Checks that the user is not already participating
 			if let Some(participants) = Self::get_participants() {
 				ensure!(
 					!participants.contains(&buyer),
@@ -111,7 +116,7 @@ pub mod pallet {
 				);
 			}
 
-            // Stores the user to participate in the lottery
+			// 4. Adds the user as a new participant for the prize
 			match Self::get_participants() {
 				Some(mut participants) => { 
 					ensure!(
@@ -130,10 +135,15 @@ pub mod pallet {
 				}
 			};
 
-            // Transfer the ticket cost to the module's account
-			T::Currency::transfer(&buyer, &Self::get_pallet_account(), T::TicketCost::get(), ExistenceRequirement::KeepAlive)?;
+			// 5. Transfers the ticket cost to the module's account
+			// to be hold until transferred to the winner
+			T::Currency::transfer(
+				&buyer, 
+				&Self::get_pallet_account(), 
+				T::TicketCost::get(), 
+				ExistenceRequirement::KeepAlive)?;
 			
-            // Notify the event
+			// 6. Notify the event
 			Self::deposit_event(Event::TicketBought { who: buyer });
 			Ok(())
 		}
@@ -141,31 +151,39 @@ pub mod pallet {
 		#[pallet::call_index(1)]
 		#[pallet::weight(0)]
 		pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
 			let _who = ensure_root(origin)?;
 
 			match Self::get_participants() {
 				Some(participants) => { 
 					
-                    // Gets a random number, using randomness module
+					// 2. Gets a random number from the randomness module
 					let nonce = Self::get_and_increment_nonce();
 					let (random_seed, _) = T::MyRandomness::random(&nonce);
 					let random_number = <u32>::decode(&mut random_seed.as_ref())
 						.expect("secure hashes should always be bigger than u32; qed");
 					
-                    // Selects the winner 
+					// 3. Selects the winner from the participants lit
 					let winner_index = random_number as usize % participants.len();
 					let winner = participants.as_slice().get(winner_index).unwrap();
 
-                    // Transfers the total prize to the winner's account
+					// 4. Transfers the total prize to the winner's account
 					let prize = T::Currency::free_balance(&Self::get_pallet_account());
-					T::Currency::transfer(&Self::get_pallet_account(), &winner, prize, ExistenceRequirement::AllowDeath)?;
+					T::Currency::transfer(
+						&Self::get_pallet_account(), 
+						&winner, 
+						prize, 
+						ExistenceRequirement::AllowDeath)?;
 
-                    // Resets the storage, and gets ready for another lottery round
+					// 5. Resets the participants list, and gets ready for another lottery round
 					Participants::<T>::kill();
 
+					// 6. Notify the event
 					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
 				}, 
 				None => {
+					// Notify the event (No participants)
 					Self::deposit_event(Event::ThereAreNoParticipants);
 				}
 			};

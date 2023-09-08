@@ -1,0 +1,7 @@
+- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+- **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
+- **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
+- **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
+- **`#[pallet::error]`** - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+- **`#[pallet::event]`** - events can be defined and used as a means to provide more information to the user
+- **`#[pallet::storage]`** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
