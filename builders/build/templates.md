@@ -64,11 +64,10 @@ This means that this template is ready to be built as-is and deployed through Ta
 - Use Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=_blank}
 - Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=_blank}
 - Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=_blank}
-- Connect Ethereum Wallets like Metamask and Ledger
-- Use well known Ethereum libraries like Ethers.js, Web3.js, Web3.py and more
-- Deploy EVM Smart Contracts with tools like Remix, Hardhat, Foundry and more
-- Use the Polkadot.js SDK to interact with the Substrate API
-- Think about other things?
+- Connect any Ethereum Wallet such as [Metamask](/builders/interact/ethereum-api/wallets/metamask/){target=_blak} and Ledger
+- Use well known Ethereum libraries like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs){target=_blank}, [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=_blank}, [Web3.py](/builders/interact/ethereum-api/libraries/web3py/){target=_blank} and more
+- Deploy EVM Smart Contracts with tools like [Remix](https://remix.ethereum.org/){target=_blank}, [Hardhat](https://hardhat.org/){target=_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=_blank} and more
+- Use the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=_blank} to interact with the Substrate API
 
 ## Adapting an Existing Runtime {: #adapting-existing-runtime }
 
