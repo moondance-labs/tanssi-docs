@@ -18,11 +18,17 @@ In this article, the required base setup and how to use the templates as a start
 
 ## Base Setup To Connect To Polkadot {: #base-setup-to-polkadot }
 
-To seamlessly integrate into the Polkadot ecosystem, ContainerChains must adopt the [Cumulus SDK](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus){target=_blank}. This SDK handles various aspects, such as:
+The [Substrate framework](/learn/framework/overview/#substrate-framework){target=_blank}, included in the Polkadot SDK, already provides out-of-the-box support for the basic functionalities every blockchain needs (such as networking, consensus, and so forth), allowing developers to build new solo-chains while focusing on the runtime (state transition function) logic.
+
+To seamlessly integrate a new Appchain to the Polkadot ecosystem, converting a solo-chain into a ContainerChain, the Polkadot SDK also includes [Cumulus](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus){target=_blank}, an extension library to make it easy.
+
+Parachains are expected to handle their block production through their own set of collators, to expose interfaces to communicate with the relay chain, allowing their state transition to be validated, thus benefiting from the shared security model, to send and receive messages to and from other Parachains, and to manage other aspects, such as:
 
 - **Consensus** - Cumulus adds the necessary functionality to allow the collators to produce, gossip and validate the blocks, and coordinate with the relay chain to get notified about the block's finality 
 - **[XCM](https://wiki.polkadot.network/docs/learn-xcm){target=_blank}** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a ContainerChain to communicate and interoperate with the other sibling chains within the ecosystem
 - **Runtime Upgrades** - a runtime upgrade in a ContainerChain must be informed to the relay chain to allow its validators to check on the blocks produced by the collators of the ContainerChains. Cumulus notifies the upgrade to the relay chain and waits the required amount of time (blocks) before enacting the change
+
+The provided templates already implement Cumulus, so they are ready to be customized and deployed through Tanssi to work and operate within the ecosystem without any issues.
 
 More information about how to configure Cumulus SDK to integrate an Appchain into the Polkadot's ecosystem can be found in the [official Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template).
 
@@ -51,7 +57,16 @@ For teams developing their applications on top of an EVM (Ethereum Virtual machi
 - **`Ethereum`** - this reference adds the Ethereum block production emulation to allow the RPC nodes (and DApps) to run without any modification
 - **`EVMChainId`** - stores the chain identifier that identifies the Ethereum network
 
-Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime. This means that this template is ready to be built and deployed through Tanssi.
+Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime. This means that this template is ready to be built as-is and deployed through Tanssi, unlocking many features, such as:
+
+- Use Tanssi's block production as a service
+- Use Tanssi's block production as a service
+- Use Polkadot's finality gadget (however this sounds better)
+- Connect Ethereum Wallets like Metamask and Ledger
+- Use well known Ethereum libraries like Ethers.js, Web3.js, Web3.py and more
+- Deploy EVM Smart Contracts with tools like Remix, Hardhat, Foundry and more
+- Use the Polkadot.js SDK to interact with the Substrate API
+- Think about other things?
 
 ## Adapting an Existing Runtime {: #adapting-existing-runtime }
 
