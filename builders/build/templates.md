@@ -57,11 +57,13 @@ For teams developing their applications on top of an EVM (Ethereum Virtual machi
 - **`Ethereum`** - this reference adds the Ethereum block production emulation to allow the RPC nodes (and DApps) to run without any modification
 - **`EVMChainId`** - stores the chain identifier that identifies the Ethereum network
 
-Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime. This means that this template is ready to be built as-is and deployed through Tanssi, unlocking many features, such as:
+Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime. 
 
-- Use Tanssi's block production as a service
-- Use Tanssi's block production as a service
-- Use Polkadot's finality gadget (however this sounds better)
+This means that this template is ready to be built as-is and deployed through Tanssi, unlocking many features, such as:
+
+- Use Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=_blank}
+- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=_blank}
+- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=_blank}
 - Connect Ethereum Wallets like Metamask and Ledger
 - Use well known Ethereum libraries like Ethers.js, Web3.js, Web3.py and more
 - Deploy EVM Smart Contracts with tools like Remix, Hardhat, Foundry and more
