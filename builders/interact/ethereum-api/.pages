@@ -2,4 +2,5 @@ title: Ethereum API
 hide: false
 nav:
   - index.md
+  - wallets
   - libraries

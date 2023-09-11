@@ -45,18 +45,9 @@ As explained in the [Architecture](/learn/framework/architecture#client-runtime-
 
 To improve developer experience when writing modules, Substrate relies heavily on [Rust macros](https://doc.rust-lang.org/book/ch19-06-macros.html){target=_blank}. Macros are special instructions that automatically expand to Rust code just before compile-time, allowing modules to keep up to seven times the amount of code out of sight of the developers. This allows developers to focus on the specific functional requirements when writing modules instead of dealing with technicalities and the necessary scaffolding code.
 
-In Substrate, all modules, including custom-made ones, must implement at least these mandatory attribute macros:
+All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
 
-- **#[frame_support::pallet]** - this attribute is the entry point that marks the module as usable in the runtime
-- **#[pallet::pallet]** - applied to a structure that is used to retrieve module information easily
-- **#[pallet::config]** - is a required attribute to define the configuration for the data types of the module
-
-There are other macros where the functional requirements can be implemented:
-
-- **#[pallet::call]** - this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
-- **#[pallet::error]** - as transactions may not be successful (insufficient funds, for example) and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
-- **#[pallet::event]** - events can be defined and used as a means to provide more information to the user
-- **#[pallet::storage]** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
+--8<-- 'text/substrate/pallets-macros-descriptions.md'
 
 All these macros act as attributes that must be applied to the code just above Rust modules, functions, structures, enums, types, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world, as exposed in the following section.
 
