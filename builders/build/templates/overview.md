@@ -3,7 +3,7 @@ title: Templates
 description: Tanssi includes templates to kick-start the development of an Appchain, one for a Substrate-oriented runtime and another featuring full EVM (Ethereum) support.
 ---
 
-# Templates Overview {: #templates-overview } 
+# Templates Overview {: #templates-overview }
 
 ## Introduction {: #introduction }
 
@@ -24,7 +24,7 @@ To seamlessly integrate a new Appchain into the Polkadot ecosystem, converting a
 
 Parachains are expected to handle their block production through their own set of collators and expose interfaces to communicate with the relay chain. This allows their state transition to be validated, thus benefiting from the shared security model, to send and receive messages to and from other Parachains, and to manage other aspects, such as:
 
-- **Consensus** - Cumulus adds the necessary functionality to allow the collators to produce, gossip, and validate the blocks, and coordinate with the relay chain to get notified about the block's finality 
+- **Consensus** - Cumulus adds the necessary functionality to allow the collators to produce, gossip, and validate the blocks, and coordinate with the relay chain to get notified about the block's finality
 - **[XCM](https://wiki.polkadot.network/docs/learn-xcm){target=_blank}** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a ContainerChain to communicate and interoperate with the other sibling chains within the ecosystem
 - **Runtime Upgrades** - a runtime upgrade in a ContainerChain must be informed to the relay chain to allow its validators to check on the blocks produced by the collators of the ContainerChains. Cumulus notifies the upgrade to the relay chain and waits the required amount of time (blocks) before enacting the change
 
@@ -47,10 +47,10 @@ More information about Tanssi's block production as a service and the interactio
 
 Developing a Substrate-based runtime typically involves two primary steps:
 
-1. [Incorporating pre-existing Substrate built-in modules](/builders/build/substrate/adding-built-in-pallet/){target=_blank} into the runtime
-2. [Creating custom modules](/builders/build/substrate/adding-custom-made-module/){target=_blank} tailored to your specific application needs
+1. [Incorporating pre-existing Substrate built-in modules](/builders/build/local/adding-built-in-pallet/){target=_blank} into the runtime
+2. [Creating custom modules](/builders/build/local/adding-custom-made-module/){target=_blank} tailored to your specific application needs
 
-Since the provided template already includes the essential configurations for seamless integration into the Polkadot ecosystem and compatibility with the Tanssi protocol, teams interested in constructing an innovative Appchain can use this template as a starting point for adding their custom logic. 
+Since the provided template already includes the essential configurations for seamless integration into the Polkadot ecosystem and compatibility with the Tanssi protocol, teams interested in constructing an innovative Appchain can use this template as a starting point for adding their custom logic.
 
 Here are some of the features that come with this template:
 
@@ -63,13 +63,13 @@ By leveraging these features in the template, you can kickstart your Appchain de
 
 ## Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
 
-For teams developing their applications on top of an EVM (Ethereum Virtual Machine), this template is a foundational starting point. It contains all the essential modules to add the extra layer of Ethereum compatibility to a Substrate node: 
+For teams developing their applications on top of an EVM (Ethereum Virtual Machine), this template is a foundational starting point. It contains all the essential modules to add the extra layer of Ethereum compatibility to a Substrate node:
 
 - **`EVM`** - adds the execution layer for Ethereum apps
 - **`Ethereum`** - adds the Ethereum block production emulation to allow the RPC nodes (and DApps) to run without any modification
 - **`EVMChainId`** - stores the chain identifier that identifies the Ethereum network
 
-Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime. 
+Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime.
 
 This means that this template is ready to be built as-is and deployed through Tanssi, unlocking many features, such as:
 
@@ -170,4 +170,3 @@ To support the Tanssi protocol, it will be necessary to add [the modules](#base-
         CheckInherents = CheckInherents,
     }
     ```
-

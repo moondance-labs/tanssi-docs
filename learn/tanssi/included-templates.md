@@ -35,7 +35,7 @@ The two included templates are *Baseline Appchain Template* and *Baseline EVM Te
 
 ### Baseline Appchain Template {: #baseline-appchain-template }
 
-As presented in the [Overview](/learn/tanssi/overview) article, Appchains deployed through Tanssi (ContainerChains) are fully sovereign, customizable Layer 1 solutions that leverage the benefits of becoming part of the wider Polkadot ecosystem.
+As presented in the [Overview](/learn/tanssi/overview){target=_blank} article, Appchains deployed through Tanssi (ContainerChains) are fully sovereign, customizable Layer 1 solutions that leverage the benefits of becoming part of the wider Polkadot ecosystem.
 
 As a sibling chain of the other members of the ecosystem (like the Tanssi network itself), they must include the necessary behavior to implement their consensus mechanism and be able to interact and synchronize with Polkadot's relay chain.
 
