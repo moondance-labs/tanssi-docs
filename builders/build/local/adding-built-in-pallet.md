@@ -3,13 +3,13 @@ title: Adding Built-in Substrate Modules
 description: Substrate is a modular blockchain framework that includes many ready-to-use modules covering a wide range of common functionalities to include in your runtime.
 ---
 
-# Adding a Built-in Module {: #adding-builtin-module } 
+# Adding a Built-in Module {: #adding-builtin-module }
 
 ## Introduction {: #introduction }
 
-Substrate is a powerful and modular software development framework included in the Polkadot SDKs for building blockchains. It provides a comprehensive set of tools and libraries that abstract complex blockchain functionalities, allowing developers to focus on building innovative features and applications by focusing on the runtime, which contains the core logic and the rules of the state transition for the use case. 
+Substrate is a powerful and modular software development framework included in the Polkadot SDKs for building blockchains. It provides a comprehensive set of tools and libraries that abstract complex blockchain functionalities, allowing developers to focus on building innovative features and applications by focusing on the runtime, which contains the core logic and the rules of the state transition for the use case.
 
-What sets Substrate apart is its modular architecture, which enables the seamless integration of pre-built modules and the creation of custom ones, facilitating the development of blockchain protocols. 
+What sets Substrate apart is its modular architecture, which enables the seamless integration of pre-built modules and the creation of custom ones, facilitating the development of blockchain protocols.
 
 For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate Appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live ContainerChain.
 
@@ -33,7 +33,7 @@ In the following example, the popular Substrate module `pallet-assets` is added 
 
 ### Declare the Dependency {: #declare-dependency }
 
-Every package contains a manifest file named `Cargo.toml` stating, among other things, all the dependencies the package relies on, and the ContainerChain runtime is no exception. 
+Every package contains a manifest file named `Cargo.toml` stating, among other things, all the dependencies the package relies on, and the ContainerChain runtime is no exception.
 
 Therefore, the first step, is to declare the dependency and make it available to the runtime, open the `Cargo.toml` file located in the folder `runtime` with a text editor and add the module, referencing the code in the official repository of the Polkadot SDK:
 
@@ -50,7 +50,7 @@ pallet-assets = {
 
 ### Make the Standard Features Available to the Compiler {: #standard-features }
 
-In Cargo, the “features” flags provide a mechanism to tell the compiler to include or leave out certain portions of code, which is a useful mechanism to optimize compile time, minimize binary file sizes, or disable certain behavior (for example, not including unit testing or benchmarking functionality in the runtime intended for production). 
+In Cargo, the “features” flags provide a mechanism to tell the compiler to include or leave out certain portions of code, which is a useful mechanism to optimize compile time, minimize binary file sizes, or disable certain behavior (for example, not including unit testing or benchmarking functionality in the runtime intended for production).
 
 To compile the standard features for the Assets module within the runtime, the same `Cargo.toml` file in the `runtime` folder must be edited, enabling the flag. Everything listed in this section will ensure that it is available to the compiler when building the runtime binary, which is ultimately the file containing all the information to run your ContainerChain initially.
 
@@ -82,7 +82,7 @@ impl pallet_assets::Config for Runtime { ... }
 
 [Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides only by implementing its configuration trait and parameters.
 
-Some of the parameters the trait needs to define might be constant values, in which case, they have to be defined and enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the constants into the correct struct type with functions that allow the runtime to read its type and values in a standardized way. 
+Some of the parameters the trait needs to define might be constant values, in which case, they have to be defined and enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the constants into the correct struct type with functions that allow the runtime to read its type and values in a standardized way.
 
 The following code snippet shows an example of the constant definitions to be used in the configuration of the module:
 
@@ -176,7 +176,7 @@ Finally, add the configuration in the chain specification for the genesis state 
 
 The function `testnet_genesis`, presented in the following code snippet, defines the initial state for the modules included in the runtime (such as initial funded accounts, for example). After adding the Assets module, it is necessary to initialize it as well, and in the following example, its default values are defined.
 
-More about the chain specification and how to configure it will be covered in the article [Modifying Your ContainerChain](/builders/build/modifying).
+More about the chain specification and how to configure it will be covered in the article [Customizing Chain Specifications](/builders/build/local/customizing-chain-specs/){target=_blank}.
 
 ```rust hl_lines="14"
 fn testnet_genesis(

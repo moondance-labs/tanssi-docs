@@ -85,4 +85,4 @@ To check the correct installation of Git, running the following command in a ter
 
 With these essential tools installed, the development environment should be ready to work with Substrate and generate new custom chain specifications.
 
-To check whether your local development environment is good to go, you can try generating the chain specs file by following the steps described in the [basic Substrate](/builders/build/substrate#generating-the-chain-spec) article.
+To check whether your local development environment is good to go, you can try generating the chain specs file by following the steps described in the [Customizing Chain Specifications](/builders/build/local/customizing-chain-specs/#generating-the-chain-spec){target=_blank} article.
