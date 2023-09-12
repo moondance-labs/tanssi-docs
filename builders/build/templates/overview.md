@@ -3,7 +3,7 @@ title: Templates
 description: Tanssi includes templates to kick-start the development of an Appchain, one for a Substrate-oriented runtime and another featuring full EVM (Ethereum) support.
 ---
 
-# Templates {: #templates } 
+# Templates Overview {: #templates-overview } 
 
 ## Introduction {: #introduction }
 
@@ -45,9 +45,21 @@ More information about Tanssi's block production as a service and the interactio
 
 ## Baseline Appchain template {: #baseline-appchain-template }
 
-Developing a Substrate-based runtime typically involves two main steps: first, [incorporating pre-existing Substrate built-in modules](XXX){target=_blank} into the runtime, and second, [crafting new modules](XXX){target=_blank} tailored to the specific application.
+Developing a Substrate-based runtime typically involves two primary steps:
 
-Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, teams interested in constructing an innovative Appchain can use this template as a starting point to start adding their custom logic.
+1. [Incorporating pre-existing Substrate built-in modules](/builders/build/substrate/adding-built-in-pallet/){target=_blank} into the runtime
+2. [Creating custom modules](/builders/build/substrate/adding-custom-made-module/){target=_blank} tailored to your specific application needs.
+
+Since the provided template already includes the essential configurations for seamless integration into the Polkadot ecosystem and compatibility with the Tanssi protocol, teams interested in constructing an innovative Appchain can use this template as a starting point for adding their custom logic. 
+
+Here are some of the features that come with this template:
+
+- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=_blank}
+- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=_blank}
+- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=_blank}
+- Use the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=_blank} to interact with the Substrate API
+
+By leveraging these features in the template, you can kickstart your Appchain development and customize it to meet your specific requirements and innovations.
 
 ## Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
 
@@ -61,12 +73,12 @@ Since the template already contains the necessary configuration for seamless int
 
 This means that this template is ready to be built as-is and deployed through Tanssi, unlocking many features, such as:
 
-- Use Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=_blank}
-- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=_blank}
-- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=_blank}
+- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=_blank}
 - Connect any Ethereum Wallet such as [Metamask](/builders/interact/ethereum-api/wallets/metamask/){target=_blak} and Ledger
 - Use well known Ethereum libraries like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs){target=_blank}, [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=_blank}, [Web3.py](/builders/interact/ethereum-api/libraries/web3py/){target=_blank} and more
 - Deploy EVM Smart Contracts with tools like [Remix](https://remix.ethereum.org/){target=_blank}, [Hardhat](https://hardhat.org/){target=_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=_blank} and more
+- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=_blank}
+- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=_blank}
 - Use the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=_blank} to interact with the Substrate API
 
 ## Adapting an Existing Runtime {: #adapting-existing-runtime }
