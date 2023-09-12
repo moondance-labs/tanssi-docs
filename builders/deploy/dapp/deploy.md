@@ -89,7 +89,7 @@ To get started, make sure the **EVM** template is selected from the left-side me
 1. Enter your unique chain ID
 2. Enter the token decimals and symbol for your native token
 3. Provide the Ethereum-style address of the account you want to be used as the sudo account. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once tha Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
-4. (Optonal) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
+4. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
 5. (Optional) Add genesis smart contracts by providing an address to use and the bytecode for the smart contract. When providing the bytecode, you'll need to remove the `0x` from the beginning of the bytecode
 6. (Optional) You can adjust the gas configurations in the **Advanced** settings. You can choose to change the **Minimum Gas Price**, **Base fee per gas**, **Multiplier**, and **Elasticity**
 7. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
@@ -104,7 +104,7 @@ To get started, make sure the **Substrate** template is selected from the left-s
 
 1. Enter the token decimals and symbol for your native token and the [SS58 address format](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=_blank}
 2. Provide the Substrate-style address of the account you want to be used as the sudo account. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account.  Once tha Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
-3. (Optonal) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
+3. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
 4. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
 
 ![Create a baseline Substrate ContainerChain with the Tanssi dApp.](/images/builders/deploy/dapp/deploy/deploy-5.png)
