@@ -51,7 +51,7 @@ In the templates included, the chain specification define for the modules `Balan
 
 ## Generating a JSON Chain Specification File {: #generating-json-chain-specs }
 
-The following commands will build and generate the chain specification for the EVM-compatible template, based on the configuration expressed in the `chain_spec.rs` located in the `*/container-chains/templates/frontier/node/src/chain_spec.rs`:
+The following commands will build and generate the chain specification for the EVM-compatible template, based on the configuration expressed in the `chain_spec.rs`, located in the `*/container-chains/templates/frontier/node/src/chain_spec.rs`:
 
 1. Clone the Tanssi code hosted on GitHub
 ```bash
@@ -111,7 +111,7 @@ The following code snippet shows the attributes of the client specifications:
 }
 ```
 
-The other important section of the file if the `genesis` attribute, that contains the genesis state. In the following JSON snippet, the default values and configuration for some modules are shown as an example: 
+The other important section of the file is within the `genesis` attribute, that contains the genesis state. In the following JSON snippet, the default values and configuration for some modules are presented as an example: 
 
 ```json
 {
@@ -177,14 +177,14 @@ The other important section of the file if the `genesis` attribute, that contain
 
 ## Generating a raw JSON Chain Specification File {: #generating-raw-specs-file }
 
-One final step before deploying the ContainerChain, is converting the JSON specification file to a raw format, which is a compact non-readable version of the same file that is required to initialize a node.
+One final step before deploying the ContainerChain is converting the JSON specification file to a raw format, which is a compact, less-readable version of the same file, required to initialize a node.
 
-The following commmand will convert the edited file into the correct raw format:
+The following command will convert the chain specs file into the required raw format:
 
 ```bash
 ./target/release/container-chain-template-frontier-node \
     build-spec --chain=chain_spec.json --raw > raw_chain_spec.json
 ```
 
-And this file configured, customized, and in the right raw JSON format now can be uploaded to initialize a new ContainerChain in Tanssi.
+And this file configured, customized, and in the correct raw JSON format now can be uploaded to initialize a new ContainerChain in Tanssi.
 
