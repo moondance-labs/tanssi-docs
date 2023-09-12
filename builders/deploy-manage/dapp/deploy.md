@@ -16,7 +16,7 @@ This guide will walk you through the steps required to launch an Appchain on Tan
 Deploying an Appchain via the Tanssi dApp is accomplished as a single, streamlined flow consisting of five distinct steps:
 
 1. Verify you have the minimum required balances in both Tanssi and the relay chain to launch a new Appchain
-2. Select a [template](/builders/build/templates){target=_blank} and configure it
+2. Select a [template](/builders/build/templates/overview){target=_blank} and configure it
 3. Reserve your Appchain ID on the relay chain
 4. Generate your Appchain files based on the template you selected and your Appchain ID
 5. Register your Appchain on Tanssi and the relay chain
@@ -76,11 +76,11 @@ Once you meet the balance requirements, you can proceed to the next step of conf
 
 Next, you'll be able to select a template for your Appchain and, based on the template, configure specific properties, like the token decimals and symbol, genesis smart contracts and accounts, and more.
 
-You can choose from either the EVM or Substrate template or upload a raw specification file. To find out more information on the available templates, please refer to the [Templates](/builders/build/templates){target=_blank} documentation.
+You can choose from either the EVM or Substrate template or upload a raw specification file. To find out more information on the available templates, please refer to the [Templates](/builders/build/templates/overview){target=_blank} documentation.
 
 ### EVM Template {: #evm-template }
 
-The [EVM template](/builders/build/templates/#baseline-evm-template){target=_blank} provides all the necessary components to add an Ethereum compatibility layer to your Appchain.
+The [EVM template](/builders/build/templates/overview/#baseline-evm-template){target=_blank} provides all the necessary components to add an Ethereum compatibility layer to your Appchain.
 
 Before getting started, you'll need to have an EVM chain ID. This needs to be a unique ID across all Ethereum-compatible chains. Once you have a chain ID you would like to use, you can easily search for it to see if it's already taken on [chainid.network](https://chainid.network/){target=_blank}. Then you'll need to open a pull request on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=_blank} to add your chain configuration details, including the chain ID, to the list to avoid chain ID collisions. This should be done before you continue the deployment process of your Appchain to avoid chain ID collisions.
 
@@ -98,7 +98,7 @@ To get started, make sure the **EVM** template is selected from the left-side me
 
 ### Substrate Template {: #substrate-template }
 
-The [Substrate template](/builders/build/templates/#baseline-appchain-template){target=_blank} includes all of the necessary configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Appchain that is both Polkadot and Tanssi compatible.
+The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template){target=_blank} includes all of the necessary configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Appchain that is both Polkadot and Tanssi compatible.
 
 To get started, make sure the **Substrate** template is selected from the left-side menu. Then take the following steps:
 
@@ -115,8 +115,8 @@ If you already have a Substrate runtime built and have chosen to upload your own
 
 Your runtime must implement the following:
 
-- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/base-setup-to-polkadot){target=_blank} section of the [Templates](/builders/build/templates){target=_blank} page
-- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/#base-setup-supporting-tanssi){target=_blank} section of the [Templates](/builders/build/templates){target=_blank} page
+- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
+- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
 
 You can upload your custom raw specification file by selecting the **Custom** template and adding your JSON specification file.
 
@@ -141,10 +141,10 @@ Once the transaction has successfully gone through, your Appchain ID will be dis
 
 Before you can deploy your Appchain, you'll need to generate four configuration files:
 
-- [The raw chain specification](/builders/build/substrate/customizing-chain-specs/#generating-raw-specs-file){target=_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
-- [The genesis state](/builders/build/substrate/customizing-chain-specs/#genesis-state){target=_blank} - defines the initial state upon which all transactions and state transitions are executed
+- [The raw chain specification](/builders/build/local/customizing-chain-specs/#generating-raw-specs-file){target=_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
+- [The genesis state](/builders/build/local/customizing-chain-specs/#genesis-state){target=_blank} - defines the initial state upon which all transactions and state transitions are executed
 - [The genesis Wasm](/learn/framework/architecture/#runtime){target=_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
-- [The Tanssi genesis state](/builders/build/substrate/customizing-chain-specs/#genesis-state){target=_blank} - defines the genesis state to register in Tanssi
+- [The Tanssi genesis state](/builders/build/local/customizing-chain-specs/#genesis-state){target=_blank} - defines the genesis state to register in Tanssi
 
 These files will automatically be generated for you based on your Appchain ID and your customized template configurations. All you need to do is click **Generate**, and the dApp will generate the required files for you.
 

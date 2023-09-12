@@ -3,11 +3,11 @@ title: Adding a Custom-Made Module
 description: Substrate is a modular blockchain framework that makes it easy to build unique and innovative Appchains composing built-in modules with custom-made ones.
 ---
 
-# Adding a Custom-Made Module {: #adding-custom-made-module } 
+# Adding a Custom-Made Module {: #adding-custom-made-module }
 
 ## Introduction {: #introduction }
 
-By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building an Appchain and accelerates the deployment and evolution into a ContainerChain. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules. 
+By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building an Appchain and accelerates the deployment and evolution into a ContainerChain. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules.
 
 The example presented in the [Modularity](/learn/framework/modules/#custom-module-example){target=_blank} article shows a simple lottery module exposing two transactions:
 
@@ -16,7 +16,7 @@ The example presented in the [Modularity](/learn/framework/modules/#custom-modul
 
 The implementation of those transactions also uses storage, emits events, defines custom errors, and relies on other modules to handle currency (to charge for the tickets and transfer the total amount to the winner) and randomize the winner selection.
 
-In this article, the following steps, necessary to build and add the example module to the runtime, will be covered: 
+In this article, the following steps, necessary to build and add the example module to the runtime, will be covered:
 
 1. Create the lottery module files (package)
 2. Configure the module's dependencies
@@ -32,9 +32,9 @@ To follow the steps in this guide, you will need to have the following:
 - Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} from Github
 - Rust compiler and Cargo package manager
 
-You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/prerequisites/#installing-rust){target=_blank}.
+You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/local/prerequisites/#installing-rust){target=_blank}.
 
-## Creating the Lottery Module Files {: #creating-lottery-module-files } 
+## Creating the Lottery Module Files {: #creating-lottery-module-files }
 
 Before starting your coding process, it's essential to create the files containing your logic. Substrate modules are abstract and intended for reuse across different runtimes with various customizations. To achieve this, you'll use Cargo, Rust's package manager, to create the module as a new package.
 
@@ -74,7 +74,7 @@ homepage = ""
 ...
 ```
 
-This file also defines the module's dependencies, such as the core functionality that allows seamless integration with the runtime and other modules, access to storage, event emission, and more. 
+This file also defines the module's dependencies, such as the core functionality that allows seamless integration with the runtime and other modules, access to storage, event emission, and more.
 
 The full example of the `Cargo.toml` file sets, besides the attributes, the dependencies required by Substrate:
 
@@ -156,11 +156,11 @@ pub trait Config: frame_system::Config {
 
 This abstract definition of dependencies is crucial to avoid coupling to a specific use case and to enable the modules to serve as basic building blocks for Substrate Appchains.
 
-### Implementing Transactions {: #implementing-transactions } 
+### Implementing Transactions {: #implementing-transactions }
 
 Calls represent the behavior a runtime exposes in the form of transactions that can be dispatched for processing, exposing the custom logic added to the module.
 
-Every call is enclosed within the `#[pallet::call]` macro, and present the following elements: 
+Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
 - **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees/){target=_blank}
