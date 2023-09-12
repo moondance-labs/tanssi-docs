@@ -23,7 +23,7 @@ Deploying an Appchain via the Tanssi dApp is accomplished as a single, streamlin
 
 ![A diagram mapping out the steps for deploying an Appchain with the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-1.png)
 
-For [Dancebox](XXX){target=_blank}, the Tanssi team will manually complete verification, and once verified, the launch process will begin. For Tanssi, the process will be fully decentralized and permissionless.
+For [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank}, the Tanssi team will manually complete verification, and once verified, the launch process will begin. For Tanssi, the process will be fully decentralized and permissionless.
 
 ## Supported Wallets {: #supported-wallets }
 
