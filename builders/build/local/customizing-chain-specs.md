@@ -14,7 +14,7 @@ The specification contains two main sections:
 - **The client specification** - includes the network parameters, for example, the boot nodes the client connects with when joining the network
 - **The genesis state** - represents the initial state upon which all transactions and state transitions take place. It includes details like the initial registered accounts and their balances, as well as the account with administrator privileges (sudo, if applicable), among other relevant information
 
-This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates){target=_blank} included in the Tanssi repository) or in a JSON file.
+This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates/overview/){target=_blank} included in the Tanssi repository) or in a JSON file.
 
 To deploy a ContainerChain through Tanssi, uploading the JSON chain specification file is required. This article will cover the sections and attributes a chain specification contains and how to obtain the file.
 
