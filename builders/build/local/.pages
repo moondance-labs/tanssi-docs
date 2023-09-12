@@ -3,4 +3,5 @@ hide: false
 nav:
   - index.md
   - 'Prerequisites': 'prerequisites.md'
-  - substrate
+  - 'Adding a Built-in Module': 'adding-built-in-pallet.md'
+  - 'Adding a Custom-Made Module': 'adding-custom-made-module.md'
