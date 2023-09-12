@@ -33,7 +33,7 @@ The Tanssi network and the ContainerChains can be considered sibling chains, mea
 
 The Tanssi protocol manages a set of collators and assigns them to provide block production services to the active ContainerChains and the Tanssi network itself.
 
-The assignment algorithm will start distributing the available collators, serving first the Tanssi network and then the ContainerChains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of collators. In the provided [templates](/learn/tanssi/templates), the default session duration is set to 1800 blocks, which  with an average block time of 12 seconds, it translates to (roughly) six hours.
+The assignment algorithm will start distributing the available collators, serving first the Tanssi network and then the ContainerChains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of collators. In the provided [templates](/learn/tanssi/included-templates){target=_blank}, the default session duration is set to 1800 blocks, which  with an average block time of 12 seconds, it translates to (roughly) six hours.
 
 Every new assignment works intentionally with a one-session delay, so collators may know in advance if they are assigned to serve the Tanssi network or which one of the ContainerChains.
 
@@ -88,7 +88,7 @@ It is important to note that both pallets include the mentioned data in the bloc
 
 ## Deploy a ContainerChain {: #deploy-a-containerchain }
 
-After building on top of one of the provided [Appchain Templates](/learn/tanssi/templates){target=_blank} and finishing the development process, developers are ready to deploy their ContainerChain in Tanssi.
+After building on top of one of the provided [Appchain Templates](/learn/tanssi/included-templates){target=_blank} and finishing the development process, developers are ready to deploy their ContainerChain in Tanssi.
 
 This is a fairly straightforward step, where the teams only need to generate and upload the [chain specification](https://docs.substrate.io/build/chain-spec/){target=_blank} to the Tanssi network.
 
