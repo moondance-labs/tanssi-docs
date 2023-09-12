@@ -1,341 +1,190 @@
 ---
 title: Customizing Chain Specifications
-description: The chain specification is a set of information describing a Substrate Appchain, including the network and token configuration and its initial genesis state.
+description: The Chain Specification contains the initial parameters required for launching a new ContainerChain, including the genesis state, token configuration, and more.
 ---
 
 # Customizing Chain Specifications {: #customizing-chain-specifications } 
 
 ## Introduction {: #introduction }
 
-By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building an Appchain and accelerates the deployment and evolution into a ContainerChain. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules. 
+The chain specification refers to a set of parameters and configurations that define the characteristics and behavior of a new Appchain. It defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks. Many of the initial settings can not be changed after the network is launched without generating a completely different chain.
 
-The example presented in the [Modularity](/learn/framework/modules/#custom-module-example){target=_blank} article shows a simple lottery module exposing two transactions:
+The specification contains two main sections:
 
-- **Buy tickets** - this function manages a user's entry into the lottery. In essence, it verifies that the participant has a sufficient balance, is not already participating, and takes care of transferring funds to register the user for the lottery
-- **Award prize** - this function that handles a user entering into the lottery. At a high level, it fetches a pseudo random number to obtain a winner and handles the award distribution
+- **The client specification** - includes the network parameters, such as the boot nodes the client connects with when joining the network, for example
+- **The genesis state** - includes the initial state upon which all transactions and state transition are executed. It includes the initial registered accounts and balances, and the account with administrator (sudo) privileges, among other information 
 
-The implementation of those transactions also uses storage, emits events, defines custom errors, and relies on other modules to handle currency (to charge for the tickets and transfer the total amount to the winner) and randomize the winner selection.
+This information the chain spec contains can be stored in a rust file (which can be found in the [templates](/builders/build/templates){target=_blank} included in the Tanssi repository) or in a JSON file.
 
-In this article, the following steps, necessary to build and add the example module to the runtime, will be covered: 
+To deploy a ContainerChain through Tanssi, uploading the JSON chain specification file is required. This article will cover the sections and attributes a chain specification contains and how to obtain the file.
 
-1. Create the lottery module files (package)
-2. Configure the module's dependencies
-3. Adding custom logic
-4. Configure the runtime with the new module
+## The Client Specification {: #client-specification }
 
---8<-- 'text/common/not-for-production-code-guard.md'
+The client specification contains the configuration of the network and other settings (excluding those related to the runtime state): 
 
-## Checking Prerequisites {: #checking-prerequisites }
+- **Name** - name for the specifications
+- **Id** - a unique simple id for the network used to define the storage path in the node
+- **Fork Id** - optional parameter for a network fork identifier
+- **Chain Type** - a parameter that can be set to define the chain type and display additional information or enable additional features (tt can be set to Development, Local, Live, or a custom type)
+- **Boot Nodes** - set of boot nodes that will be used when the new node joins the network and syncs
+- **Telemetry Endpoints** - an optional list of endpoint to send information and monitor the operation of the network
+- **Protocol Id** - a unique name defining the network protocol
+- **Relay Chain** - defines the relay chain the ContainerChain interacts with
+- **Parachain Id** - sets the parachain id that has been reserved and assigned in the relay chain
+- **Code Substitutes** - an emergency feature to replace the runtime when an Appchain is unable to perform a runtime upgrade
+- **Properties** - key-value properties that can be customized and are useful to improve the user experience
 
-To follow the steps in this guide, you will need to have the following:
+In the `properties` attribute, the following settings are used by various front end libraries, including [Polkadot JS](/builders/interact/substrate-api/polkadot-js-api){target=_blank}:
 
-- Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} from Github
-- Rust compiler and Cargo package manager
+- **Token Symbol** - a name for your ContainerChain's own token symbol
+- **SS58 Format** - a unique integer that differentiates your network in a [SS58 encoded address](https://docs.substrate.io/reference/address-formats/){target=_blank}
+- **Token Decimals** - the amount of decimals the token allows
+- **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 
-You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/prerequisites/#installing-rust){target=_blank}.
+## The Genesis State {: #genesis-state }
 
-## Creating the Lottery Module Files {: #creating-lottery-module-files } 
+All the collators assigned to the ContainerChain must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
 
-Before starting your coding process, it's essential to create the files containing your logic. Substrate modules are abstract and intended for reuse across different runtimes with various customizations. To achieve this, you'll use Cargo, Rust's package manager, to create the module as a new package.
+This genesis state will define the starting point of the ContainerChain. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime wasm code, which is stored on-chain.
 
-As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
+In the templates included, the chain specification define for the modules `Balances` the initial accounts and token balance, for example, and also the sudo account for the `Sudo` module.
 
+## Generating a JSON Chain Specification File {: #generating-json-chain-specs }
+
+The following commands will build and generate the chain specification for the EVM-compatible template, based on the configuration expressed in the `chain_spec.rs` located in the `*/container-chains/templates/frontier/node/src/chain_spec.rs`:
+
+1. Clone the Tanssi code hosted on GitHub
 ```bash
-cd container-chains/pallets
+git clone https://github.com/moondance-labs/tanssi
 ```
-
-Next, create the module package with Cargo:
-
+2. Step into the project folder
 ```bash
-cargo new lottery-example
+cd tanssi
 ```
-
-By default, Cargo creates the new package in a folder with the provided name (`lottery-example`, in this case), containing a manifest file, `Cargo.toml`, and a `src` folder with a `main.rs` file. To respect the naming convention used in Substrate, the `main.rs` file is renamed to `lib.rs`:
-
+3. Build the EVM-compatible Appchain template
 ```bash
-mv lottery-example/src/main.rs lottery-example/src/lib.rs
+cargo build -p container-chain-template-frontier-node --release
+```
+4. Generate the chain specification
+```bash
+./target/release/container-chain-template-frontier-node \
+    build-spec > chain_spec.json
 ```
 
-Once you've executed all the commands, the module is created and ready to contain the custom logic that you'll be adding in the following sections.
+## Editing the JSON Chain Specifications file {: #editing-json-chain-specs }
 
-## Configure the Module's Dependencies {: #configure-module-dependencies}
+The generated `chain_spec.json` file reflects the parameters set in the Rust chain specifications file. Being a JSON file, it is easy to read and, should any parameter need to be changed, easy to edit. 
 
-Since the module functions as an independent package, it has its own Cargo.toml file where you must specify the module's attributes and dependencies.
+The following code snippet shows the attributes of the client specifications:
 
-For instance, you can use attributes to specify details like the module's name, version, authors, and other pertinent information. For example, in the the `lottery-example` module, the `Cargo.toml` file can be configured as follows:
-
-```toml
-[package]
-name = "module-lottery-example"
-version = "4.0.0-dev"
-description = "Simple module example"
-authors = [""]
-homepage = ""
-...
+```json
+{
+    // Set the name for the specification of this network
+    "name": "Frontier Container 1000",
+    // Set an id for the specifications of this network
+    "id": "frontier_container_1000",
+    // Network will be live
+    "chainType": "Live",
+    "bootNodes": [
+        // boot nodes will be added automatically during deployment
+    ],
+    // Optional attribute, defaults to null
+    "telemetryEndpoints": null,
+    // Set a protocol identifier for this network
+    "protocolId": "container-chain-1000",
+    // Set properties to define the token and the ethereum compatibility
+    "properties": {
+        "isEthereum": true,
+        "ss58Format": 42,
+        "tokenDecimals": 18,
+        "tokenSymbol": "UNIT"
+    },
+    // Set the stagenet relay chain
+    "relay_chain": "westend_moonbase_relay_stagenet",
+    // Set the parachain id reserved in the relay chain
+    "para_id": 3333,
+    // No need
+    "codeSubstitutes": {},
+    "genesis": { 
+        ... 
+    }
+}
 ```
 
-This file also defines the module's dependencies, such as the core functionality that allows seamless integration with the runtime and other modules, access to storage, event emission, and more. 
+The other important section of the file if the `genesis` attribute, that contains the genesis state. In the following JSON snippet, the default values and configuration for some modules are shown as an example: 
 
-The full example of the `Cargo.toml` file sets, besides the attributes, the dependencies required by Substrate:
-
-??? code "View the complete Cargo.toml file"
-
-    ```rust
-    --8<-- 'code/basic-substrate/lottery-example-cargo.toml'
-    ```
-
-## Adding Custom Logic {: #adding-custom-logic}
-
-As presented in the [custom-made module](/learn/framework/modules/#custom-modules){target=_blank} section of the modularity article, creating a module involves implementing the following attribute macros, of which the first three are mandatory:
-
---8<-- 'text/substrate/pallets-macros-descriptions.md'
-
-### Implementing the Module Basic Structure {: #implementing-basic-structure }
-
-The first two mandatory macros, `#[frame_support::pallet]` and `#[pallet::pallet]`, provide the basic structure of the module and are required to enable the module to be used in a Substrate runtime.
-
-The following snippet shows the general structure of a custom Substrate module.
-
-```rust
-#[frame_support::pallet(dev_mode)]
-pub mod pallet {
+```json
+{
     ...
-    #[pallet::pallet]
-    pub struct Pallet<T>(_);
-    
-    // All the logic goes here
-}
-```
-
-The next step would be to add the third mandatory macro (`#[pallet::config]`) and all the custom logic, as shown in the following sections.
-
-### Implementing the Module Configuration {: #implementing-module-configuration }
-
-To make the modules highly adaptable, their configuration is abstract enough to allow them to be adapted to the specific requirements of the use case the runtime implements.
-
-The implementation of the `#[pallet::config]` macro is mandatory and sets the module's dependency on other modules and the types and values specified by the runtime-specific settings. More about module dependencies is in the [Substrate documentation](https://docs.substrate.io/build/pallet-coupling/){target=_blank}.
-
-In the custom `lottery-example` module you are building, the module depends on other modules to manage the currency and the random function to select the winner. The module also reads and uses the ticket price and the maximum number of participants directly from the runtime settings.  Consequently, the configuration needs to include these dependencies:
-
-- **Events** - the module depends on the runtime's definition of an event to be able to emit them
-- **Currency** - the `lottery-example` module needs to be able to transfer funds, hence, it needs the definition of the currency system from the runtime
-- **Randomness** - this module is used to fairly select the winner of the prize from the list of participants. It generates the random numbers using the past block hashes and the current block's number as seed
-- **Ticket cost** - the price to charge the buyers that participate in the lottery
-- **Maximum number of participants** - the top limit of participants allowed in each lottery round
-- **Module Id** - the module unique identifier is required to access the module account to hold the participant's funds until transferred to the winner
-
-The implementation of the described configuration for this example is shown in the following code snippet:
-
-```rust
-#[pallet::config]
-pub trait Config: frame_system::Config {
-
-    // Event definition
-    type RuntimeEvent: From<Event<Self>> 
-        + IsType<<Self as frame_system::Config>::RuntimeEvent>;
-
-    // Currency 
-    type Currency: Currency<Self::AccountId>;
-
-    // Randomness
-    type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
-
-    // Ticket cost
-    #[pallet::constant]
-    type TicketCost: Get<BalanceOf<Self>>;
-
-    // Maximum number of participants
-    #[pallet::constant]
-    type MaxParticipants: Get<u32>;
-
-    // Module Id
-    #[pallet::constant]
-    type PalletId: Get<PalletId>;
-}
-```
-
-This abstract definition of dependencies is crucial to avoid coupling to a specific use case and to enable the modules to serve as basic building blocks for Substrate Appchains.
-
-### Implementing Transactions {: #implementing-transactions } 
-
-Calls represent the behavior a runtime exposes in the form of transactions that can be dispatched for processing, exposing the custom logic added to the module.
-
-Every call is enclosed within the `#[pallet::call]` macro, and present the following elements: 
-
-- **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees/){target=_blank}
-- **Origin** - identifies the signing account making the call
-- **Result** - the return value of the call, which might be an `Error` if anything goes wrong
-
-The following snippet presents the general structure of the mentioned macro implementation and the call elements:
-
-```rust
-#[pallet::call]
-impl<T: Config> Pallet<T> {
-    
-    #[pallet::call_index(0)]
-    #[pallet::weight(0)]
-    pub fn one_call(origin: OriginFor<T>) -> DispatchResult { }
-
-    #[pallet::call_index(1)]
-    #[pallet::weight(0)]
-    pub fn another_call(origin: OriginFor<T>) -> DispatchResult { }
-
-    // Other calls
-}
-```
-
-In this `lottery-example` module, we defined two calls with the following logic:
-
-```rust
-#[pallet::call]
-impl<T: Config> Pallet<T> {
-    
-    #[pallet::call_index(0)]
-    #[pallet::weight(0)]
-    pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
-
-        // 1. Validates the origin signature
-        // 2. Checks that the user has enough balance to afford the ticket price
-        // 3. Checks that the user is not already participating
-        // 4. Adds the user as a new participant for the prize
-        // 5. Transfers the ticket cost to the module's account, to be hold until transferred to the winner
-        // 6. Notify the event
-    
+    "genesis": {
+        "runtime": {
+            ...
+            // Sets the account that will bear sudo privileges
+            "sudo": {
+                "key": "0xf24ff3a9cf04c71dbc94d0b566f7a27b94566cac"
+            },
+            // Sets the initial balances for some accounts
+            "balances": {
+                "balances": [
+                [
+                    "0x3cd0a705a2dc65e5b1e1205896baa2be8a07c6e0",
+                    1208925819614629174706176
+                ],
+                [
+                    "0x773539d4ac0e786233d90a233654ccee26a613d9",
+                    1208925819614629174706176
+                ],
+                [
+                    "0x798d4ba9baf0064ec19eb4f0a1a45785ae9d6dfc",
+                    1208925819614629174706176
+                ],
+                [
+                    "0xf24ff3a9cf04c71dbc94d0b566f7a27b94566cac",
+                    1208925819614629174706176
+                ]
+                ]
+            },
+            // Sets balances for EVM accounts
+            "evm": {
+                "accounts": {
+                "0x1000000000000000000000000000000000000001": {
+                    "nonce": "0x1",
+                    "balance": "0xd3c21bcecceda1000000",
+                    "storage": {},
+                    "code": [
+                    0
+                    ]
+                },
+                "0x6be02d1d3665660d22ff9624b7be0551ee1ac91b": {
+                    "nonce": "0x0",
+                    "balance": "0xffffffffffffffffffffffffffffffff",
+                    "storage": {},
+                    "code": []
+                },
+                "0xd43593c715fdd31c61141abd04a99fd6822c8558": {
+                    "nonce": "0x0",
+                    "balance": "0xffffffffffffffffffffffffffffffff",
+                    "storage": {},
+                    "code": []
+                }
+                }
+            },
+        }
     }
-
-    #[pallet::call_index(1)]
-    #[pallet::weight(0)]
-    pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
-
-        // 1. Validates the origin signature
-        // 2. Gets a random number from the randomness module
-        // 3. Selects the winner from the participants lit
-        // 4. Transfers the total prize to the winner's account
-        // 5. Resets the participants list, and gets ready for another lottery round
-
-    }
+    ...
 }
 ```
 
-These calls also emit events to keep the user informed and can return errors should any of the validations go wrong.
+## Generating a raw JSON Chain Specification File {: #generating-raw-specs-file }
 
-Here is the complete implementation of the calls with the custom lottery logic:
+One final step before deploying the ContainerChain, is converting the JSON specification file to a raw format, which is a compact non-readable version of the same file that is required to initialize a node.
 
-??? code "View the complete calls code"
+The following commmand will convert the edited file into the correct raw format:
 
-    ```rust
-    --8<-- 'code/basic-substrate/lottery-example-calls.rs'
-    ```
-
-### Implementing Custom Errors {: #implementing-custom-errors}
-
-The `#[pallet::error]` macro is used to annotate an enumeration of potential errors that could occur during execution. It is crucial for security to ensure that all error situations are handled gracefully without causing the runtime to crash.
-
-The following example of this macro implementation shows the errors that might occur in the lottery module:
-
-```rust
-// Errors inform users that something went wrong.
-#[pallet::error]
-pub enum Error<T> {
-    NotEnoughCurrency,
-    AccountAlreadyParticipating,
-    CanNotAddParticipant,
-}
+```bash
+./target/release/container-chain-template-frontier-node \
+    build-spec --chain=chain_spec.json --raw > raw_chain_spec.json
 ```
 
-### Implementing Events {: #implementing-events }
+And this file configured, customized, and in the right raw JSON format now can be uploaded to initialize a new ContainerChain in Tanssi.
 
-The `#[pallet::event]` macro is applied to an enumeration of events to inform the user of any changes in the state or important actions that happened during the execution in the runtime.
-
-As an example, for the `lottery-example` module, this macro could be configured with the following events:
-
-```rust
-#[pallet::event]
-#[pallet::generate_deposit(pub(super) fn deposit_event)]
-pub enum Event<T: Config> {
-    /// Event emitted when a ticket is bought
-    TicketBought { who: T::AccountId },
-    /// Event emitted when the prize is awarded
-    PrizeAwarded { winner: T::AccountId },
-    /// Event emitted when there are no participants
-    ThereAreNoParticipants,
-}
-```
-
-### Implementing Storage for State Persistence {: #implementing-storage }
-
-The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of an Appchain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=_blank}.
-
-In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=_blank}). This can be initialized as follows:
-
-```rust
-#[pallet::storage]
-#[pallet::getter(fn get_participants)]
-pub(super) type Participants<T: Config> = StorageValue<
-    _,
-    BoundedVec<T::AccountId, T::MaxParticipants>,
-    OptionQuery
->;
-```
-### The Complete Module {: #complete-module }
-
-To put all the pieces together, after implementing all the required macros and adding the custom logic, the module is now complete and ready to be used in the runtime.
-
-??? code "View the complete module file"
-
-    ```rust
-    --8<-- 'code/modules/lottery-example.rs'
-    ```
-
-## Configure the Runtime {: #configure-runtime }
-
-Finally, with the module finished, it can be included in the runtime. By doing so, the transactions `buy_tickets` and `award_prize` will be callable by the users. This also means that the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api/){target=_blank} will be decorated with this module and all the available calls that it contains.
-
-To configure the runtime, open the `lib.rs` file, which contains the definition for the runtime of the included template and is located (in case of using the EVM-compatible) in the folder:
-
-```text
-*/container-chains/templates/frontier/runtime/src/
-```
-
-To add the lottery module, configure the modules as follows:
-
-```rust
-
-// Add the configuration for randomness module. No parameters needed.
-impl pallet_insecure_randomness_collective_flip::Config for Runtime {
-}
-
-// Custom module id
-parameter_types! {
-	pub const PalletId: PalletId = PalletId(*b"loex5678");
-}
-
-// Add configuration for the lottery module
-impl pallet_lottery_example::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
-	type Currency = Balances;
-	type TicketCost = ConstU128<1000000000000000>;
-	type PalletId = PalletId;
-	type MaxParticipants = ConstU32<500>;
-	type MyRandomness = RandomCollectiveFlip;
-}
-```
-
-With the modules configured, add the macro `construct_runtime!` (that defines the modules that will be included when building the runtime) and the randomness and lottery modules.
-
-```rust
-construct_runtime!(
-	pub struct Runtime {
-        ...
-        // Include the custom logic from the pallet-template in the runtime.
-        RandomCollectiveFlip: pallet_insecure_randomness_collective_flip,
-        Lottery: pallet_lottery_example,
-        ...
-    }
-)
-```
-
-With everything set, the Appchain now has support for a basic implementation of a lottery.
-
---8<-- 'text/disclaimers/third-party-content.md'
