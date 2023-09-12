@@ -11,8 +11,8 @@ The chain specification refers to a set of parameters and configurations that de
 
 The specification contains two main sections:
 
-- **The client specification** - includes the network parameters, such as the boot nodes the client connects with when joining the network, for example
-- **The genesis state** - includes the initial state upon which all transactions and state transitions are executed. It includes the initial registered accounts and balances and the account with administrator (sudo) privileges, among other information 
+- **The client specification** - includes the network parameters, for example, the boot nodes the client connects with when joining the network
+- **The genesis state** - represents the initial state upon which all transactions and state transitions take place. It includes details like the initial registered accounts and their balances, as well as the account with administrator privileges (sudo, if applicable), among other relevant information
 
 This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates){target=_blank} included in the Tanssi repository) or in a JSON file.
 
@@ -37,8 +37,8 @@ The client specification contains the configuration of the network and other set
 In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=_blank}:
 
 - **Token Symbol** - a name for your ContainerChain's own token symbol
-- **SS58 Format** - a unique integer that differentiates your network in a [SS58 encoded address](https://docs.substrate.io/reference/address-formats/){target=_blank}
-- **Token Decimals** - the number of decimals the token allows
+- **SS58 Format** - a unique integer that uniquely identifies the accounts in your network with [SS58 encoding](https://docs.substrate.io/reference/address-formats/){target=_blank}. All Substrated-based accounts have the same 32 bytes representation, that are base-58 encoded using this integer, which should be unique between networks
+- **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token
 - **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 
 ## The Genesis State {: #genesis-state }
@@ -47,11 +47,13 @@ All the collators assigned to the ContainerChain must agree on the initial state
 
 This genesis state will define the starting point of the ContainerChain. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
 
-In the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module, for example, and also the sudo account for the `Sudo` module.
+For example, in the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module. In addition, the template also has a sudo account (which **should be modified**) for the `Sudo` module, which provides unique priviledges to the given account, and that can be offboarded once an on-chain democracy module is plugged in.
 
 ## Generating a JSON Chain Specification File {: #generating-json-chain-specs }
 
-The following commands will build and generate the chain specification for the EVM-compatible template based on the configuration expressed in the `chain_spec.rs`, located in the `*/container-chains/templates/frontier/node/src/chain_spec.rs`:
+The following commands will build and generate the chain specification for the EVM-compatible template based on the configuration expressed in the `chain_spec.rs`, located in the `*/container-chains/templates/frontier/node/src/chain_spec.rs`. This example can be adapted to any other template or custom runtime.
+
+To build and generate the chain specifications, take the following steps:
 
 1. Clone the Tanssi code hosted on GitHub
 ```bash
