@@ -143,8 +143,8 @@ Before you can deploy your Appchain, you'll need to generate four configuration 
 
 - [The raw chain specification](/builders/build/substrate/customizing-chain-specs/#generating-raw-specs-file){target=_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
 - [The genesis state](/builders/build/substrate/customizing-chain-specs/#genesis-state){target=_blank} - defines the initial state upon which all transactions and state transitions are executed
-- The genesis Wasm - a WebAssembly (Wasm) blob that defines the runtime validation logic
-- The Tanssi genesis state - defines the genesis state for Tanssi
+- [The genesis Wasm](/learn/framework/architecture/#runtime){target=_blank} - a WebAssembly (Wasm) blob that defines the runtime validation logic
+- [The Tanssi genesis state](/builders/build/substrate/customizing-chain-specs/#genesis-state){target=_blank} - defines the genesis state for Tanssi
 
 These files will automatically be generated for you based on your Appchain ID and your customized template configurations. All you need to do is click **Generate**, and the dApp will generate the required files for you.
 
