@@ -3,6 +3,6 @@ hide: false
 nav:
   - index.md
   - build
-  - deploy
+  - deploy-manage
   - interact
   - technicals
