@@ -72,7 +72,7 @@ Once you meet the balance requirements, you can proceed to the next step of conf
 
 ![Verify you meet the balance requirements for launching your Appchain.](/images/builders/deploy-manage/dapp/deploy/deploy-3.png)
 
-## Configure Your ContainerChain {: #configure-your-containerchain }
+## Configure Your Appchain {: #configure-your-appchain }
 
 Next, you'll be able to select a template for your Appchain and, based on the template, configure specific properties, like the token decimals and symbol, genesis smart contracts and accounts, and more.
 
@@ -152,7 +152,7 @@ These files will automatically be generated for you based on your Appchain ID an
 
 Once the files have been generated, please click **Continue** to go on to the final step.
 
-## Deploy Your ContainerChain {: #deploy-your-appchain }
+## Deploy Your Appchain {: #deploy-your-appchain }
 
 You're finally ready to take your last step towards preparing your Appchain as it evolves into a ContainerChain deployed through Tanssi! For this final step, you'll need to submit two transactions: one to register your Appchain on the relay chain and another to register your Appchain on Tanssi.
 
