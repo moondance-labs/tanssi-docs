@@ -71,7 +71,7 @@ Where `<type>` can be either:
 - `rpc` - for endpoints specific to RPC calls
 - `consts` - for endpoints specific to runtime constants
 
-And therefore, none of the information contained in the `api.{query, tx, rpc, consts}.<module>.<method>` endpoints are hard-coded in the API. This allows the Polkadot.js API library to be modular and adapt to any Substrate-based chains with different [modules](/builders/pallets-precompiles/pallets/){target=_blank}, like your ContainerChain!
+And therefore, none of the information contained in the `api.{query, tx, rpc, consts}.<module>.<method>` endpoints are hard-coded in the API. This allows the Polkadot.js API library to be modular and adapt to any Substrate-based chains with different [modules](/learn/framework/modules){target=_blank}, like your ContainerChain!
 
 ## Query On-Chain Data {: #querying-for-information }
 
