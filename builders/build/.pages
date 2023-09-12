@@ -2,9 +2,9 @@ title: Build your ContainerChain
 hide: false
 nav:
   - index.md
+  - templates
   - 'Prerequisites': 'prerequisites.md'
   - substrate
-  # - 'Templates': 'templates.md'
   # - 'Modifying your ContainerChain': 'modifying.md'
   # - 'Test Locally': 'test.md'
   # - 'Export ChainSpec': 'chainspec.md'
