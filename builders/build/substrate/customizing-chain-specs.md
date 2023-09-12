@@ -1,20 +1,20 @@
 ---
 title: Customizing Chain Specifications
-description: The Chain Specification contains the initial parameters required for launching a new ContainerChain, including the genesis state, token configuration, and more.
+description: The chain specification contains the initial parameters required for launching a new ContainerChain, including the genesis state, token configuration, and more.
 ---
 
 # Customizing Chain Specifications {: #customizing-chain-specifications } 
 
 ## Introduction {: #introduction }
 
-The chain specification refers to a set of parameters and configurations that define the characteristics and behavior of a new Appchain. It defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks. Many of the initial settings can not be changed after the network is launched without generating a completely different chain.
+The chain specification refers to a set of parameters and configurations that define the characteristics and behavior of a new Appchain. It defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks. Many initial settings cannot be changed after the network is launched without generating a completely different chain.
 
 The specification contains two main sections:
 
 - **The client specification** - includes the network parameters, such as the boot nodes the client connects with when joining the network, for example
-- **The genesis state** - includes the initial state upon which all transactions and state transition are executed. It includes the initial registered accounts and balances, and the account with administrator (sudo) privileges, among other information 
+- **The genesis state** - includes the initial state upon which all transactions and state transitions are executed. It includes the initial registered accounts and balances and the account with administrator (sudo) privileges, among other information 
 
-This information the chain spec contains can be stored in a rust file (which can be found in the [templates](/builders/build/templates){target=_blank} included in the Tanssi repository) or in a JSON file.
+This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates){target=_blank} included in the Tanssi repository) or in a JSON file.
 
 To deploy a ContainerChain through Tanssi, uploading the JSON chain specification file is required. This article will cover the sections and attributes a chain specification contains and how to obtain the file.
 
@@ -25,33 +25,33 @@ The client specification contains the configuration of the network and other set
 - **Name** - name for the specifications
 - **Id** - a unique simple id for the network used to define the storage path in the node
 - **Fork Id** - optional parameter for a network fork identifier
-- **Chain Type** - a parameter that can be set to define the chain type and display additional information or enable additional features (tt can be set to Development, Local, Live, or a custom type)
+- **Chain Type** - a parameter that can be set to define the chain type and display additional information or enable additional features (it can be set to Development, Local, Live, or a custom type)
 - **Boot Nodes** - set of boot nodes that will be used when the new node joins the network and syncs
-- **Telemetry Endpoints** - an optional list of endpoint to send information and monitor the operation of the network
+- **Telemetry Endpoints** - an optional list of endpoints to send information and monitor the operation of the network
 - **Protocol Id** - a unique name defining the network protocol
 - **Relay Chain** - defines the relay chain the ContainerChain interacts with
 - **Parachain Id** - sets the parachain id that has been reserved and assigned in the relay chain
 - **Code Substitutes** - an emergency feature to replace the runtime when an Appchain is unable to perform a runtime upgrade
 - **Properties** - key-value properties that can be customized and are useful to improve the user experience
 
-In the `properties` attribute, the following settings are used by various front end libraries, including [Polkadot JS](/builders/interact/substrate-api/polkadot-js-api){target=_blank}:
+In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=_blank}:
 
 - **Token Symbol** - a name for your ContainerChain's own token symbol
 - **SS58 Format** - a unique integer that differentiates your network in a [SS58 encoded address](https://docs.substrate.io/reference/address-formats/){target=_blank}
-- **Token Decimals** - the amount of decimals the token allows
+- **Token Decimals** - the number of decimals the token allows
 - **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 
 ## The Genesis State {: #genesis-state }
 
 All the collators assigned to the ContainerChain must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
 
-This genesis state will define the starting point of the ContainerChain. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime wasm code, which is stored on-chain.
+This genesis state will define the starting point of the ContainerChain. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
 
-In the templates included, the chain specification define for the modules `Balances` the initial accounts and token balance, for example, and also the sudo account for the `Sudo` module.
+In the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module, for example, and also the sudo account for the `Sudo` module.
 
 ## Generating a JSON Chain Specification File {: #generating-json-chain-specs }
 
-The following commands will build and generate the chain specification for the EVM-compatible template, based on the configuration expressed in the `chain_spec.rs`, located in the `*/container-chains/templates/frontier/node/src/chain_spec.rs`:
+The following commands will build and generate the chain specification for the EVM-compatible template based on the configuration expressed in the `chain_spec.rs`, located in the `*/container-chains/templates/frontier/node/src/chain_spec.rs`:
 
 1. Clone the Tanssi code hosted on GitHub
 ```bash
@@ -71,7 +71,7 @@ cargo build -p container-chain-template-frontier-node --release
     build-spec > chain_spec.json
 ```
 
-## Editing the JSON Chain Specifications file {: #editing-json-chain-specs }
+## Editing the JSON Chain Specification File {: #editing-json-chain-specs }
 
 The generated `chain_spec.json` file reflects the parameters set in the Rust chain specifications file. Being a JSON file, it is easy to read and, should any parameter need to be changed, easy to edit. 
 
@@ -111,7 +111,7 @@ The following code snippet shows the attributes of the client specifications:
 }
 ```
 
-The other important section of the file is within the `genesis` attribute, that contains the genesis state. In the following JSON snippet, the default values and configuration for some modules are presented as an example: 
+The other important section of the file is within the `genesis` attribute, which contains the genesis state. In the following JSON snippet, the default values and configuration for some modules are presented as an example: 
 
 ```json
 {
@@ -175,7 +175,7 @@ The other important section of the file is within the `genesis` attribute, that 
 }
 ```
 
-## Generating a raw JSON Chain Specification File {: #generating-raw-specs-file }
+## Generating a Raw JSON Chain Specification File {: #generating-raw-specs-file }
 
 One final step before deploying the ContainerChain is converting the JSON specification file to a raw format, which is a compact, less-readable version of the same file, required to initialize a node.
 
@@ -186,5 +186,5 @@ The following command will convert the chain specs file into the required raw fo
     build-spec --chain=chain_spec.json --raw > raw_chain_spec.json
 ```
 
-And this file configured, customized, and in the correct raw JSON format now can be uploaded to initialize a new ContainerChain in Tanssi.
+Now that this file has been configured and customized and is in the correct raw JSON format, it can be uploaded to initialize a new ContainerChain in Tanssi.
 
