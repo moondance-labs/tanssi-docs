@@ -152,7 +152,7 @@ These files will automatically be generated for you based on your Appchain ID an
 
 Once the files have been generated, please click **Continue** to go on to the final step.
 
-## Deploy Your Appchain {: #deploy-your-appchain }
+## Deploy Your ContainerChain {: #deploy-your-appchain }
 
 You're finally ready to take your last step towards deploying your Appchain! For this final step, you'll need to submit two transactions: one to register your Appchain on the relay chain and another to register your Appchain on Tanssi.
 
