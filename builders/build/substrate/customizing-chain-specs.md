@@ -77,7 +77,7 @@ cargo build -p container-chain-template-frontier-node --release
 
 The generated `chain_spec.json` file reflects the parameters set in the Rust chain specifications file. Being a JSON file, it is easy to read and, should any parameter need to be changed, easy to edit. 
 
-The following code snippet shows the attributes of the client specifications:
+For example, the following code snippet shows some of the attributes of the client specifications:
 
 ```json
 {
