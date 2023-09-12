@@ -5,3 +5,4 @@ nav:
   - 'Prerequisites': 'prerequisites.md'
   - 'Adding a Built-in Module': 'adding-built-in-pallet.md'
   - 'Adding a Custom-Made Module': 'adding-custom-made-module.md'
+  - 'Chain Specifications': 'customizing-chain-specs.md'
