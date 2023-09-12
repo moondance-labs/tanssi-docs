@@ -73,9 +73,7 @@ cargo build -p container-chain-template-frontier-node --release
     build-spec > chain_spec.json
 ```
 
-After executing successfully the previous steps, the terminal will display the following output:
-
-And the file `chain_spec.json`, containing the client specification and the genesis state, will be created in the current folder.
+After executing successfully the previous steps, the file `chain_spec.json`, containing the client specification and the genesis state, will be created in the current folder.
 
 ### Editing the JSON Chain Specification File {: #editing-json-chain-specs }
 
