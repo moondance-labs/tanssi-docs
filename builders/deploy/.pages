@@ -1,8 +1,5 @@
-title: Deploy your ContainerChain
+title: Deploy and Manage Your ContainerChain
 hide: false
 nav:
   - index.md
-  # - 'Locally': 'local.md'
-  # - 'TestNet': 'testnet.md'
-  # - 'Kusama': 'kusama.md'
-  # - 'Polkadot': 'polkadot.md'
+  - dapp
