@@ -1,0 +1,6 @@
+title: Local Environment
+hide: false
+nav:
+  - index.md
+  - 'Prerequisites': 'prerequisites.md'
+  - substrate
