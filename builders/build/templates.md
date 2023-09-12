@@ -94,9 +94,9 @@ To support the Tanssi protocol, it will be necessary to add [the modules](#base-
         git = "https://github.com/moondance-labs/tanssi", 
         branch = "master", default-features = false 
     }
-    ccp-authorities-noting-inherent = { 
-        git = "https://github.com/moondance-labs/tanssi", 
-        branch = "master", default-features = false 
+    pallet_authorities_noting = {
+        git = "https://github.com/moondance-labs/moonkit",
+        branch = "tanssi-polkadot-v0.9.43", default-features = false
     }
     ...
     ```
@@ -146,3 +146,22 @@ To support the Tanssi protocol, it will be necessary to add [the modules](#base-
         ...
     }
     ```
+
+4. Make sure your Header is configured as follows:
+
+    ```rust
+    type Header = generic::Header<BlockNumber, BlakeTwo256>;
+    /// An index to a block.
+    pub type BlockNumber = u32; 
+    ```
+
+5. Add the block executor, to allow the validators in the relay chain to check that the authors are the collators assigned by Tanssi (and not a malicious actor)
+
+    ```rust
+    cumulus_pallet_parachain_system::register_validate_block! {
+        Runtime = Runtime,
+        BlockExecutor = pallet_author_inherent::BlockExecutor::<Runtime, Executive>
+        CheckInherents = CheckInherents,
+    }
+    ```
+
