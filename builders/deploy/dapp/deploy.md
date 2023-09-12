@@ -21,7 +21,7 @@ The process for deploying an Appchain via the Tanssi dApp is a five-step process
 4. Generate your Appchain files based on the template you selected and your Appchain ID
 5. Register your Appchain on Tanssi and the relay chain
 
-![A diagram mapping out the steps for deploying an Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/deploy/deploy-2.png)
+![A diagram mapping out the steps for deploying an Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/deploy/deploy-1.png)
 
 Once you've completed these steps, the Tanssi team will complete verification, and once verified, the launch process will begin.
 
