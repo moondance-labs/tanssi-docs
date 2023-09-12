@@ -102,7 +102,7 @@ You can interact with the EVM ContainerChain using standard Ethereum libraries, 
 
 ### EVM Container Chain ID {: #chain-id }
 
-The EVM ContainerChain has a chain ID of: `5678`, which is `0x162E` in hex.
+The EVM ContainerChain has a [chain ID](https://chainlist.org/chain/5678){target=_blank} of: `5678`, which is `0x162E` in hex.
 
 ### Block Explorers {: #block-explorers }
 
