@@ -4,3 +4,4 @@ nav:
   - index.md
   - 'Adding a Built-in Module': 'adding-built-in-pallet.md'
   - 'Adding a Custom-Made Module': 'adding-custom-made-module.md'
+  - 'Chain Specification': 'customizing-chain-specs.md'
