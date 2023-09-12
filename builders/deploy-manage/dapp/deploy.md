@@ -7,7 +7,7 @@ description: Learn how to spin up and deploy an Appchain on Tanssi in minutes us
 
 ## Introduction {: #introduction }
 
-Tanssi aims to lower the barrier to entry for building within the Polkadot ecosystem by streamlining the onboarding process and abstracting away the technical details of launching an Appchain. The Tanssi dApp facilitates this process, allowing you to spin up and deploy an Appchain on Tanssi in minutes.
+Tanssi aims to lower the barrier to entry for building within the Polkadot ecosystem by streamlining the onboarding process and abstracting away the technical details of launching an Appchain. The Tanssi dApp facilitates this process, allowing you to spin up an Appchain and deploy it as a ContainerChain through Tanssi in minutes.
 
 This guide will walk you through the steps required to launch an Appchain on Tanssi's TestNet, Dancebox, via the Tanssi dApp.
 
@@ -154,7 +154,7 @@ Once the files have been generated, please click **Continue** to go on to the fi
 
 ## Deploy Your ContainerChain {: #deploy-your-appchain }
 
-You're finally ready to take your last step towards deploying your Appchain! For this final step, you'll need to submit two transactions: one to register your Appchain on the relay chain and another to register your Appchain on Tanssi.
+You're finally ready to take your last step towards preparing your Appchain as it evolves into a ContainerChain deployed through Tanssi! For this final step, you'll need to submit two transactions: one to register your Appchain on the relay chain and another to register your Appchain on Tanssi.
 
 To register your Appchain on the relay chain, take the following steps:
 
@@ -172,7 +172,7 @@ Lastly, to register your Appchain on Tanssi, take the following steps:
 
 ![Register your Appchain on Tanssi.](/images/builders/deploy-manage/dapp/deploy/deploy-11.png)
 
-Once the transaction has gone through successfully, the dApp will update to show that you have successfully registered your Appchain under the **Register Appchain in Tanssi** section. You can click **Continue** to view the dashboard for your Appchain.
+Once the transaction has gone through successfully, the dApp will update to show that you have successfully registered your Appchain under the **Register Appchain in Tanssi** section. You can click **Continue** to view the dashboard for your ContainerChain.
 
 ![Successful registration of your Appchain on the relay chain and Tanssi.](/images/builders/deploy-manage/dapp/deploy/deploy-12.png)
 
