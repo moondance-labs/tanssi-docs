@@ -73,7 +73,7 @@ cargo build -p container-chain-template-frontier-node --release
     build-spec > chain_spec.json
 ```
 
-After executing successfully the previous steps, the file `chain_spec.json`, containing the client specification and the genesis state, will be created in the current folder.
+After successfully executing the previous steps, the `chain_spec.json` file containing the client specification and the genesis state will be created in the current folder.
 
 !!! note
     The JSON chain specifications can be generated in two different versions: the human readable, which is the one generated following the previous steps, and the raw version, which is the one needed to deploy the ContainerChain through Tanssi. More about how to generate the raw version [later](#generating-raw-specs-file) in this article.
