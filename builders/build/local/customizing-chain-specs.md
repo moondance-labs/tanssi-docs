@@ -183,7 +183,7 @@ An example of a non-manually editable attribute is the Wasm runtime (in the gene
 
 One final step before deploying the ContainerChain is converting the JSON specification file to a raw format, which is a compact, less-readable version of the same file, required to initialize a node.
 
-The following command will convert the chain specs file into the required raw format:
+After going through the [steps to generate the JSON chain Specification File](#generating-json-chain-specs) and editing its values, the following command will convert the chain specs file into the required raw format:
 
 ```bash
 ./target/release/container-chain-template-frontier-node \
