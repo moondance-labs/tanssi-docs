@@ -81,8 +81,43 @@ To check the correct installation of Git, running the following command in a ter
     git --version
     ```
 
-## Verifying the Development Environment {: #verifying-dev-environment}
+## Building a Tanssi Template {: #building-tanssi-template }
 
-With these essential tools installed, the development environment should be ready to work with Substrate and generate new custom chain specifications.
+To build a Substrate node, such as the templates included in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, it is necessary to install additional development components in the system:
 
-To check whether your local development environment is good to go, you can try generating the chain specs file by following the steps described in the [Customizing Chain Specifications](/builders/build/local/customizing-chain-specs/#generating-the-chain-spec){target=_blank} article.
+=== "Linux"
+
+    ```bash
+    apt-get install -y build-essential protobuf-compiler clang libssl-dev pkg-config
+    ```
+
+=== "MacOS"
+
+    ```bash
+    brew install protobuf openssl
+    ```
+
+With these essential tools installed, the development environment should be ready to work with Substrate and build the node with the following commands: 
+
+1. Clone the Tanssi code hosted on GitHub
+```bash
+git clone https://github.com/moondance-labs/tanssi
+```
+2. Step into the project folder
+```bash
+cd tanssi
+```
+3. Build the Appchain template
+=== "Baseline EVM"
+
+    ```bash
+    cargo build -p container-chain-template-frontier-node --release
+    ```
+
+=== "Baseline Substrate"
+
+    ```bash
+    cargo build -p container-chain-template-simple-node --release
+    ```
+
+Having a healthy development environment will be necessary to build a customized runtime and to finally generate the chain specification file that will be used to deploy your Appchain.
