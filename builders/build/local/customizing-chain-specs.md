@@ -67,7 +67,7 @@ cd tanssi
 ```bash
 cargo build -p container-chain-template-frontier-node --release
 ```
-This step is quite verbose and might take a while to complete. The following screenshot shows the terminal after successfully finishing the building process (note that the completion time is above 36 minutes):
+This step is quite verbose and might take a while to complete. The following screenshot shows the terminal after successfully finishing the building process (note that the completion time is above 35 minutes):
 
     ![Building the template](/images/builders/build/local/customizing-chain-specs-1.png)
 4. Generate the chain specification
