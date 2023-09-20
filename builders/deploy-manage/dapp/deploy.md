@@ -49,6 +49,8 @@ Otherwise, to get started, you can:
 
 Once connected, you'll see your address in the top-right corner. If you've connected multiple accounts and would like to switch accounts, you can click on your address and choose an account from the dropdown menu.
 
+To continue, click **Create Appchain**.
+
 ## Balance Verification {: #balance-verification }
 
 The first step in creating and deploying your Appchain is to ensure that you meet the minimum balance requirements. To deploy your Appchain on Dancebox, you'll need to have DANCE tokens, the native Dancebox token, and UNIT tokens, which are the native Alphanet relay chain tokens.
@@ -58,8 +60,8 @@ You'll need to meet the following balance requirements for the actions listed be
 === "Dancebox"
     |              Action               | Balance Required |
     |:---------------------------------:|:----------------:|
-    | Reserve Appchain ID (Relay Chain) |     10 UNIT      |
-    |  Register Appchain (Relay Chain)  |     90 UNIT      |
+    | Reserve Appchain ID (Relay Chain) |     20 UNIT      |
+    |  Register Appchain (Relay Chain)  |     70 UNIT      |
     |    Register Appchain (Tanssi)     |    100 DANCE     |
 
 On the **Balance Verification** page of the dApp, you can view your DANCE and UNIT token balances. Meeting the requirements results in a green checkmark next to each balance, while failing to meet them is indicated by a red X.
@@ -68,7 +70,7 @@ To claim DANCE tokens, you need to complete a [form on the Tanssi network websit
 
 If you have already reserved your Appchain ID, you can toggle the switch at the bottom of the **Balance Verification** page, and your balance requirements will change.
 
-Once you meet the balance requirements, you can proceed to the next step of configuring your Appchain by clicking the Continue button at the bottom of the page.
+Once you meet the balance requirements, you can proceed to the next step of configuring your Appchain by clicking the **Continue** button at the bottom of the page.
 
 ![Verify you meet the balance requirements for launching your Appchain.](/images/builders/deploy-manage/dapp/deploy/deploy-3.png)
 
