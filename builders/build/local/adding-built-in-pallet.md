@@ -13,7 +13,16 @@ What sets Substrate apart is its modular architecture, which enables the seamles
 
 For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate Appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live ContainerChain.
 
-This article focuses on the necessary steps for adding a built-in module.
+This article focuses on the necessary steps for adding a built-in module into the EVM template.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+To follow the steps in this guide, you will need to have the following:
+
+- A healthy develoment environment with Rust compiler and Cargo package manager
+- The [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, cloned from Github
+
+You can read more about how to install the required components in the [prerequisites article](/builders/build/local/prerequisites){target=_blank}.
 
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module-to-runtime }
 
@@ -41,12 +50,15 @@ Therefore, the first step, is to declare the dependency and make it available to
 [dependencies]
 ...
 pallet-assets = { 
-   git = "https://github.com/paritytech/polkadot-sdk", 
-   branch = "master", 
+   git = "https://github.com/moondance-labs/substrate", 
+   branch = "tanssi-polkadot-v0.9.43", 
    default-features = false 
 }
 ...
 ```
+
+!!! note
+    Our engineering team actively contributes to the Substrate development by fixing issues and enhancing functionalities. As a result, the Tanssi fork repository stays frequently ahead of the official one. That is why this example references a built-in module from a Tanssi repository instead of the official one.
 
 ### Make the Standard Features Available to the Compiler {: #standard-features }
 
