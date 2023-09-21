@@ -118,7 +118,33 @@ Your runtime must implement the following:
 - The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
 - Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
 
-You can upload your custom raw specification file by selecting the **Custom** template and adding your JSON specification file.
+Other required changes in the runtime include:
+
+- To verify the author's eligibility to produce a block, set the following type as shown in the snippet, in the `timestamp` module configuration section of the runtime:
+
+    ```rust
+    type OnTimestampSet = tp_consensus::OnTimestampSet<
+        <Self as pallet_author_inherent::Config>::SlotBeacon,
+        ConstU64<{ SLOT_DURATION }>,
+    >;
+    ```
+
+- Remove all the modules related to block production and consensus (such as `Aura` and `Grandpa`), leaving Tanssi to take over the burden. If the starting point for your project was the parachain template, the following modules are included by default in the runtime and must be removed:
+
+    ```rust
+    Authorship: pallet_authorship = 20,
+    CollatorSelection: pallet_collator_selection = 21,
+    Session: pallet_session = 22,
+    Aura: pallet_aura = 23,
+    AuraExt: cumulus_pallet_aura_ext = 24,
+    ```
+
+Finally, [generate and edit](/builders/build/local/customizing-chain-specs/#editing-json-chain-specs){target=_blank} the chain specification paying special attention to: 
+
+- `para_id` - within this custom flow, a pre-registered parachain id is required
+- `is_ethereum` - to `true` if exposing Ethereum compatible RPC endpoints is needed
+
+Now, you can upload your custom raw specification file by selecting the **Custom** template and adding your JSON specification file.
 
 ![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-6.png)
 
