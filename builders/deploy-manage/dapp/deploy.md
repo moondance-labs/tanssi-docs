@@ -148,6 +148,9 @@ Now, you can upload your custom raw specification file by selecting the **Custom
 
 ![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-6.png)
 
+!!! note
+    The file limit for a raw chain should not exceed 2Mb
+
 ## Reserve your Appchain ID {: #reserve-appchain-id }
 
 If you haven't already done so, you'll need to reserve your Appchain ID, which will be required to register your Appchain on the relay chain and function within the Polkadot ecosystem.
