@@ -78,7 +78,7 @@ Paste the copied contract address into the **Token contract address** field. The
 
 ![Paste the copied contract address](/images/builders/interact/ethereum-api/dev-environments/remix/remix-10.png)
 
-After clicking **Next**, you will need to confirm that you want to add these tokens to your MetaMask account. Click **Import** and you should see a balance of 8M MyTokens in MetaMask:
+After clicking **Next**, you will need to confirm that you want to add these tokens to your MetaMask account. Click **Import** and you should see a balance of 8 million MyTokens in MetaMask:
 
 ![Add the tokens to your MetaMask account](/images/builders/interact/ethereum-api/dev-environments/remix/remix-11.png)
 
