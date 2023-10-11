@@ -74,7 +74,7 @@ Now, open MetaMask to add the newly deployed ERC-20 tokens. Before doing so, mak
 
 ![Add a token](/images/builders/interact/ethereum-api/dev-environments/remix/remix-9.png)
 
-Paste the copied contract address into the **Token contract address** field. The **Token symbol** and **Token decimals** fields should be automatically populated.
+Paste the copied contract address into the **Token contract address** field. The **Token symbol** and **Token decimal** fields should be automatically populated.
 
 ![Paste the copied contract address](/images/builders/interact/ethereum-api/dev-environments/remix/remix-10.png)
 
