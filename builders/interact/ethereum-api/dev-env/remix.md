@@ -64,7 +64,7 @@ After you press **Confirm** and the deployment is complete, you will see the tra
 
 Once the contract is deployed, you can interact with it from within Remix.
 
-Drill down on the contract under **Deployed Contracts**. Clicking on **name**, **symbol**, and **totalSupply** should return `MyToken`, `MYTOK`, and `8000000000000000000000000` respectively. If you copy the address from which you deployed the contract and paste it into the **balanceOf** field, you should see the entirety of the balance of the ERC-20 as belonging to that user. Copy the contract address by clicking the button next to the contract name and address.
+Drill down on the contract under **Deployed Contracts**. Clicking on **name**, **symbol**, and **totalSupply** should return `MyToken`, `MYTOK`, and `8000000000000000000000000`, respectively. If you copy the address from which you deployed the contract and paste it into the **balanceOf** field, you should see the entirety of the balance of the ERC-20 as belonging to that user. Copy the contract address by clicking the button next to the contract name and address.
 
 ![Interact with the contract from Remix](/images/builders/interact/ethereum-api/dev-environments/remix/remix-8.png)
 
