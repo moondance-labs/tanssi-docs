@@ -70,7 +70,7 @@ Drill down on the contract under **Deployed Contracts**. Clicking on **name**, *
 
 ## Interacting with an ERC-20 on your ContainerChain from MetaMask {: #interacting-with-an-erc-20-on-your-containerchain-from-metamask }
 
-Now, open MetaMask to add the newly deployed ERC-20 tokens. Before doing so, make sure you have copied the contract's address from Remix. Back in MetaMask, click on the **Tokens** Tab as shown below. Then press **Import tokens**. Make sure you are connected to the account that deployed the token contract.
+Now, open MetaMask to add the newly deployed ERC-20 tokens. Before doing so, make sure you have copied the contract's address from Remix. Back in MetaMask, click on the **Tokens** tab as shown below. Then press **Import tokens**. Make sure you are connected to the account that deployed the token contract.
 
 ![Add a token](/images/builders/interact/ethereum-api/dev-environments/remix/remix-9.png)
 
