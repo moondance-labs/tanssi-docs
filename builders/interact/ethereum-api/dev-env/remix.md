@@ -36,7 +36,7 @@ Next, paste the following smart contract into the editor tab:
 
 This is a simple ERC-20 contract based on the [current OpenZeppelin ERC-20 template](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol){target=_blank}. It creates `MyToken` with symbol `MYTOK` and mints the entirety of the initial supply to the creator of the contract.
 
-Now, navigate to the **Compile** sidebar option and press the **Compile MyToken.sol** button.
+Now, navigate to the **Solidity compiler** sidebar option and press the **Compile MyToken.sol** button.
 
 ![Compile MyToken.sol](/images/builders/interact/ethereum-api/dev-environments/remix/remix-4.png)
 
