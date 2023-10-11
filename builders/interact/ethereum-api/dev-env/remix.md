@@ -52,7 +52,7 @@ As soon as you select **Injected Web3**, you will be prompted to allow Remix to 
 
 Press **Next** in MetaMask to allow Remix to access the selected account.
 
-Back on Remix, you should see that the account you wish to use for deployment is now managed by MetaMask. Next to the **Deploy** button, specify an initial supply of 8M tokens. Since this contract uses the default of 18 decimals, the value to put in the box is `8000000000000000000000000`.
+Back on Remix, you should see the account you wish to use for deployment is now managed by MetaMask. Next to the **Deploy** button, specify an initial supply of 8 million tokens. Since this contract uses the default of 18 decimals, the value to put in the box is `8000000000000000000000000`.
 
 Once you have entered this value, select **Deploy**. You will be prompted in MetaMask to confirm the contract deployment transaction.
 
