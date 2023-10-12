@@ -18,11 +18,14 @@ For the purposes of this guide, you'll need to have MetaMask installed and confi
 
 ## Getting Started with Remix {: #getting-started-with-remix } 
 
-Now, you can head to [Remix](https://remix.ethereum.org/){target=_blank} to get started. In the main screen, under **Featured Plugins**, select **SOLIDITY** to configure Remix for Solidity development, then navigate to the **File Explorers** view.
+Now, you can head to [Remix](https://remix.ethereum.org/){target=_blank} to get started. In the main screen, navigate to the **File Explorer** tab.
 
 ![File explorer](/images/builders/interact/ethereum-api/dev-environments/remix/remix-1.png)
 
-You will create a new file to save the Solidity smart contract. Press the **Create New File** button on the left hand side of **File Explorers** and enter the name `MyToken.sol` in the pop-up.
+Next, you can create a new file to save the Solidity smart contract. To do so, take the following steps:
+
+1. Press the **Create New File** button on the left hand side of **File Explorer** 
+2. Enter your desired filename, such as `MyToken.sol`
 
 ![Create a new file for your Solidity contract](/images/builders/interact/ethereum-api/dev-environments/remix/remix-2.png)
 
@@ -36,25 +39,33 @@ Next, paste the following smart contract into the editor tab:
 
 This is a simple ERC-20 contract based on the [current OpenZeppelin ERC-20 template](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol){target=_blank}. It creates `MyToken` with symbol `MYTOK` and mints the entirety of the initial supply to the creator of the contract.
 
-Now, navigate to the **Solidity compiler** sidebar option and press the **Compile MyToken.sol** button.
+To compile your smart contract, take the following steps:
+
+1. Navigate to the **Solidity compiler** tab
+2. Press the **Compile MyToken.sol** button.
 
 ![Compile MyToken.sol](/images/builders/interact/ethereum-api/dev-environments/remix/remix-4.png)
 
-You will see Remix download all of the OpenZeppelin dependencies and compile the contract.
+Your contract is now compiled and ready to be deployed to your ContainerChain.
 
 ## Deploying a Contract to your ContainerChain Using Remix {: #deploying-a-contract-to-your-containerchain-using-remix }
 
-Now you can deploy the contract by navigating to the **Deployment** sidebar option. You need to change the topmost **ENVIRONMENT** dropdown from **JavaScript VM** to **Injected Web3**. This tells Remix to use the MetaMask injected provider, which will point it to your EVM ContainerChain, so long as the selected network in your MetaMask is your EVM ContainerChain. If you need to change your network in MetaMask, you can easily do so, and Remix will update your account balances to reflecting the network change. 
+Now you can deploy the contract by navigating to the **Deployment** sidebar option. You need to change the topmost **ENVIRONMENT** dropdown from **JavaScript VM** to **Injected Web3**. This tells Remix to use the MetaMask injected provider, which will point it to your EVM ContainerChain, so long as the selected network in your MetaMask is your EVM ContainerChain. If you need to change your network in MetaMask, you can easily do so, and Remix will update your account balances to reflect the network change. 
 
-As soon as you select **Injected Web3**, you will be prompted to allow Remix to connect to your MetaMask account.
+![Change environment to injected Web3](/images/builders/interact/ethereum-api/dev-environments/remix/remix-15.png)
 
-![Replace](/images/builders/interact/ethereum-api/dev-environments/remix/remix-5.png)
+As soon as you select **Injected Web3**, you will be prompted to allow Remix to connect to your MetaMask account. Then, take the following steps:
 
-Press **Next** in MetaMask to allow Remix to access the selected account.
+1. Select the account(s) that you would like to use with Remix
+2. Press **Next**
+3. Press **Connect**
 
-Back on Remix, you should see the account you wish to use for deployment is now managed by MetaMask. Next to the **Deploy** button, specify an initial supply of 8 million tokens. Since this contract uses the default of 18 decimals, the value to put in the box is `8000000000000000000000000`.
+![Select accounts to connect to Remix](/images/builders/interact/ethereum-api/dev-environments/remix/remix-5.png)
 
-Once you have entered this value, select **Deploy**. You will be prompted in MetaMask to confirm the contract deployment transaction.
+Back on Remix, you should see the account you wish to use for deployment is now managed by MetaMask. To deploy your token contract, take the following steps:
+
+1. Next to the **Deploy** button, specify an initial supply of 8 million tokens. Since this contract uses the default of 18 decimals, the value to put in the box is `8000000000000000000000000`. Once you have entered this value, press **Deploy**
+2. Confirm the contract deployment transaction in MetaMask.
 
 ![Enter an token balance and deploy](/images/builders/interact/ethereum-api/dev-environments/remix/remix-6.png)
 
