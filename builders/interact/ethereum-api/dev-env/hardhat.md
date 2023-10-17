@@ -150,7 +150,7 @@ mkdir scripts && cd scripts
 touch deploy.js
 ```
 
-Next, you need to write your deployment script which can be done using `ethers`. Because you'll be running it with Hardhat, you don't need to import any libraries.
+Next, you need to write your deployment script, which can be done using `ethers`. Because you'll be running it with Hardhat, you don't need to import any libraries.
 
 To get started, take the following steps:
 
