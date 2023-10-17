@@ -1,0 +1,5 @@
+title: Wallets
+hide: false
+nav:
+  - index.md
+  - 'Talisman': 'talisman.md'
