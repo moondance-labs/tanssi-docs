@@ -3,7 +3,7 @@ title: Deploy Smart Contracts with Remix
 description: Learn how to use one of the most popular Ethereum developer tools, the Remix IDE, to interact with your Tanssi EVM ContainerChain.
 ---
 
-# Using Remix to Deploy to your Tanssi EVM ContainerChain
+# Using Remix to Deploy to Your Tanssi EVM ContainerChain
 
 ## Introduction {: #introduction } 
 
