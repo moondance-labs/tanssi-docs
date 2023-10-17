@@ -236,7 +236,7 @@ Notice your address labeled `from`, the address of the contract, and the `data` 
 await box.retrieve();
 ```
 
-You should see `5` or the value you have stored initially.
+You should see `5` or the value you initially stored.
 
 !!! note
         If you run the retrieve command immediately after storing the value, you may see the old value. Running the retrieval command again after waiting a moment will return the correct value.
