@@ -3,7 +3,7 @@ title: Deploy Contracts with Hardhat
 description: Learn how to use Hardhat, an Ethereum development environment, to compile, deploy, and interact with Solidity smart contracts on your Tanssi EVM ContainerChain.
 ---
 
-# Using Hardhat to Deploy to your EVM ContainerChain
+# Using Hardhat to Deploy to Your EVM ContainerChain
 
 ## Introduction {: #introduction }
 
