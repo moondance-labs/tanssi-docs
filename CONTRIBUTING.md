@@ -103,6 +103,9 @@ All landing pages require a logo or relevant icon. You can use the `_index-page-
 - Be 256x256px in size
 - Be added in `.png` format
 - When exporting the SVG to a PNG, please use a DPI of `300`
+- The colors should be:
+  - Light mode: #262626
+  - Dark mode: #e9e9e9
 
 These images are stored in the `images/index-pages` subdirectory.
 
