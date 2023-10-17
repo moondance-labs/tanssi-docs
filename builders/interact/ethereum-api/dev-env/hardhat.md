@@ -157,7 +157,7 @@ To get started, take the following steps:
 1. Create a local instance of the contract with the `getContractFactory` method
 2. Use the `deploy` method that exists within this instance to instantiate the smart contract
 3. Wait for the deployment by using `deployed`
-4. Once deployed, you can fetch the address of the contract using the contract instance.
+4. Once deployed, you can fetch the address of the contract using the contract instance
 
 ```js
 // scripts/deploy.js
