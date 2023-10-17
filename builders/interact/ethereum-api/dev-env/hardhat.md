@@ -143,7 +143,7 @@ After compilation, an `artifacts` directory is created: it holds the bytecode an
 
 ## Deploying the Contract {: #deploying-the-contract }
 
-In order to deploy the `Box.sol` smart contract, you will need to write a simple deployment script. You can create a new directory for the script and name it `scripts` and add a new file to it called `deploy.js`:
+In order to deploy the `Box.sol` smart contract, you will need to write a simple deployment script. You can create a new directory for the script, name it `scripts`, and add a new file to it called `deploy.js`:
 
 ```sh
 mkdir scripts && cd scripts
