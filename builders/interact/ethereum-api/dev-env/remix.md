@@ -5,26 +5,25 @@ description: Learn how to use one of the most popular Ethereum developer tools, 
 
 # Using Remix to Deploy to Your Tanssi EVM ContainerChain
 
-## Introduction {: #introduction } 
+## Introduction {: #introduction }
 
-Developers building dApps on top of Tanssi EVM ContainerChains can use [Remix](https://remix.ethereum.org/){target=_blank}, one of the most popular Ethereum development environments, to build, compile, and deploy their smart contracts. Remix can be used with any EVM ContainerChain, thanks to the seamless compatibility of Tanssi EVM ContainerChains. 
+Developers building dApps on top of Tanssi EVM ContainerChains can use [Remix](https://remix.ethereum.org/){target=\_blank}, one of the most popular Ethereum development environments, to build, compile, and deploy their smart contracts. Remix can be used with any EVM ContainerChain, thanks to the seamless compatibility of Tanssi EVM ContainerChains.
 
-This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi Dancebox TestNet using the Remix IDE. This guide can be adapted for your own Tanssi EVM ContainerChain by simply adding the RPC URL of your ContainerChain to your EVM Wallet and switching networks to it.  
+This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi Dancebox TestNet using the Remix IDE. This guide can be adapted for your own Tanssi EVM ContainerChain by simply adding the RPC URL of your ContainerChain to your EVM Wallet and switching networks to it.
 
-## Checking Prerequisites {: #checking-prerequisites } 
+## Checking Prerequisites {: #checking-prerequisites }
 
-For the purposes of this guide, you'll need to have MetaMask installed and configured to work with your EVM ContainerChain. You can follow [this guide to configure MetaMask for Tanssi with the Demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=_blank}.
+For the purposes of this guide, you'll need to have MetaMask installed and configured to work with your EVM ContainerChain. You can follow [this guide to configure MetaMask for Tanssi with the Demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
 
+## Getting Started with Remix {: #getting-started-with-remix }
 
-## Getting Started with Remix {: #getting-started-with-remix } 
-
-Now, you can head to [Remix](https://remix.ethereum.org/){target=_blank} to get started. In the main screen, navigate to the **File Explorer** tab.
+Now, you can head to [Remix](https://remix.ethereum.org/){target=\_blank} to get started. In the main screen, navigate to the **File Explorer** tab.
 
 ![File explorer](/images/builders/interact/ethereum-api/dev-environments/remix/remix-1.png)
 
 Next, you can create a new file to save the Solidity smart contract. To do so, take the following steps:
 
-1. Press the **Create New File** button on the left hand side of **File Explorer** 
+1. Press the **Create New File** button on the left hand side of **File Explorer**
 2. Enter your desired filename, such as `MyToken.sol`
 
 ![Create a new file for your Solidity contract](/images/builders/interact/ethereum-api/dev-environments/remix/remix-2.png)
@@ -37,7 +36,7 @@ Next, paste the following smart contract into the editor tab:
 
 ![Paste the contract into the editor](/images/builders/interact/ethereum-api/dev-environments/remix/remix-3.png)
 
-This is a simple ERC-20 contract based on the [current OpenZeppelin ERC-20 template](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol){target=_blank}. It creates `MyToken` with symbol `MYTOK` and mints the entirety of the initial supply to the creator of the contract.
+This is a simple ERC-20 contract based on the [current OpenZeppelin ERC-20 template](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol){target=\_blank}. It creates `MyToken` with symbol `MYTOK` and mints the entirety of the initial supply to the creator of the contract.
 
 To compile your smart contract, take the following steps:
 
@@ -50,7 +49,7 @@ Your contract is now compiled and ready to be deployed to your ContainerChain.
 
 ## Deploying a Contract to Your ContainerChain Using Remix {: #deploying-a-contract-to-your-containerchain-using-remix }
 
-Now you can deploy the contract by navigating to the **Deployment** sidebar option. You need to change the topmost **ENVIRONMENT** dropdown from **JavaScript VM** to **Injected Web3**. This tells Remix to use the MetaMask injected provider, which will point it to your EVM ContainerChain, so long as the selected network in your MetaMask is your EVM ContainerChain. If you need to change your network in MetaMask, you can easily do so, and Remix will update your account balances to reflect the network change. 
+Now you can deploy the contract by navigating to the **Deployment** sidebar option. You need to change the topmost **ENVIRONMENT** dropdown from **JavaScript VM** to **Injected Web3**. This tells Remix to use the MetaMask injected provider, which will point it to your EVM ContainerChain, so long as the selected network in your MetaMask is your EVM ContainerChain. If you need to change your network in MetaMask, you can easily do so, and Remix will update your account balances to reflect the network change.
 
 ![Change environment to injected Web3](/images/builders/interact/ethereum-api/dev-environments/remix/remix-5.png)
 
@@ -87,11 +86,11 @@ Once the contract is deployed, you can interact with it from within Remix. To fa
 
 ## Interacting with an ERC-20 on Your ContainerChain from MetaMask {: #interacting-with-an-erc-20-on-your-containerchain-from-metamask }
 
-Now, open MetaMask to add the newly deployed ERC-20 tokens. Make sure you are connected to the account that deployed the token contract. Additionally, make sure you have copied the contract's address from Remix. 
+Now, open MetaMask to add the newly deployed ERC-20 tokens. Make sure you are connected to the account that deployed the token contract. Additionally, make sure you have copied the contract's address from Remix.
 
-To add the token to MetaMask, take the following steps: 
+To add the token to MetaMask, take the following steps:
 
-1. Click on the **Tokens** tab as shown below 
+1. Click on the **Tokens** tab as shown below
 2. Press **Import tokens**
 
 ![Add a token](/images/builders/interact/ethereum-api/dev-environments/remix/remix-10.png)
@@ -117,7 +116,7 @@ Click **Confirm** and, after the transaction is complete, you will see a confirm
 
 ![Verify the reduction in account balance](/images/builders/interact/ethereum-api/dev-environments/remix/remix-14.png)
 
-You can also look up the transaction on [your ContainerChain's explorer](https://tanssi-evmexplorer.netlify.app/){target=_blank} to verify the transaction status. 
+You can also look up the transaction on [your ContainerChain's explorer](https://tanssi-evmexplorer.netlify.app/){target=\_blank} to verify the transaction status.
 
 ![Check transaction status on block explorer for your ContainerChain](/images/builders/interact/ethereum-api/dev-environments/remix/remix-15.png)
 
