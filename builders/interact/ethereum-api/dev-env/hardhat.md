@@ -103,7 +103,7 @@ contract Box {
 
 Before you can deploy the contract to your ContainerChain, you'll need to modify the Hardhat configuration file and create a secure file to store your private key in.
 
-You can modify the `hardhat.config.js` file to use either the Tanssi Dancebox Demo EVM ContainerChain or your own ContainerChain:
+You can modify the `hardhat.config.js` file to use either the Tanssi Dancebox demo EVM ContainerChain or your own ContainerChain:
 
 
 ```js
