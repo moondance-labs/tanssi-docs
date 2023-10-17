@@ -190,7 +190,7 @@ You can now deploy the `Box.sol` contract using the `run` command and specifying
 npx hardhat run --network dancebox scripts/deploy.js
 ```
 
-If you're deploying to another CointainerChain, make sure that you specify the correct network. The network name needs to match how it's defined in the `hardhat.config.js`.
+If you're deploying to another CointainerChain, make sure that you specify the correct network. The network name needs to match how it's defined in `hardhat.config.js`.
 
 After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
