@@ -99,7 +99,7 @@ contract Box {
 }
 ```
 
-## Hardhat Configuration File {: #hardhat-configuration-file }
+## The Hardhat Configuration File {: #hardhat-configuration-file }
 
 Before you can deploy the contract to your ContainerChain, you'll need to modify the Hardhat configuration file and create a secure file to store your private key in.
 
