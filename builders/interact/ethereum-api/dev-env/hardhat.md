@@ -206,7 +206,7 @@ To interact with your newly deployed contract on your ContainerChain, you can la
 npx hardhat console --network dancebox
 ```
 
-Next you can take the following steps, entering in one line at a time:
+Next, you can take the following steps, entering one line at a time:
 
 1. Create a local instance of the `Box.sol` contract
 
