@@ -48,7 +48,7 @@ To compile your smart contract, take the following steps:
 
 Your contract is now compiled and ready to be deployed to your ContainerChain.
 
-## Deploying a Contract to your ContainerChain Using Remix {: #deploying-a-contract-to-your-containerchain-using-remix }
+## Deploying a Contract to Your ContainerChain Using Remix {: #deploying-a-contract-to-your-containerchain-using-remix }
 
 Now you can deploy the contract by navigating to the **Deployment** sidebar option. You need to change the topmost **ENVIRONMENT** dropdown from **JavaScript VM** to **Injected Web3**. This tells Remix to use the MetaMask injected provider, which will point it to your EVM ContainerChain, so long as the selected network in your MetaMask is your EVM ContainerChain. If you need to change your network in MetaMask, you can easily do so, and Remix will update your account balances to reflect the network change. 
 
