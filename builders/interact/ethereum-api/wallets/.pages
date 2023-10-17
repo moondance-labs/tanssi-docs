@@ -3,3 +3,4 @@ hide: false
 nav:
   - index.md
   - 'Metamask': 'metamask.md'
+  - 'Talisman': 'talisman.md'
