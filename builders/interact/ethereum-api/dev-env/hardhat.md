@@ -3,7 +3,7 @@ title: Deploy Contracts with Hardhat
 description: Learn how to use Hardhat, an Ethereum development environment, to compile, deploy, and interact with Solidity smart contracts on your Tanssi EVM ContainerChain.
 ---
 
-# Using Hardhat to Deploy to your EVM ContainerChain
+# Using Hardhat to Deploy to Your EVM ContainerChain
 
 ## Introduction {: #introduction }
 
@@ -99,7 +99,7 @@ contract Box {
 }
 ```
 
-## Hardhat Configuration File {: #hardhat-configuration-file }
+## The Hardhat Configuration File {: #hardhat-configuration-file }
 
 Before you can deploy the contract to your ContainerChain, you'll need to modify the Hardhat configuration file and create a secure file to store your private key in.
 
@@ -143,21 +143,21 @@ After compilation, an `artifacts` directory is created: it holds the bytecode an
 
 ## Deploying the Contract {: #deploying-the-contract }
 
-In order to deploy the `Box.sol` smart contract, you will need to write a simple deployment script. You can create a new directory for the script and name it `scripts` and add a new file to it called `deploy.js`:
+In order to deploy the `Box.sol` smart contract, you will need to write a simple deployment script. You can create a new directory for the script, name it `scripts`, and add a new file to it called `deploy.js`:
 
 ```sh
 mkdir scripts && cd scripts
 touch deploy.js
 ```
 
-Next, you need to write your deployment script which can be done using `ethers`. Because you'll be running it with Hardhat, you don't need to import any libraries.
+Next, you need to write your deployment script, which can be done using `ethers`. Because you'll be running it with Hardhat, you don't need to import any libraries.
 
 To get started, take the following steps:
 
 1. Create a local instance of the contract with the `getContractFactory` method
 2. Use the `deploy` method that exists within this instance to instantiate the smart contract
 3. Wait for the deployment by using `deployed`
-4. Once deployed, you can fetch the address of the contract using the contract instance.
+4. Once deployed, you can fetch the address of the contract using the contract instance
 
 ```js
 // scripts/deploy.js
@@ -190,7 +190,7 @@ You can now deploy the `Box.sol` contract using the `run` command and specifying
 npx hardhat run --network dancebox scripts/deploy.js
 ```
 
-If you're deploying to another CointainerChain, make sure that you specify the correct network. The network name needs to match how it's defined in the `hardhat.config.js`.
+If you're deploying to another CointainerChain, make sure that you specify the correct network. The network name needs to match how it's defined in `hardhat.config.js`.
 
 After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
@@ -206,7 +206,7 @@ To interact with your newly deployed contract on your ContainerChain, you can la
 npx hardhat console --network dancebox
 ```
 
-Next you can take the following steps, entering in one line at a time:
+Next, you can take the following steps, entering one line at a time:
 
 1. Create a local instance of the `Box.sol` contract
 
@@ -236,7 +236,7 @@ Notice your address labeled `from`, the address of the contract, and the `data` 
 await box.retrieve();
 ```
 
-You should see `5` or the value you have stored initially.
+You should see `5` or the value you initially stored.
 
 !!! note
         If you run the retrieve command immediately after storing the value, you may see the old value. Running the retrieval command again after waiting a moment will return the correct value.
