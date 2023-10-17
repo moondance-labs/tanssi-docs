@@ -13,7 +13,7 @@ This guide walks through the process of creating and deploying a Solidity-based 
 
 ## Checking Prerequisites {: #checking-prerequisites } 
 
-For the purposes of this guide, you'll need to have MetaMask installed and configured to work with your EVM ContainerChain. You can follow [this guide to configure MetaMask for Tanssi with the Demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=_blank}.
+For the purposes of this guide, you'll need to have MetaMask installed and configured to work with the Tanssi Dancebox TestNet. You can follow [this guide to configure MetaMask for Tanssi](/builders/interact/ethereum-api/wallets/metamask/){target=_blank}.
 
 
 ## Getting Started with Remix {: #getting-started-with-remix } 
