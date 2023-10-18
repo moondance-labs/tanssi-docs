@@ -23,6 +23,8 @@ On the following screen, you'll be prompted to create a password to secure your 
 
 ![Enter password for Talisman Wallet](/images/builders/interact/substrate-api/wallets/talisman/talisman-2.png)
 
+## Create a Substrate Account {: #create-a-substrate-account }
+
 To create your first Polkadot account in Talisman, take the following steps:
 
 1. Select the **Polkadot** option
@@ -37,6 +39,26 @@ After creating your first account, you'll be prompted to back up your seed phras
 
 !!! note
     You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
+
+## Importing an Existing Substrate Account {: #importing-an-existing-substrate-account }
+
+Of course, you can import an existing Substrate account into Talisman. To do so, take the following steps:
+
+1. Press **Add Account**
+2. Press **Import**
+3. Select **Import via Recovery Phrase**
+
+![Import existing account setup](/images/builders/interact/substrate-api/wallets/talisman/talisman-12.png)
+
+On the following screen, take the following steps: 
+
+1. Select the **Polkadot** account type
+2. Provide a name for your account
+3. Paste in your seed
+4. Select which accounts you'd like to import 
+5. Press **Import**
+
+![Import existing account final steps](/images/builders/interact/substrate-api/wallets/talisman/talisman-13.png)
 
 ## Connecting Talisman to the Tanssi Dancebox TestNet {: #connecting-talisman-to-the-tanssi-dancebox-testnet }
 
@@ -92,32 +114,12 @@ To send a transaction through the Substrate API, click **Send** next to your acc
 
 1. Input the **send to address**
 2. Enter the **amount**
-3. Press **Make transfer** and confirm the transaction in the resulting Polkadot.js pop-up
+3. Press **Make Transfer** and confirm the transaction in the resulting Polkadot.js pop-up
 4. Press **View Details** if you'd like to inspect the contents of the transaction
 5. Press **Approve** to submit the transaction
 
 ![Send funds through Substrate API with Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-11.png)
 
-
-## Importing an Existing Substrate Account {: #importing-an-existing-substrate-account }
-
-Of course, you can import an existing Substrate account into Talisman. To do so, take the following steps:
-
-1. Press **Add Account**
-2. Press **Import**
-3. Select **Import via Recovery Phrase**
-
-![Import existing account setup](/images/builders/interact/substrate-api/wallets/talisman/talisman-12.png)
-
-On the following screen, take the following steps: 
-
-1. Select the **Polkadot** account type
-2. Provide a name for your account
-3. Paste in your seed
-4. Select which accounts you'd like to import 
-5. Press **Import**
-
-![Import existing account final steps](/images/builders/interact/substrate-api/wallets/talisman/talisman-13.png)
 
 This guide focused specifically on configuring Talisman to work with your Substrate ContainerChain, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your EVM ContainerChain](/builders/interact/ethereum-api/wallets/talisman){target=_blank}. 
 
