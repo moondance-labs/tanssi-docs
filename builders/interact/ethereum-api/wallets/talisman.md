@@ -19,7 +19,7 @@ First, download and install the [Talisman extension](https://www.talisman.xyz/){
 
 ![Get started with Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-1.png)
 
-On the following screen you'll be prompted to create a password to secure your new wallet. 
+On the following screen, you'll be prompted to create a password to secure your new wallet. 
 
 ![Enter password for Talisman Wallet](/images/builders/interact/ethereum-api/wallets/talisman/talisman-2.png)
 
