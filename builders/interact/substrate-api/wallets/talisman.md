@@ -73,7 +73,7 @@ On the following page, you'll then be prompted to enter the network details for 
 
 ## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
 
-To connect your Substrate ContainerChain to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=_blank}. Here, we're connecting to the Dancebox Testnet, but you can point Polkadot.js to your ContainerChain by clicking on the network dropdown and filling in the WSS endpoint of your ContainerChain in the **custom endpoint** field.
+To connect your Substrate ContainerChain to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your ContainerChain by clicking on the network dropdown and filling in the WSS endpoint of your ContainerChain in the **custom endpoint** field.
 
 ![Connect to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-9.png)
 
