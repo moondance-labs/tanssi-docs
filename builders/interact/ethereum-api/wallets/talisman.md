@@ -59,7 +59,7 @@ On the following page, you'll then be prompted to enter the network details for 
 
 If you hold a balance of tokens in your newly created account for your ContainerChain, you'll see the balance in the Talisman dashboard. 
 
-## Sending and Receiving Assets on your EVM ContainerChain {: #sending-and-receiving-assets-on-your-evm-containerchain }
+## Sending and Receiving Assets on Your EVM ContainerChain {: #sending-and-receiving-assets-on-your-evm-containerchain }
 
 To transfer the native token of your ContainerChain, take the following steps:
 
