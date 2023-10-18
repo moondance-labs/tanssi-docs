@@ -11,7 +11,7 @@ Developers and users of Tanssi Substrate ContainerChains have a variety of optio
 
 Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=_blank}, [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=_blank}, and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet-extension/){target=_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz/){target=_blank}
 
-This guide takes you through all the necessary steps: from installing Talisman, to setting up a wallet, connecting it to your Tanssi Substrate ContainerChain, and sending funds.
+This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi Substrate ContainerChain, and sending funds.
 
 ## Setting up Talisman {: #setting-up-talisman }
 
