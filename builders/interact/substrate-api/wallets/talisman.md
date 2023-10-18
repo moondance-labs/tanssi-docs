@@ -38,7 +38,7 @@ After creating your first account, you'll be prompted to back up your seed phras
 !!! note
     You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
 
-## Connecting Talisman to the Tanssi Dancebox Testnet {: #connecting-talisman-to-the-tanssi-dancebox-testnet }
+## Connecting Talisman to the Tanssi Dancebox TestNet {: #connecting-talisman-to-the-tanssi-dancebox-testnet }
 
 Talisman already comes pre-configured with support for the Tanssi Dancebox Testnet. You just need to first ensure that you have enabled support for TestNets on Talisman. Remember that the Tanssi Dancebox Testnet itself is not a ContainerChain; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi ContainerChains. To configure your Talisman to work with Dancebox, take the following steps: 
 
