@@ -38,8 +38,7 @@ After creating your first account, you'll be prompted to back up your seed phras
 !!! note
     You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
 
-
-## Configuring Talisman for your EVM ContainerChain {: #configuring-talisman-for-your-evm-containerchain }
+## Configuring Talisman for Your EVM ContainerChain {: #configuring-talisman-for-your-evm-containerchain }
 
 To configure Talisman for your EVM ContainerChain, open the Talisman Extension and click on the **More Options** tab. Then, take the following steps: 
 
