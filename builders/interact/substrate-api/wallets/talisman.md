@@ -48,7 +48,7 @@ Talisman already comes pre-configured with support for the Tanssi Dancebox Testn
 
 ![See your testnet account balances in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-5.png)
 
-If you have a balance of Dancebox tokens, you'll see your account balance at the homepage of the Talisman wallet. If you don't have a balance of Dancebox tokens, the network will be omitted from your list of assets. 
+If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancebox tokens, the network will be omitted from your list of assets. 
 
 ![See your testnet account balances in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-6.png)
 
