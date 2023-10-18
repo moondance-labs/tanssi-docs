@@ -57,7 +57,7 @@ If you have a balance of Dancebox tokens, you'll see your account balance on the
 To configure Talisman for your Substrate ContainerChain, open the Talisman Extension and click on the **More Options** tab. Click on **Settings** > **Networks & Tokens** > **Manage Networks**.
 
 1. Slide the network slider to **Polkadot**
-2. Check the **Enable Testnets** box
+2. Check the **Enable testnets** box
 3. Press **Add Network**
 
 ![Add Network in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-7.png)
