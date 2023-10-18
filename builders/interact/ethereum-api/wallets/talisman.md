@@ -67,8 +67,7 @@ To transfer the native token of your ContainerChain, take the following steps:
 2. Click the desired **Send from** account
 3. Enter the destination address
 4. Enter the amount of tokens to send
-5. Press **Review** and look over the transaction details
-6. Press **Confirm** to send the transaction
+5. Look over the transaction details, then press **Review** and subsequently **Confirm**
 
 ![Send funds on your EVM ContainerChain](/images/builders/interact/ethereum-api/wallets/talisman/talisman-8.png)
 
