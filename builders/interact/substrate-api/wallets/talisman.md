@@ -62,7 +62,7 @@ To configure Talisman for your Substrate ContainerChain, open the Talisman Exten
 
 ![Add Network in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-7.png)
 
-On the following page, you'll then be prompted to enter the network details for your ContainerChain. For demonstration purposes, the Dancebox Testnet is used here, but you can substitute these details for your own ContainerChain. To add your ContainerChain to Talisman, take the following steps: 
+On the following page, you'll then be prompted to enter the network details for your ContainerChain. For demonstration purposes, the Dancebox TestNet is used here, but you can substitute these details for your own ContainerChain. To add your ContainerChain to Talisman, take the following steps: 
 
 1. Paste in the RPC URL of your ContainerChain. Other parameters will be autopopulated
 2. Optionally, enter the block explorer URL of your ContainerChain, if applicable
