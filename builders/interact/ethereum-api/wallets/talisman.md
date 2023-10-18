@@ -40,7 +40,7 @@ After creating your first account, you'll be prompted to back up your seed phras
 
 ## Configuring Talisman for Your EVM ContainerChain {: #configuring-talisman-for-your-evm-containerchain }
 
-To configure Talisman for your EVM ContainerChain, open the Talisman Extension and click on the **More Options** tab. Then, take the following steps: 
+To configure Talisman for your EVM ContainerChain, open the Talisman extension and click on the **More Options** tab. Then, take the following steps: 
 
 1. Select **Settings**
 2. Check the **Enable Testnets** box
