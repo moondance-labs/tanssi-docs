@@ -43,7 +43,7 @@ After creating your first account, you'll be prompted to back up your seed phras
 To configure Talisman for your EVM ContainerChain, open the Talisman extension and click on the **More Options** tab. Then, take the following steps: 
 
 1. Select **Settings**
-2. Check the **Enable Testnets** box
+2. Check the **Enable testnets** box
 3. Press **Add Network**
 
 ![Add Network in Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-6.png)
