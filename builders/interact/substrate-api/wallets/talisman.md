@@ -119,6 +119,6 @@ On the following screen, take the following steps:
 
 ![Import existing account final steps](/images/builders/interact/substrate-api/wallets/talisman/talisman-13.png)
 
-This guide focused specifically on configuring Talisman to work with your Substrate ContainerChain, but Talisman is also a full featured wallet for EVM Accounts as well. Under the Ethereum API section you'll find a [similar guide for configuring Talisman for use with your EVM ContainerChain](/builders/interact/ethereum-api/wallets/talisman){target=_blank}. 
+This guide focused specifically on configuring Talisman to work with your Substrate ContainerChain, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your EVM ContainerChain](/builders/interact/ethereum-api/wallets/talisman){target=_blank}. 
 
 --8<-- 'text/disclaimers/third-party-content.md'
