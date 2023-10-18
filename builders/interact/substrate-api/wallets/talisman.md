@@ -99,7 +99,7 @@ To connect your Substrate ContainerChain to Polkadot.js Apps, first head to [Pol
 
 ![Connect to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-9.png)
 
-The Talisman extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the Talisman extension and press the **Connected / Not Connected** button at the top. To configure Talisman to correctly interface with your ContainerChain on Polkadot.js Apps, you should take the following steps:
+The Talisman extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the Talisman extension and click on the **polkadot.js.org** heading at the top. To configure Talisman to correctly interface with your ContainerChain on Polkadot.js Apps, you should take the following steps:
 
 1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
 2. Press **Connect 1**. The value will change depending on the number of accounts you are connecting
