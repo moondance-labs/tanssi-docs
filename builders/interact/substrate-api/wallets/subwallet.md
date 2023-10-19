@@ -54,7 +54,7 @@ Subwallet comes pre-configured with support for the Tanssi Dancebox TestNet, but
 
 ![Toggle support for the Dancebox Testnet](/images/builders/interact/substrate-api/wallets/Subwallet/Subwallet-6.png)
 
-If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the Subwallet wallet. By default, all balances are hidden in Subwallet, but if you press the eye icon you can toggle balance visibility.
+If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the Subwallet wallet. By default, all balances are hidden in Subwallet, but if you press the eye icon, you can toggle balance visibility.
 
 ![See your testnet account balances in Subwallet](/images/builders/interact/substrate-api/wallets/Subwallet/Subwallet-7.png)
 
