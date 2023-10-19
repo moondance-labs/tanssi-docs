@@ -17,7 +17,7 @@ For the purposes of this guide, you'll need to have MetaMask installed and confi
 
 ## Getting Started with Remix {: #getting-started-with-remix }
 
-Now, you can head to [Remix](https://remix.ethereum.org/){target=\_blank} to get started. In the main screen, navigate to the **File Explorer** tab.
+Now, you can head to [Remix](https://remix.ethereum.org/){target=\_blank} to get started. On the main screen, navigate to the **File Explorer** tab.
 
 ![File explorer](/images/builders/interact/ethereum-api/dev-environments/remix/remix-1.png)
 
