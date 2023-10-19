@@ -62,7 +62,7 @@ On the following screen, take the following steps:
 
 ## Connecting Talisman to the Tanssi Dancebox TestNet {: #connecting-talisman-to-the-tanssi-dancebox-testnet }
 
-Talisman already comes pre-configured with support for the Tanssi Dancebox Testnet. You just need to first ensure that you have enabled support for TestNets on Talisman. Remember that the Tanssi Dancebox Testnet itself is not a ContainerChain; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi ContainerChains. To configure your Talisman to work with Dancebox, take the following steps: 
+Talisman already comes pre-configured with support for the Tanssi Dancebox Testnet. You just need to first ensure that you have enabled support for TestNets on Talisman. Remember that the Tanssi Dancebox TestNet itself is not a ContainerChain; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi ContainerChains. To configure your Talisman to work with Dancebox, take the following steps: 
 
 1. Open the Talisman extension and click on the Talisman logo
 2. Select **Settings**
