@@ -47,7 +47,7 @@ On the following screen, you'll be able to provide the relevant seed phrase, JSO
 
 ## Connecting Subwallet to the Tanssi Dancebox TestNet {: #connecting-Subwallet-to-the-tanssi-dancebox-testnet }
 
-Subwallet comes pre-configured with support for the Tanssi Dancebox Testnet, but it may not be enabled by default. You just need to head to the **Manage networks** page to toggle it on. Remember that the Tanssi Dancebox Testnet itself is not a ContainerChain; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi ContainerChains. To configure your Subwallet to work with Dancebox, press the **More Options** icon in the upper left corner. Then click **Manage networks**, and take the following steps:
+Subwallet comes pre-configured with support for the Tanssi Dancebox TestNet, but it may not be enabled by default. You just need to head to the **Manage networks** page to toggle it on. Remember that the Tanssi Dancebox TestNet itself is not a ContainerChain; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi ContainerChains. To configure your Subwallet to work with Dancebox, press the **More Options** icon in the upper left corner. Then click **Manage networks** and take the following steps:
 
 1. Search for `Dancebox`
 2. Toggle the slider on to enable support for Dancebox
