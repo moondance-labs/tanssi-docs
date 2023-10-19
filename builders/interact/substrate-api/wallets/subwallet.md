@@ -74,7 +74,7 @@ To connect your Substrate ContainerChain to Polkadot.js Apps, first head to [Pol
 
 ![Connect to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/Subwallet/Subwallet-9.png)
 
-The Subwallet extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the Subwallet extension and click on the **Connected / Disconnected** icon next to your account at the top. To configure Subwallet to correctly interface with your ContainerChain on Polkadot.js Apps, you should take the following steps:
+The Subwallet extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the Subwallet extension and click on the **Connected** icon next to your account at the top. To configure Subwallet to correctly interface with your ContainerChain on Polkadot.js Apps, you should take the following steps:
 
 1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
 2. Press **Connect**
