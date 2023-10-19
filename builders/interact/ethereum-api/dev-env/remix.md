@@ -41,7 +41,7 @@ This is a simple ERC-20 contract based on the [current OpenZeppelin ERC-20 templ
 To compile your smart contract, take the following steps:
 
 1. Navigate to the **Solidity compiler** tab
-2. Press the **Compile MyToken.sol** button.
+2. Press the **Compile MyToken.sol** button
 
 ![Compile MyToken.sol](/images/builders/interact/ethereum-api/dev-environments/remix/remix-4.png)
 
