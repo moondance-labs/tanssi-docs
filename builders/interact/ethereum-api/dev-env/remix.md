@@ -75,7 +75,7 @@ After you press **Confirm** and the deployment is complete, you will see the tra
 Once the contract is deployed, you can interact with it from within Remix. To familiarize yourself with interacting with a smart contract from Remix, take the following steps:
 
 1. Expand the contract under the **Deployed Contracts** section
-2. Paste in your address (the address that deployed the token contract) next to the balanceOf method and press **balanceOf**. You should see the entirety of the balance of the ERC-20 belonging to that address.
+2. Paste in your address (the address that deployed the token contract) next to the balanceOf method and press **balanceOf**. You should see the entirety of the balance of the ERC-20 belonging to that address
 3. Press **Decimals** to see the number of decimal points the token has
 4. Press **Name** to see the name you assigned the token
 5. Press **Symbol** to see the token symbol
