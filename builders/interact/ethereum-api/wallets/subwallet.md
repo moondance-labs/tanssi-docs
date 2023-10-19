@@ -13,7 +13,7 @@ Subwallet is a comprehensive Web3 wallet that natively supports Substrate (Polka
 
 This guide takes you through all the necessary steps, from installing Subwallet to setting up a wallet, connecting it to your Tanssi EVM ContainerChain, and sending funds.
 
-## Creating your first Ethereum Account {: #creating-your-first-ethereum-account }
+## Creating Your First Ethereum Account {: #creating-your-first-ethereum-account }
 
 First, download and install the [Subwallet extension](https://www.subwallet.app/download.html){target=_blank}. Creating a new account will generate a seed phrase that can derive multiple Ethereum and Substrate accounts. By default, Subwallet will generate a single Ethereum and a single Substrate account, but you can easily derive more from the same seed phrase. Click **Create a new account** to get started. 
 
