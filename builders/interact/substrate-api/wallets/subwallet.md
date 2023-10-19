@@ -11,7 +11,7 @@ Developers and users of Tanssi Substrate ContainerChains have a variety of optio
 
 The Subwallet wallet browser extension [can be downloaded here](https://www.subwallet.app/download.html){target=_blank} for all supported browsers including Chrome, Brave, Firefox, and MS Edge. Subwallet also has a mobile app for both iOS and Android, but that is beyond the scope of this guide. A complete online asset dashboard is accessible at [web.subwallet.app](https://web.subwallet.app/){target=_blank}
 
-This guide takes you through all the necessary steps, from installing Subwallet to setting up a wallet, connecting it to your Tanssi EVM ContainerChain, and sending funds.
+This guide takes you through all the necessary steps, from installing Subwallet to setting up a wallet, connecting it to your Tanssi Substrate ContainerChain, and sending funds.
 
 ## Creating your first Substrate Account {: #creating-your-first-ethereum-account }
 
@@ -54,7 +54,7 @@ Subwallet comes pre-configured with support for the Tanssi Dancebox Testnet, but
 
 ![Toggle support for the Dancebox Testnet](/images/builders/interact/substrate-api/wallets/Subwallet/Subwallet-6.png)
 
-If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the Subwallet wallet.
+If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the Subwallet wallet. By default, all balances are hidden in Subwallet, but if you press the eye icon you can toggle balance visibility.
 
 ![See your testnet account balances in Subwallet](/images/builders/interact/substrate-api/wallets/Subwallet/Subwallet-7.png)
 
@@ -62,7 +62,7 @@ If you have a balance of Dancebox tokens, you'll see your account balance on the
 
 To configure Subwallet for your Substrate ContainerChain, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your ContainerChain. For demonstration purposes, the Tanssi Dancebox Parachain is used here, but you can substitute these details for your own ContainerChain. To add your ContainerChain to Subwallet, take the following steps: 
 
-1. Paste in the WSS URL of your ContainerChain. Other parameters like the parachainId and token decimals may be autopopulated
+1. Paste in the WSS URL of your ContainerChain. Other parameters like the parachainId and token decimals may be auto populated
 2. Provide a name for your ContainerChain
 3. Press **Save**
 
@@ -95,7 +95,7 @@ To send a transaction through the Substrate API, click **Send** next to your acc
 
 ![Send funds through Substrate API with Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/Subwallet/Subwallet-11.png)
 
-You can also send a transaction through the Substrate API directly through Subwallet, without using Polkadot.js Apps. To do so, press the **Send** icon, and take the following steps:
+You can also send a transaction through the Substrate API directly from the Subwallet extension, without using Polkadot.js Apps. To do so, press the **Send** icon, and take the following steps:
 
 1. Specify the asset to send
 2. Specify the destination chain (in this case, the same chain that you're sending from)

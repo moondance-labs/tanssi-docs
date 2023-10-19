@@ -49,13 +49,13 @@ On the following screen you'll be able to provide the relevant seed phrase, priv
 
 To configure Subwallet for your EVM ContainerChain, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your ContainerChain. For demonstration purposes, the demo EVM ContainerChain is used here, but you can substitute these details for your own ContainerChain. To add your ContainerChain to Subwallet, take the following steps: 
 
-1. Paste in the HTTPS RPC URL of your ContainerChain. The demo EVM ContainerChain's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be autopopulated
+1. Paste in the HTTPS RPC URL of your ContainerChain. The demo EVM ContainerChain's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be auto populated
 2. Paste in the block explorer URL of your ContainerChain. The demo EVM ContainerChain's block explorer URL is `https://tanssi-evmexplorer.netlify.app/`
 3. Press **Save**
 
 ![Add your ContainerChain Network Details in Subwallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-6.png)
 
-By default, all balances are hidden in Subwallet, but if you press the eye icon you can toggle balance visibility. Subwallet will display your ContainerChain token balance if you hold a nonzero balance. 
+By default, all balances are hidden in Subwallet, but if you press the eye icon you can toggle balance visibility.
 
 ## Sending Assets on Your EVM ContainerChain {: #sending-assets-on-your-evm-containerchain }
 
@@ -69,6 +69,6 @@ To transfer the native token of your ContainerChain, take the following steps:
 
 ![Send funds on your EVM ContainerChain](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-7.png)
 
-This guide focused specifically on configuring Subwallet to work with your EVM ContainerChain, but Subwallet is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Subwallet to work with Substrate-based chains.
+This guide focused specifically on configuring Subwallet to work with your EVM ContainerChain, but Subwallet is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a [similar guide for configuring Subwallet for use with your Substrate ContainerChain](/builders/interact/substrate-api/wallets/Subwallet){target=_blank}. 
 
 --8<-- 'text/disclaimers/third-party-content.md'
