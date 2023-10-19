@@ -1,5 +1,5 @@
 ---
-title: How to Connect Subwallet to Tanssi
+title: How to Connect SubWallet to Tanssi
 description: This guide walks you through how to connect Subwallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi EVM ContainerChain. 
 ---
 
