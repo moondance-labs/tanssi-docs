@@ -62,7 +62,7 @@ If you have a balance of Dancebox tokens, you'll see your account balance on the
 
 To configure Subwallet for your Substrate ContainerChain, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your ContainerChain. For demonstration purposes, the Tanssi Dancebox Parachain is used here, but you can substitute these details for your own ContainerChain. To add your ContainerChain to Subwallet, take the following steps: 
 
-1. Paste in the WSS URL of your ContainerChain. Other parameters like the parachainId and token decimals may be auto populated
+1. Paste in the WSS URL of your ContainerChain. Other parameters like the parachain ID and token decimals may be auto-populated
 2. Provide a name for your ContainerChain
 3. Press **Save**
 
