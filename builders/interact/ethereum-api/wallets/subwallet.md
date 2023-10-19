@@ -55,7 +55,7 @@ To configure Subwallet for your EVM ContainerChain, press the **More Options** i
 
 ![Add your ContainerChain Network Details in Subwallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-6.png)
 
-By default, all balances are hidden in Subwallet, but if you press the eye icon you can toggle balance visibility.
+By default, all balances are hidden in Subwallet, but if you press the eye icon, you can toggle balance visibility.
 
 ## Sending Assets on Your EVM ContainerChain {: #sending-assets-on-your-evm-containerchain }
 
