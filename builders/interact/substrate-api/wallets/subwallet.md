@@ -43,7 +43,7 @@ On the following screen, select the method by which you would like to import the
 
 ![Import existing account part 2](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-5.png)
 
-On the following screen you'll be able to provide the relevant seed phrase, JSON file, or QR code, and you can begin using your new account right away. 
+On the following screen, you'll be able to provide the relevant seed phrase, JSON file, or QR code, and you can begin using your new account right away. 
 
 ## Connecting Subwallet to the Tanssi Dancebox TestNet {: #connecting-Subwallet-to-the-tanssi-dancebox-testnet }
 
