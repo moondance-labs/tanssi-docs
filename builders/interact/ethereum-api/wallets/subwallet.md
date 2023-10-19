@@ -39,11 +39,11 @@ Of course, you can import an existing EVM account into Subwallet. To get started
 
 ![Import account part 1](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-4.png)
 
-On the following screen, select the method by which you would like to import the existing account. If you're importing an EVM account, you can choose from the seed phrase, private key, or QR code options. 
+On the following screen, select the method by which you would like to import the existing account.
 
 ![Import existing account part 2](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-5.png)
 
-On the following screen you'll be able to provide the relevant seed phrase, private key, or QR code, and you can begin using your new account right away. 
+On the following screen you'll be able to provide the relevant seed phrase, private key, JSON file, or QR code, and you can begin using your new account right away. 
 
 ## Configuring Subwallet for Your EVM ContainerChain {: #configuring-subwallet-for-your-evm-containerchain }
 

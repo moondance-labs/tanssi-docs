@@ -39,7 +39,7 @@ Of course, you can import an existing Substrate account into Subwallet. To get s
 
 ![Import account part 1](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-4.png)
 
-On the following screen, select the method by which you would like to import the existing account. If you're importing a Substrate account, you can choose from the seed phrase, Polkadot.js (json), or QR code options. 
+On the following screen, select the method by which you would like to import the existing account. If you're importing a Substrate account, you can choose from the seed phrase, Polkadot.js (JSON), or QR code options. 
 
 ![Import existing account part 2](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-5.png)
 
