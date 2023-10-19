@@ -13,7 +13,7 @@ The Subwallet wallet browser extension [can be downloaded](https://www.subwallet
 
 This guide takes you through all the necessary steps, from installing Subwallet to setting up a wallet, connecting it to your Tanssi Substrate ContainerChain, and sending funds.
 
-## Creating your first Substrate Account {: #creating-your-first-ethereum-account }
+## Creating Your First Substrate Account {: #creating-your-first-substrate-account }
 
 First, download and install the [Subwallet extension](https://www.subwallet.app/download.html){target=_blank}. Creating a new account will generate a seed phrase that can derive multiple Ethereum and Substrate accounts. By default, Subwallet will generate a single Ethereum and a single Substrate account, but you can easily derive more from the same seed phrase. Click **Create a new account** to get started. 
 
