@@ -112,7 +112,7 @@ After clicking **Next**, you will be asked to confirm (similar to what is pictur
 
 ![Confirmation of the token transfer](/images/builders/interact/ethereum-api/dev-environments/remix/remix-13.png)
 
-Click **Confirm** and, after the transaction is complete, you will see a confirmation and a reduction of the MyToken account balance from the sender account in MetaMask:
+Click **Confirm** and, after the transaction is complete, you will see a confirmation and a reduction of the MyToken account balance from the sender account in MetaMask.
 
 ![Verify the reduction in account balance](/images/builders/interact/ethereum-api/dev-environments/remix/remix-14.png)
 
