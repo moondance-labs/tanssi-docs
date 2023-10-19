@@ -23,7 +23,7 @@ Now, you can head to [Remix](https://remix.ethereum.org/){target=\_blank} to get
 
 Next, you can create a new file to save the Solidity smart contract. To do so, take the following steps:
 
-1. Press the **Create New File** button on the left hand side of **File Explorer**
+1. Press the **Create New File** button on the left-hand side of **File Explorer**
 2. Enter your desired filename, such as `MyToken.sol`
 
 ![Create a new file for your Solidity contract](/images/builders/interact/ethereum-api/dev-environments/remix/remix-2.png)
