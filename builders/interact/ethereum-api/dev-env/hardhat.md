@@ -21,30 +21,30 @@ You will need to create a Hardhat project if you don't already have one. You can
 
 1. Create a directory for your project
 
-   ```sh
-   mkdir hardhat && cd hardhat
-   ```
+    ```sh
+    mkdir hardhat && cd hardhat
+    ```
 
 2. Initialize the project which will create a `package.json` file
 
-   ```sh
-   npm init -y
-   ```
+    ```sh
+    npm init -y
+    ```
 
 3. Install Hardhat
 
-   ```sh
-   npm install hardhat
-   ```
+    ```sh
+    npm install hardhat
+    ```
 
 4. Create a project
 
-   ```sh
-   npx hardhat init
-   ```
+    ```sh
+    npx hardhat init
+    ```
 
-   !!! note
-   `npx` is used to run executables installed locally in your project. Although Hardhat can be installed globally, it is recommended to install it locally in each project so that you can control the version on a project-by-project basis.
+    !!! note
+        `npx` is used to run executables installed locally in your project. Although Hardhat can be installed globally, it is recommended to install it locally in each project so that you can control the version on a project by project basis.
 
 5. A menu will appear which will allow you to create a new project or use a sample project. For this example, you can choose **Create an empty hardhat.config.js**
 
@@ -109,6 +109,7 @@ You can modify the `hardhat.config.js` file to use either the Tanssi Dancebox de
 require('@nomicfoundation/hardhat-ethers');
 
 // 2. Add your private key that is funded with tokens of your ContainerChain
+// This is for example purposes only - **never store your private keys in a JavaScript file**
 const privateKey = 'INSERT_PRIVATE_KEY';
 
 module.exports = {
@@ -188,7 +189,7 @@ You can now deploy the `Box.sol` contract using the `run` command and specifying
 npx hardhat run --network dancebox scripts/deploy.js
 ```
 
-If you're deploying to another CointainerChain, make sure that you specify the correct network. The network name needs to match how it's defined in `hardhat.config.js`.
+If you're deploying to another ContainerChain, make sure that you specify the correct network. The network name needs to match how it's defined in `hardhat.config.js`.
 
 After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
@@ -208,21 +209,21 @@ Next, you can take the following steps, entering one line at a time:
 
 1. Create a local instance of the `Box.sol` contract
 
-   ```js
-   const Box = await ethers.getContractFactory('Box');
-   ```
+    ```js
+    const Box = await ethers.getContractFactory('Box');
+    ```
 
 2. Connect the local instance to the deployed contract, using the address of the contract
 
-   ```js
-   const box = await Box.attach('0x707D4Eb8B3fec49884c217A659b01238afee1697');
-   ```
+    ```js
+    const box = await Box.attach('0x707D4Eb8B3fec49884c217A659b01238afee1697');
+    ```
 
 3. Interact with the attached contract. For this example, you can call the `store` method and store a simple value
 
-   ```js
-   await box.store(5);
-   ```
+    ```js
+    await box.store(5);
+    ```
 
 The transaction will be signed by your EVM account and be broadcasted to the network. The output should look similar to:
 
