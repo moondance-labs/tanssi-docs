@@ -95,7 +95,7 @@ To send a transaction through the Substrate API, click **Send** next to your acc
 
 ![Send funds through Substrate API with Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/Subwallet/Subwallet-11.png)
 
-You can also send a transaction through the Substrate API directly from the Subwallet extension, without using Polkadot.js Apps. To do so, press the **Send** icon, and take the following steps:
+You can also send a transaction through the Substrate API directly from the Subwallet extension without using Polkadot.js Apps. To do so, press the **Send** icon and take the following steps:
 
 1. Specify the asset to send
 2. Specify the destination chain (in this case, the same chain that you're sending from)
