@@ -49,6 +49,8 @@ Otherwise, to get started, you can:
 
 Once connected, you'll see your address in the top-right corner. If you've connected multiple accounts and would like to switch accounts, you can click on your address and choose an account from the dropdown menu.
 
+To continue, click **Create Appchain**.
+
 ## Balance Verification {: #balance-verification }
 
 The first step in creating and deploying your Appchain is to ensure that you meet the minimum balance requirements. To deploy your Appchain on Dancebox, you'll need to have DANCE tokens, the native Dancebox token, and UNIT tokens, which are the native Alphanet relay chain tokens.
@@ -58,8 +60,8 @@ You'll need to meet the following balance requirements for the actions listed be
 === "Dancebox"
     |              Action               | Balance Required |
     |:---------------------------------:|:----------------:|
-    | Reserve Appchain ID (Relay Chain) |     10 UNIT      |
-    |  Register Appchain (Relay Chain)  |     90 UNIT      |
+    | Reserve Appchain ID (Relay Chain) |     20 UNIT      |
+    |  Register Appchain (Relay Chain)  |     70 UNIT      |
     |    Register Appchain (Tanssi)     |    100 DANCE     |
 
 On the **Balance Verification** page of the dApp, you can view your DANCE and UNIT token balances. Meeting the requirements results in a green checkmark next to each balance, while failing to meet them is indicated by a red X.
@@ -68,7 +70,7 @@ To claim DANCE tokens, you need to complete a [form on the Tanssi network websit
 
 If you have already reserved your Appchain ID, you can toggle the switch at the bottom of the **Balance Verification** page, and your balance requirements will change.
 
-Once you meet the balance requirements, you can proceed to the next step of configuring your Appchain by clicking the Continue button at the bottom of the page.
+Once you meet the balance requirements, you can proceed to the next step of configuring your Appchain by clicking the **Continue** button at the bottom of the page.
 
 ![Verify you meet the balance requirements for launching your Appchain.](/images/builders/deploy-manage/dapp/deploy/deploy-3.png)
 
@@ -118,9 +120,38 @@ Your runtime must implement the following:
 - The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
 - Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
 
-You can upload your custom raw specification file by selecting the **Custom** template and adding your JSON specification file.
+Other required changes in the runtime include:
+
+- To verify the author's eligibility to produce a block, set the following type as shown in the snippet, in the `timestamp` module configuration section of the runtime:
+
+    ```rust
+    type OnTimestampSet = tp_consensus::OnTimestampSet<
+        <Self as pallet_author_inherent::Config>::SlotBeacon,
+        ConstU64<{ SLOT_DURATION }>,
+    >;
+    ```
+
+- Remove all the modules related to block production and consensus (such as `Aura` and `Grandpa`), leaving Tanssi to take over the burden. If the starting point for your project was the parachain template, the following modules are included by default in the runtime and must be removed:
+
+    ```rust
+    Authorship: pallet_authorship = 20,
+    CollatorSelection: pallet_collator_selection = 21,
+    Session: pallet_session = 22,
+    Aura: pallet_aura = 23,
+    AuraExt: cumulus_pallet_aura_ext = 24,
+    ```
+
+Finally, [generate and edit](/builders/build/local/customizing-chain-specs/#editing-json-chain-specs){target=_blank} the chain specification paying special attention to: 
+
+- `para_id` - within this custom flow, a pre-registered parachain id is required
+- `is_ethereum` - to `true` if exposing Ethereum compatible RPC endpoints is needed
+
+Now, you can upload your custom raw specification file by selecting the **Custom** template and adding your JSON specification file.
 
 ![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-6.png)
+
+!!! note
+    The size for a raw chain specifications file should not exceed 2Mb
 
 ## Reserve your Appchain ID {: #reserve-appchain-id }
 
