@@ -4,4 +4,4 @@ nav:
   - index.md
   - 'MetaMask': 'metamask.md'
   - 'Talisman': 'talisman.md'
-  - 'Subwallet': 'subwallet.md'
+  - 'SubWallet': 'subwallet.md'
