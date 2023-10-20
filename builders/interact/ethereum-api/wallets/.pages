@@ -2,5 +2,6 @@ title: Wallets
 hide: false
 nav:
   - index.md
-  - 'Metamask': 'metamask.md'
+  - 'MetaMask': 'metamask.md'
   - 'Talisman': 'talisman.md'
+  - 'Subwallet': 'subwallet.md'
