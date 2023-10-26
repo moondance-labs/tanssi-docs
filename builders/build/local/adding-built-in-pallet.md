@@ -24,6 +24,12 @@ To follow the steps in this guide, you will need to have the following:
 
 You can read more about how to install the required components in the [prerequisites article](/builders/build/local/prerequisites){target=_blank}.
 
+As this article is based on the EVM template, make sure that it compiles correctly before continuing by executing the following command:
+
+```bash
+cargo build -p container-chain-template-frontier-node --release
+```
+
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module-to-runtime }
 
 As introduced in the [modularity](/learn/framework/modules) article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities, ready to be used in your runtime.
@@ -44,14 +50,14 @@ In the following example, the popular Substrate module `pallet-assets` is added 
 
 Every package contains a manifest file named `Cargo.toml` stating, among other things, all the dependencies the package relies on, and the ContainerChain runtime is no exception.
 
-Therefore, the first step, is to declare the dependency and make it available to the runtime, open the `Cargo.toml` file located in the folder `runtime` with a text editor and add the module, referencing the code in the official repository of the Polkadot SDK:
+Therefore, the first step, is to declare the dependency and make it available to the runtime, open the `Cargo.toml` file located in the folder `container-chains/templates/frontier/runtime` with a text editor and add the module, referencing the code in the Polkadot SDK:
 
 ```toml
 [dependencies]
 ...
 pallet-assets = { 
-   git = "https://github.com/moondance-labs/substrate", 
-   branch = "tanssi-polkadot-v0.9.43", 
+   git = "https://github.com/moondance-labs/polkadot-sdk", 
+   branch = "tanssi-polkadot-v1.1.0", 
    default-features = false 
 }
 ...
@@ -82,7 +88,7 @@ std = [
 With the dependency declared in the project, the module can now be configured and added to the runtime. To do so, you need to edit the `lib.rs` file that is located at:
 
 ```text
-*/runtime/src/lib.rs
+container-chains/templates/frontier/runtime/src/lib.rs
 ```
 
 The configuration of new modules requires implementing a configuration `trait` for the module (in this example, for Assets) in the runtime, expressed in Rust as follows:
@@ -183,7 +189,7 @@ construct_runtime!(
 Finally, add the configuration in the chain specification for the genesis state in the file `chain_spec.rs` located at:
 
 ```text
-*/node/src/chain_spec.rs
+container-chains/templates/frontier/node/src/chain_spec.rs
 ```
 
 The function `testnet_genesis`, presented in the following code snippet, defines the initial state for the modules included in the runtime (such as initial funded accounts, for example). After adding the Assets module, it is necessary to initialize it as well, and in the following example, its default values are defined.
