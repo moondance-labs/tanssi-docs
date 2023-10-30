@@ -20,7 +20,7 @@ This article focuses on the necessary steps for adding a built-in module to the 
 To follow the steps in this guide, you will need to have the following:
 
 - A healthy development environment with the Rust compiler and Cargo package manager
-- The [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, cloned from Github
+- The [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, cloned from GitHub
 
 You can read more about how to install the required components in the [prerequisites article](/builders/build/local/prerequisites){target=_blank}.
 
