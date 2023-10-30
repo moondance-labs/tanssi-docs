@@ -57,7 +57,7 @@ Therefore, the first step, is to declare the dependency and make it available to
 ...
 pallet-assets = { 
    git = "https://github.com/moondance-labs/polkadot-sdk", 
-   branch = "tanssi-polkadot-v1.1.0", 
+   branch = "{{ repository.tanssi.release_branch }}", 
    default-features = false 
 }
 ...
