@@ -106,7 +106,7 @@ To support the Tanssi protocol, it will be necessary to add [the modules](#base-
     }
     pallet_authorities_noting = {
         git = "https://github.com/moondance-labs/moonkit",
-        branch = "tanssi-polkadot-v0.9.43", default-features = false
+        branch = "{{ repository.tanssi.release_branch }}", default-features = false
     }
     ...
     ```
