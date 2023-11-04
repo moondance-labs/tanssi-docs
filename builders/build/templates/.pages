@@ -3,3 +3,6 @@ hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
+  - 'Substrate': 'Substrate.md'
+  - 'EVM': 'evm.md'
+  - 'Custom runtime': 'custom-runtime.md'
