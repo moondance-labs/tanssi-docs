@@ -23,3 +23,14 @@ Here are some of the features that come with this template:
 
 By leveraging these features in the template, you can kickstart your Appchain development and customize it to meet your specific requirements and innovations.
 
+## Adding External Dependencies {: #adding-external-dependencies }
+
+If you followed the recommended approach, adding an external dependency might create compiling issues with shared common dependencies resulting in multiple versions being referenced
+
+Explain wht it happens
+Present diener
+Explain the solution
+
+
+
+

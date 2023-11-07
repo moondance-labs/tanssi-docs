@@ -43,3 +43,8 @@ If you don't include these modules in the ContainerChain's runtime, there won't 
 
 More information about Tanssi's block production as a service and the interaction between Tanssi, the relay chain, and your ContainerChain can be found in the [Technical Features](/learn/tanssi/technical-features/#block-production-as-a-service){target=_blank} article.
 
+## Recommended Approach to Start Building {: #recommended-approach }
+
+Clone the repo, start adding your custom logic
+Explain why this is recommended: keep up to date easily, test with zombienet
+
