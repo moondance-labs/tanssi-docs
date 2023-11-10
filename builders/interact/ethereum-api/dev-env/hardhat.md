@@ -165,13 +165,22 @@ async function main() {
   const Box = await ethers.getContractFactory('Box');
   console.log('Deploying Box...');
 
-  // 2. Instantiating a new Box smart contract
-  const box = await Box.deploy();
+  // 2. Define custom gas price and gas limit
+  // Gas price is typically specified in 'wei' and gas limit is just a number
+  // You can use ethers.js utility functions to convert from gwei or ether if needed
+  const customGasPrice = 50000000000; // example for 50 gwei
+  const customGasLimit = 1000000; // example gas limit
 
-  // 3. Waiting for the deployment to resolve
+  // 3. Instantiating a new Box smart contract with custom gas settings
+  const box = await Box.deploy({
+    gasPrice: customGasPrice, 
+    gasLimit: customGasLimit,
+  });
+
+  // 4. Waiting for the deployment to resolve
   await box.waitForDeployment();
 
-  // 4. Use the contract instance to get the contract address
+  // 5. Use the contract instance to get the contract address
   console.log('Box deployed to:', box.target);
 }
 
