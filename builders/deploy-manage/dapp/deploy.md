@@ -37,7 +37,7 @@ Since Tanssi is built with Substrate, you'll need to use a Substrate-supported w
 
 Please note that if you deploy an EVM ContainerChain, your users won't need to use a Substrate wallet. They will be able to interact with your ContainerChain using Ethereum-compatible wallets like [MetaMask](/builders/interact/ethereum-api/wallets/metamask){target=_blank}.
 
-### Check token balances {: #check-balances }
+### Check Token Balances {: #check-token-balances }
 
 To configure and deploy your Appchain, you need to meet the minimum balance requirements, which means having enough DANCE tokens, the native Dancebox token, and UNIT tokens, which are the native Alphanet relay chain tokens, to cover the actions listed below:
 
@@ -129,7 +129,7 @@ Now, you can upload your custom raw specification file by selecting the **Custom
 !!! note
     The size for a raw chain specifications file should not exceed 2Mb
 
-## Check your balances {: #check-balances }
+## Check Your Balances {: #check-balances }
 
 After configuring your Appchain, the dApp will require you to connect your wallet to check your balances. Provided that you have received enough DANCE and UNIT tokens, you can go ahead.
 
@@ -147,9 +147,9 @@ Otherwise, to get started, you can:
 
 Once connected, you'll see your address in the top-right corner. If you've connected multiple accounts and would like to switch accounts, you can click on your address and choose an account from the dropdown menu.
 
-### Balances verification {: #balance-verification }
+### Balance Verification {: #balance-verification }
 
-Once you have connected your wallet on the dApp, the **Balance Verification** section will show your DANCE and UNIT token balances. Meeting the requirements results in a green checkmark next to each balance, while failing to meet them is indicated by a red X.
+Once you have connected your wallet to the dApp, the **Balance Verification** section will show your DANCE and UNIT token balances. If you meet the requirements, it results in a green checkmark next to each balance, while failing to meet them is indicated by a red X.
 
 If you have already reserved your Appchain ID, you can toggle the switch at the bottom of the **Balance Verification** page, and your balance requirements will change.
 
