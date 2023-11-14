@@ -65,13 +65,12 @@ Before getting started, you'll need to have an EVM chain ID. This needs to be a 
 
 To get started, make sure the **EVM** template is selected from the left-side menu. Then take the following steps:
 
-1. Enter your unique chain ID
-2. Enter the token decimals and symbol for your native token
-3. Provide the Ethereum-style address of the account you want to be used as the sudo account. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
-4. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
-5. (Optional) Add genesis smart contracts by providing an address to use and the bytecode for the smart contract. When providing the bytecode, you'll need to remove the `0x` from the beginning of the bytecode
-6. (Optional) You can adjust the gas configurations in the **Advanced** settings. You can choose to change the **Minimum Gas Price**, **Base fee per gas**, **Multiplier**, and **Elasticity**
-7. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
+1. In the properties section, enter your unique chain ID and the symbol for your native token. Decimal places are fixed to 18 digits, the same as Ether itself, to preserve compatibility across EVM tooling
+2. Provide the Ethereum-style address of the account you want to be used as the sudo account and its corresponding initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
+3. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
+4. (Optional) Add genesis smart contracts by providing an address to use and the bytecode for the smart contract. When providing the bytecode, you'll need to remove the `0x` from the beginning of the bytecode
+5. (Optional) You can adjust the gas configurations in the **Advanced** settings. You can choose to change the **Minimum Gas Price**, **Base fee per gas**, **Multiplier**, and **Elasticity**
+6. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
 
 ![Create an EVM ContainerChain with the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-4.png)
 
@@ -82,7 +81,7 @@ The [Substrate template](/builders/build/templates/overview/#baseline-appchain-t
 To get started, make sure the **Substrate** template is selected from the left-side menu. Then take the following steps:
 
 1. Enter the token decimals and symbol for your native token and the [SS58 address format](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=_blank}
-2. Provide the Substrate-style address of the account you want to be used as the sudo account. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
+2. Provide the Substrate-style address of the account you want to be used as the sudo account and its initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
 3. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
 4. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
 
@@ -132,7 +131,7 @@ Now, you can upload your custom raw specification file by selecting the **Custom
 
 ## Check your balances {: #check-balances }
 
-After configuring your Appchain, the dApp will require you to connect your wallet to check your balances. Provided that you have received enough DANCE and UNIT tokens, you can proceed.
+After configuring your Appchain, the dApp will require you to connect your wallet to check your balances. Provided that you have received enough DANCE and UNIT tokens, you can go ahead.
 
 ### Connect Your Wallet to the DApp {: #connect-wallet }
 
@@ -178,9 +177,8 @@ Once the transaction has successfully gone through, your Appchain ID will be dis
 Before you can deploy your Appchain, you'll need to generate four configuration files:
 
 - [The raw chain specification](/builders/build/local/customizing-chain-specs/#generating-raw-specs-file){target=_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
-- [The genesis state](/builders/build/local/customizing-chain-specs/#genesis-state){target=_blank} - defines the initial state upon which all transactions and state transitions are executed
+- [The genesis state header](/builders/build/local/customizing-chain-specs/#genesis-state){target=_blank} - defines the initial state upon which all transactions and state transitions are executed
 - [The genesis Wasm](/learn/framework/architecture/#runtime){target=_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
-- [The Tanssi genesis state](/builders/build/local/customizing-chain-specs/#genesis-state){target=_blank} - defines the genesis state to register in Tanssi
 
 These files will automatically be generated for you based on your Appchain ID and your customized template configurations. All you need to do is click **Generate**, and the dApp will generate the required files for you.
 
