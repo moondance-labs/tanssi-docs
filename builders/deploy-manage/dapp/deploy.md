@@ -72,7 +72,7 @@ To get started, make sure the **EVM** template is selected from the left-side me
 5. (Optional) You can adjust the gas configurations in the **Advanced** settings. You can choose to change the **Minimum Gas Price**, **Base fee per gas**, **Multiplier**, and **Elasticity**
 6. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
 
-![Create an EVM ContainerChain with the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-4.png)
+![Create an EVM ContainerChain with the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-2.png)
 
 ### Substrate Template {: #substrate-template }
 
@@ -85,7 +85,7 @@ To get started, make sure the **Substrate** template is selected from the left-s
 3. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
 4. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
 
-![Create a baseline Substrate ContainerChain with the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-5.png)
+![Create a baseline Substrate ContainerChain with the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-3.png)
 
 ### Custom {: #custom }
 
@@ -124,7 +124,7 @@ Finally, [generate and edit](/builders/build/local/customizing-chain-specs/#edit
 
 Now, you can upload your custom raw specification file by selecting the **Custom** template and adding your JSON specification file.
 
-![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-6.png)
+![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-4.png)
 
 !!! note
     The size of a raw chain specifications file should not exceed 2MB.
@@ -143,7 +143,7 @@ Otherwise, to get started, you can:
 2. Choose your account from the dropdown
 3. You'll be prompted to sign a message, which will log you into the Tanssi dApp. Go ahead and sign the message
 
-![Click on the Connect Wallet button to connect your wallet to the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-2.png)
+![Click on the Connect Wallet button to connect your wallet to the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-5.png)
 
 Once connected, you'll see your address in the top-right corner. If you've connected multiple accounts and would like to switch accounts, you can click on your address and choose an account from the dropdown menu.
 
@@ -155,7 +155,7 @@ If you have already reserved your Appchain ID, you can toggle the switch at the 
 
 Once you meet the balance requirements, you can proceed to the next step by clicking the **Continue** button at the bottom of the page.
 
-![Verify you meet the balance requirements for launching your Appchain.](/images/builders/deploy-manage/dapp/deploy/deploy-3.png)
+![Verify you meet the balance requirements for launching your Appchain.](/images/builders/deploy-manage/dapp/deploy/deploy-6.png)
 
 ## Reserve your Appchain ID {: #reserve-appchain-id }
 
