@@ -86,6 +86,9 @@ The [EVM template](/builders/build/templates/overview/#baseline-evm-template){ta
 
 Before getting started, you'll need to have an EVM chain ID. This needs to be a unique ID across all Ethereum-compatible chains. Once you have a chain ID you would like to use, you can easily search for it to see if it's already taken on [chainid.network](https://chainid.network/){target=_blank}. Then you'll need to open a pull request on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=_blank} to add your chain configuration details, including the chain ID, to the list to avoid chain ID collisions. This should be done before you continue the deployment process of your Appchain to avoid chain ID collisions.
 
+!!! note
+    Using a registered EVM chain ID is only necessary for Appchains deployed on the MainNet. When it comes to testing or deploying on the TestNet, you can simply choose any available ID and move forward.
+
 To get started, make sure the **EVM** template is selected from the left-side menu. Then take the following steps:
 
 1. Enter your unique chain ID
