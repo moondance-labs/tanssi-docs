@@ -210,7 +210,7 @@ As each transaction is sent, you'll see a log printed to the terminal.
 
 Now we can move on to creating our Squid to index the data on our local development node.
 
-## Create a Subsquid Project {: #create-subsquid-project }
+## Create a Subsquid Project {: #create-a-subsquid-project }
 
 Now we're going to create our Subquid project. First, we'll need to install the [Subsquid CLI](https://docs.subsquid.io/squid-cli/){target=_blank}:
 
@@ -469,7 +469,7 @@ Bind for 0.0.0.0:23798 failed: port is already allocated
 
 ```
 
-This error indicates that you have another instance of subsquid running somewhere else. You can stop that gracefully with the command `sqd down` or by pressing the Stop button next to the container in Docker Desktop. 
+This error indicates that you have another instance of Subsquid running somewhere else. You can stop that gracefully with the command `sqd down` or by pressing the Stop button next to the container in Docker Desktop. 
 
 ```
 Error: connect ECONNREFUSED 127.0.0.1:23798
