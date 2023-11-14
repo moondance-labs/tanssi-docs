@@ -127,7 +127,7 @@ Now, you can upload your custom raw specification file by selecting the **Custom
 ![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy-manage/dapp/deploy/deploy-6.png)
 
 !!! note
-    The size for a raw chain specifications file should not exceed 2Mb
+    The size of a raw chain specifications file should not exceed 2MB.
 
 ## Check Your Balances {: #check-balances }
 
