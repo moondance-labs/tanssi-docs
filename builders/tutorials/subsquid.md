@@ -11,7 +11,7 @@ description: Learn how to use Subsquid, a query node framework that can index bo
 
 Subsquid has native and full support for both EVM and Substrate data. Subsquid offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi ContainerChain and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
 
-This tutorial is a step-by-step guide to building a squid to index EVM data from start to finish. It's recommended that you follow along taking each step described on your own, but you can also find a complete version of Squid built in this tutorial here.  
+This tutorial is a step-by-step guide to building a squid to index EVM data from start to finish. It's recommended that you follow along taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial here](https://github.com/themacexpert/tanssiSquid){target=_blank}.  
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -50,7 +50,7 @@ Before we dive into creating our project, let's install a couple of dependencies
 
 Now we can edit `hardhat.config.js` to include the following network and account configurations for our ContainerChain. You can replace the Demo EVM ContainerChain values with the respective parameters for your own EVM ContainerChain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=_blank}
 
-??? code "View the complete hardhat.config"
+???+ code "hardhat.config.js"
 
     ```js
     --8<-- 'code/tutorials/subsquid/hardhat-config.js'
@@ -66,7 +66,7 @@ mkdir -p contracts && touch contracts/MyTok.sol
 
 Now we can edit the `MyTok.sol` file to include the following contract, which will mint an initial supply of MYTOKs and allow only the owner of the contract to mint additional tokens:
 
-??? code "View the complete contract"
+???+ code "MyTok.sol"
 
     ```solidity
     --8<-- 'code/tutorials/subsquid/MyTok.sol'
@@ -93,13 +93,13 @@ Let's take the following steps to deploy our contract:
 
 Create a directory and file for our script:
 
-    ```bash
-    mkdir -p scripts && touch scripts/deploy.js
-    ```
+```bash
+mkdir -p scripts && touch scripts/deploy.js
+```
 
 In the `deploy.js` file, go ahead and add the following script:
 
-??? code "View the complete script"
+???+ code "deploy.js"
 
     ```ts
     --8<-- 'code/tutorials/subsquid/deploy.js'
@@ -126,7 +126,7 @@ touch scripts/transactions.js
 In the `transactions.js` file, add the following script. You'll need to insert the contract address of your deployed MyTok contract that was output in the console in the prior step.
 
 
-??? code "View the complete script"
+???+ code "transactions.js"
 
     ```ts
     --8<-- 'code/tutorials/subsquid/transactions.js'
@@ -138,9 +138,6 @@ Run the script to send the transactions:
 ```bash
 npx hardhat run scripts/transactions.js --network demo
 ```
-
-!!! remember
-    The private keys for the demo accounts like Baltathar specified above are publicly known. We are sending valueluess MyTokens to these accounts, but if you send real funds to these accounts you'll lose them.
 
 As each transaction is sent, you'll see a log printed to the terminal.
 
@@ -188,7 +185,7 @@ In order to index ERC-20 transfers, we'll need to take a series of actions:
 
 As mentioned, we'll first need to define the database schema for the transfer data. To do so, we'll edit the `schema.graphql` file, which is located in the root directory, and create a `Transfer` entity and `Account` entity. You can copy and paste the below schema, ensuring that any existing schema is first removed.
 
-??? code "View the complete schema"
+???+ code "schema.graphql"
 
     ```graphql
     --8<-- 'code/tutorials/subsquid/schema.graphql'
@@ -203,7 +200,7 @@ sqd codegen
 
 In the next step, we'll use the ERC-20 ABI to automatically generate TypeScript interface classes. Below is a generic ERC-20 standard ABI. Copy and paste it into a file named `erc20.json` in the abi folder at the root level of the project. 
 
-??? code "View the complete ABI"
+??? code "erc20.json"
 
     ```json
     --8<-- 'code/tutorials/subsquid/erc20.json'
@@ -292,7 +289,7 @@ import * as erc20 from './abi/erc20'
 
 Once you've completed the prior steps, your `processor.ts` file should look similar to this:
 
-??? code "View the complete script"
+???+ code "processor.ts"
 
     ```ts
     --8<-- 'code/tutorials/subsquid/processor.ts'
@@ -306,7 +303,7 @@ While `processor.ts` determines the data being consumed, `main.ts` determines th
 Our `main.ts` file is going to scan through each processed block for the transfer event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a Typeorm Database enabling them to be easily queried. We'll demo a sample query in the next step. You can copy and paste the below code into your `main.ts` file:
 
 
-??? code "View the complete script"
+???+ code "main.ts"
 
     ```ts
     --8<-- 'code/tutorials/subsquid/main.ts'
@@ -359,12 +356,11 @@ sqd serve
 
 And that's it! You can now run queries against your Squid on the the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=_blank}. Try crafting your own GraphQL query, or use the below one:
 
-??? code "View the sample query"
+???+ code "sample-query.graphql"
 
     ```ts
     --8<-- 'code/tutorials/subsquid/sample-query.graphql'
     ```
-
 
 
 ![Running queries in GraphQL playground](/images/builders/tutorials/subsquid/subsquid-5.png)
