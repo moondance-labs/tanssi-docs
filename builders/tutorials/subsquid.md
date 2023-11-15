@@ -9,7 +9,7 @@ description: Learn how to use Subsquid, a query node framework that can index bo
 
 [Subsquid](https://subsquid.io){target=_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In very simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org/){target=_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
 
-Subsquid has native and full support for both EVM and Substrate data. Subsquid offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any of the Moonbeam networks and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
+Subsquid has native and full support for both EVM and Substrate data. Subsquid offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi ContainerChain and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
 
 This tutorial is a step-by-step guide to building a squid to index EVM data from start to finish. It's recommended that you follow along taking each step described on your own, but you can also find a complete version of Squid built in this tutorial here.  
 
@@ -50,28 +50,11 @@ Before we dive into creating our project, let's install a couple of dependencies
 
 Now we can edit `hardhat.config.js` to include the following network and account configurations for our ContainerChain. You can replace the Demo EVM ContainerChain values with the respective parameters for your own EVM ContainerChain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=_blank}
 
-```js
-// 1. Import the Ethers plugin required to interact with the contract
-require('@nomicfoundation/hardhat-ethers');
+??? code "View the complete hardhat.config"
 
-// 2. Add your private key that is funded with tokens of your ContainerChain
-// This is for example purposes only - **never store your private keys in a JavaScript file**
-const privateKey = 'INSERT_PRIVATE_KEY'; 
-
-/** @type import('hardhat/config').HardhatUserConfig */
-module.exports = {
-  // 3. Specify the Solidity version
-  solidity: '0.8.20',
-  networks: {
-    // 4. Add the network specification for your Tanssi EVM ContainerChain
-    demo: {
-      url: '{{ networks.dancebox.rpc_url }}',
-      chainId: 5678, // Fill in the EVM ChainID for your ContainerChain
-      accounts: [privateKey]
-    },
-  },
-};
-```  
+    ```js
+    --8<-- 'code/tutorials/subsquid/hardhat-config.js'
+    ```
 
 ### Create an ERC-20 Contract {: #create-an-erc-20-contract }
 
@@ -83,25 +66,12 @@ mkdir -p contracts && touch contracts/MyTok.sol
 
 Now we can edit the `MyTok.sol` file to include the following contract, which will mint an initial supply of MYTOKs and allow only the owner of the contract to mint additional tokens:
 
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
+??? code "View the complete contract"
 
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
+    ```solidity
+    --8<-- 'code/tutorials/subsquid/MyTok.sol'
+    ```
 
-contract MyTok is ERC20, Ownable {
-    constructor()
-        ERC20("MyToken", "MTK")
-    {
-        _mint(msg.sender, 50000 * 10 ** decimals());
-    }
-
-    function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);
-    }
-}
-```
 
 ### Deploy an ERC-20 Contract {: #deploy-erc-20-contract }
 
@@ -121,53 +91,21 @@ To deploy our contract, we'll need to create a deployment script that deploys ou
 
 Let's take the following steps to deploy our contract:
 
-1. Create a directory and file for our script:
+Create a directory and file for our script:
 
     ```bash
     mkdir -p scripts && touch scripts/deploy.js
     ```
 
-2. In the `deploy.js` file, go ahead and add the following script:
+In the `deploy.js` file, go ahead and add the following script:
 
-```js
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
-// will compile your contracts, add the Hardhat Runtime Environment's members to the
-// global scope, and execute the script.
-const hre = require('hardhat');
-require('@nomicfoundation/hardhat-ethers');
+??? code "View the complete script"
 
-async function main() {
-  // Get ERC-20 Contract
-  const MyTok = await hre.ethers.getContractFactory('MyTok');
+    ```ts
+    --8<-- 'code/tutorials/subsquid/deploy.js'
+    ```
 
-  // Define custom gas price and gas limit
-  // Gas price is typically specified in 'wei' and gas limit is just a number
-  // You can use ethers.js utility functions to convert from gwei or ether if needed
-  const customGasPrice = 50000000000; // example for 50 gwei
-  const customGasLimit = 5000000; // example gas limit
-
-  // Deploy the contract providing a gas price and gas limit
-  const myTok = await MyTok.deploy({
-  gasPrice: customGasPrice,
-  gasLimit: customGasLimit,
-} );
-
-  // Wait for the Deployment
-  await myTok.waitForDeployment();
-
-  console.log(`Contract deployed to ${myTok.target}`);
-}
-
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
-```
-3. Run the script using the `dev` network configurations we set up in the `hardhat.config.js` file:
+Run the script using the `dev` network configurations we set up in the `hardhat.config.js` file:
 
 ```bash
 npx hardhat run scripts/deploy.js --network demo
@@ -191,7 +129,7 @@ In the `transactions.js` file, add the following script. You'll need to insert t
 ??? code "View the complete script"
 
     ```ts
-    --8<-- 'code/tutorials/transactions.js'
+    --8<-- 'code/tutorials/subsquid/transactions.js'
     ```
 
 
@@ -250,25 +188,12 @@ In order to index ERC-20 transfers, we'll need to take a series of actions:
 
 As mentioned, we'll first need to define the database schema for the transfer data. To do so, we'll edit the `schema.graphql` file, which is located in the root directory, and create a `Transfer` entity and `Account` entity. You can copy and paste the below schema, ensuring that any existing schema is first removed.
 
-```graphql
-type Account @entity {
-  "Account address"
-  id: ID!
-  transfersFrom: [Transfer!] @derivedFrom(field: "from")
-  transfersTo: [Transfer!] @derivedFrom(field: "to")
-}
+??? code "View the complete schema"
 
-type Transfer @entity {
-  id: ID!
-  blockNumber: Int!
-  timestamp: DateTime!
-  txHash: String!
-  from: Account!
-  to: Account!
-  amount: BigInt!
-}
+    ```graphql
+    --8<-- 'code/tutorials/subsquid/schema.graphql'
+    ```
 
-```
 
 Now we can generate the entity classes from the schema, which we'll use when we process the transfer data:
 
@@ -281,9 +206,8 @@ In the next step, we'll use the ERC-20 ABI to automatically generate TypeScript 
 ??? code "View the complete ABI"
 
     ```json
-    --8<-- 'code/tutorials/erc20.json'
+    --8<-- 'code/tutorials/subsquid/erc20.json'
     ```
-
 
 
 Next, we can use our contract's ABI to generate TypeScript interface classes. We can do this by running:
@@ -371,7 +295,7 @@ Once you've completed the prior steps, your `processor.ts` file should look simi
 ??? code "View the complete script"
 
     ```ts
-    --8<-- 'code/tutorials/processor.ts'
+    --8<-- 'code/tutorials/subsquid/processor.ts'
     ```
 
 
@@ -385,7 +309,7 @@ Our `main.ts` file is going to scan through each processed block for the transfe
 ??? code "View the complete script"
 
     ```ts
-    --8<-- 'code/tutorials/main.ts'
+    --8<-- 'code/tutorials/subsquid/main.ts'
     ```
 
 
@@ -438,7 +362,7 @@ And that's it! You can now run queries against your Squid on the the GraphQL pla
 ??? code "View the sample query"
 
     ```ts
-    --8<-- 'code/tutorials/sample-query.graphql'
+    --8<-- 'code/tutorials/subsquid/sample-query.graphql'
     ```
 
 

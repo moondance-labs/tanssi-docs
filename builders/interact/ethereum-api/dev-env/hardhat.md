@@ -154,43 +154,16 @@ Next, you need to write your deployment script, which can be done using `ethers`
 To get started, take the following steps:
 
 1. Create a local instance of the contract with the `getContractFactory` method
-2. Use the `deploy` method that exists within this instance to instantiate the smart contract
-3. Wait for the deployment by using `deployed`
-4. Once deployed, you can fetch the address of the contract using the contract instance
+2. Define a custom gas price and gas limit (this is a temporary stopgap)
+3. Use the `deploy` method that exists within this instance to instantiate the smart contract
+4. Wait for the deployment by using `waitForDeployment`
+5. Once deployed, you can fetch the address of the contract using the contract instance
 
-```js
-// scripts/deploy.js
-async function main() {
-  // 1. Get the contract to deploy
-  const Box = await ethers.getContractFactory('Box');
-  console.log('Deploying Box...');
+??? code "View the complete script"
 
-  // 2. Define custom gas price and gas limit
-  // Gas price is typically specified in 'wei' and gas limit is just a number
-  // You can use ethers.js utility functions to convert from gwei or ether if needed
-  const customGasPrice = 50000000000; // example for 50 gwei
-  const customGasLimit = 1000000; // example gas limit
-
-  // 3. Instantiating a new Box smart contract with custom gas settings
-  const box = await Box.deploy({
-    gasPrice: customGasPrice, 
-    gasLimit: customGasLimit,
-  });
-
-  // 4. Waiting for the deployment to resolve
-  await box.waitForDeployment();
-
-  // 5. Use the contract instance to get the contract address
-  console.log('Box deployed to:', box.target);
-}
-
-main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
-```
+    ```ts
+    --8<-- 'code/ethereum-api/hardhat/deploy.js'
+    ```
 
 You can now deploy the `Box.sol` contract using the `run` command and specifying `dancebox` as the network:
 

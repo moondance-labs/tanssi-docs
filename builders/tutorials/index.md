@@ -1,6 +1,6 @@
 ---
-title: Interact with your ContainerChain
-description: After you deploy your ContainerChain, you can begin interacting with it using Polkadot.js, Sidecar or the most popular Ethereum tools, such as MetaMask or HardHat.
+title: Tutorials
+description: Dive into more advanced tutorials taking you through step-by-step guides to building on top of your Tanssi ContainerChain.
 template: subsection-index-page.html
 hide:
  - toc
