@@ -15,11 +15,11 @@ import * as erc20 from './abi/erc20'
 export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
 
 export const processor = new EvmBatchProcessor()
-        .setDataSource({
+    .setDataSource({
         chain: {
-            url: assertNotNull(process.env.RPC_ENDPOINT),
-            rateLimit: 300
-        }
+            url: assertNotNull('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'),
+            rateLimit: 300,
+        },
     })
     .setFinalityConfirmation(10)
     .setFields({
@@ -37,7 +37,7 @@ export const processor = new EvmBatchProcessor()
         transaction: true,
     })
     .setBlockRange({
-        from: INSERT-START-BLOCK, // Note the lack of quotes here
+        from: INSERT_START_BLOCK, // Note the lack of quotes here
     })
 
 export type Fields = EvmBatchProcessorFields<typeof processor>

@@ -25,6 +25,22 @@ To follow along with this tutorial, you'll need to have:
 
 ## Deploying an ERC-20 with Hardhat {: #deploying-an-erc20-with-hardhat }
 
+This section will walk through deploying an ERC-20 token to your ContainerChain so you can get started indexing it. However, you can feel free to skip to [Creating a Subsquid Project](#create-a-subsquid-project) if either of the two scenarios apply: 
+
+- You have already deployed an ERC-20 token to your ContainerChain
+- You would prefer to use an existing ERC-20 token deployed to the Demo EVM ContainerChain (of which there are already several transfer events)
+
+If you'd like to use an existing ERC-20 token on the Demo EVM ContainerChain, you can use the below `MyToken.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.  
+
+|         Variable          |                           Value                            |
+|:-------------------------:|:----------------------------------------------------------:|
+|       Contract Address        |               [0x8303ee17cacdde416077677bac40d6cac2c452e6](https://tanssi-evmexplorer.netlify.app/address/0x8303ee17cacdde416077677bac40d6cac2c452e6/669145?network=Dancebox%20EVM%20ContainerChain){target=_blank}                |
+|          Transfer to Baltathar          | [0x6a60a35fb594777b355da1f3922a9fcd86d11b11aa32ed6d8f361a3ed22ed373](https://tanssi-evmexplorer.netlify.app/tx/0x6a60a35fb594777b355da1f3922a9fcd86d11b11aa32ed6d8f361a3ed22ed373?network=Dancebox%20EVM%20ContainerChain){target=_blank} |
+|         Transfer to Charleth          |                           [0x51d95ffa57899a03016b6748c7a25a7e205a7cdc916123bcd09cd47432ceb623](https://tanssi-evmexplorer.netlify.app/tx/0x51d95ffa57899a03016b6748c7a25a7e205a7cdc916123bcd09cd47432ceb623?network=Dancebox%20EVM%20ContainerChain){target=_blank}                           |
+|     Transfer to Dorothy     |                           [ 0x0569c28797b3b5dae555d01a0354444050cad282db34550205ba6ba37592cab1](https://tanssi-evmexplorer.netlify.app/tx/0x0569c28797b3b5dae555d01a0354444050cad282db34550205ba6ba37592cab1?network=Dancebox%20EVM%20ContainerChain){target=_blank}                           |
+| Transfer to Ethan            |                           [   0x1d01484f7306c9e2e5feb225e78096ee26081a1071709519902d46b5568314d2](https://tanssi-evmexplorer.netlify.app/tx/0x1d01484f7306c9e2e5feb225e78096ee26081a1071709519902d46b5568314d2?network=Dancebox%20EVM%20ContainerChain){target=_blank}                            |
+
+
 Before we can index anything with Subsquid we need to make sure we have something to index! In this section we'll show you how to deploy an ERC-20 to your EVM Container Chain and we'll write a quick script to fire off a series of transfers that will be picked up by our Subsquid indexer. 
 
 Ensure that you have initialized an empty hardhat project via the instructions in the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank} section of our Hardhat documentation page.
@@ -225,18 +241,16 @@ Open up the `src` folder and head to the `processor.ts` file. You'll see the lin
 
 ```ts
 .setDataSource({
-    // Lookup archive by the network name in Subsquid registry
-    // See https://docs.subsquid.io/evm-indexing/supported-networks/
     chain: {
-        url: assertNotNull(process.env.RPC_ENDPOINT),
-        rateLimit: 300
-    }
+        url: assertNotNull('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'),
+        rateLimit: 300,
+    },
 })
 ```
 
 You'll need to provide the RPC URL for your ContainerChain in your `.env` file. Make sure that any existing RPC URLs are removed. If you're using the Demo EVM ContainerChain, the respective line in your .env file will look like this: 
 
-```
+```text
 RPC_ENDPOINT={{ networks.dancebox.rpc_url }}
 ```
 
@@ -296,7 +310,7 @@ Once you've completed the prior steps, your `processor.ts` file should look simi
     ```
 
 
-### Transform the Data in Main.ts {: #transform-the-data-in-main.ts}  
+### Transform and Save the Data {: #transform-and-save-the-data}  
 
 While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the Subsquid processor and inserting the desired pieces into a TypeormDatabase. For more detailed information on how Subsquid works, be sure to check out the [Subsquid Docs on Developing a Squid](https://docs.subsquid.io/basics/squid-development/){target=_blank}
 
@@ -370,7 +384,7 @@ And that's it! You can now run queries against your Squid on the the GraphQL pla
 
 It may seem tricky at first to debug errors when building your Squid, but fortunately there are several techniques you can use to streamline this process. First and foremost, if you're facing errors with your Squid, you should enable Debug mode in your .env file by uncommenting the debug mode line. This will trigger much more verbose logging and will help you locate the source of the error. 
 
-```
+```text
 # Uncommenting the below line enables debug mode
 SQD_DEBUG=*
 ```
@@ -382,7 +396,7 @@ See the [Subsquid guide to logging](https://docs.subsquid.io/basics/logging/){ta
 
 Below are some common errors you may face building a project and how you can solve them:
 
-```
+```text
 Error response from daemon: driver failed programming external connectivity on endpoint my-awesome-squid-db-1 
 (49df671a7b0531abbb5dc5d2a4a3f5dc7e7505af89bf0ad1e5480bd1cdc61052): 
 Bind for 0.0.0.0:23798 failed: port is already allocated
@@ -391,7 +405,7 @@ Bind for 0.0.0.0:23798 failed: port is already allocated
 
 This error indicates that you have another instance of Subsquid running somewhere else. You can stop that gracefully with the command `sqd down` or by pressing the Stop button next to the container in Docker Desktop. 
 
-```
+```text
 Error: connect ECONNREFUSED 127.0.0.1:23798
      at createConnectionError (node:net:1634:14)
      at afterConnectMultiple (node:net:1664:40) {
@@ -403,7 +417,7 @@ To resolve this, run `sqd up` before you run `sqd migration:generate`
 
 Is your Squid error-free yet you aren't seeing any transfers detected? Make sure your log events are consistent and identical to the ones your processor is looking for. Your contract address also needs to be lowercase, which you can be assured of by defining in a fashion as follows:
 
-```
+```text
 export const CONTRACT_ADDRESS = '0x37822de108AFFdd5cDCFDaAa2E32756Da284DB85'.toLowerCase();
 ```
 
