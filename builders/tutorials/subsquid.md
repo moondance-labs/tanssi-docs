@@ -224,14 +224,14 @@ The `processor.ts` file tells Subsquid exactly what data you'd like to ingest. T
 Open up the `src` folder and head to the `processor.ts` file. You'll see the line `export const processor = new EvmBatchProcessor()` followed by `.setDataSource`. We'll need to make a few changes here. Subsquid has [available archives for many chains](https://docs.subsquid.io/evm-indexing/supported-networks/){target=_blank} that can speed up the data retrieval process, but it's unlikely your containerchain has a hosted archive already. But not to worry, Subsquid can easily get the data it needs via your ContainerChain's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
 
 ```ts
-    .setDataSource({
-        // Lookup archive by the network name in Subsquid registry
-        // See https://docs.subsquid.io/evm-indexing/supported-networks/
-        chain: {
-            url: assertNotNull(process.env.RPC_ENDPOINT),
-            rateLimit: 300
-        }
-    })
+.setDataSource({
+  chain: {
+    url: assertNotNull(
+      'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+    ),
+    rateLimit: 300,
+  },
+})
 ```
 
 You'll need to provide the RPC URL for your ContainerChain in your `.env` file. Make sure that any existing RPC URLs are removed. If you're using the Demo EVM ContainerChain, the respective line in your .env file will look like this: 
