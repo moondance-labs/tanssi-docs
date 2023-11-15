@@ -198,9 +198,9 @@ Now we can generate the entity classes from the schema, which we'll use when we 
 sqd codegen
 ```
 
-In the next step, we'll use the ERC-20 ABI to automatically generate TypeScript interface classes. Below is a generic ERC-20 standard ABI. Copy and paste it into a file named `erc20.json` in the abi folder at the root level of the project. 
+In the next step, we'll use the ERC-20 ABI to automatically generate TypeScript interface classes. Below is a generic ERC-20 standard ABI. Copy and paste it into a file named `erc20.json` in the `abi` folder at the root level of the project. 
 
-??? code "erc20.json"
+??? code "ERC-20 ABI"
 
     ```json
     --8<-- 'code/tutorials/subsquid/erc20.json'
