@@ -224,14 +224,14 @@ The `processor.ts` file tells Subsquid exactly what data you'd like to ingest. T
 Open up the `src` folder and head to the `processor.ts` file. You'll see the line `export const processor = new EvmBatchProcessor()` followed by `.setDataSource`. We'll need to make a few changes here. Subsquid has [available archives for many chains](https://docs.subsquid.io/evm-indexing/supported-networks/){target=_blank} that can speed up the data retrieval process, but it's unlikely your containerchain has a hosted archive already. But not to worry, Subsquid can easily get the data it needs via your ContainerChain's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
 
 ```ts
-    .setDataSource({
-        // Lookup archive by the network name in Subsquid registry
-        // See https://docs.subsquid.io/evm-indexing/supported-networks/
-        chain: {
-            url: assertNotNull(process.env.RPC_ENDPOINT),
-            rateLimit: 300
-        }
-    })
+.setDataSource({
+    // Lookup archive by the network name in Subsquid registry
+    // See https://docs.subsquid.io/evm-indexing/supported-networks/
+    chain: {
+        url: assertNotNull(process.env.RPC_ENDPOINT),
+        rateLimit: 300
+    }
+})
 ```
 
 You'll need to provide the RPC URL for your ContainerChain in your `.env` file. Make sure that any existing RPC URLs are removed. If you're using the Demo EVM ContainerChain, the respective line in your .env file will look like this: 
@@ -242,26 +242,26 @@ RPC_ENDPOINT={{ networks.dancebox.rpc_url }}
 
 Of course, we need to tell the Subsquid processor which contract we're interested in. Create a constant for the address in the following manner: 
 
-```
+```ts
 export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
 ```
 
 The `.toLowerCase()` is critical because the Subsquid processor is case sensitive, and some block explorers format contract addresses with capitalization. Now, let's define the event that we want to index by adding the following: 
 
 ```ts
-    .addLog({
-        address: [CONTRACT_ADDRESS],
-        topic0: [erc20.events.Transfer.topic],
-        transaction: true,
-    })
+.addLog({
+    address: [CONTRACT_ADDRESS],
+    topic0: [erc20.events.Transfer.topic],
+    transaction: true,
+})
 ```
 
 The `Transfer` event is defined in `erc20.ts` which was auto-generated when `sqd typegen` was run. The import `import * as erc20 from './abi/erc20'` is already included as part of the Squid EVM template. 
 
 Block range is an important value to modify to narrow the scope of the blocks you're indexing. For example, if you launched your ERC-20 at block `650000`, there is no need to query the chain before that block for transfer events. Setting an accurate block range will improve the performance of your indexer. You can set the earliest block to begin indexing in the following manner: 
 
-```
-    .setBlockRange({from: 632400,})
+```ts
+.setBlockRange({from: 632400,})
 ```
 
 The chosen start block here corresponds the relevant block to begin indexing on the Demo EVM ContainerChain, but you should change it to one relevant to your ContainerChain and indexer project. 
@@ -269,15 +269,15 @@ The chosen start block here corresponds the relevant block to begin indexing on 
 Change `setFields` section to specify the following data for our processor to ingest:
 
 ```ts
-    .setFields({
-        log: {
-            topics: true,
-            data: true,
-        },
-        transaction: {
-            hash: true,
-        },
-    })
+.setFields({
+    log: {
+        topics: true,
+        data: true,
+    },
+    transaction: {
+        hash: true,
+    },
+})
 ```
 
 We also need to add the following imports to our `processor.ts` file: 
@@ -350,7 +350,7 @@ In your terminal, you should see your indexer starting to process blocks!
 
 To query your squid, open up a new terminal window within your project and run the following command:
 
-```
+```bash
 sqd serve
 ```
 
