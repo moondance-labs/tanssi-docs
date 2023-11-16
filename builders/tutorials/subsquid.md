@@ -389,6 +389,16 @@ It may seem tricky at first to debug errors when building your Squid, but fortun
 SQD_DEBUG=*
 ```
 
+You can also add logging statements directly to your `main.ts` file to indicate specific parameters like block height and more. For example, see this version of `main.ts` which has been enhanced with detailed logging: 
+
+??? code "main-with-logging.ts"
+
+    ```ts
+    --8<-- 'code/tutorials/subsquid/main-with-logging.ts'
+    ```
+
+
+
 See the [Subsquid guide to logging](https://docs.subsquid.io/basics/logging/){target=_blank} for more information on debug mode. 
 
 
