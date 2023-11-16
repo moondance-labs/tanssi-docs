@@ -3,7 +3,7 @@ import {assertNotNull} from '@subsquid/evm-processor'
 import {TypeormDatabase} from '@subsquid/typeorm-store'
 import * as erc20 from './abi/erc20'
 import {Account, Transfer} from './model'
-import {Block, CONTRACT_ADDRESS, Log, Transaction, ProcessorContext, processor} from './processor'
+import {Block, CONTRACT_ADDRESS, Log, Transaction, processor} from './processor'
 
 processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
     ctx.log.info('Processor started');

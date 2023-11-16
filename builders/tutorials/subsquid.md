@@ -208,7 +208,7 @@ As mentioned, we'll first need to define the database schema for the transfer da
     ```
 
 
-Now we can generate the entity classes from the schema, which we'll use when we process the transfer data:
+Now we can generate the entity classes from the schema, which we'll use when we process the transfer data. This will create new classes for each entity in the `src/model/generated` directory.
 
 ```bash
 sqd codegen
