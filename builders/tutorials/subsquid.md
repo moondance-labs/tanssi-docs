@@ -346,8 +346,8 @@ To run our indexer, we're going to run a series of `sqd` commands:
 3. Remove the database migration file that comes with the EVM template and generate a new one for our new database schema:
 
    ```bash
-   sqd migration:clean
    sqd migration:generate
+   sqd migration:apply
    ```
 4. Launch the processor:
 

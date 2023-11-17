@@ -3,7 +3,7 @@ import {assertNotNull} from '@subsquid/evm-processor'
 import {TypeormDatabase} from '@subsquid/typeorm-store'
 import * as erc20 from './abi/erc20'
 import {Account, Transfer} from './model'
-import {Block, CONTRACT_ADDRESS, Log, Transaction, processor} from './processor'
+import {Block, contractAddress, Log, Transaction, processor} from './processor'
 
 processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
     ctx.log.info('Processor started');
@@ -14,7 +14,7 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
         ctx.log.debug(`Processing block number ${block.header.height}`);
         for (let log of block.logs) {
             ctx.log.debug(`Processing log with address ${log.address}`);
-            if (log.address === CONTRACT_ADDRESS && log.topics[0] === erc20.events.Transfer.topic) {
+            if (log.address === contractAddress && log.topics[0] === erc20.events.Transfer.topic) {
                 ctx.log.info(`Transfer event found in block ${block.header.height}`);
                 transfers.push(getTransfer(ctx, log))
             }
