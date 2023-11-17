@@ -5,6 +5,8 @@ import * as erc20 from './abi/erc20'
 import {Account, Transfer} from './model'
 import {Block, CONTRACT_ADDRESS, Log, Transaction, processor} from './processor'
 
+// 1. Iterate through all selected blocks and look for transfer events,
+// storing the relevant events in an array of transfer events
 processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
     let transfers: TransferEvent[] = []
 
@@ -19,6 +21,7 @@ processor.run(new TypeormDatabase({supportHotBlocks: true}), async (ctx) => {
     await processTransfers(ctx, transfers)
 })
 
+// 2. Define an interface to hold the data from the transfer events
 interface TransferEvent {
     id: string
     block: Block
@@ -28,6 +31,7 @@ interface TransferEvent {
     amount: bigint
 }
 
+// 3. Extract and decode ERC-20 transfer event data from a log entry
 function getTransfer(ctx: any, log: Log): TransferEvent {
     let event = erc20.events.Transfer.decode(log)
 
@@ -47,6 +51,7 @@ function getTransfer(ctx: any, log: Log): TransferEvent {
     }
 }
 
+// 4. Enrich and insert data into typeorm database
 async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
     let accountIds = new Set<string>()
     for (let t of transfersData) {
@@ -83,6 +88,7 @@ async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
     await ctx.store.insert(transfers)
 }
 
+// 5. Helper function to get account object
 function getAccount(m: Map<string, Account>, id: string): Account {
     let acc = m.get(id)
     if (acc == null) {

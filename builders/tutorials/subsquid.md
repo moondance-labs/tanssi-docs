@@ -30,7 +30,7 @@ This section will walk through deploying an ERC-20 token to your ContainerChain 
 - You have already deployed an ERC-20 token to your ContainerChain
 - You would prefer to use an existing ERC-20 token deployed to the Demo EVM ContainerChain (of which there are already several transfer events)
 
-If you'd like to use an existing ERC-20 token on the Demo EVM ContainerChain, you can use the below `MyToken.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
+If you'd like to use an existing ERC-20 token on the Demo EVM ContainerChain, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
 
 |       Variable        |                                                                                                                    Value                                                                                                                    |
 | :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -61,7 +61,7 @@ Before we dive into creating our project, let's install a couple of dependencies
     ```
 
 !!! remember
-**You should never store your private keys in a JavaScript or Python file. It is done in this tutorial for ease of demonstration only. You should always manage your private keys with a designated secret manager or similar service.**
+    You should never store your private keys in a JavaScript or Python file. It is done in this tutorial for ease of demonstration only. You should always manage your private keys with a designated secret manager or similar service.
 
 Now we can edit `hardhat.config.js` to include the following network and account configurations for our ContainerChain. You can replace the Demo EVM ContainerChain values with the respective parameters for your own EVM ContainerChain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}
 
@@ -231,7 +231,13 @@ This will generate the related TypeScript interface classes in the `src/abi/erc2
 
 The `processor.ts` file tells Subsquid exactly what data you'd like to ingest. Transforming that data into the exact desired format will take place at a later step. In `processor.ts`, we'll need to indicate a data source, contract address, the event(s) to index, and a block range.
 
-Open up the `src` folder and head to the `processor.ts` file. You'll see the line `export const processor = new EvmBatchProcessor()` followed by `.setDataSource`. We'll need to make a few changes here. Subsquid has [available archives for many chains](https://docs.subsquid.io/evm-indexing/supported-networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your containerchain has a hosted archive already. But not to worry, Subsquid can easily get the data it needs via your ContainerChain's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
+Open up the `src` folder and head to the `processor.ts` file. First, we need to tell the Subsquid processor which contract we're interested in. Create a constant for the address in the following manner:
+
+```ts
+export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
+```
+
+The `.toLowerCase()` is critical because the Subsquid processor is case sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()` followed by `.setDataSource`. We'll need to make a few changes here. Subsquid has [available archives for many chains](https://docs.subsquid.io/evm-indexing/supported-networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your ContainerChain has a hosted archive already. But not to worry, Subsquid can easily get the data it needs via your ContainerChain's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
 
 ```ts
 .setDataSource({
@@ -242,19 +248,13 @@ Open up the `src` folder and head to the `processor.ts` file. You'll see the lin
 })
 ```
 
-You'll need to provide the RPC URL for your ContainerChain in your `.env` file. Make sure that any existing RPC URLs are removed. If you're using the Demo EVM ContainerChain, the respective line in your .env file will look like this:
+The Squid Template comes with a variable for your RPC URL defined in your `.env` file. You can replace that with the RPC URL for your ContainerChain. For demonstration purposes, the RPC URL for the Demo EVM ContainerChain is hardcoded directly as shown above. If you're setting the RPC URL in your `.env`, the respective line will look like this:
 
 ```text
 RPC_ENDPOINT={{ networks.dancebox.rpc_url }}
 ```
 
-Of course, we need to tell the Subsquid processor which contract we're interested in. Create a constant for the address in the following manner:
-
-```ts
-export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
-```
-
-The `.toLowerCase()` is critical because the Subsquid processor is case sensitive, and some block explorers format contract addresses with capitalization. Now, let's define the event that we want to index by adding the following:
+Now, let's define the event that we want to index by adding the following:
 
 ```ts
 .addLog({
@@ -272,7 +272,7 @@ Block range is an important value to modify to narrow the scope of the blocks yo
 .setBlockRange({from: 632400,})
 ```
 
-The chosen start block here corresponds the relevant block to begin indexing on the Demo EVM ContainerChain, but you should change it to one relevant to your ContainerChain and indexer project.
+The chosen start block here corresponds to the relevant block to begin indexing on the Demo EVM ContainerChain, but you should change it to one relevant to your ContainerChain and indexer project.
 
 Change `setFields` section to specify the following data for our processor to ingest:
 
@@ -307,7 +307,19 @@ Once you've completed the prior steps, your `processor.ts` file should look simi
 
 While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the Subsquid processor and inserting the desired pieces into a TypeormDatabase. For more detailed information on how Subsquid works, be sure to check out the [Subsquid Docs on Developing a Squid](https://docs.subsquid.io/basics/squid-development/){target=\_blank}
 
-Our `main.ts` file is going to scan through each processed block for the transfer event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a Typeorm Database enabling them to be easily queried. We'll demo a sample query in the next step. You can copy and paste the below code into your `main.ts` file:
+Our `main.ts` file is going to scan through each processed block for the transfer event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a Typeorm Database enabling them to be easily queried. Let's break down the code that comprises `main.ts` in order:
+
+1. The job of `main.ts` is to run the processor and refine the collected data. In `processor.run`, the processor will iterate through all selected blocks and look for transfer event logs. Whenever it finds a transfer event, it's going to store it in an array of transfer events where it awaits further processing. 
+
+2. The `transferEvent` interface is the type of structure that stores the data extracted from the event logs.
+
+3. `getTransfer` is a helper function that extracts and decodes ERC-20 transfer event data from a log entry. It constructs and returns a TransferEvent object, which includes details such as the transaction ID, block number, sender and receiver addresses, and the amount transferred. `getTransfer` is called at the time of storing the relevant transfer events into the array of transfers.
+
+4. `processTransfers` enriches the transfer data and then inserts these records into a typeorm database using the `ctx.store` methods. The account model, while not strictly necessary, allows us to introduce another entity in the schema to demonstrate working with multiple entities in your Squid.
+
+5. `getAccount` is a helper function that manages the retrieval and creation of account objects. Given an account ID and a map of existing accounts, it returns the corresponding account object. If the account doesn't exist in the map, it creates a new one, adds it to the map, and then returns it.
+
+We'll demo a sample query a later section. You can copy and paste the below code into your `main.ts` file:
 
 ???+ code "main.ts"
 
@@ -326,20 +338,17 @@ To run our indexer, we're going to run a series of `sqd` commands:
    ```bash
    sqd build
    ```
-
 2. Launch the database:
 
    ```bash
    sqd up
    ```
-
 3. Remove the database migration file that comes with the EVM template and generate a new one for our new database schema:
 
    ```bash
    sqd migration:clean
    sqd migration:generate
    ```
-
 4. Launch the processor:
 
    ```bash
@@ -358,7 +367,7 @@ To query your squid, open up a new terminal window within your project and run t
 sqd serve
 ```
 
-And that's it! You can now run queries against your Squid on the the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=\_blank}. Try crafting your own GraphQL query, or use the below one:
+And that's it! You can now run queries against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=\_blank}. Try crafting your own GraphQL query, or use the below one:
 
 ???+ code "sample-query.graphql"
 
