@@ -3,7 +3,7 @@ const hre = require('hardhat');
 require('@nomicfoundation/hardhat-ethers');
 
 async function main() {
-  // Get ERC-20 Contract
+  // Get ERC-20 contract
   const MyTok = await hre.ethers.getContractFactory('MyTok');
 
   // Define custom gas price and gas limit
