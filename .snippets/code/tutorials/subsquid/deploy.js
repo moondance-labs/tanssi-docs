@@ -17,7 +17,7 @@ async function main() {
   gasLimit: customGasLimit,
 } );
 
-  // Wait for the Deployment
+  // Wait for the deployment
   await myTok.waitForDeployment();
 
   console.log(`Contract deployed to ${myTok.target}`);
