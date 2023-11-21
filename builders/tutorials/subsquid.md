@@ -171,7 +171,7 @@ To verify successful installation, you can run:
 sqd --version
 ```
 
-Now we'll be able to use the `sqd` command to interact with our Squid project. To create our project, we're going to use the `-t` flag, which will create a project from a template. We'll be using the EVM Squid template, which is a starter project for indexing EVM chains.
+Now we'll be able to use the `sqd` command to interact with our Squid project. To create our project, we're going to use the `--template` (`-t`) flag, which will create a project from a template. We'll be using the EVM Squid template, which is a starter project for indexing EVM chains.
 
 You can run the following command to create an EVM Squid named `tanssi-squid`:
 
