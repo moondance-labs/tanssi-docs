@@ -265,7 +265,7 @@ Now, let's define the event that we want to index by adding the following:
 })
 ```
 
-The `Transfer` event is defined in `erc20.ts` which was auto-generated when `sqd typegen` was run. The import `import * as erc20 from './abi/erc20'` is already included as part of the Squid EVM template.
+The `Transfer` event is defined in `erc20.ts`, which was auto-generated when `sqd typegen` was run. The import `import * as erc20 from './abi/erc20'` is already included as part of the Squid EVM template.
 
 Block range is an important value to modify to narrow the scope of the blocks you're indexing. For example, if you launched your ERC-20 at block `650000`, there is no need to query the chain before that block for transfer events. Setting an accurate block range will improve the performance of your indexer. You can set the earliest block to begin indexing in the following manner:
 
