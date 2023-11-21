@@ -230,7 +230,7 @@ This will generate the related TypeScript interface classes in the `src/abi/erc2
 
 ### Configure the Processor {: #configure-the-processor}
 
-The `processor.ts` file tells Subsquid exactly what data you'd like to ingest. Transforming that data into the exact desired format will take place at a later step. In `processor.ts`, we'll need to indicate a data source, contract address, the event(s) to index, and a block range.
+The `processor.ts` file tells Subsquid exactly what data you'd like to ingest. Transforming that data into the exact desired format will take place at a later step. In `processor.ts`, we'll need to indicate a data source, a contract address, the event(s) to index, and a block range.
 
 Open up the `src` folder and head to the `processor.ts` file. First, we need to tell the Subsquid processor which contract we're interested in. Create a constant for the address in the following manner:
 
