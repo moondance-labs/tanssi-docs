@@ -418,7 +418,7 @@ Error: connect ECONNREFUSED 127.0.0.1:23798
 
 To resolve this, run `sqd up` before you run `sqd migration:generate`
 
-Is your Squid error-free yet you aren't seeing any transfers detected? Make sure your log events are consistent and identical to the ones your processor is looking for. Your contract address also needs to be lowercase, which you can be assured of by defining in a fashion as follows:
+Is your Squid error-free, yet you aren't seeing any transfers detected? Make sure your log events are consistent and identical to the ones your processor is looking for. Your contract address also needs to be lowercase, which you can be assured of by defining it as follows:
 
 ```text
 export const CONTRACT_ADDRESS = '0x37822de108AFFdd5cDCFDaAa2E32756Da284DB85'.toLowerCase();
