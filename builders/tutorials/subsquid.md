@@ -28,9 +28,9 @@ To follow along with this tutorial, you'll need to have:
 This section will walk through deploying an ERC-20 token to your ContainerChain so you can get started indexing it. However, you can feel free to skip to [Create a Subsquid Project](#create-a-subsquid-project) if either of the two scenarios apply:
 
 - You have already deployed an ERC-20 token to your ContainerChain (and made several transfers)
-- You would prefer to use an existing ERC-20 token deployed to the Demo EVM ContainerChain (of which there are already several transfer events)
+- You would prefer to use an existing ERC-20 token deployed to the demo EVM ContainerChain (of which there are already several transfer events)
 
-If you'd like to use an existing ERC-20 token on the Demo EVM ContainerChain, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
+If you'd like to use an existing ERC-20 token on the demo EVM ContainerChain, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
 
 |       Variable        |                                                                                                                    Value                                                                                                                    |
 | :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
@@ -44,7 +44,7 @@ Before we can index anything with Subsquid we need to make sure we have somethin
 
 Ensure that you have initialized an empty hardhat project via the instructions in the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank} section of our Hardhat documentation page.
 
-In this section, we'll configure our Hardhat project for the Demo EVM ContainerChain, create an ERC-20 contract, and write scripts to deploy and interact with our contract.
+In this section, we'll configure our Hardhat project for the demo EVM ContainerChain, create an ERC-20 contract, and write scripts to deploy and interact with our contract.
 
 Before we dive into creating our project, let's install a couple of dependencies that we'll need: the [Hardhat Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=_blank} and [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x/){target=_blank}. The Hardhat Ethers plugin provides a convenient way to use the [Ethers](/builders/build/eth-api/libraries/ethersjs){target=_blank} library to interact with the network. We'll use OpenZeppelin's base ERC-20 implementation to create an ERC-20. To install both of these dependencies, you can run:
 
@@ -60,7 +60,7 @@ Before we dive into creating our project, let's install a couple of dependencies
     yarn add @nomicfoundation/hardhat-ethers ethers @openzeppelin/contracts
     ```
 
-Now we can edit `hardhat.config.js` to include the following network and account configurations for our ContainerChain. You can replace the Demo EVM ContainerChain values with the respective parameters for your own EVM ContainerChain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=_blank}.
+Now we can edit `hardhat.config.js` to include the following network and account configurations for our ContainerChain. You can replace the demo EVM ContainerChain values with the respective parameters for your own EVM ContainerChain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=_blank}.
 
 ???+ code "hardhat.config.js"
 
@@ -276,7 +276,7 @@ Block range is an important value to modify to narrow the scope of the blocks yo
 .setBlockRange({from: 632400,})
 ```
 
-The chosen start block here corresponds to the relevant block to begin indexing on the Demo EVM ContainerChain, but you should change it to one relevant to your ContainerChain and indexer project.
+The chosen start block here corresponds to the relevant block to begin indexing on the demo EVM ContainerChain, but you should change it to one relevant to your ContainerChain and indexer project.
 
 Change the `setFields` section to specify the following data for our processor to ingest:
 
