@@ -334,7 +334,7 @@ Now we've taken all of the steps necessary and are ready to run our indexer!
 
 To run our indexer, we're going to run a series of `sqd` commands:
 
-1. Build our project
+1. Build our project:
 
    ```bash
    sqd build
