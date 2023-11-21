@@ -11,7 +11,7 @@ description: Learn how to use Subsquid, a query node framework that can index bo
 
 Subsquid has native and full support for both EVM and Substrate data. Subsquid offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi ContainerChain and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
 
-This tutorial is a step-by-step guide to building a squid to index EVM data from start to finish. It's recommended that you follow along taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial here](https://github.com/themacexpert/tanssiSquid){target=\_blank}.
+This tutorial is a step-by-step guide to building a Squid to index EVM data from start to finish. It's recommended that you follow along, taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial in the tanssiSquid GitHub repository](https://github.com/themacexpert/tanssiSquid){target=\_blank}.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
