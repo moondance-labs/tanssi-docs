@@ -165,7 +165,7 @@ Now we're going to create our Subquid project. First, we'll need to install the 
 npm i -g @subsquid/cli@latest
 ```
 
-To verify successful installation, you can run
+To verify successful installation, you can run:
 
 ```bash
 sqd --version
