@@ -5,7 +5,7 @@ import * as erc20 from './abi/erc20';
 import { Account, Transfer } from './model';
 import {
   Block,
-  CONTRACT_ADDRESS,
+  contractAddress,
   Log,
   Transaction,
   processor,
@@ -19,7 +19,7 @@ processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) => {
   for (let block of ctx.blocks) {
     for (let log of block.logs) {
       if (
-        log.address === CONTRACT_ADDRESS &&
+        log.address === contractAddress &&
         log.topics[0] === erc20.events.Transfer.topic
       ) {
         transfers.push(getTransfer(ctx, log));
