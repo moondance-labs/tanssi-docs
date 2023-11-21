@@ -159,11 +159,9 @@ To get started, take the following steps:
 4. Wait for the deployment by using `waitForDeployment`
 5. Once deployed, you can fetch the address of the contract using the contract instance
 
-??? code "View the complete script"
-
-    ```ts
-    --8<-- 'code/ethereum-api/hardhat/deploy.js'
-    ```
+```ts
+--8<-- 'code/ethereum-api/hardhat/deploy.js'
+```
 
 You can now deploy the `Box.sol` contract using the `run` command and specifying `dancebox` as the network:
 
