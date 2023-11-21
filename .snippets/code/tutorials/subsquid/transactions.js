@@ -16,7 +16,7 @@ async function main() {
   const customGasPrice = 50000000000; // example for 50 gwei
   const customGasLimit = 5000000; // example gas limit
 
-  // Plug ABI to Address
+  // Plug ABI to address
   const myTok = await MyTok.attach('INSERT_CONTRACT_ADDRESS');
 
   const value = 100000000000000000n;
