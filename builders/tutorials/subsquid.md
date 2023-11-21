@@ -275,7 +275,7 @@ Block range is an important value to modify to narrow the scope of the blocks yo
 
 The chosen start block here corresponds to the relevant block to begin indexing on the Demo EVM ContainerChain, but you should change it to one relevant to your ContainerChain and indexer project.
 
-Change `setFields` section to specify the following data for our processor to ingest:
+Change the `setFields` section to specify the following data for our processor to ingest:
 
 ```ts
 .setFields({
