@@ -137,7 +137,7 @@ Create a new file script to send transactions:
 touch scripts/transactions.js
 ```
 
-In the `transactions.js` file, add the following script. You'll need to insert the contract address of your deployed MyTok contract that was output in the console in the prior step.
+In the `transactions.js` file, add the following script and insert the contract address of your deployed MyTok contract (output in the console in the prior step):
 
 ???+ code "transactions.js"
 
