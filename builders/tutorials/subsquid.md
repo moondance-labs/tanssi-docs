@@ -249,7 +249,7 @@ The `.toLowerCase()` is critical because the Subsquid processor is case-sensitiv
 })
 ```
 
-The Squid Template comes with a variable for your RPC URL defined in your `.env` file. You can replace that with the RPC URL for your ContainerChain. For demonstration purposes, the RPC URL for the Demo EVM ContainerChain is hardcoded directly as shown above. If you're setting the RPC URL in your `.env`, the respective line will look like this:
+The Squid template comes with a variable for your RPC URL defined in your `.env` file. You can replace that with the RPC URL for your ContainerChain. For demonstration purposes, the RPC URL for the demo EVM ContainerChain is hardcoded directly, as shown above. If you're setting the RPC URL in your `.env`, the respective line will look like this:
 
 ```text
 RPC_ENDPOINT={{ networks.dancebox.rpc_url }}
