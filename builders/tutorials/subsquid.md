@@ -25,7 +25,7 @@ To follow along with this tutorial, you'll need to have:
 
 ## Deploy an ERC-20 with Hardhat {: #deploy-an-erc20-with-hardhat }
 
-This section will walk through deploying an ERC-20 token to your ContainerChain so you can get started indexing it. However, you can feel free to skip to [Create a Subsquid Project](#create-a-subsquid-project) if either of the two scenarios apply:
+Before we can index anything with Subsquid we need to make sure we have something to index! This section will walk through deploying an ERC-20 token to your ContainerChain so you can get started indexing it. However, you can feel free to skip to [Create a Subsquid Project](#create-a-subsquid-project) if either of the two scenarios apply:
 
 - You have already deployed an ERC-20 token to your ContainerChain (and made several transfers)
 - You would prefer to use an existing ERC-20 token deployed to the demo EVM ContainerChain (of which there are already several transfer events)
@@ -40,7 +40,7 @@ If you'd like to use an existing ERC-20 token on the demo EVM ContainerChain, yo
 |  Transfer to Dorothy  | [ 0x0569c28797b3b5dae555d01a0354444050cad282db34550205ba6ba37592cab1](https://tanssi-evmexplorer.netlify.app/tx/0x0569c28797b3b5dae555d01a0354444050cad282db34550205ba6ba37592cab1?network=Dancebox%20EVM%20ContainerChain){target=_blank} |
 |   Transfer to Ethan   | [ 0x1d01484f7306c9e2e5feb225e78096ee26081a1071709519902d46b5568314d2](https://tanssi-evmexplorer.netlify.app/tx/0x1d01484f7306c9e2e5feb225e78096ee26081a1071709519902d46b5568314d2?network=Dancebox%20EVM%20ContainerChain){target=_blank} |
 
-Before we can index anything with Subsquid we need to make sure we have something to index! In this section we'll show you how to deploy an ERC-20 to your EVM Container Chain and we'll write a quick script to fire off a series of transfers that will be picked up by our Subsquid indexer.
+In this section we'll show you how to deploy an ERC-20 to your EVM Container Chain and we'll write a quick script to fire off a series of transfers that will be picked up by our Subsquid indexer.
 
 Ensure that you have initialized an empty hardhat project via the instructions in the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank} section of our Hardhat documentation page.
 
