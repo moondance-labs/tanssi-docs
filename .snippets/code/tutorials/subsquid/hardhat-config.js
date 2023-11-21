@@ -3,7 +3,7 @@ require('@nomicfoundation/hardhat-ethers');
 
 // 2. Add your private key that is funded with tokens of your ContainerChain
 // This is for example purposes only - **never store your private keys in a JavaScript file**
-const privateKey = 'INSERT_PRIVATE_KEY'; 
+const privateKey = 'INSERT_PRIVATE_KEY';
 
 /** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
     demo: {
       url: '{{ networks.dancebox.rpc_url }}',
       chainId: 5678, // Fill in the EVM ChainID for your ContainerChain
-      accounts: [privateKey]
+      accounts: [privateKey],
     },
   },
 };

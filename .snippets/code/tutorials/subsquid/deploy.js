@@ -13,9 +13,9 @@ async function main() {
 
   // Deploy the contract providing a gas price and gas limit
   const myTok = await MyTok.deploy({
-  gasPrice: customGasPrice,
-  gasLimit: customGasLimit,
-} );
+    gasPrice: customGasPrice,
+    gasLimit: customGasLimit,
+  });
 
   // Wait for the deployment
   await myTok.waitForDeployment();
