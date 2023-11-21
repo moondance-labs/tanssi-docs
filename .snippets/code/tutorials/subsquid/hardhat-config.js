@@ -12,7 +12,7 @@ module.exports = {
   networks: {
     // 4. Add the network specification for your Tanssi EVM ContainerChain
     demo: {
-      url: '{{ networks.dancebox.rpc_url }}',
+      url: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/',
       chainId: 5678, // Fill in the EVM ChainID for your ContainerChain
       accounts: [privateKey],
     },
