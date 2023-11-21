@@ -105,25 +105,25 @@ To deploy our contract, we'll need to create a deployment script that deploys ou
 
 Let's take the following steps to deploy our contract:
 
-Create a directory and file for our script:
+1. Create a directory and file for our script:
 
-```bash
-mkdir -p scripts && touch scripts/deploy.js
-```
-
-In the `deploy.js` file, go ahead and add the following script:
-
-???+ code "deploy.js"
-
-    ```ts
-    --8<-- 'code/tutorials/subsquid/deploy.js'
+    ```bash
+    mkdir -p scripts && touch scripts/deploy.js
     ```
 
-Run the script using the `dev` network configurations we set up in the `hardhat.config.js` file:
+2. In the `deploy.js` file, go ahead and add the following script:
 
-```bash
-npx hardhat run scripts/deploy.js --network demo
-```
+    ???+ code "deploy.js"
+
+        ```ts
+        --8<-- 'code/tutorials/subsquid/deploy.js'
+        ```
+
+3. Run the script using the `dev` network configurations we set up in the `hardhat.config.js` file:
+
+    ```bash
+    npx hardhat run scripts/deploy.js --network demo
+    ```
 
 The address of the deployed contract should be printed to the terminal. Save the address, as we'll need it to interact with the contract in the following section.
 
