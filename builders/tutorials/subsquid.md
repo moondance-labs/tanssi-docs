@@ -404,7 +404,6 @@ Below are some common errors you may face building a project and how you can sol
 Error response from daemon: driver failed programming external connectivity on endpoint my-awesome-squid-db-1
 (49df671a7b0531abbb5dc5d2a4a3f5dc7e7505af89bf0ad1e5480bd1cdc61052):
 Bind for 0.0.0.0:23798 failed: port is already allocated
-
 ```
 
 This error indicates that you have another instance of Subsquid running somewhere else. You can stop that gracefully with the command `sqd down` or by pressing the Stop button next to the container in Docker Desktop.
