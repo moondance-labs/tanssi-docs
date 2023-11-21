@@ -399,7 +399,7 @@ See the [Subsquid guide to logging](https://docs.subsquid.io/basics/logging/){ta
 
 ### Common Errors {: #common-errors }
 
-Below are some common errors you may face building a project and how you can solve them:
+Below are some common errors you may face when building a project and how you can solve them.
 
 ```text
 Error response from daemon: driver failed programming external connectivity on endpoint my-awesome-squid-db-1
