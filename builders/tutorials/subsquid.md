@@ -320,7 +320,7 @@ Our `main.ts` file is going to scan through each processed block for the `Transf
 
 5. `getAccount` is a helper function that manages the retrieval and creation of account objects. Given an account ID and a map of existing accounts, it returns the corresponding account object. If the account doesn't exist in the map, it creates a new one, adds it to the map, and then returns it
 
-We'll demo a sample query a later section. You can copy and paste the below code into your `main.ts` file:
+We'll demo a sample query in a later section. You can copy and paste the below code into your `main.ts` file:
 
 ???+ code "main.ts"
 
