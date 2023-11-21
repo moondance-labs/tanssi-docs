@@ -13,7 +13,7 @@ Subsquid has native and full support for both EVM and Substrate data. Subsquid o
 
 This tutorial is a step-by-step guide to building a Squid to index EVM data from start to finish. It's recommended that you follow along, taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial in the tanssiSquid GitHub repository](https://github.com/themacexpert/tanssiSquid){target=_blank}.
 
-## Checking Prerequisites {: #checking-prerequisites }
+## Check Prerequisites {: #check-prerequisites }
 
 To follow along with this tutorial, you'll need to have:
 
@@ -23,9 +23,9 @@ To follow along with this tutorial, you'll need to have:
 
 --8<-- 'text/common/general-js-tutorial-check.md'
 
-## Deploying an ERC-20 with Hardhat {: #deploying-an-erc20-with-hardhat }
+## Deploy an ERC-20 with Hardhat {: #deploy-an-erc20-with-hardhat }
 
-This section will walk through deploying an ERC-20 token to your ContainerChain so you can get started indexing it. However, you can feel free to skip to [Creating a Subsquid Project](#create-a-subsquid-project) if either of the two scenarios apply:
+This section will walk through deploying an ERC-20 token to your ContainerChain so you can get started indexing it. However, you can feel free to skip to [Create a Subsquid Project](#create-a-subsquid-project) if either of the two scenarios apply:
 
 - You have already deployed an ERC-20 token to your ContainerChain (and made several transfers)
 - You would prefer to use an existing ERC-20 token deployed to the Demo EVM ContainerChain (of which there are already several transfer events)
@@ -60,9 +60,6 @@ Before we dive into creating our project, let's install a couple of dependencies
     yarn add @nomicfoundation/hardhat-ethers ethers @openzeppelin/contracts
     ```
 
-!!! remember
-    You should never store your private keys in a JavaScript or Python file. It is done in this tutorial for ease of demonstration only. You should always manage your private keys with a designated secret manager or similar service.
-
 Now we can edit `hardhat.config.js` to include the following network and account configurations for our ContainerChain. You can replace the Demo EVM ContainerChain values with the respective parameters for your own EVM ContainerChain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=_blank}.
 
 ???+ code "hardhat.config.js"
@@ -70,6 +67,9 @@ Now we can edit `hardhat.config.js` to include the following network and account
     ```js
     --8<-- 'code/tutorials/subsquid/hardhat-config.js'
     ```
+
+!!! remember
+    You should never store your private keys in a JavaScript or Python file. It is done in this tutorial for ease of demonstration only. You should always manage your private keys with a designated secret manager or similar service.
 
 ### Create an ERC-20 Contract {: #create-an-erc-20-contract }
 
@@ -333,7 +333,7 @@ We'll demo a sample query in a later section. You can copy and paste the below c
 
 Now we've taken all of the steps necessary and are ready to run our indexer!
 
-### Run the Indexer {: #run-indexer }
+### Run the Indexer {: #run-the-indexer }
 
 To run our indexer, we're going to run a series of `sqd` commands:
 
@@ -369,7 +369,7 @@ In your terminal, you should see your indexer starting to process blocks!
 
 ![Get Squid running](/images/builders/tutorials/subsquid/subsquid-4.png)
 
-## Querying your Squid {: #querying-your-squid }
+## Query Your Squid {: #query-your-squid }
 
 To query your squid, open up a new terminal window within your project and run the following command:
 
@@ -387,7 +387,7 @@ And that's it! You can now run queries against your Squid on the GraphQL playgro
 
 ![Running queries in GraphQL playground](/images/builders/tutorials/subsquid/subsquid-5.png)
 
-## Debugging Your Squid {: #debugging-your-squid }
+## Debug Your Squid {: #debug-your-squid }
 
 It may seem tricky at first to debug errors when building your Squid, but fortunately, there are several techniques you can use to streamline this process. First and foremost, if you're facing errors with your Squid, you should enable debug mode in your `.env` file by uncommenting the debug mode line. This will trigger much more verbose logging and will help you locate the source of the error.
 
