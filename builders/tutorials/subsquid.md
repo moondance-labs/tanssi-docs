@@ -187,14 +187,15 @@ cd tanssi-squid && npm ci
 
 Now that we have a starting point for our project, we'll need to configure our project to index ERC-20 `Transfer` events taking place on our Tanssi ContainerChain.
 
-### Index ERC-20 Transfers {: #index-erc-20-transfer events}
+##  Set Up the Indexer for ERC-20 Transfers {: #set-up-the-indexer-for-erc-20-transfers}
 
 In order to index ERC-20 transfers, we'll need to take a series of actions:
 
-1. Update the database schema and generate models for the data
-2. Use the `ERC20` contract's ABI to generate TypeScript interface classes that will be used by our Squid to index `Transfer` events
-3. Configure the processor to process `Transfer` events for the `ERC20` contract from our ContainerChain
-4. Add logic to process the `Transfer` events and save the processed transfer data
+1. Define the database schema and generate the entity classes
+2. Use the `ERC20` contract's ABI to generate TypeScript interface classes
+3. Configure the processor by specifying exactly what data to ingest
+4. Transform the data and insert it into a TypeORM database in `main.ts`
+5. Run the indexer and query the squid
 
 As mentioned, we'll first need to define the database schema for the transfer data. To do so, we'll edit the `schema.graphql` file, which is located in the root directory, and create a `Transfer` entity and `Account` entity. You can copy and paste the below schema, ensuring that any existing schema is first removed.
 
@@ -242,10 +243,12 @@ The `.toLowerCase()` is critical because the Subsquid processor is case-sensitiv
 
 ```ts
 .setDataSource({
-    chain: {
-        url: assertNotNull('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'),
-        rateLimit: 300,
-    },
+  chain: {
+    url: assertNotNull(
+      'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+    ),
+    rateLimit: 300,
+  },
 })
 ```
 
@@ -259,9 +262,9 @@ Now, let's define the event that we want to index by adding the following:
 
 ```ts
 .addLog({
-    address: [CONTRACT_ADDRESS],
-    topic0: [erc20.events.Transfer.topic],
-    transaction: true,
+  address: [CONTRACT_ADDRESS],
+  topic0: [erc20.events.Transfer.topic],
+  transaction: true,
 })
 ```
 
@@ -279,13 +282,13 @@ Change the `setFields` section to specify the following data for our processor t
 
 ```ts
 .setFields({
-    log: {
-        topics: true,
-        data: true,
-    },
-    transaction: {
-        hash: true,
-    },
+  log: {
+    topics: true,
+    data: true,
+  },
+  transaction: {
+    hash: true,
+  },
 })
 ```
 
