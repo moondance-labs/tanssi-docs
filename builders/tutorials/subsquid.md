@@ -334,23 +334,29 @@ Now we've taken all of the steps necessary and are ready to run our indexer!
 
 To run our indexer, we're going to run a series of `sqd` commands:
 
-1. Build our project:
+
+Build our project:
 
    ```bash
    sqd build
    ```
-2. Launch the database:
+
+Launch the database:
 
    ```bash
    sqd up
    ```
-3. Remove the database migration file that comes with the EVM template and generate a new one for our new database schema:
+
+Remove the database migration file that comes with the EVM template and generate a new one for our new database schema:
 
    ```bash
    sqd migration:generate
+   ```
+
+   ```bash
    sqd migration:apply
    ```
-4. Launch the processor:
+Launch the processor:
 
    ```bash
    sqd process
@@ -378,7 +384,7 @@ And that's it! You can now run queries against your Squid on the GraphQL playgro
 
 ![Running queries in GraphQL playground](/images/builders/tutorials/subsquid/subsquid-5.png)
 
-## Debugging your Squid {: #debugging-your-squid }
+## Debugging Your Squid {: #debugging-your-squid }
 
 It may seem tricky at first to debug errors when building your Squid, but fortunately, there are several techniques you can use to streamline this process. First and foremost, if you're facing errors with your Squid, you should enable debug mode in your `.env` file by uncommenting the debug mode line. This will trigger much more verbose logging and will help you locate the source of the error.
 
