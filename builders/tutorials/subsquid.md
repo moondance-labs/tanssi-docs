@@ -27,7 +27,7 @@ To follow along with this tutorial, you'll need to have:
 
 This section will walk through deploying an ERC-20 token to your ContainerChain so you can get started indexing it. However, you can feel free to skip to [Creating a Subsquid Project](#create-a-subsquid-project) if either of the two scenarios apply:
 
-- You have already deployed an ERC-20 token to your ContainerChain
+- You have already deployed an ERC-20 token to your ContainerChain (and made several transfers)
 - You would prefer to use an existing ERC-20 token deployed to the Demo EVM ContainerChain (of which there are already several transfer events)
 
 If you'd like to use an existing ERC-20 token on the Demo EVM ContainerChain, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
@@ -389,7 +389,7 @@ SQD_DEBUG=*
 
 You can also add logging statements directly to your `main.ts` file to indicate specific parameters like block height and more. For example, see this version of `main.ts`, which has been enhanced with detailed logging:
 
-??? code "main-with-logging.ts"
+??? code "main.ts"
 
     ```ts
     --8<-- 'code/tutorials/subsquid/main-with-logging.ts'
