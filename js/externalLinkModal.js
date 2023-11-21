@@ -63,7 +63,8 @@ const origin = window.location.origin;
 // We don't need to have a pop-up if the link goes to the Moonbeam Network or Moonbeam Foundation website
 const moonbeamLinks = [
   origin,
-  'https://tanssi.network'
+  'https://tanssi.network',
+  'https://apps.tanssi.network/'
 ];
 const checkIfMoonbeamLink = (href) => {
   return moonbeamLinks.some((link) => href.startsWith(link));
