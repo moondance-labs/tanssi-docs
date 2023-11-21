@@ -312,7 +312,7 @@ Our `main.ts` file is going to scan through each processed block for the `Transf
 
 1. The job of `main.ts` is to run the processor and refine the collected data. In `processor.run`, the processor will iterate through all selected blocks and look for `Transfer` event logs. Whenever it finds a `Transfer` event, it's going to store it in an array of transfer events where it awaits further processing
 
-2. The `transferEvent` interface is the type of structure that stores the data extracted from the event logs.
+2. The `transferEvent` interface is the type of structure that stores the data extracted from the event logs
 
 3. `getTransfer` is a helper function that extracts and decodes ERC-20 transfer event data from a log entry. It constructs and returns a TransferEvent object, which includes details such as the transaction ID, block number, sender and receiver addresses, and the amount transferred. `getTransfer` is called at the time of storing the relevant transfer events into the array of transfers.
 
