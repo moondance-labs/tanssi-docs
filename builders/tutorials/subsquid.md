@@ -380,7 +380,7 @@ And that's it! You can now run queries against your Squid on the GraphQL playgro
 
 ## Debugging your Squid {: #debugging-your-squid }
 
-It may seem tricky at first to debug errors when building your Squid, but fortunately there are several techniques you can use to streamline this process. First and foremost, if you're facing errors with your Squid, you should enable Debug mode in your .env file by uncommenting the debug mode line. This will trigger much more verbose logging and will help you locate the source of the error.
+It may seem tricky at first to debug errors when building your Squid, but fortunately, there are several techniques you can use to streamline this process. First and foremost, if you're facing errors with your Squid, you should enable debug mode in your `.env` file by uncommenting the debug mode line. This will trigger much more verbose logging and will help you locate the source of the error.
 
 ```text
 # Uncommenting the below line enables debug mode
