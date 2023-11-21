@@ -12,7 +12,7 @@ async function main() {
 
   // Define custom gas price and gas limit
   // Gas price is typically specified in 'wei' and gas limit is just a number
-  // You can use ethers.js utility functions to convert from gwei or ether if needed
+  // You can use Ethers.js utility functions to convert from gwei or ether if needed
   const customGasPrice = 50000000000; // example for 50 gwei
   const customGasLimit = 5000000; // example gas limit
 
