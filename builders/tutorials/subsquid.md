@@ -259,7 +259,7 @@ Now, let's define the event that we want to index by adding the following:
 
 ```ts
 .addLog({
-  address: [CONTRACT_ADDRESS],
+  address: [contractAddress],
   topic0: [erc20.events.Transfer.topic],
   transaction: true,
 })
