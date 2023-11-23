@@ -56,7 +56,7 @@ As mentioned, the Tanssi network and the ContainerChains are sibling chains with
 
 The collators that Tanssi assigns to serve the different ContainerChains also run a Tanssi node, hence, by accessing the data stored in the finalized blocks of the relay chain and cross-referencing headers, they can learn their assignation for the session, the ContainerChains can confirm that a certain group of collators from Tanssi has been assigned to them, and Tanssi can verify that the author of a container block was the expected one and reward accordingly.
 
-The Tanssi protocol relays on the relay chain as a means to provide the necessary data to both, Tanssi and its ContainerChains, allowing them to collaborate and validate the correctness of the block production service.
+The Tanssi protocol relies on the relay chain as a means to provide the necessary data to both, Tanssi and its ContainerChains, allowing them to collaborate and validate the correctness of the block production service.
 
 ### The Role of the Tanssi Network {: #tanssi-newtwork }
 
