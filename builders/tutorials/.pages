@@ -1,0 +1,5 @@
+title: Tutorials
+hide: false
+nav:
+  - index.md
+  - 'Index Data with Subsquid': 'subsquid.md'
