@@ -1,11 +1,11 @@
 ---
-title: Templates
-description: Tanssi includes templates to kick-start the development of an Appchain, one for a Substrate-oriented runtime and another featuring full EVM (Ethereum) support.
+title: Baseline EVM Template
+description: The Tanssi repository includes an EVM template that provides all the necessary configurations to launch an Appchain that is fully compatible with Ethereum.
 ---
 
-# Templates Overview {: #templates-overview }
+# Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
 
-## Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
+## Introduction {: #introduction }
 
 For teams developing their applications on top of an EVM (Ethereum Virtual Machine), this template is a foundational starting point. It contains all the essential modules to add the extra layer of Ethereum compatibility to a Substrate node:
 

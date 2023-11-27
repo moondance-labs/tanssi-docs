@@ -43,130 +43,14 @@ If you don't include these modules in the ContainerChain's runtime, there won't 
 
 More information about Tanssi's block production as a service and the interaction between Tanssi, the relay chain, and your ContainerChain can be found in the [Technical Features](/learn/tanssi/technical-features/#block-production-as-a-service){target=_blank} article.
 
-## Baseline Appchain Template {: #baseline-appchain-template }
+## Start Building {: #getting-started }
 
-Developing a Substrate-based runtime typically involves two primary steps:
+To start building on top of the provided templates, be it the [Baseline Appchain template](/build/templates/substrate){target=_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm){target=_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} and start adding [built-in modules](/builders/build/local/adding-built-in-pallet/){target=_blank} or [custom-made modules](/builders/build/local/adding-custom-made-module/){target=_blank} using the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=_blank} tag. This approach comes with some advantages, such as:
 
-1. [Incorporating pre-existing Substrate built-in modules](/builders/build/local/adding-built-in-pallet/){target=_blank} into the runtime
-2. [Creating custom modules](/builders/build/local/adding-custom-made-module/){target=_blank} tailored to your specific application needs
+- Building on top of the latest official (and stable) release
+- Get the Tanssi protocol already configured and included in the template runtime 
+- Keep your fork easily up-to-date by syncing with the Tanssi upstream repository
+- Run the included tests, ensuring that block production on your ContainerChain works as intended
+- Run a local environment, spinning up a relay chain, the Tanssi orchestrator, and your ContainerChain with the included [Zombienet](https://paritytech.github.io/zombienet/){target=_blank} configuration
 
-Since the provided template already includes the essential configurations for seamless integration into the Polkadot ecosystem and compatibility with the Tanssi protocol, teams interested in constructing an innovative Appchain can use this template as a starting point for adding their custom logic.
-
-Here are some of the features that come with this template:
-
-- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=_blank}
-- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=_blank}
-- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=_blank}
-- Use the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=_blank} to interact with the Substrate API
-
-By leveraging these features in the template, you can kickstart your Appchain development and customize it to meet your specific requirements and innovations.
-
-## Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
-
-For teams developing their applications on top of an EVM (Ethereum Virtual Machine), this template is a foundational starting point. It contains all the essential modules to add the extra layer of Ethereum compatibility to a Substrate node:
-
-- **`EVM`** - adds the execution layer for Ethereum apps
-- **`Ethereum`** - adds the Ethereum block production emulation to allow the RPC nodes (and DApps) to run without any modification
-- **`EVMChainId`** - stores the chain identifier that identifies the Ethereum network
-
-Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime.
-
-This means that this template is ready to be built as-is and deployed through Tanssi, unlocking many features, such as:
-
-- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=_blank}
-- Connect any Ethereum wallet, such as [Metamask](/builders/interact/ethereum-api/wallets/metamask/){target=_blak} and Ledger
-- Use well-known Ethereum libraries like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs){target=_blank}, [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=_blank}, [Web3.py](/builders/interact/ethereum-api/libraries/web3py/){target=_blank}, and more
-- Deploy EVM smart contracts with tools like [Remix](https://remix.ethereum.org/){target=_blank}, [Hardhat](https://hardhat.org/){target=_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=_blank}, and more
-- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=_blank}
-- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=_blank}
-- Use the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=_blank} to interact with the Substrate API
-
-## Adapting an Existing Runtime {: #adapting-existing-runtime }
-
-For teams that already have a Substrate runtime built, it will be necessary to implement the required modules and configurations into the runtime. This will ensure that the runtime can evolve into a ContainerChain that can be successfully [deployed through Tanssi](#base-setup-supporting-tanssi) and [run properly within Polkadot](#base-setup-integrating-into-polkadot).
-
-Failing to do so might lead to reduced interoperability within the ecosystem and unnecessary exposure to vulnerabilities.
-
-### Adding Cumulus Support {: #adding-cumulus-support }
-
-If the runtime is set up as a solo chain, check the official [Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template){target=_blank} or any of the templates available in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} for a reference setup.
-
-### Adding Tanssi Protocol Support {: #adding-tanssi-support }
-
-To support the Tanssi protocol, it will be necessary to add [the modules](#base-setup-supporting-tanssi) through the following steps:
-
-1. Include the dependencies in the `Cargo.toml` manifesto (usually located in the root folder). Open the `Cargo.toml` file and add the modules in the `dependencies` section
-
-    ```toml
-    [dependencies]
-    ...
-    pallet-cc-authorities-noting = { 
-        git = "https://github.com/moondance-labs/tanssi", 
-        branch = "master", default-features = false 
-    }
-    pallet_authorities_noting = {
-        git = "https://github.com/moondance-labs/moonkit",
-        branch = "{{ repository.tanssi.release_branch }}", default-features = false
-    }
-    ...
-    ```
-
-2. Configure the modules. Open the file `lib.rs` located in the folder `*/runtime/src` and add the configuration for both modules:
-
-    ```rust
-    impl pallet_author_inherent::Config for Runtime {
-        type AuthorId = NimbusId;
-        type AccountLookup = tp_consensus::NimbusLookUp;
-        type CanAuthor = pallet_cc_authorities_noting::CanAuthor<Runtime>;
-        type SlotBeacon = tp_consensus::AuraDigestSlotBeacon<Runtime>;
-        type WeightInfo = 
-            pallet_author_inherent::weights::SubstrateWeight<Runtime>;
-    }
-
-    impl pallet_cc_authorities_noting::Config for Runtime {
-        type RuntimeEvent = RuntimeEvent;
-        type SelfParaId = parachain_info::Pallet<Runtime>;
-        type RelayChainStateProvider = 
-            cumulus_pallet_parachain_system::RelaychainDataProvider<Self>;
-        type AuthorityId = NimbusId;
-        type WeightInfo = 
-            pallet_cc_authorities_noting::weights::SubstrateWeight<Runtime>;
-    }
-    ```
-
-    Note that this configuration is agnostic from the use case
-
-3. Declare the modules as part of the runtime. In the same `lib.rs` file, located in the folder `*/runtime/src`, add the modules to the construction of the runtime:
-
-    ```rust
-    construct_runtime!(
-    pub enum Runtime where
-        Block = Block,
-        NodeBlock = opaque::Block,
-        UncheckedExtrinsic = UncheckedExtrinsic,
-    {
-        ...
-        // ContainerChain
-        AuthoritiesNoting: pallet_cc_authorities_noting = 50,
-        AuthorInherent: pallet_author_inherent = 51,
-        ...
-    }
-    ```
-
-4. Make sure your Header is configured as follows:
-
-    ```rust
-    type Header = generic::Header<BlockNumber, BlakeTwo256>;
-    /// An index to a block.
-    pub type BlockNumber = u32; 
-    ```
-
-5. Add the block executor, to allow the validators in the relay chain to check that the authors are the collators assigned by Tanssi (and not a malicious actor)
-
-    ```rust
-    cumulus_pallet_parachain_system::register_validate_block! {
-        Runtime = Runtime,
-        BlockExecutor = pallet_author_inherent::BlockExecutor::<Runtime, Executive>
-        CheckInherents = CheckInherents,
-    }
-    ```
+If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy your ContainerChain via the Tanssi DApp](/builders/deploy-manage/dapp/deploy){target=_blank} article to know how to use the Tanssi DApp to register and get your chain up and running.

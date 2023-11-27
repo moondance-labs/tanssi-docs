@@ -1,22 +1,23 @@
 ---
-title: Templates
-description: Tanssi includes templates to kick-start the development of an Appchain, one for a Substrate-oriented runtime and another featuring full EVM (Ethereum) support.
+title: Custom Runtime
+description: Any custom runtime can be adapted to be deployed through Tanssi, provided that specific modules are implemented, and the required configurations are set.
 ---
 
-# Templates Overview {: #templates-overview }
+# Adapting an Existing Runtime {: #adapting-existing-runtime }
 
 
-## Adapting an Existing Runtime {: #adapting-existing-runtime }
+## Introduction {: #introduction }
 
-For teams that already have a Substrate runtime built, it will be necessary to implement the required modules and configurations into the runtime. This will ensure that the runtime can evolve into a ContainerChain that can be successfully [deployed through Tanssi](#base-setup-supporting-tanssi) and [run properly within Polkadot](#base-setup-integrating-into-polkadot).
+For teams that already have a Substrate runtime built, it will be necessary to implement the required modules and configurations into the runtime. This will ensure that the runtime can evolve into a ContainerChain that can be successfully [deployed through Tanssi](#/builders/build/templates/overview/#base-setup-supporting-tanssi
+){target=_blank} and [run properly within Polkadot](#/builders/build/templates/overview/#base-setup-to-polkadot){target=_blank}.
 
 Failing to do so might lead to reduced interoperability within the ecosystem and unnecessary exposure to vulnerabilities.
 
-### Adding Cumulus Support {: #adding-cumulus-support }
+## Adding Cumulus Support {: #adding-cumulus-support }
 
 If the runtime is set up as a solo chain, check the official [Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template){target=_blank} or any of the templates available in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} for a reference setup.
 
-### Adding Tanssi Protocol Support {: #adding-tanssi-support }
+## Adding Tanssi Protocol Support {: #adding-tanssi-support }
 
 To support the Tanssi protocol, it will be necessary to add [the modules](#base-setup-supporting-tanssi) through the following steps:
 
