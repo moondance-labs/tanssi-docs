@@ -45,11 +45,13 @@ More information about Tanssi's block production as a service and the interactio
 
 ## Start Building {: #getting-started }
 
-To start building on top of the provided templates, be it the [Baseline Appchain template](/build/templates/substrate){target=_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm){target=_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} and start adding [built-in modules](/builders/build/local/adding-built-in-pallet/){target=_blank} or [custom-made modules](/builders/build/local/adding-custom-made-module/){target=_blank} using the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=_blank} tag. This approach comes with some advantages, such as:
+To start building on top of the provided templates, be it the [Baseline Appchain template](/build/templates/substrate){target=_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm){target=_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} and start adding [built-in modules](/builders/build/local/adding-built-in-pallet/){target=_blank} or [custom-made modules](/builders/build/local/adding-custom-made-module/){target=_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=_blank} tag. 
 
-- Building on top of the latest official (and stable) release
+This approach comes with some advantages, such as:
+
+- Building on top of the latest and stable release
 - Get the Tanssi protocol already configured and included in the template runtime 
-- Keep your fork easily up-to-date by syncing with the Tanssi upstream repository
+- Keep your fork up-to-date by syncing with the Tanssi upstream repository
 - Run the included tests, ensuring that block production on your ContainerChain works as intended
 - Run a local environment, spinning up a relay chain, the Tanssi orchestrator, and your ContainerChain with the included [Zombienet](https://paritytech.github.io/zombienet/){target=_blank} configuration
 
