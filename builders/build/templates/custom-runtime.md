@@ -13,6 +13,24 @@ For teams that already have been working on a Substrate runtime, it will be nece
 
 Failing to do so might lead to reduced interoperability within the ecosystem and unnecessary exposure to vulnerabilities.
 
+## Minimum Requirements
+
+Already existing Substrate runtimes need to at least have both [Cumulus](#adding-cumulus-support) and [Tanssi-specific modules](#adding-tanssi-support).
+
+Nevertheless, teams might have already implemented certain modules that can collide with some functionalities related to Tanssi, for example, block production, block authority assignment, and consensus.
+
+If the starting point for your project was the [parachain template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}, the following modules are included by default and must be removed along with their corresponding configuration:
+
+```rust
+Authorship: pallet_authorship = 20,
+CollatorSelection: pallet_collator_selection = 21,
+Session: pallet_session = 22,
+Aura: pallet_aura = 23,
+AuraExt: cumulus_pallet_aura_ext = 24,
+```
+
+In any case, make sure to check your runtime and remove all the modules that might interfere with the block production as a service before starting the registration process.
+
 ## Adding Cumulus Support {: #adding-cumulus-support }
 
 If the runtime is set up as a solo chain, check the official [Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template){target=_blank} or any of the templates available in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} for a reference setup.
