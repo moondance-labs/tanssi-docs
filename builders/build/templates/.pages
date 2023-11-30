@@ -5,4 +5,4 @@ nav:
   - 'Overview': 'overview.md'
   - 'Substrate': 'substrate.md'
   - 'EVM': 'evm.md'
-  - 'Custom runtime': 'custom-runtime.md'
+  - 'Custom Runtime': 'custom-runtime.md'
