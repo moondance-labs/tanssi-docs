@@ -38,7 +38,7 @@ These are some of the functional modules exposing a behavior to the users that a
 - **[pallet_balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=_blank}** - the Balances pallet provides functions for handling accounts and balances for the Appchain native currency
 - **[pallet_utility](https://paritytech.github.io/polkadot-sdk/master/pallet_utility/index.html){target=_blank}** - the Utility pallet provides functions to execute multiple calls in a single dispatch. Besides batching transactions, this module also allows the execution of a call from an alternative signed origin
 - **[pallet_proxy](https://paritytech.github.io/polkadot-sdk/master/pallet_proxy/index.html){target=_blank}** - the Proxy pallet provides functions to delegate to other accounts (proxies) the permission to dispatch calls from a proxied origin.
-- **pallet_maintenance_mode** - the Maintenance Mode pallet allows the Appchain to be set to a mode where it doesn't execute balance/asset transfers and other transactions such as XCM calls. This could be useful when upgrading the runtime in an emergency, when executing large storage migrations, or when a security vulnerability is discovered.
+- **[pallet_maintenance_mode](https://github.com/moondance-labs/moonkit/blob/tanssi-polkadot-v1.3.0/pallets/maintenance-mode/src/lib.rs){target=_blank}** - the Maintenance Mode pallet allows the Appchain to be set to a mode where it doesn't execute balance/asset transfers and other transactions such as XCM calls. This could be useful when upgrading the runtime in an emergency, when executing large storage migrations, or when a security vulnerability is discovered.
 
 ## Adding External Dependencies {: #adding-external-dependencies }
 
