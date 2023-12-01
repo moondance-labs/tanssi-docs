@@ -69,7 +69,7 @@ cargo build -p container-chain-template-frontier-node --release
 ```
 This step is quite verbose and might take a while to complete. The following screenshot shows the terminal after successfully finishing the building process (note that the completion time is above 35 minutes):
 
-    ![Building the template](/images/builders/build/local/customizing-chain-specs-1.png)
+    ![Building the template](/images/builders/build/customize/customizing-chain-specs-1.png)
 4. Generate the chain specification
 ```bash
 ./target/release/container-chain-template-frontier-node \
@@ -77,7 +77,7 @@ This step is quite verbose and might take a while to complete. The following scr
 ```
 After executing the last step, the terminal displays only a log line:
 
-    ![Generating the chain specification](/images/builders/build/local/customizing-chain-specs-2.png)
+    ![Generating the chain specification](/images/builders/build/customize/customizing-chain-specs-2.png)
 
 And now the `chain_spec.json` file containing the client specification and the genesis state is created in the current folder.
 

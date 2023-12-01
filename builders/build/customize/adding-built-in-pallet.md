@@ -217,3 +217,35 @@ fn testnet_genesis(
 ```
 
 With the module included, this new runtime version has unlocked a new set of functionalities ready to be composed with even more of the Substrate built-in modules or custom-made ones.
+
+## Adding External Dependencies {: #adding-external-dependencies }
+
+The Substrate Appchain template is meant to be built on top of, as the included modules are just for basic functionality and to ensure it is compatible with Tanssi.
+
+The Tanssi repository and the templates take all the dependencies from [a fork](https://github.com/moondance-labs/polkadot-sdk){target=_blank} of the official Polkadot SDK repository. This fork is maintained by the Tanssi engineering team, which usually contributes actively to the Substrate development by fixing issues and enhancing functionalities, and, as a result, the fork repository frequently stays temporarily ahead of the official one.
+
+A double reference issue may arise when adding an external dependency, such as a pallet from a third party. This happens if a Tanssi module references a dependency from the Polkadot SDK fork repository, and the third party references the same dependency from the official Polkadot SDK repository. To solve this issue, the references to the dependencies must be unified.
+
+To unify the references, the `Cargo.toml` file located in the root folder must include a patch section listing all the common dependencies that must be read from the overridden repository URL, like the following example:
+
+```toml
+[patch."https://github.com/paritytech/polkadot-sdk"]
+sp-io = { 
+    git = "https://github.com/moondance-labs/polkadot-sdk", 
+    branch = "{{ repository.tanssi.release_branch }}" 
+}
+...
+```
+
+To efficiently handle the dependencies and their origins, check out the tool [diener](https://github.com/paritytech/diener){target=_blank}. 
+
+If the `diener` executable file, the cloned [Polkadot SDK repository](https://github.com/paritytech/polkadot-sdk){target=_blank}, and your Tanssi fork are located in the same folder, step into the Tanssi fork folder and execute the following command:
+
+```bash
+../diener patch --crates-to-patch ../polkadot-sdk \
+    --target https://github.com/paritytech/polkadot-sdk \
+    --point-to-git https://github.com/moondance-labs/polkadot-sdk \
+    --point-to-git-branch {{ repository.tanssi.release_branch }}
+```
+
+This command applies the changes to the `Cargo.toml` file, patching the dependencies, and solving the double reference issues.
