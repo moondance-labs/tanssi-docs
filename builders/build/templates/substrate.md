@@ -42,6 +42,8 @@ These are some of the functional modules exposing a behavior to the users that a
 
 ## Adding External Dependencies {: #adding-external-dependencies }
 
+The Substrate Appchain template is meant to be built on top of, as the included modules are just for basic functionality and to ensure it is compatible with Tanssi.
+
 The Tanssi repository and the templates take all the dependencies from [a fork](https://github.com/moondance-labs/polkadot-sdk){target=_blank} of the official Polkadot SDK repository. This fork is maintained by the Tanssi engineering team, which usually contributes actively to the Substrate development by fixing issues and enhancing functionalities, and, as a result, the fork repository frequently stays temporarily ahead of the official one.
 
 A double reference issue may arise when adding an external dependency, such as a pallet from a third party. This happens if a Tanssi module references a dependency from the Polkadot SDK fork repository, and the third party references the same dependency from the official Polkadot SDK repository. To solve this issue, the references to the dependencies must be unified.
