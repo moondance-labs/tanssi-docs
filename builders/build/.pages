@@ -3,5 +3,4 @@ hide: false
 nav:
   - index.md
   - templates
-  - local
-
+  - customize

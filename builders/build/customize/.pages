@@ -1,8 +1,9 @@
-title: Local Environment
+title: Customize Chain
 hide: false
 nav:
   - index.md
   - 'Prerequisites': 'prerequisites.md'
-  - 'Adding a Built-in Module': 'adding-built-in-pallet.md'
+  - 'Adding a Built-in Module': 'adding-built-in-module.md'
   - 'Adding a Custom-Made Module': 'adding-custom-made-module.md'
+  - 'Adding an External Module': 'adding-external-module.md'
   - 'Chain Specifications': 'customizing-chain-specs.md'

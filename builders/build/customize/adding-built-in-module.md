@@ -9,7 +9,7 @@ description: Substrate is a modular blockchain framework that includes many read
 
 Substrate is a powerful and modular software development framework included in the Polkadot SDKs for building blockchains. It provides a comprehensive set of tools and libraries that abstract complex blockchain functionalities, allowing developers to focus on building innovative features and applications by focusing on the runtime, which contains the core logic and the rules of the state transition for the use case.
 
-What sets Substrate apart is its modular architecture, which enables the seamless integration of pre-built modules and the creation of custom ones, facilitating the development of blockchain protocols.
+What sets Substrate apart is its modular architecture, which enables the seamless integration of [built-in modules](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame){target=_blank} and the creation of custom ones, facilitating the development of blockchain protocols.
 
 For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate Appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live ContainerChain.
 
