@@ -1,13 +1,13 @@
 ---
-title: Fixing Dependencies Conflicts
+title: Adding External Modules
 description: Learn how to manage and resolve double reference issues of dependencies when customizing your Tanssi Appchain template with a Rust-based tool called Diener.
 ---
 
-# Fixing Dependencies Conflicts {: #fixing-dependencies-conflicts }
+# Adding a External Module {: #adding-external-module }
 
 ## Introduction {: #introduction }
 
-Developers building on top of the [Templates offered by Tanssi](/builders/build/templates/){target=_blank} might want to add some external dependencies into their runtime to expand certain functionality.
+Developers building on top of the [Templates offered by Tanssi](/builders/build/templates/){target=_blank} might want to add some external modules/dependencies into their runtime to expand certain functionality.
 
 The Tanssi repository and the templates take all the dependencies from [a fork](https://github.com/moondance-labs/polkadot-sdk){target=_blank} of the official Polkadot SDK repository. This fork is maintained by the Tanssi engineering team, which usually contributes actively to the Substrate development by fixing issues and enhancing functionalities, and, as a result, the fork repository frequently stays temporarily ahead of the official one.
 
