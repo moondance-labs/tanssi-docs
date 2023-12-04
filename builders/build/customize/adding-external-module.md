@@ -3,7 +3,7 @@ title: Adding External Modules
 description: Learn how to manage and resolve double reference issues of dependencies when customizing your Tanssi Appchain template with a Rust-based tool called Diener.
 ---
 
-# Adding a External Module {: #adding-external-module }
+# Adding an External Module {: #adding-external-module }
 
 ## Introduction {: #introduction }
 

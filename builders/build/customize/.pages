@@ -5,5 +5,5 @@ nav:
   - 'Prerequisites': 'prerequisites.md'
   - 'Adding a Built-in Module': 'adding-built-in-module.md'
   - 'Adding a Custom-Made Module': 'adding-custom-made-module.md'
-  - 'Fixing Dependencies Conflicts': 'fixing-dependencies-conflicts.md'
+  - 'Adding an External Module': 'adding-external-module.md'
   - 'Chain Specifications': 'customizing-chain-specs.md'
