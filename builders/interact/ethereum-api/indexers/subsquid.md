@@ -57,7 +57,7 @@ To get started indexing EVM data on your Tanssi EVM, you'll need to create a Sub
       })
     ```
 
-4. Launch Postgres and detach by running:
+4. Launch Postgres by running:
 
     ```bash
     sqd up
