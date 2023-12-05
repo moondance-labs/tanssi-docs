@@ -48,7 +48,7 @@ To get started indexing EVM data on your Tanssi EVM, you'll need to create a Sub
     npm ci
     ```
 
-3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your ContainerChain. Remove the `archive: lookupArchive('eth-mainnet')` line as a Squid archive will not be used. Here, the RPC URL of the Demo EVM ContainerChain is specified. The Squid project will use the RPC endpoint to ingest the relevant data. 
+3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your ContainerChain. Remove the `archive: lookupArchive('eth-mainnet')` line as a Squid archive will not be used. Here, the RPC URL of the demo EVM ContainerChain is specified. The Squid project will use the RPC endpoint to ingest the relevant data
 
     ```ts
       const processor = new EvmBatchProcessor();
