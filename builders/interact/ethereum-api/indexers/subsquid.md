@@ -1,6 +1,6 @@
 ---
 title: Index your Tanssi EVM ContainerChain with Subsquid
-description: Learn how to use Subsquid, a query node framework for Substrate-based chains, to index and process EVM data your Tanssi EVM ContainerChain.
+description: Learn how to use Subsquid, a query node framework for Substrate-based chains, to index and process EVM data on your Tanssi EVM ContainerChain.
 ---
 
 # Indexing your EVM ContainerChain with Subsquid
