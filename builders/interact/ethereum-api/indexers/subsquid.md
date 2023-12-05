@@ -75,7 +75,7 @@ To get started indexing EVM data on your Tanssi EVM, you'll need to create a Sub
     sqd serve
     ```
 
-7. You can now run queries, such as the sample query below, against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=_blank}. If you've modified the template EVM squid to index different data, you'll need to modify this query accordingly. 
+7. You can now run queries, such as the sample query below, against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=_blank}. If you've modified the template EVM squid to index different data, you'll need to modify this query accordingly
 
     ```graphql
     query MyQuery {
