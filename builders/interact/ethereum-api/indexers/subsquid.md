@@ -3,7 +3,7 @@ title: Index Your Tanssi EVM AppChain with Subsquid
 description: Learn how to use Subsquid, a query node framework for Substrate-based chains, to index and process EVM data your Tanssi EVM ContainerChain.
 ---
 
-# Indexing your EVM ContainerChain with Subsquid
+# Indexing Your EVM ContainerChain with Subsquid
 
 ## Introduction {: #introduction }
 
@@ -16,10 +16,10 @@ This quick-start guide will show you how to create a Subsquid project and config
 For the examples in this guide, you will need to have the following:
 
  - [Node.js](https://nodejs.org/en/download/){target=_blank} version 16 or newer
-  - [Docker](https://docs.docker.com/get-docker/){target=_blank}
-  - [Squid CLI](https://docs.subsquid.io/squid-cli/installation/){target=_blank}
+ - [Docker](https://docs.docker.com/get-docker/){target=_blank}
+ - [Squid CLI](https://docs.subsquid.io/squid-cli/installation/){target=_blank}
 
-## Index EVM Data on your ContainerChain {: #index-evm-data-on-your-containerchain}
+## Index EVM Data on Your ContainerChain {: #index-evm-data-on-your-containerchain}
 
 To get started indexing EVM data on your Tanssi EVM, you'll need to create a Subsquid project and configure it for your ContainerChain by taking the following steps:
 
@@ -48,7 +48,7 @@ To get started indexing EVM data on your Tanssi EVM, you'll need to create a Sub
     npm ci
     ```
 
-3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your ContainerChain. Remove the `archive: lookupArchive('eth-mainnet')` line as a Squid archive will not be used. Here, the RPC URL of the Demo EVM ContainerChain is specified. The Squid project will use the RPC endpoint to ingest the relevant data. 
+3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your ContainerChain. Remove the `archive: lookupArchive('eth-mainnet')` line as a Squid archive will not be used. Here, the RPC URL of the demo EVM ContainerChain is specified. The Squid project will use the RPC endpoint to ingest the relevant data
 
     ```ts
       const processor = new EvmBatchProcessor();
@@ -57,8 +57,7 @@ To get started indexing EVM data on your Tanssi EVM, you'll need to create a Sub
       })
     ```
 
-
-4. Launch Postgres and detach by running:
+4. Launch Postgres by running:
 
     ```bash
     sqd up
@@ -76,7 +75,7 @@ To get started indexing EVM data on your Tanssi EVM, you'll need to create a Sub
     sqd serve
     ```
 
-7. You can now run queries, such as the sample query below, against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=_blank}. If you've modified the template EVM squid to index different data, you'll need to modify this query accordingly. 
+7. You can now run queries, such as the sample query below, against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=_blank}. If you've modified the template EVM squid to index different data, you'll need to modify this query accordingly
 
     ```graphql
     query MyQuery {
@@ -91,8 +90,8 @@ To get started indexing EVM data on your Tanssi EVM, you'll need to create a Sub
     ```
 
 
-And that's all you have to do to configure your Subsquid project to index EVM data on your Tanssi EVM ContainerChain! Now you can update the `schema.graphql`, `main.ts`, and `src/processor.ts` files to index the data you need for your project!
+And that's all you have to do to configure your Subsquid project to index EVM data on your Tanssi EVM ContainerChain! Now you can update the `schema.graphql`, `src/main.ts`, and `src/processor.ts` files to index the data you need for your project!
 
-If you're interested in a more comprehensive step-by-step tutorial to get started indexing data your ContainerChain, you can check out the [Using Subsquid to Index Your ContainerChain](/builders/tutorials/subsquid/){target=_blank} tutorial!
+If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your ContainerChain, you can check out the [Using Subsquid to Index Your ContainerChain](/builders/tutorials/subsquid/){target=_blank} tutorial!
 
 --8<-- 'text/disclaimers/third-party-content.md'
