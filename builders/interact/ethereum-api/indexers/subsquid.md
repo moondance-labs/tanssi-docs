@@ -16,8 +16,8 @@ This quick-start guide will show you how to create a Subsquid project and config
 For the examples in this guide, you will need to have the following:
 
  - [Node.js](https://nodejs.org/en/download/){target=_blank} version 16 or newer
-  - [Docker](https://docs.docker.com/get-docker/){target=_blank}
-  - [Squid CLI](https://docs.subsquid.io/squid-cli/installation/){target=_blank}
+ - [Docker](https://docs.docker.com/get-docker/){target=_blank}
+ - [Squid CLI](https://docs.subsquid.io/squid-cli/installation/){target=_blank}
 
 ## Index EVM Data on Your ContainerChain {: #index-evm-data-on-your-containerchain}
 
