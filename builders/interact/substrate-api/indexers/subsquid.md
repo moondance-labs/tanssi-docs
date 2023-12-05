@@ -1,6 +1,6 @@
 ---
-title: Index your Substrate AppChain with Subsquid
-description: Learn how to use Subsquid, a query node framework for Substrate-based chains, to index and process Substrate data your Tanssi Substrate ContainerChain.
+title: Index Your Substrate AppChain with Subsquid
+description: Learn how to use Subsquid, a query node framework for Substrate-based chains, to index and process Substrate data Your Tanssi Substrate ContainerChain.
 ---
 
 # Indexing your Substrate ContainerChain with Subsquid
