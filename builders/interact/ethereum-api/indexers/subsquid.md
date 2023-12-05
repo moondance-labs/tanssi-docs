@@ -92,6 +92,6 @@ To get started indexing EVM data on your Tanssi EVM, you'll need to create a Sub
 
 And that's all you have to do to configure your Subsquid project to index EVM data on your Tanssi EVM ContainerChain! Now you can update the `schema.graphql`, `main.ts`, and `src/processor.ts` files to index the data you need for your project!
 
-If you're interested in a more comprehensive step-by-step tutorial to get started indexing data your ContainerChain, you can check out the [Using Subsquid to Index Your ContainerChain](/builders/tutorials/subsquid/){target=_blank} tutorial!
+If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your ContainerChain, you can check out the [Using Subsquid to Index Your ContainerChain](/builders/tutorials/subsquid/){target=_blank} tutorial!
 
 --8<-- 'text/disclaimers/third-party-content.md'
