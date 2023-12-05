@@ -69,10 +69,10 @@ To get started indexing Substrate data on your ContainerChain, you'll need to cr
 
     ```graphql
     query MyQuery {
-        accountsConnection(orderBy: id_ASC) {
-          totalCount
-        }
+      accountsConnection(orderBy: id_ASC) {
+        totalCount
       }
+    }
     ```
 
 And that's all you have to do to configure your Subsquid project to index Substrate data on your Tanssi Substrate ContainerChain! Now you can update the `schema.graphql`, `main.ts`, `typgen.json`, and `src/processor.ts` files to index the data you need for your project!
