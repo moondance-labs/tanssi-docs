@@ -19,7 +19,7 @@ For the examples in this guide, you will need to have the following:
   - [Docker](https://docs.docker.com/get-docker/){target=_blank}
   - [Squid CLI](https://docs.subsquid.io/squid-cli/installation/){target=_blank}
 
-## Index EVM Data on your ContainerChain {: #index-evm-data-on-your-containerchain}
+## Index EVM Data on Your ContainerChain {: #index-evm-data-on-your-containerchain}
 
 To get started indexing EVM data on your Tanssi EVM, you'll need to create a Subsquid project and configure it for your ContainerChain by taking the following steps:
 
