@@ -65,7 +65,7 @@ To get started indexing Substrate data on your ContainerChain, you'll need to cr
     sqd serve
     ```
 
-7. You can query your template Substrate squid with the below sample query. If you've modified the template Substrate squid to index different data, you'll need to modify this query accordingly
+7. You can query your template Substrate Squid with the below sample query. If you've modified the template Substrate squid to index different data, you'll need to modify this query accordingly
 
     ```graphql
     query MyQuery {
