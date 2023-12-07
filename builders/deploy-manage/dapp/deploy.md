@@ -120,7 +120,7 @@ Other required changes in the runtime include:
     AuraExt: cumulus_pallet_aura_ext = 24,
     ```
 
-Finally, [generate and edit](/builders/build/local/customizing-chain-specs/#editing-json-chain-specs){target=_blank} the chain specification paying special attention to: 
+Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs){target=_blank} the chain specification paying special attention to: 
 
 - `para_id` - within this custom flow, a pre-registered parachain id is required
 - `is_ethereum` - to `true` if exposing Ethereum compatible RPC endpoints is needed
@@ -179,8 +179,8 @@ Once the transaction has successfully gone through, your Appchain ID will be dis
 
 Before you can deploy your Appchain, you'll need to generate four configuration files:
 
-- [The raw chain specification](/builders/build/local/customizing-chain-specs/#generating-raw-specs-file){target=_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
-- [The genesis state header](/builders/build/local/customizing-chain-specs/#genesis-state){target=_blank} - defines the initial state upon which all transactions and state transitions are executed
+- [The raw chain specification](/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
+- [The genesis state header](/builders/build/customize/customizing-chain-specs/#genesis-state){target=_blank} - defines the initial state upon which all transactions and state transitions are executed
 - [The genesis Wasm](/learn/framework/architecture/#runtime){target=_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
 
 These files will automatically be generated for you based on your Appchain ID and your customized template configurations. All you need to do is click **Generate**, and the dApp will generate the required files for you.
