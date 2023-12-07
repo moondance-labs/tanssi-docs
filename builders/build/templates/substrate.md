@@ -15,8 +15,8 @@ This section covers this basic template, what it includes, and some aspects to c
 
 Developing a Substrate-based runtime typically involves two primary steps:
 
-1. [Incorporating pre-existing Substrate built-in modules](/builders/build/local/adding-built-in-pallet/){target=_blank} into the runtime
-2. [Creating custom modules](/builders/build/local/adding-custom-made-module/){target=_blank} tailored to your specific application needs
+1. [Incorporating pre-existing Substrate built-in modules](/builders/build/customize/adding-built-in-module/){target=_blank} into the runtime
+2. [Creating custom modules](/builders/build/customize/adding-custom-made-module/){target=_blank} tailored to your specific application needs
 
 Since the provided template already includes the essential configurations for seamless integration into the Polkadot ecosystem and compatibility with the Tanssi protocol, teams interested in constructing an innovative Appchain can use this template as a starting point for adding their custom logic.
 

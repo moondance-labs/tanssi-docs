@@ -45,7 +45,7 @@ More information about Tanssi's block production as a service and the interactio
 
 ## Start Building {: #getting-started }
 
-To start building on top of the provided templates, be it the [Baseline Appchain template](/build/templates/substrate){target=_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm){target=_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} and start adding [built-in modules](/builders/build/local/adding-built-in-pallet/){target=_blank} or [custom-made modules](/builders/build/local/adding-custom-made-module/){target=_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=_blank} tag. 
+To start building on top of the provided templates, be it the [Baseline Appchain template](/build/templates/substrate){target=_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm){target=_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} and start adding [built-in modules](/builders/build/customize/adding-built-in-module/){target=_blank} or [custom-made modules](/builders/build/customize/adding-custom-made-module/){target=_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=_blank} tag. 
 
 This approach comes with some advantages, such as:
 

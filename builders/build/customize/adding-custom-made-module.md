@@ -32,7 +32,7 @@ To follow the steps in this guide, you will need to have the following:
 - Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} from Github
 - Rust compiler and Cargo package manager
 
-You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/local/prerequisites/#installing-rust){target=_blank}.
+You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/customize/prerequisites/#installing-rust){target=_blank}.
 
 ## Creating the Lottery Module Files {: #creating-lottery-module-files }
 
