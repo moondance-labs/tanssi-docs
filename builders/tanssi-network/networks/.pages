@@ -2,4 +2,4 @@ title: Networks
 hide: false
 nav:
   - index.md
-  - 'Dancebox': 'dancebox.md'
+  - dancebox
