@@ -1,6 +1,6 @@
 ---
 title: Tanssi Network
-description: Discover everything you need to know to get started with the Tanssi Network, such as RPC endpoints, block explorers, and more.
+description: Discover everything you need to know about the different networks in the Tanssi ecosystem and get started developing and interacting with each of them.
 template: subsection-index-page.html
 hide:
  - toc
