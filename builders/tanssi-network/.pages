@@ -3,4 +3,5 @@ hide: false
 nav:
   - index.md
   - networks
+  - 'Endpoints': 'endpoints.md'
   
