@@ -38,6 +38,7 @@ Dancebox has two types of endpoints available for users to connect to: one for H
 
 For Dancebox, you can use the following block explorer:
 
+- [Dancebox Subscan](https://dancebox.subscan.io/){target=_blank}
 - [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/explorer){target=_blank}
 
 Support for additional block explorers is in the works and as more explorers support Dancebox, this section will be updated accordingly.
