@@ -3,7 +3,7 @@ hide: false
 nav:
   - index.md
   - build
-  - deploy-manage
+  - deploy
   - interact
   - tanssi-network
   - tutorials

@@ -9,7 +9,7 @@ description: The Tanssi TestNet, named Dancebox, is the easiest way to get start
 
 Dancebox is the first public Tanssi testnet, allowing teams to onboard and get their Appchains up and running in minutes.
 
-To get an Appchain deployed as a ContainerChain through Tanssi, after [getting the required tokens](#get-testnet-tokens), just follow the [registration steps in the Dapp](/builders/deploy-manage/dapp/deploy/){target=_blank}.
+To get an Appchain deployed as a ContainerChain through Tanssi, after [getting the required tokens](#get-testnet-tokens), just follow the [registration steps in the Dapp](/builders/deploy/dapp/){target=_blank}.
 
 ## Get TestNet Tokens {: #get-testnet-tokens }
 

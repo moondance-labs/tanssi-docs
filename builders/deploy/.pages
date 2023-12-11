@@ -1,0 +1,5 @@
+title: Deploy Your ContainerChain
+hide: false
+nav:
+  - index.md
+  - 'Using the Tanssi DApp': 'dapp.md'
