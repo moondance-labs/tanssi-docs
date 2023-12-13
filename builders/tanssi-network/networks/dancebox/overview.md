@@ -1,6 +1,6 @@
 ---
 title: Get Started with Dancebox
-description: Dancebox is the Tanssi TestNet and it is the easiest way to get started with the Tanssi Network to deploy your Substrate or EVM Appchain as a ContainerChain.
+description: Dancebox is the Tanssi TestNet, and it is the easiest way to get started with the Tanssi Network to deploy your Substrate or EVM Appchain as a ContainerChain.
 ---
 
 # Get Started with Dancebox
