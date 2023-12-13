@@ -9,6 +9,9 @@ description: Learn how to spin up and deploy an Appchain on Tanssi in minutes us
 
 Tanssi aims to lower the barrier to entry for building within the Polkadot ecosystem by streamlining the onboarding process and abstracting away the technical details of launching an Appchain. The Tanssi dApp facilitates this process, allowing you to spin up an Appchain and deploy it as a ContainerChain through Tanssi in minutes.
 
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/Ovasc7uAXpk?si=WhXT7X61THF2KqkL' frameborder='0' allowfullscreen></iframe></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
+
 This guide will walk you through the steps required to launch an Appchain on Tanssi's TestNet, Dancebox, via the Tanssi dApp.
 
 ## Overview {: #overview }
