@@ -9,7 +9,7 @@ description: Learn how to use the Ethereum EtherJS Library to send transactions 
 
 The [Ethers.js](https://docs.ethers.org/){target=_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=_blank}. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6/){target=_blank}.
 
-In this guide, you'll learn how to use setup the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
+In this guide, you'll learn how to use setup the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint. If you prefer following video tutorials, you'll find a corresponding video tutorial for [Sending Transactions with Ethers.js](#send-a-transaction) and [Deploying Contracts with Ethers.js](#deploy-a-contract)
 
 --8<-- 'text/common/general-js-tutorial-check.md'
 
@@ -73,6 +73,9 @@ Save this code snippet as you'll need it for the scripts that are used in the fo
 ## Send a Transaction {: #send-a-transaction }
 
 During this section, you'll be creating a couple of scripts. The first one will be to check the balances of your accounts before trying to send a transaction. The second script will actually send the transaction.
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/bXtknNifO78?si=T6VtPQyS6q01RC3Q' frameborder='0' allowfullscreen></iframe></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
 
 You can also use the balance script to check the account balances after the transaction has been sent.
 
@@ -200,6 +203,9 @@ You can also use the `balances.js` script to check that the balances for the ori
 ![Send Tx Ethers.js](/images/builders/interact/ethereum-api/ethersjs/ethersjs-2.png)
 
 ## Deploy a Contract {: #deploy-a-contract }
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/m9iVeCP7owI?si=IZ4fvkAj2zqG8JxG' frameborder='0' allowfullscreen></iframe></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
 
 --8<-- 'text/libraries/contract.md'
 
