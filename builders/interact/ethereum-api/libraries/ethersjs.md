@@ -76,10 +76,10 @@ Save this code snippet as you'll need it for the scripts that are used in the fo
 
 During this section, you'll be creating a couple of scripts. The first one will be to check the balances of your accounts before trying to send a transaction. The second script will actually send the transaction.
 
+You can also use the balance script to check the account balances after the transaction has been sent.
+
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/bXtknNifO78?si=T6VtPQyS6q01RC3Q' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
-
-You can also use the balance script to check the account balances after the transaction has been sent.
 
 ### Check Balances Script {: #check-balances-script }
 
