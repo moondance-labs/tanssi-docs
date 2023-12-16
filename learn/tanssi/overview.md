@@ -35,7 +35,7 @@ Tanssi addresses the most common Appchain problems by:
 
 In summary, Appchains deployed through Tanssi are Layer 1 solutions designed to be highly modular and interconnected, with a focus on simplifying the deployment process and enabling customization of the Appchain itself. This empowers developers to bring their blockchain applications to market faster, securely, and with greater potential for integration and interaction within the broader blockchain ecosystems.
 
-## General Architecture of Appchains & Tanssi {: #tanssi-architecture}
+## General Architecture of Tanssi & Appchains {: #tanssi-architecture}
 
 As previously discussed, Appchains deployed through Tanssi (ContainerChains) are customizable blockchains which, among other features, have block production as a service and inherit block finality (consensus) from Polkadot. Consequently, they act as Layer 1 blockchains like Moonbeam, not Layer 2 solutions on top of another Layer 1.
 
@@ -44,9 +44,9 @@ A high-level overview of what a ContainerChain looks like in the ecosystem is pr
 ![High-level overview of an Appchain & Tanssi](/images/learn/tanssi/overview/dark-overview-1.png#only-dark)
 ![High-level overview of an Appchain & Tanssi](/images/learn/tanssi/overview/light-overview-1.png#only-light)
 
-One of the core differences between a normal Parachain and a Tanssi-powered ContainerChain is that its block producers (also known as collators) are a subset of Tanssi's. In short, this is possible due to Polkadot's unique architecture, as Tanssi and all of the ContainerChains share a common consensus mechanism. Consequently, each chain is able to retrieve information from other chains in a trustless and decentralized manner, as it is part of the consensus. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical-features){target=_blank}.
+One of the core differences between a normal Parachain and a Tanssi-powered ContainerChain is that its block producers (also known as collators) are a subset of Tanssi's. In short, this is possible due to Polkadot's unique architecture, as Tanssi and all of the ContainerChains share a common consensus mechanism. Consequently, each chain can retrieve information from other chains in a trustless and decentralized manner, as it is part of the consensus. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical-features){target=_blank}.
 
-In contrast, each ContainerChain will host its own Data Preservers, which contain full archive nodes of the ContainerChain they are hosted in. Still, they will be incentivized through the data-retrieval-as-a-service provided by Tanssi. These Data Preservers will provide the RPC infrastructure for apps and users that interact with Tanssi and ContainerChains.
+While a block producer simultaneously executes blocks from Tanssi and the ConatinerChain that was assigned to it, Tanssi and each ContainerChain will have their own set of Data Preservers running full archive nodes of each chain. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and ContainerChains.
 
 ![Data Preservers of an Appchain & Tanssi](/images/learn/tanssi/overview/dark-overview-2.png#only-dark)
 ![Data Preservers  of an Appchain & Tanssi](/images/learn/tanssi/overview/light-overview-2.png#only-light)
