@@ -11,7 +11,10 @@ The [Ethers.js](https://docs.ethers.org/){target=_blank} library provides a set 
 
 In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint. 
 
-If you prefer to follow video tutorials, you'll find a corresponding video tutorial for [Sending Transactions with Ethers.js](#send-a-transaction) and [Deploying Contracts with Ethers.js](#deploy-a-contract).
+If you prefer to follow video tutorials, you'll find corresponding video tutorials below for [Sending Transactions with Ethers.js](#send-a-transaction) and [Deploying Contracts with Ethers.js](#deploy-a-contract).
+
+<style>.video-container{display:flex;justify-content:space-between;max-width:1000px;margin:0 auto;}.video-column{width:49%;}.embed-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin-bottom:10px;}.embed-container iframe,.embed-container object,.embed-container embed{position:absolute;top:0;left:0;width:100%;height:100%;}.caption{font-family:Open Sans,sans-serif;font-size:0.9em;color:rgba(170,170,170,1);font-style:italic;letter-spacing:0px;position:relative;}</style><div class="video-container"><div class="video-column"><div class='embed-container'><iframe src='https://www.youtube.com/embed/1Kbs7dxkjJQ?si=n0ipTN2nbvqISLGu' frameborder='0' allowfullscreen></iframe></div><div class="caption">How to Send a Simple Transaction</div></div><div class="video-column"><div class='embed-container'><iframe src='https://www.youtube.com/embed/1Kbs7dxkjJQ?si=n0ipTN2nbvqISLGu' frameborder='0' allowfullscreen></iframe></div><div class="caption">How to Deploy a Contract</div></div></div>
+
 
 --8<-- 'text/common/general-js-tutorial-check.md'
 
@@ -77,9 +80,6 @@ Save this code snippet as you'll need it for the scripts that are used in the fo
 During this section, you'll be creating a couple of scripts. The first one will be to check the balances of your accounts before trying to send a transaction. The second script will actually send the transaction.
 
 You can also use the balance script to check the account balances after the transaction has been sent.
-
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/bXtknNifO78?si=T6VtPQyS6q01RC3Q' frameborder='0' allowfullscreen></iframe></div>
-<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
 
 ### Check Balances Script {: #check-balances-script }
 
@@ -205,9 +205,6 @@ You can also use the `balances.js` script to check that the balances for the ori
 ![Send Tx Ethers.js](/images/builders/interact/ethereum-api/ethersjs/ethersjs-2.png)
 
 ## Deploy a Contract {: #deploy-a-contract }
-
-<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/m9iVeCP7owI?si=IZ4fvkAj2zqG8JxG' frameborder='0' allowfullscreen></iframe></div>
-<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
 
 --8<-- 'text/libraries/contract.md'
 
