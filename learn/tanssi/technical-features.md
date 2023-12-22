@@ -24,20 +24,22 @@ Polkadot is a heterogeneous multi-chain ecosystem, where multiple parallel block
 
 In the Polkadot ecosystem, the Appchains connected to the relay chain are fully sovereign blockchains, having their own rules, consensus mechanisms, and so forth, and this is the case for the Tanssi network and the Appchains deployed through Tanssi as well.
 
-The Tanssi network and the ContainerChains can be considered sibling chains, meaning that there is no hierarchical dependency whatsoever. Their responsibility and how they interact with each other through the relay chain will be covered in the following sections.
+The Tanssi network and the ContainerChains can be considered sibling chains, meaning that there is no hierarchical dependency whatsoever. Nevertheless, the Tanssi network and its Appchains share the relay chain as a common point.
 
 ![Sibling Chains](/images/learn/tanssi/technical/light-technical-1.png#only-light)
 ![Sibling Chains](/images/learn/tanssi/technical/dark-technical-1.png#only-dark)
+
+Their responsibility and how they interact with each other through the relay chain will be covered in the following sections.
 
 ### Collator Assignment {: #collators-assignment }
 
 The Tanssi protocol manages a set of collators and assigns them to provide block production services to the active ContainerChains and the Tanssi network itself.
 
-The assignment algorithm will start distributing the available collators, serving first the Tanssi network and then the ContainerChains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of collators. In the provided [templates](/learn/tanssi/included-templates){target=_blank}, the default session duration is set to 1800 blocks, which  with an average block time of 12 seconds, it translates to (roughly) six hours.
+The assignment algorithm will start distributing the available collators, serving first the Tanssi network and then the ContainerChains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of collators. In the provided [templates](/learn/tanssi/included-templates){target=_blank}, the default session duration is set to 1800 blocks, which with an average block time of 12 seconds, translates to (roughly) six hours.
 
-Every new assignment works intentionally with a one-session delay, so collators may know in advance if they are assigned to serve the Tanssi network or which one of the ContainerChains.
+Every new assignment works intentionally with a one-session delay, so collators may know in advance if they are assigned to serve the Tanssi network or which one of the ContainerChains. Block producers will start syncing the new Appchain they'll have to serve in the next session with a special type of syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=_blank}. Warp sync allows the block producers to swiftly sync the new Appchain, without acting as an archive node. 
 
-When a new session starts, the Tanssi protocol will put into effect the queued assignment. It will also calculate the new assignment, considering changes in ContainerChains that might have been activated or deactivated and collators that might have been added or removed from the pool. This new assignment will be queued for the next session.
+When a new session starts, the Tanssi protocol will put the queued assignment into effect. Block producers will automatically change and start producing blocks in the new Appchain they've been assigned while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in ContainerChains that might have been activated or deactivated and collators that might have been added or removed from the pool. This new assignment will be queued for the next session.
 
 ![Sessions](/images/learn/tanssi/technical/technical-2.png)
 
