@@ -56,7 +56,7 @@ Throughout this guide, you'll be creating a bunch of scripts that provide differ
 
 You can create a viem client for reading chain data, like balances or contract data, using the `createPublicClient` function, or you can create a viem client for writing chain data, like sending transactions, using the `createWalletClient` function.
 
-Creating a viem client to interact with your Tanssi EVM ContainerChain is a two step process. First, you'll need to import the `defineChain` function from viem. This will allow you to specify the details of your EVM ContainerChain (or any arbitrary EVM chain). You'll then need to provide all of the chain details as shown in the next section. 
+Creating a viem client to interact with your Tanssi EVM ContainerChain is a two-step process. First, you'll need to import the `defineChain` function from viem. This will allow you to specify the details of your EVM ContainerChain (or any arbitrary EVM chain). You'll then need to provide all of the chain details, as shown in the next section.
 
 ### For Reading Chain Data {: #for-reading-chain-data }
 
