@@ -48,8 +48,8 @@ You will need to create a Foundry project if you don't already have one. You can
     forge init foundry
     ```
 
-You may get an error such as `The target directory is a part of or on its own an already initialized git repository,
-and it requires clean working and staging areas, including no untracked files.` To solve this, you can add files and make a commit if you are maintaining this project within a Github repository. Otherwise you can make a dummy commit without pushing. If you run `forge init foundry` once more you'll no longer have the error. 
+You may get an error, such as `The target directory is a part of or on its own an already initialized git repository,
+and it requires clean working and staging areas, including no untracked files.` To solve this, you can add files and make a commit if you are maintaining this project within a GitHub repository. Otherwise, you can make a dummy commit without pushing. If you run `forge init foundry` once more, you'll no longer have the error. 
 
 With the default project created, you should see three folders.  
 
