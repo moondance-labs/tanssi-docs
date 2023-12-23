@@ -54,8 +54,6 @@ npx tsc --init
 
 Throughout this guide, you'll be creating a bunch of scripts that provide different functionality, such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts, you'll need to create a [viem client](https://docs.ethers.org/v6/api/providers/){target=_blank} to interact with the network.
 
---8<-- 'text/common/endpoint-setup.md'
-
 You can create a viem client for reading chain data, like balances or contract data, using the `createPublicClient` function, or you can create a viem client for writing chain data, like sending transactions, using the `createWalletClient` function.
 
 Creating a viem client to interact with your Tanssi EVM ContainerChain is a two step process. First, you'll need to import the `defineChain` function from viem. This will allow you to specify the details of your EVM ContainerChain (or any arbitrary EVM chain). You'll then need to provide all of the chain details as shown in the next section. 
