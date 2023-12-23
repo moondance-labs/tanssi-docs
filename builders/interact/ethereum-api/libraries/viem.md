@@ -74,8 +74,8 @@ To create a client for reading chain data, you can take the following steps:
 
 To create a client for writing chain data, you can take the following steps:
 
-1. Import the `createWalletClient`, `http`, and `defineChain` functions from `viem`, the `privateKeyToAccount` function from `viem/accounts`
-2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are same
+1. Import the `createWalletClient`, `http`, and `defineChain` functions from `viem`, and the `privateKeyToAccount` function from `viem/accounts`
+2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. Create your account using the `privateKeyToAccount` function
 4. Create the `client` using the `createWalletClient` function and pass in the account, network, and the HTTP RPC endpoint
 
