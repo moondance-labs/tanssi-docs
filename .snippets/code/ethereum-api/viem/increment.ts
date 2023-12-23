@@ -1,4 +1,4 @@
-// 1. Update imports
+// 1. Update import
 import {
   createPublicClient,
   createWalletClient,
@@ -75,7 +75,7 @@ const increment = async () => {
     hash,
   });
 
-  console.log(`Tx successful with hash: ${hash}`);
+  console.log(`Transaction successful with hash: ${hash}`);
 };
 
 // 9. Call increment function

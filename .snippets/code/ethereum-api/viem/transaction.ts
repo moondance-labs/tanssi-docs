@@ -1,4 +1,4 @@
-// 1. Imports the necessary components from viem and viem/accounts
+// 1. Import the necessary components from viem and viem/accounts
 import {
   createPublicClient,
   createWalletClient,
@@ -61,7 +61,7 @@ const send = async () => {
     `Attempting to send transaction from ${account.address} to ${addressTo}`
   );
 
-  // 7. Sign and send tx
+  // 7. Sign and send transaction
   const hash = await walletClient.sendTransaction({
     to: addressTo,
     value: parseEther('1'),

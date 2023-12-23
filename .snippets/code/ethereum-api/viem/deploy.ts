@@ -1,4 +1,4 @@
-// 1. Update imports
+// 1. Update import
 import {
   createPublicClient,
   createWalletClient,
@@ -61,7 +61,7 @@ const _initialNumber = 5;
 const deploy = async () => {
   console.log(`Attempting to deploy from account: ${account.address}`);
 
-  // 7. Send tx (initial value set to 5)
+  // 7. Send transaction (initial value set to 5)
   const contract = await walletClient.deployContract({
     abi,
     account,

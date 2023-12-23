@@ -1,4 +1,4 @@
-// 1. Imports the necessary components from viem
+// 1. Import the necessary components from viem
 import { createPublicClient, http, formatEther, defineChain } from 'viem';
 
 // 2. Specify the details of your EVM ContainerChain

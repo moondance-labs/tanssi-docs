@@ -1,4 +1,4 @@
-// 1. Update imports
+// 1. Update import
 import { createPublicClient, http, defineChain } from 'viem';
 import contractFile from './compile';
 
