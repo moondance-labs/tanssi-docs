@@ -116,7 +116,7 @@ Next, you will create the script for this file and complete the following steps:
 6. Use the `publicClient.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `formatEther` function to transform the balance into a more readable number (in UNIT for the demo EVM ContainerChain)
 7. Lastly, run the `balances` function
 
-??? code "View balances.ts"
+???+ code "View balances.ts"
 
     ```ts
     --8<-- 'code/ethereum-api/viem/balances.ts'
@@ -152,7 +152,7 @@ Next, you will create the script for this file and complete the following steps:
 8. Use the `publicClient.waitForTransactionReceipt` function to wait for the transaction receipt, signaling that the transaction has been completed. This is particularly helpful if you need the transaction receipt or if you're running the `balances.ts` script directly after this one to check if the balances have been updated as expected
 9. Lastly, run the `send` function
 
-??? code "View transaction.ts"
+???+ code "View transaction.ts"
 
     ```ts
     --8<-- 'code/ethereum-api/viem/transaction.ts'
@@ -200,7 +200,7 @@ Next, you will create the script for this file and complete the following steps:
 8. Use the `publicClient.readContract` function to get the transaction receipt for the deployment. Use `await` to wait until the transaction is processed and the contract address is returned
 9. Lastly, run the `deploy` function
 
-??? code "View deploy.ts"
+???+ code "View deploy.ts"
 
     ```ts
     --8<-- 'code/ethereum-api/viem/deploy.ts'
@@ -237,7 +237,7 @@ Then you can take the following steps to create the script:
 6. Call the contract using the `publicClient.readContract` function, passing in the `abi`, the name of the function, the `contractAddress`, and any arguments (if needed). You can use `await`, which will return the value requested once the request promise resolves
 7. Lastly, call the `get` function
 
-??? code "View get.ts"
+???+ code "View get.ts"
 
     ```ts
     --8<-- 'code/ethereum-api/viem/get.ts'
@@ -273,7 +273,7 @@ Open the `increment.ts` file and take the following steps to create the script:
 8. Use the `publicClient.waitForTransactionReceipt` function to wait for the transaction receipt, signaling that the transaction has been completed. This is particularly helpful if you need the transaction receipt or if you're running the `get.ts` script directly after this one to check that the current number has been updated as expected
 9. Lastly, call the `increment` function
 
-??? code "View increment.ts"
+???+ code "View increment.ts"
 
     ```ts
     --8<-- 'code/ethereum-api/viem/increment.ts'
@@ -302,7 +302,7 @@ Next, you can open the `reset.ts` file and take the following steps to create th
 8. Use the `publicClient.waitForTransactionReceipt` function to wait for the transaction receipt, signaling that the transaction has been completed. This is particularly helpful if you need the transaction receipt or if you're running the `get.ts` script directly after this one to check that the current number has been reset to `0`
 9. Lastly, call the `reset` function
 
-??? code "View reset.ts"
+???+ code "View reset.ts"
 
     ```ts
     --8<-- 'code/ethereum-api/viem/reset.ts'
