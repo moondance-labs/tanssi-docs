@@ -29,19 +29,28 @@ To get started, you will need the following:
 
 You will need to create a Foundry project if you don't already have one. You can create one by completing the following steps:
 
-1. Install Foundry if you haven't already. If on Linux or MacOS, you can run these commands:
-  
-    ```bash
-curl -L https://foundry.paradigm.xyz | bash
-foundryup
-    ```
+1. Install Foundry with the below commands. The Windows instructions are noticeably different as you'll have to install Rust and then build Foundry from source
 
-    After installing, you may need to restart your terminal session or add `foundryup` to your PATH. If on Windows, you'll have to install Rust and then build Foundry from source:
+    === "Ubuntu"
 
-    ```bash
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh
-cargo install --git https://github.com/foundry-rs/foundry foundry-cli anvil --bins --locked
-    ```
+        ```bash
+        curl -L https://foundry.paradigm.xyz | bash foundryup
+        ```
+
+    === "MacOS"
+
+        ```bash
+        curl -L https://foundry.paradigm.xyz | bash foundryup
+        ```
+
+    === "Windows"
+
+        ```bash
+        curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh
+        cargo install --git https://github.com/foundry-rs/foundry foundry-cli anvil --bins --locked
+        ```
+
+     After installing, you may need to restart your terminal session or add `foundryup` to your PATH. 
 
 2. Create the project, which will create a folder with three folders within it:
     ```bash
