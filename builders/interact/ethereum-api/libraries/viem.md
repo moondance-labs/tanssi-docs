@@ -113,7 +113,7 @@ Next, you will create the script for this file and complete the following steps:
 3. [Set up a public viem client](#for-reading-chain-data), which can be used for reading chain data, such as account balances
 4. Define the `addressFrom` and `addressTo` variables
 5. Create the asynchronous `balances` function that wraps the `publicClient.getBalance` method
-6. Use the `publicClient.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `formatEther` function to transform the balance into a more readable number (in UNIT)
+6. Use the `publicClient.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `formatEther` function to transform the balance into a more readable number (in UNIT for the demo EVM ContainerChain)
 7. Lastly, run the `balances` function
 
 ??? code "View balances.ts"
