@@ -178,7 +178,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 If you convert the `result` from [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html){target=_blank}, you should get the latest block number from the time you forked the network. 
 
-From here you can deploy new contracts to your forked instance of the demo EVM ContainerChain (or any other EVM ContainerChain) or interact with contracts already deployed. Building off of the previous example in this guide, you can make a call using Cast to check the balance of the minted MYTOK tokens in the account you deployed the contract with:
+From here, you can deploy new contracts to your forked instance of the demo EVM ContainerChain (or any other EVM ContainerChain) or interact with contracts already deployed. Building off of the previous example in this guide, you can make a call using Cast to check the balance of the minted MYTOK tokens in the account you deployed the contract with:
 
 ```bash
 cast call INSERT_CONTRACT_ADDRESS  "balanceOf(address)(uint256)" \
