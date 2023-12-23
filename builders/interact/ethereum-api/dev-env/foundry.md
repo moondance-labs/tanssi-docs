@@ -254,7 +254,7 @@ You should see something like the following:
 
 While it doesn't display the data in the same way, you still get the contents of the data, and it also further breaks down how the information is coded, such as letting you know that the `0xa0` value defines the length of the data.  
 
-By default, when you leave the Chisel shell, none of the data is persisted. But you can instruct chisel to do so. For example, you can take the following steps to store a variable:
+By default, when you leave the Chisel shell, none of the data persists. But you can instruct Chisel to do so. For example, you can take the following steps to store a variable:
 
 1. Store a `uint256` in Chisel
     ```bash
