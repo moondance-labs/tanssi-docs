@@ -62,8 +62,8 @@ Creating a viem client to interact with your Tanssi EVM ContainerChain is a two-
 
 To create a client for reading chain data, you can take the following steps:
 
-1. Import the `createPublicClient`, `http`, and `defineChain`functions from `viem`.
-2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are same
+1. Import the `createPublicClient`, `http`, and `defineChain`functions from `viem`
+2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. Create the `client` using the `createPublicClient` function and pass in the network and the HTTP RPC endpoint
 
 ```ts
