@@ -277,7 +277,7 @@ Then to view and interact with your stored Chisel states, you can take the follo
      chisel list
      ```
 
-2. Load your stored state by providing the chisel `load` command followed by the id of the state
+2. Load your stored state by providing the `chisel load` command followed by the ID of the state
     ```bash
     chisel load 1
     ```
