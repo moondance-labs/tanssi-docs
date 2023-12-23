@@ -109,7 +109,7 @@ touch balances.ts
 Next, you will create the script for this file and complete the following steps:
 
 1. Update your imports to include the `createPublicClient`, `http`,`formatEther`, and `defineChain `functions from `viem` 
-2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are same
+2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a public viem client](#for-reading-chain-data), which can be used for reading chain data, such as account balances
 4. Define the `addressFrom` and `addressTo` variables
 5. Create the asynchronous `balances` function that wraps the `publicClient.getBalance` method
@@ -143,7 +143,7 @@ touch transaction.ts
 Next, you will create the script for this file and complete the following steps:
 
 1. Update your imports to include `createPublicClient`, `createWalletClient`, `http`, `parseEther`, and `defineChain` functions from `viem`, as well as the `privateKeyToAccount` function from `viem/accounts`
-2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are same
+2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a viem wallet client](#for-writing-chain-data) for writing chain data, which can be used along with your private key to send transactions. **Note: This is for example purposes only. Never store your private keys in a TypeScript file**
 4. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to wait for the transaction receipt
 5. Define the `addressTo` variable
@@ -191,7 +191,7 @@ touch deploy.ts
 Next, you will create the script for this file and complete the following steps:
 
 1. Update your imports to include the `createPublicClient`, `createWalletClient`, `http`, and `defineChain` functions from `viem`, the `privateKeyToAccount` function from `viem/accounts`, and the `contractFile` from the `compile.ts` file you created in the [Compile Contract Script](#compile-contract-script) section
-2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are same
+2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a viem wallet client](#for-writing-chain-data) for writing chain data, which will be used along with your private key to deploy the `Incrementer` contract. **Note: This is for example purposes only. Never store your private keys in a TypeScript file**
 4. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to read the transaction receipt for the deployment
 5. Load the contract `bytecode` and `abi` for the compiled contract
@@ -230,7 +230,7 @@ touch get.ts
 Then you can take the following steps to create the script:
 
 1. Update your imports to include the `createPublicClient`, `http`, and `defineChain` functions from `viem`, and the `contractFile` from the `compile.ts` file you created in the [Compile Contract Script](#compile-contract-script) section
-2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are same
+2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to read the current number of the `Incrementer` contract
 4. Create the `contractAddress` variable using the address of the deployed contract and the `abi` variable using the `contractFile` from the `compile.ts` file
 5. Create the asynchronous `get` function
@@ -264,7 +264,7 @@ touch increment.ts reset.ts
 Open the `increment.ts` file and take the following steps to create the script:
 
 1. Update your imports to include the `createPublicClient`, `createWalletClient` `http`, and `defineChain` functions from `viem`, the  `privateKeyToAccount` from `viem/accounts'` and the `contractFile` from the `compile.ts` file you created in the [Compile Contract Script](#compile-contract-script) section
-2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are same
+2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a viem wallet client](#for-writing-chain-data) for writing chain data, which will be used along with your private key to send a transaction. **Note: This is for example purposes only. Never store your private keys in a TypeScript file**
 4. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to wait for the transaction receipt
 5. Create the `contractAddress` variable using the address of the deployed contract, the `abi` variable using the `contractFile` from the `compile.ts` file, and the `_value` to increment the contract by
@@ -293,7 +293,7 @@ If successful, the transaction hash will be displayed in the terminal. You can u
 Next, you can open the `reset.ts` file and take the following steps to create the script:
 
 1. Update your imports to include the `createPublicClient`, `createWalletClient` `http`, and `defineChain` functions from `viem`, the  `privateKeyToAccount` from `viem/accounts'` and the `contractFile` from the `compile.ts` file you created in the [Compile Contract Script](#compile-contract-script) section
-2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are same
+2. Define the chain details of your EVM ContainerChain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a viem wallet client](#for-writing-chain-data) for writing chain data, which will be used along with your private key to send a transaction. **Note: This is for example purposes only. Never store your private keys in a TypeScript file**
 4. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to wait for the transaction receipt
 5. Create the `contractAddress` variable using the address of the deployed contract and the `abi` variable using the `contractFile` from the `compile.ts` file to increment the contract by
