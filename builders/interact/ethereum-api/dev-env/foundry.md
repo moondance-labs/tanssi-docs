@@ -36,7 +36,7 @@ You will need to create a Foundry project if you don't already have one. You can
     foundryup
     ```
 
-    After installing you may need to restart your terminal session or add `foundryup` to your PATH. If on Windows, you'll have to install Rust & then build Foundry from source:
+    After installing, you may need to restart your terminal session or add `foundryup` to your PATH. If on Windows, you'll have to install Rust and then build Foundry from source:
 
     ```bash
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh
