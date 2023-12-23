@@ -234,7 +234,7 @@ The `!rawstack` command shows that the `myData` variable is stored at `0x80`, so
 [0x120:0x140]: 0x4275696c6420776974682054616e737369000000000000000000000000000000
 ```
 
-At first glance this makes sense, since `0xa0` has a value of `0x64` which is equal to 100, and `0xc0` has a value of `0x01` which is equal to true. If you want to learn more about how ABI-encoding works, the [Solidity documentation for ABI is helpful](https://docs.soliditylang.org/en/v0.8.18/abi-spec.html){target=_blank}. In this case, there are a lot of zeros in this method of data packing, so as a smart contract developer you might instead try to use structs or pack the data together more efficiently with bitwise code.  
+At first glance, this makes sense since `0xa0` has a value of `0x64`, which is equal to 100, and `0xc0` has a value of `0x01`, which is equal to true. If you want to learn more about how ABI-encoding works, the [Solidity documentation for ABI is helpful](https://docs.soliditylang.org/en/v0.8.18/abi-spec.html){target=_blank}. In this case, there are a lot of zeros in this method of data packing, so as a smart contract developer, you might instead try to use structs or pack the data together more efficiently with bitwise code.  
 
 Since you're done with this code, you can clear the state of Chisel so that it doesn't mess with any future logic that you want to try out (while running the same instance of Chisel):  
 
