@@ -100,7 +100,7 @@ After compilation, two folders will be created: `out` and `cache`. The ABI and b
 
 ## Deploying the Contract {: #deploying-the-contract }
 
-Deploying the contract with Forge takes a single command, but you will need to include an RPC endpoint, a funded private key, and constructor arguments. `MyToken.sol` asks for an initial supply of tokens in its constructor, so each of the following commands include 100 as a constructor argument. You can deploy the `MyToken.sol` contract using the command for the correct network:
+Deploying the contract with Forge takes a single command, but you will need to include an RPC endpoint, a funded private key, and constructor arguments. `MyToken.sol` asks for an initial supply of tokens in its constructor, so the following command includes 100 as a constructor argument. You can deploy the `MyToken.sol` contract using the following command modified for the correct network:
 
 ```bash
 forge create --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network \
