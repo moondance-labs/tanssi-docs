@@ -223,7 +223,7 @@ In this situation, since `myData` is over 32 bytes in length, the memory pointer
 
 ![rawstack in Chisel](/images/builders/interact/ethereum-api/dev-environments/foundry/foundry-7.png)
 
-The `!rawstack` command shows that the `myData` variable is stored at `0x80`, so when comparing this with the memory dump retrieved form the `!memdump` command, it looks like `myData` is stored like this:  
+The `!rawstack` command shows that the `myData` variable is stored at `0x80`, so when comparing this with the memory dump retrieved from the `!memdump` command, it looks like `myData` is stored like this:  
 
 ```text
 [0x80:0xa0]: 0x00000000000000000000000000000000000000000000000000000000000000a0
