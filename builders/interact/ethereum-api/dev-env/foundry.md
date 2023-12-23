@@ -61,7 +61,13 @@ In addition to these three folders, a git project will also be created along wit
 
 ## The Source Folder {: #the-src-folder }
 
-The `src` folder may already contain `Counter.sol`, a minimal Solidity contract. Feel free to delete it. To avoid errors, you should also delete the `Counter.s.sol` file in the `scripts` folder and the `Counter.t.sol` file in the `test` folder. In the following steps, you will be deploying an ERC-20 contract. In the contracts directory, you can create the `MyToken.sol` file:
+The preconfigured `foundry` repo includes `Counter.sol` in the `src` folder, as well as a `Counter.s.sol` in the `script` folder and `Counter.t.sol` in the `test` folder. You should delete these files to avoid errors when trying to compile and deploy `MyToken.sol`. You can do so with the following command:
+
+```bash
+rm src/Counter.sol script/Counter.s.sol test/Counter.t.sol
+```
+
+In the following steps, you will be deploying an ERC-20 contract. In the contracts directory, you can create the `MyToken.sol` file:
 
 ```bash
 cd src
