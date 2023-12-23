@@ -32,20 +32,20 @@ You will need to create a Foundry project if you don't already have one. You can
 1. Install Foundry if you haven't already. If on Linux or MacOS, you can run these commands:
   
     ```bash
-    curl -L https://foundry.paradigm.xyz | bash
-    foundryup
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
     ```
 
     After installing, you may need to restart your terminal session or add `foundryup` to your PATH. If on Windows, you'll have to install Rust and then build Foundry from source:
 
     ```bash
-    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh
-    cargo install --git https://github.com/foundry-rs/foundry foundry-cli anvil --bins --locked
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs/ | sh
+cargo install --git https://github.com/foundry-rs/foundry foundry-cli anvil --bins --locked
     ```
 
 2. Create the project, which will create a folder with three folders within it:
     ```bash
-    forge init foundry
+forge init foundry
     ```
 
 You may get an error, such as `The target directory is a part of or on its own an already initialized git repository,
@@ -104,9 +104,9 @@ Deploying the contract with Forge takes a single command, but you will need to i
 
 ```bash
 forge create --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network \
-    --constructor-args 100 \
-    --private-key INSERT_YOUR_PRIVATE_KEY \
-    src/MyToken.sol:MyToken
+--constructor-args 100 \
+--private-key INSERT_YOUR_PRIVATE_KEY \
+src/MyToken.sol:MyToken
 ```
 
 
@@ -123,7 +123,7 @@ Foundry includes Cast, a CLI for performing Ethereum RPC calls.
 Try to retreive your token's name using Cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
 
 ```bash
-    cast call INSERT_YOUR_CONTRACT_ADDRESS "name()" --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+cast call INSERT_YOUR_CONTRACT_ADDRESS "name()" --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
 ```
 
 You should get this data in hexidecimal format:
@@ -143,11 +143,11 @@ cast --to-ascii 0x00000000000000000000000000000000000000000000000000000000000000
 You can also mutate data with Cast as well. Try burning tokens by sending them to the zero address.
 
 ```bash
-    cast send --private-key INSERT_YOUR_PRIVATE_KEY \
-    --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network \
-    --chain 5678 \
-    INSERT_YOUR_CONTRACT_ADDRESS \
-    "transfer(address,uint256)" 0x0000000000000000000000000000000000000001 1
+cast send --private-key INSERT_YOUR_PRIVATE_KEY \
+--rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network \
+--chain 5678 \
+INSERT_YOUR_CONTRACT_ADDRESS \
+"transfer(address,uint256)" 0x0000000000000000000000000000000000000001 1
 ```
 
 The transaction will be signed by your EVM account and be broadcasted to the network. The output should look similar to:
@@ -163,7 +163,7 @@ As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil/){target=_blan
 To fork the demo EVM ContainerChain from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your EVM ContainerChain.
 
 ```bash
-    anvil --fork-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+anvil --fork-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
 ```
 
 Your forked instance will have 10 development accounts that are pre-funded with 10,000 test tokens. The forked instance is available at `http://127.0.0.1:8545/`. The output in your terminal should resemble the following:
@@ -257,34 +257,34 @@ By default, when you leave the Chisel shell, none of the data is persisted. But 
 
 1. Store a `uint256` in Chisel
     ```bash
-    uint256 myNumber = 101;
+uint256 myNumber = 101;
     ```
 
 2. Store the session with `!save`. For this example, you can use the number `1` as a save ID
     ```bash
-    !save 1
+!save 1
     ```
 
 3. Quit the session  
     ```bash
-    !quit
+!quit
     ```
 
 Then to view and interact with your stored Chisel states, you can take the following steps:
 
 1. View a list of saved Chisel states
      ```bash
-     chisel list
+chisel list
      ```
 
 2. Load your stored state by providing the `chisel load` command followed by the ID of the state
     ```bash
-    chisel load 1
+chisel load 1
     ```
 
 3. View the `uint256` saved in Chisel from the previous set of steps
     ```bash
-    !rawstack myNumber
+!rawstack myNumber
     ```  
 
 ![Saving state in Chisel](/images/builders/interact/ethereum-api/dev-environments/foundry/foundry-9.png)
@@ -332,14 +332,14 @@ After initializing the new Hardhat project, a few new folders and files should a
 2. Move all smart contracts within the `contracts` folder into the `src` folder, and then delete the `contracts` folder
 3. Edit the `foundry.toml` file to ensure that dependencies installed via Git submodules and npm can be compiled by the Forge tool. Edit the `profile.default` to ensure that the `libs` entry has both `lib` and `node_modules`:  
 
-    ```toml
-    [profile.default]
-    src = 'src'
-    out = 'out'
-    libs = ['lib', 'node_modules']
-    solc = '0.8.20'
-    evm_version = 'london'
-    ```
+```toml
+[profile.default]
+src = 'src'
+out = 'out'
+libs = ['lib', 'node_modules']
+solc = '0.8.20'
+evm_version = 'london'
+```
 
 Now both `forge build` and `npx hardhat compile` should work regardless of the dependencies.  
 
