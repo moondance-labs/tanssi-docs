@@ -305,7 +305,7 @@ Then, for example, you can query the balance of the Alice account on the demo EV
 
 If you want to learn more about Chisel, download Foundry and refer to its [official reference page](https://book.getfoundry.sh/reference/chisel/){target=_blank}.
 
-## Foundry With Hardhat {: #foundry-with-hardhat }  
+## Foundry with Hardhat {: #foundry-with-hardhat }  
 
 Often, there will be the case where a project that you wish to integrate with that has all of its setup within [Hardhat](/builders/build/eth-api/dev-env/hardhat){target=_blank}, making it an arduous task to convert the entirety of the project into Foundry. This additional work is avoidable by creating a hybrid project that uses both Hardhat and Foundry features together. This is possible with Hardhat's [hardhat-foundry plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-foundry){target=_blank}.  
 
