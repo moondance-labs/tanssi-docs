@@ -7,7 +7,7 @@ description: Learn how to use Foundry, an Ethereum development environment, to c
 
 ## Introduction {: #introduction }
 
-[Foundry](https://github.com/foundry-rs/foundry){target=_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi EVM ContainerChains so it can be used to deploy and interact with smart contracts on your ContainerChain.
+[Foundry](https://github.com/foundry-rs/foundry){target=_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi EVM ContainerChains, so it can be used to deploy and interact with smart contracts on your ContainerChain.
 
 There are four tools that make up Foundry:  
 
