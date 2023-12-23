@@ -213,7 +213,7 @@ Let's say you were interested in how `abi` encoded data because you're looking i
 
 ![memdump in Chisel](/images/builders/interact/ethereum-api/dev-environments/foundry/foundry-6.png)
 
-Fortunately, Chisel lets you easily figure out where this information is stored. Using the `!rawstack` command, you can find the location in the stack where the value of a variable:  
+Fortunately, Chisel lets you easily figure out where this information is stored. Using the `!rawstack` command, you can find the location in the stack where the value of a variable is:
 
 ```bash
 !rawstack myData
