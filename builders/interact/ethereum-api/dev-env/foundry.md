@@ -22,7 +22,7 @@ This guide will cover how to use Foundry to compile, deploy, and debug Ethereum 
 
 To get started, you will need the following:
 
- - Have an account with funds.
+ - An account with funds
  - Have [Foundry installed](https://book.getfoundry.sh/getting-started/installation){target=_blank}
 
 ## Creating a Foundry Project {: #creating-a-foundry-project }
