@@ -197,7 +197,7 @@ For this example, you will be testing out some of the features of `abi` within S
 chisel
 ```
 
-In the shell, you can write Solidity code as if it was running within a function:
+In the shell, you can write Solidity code as if it were running within a function:
 
 ```solidity
 bytes memory myData = abi.encode(100, true, "Build with Tanssi");
