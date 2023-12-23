@@ -219,7 +219,7 @@ Fortunately, Chisel lets you easily figure out where this information is stored.
 !rawstack myData
 ```
 
-In this situation, since bytes is over 32 bytes in length, the memory pointer is displayed instead. But that's exactly what's needed, since you already know the entirety of the stack from the `!memdump` command.  
+In this situation, since `myData` is over 32 bytes in length, the memory pointer is displayed instead. But that's exactly what's needed since you already know the entirety of the stack from the `!memdump` command.  
 
 ![rawstack in Chisel](/images/builders/interact/ethereum-api/dev-environments/foundry/foundry-7.png)
 
