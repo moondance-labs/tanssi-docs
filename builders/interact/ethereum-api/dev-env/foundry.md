@@ -118,7 +118,7 @@ Congratulations, your contract is live! Save the address, as you will use it to 
 
 ## Interacting with the Contract {: #interacting-with-the-contract }
 
-Foundry includes cast, a CLI for performing Ethereum RPC calls.
+Foundry includes Cast, a CLI for performing Ethereum RPC calls.
 
 Try to retreive your token's name using cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
 
