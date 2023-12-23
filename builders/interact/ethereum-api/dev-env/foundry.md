@@ -203,7 +203,7 @@ In the shell, you can write Solidity code as if it were running within a functio
 bytes memory myData = abi.encode(100, true, "Build with Tanssi");
 ```
 
-Let's say you were interested in how `abi` encoded data, because you're looking into how to most efficiently store data on the blockchain and thus save gas. To view how the `myData` is stored in memory, you can use the following command while in the Chisel shell:  
+Let's say you were interested in how `abi` encoded data because you're looking into how to most efficiently store data on the blockchain and thus save gas. To view how the `myData` is stored in memory, you can use the following command while in the Chisel shell:  
 
 ```bash
 !memdump
