@@ -120,7 +120,7 @@ Congratulations, your contract is live! Save the address, as you will use it to 
 
 Foundry includes Cast, a CLI for performing Ethereum RPC calls.
 
-Try to retreive your token's name using cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
+Try to retreive your token's name using Cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
 
 ```bash
     cast call INSERT_YOUR_CONTRACT_ADDRESS "name()" --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
@@ -132,7 +132,7 @@ You should get this data in hexidecimal format:
 0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000074d79546f6b656e00000000000000000000000000000000000000000000000000
 ```
 
-This is far from readable, but you can use cast to convert it into your desired format. In this case, the data is text, so you can convert it into ascii characters to see "My Token":
+This is far from readable, but you can use Cast to convert it into your desired format. In this case, the data is text, so you can convert it into ascii characters to see "My Token":
 
 ![Foundry Contract View](/images/builders/interact/ethereum-api/dev-environments/foundry/foundry-3.png)
 
@@ -140,7 +140,7 @@ This is far from readable, but you can use cast to convert it into your desired 
 cast --to-ascii 0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000074d79546f6b656e00000000000000000000000000000000000000000000000000
 ```
 
-You can also mutate data with cast as well. Try burning tokens by sending them to the zero address.
+You can also mutate data with Cast as well. Try burning tokens by sending them to the zero address.
 
 ```bash
     cast send --private-key INSERT_YOUR_PRIVATE_KEY \
@@ -156,7 +156,7 @@ The transaction will be signed by your EVM account and be broadcasted to the net
 
 Congratulations, you have successfully deployed and interacted with a contract using Foundry!
 
-## Forking with Anvil {: #forking-with-cast-anvil }
+## Forking with Anvil {: #forking-with-anvil }
 
 As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil/){target=_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM ContainerChain allows you to interact with live contracts deployed on the network.
 
