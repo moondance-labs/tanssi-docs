@@ -324,7 +324,7 @@ After initializing the new Hardhat project, a few new folders and files should a
 1. Edit the `hardhat.config.js` file within your repository. Open it up, and at the top, add the following:  
 
     ```javascript
-    require("@nomicfoundation/hardhat-foundry");
+    require('@nomicfoundation/hardhat-foundry');
     ```
 
     After adding the `hardhat-foundry` plugin, the typical `contracts` folders for Hardhat will not work because now Hardhat expects all smart contracts to be stored within Foundry's `src` folder
