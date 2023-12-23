@@ -118,7 +118,7 @@ Congratulations, your contract is live! Save the address, as you will use it to 
 
 ## Interacting with the Contract {: #interacting-with-the-contract }
 
-Foundry includes Cast, a CLI for performing Ethereum RPC calls.
+Foundry includes [Cast](https://book.getfoundry.sh/cast/){target=_blank}, a CLI for performing Ethereum RPC calls.
 
 Try to retreive your token's name using Cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
 
@@ -187,7 +187,7 @@ cast call INSERT_CONTRACT_ADDRESS  "balanceOf(address)(uint256)" \
 
 ## Using Chisel {: #using-chisel }
 
-Chisel is a Solidity REPL, or shell. It allows a developer to write Solidity directly in the console for testing small snippets of code, letting developers skip the project setup and contract deployment steps for what should be a quick process.  
+[Chisel](https://book.getfoundry.sh/chisel/){target=_blank} is a Solidity REPL, or shell. It allows a developer to write Solidity directly in the console for testing small snippets of code, letting developers skip the project setup and contract deployment steps for what should be a quick process.  
 
 Since Chisel is mainly useful for quick testing, it can be used outside of a Foundry project. But, if executed within a Foundry project, it will keep the configurations within `foundry.toml` when running.  
 
@@ -308,7 +308,7 @@ If you want to learn more about Chisel, download Foundry and refer to its [offic
 
 ## Foundry with Hardhat {: #foundry-with-hardhat }  
 
-Often, there will be the case where a project that you wish to integrate with has all of its setup within [Hardhat](/builders/build/eth-api/dev-env/hardhat){target=_blank}, making it an arduous task to convert the entirety of the project into Foundry. This additional work is avoidable by creating a hybrid project that uses both Hardhat and Foundry features together. This is possible with Hardhat's [hardhat-foundry plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-foundry){target=_blank}.  
+Often, there will be the case where a project that you wish to integrate with has all of its setup within [Hardhat](/builders/interact/ethereum-api/dev-env/hardhat/){target=_blank}, making it an arduous task to convert the entirety of the project into Foundry. This additional work is avoidable by creating a hybrid project that uses both Hardhat and Foundry features together. This is possible with Hardhat's [hardhat-foundry plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-foundry){target=_blank}.  
 
 To convert your preexisting Foundry project to a hybrid project, you will essentially have to install a Hardhat project into the same folder:  
 
@@ -318,7 +318,7 @@ npm install --save-dev hardhat @nomicfoundation/hardhat-foundry
 npx hardhat init
 ```
 
-For more information, please refer to our documentation on [Creating a Hardhat Project](/builders/build/eth-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank}.
+For more information, please refer to our documentation on [Creating a Hardhat Project](builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank}.
 
 After initializing the new Hardhat project, a few new folders and files should appear: `contracts`, `hardhat.config.js`, `scripts`, and `test/Lock.js`. You'll need to make a few modifications to create a hybrid project:
 
