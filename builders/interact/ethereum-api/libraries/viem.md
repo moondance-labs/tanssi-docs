@@ -164,7 +164,7 @@ To run the script, you can run the following command in your terminal:
 npx ts-node transaction.ts
 ```
 
-If the transaction was successful, in your terminal you'll see the transaction hash has been printed out. You can also use the `balances.ts` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
+If the transaction was successful, in your terminal, you'll see the transaction hash has been printed out. You can also use the `balances.ts` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
 ![The result of running the transaction and balances scripts in the terminal](/images/builders/interact/ethereum-api/viem/viem-2.png)
 
