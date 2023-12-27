@@ -13,7 +13,7 @@ The [Ethers.js](https://docs.ethers.org/){target=_blank} library provides a set 
 
 In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint. 
 
-If you prefer to follow video tutorials, you'll find corresponding video tutorials below for [Sending Transactions with Ethers.js](#send-a-transaction) and [Deploying Contracts with Ethers.js](#deploy-a-contract).
+If you prefer video tutorials, you can follow along with the corresponding videos at the top of this page for [Sending Transactions with Ethers.js](#send-a-transaction) and [Deploying Contracts with Ethers.js](#deploy-a-contract).
 
 
 --8<-- 'text/common/general-js-tutorial-check.md'
