@@ -348,14 +348,14 @@ After initializing the new Hardhat project, a few new folders and files should a
 2. Move all smart contracts within the `contracts` folder into the `src` folder, and then delete the `contracts` folder
 3. Edit the `foundry.toml` file to ensure that dependencies installed via Git submodules and npm can be compiled by the Forge tool. Edit the `profile.default` to ensure that the `libs` entry has both `lib` and `node_modules`:  
 
-```toml
-[profile.default]
-src = 'src'
-out = 'out'
-libs = ['lib', 'node_modules']
-solc = '0.8.20'
-evm_version = 'london'
-```
+    ```toml
+    [profile.default]
+    src = 'src'
+    out = 'out'
+    libs = ['lib', 'node_modules']
+    solc = '0.8.20'
+    evm_version = 'london'
+    ```
 
 Now both `forge build` and `npx hardhat compile` should work regardless of the dependencies.  
 
