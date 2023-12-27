@@ -89,7 +89,7 @@ Open the file and add the following contract to it:
 --8<-- 'code/ethereum-api/foundry/erc20.sol'
 ```
 
-Before you attempt to compile, install OpenZeppelin contracts as a dependency. You may have to commit previous changes to git beforehand. By default, Foundry uses git submodules instead of npm packages, so the traditional npm import path and command are not used. Instead, use the name of OpenZeppelin's Github repository:
+Before you attempt to compile, install OpenZeppelin contracts as a dependency. You may have to commit previous changes to git beforehand. By default, Foundry uses git submodules instead of npm packages, so the traditional npm import path and command are not used. Instead, use the name of OpenZeppelin's GitHub repository:
 
 ```bash
 forge install OpenZeppelin/openzeppelin-contracts
