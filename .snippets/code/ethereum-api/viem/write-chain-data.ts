@@ -30,9 +30,11 @@ export const demoEVM = defineChain({
   },
 });
 
-// 3. Create a wallet client for writing chain data
+// 3. Create your account using the privateKeyToAccount function
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
 const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+
+//4. Create a wallet client for writing chain data
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,
