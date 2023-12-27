@@ -53,8 +53,9 @@ You will need to create a Foundry project if you don't already have one. You can
      After installing, you may need to restart your terminal session or add `foundryup` to your PATH. 
 
 2. Create the project, which will create a folder with three folders within it:
+
     ```bash
-forge init foundry
+    forge init foundry
     ```
 
 You may get an error, such as `The target directory is a part of or on its own an already initialized git repository,
@@ -266,35 +267,40 @@ While it doesn't display the data in the same way, you still get the contents of
 By default, when you leave the Chisel shell, none of the data persists. But you can instruct Chisel to do so. For example, you can take the following steps to store a variable:
 
 1. Store a `uint256` in Chisel
+
     ```bash
-uint256 myNumber = 101;
+    uint256 myNumber = 101;
     ```
 
 2. Store the session with `!save`. For this example, you can use the number `1` as a save ID
+
     ```bash
-!save 1
+    !save 1
     ```
 
 3. Quit the session  
     ```bash
-!quit
+    !quit
     ```
 
 Then to view and interact with your stored Chisel states, you can take the following steps:
 
 1. View a list of saved Chisel states
-     ```bash
-chisel list
-     ```
+
+    ```bash
+    chisel list
+    ```
 
 2. Load your stored state by providing the `chisel load` command followed by the ID of the state
+
     ```bash
-chisel load 1
+    chisel load 1
     ```
 
 3. View the `uint256` saved in Chisel from the previous set of steps
+
     ```bash
-!rawstack myNumber
+    !rawstack myNumber
     ```  
 
 ![Saving state in Chisel](/images/builders/interact/ethereum-api/dev-environments/foundry/foundry-9.png)
