@@ -34,9 +34,9 @@ For example, a user initiates a transaction when interacting via an application 
 
 Then, the block producer will share with a Polkadot validator:
 
-- The block itself with the state transitions.
-- The storage components in the ContainerChain database that the block is modifying.
-- The necessary hashes of the unaffected points in the Merkle tree of the storage.
+- The block itself with the state transitions
+- The storage components in the ContainerChain database that the block is modifying
+- The necessary hashes of the unaffected points in the Merkle tree of the storage
 
 These components constitute the proof of validity (PoV). 
 
