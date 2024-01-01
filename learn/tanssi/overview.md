@@ -46,7 +46,7 @@ A high-level overview of what a ContainerChain looks like in the ecosystem is pr
 
 One of the core differences between a normal Parachain and a Tanssi-powered ContainerChain is that its block producers (also known as collators) are a subset of Tanssi's. In short, this is possible due to Polkadot's unique architecture, as Tanssi and all of the ContainerChains share a common consensus mechanism. Consequently, each chain can retrieve information from other chains in a trustless and decentralized manner, as it is part of the consensus. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical-features){target=_blank}.
 
-While a block producer simultaneously executes blocks from Tanssi and the ConatinerChain that was assigned to it, Tanssi and each ContainerChain will have their own set of Data Preservers running full archive nodes of each chain. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and ContainerChains.
+While a block producer simultaneously executes blocks from Tanssi and the ContainerChain that was assigned to it, Tanssi and each ContainerChain will have their own set of Data Preservers running full archive nodes for each chain. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and ContainerChains.
 
 ![Data Preservers of an Appchain & Tanssi](/images/learn/tanssi/overview/dark-overview-2.png#only-dark)
 ![Data Preservers  of an Appchain & Tanssi](/images/learn/tanssi/overview/light-overview-2.png#only-light)
