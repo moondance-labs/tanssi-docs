@@ -11,7 +11,7 @@ Appchains deployed through Tanssi have [many benefits](/learn/tanssi/overview/#w
 
 Nevertheless, Tanssi Appchains are also unique due to the [framework](/learn/framework/){target=_blank} (Substrate) they are built on top of, which provides some unique characteristics that developers can leverage to fine-tune specific behaviors in their runtime.
 
-This section summarizes some of these Tanssi Appchain core runtime-specific features.
+This section covers some of these Tanssi Appchain core runtime-specific features, including the different origins a transaction might have, the different types of transactions and how they are executed and included in a block, the special account known as _SUDO_, and the quite unique feature of a Substrate-based Appchain: the forkless runtime upgrades.
 
 ## Origins {: #origins}
 
