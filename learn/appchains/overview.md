@@ -1,6 +1,6 @@
 ---
 title: Appchain Overview
-description: Learn the high-level definitions of how a Tanssi Appchain works, its architecture, and the block production as a service mechanism with deterministic finality
+description: Learn the high-level definitions of how a Tanssi Appchain works, its architecture, and its block production as a service mechanism with deterministic finality.
 ---
 
 # Tanssi Appchains Overview {: #appchains-tanssi-overview }
