@@ -59,8 +59,8 @@ Forkless upgrades are made possible by storing the state transition function as 
 
 A high-level summary of the runtime upgrade process is shown in the following diagram:
 
-![Runtime Upgrade Process Tanssi Appchains](/images/learn/appchains/overview/dark-overview-3.png#only-dark)
-![Runtime Upgrade Process Tanssi Appchains](/images/learn/appchains/overview/light-overview-3.png#only-light)
+![Runtime Upgrade Process Tanssi Appchains](/images/learn/appchains/runtime-features/dark-runtime-features-1.png#only-dark)
+![Runtime Upgrade Process Tanssi Appchains](/images/learn/appchains/runtime-features/light-runtime-features-1.png#only-light)
 
 ## SUDO Account {: #sudo-account}
 
