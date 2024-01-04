@@ -4,7 +4,7 @@ The contract you'll be compiling and deploying in the next couple of sections is
 touch Incrementer.sol
 ```
 
-Next you can add the Solidity code to the file:
+Next, you can add the Solidity code to the file:
 
 ```solidity
 --8<-- 'code/ethereum-api/Incrementer.sol'
