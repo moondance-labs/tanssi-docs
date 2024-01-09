@@ -33,17 +33,9 @@ Before we can index anything with Subsquid we need to make sure we have somethin
 
 If you'd like to use an existing ERC-20 token on the demo EVM ContainerChain, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
 
-|       Variable        |                                                                                                                    Value                                                                                                                    |
-| :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   Contract Address    |                   [0x8303ee17cacdde416077677bac40d6cac2c452e6](https://tanssi-evmexplorer.netlify.app/address/0x8303ee17cacdde416077677bac40d6cac2c452e6/669145?network=Dancebox%20EVM%20ContainerChain){target=_blank}                    |
-| Transfer to Baltathar | [0x6a60a35fb594777b355da1f3922a9fcd86d11b11aa32ed6d8f361a3ed22ed373](https://tanssi-evmexplorer.netlify.app/tx/0x6a60a35fb594777b355da1f3922a9fcd86d11b11aa32ed6d8f361a3ed22ed373?network=Dancebox%20EVM%20ContainerChain){target=_blank}  |
-| Transfer to Charleth  | [0x51d95ffa57899a03016b6748c7a25a7e205a7cdc916123bcd09cd47432ceb623](https://tanssi-evmexplorer.netlify.app/tx/0x51d95ffa57899a03016b6748c7a25a7e205a7cdc916123bcd09cd47432ceb623?network=Dancebox%20EVM%20ContainerChain){target=_blank}  |
-|  Transfer to Dorothy  | [ 0x0569c28797b3b5dae555d01a0354444050cad282db34550205ba6ba37592cab1](https://tanssi-evmexplorer.netlify.app/tx/0x0569c28797b3b5dae555d01a0354444050cad282db34550205ba6ba37592cab1?network=Dancebox%20EVM%20ContainerChain){target=_blank} |
-|   Transfer to Ethan   | [ 0x1d01484f7306c9e2e5feb225e78096ee26081a1071709519902d46b5568314d2](https://tanssi-evmexplorer.netlify.app/tx/0x1d01484f7306c9e2e5feb225e78096ee26081a1071709519902d46b5568314d2?network=Dancebox%20EVM%20ContainerChain){target=_blank} |
+In this section, we'll show you how to deploy an ERC-20 to your EVM Container Chain and we'll write a quick script to fire off a series of transfers that will be picked up by our Subsquid indexer. Ensure that you have initialized an empty Hardhat project via the instructions in the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank} section of our Hardhat documentation page.
 
-In this section we'll show you how to deploy an ERC-20 to your EVM Container Chain and we'll write a quick script to fire off a series of transfers that will be picked up by our Subsquid indexer. Ensure that you have initialized an empty Hardhat project via the instructions in the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank} section of our Hardhat documentation page.
-
-Before we dive into creating our project, let's install a couple of dependencies that we'll need: the [Hardhat Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=_blank} and [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x/){target=_blank}. The Hardhat Ethers plugin provides a convenient way to use the [Ethers](/builders/build/eth-api/libraries/ethersjs){target=_blank} library to interact with the network. We'll use OpenZeppelin's base ERC-20 implementation to create an ERC-20. To install both of these dependencies, you can run:
+Before we dive into creating our project, let's install a couple of dependencies that we'll need: the [Hardhat Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=_blank} and [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x/){target=_blank}. The Hardhat Ethers plugin provides a convenient way to use the [Ethers](/builders/interact/ethereum-api/libraries/ethersjs/){target=_blank} library to interact with the network. We'll use OpenZeppelin's base ERC-20 implementation to create an ERC-20. To install both of these dependencies, you can run:
 
 === "npm"
 
@@ -311,13 +303,9 @@ While `processor.ts` determines the data being consumed, `main.ts` determines th
 Our `main.ts` file is going to scan through each processed block for the `Transfer` event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a TypeORM database, enabling them to be easily queried. Let's break down the code that comprises `main.ts` in order:
 
 1. The job of `main.ts` is to run the processor and refine the collected data. In `processor.run`, the processor will iterate through all selected blocks and look for `Transfer` event logs. Whenever it finds a `Transfer` event, it's going to store it in an array of transfer events where it awaits further processing
-
 2. The `transferEvent` interface is the type of structure that stores the data extracted from the event logs
-
 3. `getTransfer` is a helper function that extracts and decodes ERC-20 `Transfer` event data from a log entry. It constructs and returns a `TransferEvent` object, which includes details such as the transaction ID, block number, sender and receiver addresses, and the amount transferred. `getTransfer` is called at the time of storing the relevant transfer events into the array of transfers
-
 4. `processTransfers` enriches the transfer data and then inserts these records into a TypeORM database using the `ctx.store` methods. The account model, while not strictly necessary, allows us to introduce another entity in the schema to demonstrate working with multiple entities in your Squid
-
 5. `getAccount` is a helper function that manages the retrieval and creation of account objects. Given an account ID and a map of existing accounts, it returns the corresponding account object. If the account doesn't exist in the map, it creates a new one, adds it to the map, and then returns it
 
 We'll demo a sample query in a later section. You can copy and paste the below code into your `main.ts` file:
@@ -333,7 +321,6 @@ Now we've taken all of the steps necessary and are ready to run our indexer!
 ### Run the Indexer {: #run-the-indexer }
 
 To run our indexer, we're going to run a series of `sqd` commands:
-
 
 Build our project:
 
@@ -356,6 +343,7 @@ Remove the database migration file that comes with the EVM template and generate
    ```bash
    sqd migration:apply
    ```
+
 Launch the processor:
 
    ```bash
@@ -427,7 +415,7 @@ To resolve this, run `sqd up` before you run `sqd migration:generate`
 
 Is your Squid error-free, yet you aren't seeing any transfers detected? Make sure your log events are consistent and identical to the ones your processor is looking for. Your contract address also needs to be lowercase, which you can be assured of by defining it as follows:
 
-```text
+```ts
 export const contractAddress = '0x37822de108AFFdd5cDCFDaAa2E32756Da284DB85'.toLowerCase();
 ```
 

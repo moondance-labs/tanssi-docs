@@ -9,11 +9,11 @@ description: Tanssi provides block production services assigning collators to th
 
 As presented in the [Overview](/learn/tanssi/overview){target=_blank} article, Tanssi is an Appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic specific to a wide range of use cases, including DeFi, NFTs, Gaming, and any other use case development teams may want to address.
 
-Infrastructure poses a huge challenge for developers who would need to bootstrap collators for block production, data preservers, RPC endpoints, and deal with integrations and interoperability, assigning precious effort and resources and losing focus on what is really important: the Appchain Runtime, the UX, and the value proposition to the users.
+Infrastructure poses a huge challenge for developers who would need to bootstrap collators for block production, data preservers, and RPC endpoints, and deal with integrations and interoperability, assigning precious effort and resources and losing focus on what is important: the Appchain Runtime, the UX, and the value proposition to the users.
 
 In Tanssi terms, Appchains are called ContainerChains, similar to the concept coined in [Docker](https://www.docker.com){target=_blank}, allowing teams to focus on the product while alleviating deployment-related issues. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io){target=_blank}, in its role as orchestrator, managing resources to guarantee the liveness and performance of the ContainerChains.
 
-In this article, the necessary aspects to consider when building and deploying your own Modular Blockchain are covered, and also the following technical aspects of the Tanssi protocol:
+In this article, the necessary aspects to consider when building and deploying your own modular blockchain are covered, and also the following technical aspects of the Tanssi protocol:
 
 - **Block production as a service**
 - **Consensus on demand**
@@ -72,7 +72,7 @@ Another important piece of information that Tanssi stores is the latest header f
 
 As a collator node assigned to a ContainerChain deployed in Tanssi has built-in Tanssi node functionality, it is technically feasible to read the state from the Tanssi network and the blocks from the relay chain.
 
-Leveraging this ability to access the states, the current collator with the authority to produce a block will read the latest block produced in the relay chain, which contains the state root of the latest block produced in Tanssi. With this state root, it will proceed to read the state in Tanssi, and include in the block of the ContainerChain the latest state root of the Tanssi network, the current set of collators assigned to the ContainerChain, and its public signature, allowing Tanssi to know who produced the block and reward the collator.
+Leveraging this ability to access the states, the current collator with the authority to produce a block will read the latest block produced in the relay chain, which contains the state root of the latest block produced in Tanssi. With this state root, it will proceed to read the state in Tanssi and include in the block of the ContainerChain the latest state root of the Tanssi network, the current set of collators assigned to the ContainerChain, and its public signature, allowing Tanssi to know who produced the block and reward the collator.
 
 Once the block is completed with the ContainerChain transactions, it will be proposed as a candidate and handed over to the relay chain validators, which will ensure that the included state proofs match the state proofs from the latest state of Tanssi (preventing unauthorized collation) and that the transactions produced valid state transitions. Having verified the work of the collator, the relay chain will finalize the proposed block, including its candidate receipt in the relay chain block.
 
@@ -82,9 +82,9 @@ Once the block is completed with the ContainerChain transactions, it will be pro
 
 To make your Appchain Tanssi compliant and ready to become a deployed ContainerChain, adding references to the following two modules is required:
 
--**Authorities Noting pallet** - this pallet has the objective of implementing the necessary logic to read and include in the ContainerChain block the set of collators assigned to provide block production services in the current session
+-**Author Noting Pallet** - this pallet has the objective of implementing the necessary logic to read and include in the ContainerChain block the set of collators assigned to provide block production services in the current session
 
--**Author Inherent pallet** - this pallet is necessary to allow the collator to include in the block its identity and be recognized and awarded as the block producer
+-**Author Inherent Pallet** - this pallet is necessary to allow the collator to include in the block its identity and be recognized and awarded as the block producer
 
 It is important to note that both pallets include the mentioned data in the block using Inherents, which are a special form of transaction that only the block producer can include.
 
