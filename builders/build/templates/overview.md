@@ -55,4 +55,4 @@ This approach comes with some advantages, such as:
 - Run the included tests, ensuring that block production on your ContainerChain works as intended
 - Run a local environment, spinning up a relay chain, the Tanssi orchestrator, and your ContainerChain with the included [Zombienet](https://paritytech.github.io/zombienet/){target=_blank} configuration
 
-If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy your ContainerChain via the Tanssi DApp](/builders/deploy-manage/dapp/deploy){target=_blank} article to know how to use the Tanssi DApp to register and get your chain up and running.
+If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy your ContainerChain via the Tanssi DApp](/builders/deploy/dapp){target=_blank} article to know how to use the Tanssi DApp to register and get your chain up and running.
