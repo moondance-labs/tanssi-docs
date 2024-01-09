@@ -10,13 +10,13 @@ description: Learn how to use Hardhat, an Ethereum development environment, to c
 
 ## Introduction {: #introduction }
 
-[Hardhat](https://hardhat.org/){target=\_blank} is an Ethereum development environment that helps developers manage and automate the recurring tasks inherent to building smart contracts and DApps. Hardhat can be used with any EVM ContainerChain to build, compile, and deploy smart contracts, thanks to the seamless compatibility of Tanssi EVM ContainerChains.
+[Hardhat](https://hardhat.org/){target=_blank} is an Ethereum development environment that helps developers manage and automate the recurring tasks inherent to building smart contracts and DApps. Hardhat can be used with any EVM ContainerChain to build, compile, and deploy smart contracts, thanks to the seamless compatibility of Tanssi EVM ContainerChains.
 
 This guide will cover how to use Hardhat to compile, deploy, and interact with Ethereum smart contracts deployed to the demo Tanssi EVM ContainerChain. This guide can be adapted for your own Tanssi EVM ContainerChain by simply adding the RPC URL of your ContainerChain to your EVM Wallet and switching networks to it.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-For the purposes of this guide, you'll need to have MetaMask installed and configured to work with your EVM ContainerChain. You can follow [this guide to configure MetaMask for Tanssi with the Demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
+For this guide, you'll need to have MetaMask installed and configured to work with your EVM ContainerChain. You can follow [this guide to configure MetaMask for Tanssi with the Demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=_blank}.
 
 ## Creating a Hardhat Project {: #creating-a-hardhat-project }
 
@@ -47,7 +47,7 @@ You will need to create a Hardhat project if you don't already have one. You can
     ```
 
     !!! note
-        `npx` is used to run executables installed locally in your project. Although Hardhat can be installed globally, it is recommended to install it locally in each project so that you can control the version on a project by project basis.
+        `npx` is used to run executables installed locally in your project. Although Hardhat can be installed globally, it is recommended to install it locally in each project so that you can control the version on a project-by-project basis.
 
 5. A menu will appear which will allow you to create a new project or use a sample project. For this example, you can choose **Create an empty hardhat.config.js**
 
@@ -55,7 +55,7 @@ You will need to create a Hardhat project if you don't already have one. You can
 
 This will create a Hardhat config file (`hardhat.config.js`) in your project directory.
 
-Once you have your Hardhat project, you can also install the [Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank}. This provides a convenient way to use the [Ethers.js](/builders/build/eth-api/libraries/ethersjs/){target=\_blank} library to interact with the network. To install it, run the following command:
+Once you have your Hardhat project, you can also install the [Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=_blank}. This provides a convenient way to use the [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs/){target=_blank} library to interact with the network. To install it, run the following command:
 
 ```sh
 npm install @nomicfoundation/hardhat-ethers ethers@6
@@ -63,7 +63,7 @@ npm install @nomicfoundation/hardhat-ethers ethers@6
 
 ## The Contract File {: #the-contract-file }
 
-With your empty project created, next you are going to create a `contracts` directory. You can do so by running the following command:
+With your empty project created, next, you are going to create a `contracts` directory. You can do so by running the following command:
 
 ```sh
 mkdir contracts && cd contracts
@@ -208,7 +208,7 @@ Next, you can take the following steps, entering one line at a time:
     await box.store(5);
     ```
 
-The transaction will be signed by your EVM account and be broadcasted to the network. The output should look similar to:
+The transaction will be signed by your EVM account and be broadcast to the network. The output should look similar to:
 
 ![Transaction output](/images/builders/interact/ethereum-api/dev-environments/hardhat/hardhat-4.png)
 

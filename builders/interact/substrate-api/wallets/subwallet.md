@@ -56,7 +56,7 @@ SubWallet comes pre-configured with support for the Tanssi Dancebox TestNet, but
 
 If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the SubWallet wallet. By default, all balances are hidden in SubWallet, but if you press the eye icon, you can toggle balance visibility.
 
-![See your testnet account balances in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-7.png)
+![See your TestNet account balances in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-7.png)
 
 ## Connecting SubWallet to Your Substrate ContainerChain {: #connecting-Subwallet-to-your-substrate-containerchain }
 
@@ -100,11 +100,11 @@ You can also send a transaction through the Substrate API directly from the SubW
 1. Specify the asset to send
 2. Specify the destination chain (in this case, the same chain that you're sending from)
 3. Enter the destination address
-4. Enter the amount of tokens to send
+4. Enter the number of tokens to send
 5. Look over the transaction details, then press **Transfer** and subsequently **Approve**
 
 ![Send funds through Substrate API directly in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-12.png)
 
-This guide focused specifically on configuring SubWallet to work with your Substrate ContainerChain, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your EVM ContainerChain](/builders/interact/ethereum-api/wallets/Subwallet){target=_blank}.
+This guide focused specifically on configuring SubWallet to work with your Substrate ContainerChain, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your EVM ContainerChain](/builders/interact/ethereum-api/wallets/subwallet){target=_blank}.
 
 --8<-- 'text/disclaimers/third-party-content.md'
