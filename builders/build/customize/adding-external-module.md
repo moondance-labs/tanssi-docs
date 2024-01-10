@@ -32,21 +32,23 @@ You can visit the [diener documentation](https://docs.rs/crate/diener/latest){ta
 
 ## Example of the Double Reference Issue {: #double-reference-issue }
 
-To illustrate the situation, the following steps add an external module to a custom runtime based on the [baseline Apcchain template](/builders/build/templates/substrate/){target=_blank}, generating a multiple reference compile-time error. Finally, by patching the dependencies with the tool `diener`, the runtime will compile successfully and work as intended.
+To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle.git){target=_blank} to a custom runtime based on the [baseline Appchain template](/builders/build/templates/substrate/){target=_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=_blank}, which will act as the root repository of the project.
+
+This tutorial will generate a multiple reference compile-time error. Finally, the steps will show you how to fix the compile error by patching the dependencies with the tool `diener`, the runtime will compile successfully and work as intended.
 
 ### Add a Third-Party Dependency {: #add-third-party-dependency }
 
 Similarly to what is described in the [built-in module](/builders/build/customize/adding-built-in-module/#adding-a-built-in-module-to-runtime){target=_blank} article, adding a third-party module requires the following steps:
 
-1. Declare the Dependency
-2. Make the Standard Features Available to the Compiler
-3. Configure and add the module to the Runtime
+1. Declare the dependency in the root `Cargo.toml` file
+2. Make the standard features available to the compiler
+3. Configure and add the module to the runtime
 
 Should the third-party module reference any dependency already referenced from a distinct source or version, compilation will fail. To resolve this issue, it will be necessary to apply a patch.
 
-#### Declaring the Dependency {: #declaring-dependency }
+### Declaring the Dependency {: #declaring-dependency }
 
-Declare in the `Cargo.toml` located in the repository's root folder the [toggle module](https://github.com/papermoonio/pallet-toggle.git){target=_blank} under the section `[dependencies]`. 
+The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle.git){target=_blank} is used. 
 
 This `toggle` module, built for testing and educational purposes, adds a basic logic to the runtime, allowing users to switch a state between true and false.
 
@@ -60,9 +62,9 @@ pallet-toggle = {
 ...
 ```
 
-#### Make the Standard Features Available to the Compiler {: #add-standard-features }
+### Make the Standard Features Available to the Compiler {: #add-standard-features }
 
-Having declared the module in the workspace `Cargo.toml` file, the dependency can now be added to the specific template `Cargo.toml` file, which is located in the folder `container-chains/templates/simple/runtime`.
+Having declared the module in the workspace `Cargo.toml` file, the dependency can now be added to the specific template `Cargo.toml` file, which for this example that uses the Tanssi GitHub repo, is located in the folder `container-chains/templates/simple/runtime`.
 
 ```toml
 [dependencies]
@@ -95,9 +97,9 @@ try-runtime = [
 ]
 ```
 
-#### Configure and Add the Module to the Runtime {: #configure-module-in-the-runtime }
+### Configure and Add the Module to the Runtime {: #configure-module-in-the-runtime }
 
-Add the following snippet that configures the module and add the module within the `construct_runtime!`macro.
+Next, add the following snippet in the `lib.rs` file inside the runtime folder. This configures the module and add the module within the `construct_runtime!`macro.
 
 ```rust
 ...
@@ -116,7 +118,7 @@ construct_runtime!(
 );
 ```
 
-### Compile {: #compile }
+### Compile Runtime {: #compile-runtime }
 
 After completing the preceding steps, the module is declared a dependency in the project, configured, and added to the runtime. 
 
