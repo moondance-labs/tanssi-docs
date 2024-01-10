@@ -29,3 +29,121 @@ If the `diener` executable file, the cloned [Polkadot SDK repository](https://gi
 This command applies the changes to the `Cargo.toml` file, patching the dependencies, and solving the double reference issues.
 
 You can visit the [diener documentation](https://docs.rs/crate/diener/latest){target=_blank} to learn more about the tool and other extra functions it offers.
+
+## Example of the Double Reference Issue {: #double-reference-issue }
+
+To illustrate the situation, the following steps add an external module to a custom runtime based on the [baseline Apcchain template](/builders/build/templates/substrate/){target=_blank}, generating a multiple reference compile-time error. Finally, by patching the dependencies with the tool `diener`, the runtime will compile successfully and work as intended.
+
+### Add a Third-Party Dependency {: #add-third-party-dependency }
+
+Similarly to what is described in the [built-in module](/builders/build/customize/adding-built-in-module/#adding-a-built-in-module-to-runtime){target=_blank} article, adding a third-party module requires the following steps:
+
+1. Declare the Dependency
+2. Make the Standard Features Available to the Compiler
+3. Configure and add the module to the Runtime
+
+Should the third-party module reference any dependency already referenced from a distinct source or version, compilation will fail. To resolve this issue, it will be necessary to apply a patch.
+
+#### Declaring the Dependency {: #declaring-dependency }
+
+Declare in the `Cargo.toml` located in the repository's root folder the [toggle module](https://github.com/papermoonio/pallet-toggle.git){target=_blank} under the section `[dependencies]`. 
+
+This `toggle` module, built for testing and educational purposes, adds a basic logic to the runtime, allowing users to switch a state between true and false.
+
+```toml
+[dependencies]
+...
+pallet-toggle = { 
+    git = "https://github.com/papermoonio/pallet-toggle.git", 
+    default-features = false 
+}
+...
+```
+
+#### Make the Standard Features Available to the Compiler {: #add-standard-features }
+
+Having declared the module in the workspace `Cargo.toml` file, the dependency can now be added to the specific template `Cargo.toml` file, which is located in the folder `container-chains/templates/simple/runtime`.
+
+```toml
+[dependencies]
+...
+pallet-toggle = { workspace = true }
+...
+```
+
+In the same `Cargo.toml` file, add the following features.
+
+```toml
+[features]
+default = [
+	"std",
+]
+std = [
+	...,
+	"pallet-toggle/std",
+   ...
+]
+...
+runtime-benchmarks = [
+	...,
+	"pallet-toggle/runtime-benchmarks",
+]
+
+try-runtime = [
+	...,
+	"pallet-toggle/try-runtime",
+]
+```
+
+#### Configure and Add the Module to the Runtime {: #configure-module-in-the-runtime }
+
+Add the following snippet that configures the module and add the module within the `construct_runtime!`macro.
+
+```rust
+...
+impl pallet_template::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type WeightInfo = pallet_template::weights::SubstrateWeight<Runtime>;
+}
+
+construct_runtime!(
+    pub enum Runtime
+    {
+        ...
+        ...
+        Toggle: pallet_toggle,
+    }
+);
+```
+
+### Compile {: #compile }
+
+After completing the preceding steps, the module is declared a dependency in the project, configured, and added to the runtime. 
+
+Compile the template using the following command:
+
+```bash
+cargo build -p container-chain-template-simple-node --release
+```
+
+The terminal output will display an error, similar to the following, caused by different modules referencing different versions of the same dependency:
+
+```bash
+error: failed to select a version for `syn`.
+```
+
+### Patch depedencies {: #patch-dependencies }
+
+Finally, executing the `diener` [command](#solving-dependencies-conflicts-diener) will add a `patch` section to your workspace `Cargo.toml` file, overriding the dependencies and unifying origins and versions.
+
+This is what the patch section `diener` adds to your `toml` file looks like:
+
+```toml
+[patch."https://github.com/paritytech/polkadot-sdk"]
+bridge-runtime-common = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch = "tanssi-polkadot-v1.3.0" }
+bp-header-chain = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch = "tanssi-polkadot-v1.3.0" }
+bp-runtime = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch = "tanssi-polkadot-v1.3.0" }
+...
+```
+
+Finally, compiling will succeed, and the module will be built into your runtime.
