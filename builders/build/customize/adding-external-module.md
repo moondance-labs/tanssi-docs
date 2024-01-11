@@ -138,7 +138,11 @@ error: failed to select a version for `syn`.
 
 Finally, executing the `diener` [command](#solving-dependencies-conflicts-diener) will add a `patch` section to your workspace `Cargo.toml` file, overriding the dependencies and unifying origins and versions.
 
-This is what the patch section `diener` adds to your `toml` file looks like:
+This is what the execution in the terminal looks like:
+
+![Executing diener](/images/builders/build/external-module/external-module-1.png)
+
+As shown in the terminal output, `diener` adds a patch for the dependencies, creating a `patch` section in your `toml` overriding their origin:
 
 ```toml
 [patch."https://github.com/paritytech/polkadot-sdk"]
