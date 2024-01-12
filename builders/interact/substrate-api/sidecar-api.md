@@ -13,7 +13,7 @@ Substrate API Sidecar allows applications to access blocks, account balance, and
 
 There are multiple ways of installing and running the Substrate API Sidecar. This guide will describe the steps for installing and running it locally through NPM. For running Substrate API Sidecar through Docker, or building and running it from source, please refer to the [Substrate API Sidecar Github Repository](https://github.com/paritytech/substrate-api-sidecar#readme).
 
---8<-- 'text/common/general-js-tutorial-check.md'
+--8<-- 'text/_common/general-js-tutorial-check.md'
 
 ### Installing the Substrate API Sidecar {: #installing-the-substrate-api-sidecar }
 
@@ -37,16 +37,19 @@ node_modules/.bin/substrate-api-sidecar --version
 In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network you want to connect to. For example, the WSS endpoint of your ContainerChain. Some examples:
 
 === "Dancebox"
+
     ```bash
     export SAS_SUBSTRATE_URL=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
     ```
 
 === "Dancebox EVM ContainerChain"
+
     ```bash
     export SAS_SUBSTRATE_URL=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
     ```
 
 === "Your ContainerChain"
+
     ```bash
     export SAS_SUBSTRATE_URL=INSERT_CONTAINERCHAIN_WSS_ENDPOINT
     ```
@@ -76,7 +79,6 @@ If the installation and configuration are successful, you should see this output
 Some of the commonly used Substrate API Sidecar endpoints include:
 
  - **GET /blocks​/head** — Get the most recently finalized block. The optional parameter `finalized` can be set to `false` to the get the newest known block, which may not be finalized
- 
  - **GET /blocks/head/header** — Get the most recently finalized block header. The optional parameter `finalized` can be set to `false` to the get the newest known block header, which may not be finalized
  - **GET /blocks/{blockId}** — Get a block by its height or hash
  - **GET /accounts/{accountId}/balance-info** — Get balance information for an account
@@ -122,7 +124,7 @@ Consequently, information from specific extrinsics (like balance transfers) can 
 
 For EVM ContainerChains, the information related to EVM execution of each EVM ContainerChain transaction can be identified by the `method` field under the current extrinsic object, where it is set to:
 
-```
+```text
 {extrinsic_number}.method.pallet = "ethereum"
 {extrinsic_number}.method.method = "transact"
 ```
@@ -158,7 +160,7 @@ RESPONSE JSON Block Object:
 
 For example, for Substrate transactions, the "Nonce" and "Signature" fields are under:
 
-```
+```text
 extrinsics[extrinsic_number]
 ```
 
@@ -167,7 +169,8 @@ extrinsics[extrinsic_number]
 EVM ContainerChains currently support three transaction standards: `legacy`, `eip1559`, and `eip2930`. These correspond to the `transaction type` field in the above JSON object diagram. For each transaction type, the transaction payload contains the following fields:
 
 === "EIP1559"
-    ```
+
+    ```text
         ...
         |--eip1559
             |--chainId
@@ -186,7 +189,8 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
     ```
 
 === "Legacy"
-    ```
+
+    ```text
         ...
         |--legacy
             |--nonce
@@ -200,7 +204,8 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
     ```
 
 === "EIP2930"
-    ```
+
+    ```text
         ...
         |--eip2930
             |--chainId
@@ -223,7 +228,7 @@ For more information on the new [EIP1559](https://eips.ethereum.org/EIPS/eip-155
 
 To obtain the EVM sender address, recipient address, and EVM hash of any EVM transaction type, check the `events` field under the current extrinsic object, and identify the event where the `method` field is set to:
 
-```
+```text
 {event_number}.method.pallet: "ethereum"
 {event_number}.method.method: "Executed"
 ```
@@ -275,7 +280,7 @@ The EVM field mappings are then summarized as the following:
 
 For example, for EVM transactions, the "Nonce" and "Signature" fields are under:
 
-```
+```text
 extrinsics[extrinsic_number].args.transaction[transaction_type]
 ```
 
@@ -294,7 +299,7 @@ Both Tanssi, non-EVM ContainerChains and EVM ContainerChains can perform Substra
 The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash` and `transaction status` of native token transfers at both the EVM and Substrate API level.
 
 ```typescript
---8<-- 'code/substrate-api/sidecar-transfer.ts'
+--8<-- 'code/builders/interact/substrate-api/sidecar/sidecar-transfer.ts'
 ```
 
 ### ERC-20 Token Transfers {: #erc-20-token-transfers }
@@ -334,7 +339,6 @@ RESPONSE JSON Block Object:
 
 ERC-20 token transfers will emit the [`Transfer`](https://eips.ethereum.org/EIPS/eip-20){target=_blank} event which can be decoded as the following:
 
-
 |     Tx Information      |                           Block JSON Field                            |
 |:-----------------------:|:---------------------------------------------------------------------:|
 | ERC-20 contract address |  `extrinsics[extrinsic_number].events[event_number].data[0].address`  |
@@ -348,12 +352,11 @@ Other events emitted by EVM smart contracts can be decoded in a similar fashion,
 !!! note
     The amount transferred is given in accounting for decimals and in hexadecimal format.
 
-
 ## Substrate API Transaction Fees {: #substrate-api-transaction-fees }
 
 For Tanssi, non-EVM Continaer chains and EVM ContainerChains, all the information around fee data for transactions sent via the Substrate API can be extracted from the following block endpoint:
 
-```
+```text
 GET /blocks/{blockId}
 ```
 
@@ -361,7 +364,7 @@ The block endpoints will return data relevant to one or more blocks. You can rea
 
 Read as a JSON object, for a given `pallet` (module) and `method`, the transaction fee is provided by an associated event with the following extructure:
 
-```
+```text
 {event_number}.method.pallet: "transactionPayment"
 {event_number}.method.method: "TransactionFeePaid"
 ```
@@ -403,10 +406,9 @@ The object mappings are summarized as follows:
 |  Total fees paid   | `extrinsics[extrinsic_number].events[event_number].data[1]` |
 |        Tip         | `extrinsics[extrinsic_number].events[event_number].data[2]` |
 
-
 Then, the total transaction fee paid for this extrinsic is mapped to the following field of the block JSON object:
 
-```
+```text
 extrinsics[extrinsic_number].events[event_number].data[1]
 ```
 
@@ -415,18 +417,23 @@ extrinsics[extrinsic_number].events[event_number].data[1]
 For EVM ContainerChains, users could also send funds via the Ethereum API. To calculate the fee incurred on transactions sent via the Ethereum API, the following formula can be used:
 
 === "EIP-1559"
-    ```
+
+    ```text
     GasPrice = BaseFee + MaxPriorityFeePerGas < MaxFeePerGas ?
                 BaseFee + MaxPriorityFeePerGas : 
                 MaxFeePerGas;
     Transaction Fee = (GasPrice * TransactionWeight) / 25000
     ```
+
 === "Legacy"
-    ```
+
+    ```text
     Transaction Fee = (GasPrice * TransactionWeight) / 25000
     ```
+
 === "EIP-2930"
-    ```
+
+    ```text
     Transaction Fee = (GasPrice * TransactionWeight) / 25000
     ```
 
@@ -440,7 +447,7 @@ For example, for the Dancebox EVM ContainerChain template the minimum gas price 
 
 The `BaseFee` can be directly retrieved from the `baseFeePerGas` storage found in the `baseFee` module (pallet), using the following endpoint:
 
-```
+```text
 GET /pallets/baseFee/storage/baseFeePerGas?at={blockId}
 ```
 
@@ -472,7 +479,7 @@ The values of `GasPrice`, `MaxFeePerGas` and `MaxPriorityFeePerGas` for the appl
 
 The data for an Ethereum transaction in a particular block can be extracted from the following block endpoint:
 
-```
+```text
 GET /blocks/{blockId}
 ```
 
@@ -498,14 +505,14 @@ The paths to the relevant values have also truncated and reproduced below:
 
 `TransactionWeight` is a Substrate mechanism used to measure the execution time a given transaction takes to be executed within a block. For all transactions types, `TransactionWeight` can be retrieved under the event of the relevant extrinsic where the `method` field is set to:
 
-```
+```text
 pallet: "system", method: "ExtrinsicSuccess"
 ```
 
 And then `TransactionWeight` is mapped to the following field of the block JSON object:
 
-```
+```text
 extrinsics[extrinsic_number].events[event_number].data[0].weight
 ```
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

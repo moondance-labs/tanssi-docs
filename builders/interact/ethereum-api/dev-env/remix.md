@@ -34,7 +34,7 @@ Next, you can create a new file to save the Solidity smart contract. To do so, t
 Next, paste the following smart contract into the editor tab:
 
 ```solidity
---8<-- 'code/ethereum-api/remix/erc20.sol'
+--8<-- 'code/builders/interact/ethereum-api/dev-env/remix/erc20.sol'
 ```
 
 ![Paste the contract into the editor](/images/builders/interact/ethereum-api/dev-environments/remix/remix-3.png)
@@ -123,4 +123,4 @@ You can also look up the transaction on [your ContainerChain's explorer](https:/
 
 ![Check transaction status on block explorer for your ContainerChain](/images/builders/interact/ethereum-api/dev-environments/remix/remix-15.png)
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

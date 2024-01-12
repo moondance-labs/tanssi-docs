@@ -22,7 +22,7 @@ To follow along with this tutorial, you'll need to have:
 - An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank} section of our Hardhat documentation page
 - An [ERC-20 token deployed](#deploy-an-erc20-with-hardhat) to your ContainerChain, unless you're using the ERC-20 token provided on the demo EVM ContainerChain
 
---8<-- 'text/common/general-js-tutorial-check.md'
+--8<-- 'text/_common/general-js-tutorial-check.md'
 
 ## Deploy an ERC-20 with Hardhat {: #deploy-an-erc20-with-hardhat }
 
@@ -54,7 +54,7 @@ Now we can edit `hardhat.config.js` to include the following network and account
 ???+ code "hardhat.config.js"
 
     ```js
-    --8<-- 'code/tutorials/subsquid/hardhat-config.js'
+    --8<-- 'code/builders/tutorials/subsquid/hardhat-config.js'
     ```
 
 !!! remember
@@ -73,7 +73,7 @@ Now we can edit the `MyTok.sol` file to include the following contract, which wi
 ???+ code "MyTok.sol"
 
     ```solidity
-    --8<-- 'code/tutorials/subsquid/MyTok.sol'
+    --8<-- 'code/builders/tutorials/subsquid/MyTok.sol'
     ```
 
 ### Deploy an ERC-20 Contract {: #deploy-erc-20-contract }
@@ -105,7 +105,7 @@ Let's take the following steps to deploy our contract:
     ???+ code "deploy.js"
 
         ```ts
-        --8<-- 'code/tutorials/subsquid/deploy.js'
+        --8<-- 'code/builders/tutorials/subsquid/deploy.js'
         ```
 
 3. Run the script using the `dev` network configurations we set up in the `hardhat.config.js` file:
@@ -131,7 +131,7 @@ In the `transactions.js` file, add the following script and insert the contract 
 ???+ code "transactions.js"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/transactions.js'
+    --8<-- 'code/builders/tutorials/subsquid/transactions.js'
     ```
 
 Run the script to send the transactions:
@@ -191,7 +191,7 @@ As mentioned, we'll first need to define the database schema for the transfer da
 ???+ code "schema.graphql"
 
     ```graphql
-    --8<-- 'code/tutorials/subsquid/schema.graphql'
+    --8<-- 'code/builders/tutorials/subsquid/schema.graphql'
     ```
 
 Now we can generate the entity classes from the schema, which we'll use when we process the transfer data. This will create new classes for each entity in the `src/model/generated` directory.
@@ -205,7 +205,7 @@ In the next step, we'll use the ERC-20 ABI to automatically generate TypeScript 
 ??? code "ERC-20 ABI"
 
     ```json
-    --8<-- 'code/tutorials/subsquid/erc20.json'
+    --8<-- 'code/builders/tutorials/subsquid/erc20.json'
     ```
 
 Next, we can use our contract's ABI to generate TypeScript interface classes. We can do this by running:
@@ -293,7 +293,7 @@ Once you've completed the prior steps, your `processor.ts` file should look simi
 ???+ code "processor.ts"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/processor.ts'
+    --8<-- 'code/builders/tutorials/subsquid/processor.ts'
     ```
 
 ### Transform and Save the Data {: #transform-and-save-the-data}
@@ -313,7 +313,7 @@ We'll demo a sample query in a later section. You can copy and paste the below c
 ???+ code "main.ts"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/main.ts'
+    --8<-- 'code/builders/tutorials/subsquid/main.ts'
     ```
 
 Now we've taken all of the steps necessary and are ready to run our indexer!
@@ -367,7 +367,7 @@ And that's it! You can now run queries against your Squid on the GraphQL playgro
 ???+ code "Example query"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/sample-query.graphql'
+    --8<-- 'code/builders/tutorials/subsquid/sample-query.graphql'
     ```
 
 ![Running queries in GraphQL playground](/images/builders/tutorials/subsquid/subsquid-5.png)
@@ -386,7 +386,7 @@ You can also add logging statements directly to your `main.ts` file to indicate 
 ??? code "main.ts"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/main-with-logging.ts'
+    --8<-- 'code/builders/tutorials/subsquid/main-with-logging.ts'
     ```
 
 See the [Subsquid guide to logging](https://docs.subsquid.io/basics/logging/){target=_blank} for more information on debug mode.
@@ -419,4 +419,4 @@ Is your Squid error-free, yet you aren't seeing any transfers detected? Make sur
 export const contractAddress = '0x37822de108AFFdd5cDCFDaAa2E32756Da284DB85'.toLowerCase();
 ```
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

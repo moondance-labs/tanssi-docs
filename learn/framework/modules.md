@@ -47,7 +47,7 @@ To improve developer experience when writing modules, Substrate relies heavily o
 
 All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
 
---8<-- 'text/substrate/pallets-macros-descriptions.md'
+--8<-- 'text/builders/build/customize/custom-made-module/pallets-macros-descriptions.md'
 
 All these macros act as attributes that must be applied to the code just above Rust modules, functions, structures, enums, types, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world, as exposed in the following section.
 
@@ -60,7 +60,7 @@ As an example of a custom module, the following code (not intended for productio
 - **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
 
 ```rust
---8<-- 'code/modules/lottery-example.rs'
+--8<-- 'code/builders/build/customize/custom-made-module/lottery-example.rs'
 ```
 
 For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=_blank} in the Builder's section.

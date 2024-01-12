@@ -107,4 +107,4 @@ You can also send a transaction through the Substrate API directly from the SubW
 
 This guide focused specifically on configuring SubWallet to work with your Substrate ContainerChain, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your EVM ContainerChain](/builders/interact/ethereum-api/wallets/subwallet){target=_blank}.
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

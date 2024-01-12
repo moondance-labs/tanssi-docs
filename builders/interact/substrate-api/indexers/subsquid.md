@@ -79,4 +79,4 @@ And that's all you have to do to configure your Subsquid project to index Substr
 
 If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your ContainerChain, you can check out the [Using Subsquid to Index Your ContainerChain](/builders/tutorials/subsquid/){target=_blank} tutorial!
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'
