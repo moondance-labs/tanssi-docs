@@ -130,7 +130,7 @@ npx ts-node balances.ts
 
 If successful, the balances for the origin and receiving address will be displayed in your terminal in UNIT.
 
-![The result of running the balances script in the terminal](/images/builders/interact/ethereum-api/viem/viem-1.png)
+![The result of running the balances script in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-1.png)
 
 ### Send Transaction Script {: #send-transaction-script }
 
@@ -166,7 +166,7 @@ npx ts-node transaction.ts
 
 If the transaction was successful, in your terminal, you'll see the transaction hash has been printed out. You can also use the `balances.ts` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
-![The result of running the transaction and balances scripts in the terminal](/images/builders/interact/ethereum-api/viem/viem-2.png)
+![The result of running the transaction and balances scripts in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-2.png)
 
 ## Deploy a Contract {: #deploy-contract }
 
@@ -215,7 +215,7 @@ npx ts-node deploy.ts
 
 If successful, the contract's address will be displayed in the terminal.
 
-![The result of running the deploy script in the terminal](/images/builders/interact/ethereum-api/viem/viem-3.png)
+![The result of running the deploy script in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-3.png)
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
@@ -251,7 +251,7 @@ npx ts-node get.ts
 
 If successful, the value will be displayed in the terminal.
 
-![The result of running the get script in the terminal](/images/builders/interact/ethereum-api/viem/viem-4.png)
+![The result of running the get script in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-4.png)
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
@@ -288,7 +288,7 @@ npx ts-node increment.ts
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.ts` script alongside the `increment.ts` script to make sure that value is changing as expected.
 
-![The result of running the increment and get scripts in the terminal](/images/builders/interact/ethereum-api/viem/viem-5.png)
+![The result of running the increment and get scripts in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-5.png)
 
 Next, you can open the `reset.ts` file and take the following steps to create the script:
 
@@ -317,6 +317,6 @@ npx ts-node reset.ts
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.ts` script alongside the `reset.ts` script to make sure that value is changing as expected.
 
-![The result of running the reset and get scripts in the terminal](/images/builders/interact/ethereum-api/viem/viem-6.png)
+![The result of running the reset and get scripts in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-6.png)
 
 --8<-- 'text/_disclaimers/third-party-content.md'

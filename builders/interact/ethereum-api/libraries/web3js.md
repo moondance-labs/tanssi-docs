@@ -120,7 +120,7 @@ node balances.js
 
 If successful, the balances for the origin and receiving address will be displayed in your terminal in ETH.
 
-![Check balance Web3js](/images/builders/interact/ethereum-api/web3js/web3js-1.png)
+![Check balance Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-1.png)
 
 ### Send Transaction Script {: #send-transaction-script }
 
@@ -195,7 +195,7 @@ If the transaction was successful, in your terminal, you'll see the transaction 
 
 You can also use the `balances.js` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
-![Send Tx Web3js](/images/builders/interact/ethereum-api/web3js/web3js-2.png)
+![Send Tx Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-2.png)
 
 ## Deploy a Contract {: #deploy-a-contract }
 
@@ -290,7 +290,7 @@ node deploy.js
 
 If successful, the contract's address will be displayed in the terminal.
 
-![Deploy Contract Web3js](/images/builders/interact/ethereum-api/web3js/web3js-3.png)
+![Deploy Contract Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-3.png)
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
@@ -353,7 +353,7 @@ node get.js
 
 If successful, the value will be displayed in the terminal.
 
-![Get contract variable value Web3js](/images/builders/interact/ethereum-api/web3js/web3js-4.png)
+![Get contract variable value Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-4.png)
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
@@ -436,7 +436,7 @@ node increment.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that the value is changing as expected.
 
-![Increment and check value Web3js](/images/builders/interact/ethereum-api/web3js/web3js-5.png)
+![Increment and check value Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-5.png)
 
 Next you can open the `reset.js` file and take the following steps to create the script:
 
@@ -510,6 +510,6 @@ node reset.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `reset.js` script to make sure that the value is changing as expected.
 
-![Reset contract Web3js](/images/builders/interact/ethereum-api/web3js/web3js-6.png)
+![Reset contract Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-6.png)
 
 --8<-- 'text/_disclaimers/third-party-content.md'
