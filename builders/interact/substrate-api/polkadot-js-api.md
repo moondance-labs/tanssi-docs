@@ -7,7 +7,7 @@ description: Learn how to use the Polkadot.js API to interact with a ContainerCh
 
 ## Introduction {: #introduction }
 
-[Polkadot.js](https://wiki.polkadot.network/docs/polkadotjs){target=_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your ContainerChain! The [Polkadot.js API](https://polkadot.js.org/docs/api/){target=_blank} is one component of Polkadot.js and is a library that allows application developers to query a ContainerChain and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
+[Polkadot.js](https://wiki.polkadot.network/docs/polkadotjs){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your ContainerChain! The [Polkadot.js API](https://polkadot.js.org/docs/api/){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a ContainerChain and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
 
 You can use the Polkadot.js API to query on-chain data and send extrinsics from the Substrate side of your ContainerChain. You can query runtime constants, chain state, events, transaction (extrinsic) data, and more.
 
@@ -71,7 +71,7 @@ Where `<type>` can be either:
 - `rpc` - for endpoints specific to RPC calls
 - `consts` - for endpoints specific to runtime constants
 
-And therefore, none of the information contained in the `api.{query, tx, rpc, consts}.<module>.<method>` endpoints are hard-coded in the API. This allows the Polkadot.js API library to be modular and adapt to any Substrate-based chains with different [modules](/learn/framework/modules){target=_blank}, like your ContainerChain!
+And therefore, none of the information contained in the `api.{query, tx, rpc, consts}.<module>.<method>` endpoints are hard-coded in the API. This allows the Polkadot.js API library to be modular and adapt to any Substrate-based chains with different [modules](/learn/framework/modules){target=\_blank}, like your ContainerChain!
 
 ## Query On-Chain Data {: #querying-for-information }
 
@@ -255,7 +255,7 @@ console.log(`Submitted with hash ${txHash}`);
     --8<-- 'code/substrate-api/basic-transactions.js'
     ```
 
-Note that the `signAndSend` function can also accept optional parameters, such as the `nonce`. For example, `signAndSend(alice, { nonce: aliceNonce })`. You can use the [sample code from the State Queries](#state-queries){target=_blank} section to retrieve the correct nonce, including transactions in the mempool.
+Note that the `signAndSend` function can also accept optional parameters, such as the `nonce`. For example, `signAndSend(alice, { nonce: aliceNonce })`. You can use the [sample code from the State Queries](#state-queries){target=\_blank} section to retrieve the correct nonce, including transactions in the mempool.
 
 ### Fee Information {: #fees}
 
@@ -329,23 +329,23 @@ api.tx.utility
 
 ## Sample Code for Monitoring Native Token Transfers { #sample-code-for-monitoring-native-token-transfers }
 
-The following code samples will demonstrate how to listen to both types of native token transfers, sent via Substrate or Ethereum API, using either the [Polkadot.js API library](https://polkadot.js.org/docs/api/start){target=_blank} or [Substrate API Sidecar](https://github.com/paritytech/substrate-api-sidecar){target=_blank}. The following code snippets are for demo purposes only and should not be used without modification and further testing in a production environment.
+The following code samples will demonstrate how to listen to both types of native token transfers, sent via Substrate or Ethereum API, using either the [Polkadot.js API library](https://polkadot.js.org/docs/api/start){target=\_blank} or [Substrate API Sidecar](https://github.com/paritytech/substrate-api-sidecar){target=\_blank}. The following code snippets are for demo purposes only and should not be used without modification and further testing in a production environment.
 
-The following code snippet uses [`subscribeFinalizedHeads`](https://polkadot.js.org/docs/substrate/rpc/#subscribefinalizedheads-header){target=_blank} to subscribe to new finalized block headers, and loops through extrinsics fetched from the block, and retrieves the events of each extrinsic.
+The following code snippet uses [`subscribeFinalizedHeads`](https://polkadot.js.org/docs/substrate/rpc/#subscribefinalizedheads-header){target=\_blank} to subscribe to new finalized block headers, and loops through extrinsics fetched from the block, and retrieves the events of each extrinsic.
 
-Then, it checks if any event corresponds to a `balances.Transfer` event. If so, it will extract the `from`, `to`, `amount`, and the `tx hash` of the transfer and display it on the console. Note that the `amount` is shown in the smallest unit (Wei).  You can find all the available information about Polkadot.js and the Substrate JSON RPC in their [official documentation site](https://polkadot.js.org/docs/substrate/rpc){target=_blank}.
+Then, it checks if any event corresponds to a `balances.Transfer` event. If so, it will extract the `from`, `to`, `amount`, and the `tx hash` of the transfer and display it on the console. Note that the `amount` is shown in the smallest unit (Wei).  You can find all the available information about Polkadot.js and the Substrate JSON RPC in their [official documentation site](https://polkadot.js.org/docs/substrate/rpc){target=\_blank}.
 
 ```typescript
 --8<-- 'code/substrate-api/balance-event.ts'
 ```
 
-In addition, you can find more sample code snippets related to more specific cases around balance transfers at this [GitHub page](https://gist.github.com/crystalin/b2ce44a208af60d62b5ecd1bad513bce){target=_blank}.
+In addition, you can find more sample code snippets related to more specific cases around balance transfers at this [GitHub page](https://gist.github.com/crystalin/b2ce44a208af60d62b5ecd1bad513bce){target=\_blank}.
 
 ## Utility Functions {: #utilities }
 
 The Polkadot.js API also includes a number of utility libraries for computing commonly used cryptographic primitives and hash functions.
 
-The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://eth.wiki/fundamentals/rlp){target=_blank}) encoding and then hashing the result with keccak256.
+The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://eth.wiki/fundamentals/rlp){target=\_blank}) encoding and then hashing the result with keccak256.
 
 ```javascript
 import { encode } from '@polkadot/util-rlp';
@@ -377,6 +377,6 @@ var encoded_tx = encode(txDataArray);
 console.log(keccakAsHex(encoded_tx));
 ```
 
-You can check the respective [NPM repository page](https://www.npmjs.com/package/@polkadot/util-crypto/){target=_blank} for a list of available methods in the `@polkadot/util-crypto` library and their descriptions.
+You can check the respective [NPM repository page](https://www.npmjs.com/package/@polkadot/util-crypto/){target=\_blank} for a list of available methods in the `@polkadot/util-crypto` library and their descriptions.
 
 --8<-- 'text/disclaimers/third-party-content.md'

@@ -7,11 +7,11 @@ description: Tanssi provides block production services assigning collators to th
 
 ## Introduction {: #introduction }
 
-As presented in the [Overview](/learn/tanssi/overview){target=_blank} article, Tanssi is an Appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic specific to a wide range of use cases, including DeFi, NFTs, Gaming, and any other use case development teams may want to address.
+As presented in the [Overview](/learn/tanssi/overview){target=\_blank} article, Tanssi is an Appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic specific to a wide range of use cases, including DeFi, NFTs, Gaming, and any other use case development teams may want to address.
 
 Infrastructure poses a huge challenge for developers who would need to bootstrap collators for block production, data preservers, and RPC endpoints, and deal with integrations and interoperability, assigning precious effort and resources and losing focus on what is important: the Appchain Runtime, the UX, and the value proposition to the users.
 
-In Tanssi terms, Appchains are called ContainerChains, similar to the concept coined in [Docker](https://www.docker.com){target=_blank}, allowing teams to focus on the product while alleviating deployment-related issues. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io){target=_blank}, in its role as orchestrator, managing resources to guarantee the liveness and performance of the ContainerChains.
+In Tanssi terms, Appchains are called ContainerChains, similar to the concept coined in [Docker](https://www.docker.com){target=\_blank}, allowing teams to focus on the product while alleviating deployment-related issues. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io){target=\_blank}, in its role as orchestrator, managing resources to guarantee the liveness and performance of the ContainerChains.
 
 In this article, the necessary aspects to consider when building and deploying your own modular blockchain are covered, and also the following technical aspects of the Tanssi protocol:
 
@@ -35,9 +35,9 @@ Their responsibility and how they interact with each other through the relay cha
 
 The Tanssi protocol manages a set of collators and assigns them to provide block production services to the active ContainerChains and the Tanssi network itself.
 
-The assignment algorithm will start distributing the available collators, serving first the Tanssi network and then the ContainerChains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of collators. In the provided [templates](/learn/tanssi/included-templates){target=_blank}, the default session duration is set to 1800 blocks, which, with an average block time of 12 seconds, translates to (roughly) six hours.
+The assignment algorithm will start distributing the available collators, serving first the Tanssi network and then the ContainerChains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of collators. In the provided [templates](/learn/tanssi/included-templates){target=\_blank}, the default session duration is set to 1800 blocks, which, with an average block time of 12 seconds, translates to (roughly) six hours.
 
-Every new assignment works intentionally with a one-session delay, so collators may know in advance if they are assigned to serve the Tanssi network or which one of the ContainerChains. Block producers will start syncing the new Appchain they'll have to serve in the next session with a special type of syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=_blank}. Warp sync allows the block producers to swiftly sync the new Appchain without acting as an archive node.
+Every new assignment works intentionally with a one-session delay, so collators may know in advance if they are assigned to serve the Tanssi network or which one of the ContainerChains. Block producers will start syncing the new Appchain they'll have to serve in the next session with a special type of syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the block producers to swiftly sync the new Appchain without acting as an archive node.
 
 When a new session starts, the Tanssi protocol will put the queued assignment into effect. Block producers will automatically change and start producing blocks in the new Appchain they've been assigned while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in ContainerChains that might have been activated or deactivated and collators that might have been added or removed from the pool. This new assignment will be queued for the next session.
 
@@ -50,7 +50,7 @@ The following picture shows an example of how the algorithm distributes ten avai
 
 ### The Role of the Relay Chain {: #relay-chain }
 
-Among many other responsibilities, the relay chain validates and finalizes the blocks produced by any chain participating in the ecosystem (including the ContainerChains and the Tanssi network), storing a small representation of the most recent proof of validity for each block of each chain. This small representation of the proof of validity to be included in the relay chain block is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
+Among many other responsibilities, the relay chain validates and finalizes the blocks produced by any chain participating in the ecosystem (including the ContainerChains and the Tanssi network), storing a small representation of the most recent proof of validity for each block of each chain. This small representation of the proof of validity to be included in the relay chain block is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
 
 ![Relay chain](/images/learn/tanssi/technical/technical-4.png)
 
@@ -90,8 +90,8 @@ It is important to note that both pallets include the mentioned data in the bloc
 
 ## Deploy a ContainerChain {: #deploy-a-containerchain }
 
-After building on top of one of the provided [Appchain Templates](/learn/tanssi/included-templates){target=_blank} and finishing the development process, developers are ready to deploy their ContainerChain in Tanssi.
+After building on top of one of the provided [Appchain Templates](/learn/tanssi/included-templates){target=\_blank} and finishing the development process, developers are ready to deploy their ContainerChain in Tanssi.
 
-This is a fairly straightforward step, where the teams only need to generate and upload the [chain specification](https://docs.substrate.io/build/chain-spec/){target=_blank} to the Tanssi network.
+This is a fairly straightforward step, where the teams only need to generate and upload the [chain specification](https://docs.substrate.io/build/chain-spec/){target=\_blank} to the Tanssi network.
 
 The Tanssi network will then assign a set of collators to the newly added ContainerChain that will start producing blocks in the next session, setting the network alive and making it able to receive and execute transactions.

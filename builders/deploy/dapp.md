@@ -18,7 +18,7 @@ This guide will walk you through the steps required to launch an Appchain on Tan
 
 Deploying an Appchain via the Tanssi dApp is accomplished as a single, streamlined flow consisting of five distinct steps:
 
-1. Select a [template](/builders/build/templates/overview){target=_blank} and configure it
+1. Select a [template](/builders/build/templates/overview){target=\_blank} and configure it
 2. Verify you have the minimum required balances in both Tanssi and the relay chain to launch a new Appchain
 3. Reserve your Appchain ID on the relay chain
 4. Generate your Appchain files based on the template you selected and your Appchain ID
@@ -26,7 +26,7 @@ Deploying an Appchain via the Tanssi dApp is accomplished as a single, streamlin
 
 ![A diagram mapping out the steps for deploying an Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-1.png)
 
-For [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank}, the Tanssi team will manually complete verification, and once verified, the launch process will begin. For Tanssi, the process will be fully decentralized and permissionless.
+For [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank}, the Tanssi team will manually complete verification, and once verified, the launch process will begin. For Tanssi, the process will be fully decentralized and permissionless.
 
 ## Prerequisites {: #prerequisites }
 
@@ -34,11 +34,11 @@ For [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank}, the T
 
 Since Tanssi is built with Substrate, you'll need to use a Substrate-supported wallet to deploy and manage your ContainerChain. Supported wallets include:
 
-- [Polkadot.js extension](https://polkadot.js.org/extension/){target=_blank}
-- [SubWallet](https://www.subwallet.app/){target=_blank}
-- [Talisman](https://www.talisman.xyz/){target=_blank}
+- [Polkadot.js extension](https://polkadot.js.org/extension/){target=\_blank}
+- [SubWallet](https://www.subwallet.app/){target=\_blank}
+- [Talisman](https://www.talisman.xyz/){target=\_blank}
 
-Please note that if you deploy an EVM ContainerChain, your users won't need to use a Substrate wallet. They will be able to interact with your ContainerChain using Ethereum-compatible wallets like [MetaMask](/builders/interact/ethereum-api/wallets/metamask){target=_blank}.
+Please note that if you deploy an EVM ContainerChain, your users won't need to use a Substrate wallet. They will be able to interact with your ContainerChain using Ethereum-compatible wallets like [MetaMask](/builders/interact/ethereum-api/wallets/metamask){target=\_blank}.
 
 ### Check Token Balances {: #check-token-balances }
 
@@ -52,19 +52,19 @@ To configure and deploy your Appchain, you need to meet the minimum balance requ
     |    Register Appchain (Tanssi)     |    100 DANCE     |
 
 
-To claim DANCE tokens, you need to complete a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=_blank} by providing basic information and your Substrate-based address. Within one business day, you'll receive the necessary DANCE and UNIT tokens for launching your Appchain.
+To claim DANCE tokens, you need to complete a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank} by providing basic information and your Substrate-based address. Within one business day, you'll receive the necessary DANCE and UNIT tokens for launching your Appchain.
 
 ## Configure Your Appchain {: #configure-your-appchain }
 
 Upon navigating to the [Tanssi dApp](https://apps.tanssi.network/dancebox), you can immediately start creating your Appchain. You'll be able to select a template that best fits your use case and, based on the template, configure specific properties, like the token decimals and symbol, genesis smart contracts and accounts, and more.
 
-You can choose from either the EVM or Substrate template or upload a raw specification file. To find out more information on the available templates, please refer to the [Templates](/builders/build/templates/overview){target=_blank} documentation.
+You can choose from either the EVM or Substrate template or upload a raw specification file. To find out more information on the available templates, please refer to the [Templates](/builders/build/templates/overview){target=\_blank} documentation.
 
 ### EVM Template {: #evm-template }
 
-The [EVM template](/builders/build/templates/overview/#baseline-evm-template){target=_blank} provides all the necessary components to add an Ethereum compatibility layer to your Appchain.
+The [EVM template](/builders/build/templates/overview/#baseline-evm-template){target=\_blank} provides all the necessary components to add an Ethereum compatibility layer to your Appchain.
 
-Before getting started, you'll need to have an EVM chain ID. This needs to be a unique ID across all Ethereum-compatible chains. Once you have a chain ID you would like to use, you can easily search for it to see if it's already taken on [chainid.network](https://chainid.network/){target=_blank}. Then you'll need to open a pull request on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=_blank} to add your chain configuration details, including the chain ID, to the list to avoid chain ID collisions. This should be done before you continue the deployment process of your Appchain to avoid chain ID collisions.
+Before getting started, you'll need to have an EVM chain ID. This needs to be a unique ID across all Ethereum-compatible chains. Once you have a chain ID you would like to use, you can easily search for it to see if it's already taken on [chainid.network](https://chainid.network/){target=\_blank}. Then you'll need to open a pull request on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=\_blank} to add your chain configuration details, including the chain ID, to the list to avoid chain ID collisions. This should be done before you continue the deployment process of your Appchain to avoid chain ID collisions.
 
 !!! note
     Using a registered EVM chain ID is only necessary for Appchains deployed on the MainNet. When it comes to testing or deploying on the TestNet, you can simply choose any available ID and move forward.
@@ -82,11 +82,11 @@ To get started, make sure the **EVM** template is selected from the left-side me
 
 ### Substrate Template {: #substrate-template }
 
-The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template){target=_blank} includes all of the necessary configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Appchain that is both Polkadot and Tanssi compatible.
+The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template){target=\_blank} includes all of the necessary configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Appchain that is both Polkadot and Tanssi compatible.
 
 To get started, make sure the **Substrate** template is selected from the left-side menu. Then take the following steps:
 
-1. Enter the token decimals and symbol for your native token and the [SS58 address format](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=_blank}
+1. Enter the token decimals and symbol for your native token and the [SS58 address format](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=\_blank}
 2. Provide the Substrate-style address of the account you want to be used as the sudo account and its initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
 3. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
 4. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
@@ -99,8 +99,8 @@ If you already have a Substrate runtime built and have chosen to upload your own
 
 Your runtime must implement the following:
 
-- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
-- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
+- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
+- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
 
 Other required changes in the runtime include:
 
@@ -123,7 +123,7 @@ Other required changes in the runtime include:
     AuraExt: cumulus_pallet_aura_ext = 24,
     ```
 
-Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs){target=_blank} the chain specification paying special attention to: 
+Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs){target=\_blank} the chain specification paying special attention to: 
 
 - `para_id` - within this custom flow, a pre-registered parachain id is required
 - `is_ethereum` - to `true` if exposing Ethereum compatible RPC endpoints is needed
@@ -182,9 +182,9 @@ Once the transaction has successfully gone through, your Appchain ID will be dis
 
 Before you can deploy your Appchain, you'll need to generate four configuration files:
 
-- [The raw chain specification](/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
-- [The genesis state header](/builders/build/customize/customizing-chain-specs/#genesis-state){target=_blank} - defines the initial state upon which all transactions and state transitions are executed
-- [The genesis Wasm](/learn/framework/architecture/#runtime){target=_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
+- [The raw chain specification](/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=\_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
+- [The genesis state header](/builders/build/customize/customizing-chain-specs/#genesis-state){target=\_blank} - defines the initial state upon which all transactions and state transitions are executed
+- [The genesis Wasm](/learn/framework/architecture/#runtime){target=\_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
 
 These files will automatically be generated for you based on your Appchain ID and your customized template configurations. All you need to do is click **Generate**, and the dApp will generate the required files for you.
 

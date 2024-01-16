@@ -217,7 +217,7 @@ EVM ContainerChains currently support three transaction standards: `legacy`, `ei
         ...
     ```
 
-For more information on the new [EIP1559](https://eips.ethereum.org/EIPS/eip-1559){target=_blank} and [EIP2930](https://eips.ethereum.org/EIPS/eip-2930){target=_blank} transaction types and what each field means, please refer to the respective official Ethereum proposal specs.
+For more information on the new [EIP1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} and [EIP2930](https://eips.ethereum.org/EIPS/eip-2930){target=\_blank} transaction types and what each field means, please refer to the respective official Ethereum proposal specs.
 
 ### Transaction Field Mappings {: #transaction-field-mappings }
 
@@ -291,7 +291,7 @@ The following code samples will demonstrate how to listen to both native token t
 
 Both Tanssi, non-EVM ContainerChains and EVM ContainerChains can perform Substrate-based native token balance transfers.
 
-The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash` and `transaction status` of native token transfers at both the EVM and Substrate API level.
+The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=\_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash` and `transaction status` of native token transfers at both the EVM and Substrate API level.
 
 ```typescript
 --8<-- 'code/substrate-api/sidecar-transfer.ts'
@@ -332,7 +332,7 @@ RESPONSE JSON Block Object:
 
 ```
 
-ERC-20 token transfers will emit the [`Transfer`](https://eips.ethereum.org/EIPS/eip-20){target=_blank} event which can be decoded as the following:
+ERC-20 token transfers will emit the [`Transfer`](https://eips.ethereum.org/EIPS/eip-20){target=\_blank} event which can be decoded as the following:
 
 
 |     Tx Information      |                           Block JSON Field                            |
@@ -357,7 +357,7 @@ For Tanssi, non-EVM Continaer chains and EVM ContainerChains, all the informatio
 GET /blocks/{blockId}
 ```
 
-The block endpoints will return data relevant to one or more blocks. You can read more about the block endpoints on the [official Sidecar documentation](https://paritytech.github.io/substrate-api-sidecar/dist/#operations-tag-blocks){target=_blank}.
+The block endpoints will return data relevant to one or more blocks. You can read more about the block endpoints on the [official Sidecar documentation](https://paritytech.github.io/substrate-api-sidecar/dist/#operations-tag-blocks){target=\_blank}.
 
 Read as a JSON object, for a given `pallet` (module) and `method`, the transaction fee is provided by an associated event with the following extructure:
 
@@ -434,7 +434,7 @@ The following sections describe in more detail each of the components needed to 
 
 ### Base Fee {: #base-fee}
 
-The `BaseFee` is the minimum amount charged to send a transaction and is a value set by the network itself. It was introduced in [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=_blank}. EVM ContainerChains have a dynamic fee mechanism that aims to replicate the [EIP-1559 fee market mechanism](https://eips.ethereum.org/EIPS/eip-1559#specification){target=_blank}, where the base fee is adjusted based on block congestion.
+The `BaseFee` is the minimum amount charged to send a transaction and is a value set by the network itself. It was introduced in [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. EVM ContainerChains have a dynamic fee mechanism that aims to replicate the [EIP-1559 fee market mechanism](https://eips.ethereum.org/EIPS/eip-1559#specification){target=\_blank}, where the base fee is adjusted based on block congestion.
 
 For example, for the Dancebox EVM ContainerChain template the minimum gas price is `1 GWei`.
 
@@ -462,7 +462,7 @@ The relevant data will be stored in the `value` key of the JSON object. This val
 
 ### GasPrice, MaxFeePerGas, and MaxPriorityFeePerGas {: #gasprice-maxfeepergas-maxpriorityfeepergas }
 
-The `GasPrice` is used to specify the gas price of legacy transactions prior to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=_blank}. The `MaxFeePerGas` and `MaxPriorityFeePerGas` were both introduced in EIP-1559 alongside the `BaseFee`. The `MaxFeePerGas` defines the maximum fee permitted to be paid per unit of gas and is the sum of the `BaseFee` and the `MaxPriorityFeePerGas`. The `MaxPriorityFeePerGas` is the maximum priority fee configured by the sender of a transaction that is used to incentive the prioritization of a transaction in a block.
+The `GasPrice` is used to specify the gas price of legacy transactions prior to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. The `MaxFeePerGas` and `MaxPriorityFeePerGas` were both introduced in EIP-1559 alongside the `BaseFee`. The `MaxFeePerGas` defines the maximum fee permitted to be paid per unit of gas and is the sum of the `BaseFee` and the `MaxPriorityFeePerGas`. The `MaxPriorityFeePerGas` is the maximum priority fee configured by the sender of a transaction that is used to incentive the prioritization of a transaction in a block.
 
 Although EVM ContainerChains are Ethereum-compatible, they are also Substrate-based chains at their core, and priorities work differently in Substrate than in Ethereum. In Substrate, transactions are not prioritized by gas price. To address this, EVM ContainerChains uses a modified prioritization system that reprioritizes Substrate transactions using an Ethereum-first solution. A Substrate transaction still goes through the validity process, where it is assigned transaction tags, longevity, and a priority. The original priority is then overwritten with a new priority based on the transaction's fee per gas, which is derived from the transaction's tip and weight. If the transaction is an Ethereum transaction, the priority is set according to the priority fee.
 
