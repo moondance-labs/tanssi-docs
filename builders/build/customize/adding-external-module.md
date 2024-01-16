@@ -148,7 +148,7 @@ Finally, executing the `diener` [command](#solving-dependencies-conflicts-diener
 
 This is what the execution in the terminal looks like:
 
-![Executing diener](/images/builders/build/external-module/external-module-3.png)
+--8<-- 'code/builders/build/customize/adding-external-module/terminal/patching.md'
 
 As shown in the terminal output, `diener` adds a patch for the dependencies, creating a `patch` section in your `toml` overriding their origin:
 
