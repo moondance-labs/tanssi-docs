@@ -9,7 +9,7 @@ description: Any custom runtime can be adapted to be deployed through Tanssi, pr
 ## Introduction {: #introduction }
 
 For teams that already have been working on a Substrate runtime, it will be necessary to implement the required modules and configurations into the runtime. This will ensure that the runtime can evolve into a ContainerChain successfully [deployed through Tanssi](/builders/build/templates/overview/#base-setup-supporting-tanssi
-){target=_blank} and [run properly within Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=_blank}.
+){target=\_blank} and [run properly within Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank}.
 
 Failing to do so might lead to reduced interoperability within the ecosystem and unnecessary exposure to vulnerabilities.
 
@@ -19,7 +19,7 @@ Already existing Substrate runtimes need to at least have both [Cumulus](#adding
 
 Nevertheless, teams might have already implemented certain modules that can collide with some functionalities related to Tanssi, for example, block production, block authority assignment, and consensus.
 
-If the starting point for your project was the [parachain template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=_blank}, the following modules are included by default and must be removed along with their corresponding configuration:
+If the starting point for your project was the [parachain template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=\_blank}, the following modules are included by default and must be removed along with their corresponding configuration:
 
 ```rust
 Authorship: pallet_authorship = 20,
@@ -33,7 +33,7 @@ In any case, make sure to check your runtime and remove all the modules that mig
 
 ## Adding Cumulus Support {: #adding-cumulus-support }
 
-If the runtime is set up as a solo chain, check the official [Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template){target=_blank} or any of the templates available in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank} for a reference setup.
+If the runtime is set up as a solo chain, check the official [Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template){target=\_blank} or any of the templates available in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} for a reference setup.
 
 ## Adding Tanssi Protocol Support {: #adding-tanssi-support }
 
