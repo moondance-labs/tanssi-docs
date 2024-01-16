@@ -44,7 +44,15 @@ Similarly to what is described in the [built-in module](/builders/build/customiz
 2. Make the standard features available to the compiler
 3. Configure and add the module to the runtime
 
-Should the third-party module reference any dependency already referenced from a distinct source or version, compilation will fail. To resolve this issue, it will be necessary to apply a patch.
+Should the third-party module reference any dependency already referenced from a distinct source or version, compilation will fail. 
+
+The following diagram shows how two different references to the same dependency are being included in the runtime, causing the compilation to fail:
+
+![Double reference](/images/builders/build/external-module/external-module-1.png)
+
+To resolve this issue, it will be necessary to apply a patch so that the references for the dependency are unified:
+
+![Patched reference](/images/builders/build/external-module/external-module-2.png)
 
 ### Declaring the Dependency {: #declaring-dependency }
 
@@ -140,7 +148,7 @@ Finally, executing the `diener` [command](#solving-dependencies-conflicts-diener
 
 This is what the execution in the terminal looks like:
 
-![Executing diener](/images/builders/build/external-module/external-module-1.png)
+![Executing diener](/images/builders/build/external-module/external-module-3.png)
 
 As shown in the terminal output, `diener` adds a patch for the dependencies, creating a `patch` section in your `toml` overriding their origin:
 
