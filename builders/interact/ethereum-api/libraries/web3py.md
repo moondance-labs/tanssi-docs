@@ -7,11 +7,11 @@ description: Learn how to use the Ethereum Web3 Python Library to send transacti
 
 ## Introduction {: #introduction }
 
-[Web3.py](https://web3py.readthedocs.io/) is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with Python. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Web3.py, check their [documentation site](https://web3py.readthedocs.io/){target=_blank}.
+[Web3.py](https://web3py.readthedocs.io/) is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with Python. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Web3.py, check their [documentation site](https://web3py.readthedocs.io/){target=\_blank}.
 
-In this guide, you'll learn how to use setup the Web3.py library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Web3.py to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
+In this guide, you'll learn how to use setup the Web3.py library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Web3.py to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
 
---8<-- 'text/common/general-py-tutorial-check.md'
+--8<-- 'text/_common/general-py-tutorial-check.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -29,7 +29,7 @@ pip3 install web3 py-solc-x
 
 ## Setting up the Web3.py Provider {: #setting-up-the-web3py-provider }
 
-Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Web3.py provider](https://web3py.readthedocs.io/en/stable/providers.html){target=_blank} to interact with the network.
+Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Web3.py provider](https://web3py.readthedocs.io/en/stable/providers.html){target=\_blank} to interact with the network.
 
 To create a provider, you can take the following steps:
 
@@ -68,7 +68,7 @@ Next, you will create the script for this file and complete the following steps:
 3. Get the balance for the accounts using the `web3.eth.get_balance` function and format the results using the `web3.from_wei`
 
 ```python
---8<-- 'code/ethereum-api/web3py/balances.py'
+--8<-- 'code/builders/interact/ethereum-api/libraries/web3py/balances.py'
 ```
 
 To run the script and fetch the account balances, you can run the following command:
@@ -79,7 +79,7 @@ python3 balances.py
 
 If successful, the balances for the origin and receiving address will be displayed in your terminal in UNIT.
 
-![Check Balance Ethers.js](/images/builders/interact/ethereum-api/web3py/web3py-1.png)
+![Check Balance Ethers.js](/images/builders/interact/ethereum-api/libraries/web3py/web3py-1.png)
 
 
 ### Send Transaction Script {: #send-transaction-script }
@@ -95,12 +95,12 @@ Next, you will create the script for this file and complete the following steps:
 1. Add imports, including Web3.py and the `rpc_gas_price_strategy`, which will be used in the following steps to get the gas price used for the transaction
 2. [Set up the Web3 provider](#setting-up-the-web3py-provider)
 3. Define the `account_from`, including the `private_key`, and the `address_to` variables. The private key is required to sign the transaction. **Note: This is for example purposes only. Never store your private keys in a Python file**
-4. Use the [Web3.py Gas Price API](https://web3py.readthedocs.io/en/stable/gas_price.html){target=_blank} to set a gas price strategy. For this example, you'll use the imported `rpc_gas_price_strategy`
+4. Use the [Web3.py Gas Price API](https://web3py.readthedocs.io/en/stable/gas_price.html){target=\_blank} to set a gas price strategy. For this example, you'll use the imported `rpc_gas_price_strategy`
 5. Create and sign the transaction using the `web3.eth.account.sign_transaction` function. Pass in the `nonce` `gas`, `gasPrice`, `to`, and `value` for the transaction along with the sender's `private_key`. To get the `nonce` you can use the `web3.eth.get_transaction_count` function and pass in the sender's address. To predetermine the `gasPrice` you'll use the `web3.eth.generate_gas_price` function. For the `value`, you can format the amount to send from an easily readable format to Wei using the `web3.to_wei` function
 6. Using the signed transaction, you can then send it using the `web3.eth.send_raw_transaction` function and wait for the transaction receipt by using the `web3.eth.wait_for_transaction_receipt` function
 
 ```python
---8<-- 'code/ethereum-api/web3py/transaction.py'
+--8<-- 'code/builders/interact/ethereum-api/libraries/web3py/transaction.py'
 ```
 
 To run the script, you can run the following command in your terminal:
@@ -113,11 +113,11 @@ If the transaction was succesful, in your terminal you'll see the transaction ha
 
 You can also use the `balances.py` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
-![Send Tx Web3.py](/images/builders/interact/ethereum-api/web3py/web3py-2.png)
+![Send Tx Web3.py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-2.png)
 
 ## Deploy a Contract {: #deploy-a-contract }
 
---8<-- 'text/libraries/contract.md'
+--8<-- 'text/builders/interact/ethereum-api/libraries/contract.md'
 
 ### Compile Contract Script {: #compile-contract-script }
 
@@ -135,7 +135,7 @@ Next, you will create the script for this file and complete the following steps:
 4. Export the contract's ABI and bytecode
 
 ```python
---8<-- 'code/ethereum-api/web3py/compile.py'
+--8<-- 'code/builders/interact/ethereum-api/libraries/web3py/compile.py'
 ```
 
 !!! note
@@ -160,7 +160,7 @@ Next, you will create the script for this file and complete the following steps:
 7. Using the signed transaction, you can then send it using the `web3.eth.send_raw_transaction` function and wait for the transaction receipt by using the `web3.eth.wait_for_transaction_receipt` function
 
 ```python
---8<-- 'code/ethereum-api/web3py/deploy.py'
+--8<-- 'code/builders/interact/ethereum-api/libraries/web3py/deploy.py'
 ```
 
 To run the script, you can enter the following command into your terminal:
@@ -171,7 +171,7 @@ python3 deploy.py
 
 If successful, the contract's address will be displayed in the terminal.
 
-![Deploy Contract Web3py](/images/builders/interact/ethereum-api/web3py/web3py-3.png)
+![Deploy Contract Web3py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-3.png)
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
@@ -192,7 +192,7 @@ Then you can take the following steps to create the script:
 5. Using the contract instance, you can then call the `number` function
 
 ```python
---8<-- 'code/ethereum-api/web3py/get.py'
+--8<-- 'code/builders/interact/ethereum-api/libraries/web3py/get.py'
 ```
 
 To run the script, you can enter the following command in your terminal:
@@ -203,7 +203,7 @@ python3 get.py
 
 If successful, the value will be displayed in the terminal.
 
-![Read from Contract Web3py](/images/builders/interact/ethereum-api/web3py/web3py-4.png)
+![Read from Contract Web3py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-4.png)
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
@@ -224,7 +224,7 @@ Open the `increment.py` file and take the following steps to create the script:
 7. Using the signed transaction, you can then send it using the `web3.eth.send_raw_transaction` function and wait for the transaction receipt by using the `web3.eth.wait_for_transaction_receipt` function
 
 ```python
---8<-- 'code/ethereum-api/web3py/increment.py'
+--8<-- 'code/builders/interact/ethereum-api/libraries/web3py/increment.py'
 ```
 
 To run the script, you can enter the following command in your terminal:
@@ -235,7 +235,7 @@ python3 increment.py
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.py` script alongside the `increment.py` script to make sure that value is changing as expected:
 
-![Increment Contract Web3py](/images/builders/interact/ethereum-api/web3py/web3py-5.png)
+![Increment Contract Web3py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-5.png)
 
 Next you can open the `reset.py` file and take the following steps to create the script:
 
@@ -248,7 +248,7 @@ Next you can open the `reset.py` file and take the following steps to create the
 7. Using the signed transaction, you can then send it using the `web3.eth.send_raw_transaction` function and wait for the transaction receipt by using the `web3.eth.wait_for_transaction_receipt` function
 
 ```python
---8<-- 'code/ethereum-api/web3py/reset.py'
+--8<-- 'code/builders/interact/ethereum-api/libraries/web3py/reset.py'
 ```
 
 To run the script, you can enter the following command in your terminal:
@@ -259,6 +259,6 @@ python3 reset.py
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.py` script alongside the `reset.py` script to make sure that value is changing as expected:
 
-![Reset Contract Web3py](/images/builders/interact/ethereum-api/web3py/web3py-6.png)
+![Reset Contract Web3py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-6.png)
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

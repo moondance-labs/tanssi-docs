@@ -7,11 +7,11 @@ description: In this tutorial use the viem TypeScript interface for Ethereum to 
 
 ## Introduction {: #introduction }
 
-[viem](https://viem.sh/){target=_blank} is a modular TypeScript library that allows developers to interact with abstractions over the JSON-RPC API, making it easy to interact with Ethereum nodes. Since Tanssi EVM ContainerChains have an Ethereum API available that is fully compatible with Ethereum-style JSON-RPC invocations, developers can leverage this compatibility to interact with any EVM ContainerChain. For more information on viem, check out their [documentation site](https://viem.sh/docs/getting-started.html){target=_blank}.
+[viem](https://viem.sh/){target=\_blank} is a modular TypeScript library that allows developers to interact with abstractions over the JSON-RPC API, making it easy to interact with Ethereum nodes. Since Tanssi EVM ContainerChains have an Ethereum API available that is fully compatible with Ethereum-style JSON-RPC invocations, developers can leverage this compatibility to interact with any EVM ContainerChain. For more information on viem, check out their [documentation site](https://viem.sh/docs/getting-started.html){target=\_blank}.
 
 In this guide, you'll learn how to use viem to send a transaction and deploy a contract on the demo EVM ContainerChain. This guide can be adapted for use with any EVM ContainerChain.
 
---8<-- 'text/common/general-js-tutorial-check.md'
+--8<-- 'text/_common/general-js-tutorial-check.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -52,7 +52,7 @@ npx tsc --init
 
 ## Set Up a viem Client (Provider) {: #setting-up-a-viem-provider }
 
-Throughout this guide, you'll be creating a bunch of scripts that provide different functionality, such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts, you'll need to create a [viem client](https://docs.ethers.org/v6/api/providers/){target=_blank} to interact with the network.
+Throughout this guide, you'll be creating a bunch of scripts that provide different functionality, such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts, you'll need to create a [viem client](https://docs.ethers.org/v6/api/providers/){target=\_blank} to interact with the network.
 
 You can create a viem client for reading chain data, like balances or contract data, using the `createPublicClient` function, or you can create a viem client for writing chain data, like sending transactions, using the `createWalletClient` function.
 
@@ -67,7 +67,7 @@ To create a client for reading chain data, you can take the following steps:
 3. Create the `client` using the `createPublicClient` function and pass in the network and the HTTP RPC endpoint
 
 ```ts
---8<-- 'code/ethereum-api/viem/read-chain-data.ts'
+--8<-- 'code/builders/interact/ethereum-api/libraries/viem/read-chain-data.ts'
 ```
 
 ### For Writing Chain Data {: #for-writing-chain-data }
@@ -85,13 +85,13 @@ To create a client for writing chain data, you can take the following steps:
 
 
 ```ts
---8<-- 'code/ethereum-api/viem/write-chain-data.ts'
+--8<-- 'code/builders/interact/ethereum-api/libraries/viem/write-chain-data.ts'
 ```
 
 !!! note
     To interact with browser-based wallets, you can use the following code to create an account. In this snippet, `demo` refers to the demo EVM ContainerChain created with `defineChain`.
     ```ts
-    --8<-- 'code/ethereum-api/viem/browser-based-wallets.ts'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/browser-based-wallets.ts'
     ```
 
 ## Send a Transaction {: #send-transaction }
@@ -119,7 +119,7 @@ Next, you will create the script for this file and complete the following steps:
 ???+ code "View balances.ts"
 
     ```ts
-    --8<-- 'code/ethereum-api/viem/balances.ts'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/balances.ts'
     ```
 
 To run the script and fetch the account balances, you can run the following command:
@@ -130,7 +130,7 @@ npx ts-node balances.ts
 
 If successful, the balances for the origin and receiving address will be displayed in your terminal in UNIT.
 
-![The result of running the balances script in the terminal](/images/builders/interact/ethereum-api/viem/viem-1.png)
+![The result of running the balances script in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-1.png)
 
 ### Send Transaction Script {: #send-transaction-script }
 
@@ -155,7 +155,7 @@ Next, you will create the script for this file and complete the following steps:
 ???+ code "View transaction.ts"
 
     ```ts
-    --8<-- 'code/ethereum-api/viem/transaction.ts'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/transaction.ts'
     ```
 
 To run the script, you can run the following command in your terminal:
@@ -166,18 +166,18 @@ npx ts-node transaction.ts
 
 If the transaction was successful, in your terminal, you'll see the transaction hash has been printed out. You can also use the `balances.ts` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
-![The result of running the transaction and balances scripts in the terminal](/images/builders/interact/ethereum-api/viem/viem-2.png)
+![The result of running the transaction and balances scripts in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-2.png)
 
 ## Deploy a Contract {: #deploy-contract }
 
---8<-- 'text/libraries/contract.md'
+--8<-- 'text/builders/interact/ethereum-api/libraries/contract.md'
 
 ### Compile Contract Script {: #compile-contract-script }
 
---8<-- 'text/libraries/compile-ts.md'
+--8<-- 'text/builders/interact/ethereum-api/libraries/compile-ts.md'
 
 ```js
---8<-- 'code/ethereum-api/viem/compile.ts'
+--8<-- 'code/builders/interact/ethereum-api/libraries/viem/compile.ts'
 ```
 
 ### Deploy Contract Script {: #deploy-contract-script }
@@ -203,7 +203,7 @@ Next, you will create the script for this file and complete the following steps:
 ???+ code "View deploy.ts"
 
     ```ts
-    --8<-- 'code/ethereum-api/viem/deploy.ts'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/deploy.ts'
     ```
 
 
@@ -215,7 +215,7 @@ npx ts-node deploy.ts
 
 If successful, the contract's address will be displayed in the terminal.
 
-![The result of running the deploy script in the terminal](/images/builders/interact/ethereum-api/viem/viem-3.png)
+![The result of running the deploy script in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-3.png)
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
@@ -240,7 +240,7 @@ Then you can take the following steps to create the script:
 ???+ code "View get.ts"
 
     ```ts
-    --8<-- 'code/ethereum-api/viem/get.ts'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/get.ts'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -251,7 +251,7 @@ npx ts-node get.ts
 
 If successful, the value will be displayed in the terminal.
 
-![The result of running the get script in the terminal](/images/builders/interact/ethereum-api/viem/viem-4.png)
+![The result of running the get script in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-4.png)
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
@@ -276,7 +276,7 @@ Open the `increment.ts` file and take the following steps to create the script:
 ???+ code "View increment.ts"
 
     ```ts
-    --8<-- 'code/ethereum-api/viem/increment.ts'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/increment.ts'
     ```
 
 
@@ -288,7 +288,7 @@ npx ts-node increment.ts
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.ts` script alongside the `increment.ts` script to make sure that value is changing as expected.
 
-![The result of running the increment and get scripts in the terminal](/images/builders/interact/ethereum-api/viem/viem-5.png)
+![The result of running the increment and get scripts in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-5.png)
 
 Next, you can open the `reset.ts` file and take the following steps to create the script:
 
@@ -305,7 +305,7 @@ Next, you can open the `reset.ts` file and take the following steps to create th
 ???+ code "View reset.ts"
 
     ```ts
-    --8<-- 'code/ethereum-api/viem/reset.ts'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/reset.ts'
     ```
 
 
@@ -317,6 +317,6 @@ npx ts-node reset.ts
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.ts` script alongside the `reset.ts` script to make sure that value is changing as expected.
 
-![The result of running the reset and get scripts in the terminal](/images/builders/interact/ethereum-api/viem/viem-6.png)
+![The result of running the reset and get scripts in the terminal](/images/builders/interact/ethereum-api/libraries/viem/viem-6.png)
 
 --8<-- 'text/_disclaimers/third-party-content.md'

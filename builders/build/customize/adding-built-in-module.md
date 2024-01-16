@@ -9,9 +9,9 @@ description: Substrate is a modular blockchain framework that includes many read
 
 Substrate is a powerful and modular software development framework included in the Polkadot SDKs for building blockchains. It provides a comprehensive set of tools and libraries that abstract complex blockchain functionalities, allowing developers to focus on building innovative features and applications by focusing on the runtime, which contains the core logic and the rules of the state transition for the use case.
 
-What sets Substrate apart is its modular architecture, which enables the seamless integration of [built-in modules](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame){target=_blank} and the creation of custom ones, facilitating the development of blockchain protocols.
+What sets Substrate apart is its modular architecture, which enables the seamless integration of [built-in modules](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame){target=\_blank} and the creation of custom ones, facilitating the development of blockchain protocols.
 
-For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate Appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live ContainerChain.
+For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=\_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate Appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live ContainerChain.
 
 This article focuses on the necessary steps for adding a built-in module to the EVM template.
 
@@ -20,9 +20,9 @@ This article focuses on the necessary steps for adding a built-in module to the 
 To follow the steps in this guide, you will need to have the following:
 
 - A healthy development environment with the Rust compiler and Cargo package manager
-- The [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, cloned from GitHub
+- The [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}, cloned from GitHub
 
-You can read more about how to install the required components in the [prerequisites article](/builders/build/customize/prerequisites){target=_blank}.
+You can read more about how to install the required components in the [prerequisites article](/builders/build/customize/prerequisites){target=\_blank}.
 
 As this article is based on the EVM template, make sure that it compiles correctly before continuing by executing the following command:
 
@@ -38,13 +38,13 @@ Modules are meant to provide the functionality needed in very different use case
 
 To add a module, the following steps are necessary:
 
-1. Make the dependency available within the project by declaring it in [Cargo](https://doc.rust-lang.org/cargo/){target=_blank}, the Rust language package manager
+1. Make the dependency available within the project by declaring it in [Cargo](https://doc.rust-lang.org/cargo/){target=\_blank}, the Rust language package manager
 2. Make the standard (`std`) features of the module available to the compiler
 3. Configure the module
 4. Add the module to the runtime
 5. Add the default configuration to the chain specification
 
-In the following example, the popular Substrate module `pallet-assets` is added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=_blank}, specifically in the folder `container-chains/templates/frontier/`.
+In the following example, the popular Substrate module `pallet-assets` is added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}, specifically in the folder `container-chains/templates/frontier/`.
 
 ### Declare the Dependency {: #declare-dependency }
 
@@ -98,7 +98,7 @@ The configuration of new modules requires implementing a configuration `trait` f
 impl pallet_assets::Config for Runtime { ... }
 ```
 
-[Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides only by implementing its configuration trait and parameters.
+[Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=\_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides only by implementing its configuration trait and parameters.
 
 Some of the parameters the trait needs to define might be constant values, in which case, they have to be defined and enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the constants into the correct struct type with functions that allow the runtime to read its type and values in a standardized way.
 
@@ -153,10 +153,10 @@ impl pallet_assets::Config for Runtime {
 ??? code "View the complete script"
 
     ```rust
-    --8<-- 'code/basic-substrate/built-in-pallet-configuration.rs'
+    --8<-- 'code/builders/build/customize/built-in-module/built-in-pallet-configuration.rs'
     ```
 
-The complete configuration of the module contains more parameters, to view a detailed description of each of them, refer to the [official config trait for the Assets module documentation](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=_blank}.
+The complete configuration of the module contains more parameters, to view a detailed description of each of them, refer to the [official config trait for the Assets module documentation](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=\_blank}.
 
 ### Add the Module to the Runtime {: #add-module-to-runtime }
 
@@ -194,7 +194,7 @@ container-chains/templates/frontier/node/src/chain_spec.rs
 
 The function `testnet_genesis`, presented in the following code snippet, defines the initial state for the modules included in the runtime (such as initial funded accounts, for example). After adding the Assets module, it is necessary to initialize it as well, and in the following example, its default values are defined.
 
-More about the chain specification and how to configure it will be covered in the article [Customizing Chain Specifications](/builders/build/customize/customizing-chain-specs/){target=_blank}.
+More about the chain specification and how to configure it will be covered in the article [Customizing Chain Specifications](/builders/build/customize/customizing-chain-specs/){target=\_blank}.
 
 ```rust hl_lines="14"
 fn testnet_genesis(

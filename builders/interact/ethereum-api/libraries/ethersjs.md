@@ -9,14 +9,13 @@ description: Learn how to use the Ethereum EtherJS Library to send transactions 
 
 ## Introduction {: #introduction }
 
-The [Ethers.js](https://docs.ethers.org/){target=_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=_blank}. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6/){target=_blank}.
+The [Ethers.js](https://docs.ethers.org/){target=\_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=\_blank}. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6/){target=\_blank}.
 
-In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint. 
+In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint. 
 
 If you prefer video tutorials, you can follow along with the corresponding videos at the top of this page for [Sending Transactions with Ethers.js](#send-a-transaction) and [Deploying Contracts with Ethers.js](#deploy-a-contract).
 
-
---8<-- 'text/common/general-js-tutorial-check.md'
+--8<-- 'text/_common/general-js-tutorial-check.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -42,7 +41,7 @@ For this guide, you'll need to install the Ethers.js library and the Solidity co
 
 ## Setting up the Ethers Provider {: #setting-up-the-ethers-provider }
 
-Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Ethers provider](https://docs.ethers.org/v6/api/providers/){target=_blank} to interact with the network.
+Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Ethers provider](https://docs.ethers.org/v6/api/providers/){target=\_blank} to interact with the network.
 
 To create a provider, you can take the following steps:
 
@@ -122,7 +121,7 @@ balances();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/balances.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/balances.js'
     ```
 
 To run the script and fetch the account balances, you can run the following command:
@@ -189,7 +188,7 @@ send();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/transaction.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/transaction.js'
     ```
 
 To run the script, you can run the following command in your terminal:
@@ -206,11 +205,11 @@ You can also use the `balances.js` script to check that the balances for the ori
 
 ## Deploy a Contract {: #deploy-a-contract }
 
---8<-- 'text/libraries/contract.md'
+--8<-- 'text/builders/interact/ethereum-api/libraries/contract.md'
 
 ### Compile Contract Script {: #compile-contract-script }
 
---8<-- 'text/libraries/compile.md'
+--8<-- 'text/builders/interact/ethereum-api/libraries/compile.md'
 
 ### Deploy Contract Script {: #deploy-contract-script }
 
@@ -272,7 +271,7 @@ deploy();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/deploy.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/deploy.js'
     ```
 
 To run the script, you can enter the following command into your terminal:
@@ -339,7 +338,7 @@ get();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/get.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/get.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -415,7 +414,7 @@ increment();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/increment.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/increment.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -480,7 +479,7 @@ reset();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/reset.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/reset.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -493,4 +492,4 @@ If successful, the transaction hash will be displayed in the terminal. You can u
 
 --8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/reset.md'
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

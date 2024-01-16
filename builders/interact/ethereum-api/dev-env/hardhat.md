@@ -10,13 +10,13 @@ description: Learn how to use Hardhat, an Ethereum development environment, to c
 
 ## Introduction {: #introduction }
 
-[Hardhat](https://hardhat.org/){target=_blank} is an Ethereum development environment that helps developers manage and automate the recurring tasks inherent to building smart contracts and DApps. Hardhat can be used with any EVM ContainerChain to build, compile, and deploy smart contracts, thanks to the seamless compatibility of Tanssi EVM ContainerChains.
+[Hardhat](https://hardhat.org/){target=\_blank} is an Ethereum development environment that helps developers manage and automate the recurring tasks inherent to building smart contracts and DApps. Hardhat can be used with any EVM ContainerChain to build, compile, and deploy smart contracts, thanks to the seamless compatibility of Tanssi EVM ContainerChains.
 
 This guide will cover how to use Hardhat to compile, deploy, and interact with Ethereum smart contracts deployed to the demo Tanssi EVM ContainerChain. This guide can be adapted for your own Tanssi EVM ContainerChain by simply adding the RPC URL of your ContainerChain to your EVM Wallet and switching networks to it.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-For this guide, you'll need to have MetaMask installed and configured to work with your EVM ContainerChain. You can follow [this guide to configure MetaMask for Tanssi with the Demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=_blank}.
+For this guide, you'll need to have MetaMask installed and configured to work with your EVM ContainerChain. You can follow [this guide to configure MetaMask for Tanssi with the Demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ## Creating a Hardhat Project {: #creating-a-hardhat-project }
 
@@ -55,7 +55,7 @@ You will need to create a Hardhat project if you don't already have one. You can
 
 This will create a Hardhat config file (`hardhat.config.js`) in your project directory.
 
-Once you have your Hardhat project, you can also install the [Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=_blank}. This provides a convenient way to use the [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs/){target=_blank} library to interact with the network. To install it, run the following command:
+Once you have your Hardhat project, you can also install the [Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank}. This provides a convenient way to use the [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. To install it, run the following command:
 
 ```sh
 npm install @nomicfoundation/hardhat-ethers ethers@6
@@ -163,7 +163,7 @@ To get started, take the following steps:
 5. Once deployed, you can fetch the address of the contract using the contract instance
 
 ```ts
---8<-- 'code/ethereum-api/hardhat/deploy.js'
+--8<-- 'code/builders/interact/ethereum-api/dev-env/hardhat/deploy.js'
 ```
 
 You can now deploy the `Box.sol` contract using the `run` command and specifying `dancebox` as the network:
@@ -225,4 +225,4 @@ You should see `5` or the value you initially stored.
 
 Congratulations, you have successfully deployed and interacted with a contract using Hardhat!
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'
