@@ -58,7 +58,7 @@ To resolve this issue, it will be necessary to apply a patch so that the referen
 
 The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle.git){target=_blank} is used. 
 
-This `toggle` module, built for testing and educational purposes, adds a basic logic to the runtime, allowing users to switch a state between true and false.
+This `toggle` module, built for testing and educational purposes, adds basic logic to the runtime, allowing users to switch a state between true and false.
 
 ```toml
 [dependencies]
@@ -72,7 +72,7 @@ pallet-toggle = {
 
 ### Make the Standard Features Available to the Compiler {: #add-standard-features }
 
-Having declared the module in the workspace `Cargo.toml` file, the dependency can now be added to the specific template `Cargo.toml` file, which for this example that uses the Tanssi GitHub repo, is located in the folder `container-chains/templates/simple/runtime`.
+Having declared the module in the workspace `Cargo.toml` file, the dependency can now be added to the specific template `Cargo.toml` file, which, for this example that uses the Tanssi GitHub repo, is located in the folder `container-chains/templates/simple/runtime`.
 
 ```toml
 [dependencies]
@@ -107,7 +107,7 @@ try-runtime = [
 
 ### Configure and Add the Module to the Runtime {: #configure-module-in-the-runtime }
 
-Next, add the following snippet in the `lib.rs` file inside the runtime folder. This configures the module and add the module within the `construct_runtime!`macro.
+Next, add the following snippet to the `lib.rs` file inside the runtime folder. This configures the module and adds the module within the `construct_runtime!` macro.
 
 ```rust
 ...
@@ -142,7 +142,7 @@ The terminal output will display an error, similar to the following, caused by d
 error: failed to select a version for `syn`.
 ```
 
-### Patch depedencies {: #patch-dependencies }
+### Patch Dependencies {: #patch-dependencies }
 
 Finally, executing the `diener` [command](#solving-dependencies-conflicts-diener) will add a `patch` section to your workspace `Cargo.toml` file, overriding the dependencies and unifying origins and versions.
 
