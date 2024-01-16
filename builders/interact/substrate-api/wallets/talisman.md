@@ -123,4 +123,4 @@ To send a transaction through the Substrate API, click **Send** next to your acc
 
 This guide focused specifically on configuring Talisman to work with your Substrate ContainerChain, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your EVM ContainerChain](/builders/interact/ethereum-api/wallets/talisman){target=_blank}. 
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

@@ -71,4 +71,4 @@ To transfer the native token of your ContainerChain, take the following steps:
 
 This guide focused specifically on configuring SubWallet to work with your EVM ContainerChain, but SubWallet is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a [similar guide for configuring SubWallet for use with your Substrate ContainerChain](/builders/interact/substrate-api/wallets/subwallet){target=_blank}.
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

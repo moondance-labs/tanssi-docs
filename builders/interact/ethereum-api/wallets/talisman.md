@@ -96,4 +96,4 @@ To transfer the native token of your ContainerChain, take the following steps:
 
 This guide focused specifically on configuring Talisman to work with your EVM ContainerChain, but Talisman is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Talisman to work with Substrate-based chains.
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

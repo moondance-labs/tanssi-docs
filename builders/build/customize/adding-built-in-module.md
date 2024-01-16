@@ -153,7 +153,7 @@ impl pallet_assets::Config for Runtime {
 ??? code "View the complete script"
 
     ```rust
-    --8<-- 'code/basic-substrate/built-in-pallet-configuration.rs'
+    --8<-- 'code/builders/build/customize/built-in-module/built-in-pallet-configuration.rs'
     ```
 
 The complete configuration of the module contains more parameters, to view a detailed description of each of them, refer to the [official config trait for the Assets module documentation](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=_blank}.

@@ -87,7 +87,7 @@ touch MyToken.sol
 Open the file and add the following contract to it:
 
 ```solidity
---8<-- 'code/ethereum-api/foundry/erc20.sol'
+--8<-- 'code/builders/interact/ethereum-api/dev-env/foundry/erc20.sol'
 ```
 
 Before you attempt to compile, install OpenZeppelin contracts as a dependency. You may have to commit previous changes to git beforehand. By default, Foundry uses git submodules instead of npm packages, so the traditional npm import path and command are not used. Instead, use the name of OpenZeppelin's GitHub repository:
@@ -376,4 +376,4 @@ Finally, while not necessary, it could be worthwhile to move all JavaScript scri
 
 Congratulations, you have successfully deployed and interacted with smart contracts on your EVM ContainerChain using Foundry! For more information, be sure to check out the [Foundry Book](https://book.getfoundry.sh/){target=_blank}.
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

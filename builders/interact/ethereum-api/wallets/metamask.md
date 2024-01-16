@@ -101,4 +101,4 @@ Once you've [connected Metamask](#connect-metamask-to-evm-containerchain) to you
 - Adding ERC-20s to Metamask and interacting with them
 - Adding ERC-721s to Metamask and interacting with them
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

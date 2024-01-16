@@ -23,7 +23,7 @@ In this article, the following steps, necessary to build and add the example mod
 3. Adding custom logic
 4. Configure the runtime with the new module
 
---8<-- 'text/common/not-for-production-code-guard.md'
+--8<-- 'text/_common/not-for-production-code-guard.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -81,14 +81,14 @@ The full example of the `Cargo.toml` file sets, besides the attributes, the depe
 ??? code "View the complete Cargo.toml file"
 
     ```rust
-    --8<-- 'code/basic-substrate/lottery-example-cargo.toml'
+    --8<-- 'code/builders/build/customize/custom-made-module/lottery-example-cargo.toml'
     ```
 
 ## Adding Custom Logic {: #adding-custom-logic}
 
 As presented in the [custom-made module](/learn/framework/modules/#custom-modules){target=_blank} section of the modularity article, creating a module involves implementing the following attribute macros, of which the first three are mandatory:
 
---8<-- 'text/substrate/pallets-macros-descriptions.md'
+--8<-- 'text/builders/build/customize/custom-made-module/pallets-macros-descriptions.md'
 
 ### Implementing the Module Basic Structure {: #implementing-basic-structure }
 
@@ -225,7 +225,7 @@ Here is the complete implementation of the calls with the custom lottery logic:
 ??? code "View the complete calls code"
 
     ```rust
-    --8<-- 'code/basic-substrate/lottery-example-calls.rs'
+    --8<-- 'code/builders/build/customize/custom-made-module/lottery-example-calls.rs'
     ```
 
 ### Implementing Custom Errors {: #implementing-custom-errors}
@@ -278,6 +278,7 @@ pub(super) type Participants<T: Config> = StorageValue<
     OptionQuery
 >;
 ```
+
 ### The Complete Module {: #complete-module }
 
 To put all the pieces together, after implementing all the required macros and adding the custom logic, the module is now complete and ready to be used in the runtime.
@@ -285,7 +286,7 @@ To put all the pieces together, after implementing all the required macros and a
 ??? code "View the complete module file"
 
     ```rust
-    --8<-- 'code/modules/lottery-example.rs'
+    --8<-- 'code/builders/build/customize/custom-made-module/lottery-example.rs'
     ```
 
 ## Configure the Runtime {: #configure-runtime }
@@ -338,4 +339,4 @@ construct_runtime!(
 
 With everything set, the Appchain now has support for a basic implementation of a lottery.
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'
