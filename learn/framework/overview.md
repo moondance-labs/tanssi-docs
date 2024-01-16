@@ -21,7 +21,7 @@ Building an Appchain from scratch is a very complex task that requires deep know
 
 - **Upgradeability** - it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
-Fortunately, there is no need to write implementations of these blockchain components, for there is an awesome open-source framework called [Substrate](https://substrate.io/){target=_blank}, which is the same one Tanssi is built on, leveraging all the base implementations it includes and its modularity and flexibility to reach a high degree of customization.
+Fortunately, there is no need to write implementations of these blockchain components, for there is an awesome open-source framework called [Substrate](https://substrate.io/){target=\_blank}, which is the same one Tanssi is built on, leveraging all the base implementations it includes and its modularity and flexibility to reach a high degree of customization.
 
 ## Substrate Framework {: #substrate-framework}
 
@@ -31,7 +31,7 @@ Many of its great features, such as performance, ease of use, and modularity, ar
 
 When developing an Appchain, Substrate represents a great head start by providing a ready-to-use set of implementations of the main building blocks a project needs:
 
-- **Consensus Algorithms** - there are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality), but due to the high degree of customization Substrate offers, teams can always choose to develop their specific consensus to adapt to the use case needs, as the Moonbeam team did with the [Nimbus Parachain Consensus Framework](https://docs.moonbeam.network/learn/features/consensus/){target=_blank}
+- **Consensus Algorithms** - there are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality), but due to the high degree of customization Substrate offers, teams can always choose to develop their specific consensus to adapt to the use case needs, as the Moonbeam team did with the [Nimbus Parachain Consensus Framework](https://docs.moonbeam.network/learn/features/consensus/){target=\_blank}
 
 - **Runtime Modules** - many built-in modules (explained in detail in the [modules](/learn/framework/modules) section) can be selected and configured into your Appchain, such as accounts, balances, staking, governance, identity, and more
 
@@ -49,7 +49,7 @@ Substrate streamlines and speeds up the process of developing new Appchains. Whe
 
 ## Rust Programming Language {: #rust-programming-language}
 
-[Rust](https://www.rust-lang.org){target=_blank} is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages){target=blank}.
+[Rust](https://www.rust-lang.org){target=\_blank} is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages){target=blank}.
 
 In addition to providing a great experience for developers, Rust excels in many areas:
 

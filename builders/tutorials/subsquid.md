@@ -7,22 +7,22 @@ description: Learn how to use Subsquid, a query node framework that can index bo
 
 ## Introduction {: #introduction }
 
-[Subsquid](https://subsquid.io){target=_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In very simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org/){target=_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
+[Subsquid](https://subsquid.io){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In very simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org/){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
 
 Subsquid has native and full support for both EVM and Substrate data. Subsquid offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi ContainerChain and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
 
-This tutorial is a step-by-step guide to building a Squid to index EVM data from start to finish. It's recommended that you follow along, taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial in the tanssiSquid GitHub repository](https://github.com/themacexpert/tanssiSquid){target=_blank}.
+This tutorial is a step-by-step guide to building a Squid to index EVM data from start to finish. It's recommended that you follow along, taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial in the tanssiSquid GitHub repository](https://github.com/themacexpert/tanssiSquid){target=\_blank}.
 
 ## Check Prerequisites {: #check-prerequisites }
 
 To follow along with this tutorial, you'll need to have:
 
-- [Docker installed](https://docs.docker.com/get-docker/){target=_blank}
-- [Docker Compose installed](https://docs.docker.com/compose/install/){target=_blank}
-- An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank} section of our Hardhat documentation page
+- [Docker installed](https://docs.docker.com/get-docker/){target=\_blank}
+- [Docker Compose installed](https://docs.docker.com/compose/install/){target=\_blank}
+- An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page
 - An [ERC-20 token deployed](#deploy-an-erc20-with-hardhat) to your ContainerChain, unless you're using the ERC-20 token provided on the demo EVM ContainerChain
 
---8<-- 'text/common/general-js-tutorial-check.md'
+--8<-- 'text/_common/general-js-tutorial-check.md'
 
 ## Deploy an ERC-20 with Hardhat {: #deploy-an-erc20-with-hardhat }
 
@@ -33,17 +33,9 @@ Before we can index anything with Subsquid we need to make sure we have somethin
 
 If you'd like to use an existing ERC-20 token on the demo EVM ContainerChain, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
 
-|       Variable        |                                                                                                                    Value                                                                                                                    |
-| :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|   Contract Address    |                   [0x8303ee17cacdde416077677bac40d6cac2c452e6](https://tanssi-evmexplorer.netlify.app/address/0x8303ee17cacdde416077677bac40d6cac2c452e6/669145?network=Dancebox%20EVM%20ContainerChain){target=_blank}                    |
-| Transfer to Baltathar | [0x6a60a35fb594777b355da1f3922a9fcd86d11b11aa32ed6d8f361a3ed22ed373](https://tanssi-evmexplorer.netlify.app/tx/0x6a60a35fb594777b355da1f3922a9fcd86d11b11aa32ed6d8f361a3ed22ed373?network=Dancebox%20EVM%20ContainerChain){target=_blank}  |
-| Transfer to Charleth  | [0x51d95ffa57899a03016b6748c7a25a7e205a7cdc916123bcd09cd47432ceb623](https://tanssi-evmexplorer.netlify.app/tx/0x51d95ffa57899a03016b6748c7a25a7e205a7cdc916123bcd09cd47432ceb623?network=Dancebox%20EVM%20ContainerChain){target=_blank}  |
-|  Transfer to Dorothy  | [ 0x0569c28797b3b5dae555d01a0354444050cad282db34550205ba6ba37592cab1](https://tanssi-evmexplorer.netlify.app/tx/0x0569c28797b3b5dae555d01a0354444050cad282db34550205ba6ba37592cab1?network=Dancebox%20EVM%20ContainerChain){target=_blank} |
-|   Transfer to Ethan   | [ 0x1d01484f7306c9e2e5feb225e78096ee26081a1071709519902d46b5568314d2](https://tanssi-evmexplorer.netlify.app/tx/0x1d01484f7306c9e2e5feb225e78096ee26081a1071709519902d46b5568314d2?network=Dancebox%20EVM%20ContainerChain){target=_blank} |
+In this section, we'll show you how to deploy an ERC-20 to your EVM Container Chain and we'll write a quick script to fire off a series of transfers that will be picked up by our Subsquid indexer. Ensure that you have initialized an empty Hardhat project via the instructions in the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page.
 
-In this section we'll show you how to deploy an ERC-20 to your EVM Container Chain and we'll write a quick script to fire off a series of transfers that will be picked up by our Subsquid indexer. Ensure that you have initialized an empty Hardhat project via the instructions in the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=_blank} section of our Hardhat documentation page.
-
-Before we dive into creating our project, let's install a couple of dependencies that we'll need: the [Hardhat Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=_blank} and [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x/){target=_blank}. The Hardhat Ethers plugin provides a convenient way to use the [Ethers](/builders/build/eth-api/libraries/ethersjs){target=_blank} library to interact with the network. We'll use OpenZeppelin's base ERC-20 implementation to create an ERC-20. To install both of these dependencies, you can run:
+Before we dive into creating our project, let's install a couple of dependencies that we'll need: the [Hardhat Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank} and [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x/){target=\_blank}. The Hardhat Ethers plugin provides a convenient way to use the [Ethers](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. We'll use OpenZeppelin's base ERC-20 implementation to create an ERC-20. To install both of these dependencies, you can run:
 
 === "npm"
 
@@ -57,12 +49,12 @@ Before we dive into creating our project, let's install a couple of dependencies
     yarn add @nomicfoundation/hardhat-ethers ethers @openzeppelin/contracts
     ```
 
-Now we can edit `hardhat.config.js` to include the following network and account configurations for our ContainerChain. You can replace the demo EVM ContainerChain values with the respective parameters for your own EVM ContainerChain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=_blank}.
+Now we can edit `hardhat.config.js` to include the following network and account configurations for our ContainerChain. You can replace the demo EVM ContainerChain values with the respective parameters for your own EVM ContainerChain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
 
 ???+ code "hardhat.config.js"
 
     ```js
-    --8<-- 'code/tutorials/subsquid/hardhat-config.js'
+    --8<-- 'code/builders/tutorials/subsquid/hardhat-config.js'
     ```
 
 !!! remember
@@ -81,7 +73,7 @@ Now we can edit the `MyTok.sol` file to include the following contract, which wi
 ???+ code "MyTok.sol"
 
     ```solidity
-    --8<-- 'code/tutorials/subsquid/MyTok.sol'
+    --8<-- 'code/builders/tutorials/subsquid/MyTok.sol'
     ```
 
 ### Deploy an ERC-20 Contract {: #deploy-erc-20-contract }
@@ -113,7 +105,7 @@ Let's take the following steps to deploy our contract:
     ???+ code "deploy.js"
 
         ```ts
-        --8<-- 'code/tutorials/subsquid/deploy.js'
+        --8<-- 'code/builders/tutorials/subsquid/deploy.js'
         ```
 
 3. Run the script using the `dev` network configurations we set up in the `hardhat.config.js` file:
@@ -139,7 +131,7 @@ In the `transactions.js` file, add the following script and insert the contract 
 ???+ code "transactions.js"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/transactions.js'
+    --8<-- 'code/builders/tutorials/subsquid/transactions.js'
     ```
 
 Run the script to send the transactions:
@@ -156,7 +148,7 @@ Now we can move on to creating our Squid to index the data on our local developm
 
 ## Create a Subsquid Project {: #create-a-subsquid-project }
 
-Now we're going to create our Subquid project. First, we'll need to install the [Subsquid CLI](https://docs.subsquid.io/squid-cli/){target=_blank}:
+Now we're going to create our Subquid project. First, we'll need to install the [Subsquid CLI](https://docs.subsquid.io/squid-cli/){target=\_blank}:
 
 ```bash
 npm i -g @subsquid/cli@latest
@@ -199,7 +191,7 @@ As mentioned, we'll first need to define the database schema for the transfer da
 ???+ code "schema.graphql"
 
     ```graphql
-    --8<-- 'code/tutorials/subsquid/schema.graphql'
+    --8<-- 'code/builders/tutorials/subsquid/schema.graphql'
     ```
 
 Now we can generate the entity classes from the schema, which we'll use when we process the transfer data. This will create new classes for each entity in the `src/model/generated` directory.
@@ -213,7 +205,7 @@ In the next step, we'll use the ERC-20 ABI to automatically generate TypeScript 
 ??? code "ERC-20 ABI"
 
     ```json
-    --8<-- 'code/tutorials/subsquid/erc20.json'
+    --8<-- 'code/builders/tutorials/subsquid/erc20.json'
     ```
 
 Next, we can use our contract's ABI to generate TypeScript interface classes. We can do this by running:
@@ -236,7 +228,7 @@ Open up the `src` folder and head to the `processor.ts` file. First, we need to 
 export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
 ```
 
-The `.toLowerCase()` is critical because the Subsquid processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. Subsquid has [available archives for many chains](https://docs.subsquid.io/evm-indexing/supported-networks/){target=_blank} that can speed up the data retrieval process, but it's unlikely your ContainerChain has a hosted archive already. But not to worry, Subsquid can easily get the data it needs via your ContainerChain's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
+The `.toLowerCase()` is critical because the Subsquid processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. Subsquid has [available archives for many chains](https://docs.subsquid.io/evm-indexing/supported-networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your ContainerChain has a hosted archive already. But not to worry, Subsquid can easily get the data it needs via your ContainerChain's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
 
 ```ts
 .setDataSource({
@@ -301,23 +293,19 @@ Once you've completed the prior steps, your `processor.ts` file should look simi
 ???+ code "processor.ts"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/processor.ts'
+    --8<-- 'code/builders/tutorials/subsquid/processor.ts'
     ```
 
 ### Transform and Save the Data {: #transform-and-save-the-data}
 
-While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the Subsquid processor and inserting the desired pieces into a TypeORM database. For more detailed information on how Subsquid works, be sure to check out the [Subsquid docs on Developing a Squid](https://docs.subsquid.io/basics/squid-development/){target=_blank}.
+While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the Subsquid processor and inserting the desired pieces into a TypeORM database. For more detailed information on how Subsquid works, be sure to check out the [Subsquid docs on Developing a Squid](https://docs.subsquid.io/basics/squid-development/){target=\_blank}.
 
 Our `main.ts` file is going to scan through each processed block for the `Transfer` event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a TypeORM database, enabling them to be easily queried. Let's break down the code that comprises `main.ts` in order:
 
 1. The job of `main.ts` is to run the processor and refine the collected data. In `processor.run`, the processor will iterate through all selected blocks and look for `Transfer` event logs. Whenever it finds a `Transfer` event, it's going to store it in an array of transfer events where it awaits further processing
-
 2. The `transferEvent` interface is the type of structure that stores the data extracted from the event logs
-
 3. `getTransfer` is a helper function that extracts and decodes ERC-20 `Transfer` event data from a log entry. It constructs and returns a `TransferEvent` object, which includes details such as the transaction ID, block number, sender and receiver addresses, and the amount transferred. `getTransfer` is called at the time of storing the relevant transfer events into the array of transfers
-
 4. `processTransfers` enriches the transfer data and then inserts these records into a TypeORM database using the `ctx.store` methods. The account model, while not strictly necessary, allows us to introduce another entity in the schema to demonstrate working with multiple entities in your Squid
-
 5. `getAccount` is a helper function that manages the retrieval and creation of account objects. Given an account ID and a map of existing accounts, it returns the corresponding account object. If the account doesn't exist in the map, it creates a new one, adds it to the map, and then returns it
 
 We'll demo a sample query in a later section. You can copy and paste the below code into your `main.ts` file:
@@ -325,7 +313,7 @@ We'll demo a sample query in a later section. You can copy and paste the below c
 ???+ code "main.ts"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/main.ts'
+    --8<-- 'code/builders/tutorials/subsquid/main.ts'
     ```
 
 Now we've taken all of the steps necessary and are ready to run our indexer!
@@ -333,7 +321,6 @@ Now we've taken all of the steps necessary and are ready to run our indexer!
 ### Run the Indexer {: #run-the-indexer }
 
 To run our indexer, we're going to run a series of `sqd` commands:
-
 
 Build our project:
 
@@ -356,6 +343,7 @@ Remove the database migration file that comes with the EVM template and generate
    ```bash
    sqd migration:apply
    ```
+
 Launch the processor:
 
    ```bash
@@ -374,12 +362,12 @@ To query your squid, open up a new terminal window within your project and run t
 sqd serve
 ```
 
-And that's it! You can now run queries against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=_blank}. Try crafting your own GraphQL query, or use the below one:
+And that's it! You can now run queries against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=\_blank}. Try crafting your own GraphQL query, or use the below one:
 
 ???+ code "Example query"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/sample-query.graphql'
+    --8<-- 'code/builders/tutorials/subsquid/sample-query.graphql'
     ```
 
 ![Running queries in GraphQL playground](/images/builders/tutorials/subsquid/subsquid-5.png)
@@ -398,10 +386,10 @@ You can also add logging statements directly to your `main.ts` file to indicate 
 ??? code "main.ts"
 
     ```ts
-    --8<-- 'code/tutorials/subsquid/main-with-logging.ts'
+    --8<-- 'code/builders/tutorials/subsquid/main-with-logging.ts'
     ```
 
-See the [Subsquid guide to logging](https://docs.subsquid.io/basics/logging/){target=_blank} for more information on debug mode.
+See the [Subsquid guide to logging](https://docs.subsquid.io/basics/logging/){target=\_blank} for more information on debug mode.
 
 ### Common Errors {: #common-errors }
 
@@ -427,8 +415,8 @@ To resolve this, run `sqd up` before you run `sqd migration:generate`
 
 Is your Squid error-free, yet you aren't seeing any transfers detected? Make sure your log events are consistent and identical to the ones your processor is looking for. Your contract address also needs to be lowercase, which you can be assured of by defining it as follows:
 
-```text
+```ts
 export const contractAddress = '0x37822de108AFFdd5cDCFDaAa2E32756Da284DB85'.toLowerCase();
 ```
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

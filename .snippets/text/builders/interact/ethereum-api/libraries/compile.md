@@ -13,5 +13,5 @@ Next, you will create the script for this file and complete the following steps:
 5. Extract the compiled contract file and export it to be used in the deployment script
 
 ```js
---8<-- 'code/ethereum-api/compile.js'
+--8<-- 'code/builders/interact/ethereum-api/compile.js'
 ```
