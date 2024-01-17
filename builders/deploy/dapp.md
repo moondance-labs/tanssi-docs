@@ -37,7 +37,7 @@ Deploying an Appchain via the Tanssi dApp is accomplished as a single, streamlin
 
 ![A diagram mapping out the steps for deploying an Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-1.png)
 
-For [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank}, the Tanssi team will manually complete verification, and once verified, the launch process will begin. For Tanssi, the process will be fully decentralized and permissionless.
+For Snap AppChains and Dedicated AppChains on the [Tanssi Dancebox Testnet](/builders/tanssi-network/networks/dancebox){target=\_blank}, the Tanssi team will manually complete verification, and once verified, the launch process will begin. After verification, it typically takes about two hours for your AppChain to be ready to use. For Tanssi, the process will be fully decentralized and permissionless.
 
 ## Prerequisites {: #prerequisites }
 
@@ -48,6 +48,8 @@ Since Tanssi is built with Substrate, you'll need to use a Substrate-supported w
 - [Polkadot.js extension](https://polkadot.js.org/extension/){target=\_blank}
 - [SubWallet](https://www.subwallet.app/){target=\_blank}
 - [Talisman](https://www.talisman.xyz/){target=\_blank}
+- [MetaMask Polkadot Snap](https://snaps.metamask.io/snap/npm/chainsafe/polkadot-snap/){target=\_blank}
+- [Enkrypt](https://www.enkrypt.com/){target=\_blank}
 
 Please note that if you deploy an EVM ContainerChain, your users won't need to use a Substrate wallet. They will be able to interact with your ContainerChain using Ethereum-compatible wallets like [MetaMask](/builders/interact/ethereum-api/wallets/metamask){target=\_blank}.
 
