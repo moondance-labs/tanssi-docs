@@ -14,6 +14,17 @@ Tanssi aims to lower the barrier to entry for building within the Polkadot ecosy
 
 This guide will walk you through the steps required to launch an Appchain on Tanssi's TestNet, Dancebox, via the Tanssi dApp.
 
+## Snap AppChains vs. Dedicated AppChains {: #snap-appchains-vs-dedicated-appchains }
+ 
+[Apps.tanssi.network](https://apps.tanssi.network/){target=\_blank} supports the creation of two different types of appchains, namely:
+
+- Snap AppChain - a temporary appchain that self-destructs after 48 hours
+- Dedicated AppChain - a long-lasting appchain for Tanssi ecosystem builders
+
+Both types of AppChains behave identically, with the only difference being the ephemeral nature of the Snap AppChains. Generally speaking, Snap AppChains are best suited for most builders. However, if you do have a need for long-lasting test environment, the Tanssi team would be happy to assist you with setting up a dedicated AppChain. The screenshots and content in this guide will showcase Snap AppChains, but you can follow the same process detailed in this guide to configure a dedicated AppChain. 
+
+![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-0.png)
+
 ## Overview {: #overview }
 
 Deploying an Appchain via the Tanssi dApp is accomplished as a single, streamlined flow consisting of five distinct steps:
