@@ -6,5 +6,5 @@ networks:
     rpc_url: https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
 repository:
   tanssi:
-    release_branch: tanssi-polkadot-v1.1.0
+    release_branch: tanssi-polkadot-v1.3.0
 
