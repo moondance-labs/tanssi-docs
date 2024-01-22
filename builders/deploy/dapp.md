@@ -19,7 +19,7 @@ Tanssi aims to lower the barrier to entry for building within the Polkadot ecosy
 - Snap Appchain - a temporary Appchain that self-destructs after 48 hours
 - Dedicated Appchain - a long-lasting Appchain for Tanssi ecosystem builders
 
-Both types of Appchains behave identically, with the only difference being the ephemeral nature of the Snap Appchains. Generally speaking, Snap Appchains are best for most builders. However, if you do have a need for a long-lasting test environment, the Tanssi team would be happy to assist you with setting up a dedicated Appchain. The screenshots and content in this guide will showcase Snap Appchains, but you can follow the same process to configure a dedicated Appchain. 
+Both types of Appchains behave identically, with the only difference being the ephemeral nature of the Snap Appchains. Generally speaking, Snap Appchains are best for most builders. However, if you need a long-lasting test environment, the Tanssi team would be happy to assist you with setting up a dedicated Appchain. The screenshots and content in this guide will showcase Snap Appchains, but you can follow the same process to configure a dedicated Appchain. 
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.png)
 
