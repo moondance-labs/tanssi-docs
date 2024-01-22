@@ -216,4 +216,4 @@ Once the transaction has gone through successfully, the dApp will update to show
 
 ![The ContainerChain dashboard on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-14.png)
 
-And that's it! You've successfully registered your Appchain! Once your Appchain has been verified by the Tanssi team, the launch process will automatically begin. Once your AppChain is live, you'll be able to return to the Dashboard to view the RPC URL and other pertinent chain information. 
+And that's it! You've successfully registered your Appchain! The launch process will automatically begin once the Tanssi team has verified your Appchain. Once your AppChain is live, you can return to the Dashboard to view the RPC URL and other pertinent chain information. 
