@@ -70,7 +70,7 @@ From the [Dashboard](https://apps.tanssi.network/){target=\_blank} or the [Deplo
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.png)
 
-Next, you'll be able to select a template that best fits your use case and then configure your AppChain's properties accordingly. You can choose from either the EVM or Substrate template or upload a raw specification file. To find out more information on the available templates, please refer to the [Templates](/builders/build/templates/overview){target=\_blank} documentation.
+Next, select a template that best fits your use case and configure your Appchain's properties accordingly. You can choose from the EVM or Substrate template or upload a raw specification file. Please refer to the [Templates](/builders/build/templates/overview){target=\_blank} documentation to learn more about the available templates.
 
 ### EVM Template {: #evm-template }
 
