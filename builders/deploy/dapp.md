@@ -19,7 +19,9 @@ Tanssi aims to lower the barrier to entry for building within the Polkadot ecosy
 - Snap Appchain - a temporary Appchain that self-destructs after 48 hours
 - Dedicated Appchain - a long-lasting Appchain for Tanssi ecosystem builders
 
-Both types of Appchains behave identically, with the only difference being the ephemeral nature of the Snap Appchains. Generally speaking, Snap Appchains are best for most builders. However, if you need a long-lasting test environment, the Tanssi team would be happy to assist you with setting up a dedicated Appchain. The screenshots and content in this guide will showcase Snap Appchains, but you can follow the same process to configure a dedicated Appchain. 
+Both types of Appchains behave identically, with the only difference being the ephemeral nature of the Snap Appchains. Generally speaking, Snap Appchains are best for most builders who want to test the power of a Tanssi-powered Appchain. However, if you require a long-lasting test environment, the Tanssi team will happily assist you with setting up a dedicated Appchain. 
+
+The screenshots and content in this guide will showcase Snap Appchains, but you can follow the same process to configure a dedicated Appchain. 
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.png)
 
@@ -66,7 +68,7 @@ Once connected, you'll see your address in the top-right corner. If you've conne
 
 ## Configure Your Appchain {: #configure-your-appchain }
 
-From the [Dashboard](https://apps.tanssi.network/){target=\_blank} or the [Deploy Appchain tab](https://apps.tanssi.network/create){target=\_blank}, you can immediately start configuring your Appchain. To start, choose **Deploy a Snap Appchain** or **Deploy a Dedicated Appchain**. Most likely, you'll be deploying a Snap Appchain. You can read more about [the differences between the two types of Appchains on the Tanssi Testnet](#snap-appchains-vs-dedicated-appchains).
+From the [Dashboard](https://apps.tanssi.network/){target=\_blank} or the [Deploy Appchain tab](https://apps.tanssi.network/create){target=\_blank}, you can immediately start configuring your Appchain. To start, choose **Deploy a Snap Appchain** or **Deploy a Dedicated Appchain**. You can read more about [the differences between the two types of Appchains on the Tanssi Testnet](#snap-appchains-vs-dedicated-appchains).
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.png)
 
