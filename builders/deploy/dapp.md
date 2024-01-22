@@ -31,7 +31,7 @@ Deploying an Appchain via the Tanssi dApp is accomplished as a single, streamlin
 2. Satisfy the required minimum token balances
 3. Reserve your Appchain ID on the relay chain
 4. Generate your custom Appchain files
-5. Register your Appchain on Tanssi and the relay chain
+5. Register your Appchain on Tanssi, and the relay chain
 
 ![A diagram mapping out the steps for deploying an Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-2.png)
 
