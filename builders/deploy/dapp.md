@@ -62,7 +62,7 @@ To connect your wallet to the Tanssi dApp, click **Connect Wallet** in the upper
 
 ![Click on the Connect Wallet button to connect your wallet to the Tanssi dApp.](/images/builders/deploy/dapp/dapp-4.png)
 
-Once connected, you'll see your address in the top-right corner. If you've connected multiple accounts and would like to switch accounts, you can click on your address and choose an account from the dropdown menu.
+Once connected, you'll see your address in the top-right corner. If you've connected multiple accounts and want to switch accounts, you can click on your address and choose an account from the dropdown menu.
 
 ## Configure Your Appchain {: #configure-your-appchain }
 
