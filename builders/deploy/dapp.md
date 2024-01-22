@@ -149,7 +149,7 @@ Now, you can upload your custom raw specification file by selecting the **Custom
 
 ## Check Balances {: #check-balances }
 
-Next, you'll need to verify you have sufficient balances of DANCE and UNIT tokens. If you don't, you can press **Request Tokens** and then complete the following login with Github or Google. You'll need to complete a few quick onboarding questions, and then you'll be able to again press **Request Tokens** and they will be delivered to your connected wallet. 
+Next, you'll need to verify that you have sufficient balances of DANCE and UNIT tokens. If you don't, you can press **Request Tokens** and complete the following login with GitHub or Google. You'll need to complete a few quick onboarding questions, and then you'll be able to press **Request Tokens** again, and they will be delivered to your connected wallet.
 
 ![Request tokens](/images/builders/deploy/dapp/dapp-8.png)
 
