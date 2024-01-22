@@ -66,7 +66,7 @@ Once connected, you'll see your address in the top-right corner. If you've conne
 
 ## Configure Your Appchain {: #configure-your-appchain }
 
-From the [Dashboard](https://apps.tanssi.network/){target=\_blank} or the [Deploy Appchain tab](https://apps.tanssi.network/create){target=\_blank}, you can immediately start configuring your Appchain. To get started, choose **Deploy a Snap Appchain** or **Deploy a Dedicated Appchain**. Most likely, you'll be deploying a Snap Appchain. You can read more about [the differences between the two types of Appchains on the Tanssi Testnet](#snap-appchains-vs-dedicated-appchains).
+From the [Dashboard](https://apps.tanssi.network/){target=\_blank} or the [Deploy Appchain tab](https://apps.tanssi.network/create){target=\_blank}, you can immediately start configuring your Appchain. To start, choose **Deploy a Snap Appchain** or **Deploy a Dedicated Appchain**. Most likely, you'll be deploying a Snap Appchain. You can read more about [the differences between the two types of Appchains on the Tanssi Testnet](#snap-appchains-vs-dedicated-appchains).
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.png)
 
