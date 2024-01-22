@@ -95,7 +95,7 @@ To get started, select the **EVM** template from the left-side menu. Then take t
 
 The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template){target=\_blank} includes all the configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Appchain that is compatible with both Polkadot and Tanssi.
 
-To get started, make sure the **Substrate** template is selected from the left-side menu. Then take the following steps:
+To get started, select the **Substrate** template from the left-side menu. Then take the following steps:
 
 1. In the **Project Details** section, provide your Project's name, your contact email and your Telegram
 2. Enter the token decimals and symbol for your native token and the [SS58 address format](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=\_blank}
