@@ -79,7 +79,7 @@ The [EVM template](/builders/build/templates/evm/){target=\_blank} provides all 
 !!! note
     A registered EVM chain ID is only necessary for Appchains deployed on the MainNet. When testing or deploying on the TestNet, you can choose any available ID and move forward.
 
-To get started, make sure the **EVM** template is selected from the left-side menu. Then take the following steps:
+To get started, select the **EVM** template from the left-side menu. Then take the following steps:
 
 1. In the **Project Details** section, provide your Project's name, your contact email and your Telegram
 2. In the **Properties** section, enter the symbol of your appchain's native token and your unique EVM chain ID. Decimal places are fixed to 18 digits, the same as Ether, to preserve compatibility across EVM tooling
