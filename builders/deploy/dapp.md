@@ -153,14 +153,19 @@ Next, you'll need to verify that you have sufficient balances of DANCE and UNIT 
 
 ![Request tokens](/images/builders/deploy/dapp/dapp-8.png)
 
-Alternatively, you can manually request the necessary tokens via a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank}, and you'll receive the necessary tokens within one business day. The required minimum balances to launch an Appchain are as follows: 
+If you're setting up a dedicated AppChain, you'll need to manually request the necessary tokens via a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank}, and you'll receive the necessary tokens within one business day. The required minimum balances to launch an Appchain are as follows: 
 
-=== "Dancebox"
-    |              Action               | Balance Required |
+=== "Snap AppChain"
+    |              Chain               | Balance Required |
     |:---------------------------------:|:----------------:|
-    | Reserve Appchain ID (Relay Chain) |     20 UNIT      |
-    |  Register Appchain (Relay Chain)  |     70 UNIT      |
-    |    Register Appchain (Tanssi)     |    100 DANCE     |
+    | Flashbox Relay Chain Balance      |     70 UNIT      |
+    |    Flashbox Balance (Tanssi)      |    100 DANCE     |
+
+=== "Dedicated AppChain"
+    |              Chain               | Balance Required |
+    |:---------------------------------:|:----------------:|
+    | Moonbase Relay Chain Balance      |    110 UNIT      |
+    |    Dancebox Balance (Tanssi)      |    100 DANCE     |
 
 
 ## Reserve your Appchain ID {: #reserve-appchain-id }
