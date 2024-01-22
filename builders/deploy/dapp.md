@@ -55,7 +55,7 @@ If you deploy an EVM ContainerChain, your users won't need a Substrate wallet. T
 
 ### Connect Your Wallet to the DApp {: #connect-wallet }
 
-To connect your wallet to the Tanssi dApp, first click **Connect Wallet** in the upper right corner. Select the desired wallet type. Then, take the following steps:
+To connect your wallet to the Tanssi dApp, click **Connect Wallet** in the upper-right corner. Select the desired wallet type. Then, take the following steps:
 
 1. Choose your account from the dropdown
 2. You'll be prompted to sign a message, which will log you into the Tanssi dApp. Go ahead and sign the message
