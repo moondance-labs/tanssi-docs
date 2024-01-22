@@ -87,7 +87,7 @@ To get started, select the **EVM** template from the left-side menu. Then take t
 4. (Optional) Press **Add** to add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
 5. (Optional) Press **Add** to add genesis smart contracts by providing an address to use and the bytecode for the smart contract. When providing the bytecode, you'll need to remove the `0x` from the beginning of the bytecode
 6. (Optional) You can adjust the gas configurations in the **Advanced** settings. You can choose to change the **Minimum Gas Price**, **Base fee per gas**, **Multiplier**, and **Elasticity**
-7. Once you have configured the template for your Appchain, press select **Continue** and proceed to the [Check Balances section](#check-balances)
+7. Once you have configured the template for your Appchain, select **Continue** and proceed to the [Check Balances section](#check-balances)
 
 ![Create an EVM ContainerChain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-5.png)
 
