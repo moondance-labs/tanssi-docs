@@ -212,7 +212,7 @@ Lastly, to register your Appchain on Tanssi, take the following steps:
 
 ![Register your Appchain on Tanssi.](/images/builders/deploy/dapp/dapp-13.png)
 
-Once the transaction has gone through successfully, the dApp will update to show that you have successfully registered your Appchain. Congratulations! On the dashboard, you can check the status of your deployment and view relevant information such as the latest block information, RPC and WS endpoints, and more.
+Once the transaction has gone through successfully, the dApp will update to show that you have registered your Appchain. Congratulations! On the dashboard, you can check the status of your deployment and view relevant information, such as the latest block information, RPC and WS endpoints, and more.
 
 ![The ContainerChain dashboard on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-14.png)
 
