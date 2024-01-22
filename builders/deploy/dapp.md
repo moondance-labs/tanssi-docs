@@ -81,7 +81,7 @@ The [EVM template](/builders/build/templates/evm/){target=\_blank} provides all 
 
 To get started, select the **EVM** template from the left-side menu. Then take the following steps:
 
-1. In the **Project Details** section, provide your Project's name, your contact email and your Telegram
+1. In the **Project Details** section, provide your project's name, your contact email, and your Telegram
 2. In the **Properties** section, enter the symbol of your appchain's native token and your unique EVM chain ID. Decimal places are fixed to 18 digits, the same as Ether, to preserve compatibility across EVM tooling
 3. Provide the Ethereum-style address of the account you want to be used as the sudo account and its corresponding initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
 4. (Optional) Press **Add** to add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
