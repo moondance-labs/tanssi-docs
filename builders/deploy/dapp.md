@@ -77,7 +77,7 @@ Next, select a template that best fits your use case and configure your Appchain
 The [EVM template](/builders/build/templates/evm/){target=\_blank} provides all the necessary components to add an Ethereum compatibility layer to your Appchain. As part of the setup process, you'll need a unique EVM chain ID that is distinct from all other EVM chains. You can verify that another chain does not already use your EVM chain ID on [chainid.network](https://chainid.network/){target=\_blank}. Before launching your AppChain in production, it's critical that you open a PR to reserve your chain ID on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=\_blank}. It would be best if you did this before you continued the deployment process of your Appchain to avoid chain ID collisions.
 
 !!! note
-    Using a registered EVM chain ID is only necessary for Appchains deployed on the MainNet. When it comes to testing or deploying on the TestNet, you can simply choose any available ID and move forward.
+    A registered EVM chain ID is only necessary for Appchains deployed on the MainNet. When testing or deploying on the TestNet, you can choose any available ID and move forward.
 
 To get started, make sure the **EVM** template is selected from the left-side menu. Then take the following steps:
 
