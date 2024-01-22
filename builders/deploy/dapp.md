@@ -153,7 +153,7 @@ Next, you'll need to verify that you have sufficient balances of DANCE and UNIT 
 
 ![Request tokens](/images/builders/deploy/dapp/dapp-8.png)
 
-Alternatively, you can manually request the necessary tokens via a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank} and you'll receive the necessary tokens within one business day. The required minimum balances to launch an Appchain are as follows: 
+Alternatively, you can manually request the necessary tokens via a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank}, and you'll receive the necessary tokens within one business day. The required minimum balances to launch an Appchain are as follows: 
 
 === "Dancebox"
     |              Action               | Balance Required |
