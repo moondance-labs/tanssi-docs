@@ -93,7 +93,7 @@ To get started, select the **EVM** template from the left-side menu. Then take t
 
 ### Substrate Template {: #substrate-template }
 
-The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template){target=\_blank} includes all of the necessary configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Appchain that is both Polkadot and Tanssi compatible.
+The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template){target=\_blank} includes all the configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Appchain that is compatible with both Polkadot and Tanssi.
 
 To get started, make sure the **Substrate** template is selected from the left-side menu. Then take the following steps:
 
