@@ -74,7 +74,7 @@ Next, select a template that best fits your use case and configure your Appchain
 
 ### EVM Template {: #evm-template }
 
-The [EVM template](/builders/build/templates/evm/){target=\_blank} provides all the necessary components to add an Ethereum compatibility layer to your Appchain. As part of the setup process, you'll need a unique EVM chain ID that is distinct from all other EVM chains. You can verify that another chain does not already use your EVM chain ID on [chainid.network](https://chainid.network/){target=\_blank}. Before launching your AppChain in production, it's critical that you open a PR to reserve your chain ID on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=\_blank}. It would be best if you did this before you continued the deployment process of your Appchain to avoid chain ID collisions.
+The [EVM template](/builders/build/templates/evm/){target=\_blank} provides all the necessary components to add an Ethereum compatibility layer to your Appchain. As part of the setup process, you'll need a unique EVM chain ID that is distinct from all other EVM chains. You can verify that another chain does not already use your EVM chain ID on [chainid.network](https://chainid.network/){target=\_blank}. Before launching your Appchain in production, it's critical that you open a PR to reserve your chain ID on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=\_blank}. It would be best if you did this before you continued the deployment process of your Appchain to avoid chain ID collisions.
 
 !!! note
     A registered EVM chain ID is only necessary for Appchains deployed on the MainNet. When testing or deploying on the TestNet, you can choose any available ID and move forward.
@@ -82,7 +82,7 @@ The [EVM template](/builders/build/templates/evm/){target=\_blank} provides all 
 To get started, select the **EVM** template from the left-side menu. Then take the following steps:
 
 1. In the **Project Details** section, provide your project's name, your contact email, and your Telegram
-2. In the **Properties** section, enter the symbol of your appchain's native token and your unique EVM chain ID. Decimal places are fixed to 18 digits, the same as Ether, to preserve compatibility across EVM tooling
+2. In the **Properties** section, enter the symbol of your Appchain's native token and your unique EVM chain ID. Decimal places are fixed to 18 digits, the same as Ether, to preserve compatibility across EVM tooling
 3. Provide the Ethereum-style address of the account you want to use as the sudo account and its corresponding initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
 4. (Optional) Press **Add** to add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
 5. (Optional) Press **Add** to add genesis smart contracts by providing an address to use and the bytecode for the smart contract. When providing the bytecode, you'll need to remove the `0x` from the beginning of the bytecode
@@ -153,15 +153,15 @@ Next, you'll need to verify that you have sufficient balances of DANCE and UNIT 
 
 ![Request tokens](/images/builders/deploy/dapp/dapp-8.png)
 
-If you're setting up a dedicated AppChain, you'll need to manually request the necessary tokens via a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank}, and you'll receive the necessary tokens within one business day. The required minimum balances to launch an Appchain are as follows: 
+If you're setting up a dedicated Appchain, you'll need to manually request the necessary tokens via a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank}, and you'll receive the necessary tokens within one business day. The required minimum balances to launch an Appchain are as follows: 
 
-=== "Snap AppChain"
+=== "Snap Appchain"
     |              Chain               | Balance Required |
     |:---------------------------------:|:----------------:|
     | Flashbox Relay Chain Balance      |     70 UNIT      |
     |    Flashbox Balance (Tanssi)      |    100 DANCE     |
 
-=== "Dedicated AppChain"
+=== "Dedicated Appchain"
     |              Chain               | Balance Required |
     |:---------------------------------:|:----------------:|
     | Moonbase Relay Chain Balance      |    110 UNIT      |
@@ -221,4 +221,4 @@ Once the transaction has gone through successfully, the dApp will update to show
 
 ![The ContainerChain dashboard on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-14.png)
 
-And that's it! You've successfully registered your Appchain! The launch process will automatically begin once the Tanssi team has verified your Appchain. Once your AppChain is live, you can return to the Dashboard to view the RPC URL and other pertinent chain information. 
+And that's it! You've successfully registered your Appchain! The launch process will automatically begin once the Tanssi team has verified your Appchain. Once your Appchain is live, you can return to the Dashboard to view the RPC URL and other pertinent chain information. 
