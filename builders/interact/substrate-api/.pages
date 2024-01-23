@@ -4,5 +4,6 @@ nav:
   - index.md
   - 'Polkadot.js API': 'polkadot-js-api.md'
   - 'Sidecar API': 'sidecar-api.md'
+  - 'Chopsticks': 'chopsticks.md'
   - wallets
   - indexers
