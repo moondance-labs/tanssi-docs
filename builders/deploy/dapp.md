@@ -169,7 +169,6 @@ If you're setting up a dedicated Appchain, you'll need to manually request the n
     | Moonbase Relay Chain Balance      |    110 UNIT      |
     |    Dancebox Balance (Tanssi)      |    100 DANCE     |
 
-
 ## Reserve your Appchain ID {: #reserve-appchain-id }
 
 If you haven't already done so, you'll need to reserve your Appchain ID, which will be required to register your Appchain on the relay chain and function within the Polkadot ecosystem.
