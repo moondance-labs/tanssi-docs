@@ -142,6 +142,48 @@ Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#
 - `para_id` - within this custom flow, a pre-registered parachain id is required
 - `is_ethereum` - to `true` if exposing Ethereum compatible RPC endpoints is needed
 
+And, depending on whether you are deploying a Snap Appchain or a dedicated one, also adjust these attributes:
+
+=== "Snap Appchains"
+
+    ```json
+    {
+        ...
+        "relay_chain": "rococo_flashbox_relay_testnet",
+        "chainType": "Live",
+        "genesis": {
+            "runtime": {
+                ...
+                "authoritiesNoting": {
+                    "orchestratorParaId": 1000
+                },
+                ...
+            }
+        }
+        ...
+    }
+    ```
+
+=== "Dedicated Appchains"
+
+    ```json
+    {
+        ...
+        "relay_chain": "westend_moonbase_relay_testnet",
+        "chainType": "Live",
+        "genesis": {
+            "runtime": {
+                ...
+                "authoritiesNoting": {
+                    "orchestratorParaId": 3000
+                },
+                ...
+            }
+        }
+        ...
+    }
+    ```
+
 Now, you can upload your custom raw specification file by selecting the **Custom** template and adding your JSON specification file.
 
 ![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy/dapp/dapp-7.png)
