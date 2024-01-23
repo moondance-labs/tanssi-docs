@@ -158,16 +158,16 @@ Next, you'll need to verify that you have sufficient balances of DANCE and UNIT 
 If you're setting up a dedicated Appchain, you'll need to manually request the necessary tokens via a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank}, and you'll receive the necessary tokens within one business day. The required minimum balances to launch an Appchain are as follows: 
 
 === "Snap Appchain"
-    |              Chain               | Balance Required |
-    |:---------------------------------:|:----------------:|
-    | Flashbox Relay Chain Balance      |     70 UNIT      |
-    |    Flashbox Balance (Tanssi)      |    100 DANCE     |
+    |            Chain             | Balance Required |
+    |:----------------------------:|:----------------:|
+    | Flashbox Relay Chain Balance |     70 UNIT      |
+    |  Flashbox Balance (Tanssi)   |    100 DANCE     |
 
 === "Dedicated Appchain"
-    |              Chain               | Balance Required |
-    |:---------------------------------:|:----------------:|
-    | Moonbase Relay Chain Balance      |    110 UNIT      |
-    |    Dancebox Balance (Tanssi)      |    100 DANCE     |
+    |            Chain             | Balance Required |
+    |:----------------------------:|:----------------:|
+    | Moonbase Relay Chain Balance |     110 UNIT     |
+    |  Dancebox Balance (Tanssi)   |    100 DANCE     |
 
 ## Reserve your Appchain ID {: #reserve-appchain-id }
 
