@@ -233,7 +233,7 @@ The Polkadot.js API library can be used to send transactions to the network. For
 const alice = keyring.addFromUri('INSERT_ALICES_PRIVATE_KEY');
 
 // Form the transaction
-const tx = await api.tx.balances.transfer(
+const tx = await api.tx.balances.transferAllowDeath(
   'INSERT_BOBS_ADDRESS',
   BigInt(12345)
 );
@@ -267,7 +267,7 @@ For example, assuming you've [initialized the API](#creating-an-API-provider-ins
 
 ```javascript
 // Transaction to get weight information
-const tx = api.tx.balances.transfer('INSERT_BOBS_ADDRESS', BigInt(12345));
+const tx = api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(12345));
 
 // Get weight info
 const { partialFee, weight } = await tx.paymentInfo('INSERT_SENDERS_ADDRESS');
@@ -297,8 +297,8 @@ For example, assuming you've [initialized the API](#creating-an-API-provider-ins
 ```javascript
 // Construct a list of transactions to batch
 const txs = [
-  api.tx.balances.transfer('INSERT_BOBS_ADDRESS', BigInt(12345)),
-  api.tx.balances.transfer('INSERT_CHARLEYS_ADDRESS', BigInt(12345)),
+  api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(12345)),
+  api.tx.balances.transferAllowDeath('INSERT_CHARLEYS_ADDRESS', BigInt(12345)),
 ];
 
 // Estimate the fees as RuntimeDispatchInfo, using the signer (either
