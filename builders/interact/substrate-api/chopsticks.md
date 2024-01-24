@@ -148,14 +148,14 @@ If you would like to replay a block and retrieve its information to dissect the 
 |:--------------------------:|:--------------------------------------------------------------------------------------:|
 |         `endpoint`         |                         The endpoint of the parachain to fork.                         |
 |          `block`           |            Use to specify at which block hash or number to replay the fork.            |
-|      `wasm-override`       |  Path of the WASM to use as the parachain runtime, instead of an endpoint's runtime.   |
+|      `wasm-override`       |  Path of the WASM to use as the parachain runtime instead of an endpoint's runtime.   |
 |            `db`            |    Path to the name of the file that stores or will store the parachain's database.    |
 |          `config`          |                            Path or URL of the config file.                             |
 | `output-path=/[file_path]` |   Use to print out results to a JSON file instead of printing it out in the console.   |
 |           `html`           | Include to generate an HTML representation of the storage diff preview between blocks. |
 |           `open`           |                        Whether to open the HTML representation.                        |
 
-For example, running the following command will re-run the Demo EVM ContainerChains's block 1000, and write the storage diff and other data in a `chain-output.json` file:  
+For example, running the following command will re-run the demo EVM ContainerChains's block 1000 and write the storage diff and other data in a `chain-output.json` file:  
 
 ```bash
 yarn start run-block  \
@@ -166,7 +166,7 @@ yarn start run-block  \
 
 ## WebSocket Commands {: #websocket-commands }
 
-Chopsticks' internal websocket server has special endpoints that allow the manipulation of the local Substrate chain. These are the methods that can be invoked:  
+Chopstick's internal websocket server has special endpoints that allow the manipulation of the local Substrate chain. These are the methods that can be invoked:  
 
 |      Method      |      Parameters       |                          Description                          |
 |:----------------:|:---------------------:|:-------------------------------------------------------------:|
@@ -187,11 +187,11 @@ The parameters above are formatted in the following ways:
 
 - **`options` { "to": number, "count": number }** - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object  
 - **`values` Object** - a JSON object resembling the path to a storage value, similar to what you would retrieve via Polkadot.js  
-- **`blockHash` string** - optional, the blockhash at which the storage value is changed  
-- **`date` Date** - a Date string (compatible with the JavaScript Date library) that will change the time stamp from which the next blocks being created will be at. All future blocks will be sequentially after that point in time  
+- **`blockHash` string** - optional, the block hash at which the storage value is changed  
+- **`date` Date** - a Date string (compatible with the JavaScript Date library) that will change the timestamp at which the next blocks being created will be. All future blocks will be sequentially created after that point in time  
 - **`hashOrNumber` number | string** - if found, the chain head will be set to the block with the block number or block hash of this value  
 
-Each method can be invoked by connecting to the websocket (`ws://localhost:8000` by default) and sending the data and parameters in the following format. Replace `METHOD_NAME` with the name of the method, and replace or delete `PARAMETER_1` and `PARAMETER_2` with the parameter data relevant to the method:  
+Each method can be invoked by connecting to the WebSocket (`ws://localhost:8000` by default) and sending the data and parameters in the following format. Replace `METHOD_NAME` with the method's name, and replace or delete `PARAMETER_1` and `PARAMETER_2` with the parameter data relevant to the method:  
 
 ```json
 {
