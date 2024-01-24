@@ -61,16 +61,16 @@ allow-unresolved-imports: true
 db: ./tmp/db_ftrcon.sqlite
 
 import-storage:
-    System:
-        Account:
-            - - - "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac" # Alith
-            - providers: 1
-                sufficients: 1
-                consumers: 1
-                data:
-                    free: "100000000000000000000000"
-    Sudo:
-        Key: "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac"
+  System:
+    Account:
+      - - - "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac" # Alith
+        - providers: 1
+          sufficients: 1
+          consumers: 1
+          data:
+            free: "100000000000000000000000"
+  Sudo:
+    Key: "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac"
 ```
 
 The configuration file accepts all of the following parameters:
