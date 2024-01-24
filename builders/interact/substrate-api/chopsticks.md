@@ -1,23 +1,26 @@
 ---
-title: How to use Chopsticks to Fork your Appchain
+title: How to use Chopsticks to Fork Your Appchain
 description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi ContainerChain.
 ---
 
-# How to Use Chopsticks to Fork your Appchain
+# How to Use Chopsticks to Fork Your Appchain
 
 ## Introduction {: #introduction }
 
-[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=_blank} provides a developer-friendly method of locally forking existing Substrate-based chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Appchains for XCM testing, and more. This empowers developers to test and experiment with their own custom blockchain configurations in a local development environment, without the need to deploy a live network.
+[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing Substrate-based chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Appchains for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
 
 Overall, Chopsticks aims to simplify the process of building blockchain applications on Substrate and make it accessible to a wider range of developers.
 
 In this article, using Chopsticks to fork and interact with the local copy of a Tanssi ContainerChain will be covered.
 
+!!! note
+    Chopsticks currently does not support calls done via the Ethereum JSON-RPC. Consequently, you can't fork your chain using Chopsticks and connect Metamask to it.
+
 ## Prerequisites {: #prerequisites }
 
-The original Chopsticks project was initially created to support the [Babe](https://docs.substrate.io/reference/glossary/#blind-assignment-of-blockchain-extension-babe){target=\_blank} and [Aura](https://docs.substrate.io/reference/glossary/#authority-round-aura){target=\_blank} block production algorithms. However, to ensure compatibility with the Tanssi block production as a service protocol, modifications have been made and published in a new [fork](https://github.com/moondance-labs/chopsticks.git){target=\_blank} of the original repository.
+The original Chopsticks project supports the [Babe](https://docs.substrate.io/reference/glossary/#blind-assignment-of-blockchain-extension-babe){target=\_blank} and [Aura](https://docs.substrate.io/reference/glossary/#authority-round-aura){target=\_blank} block production algorithms. However, to ensure compatibility with the Tanssi block production as a service protocol, modifications have been made and published in a new [fork](https://github.com/moondance-labs/chopsticks.git){target=\_blank} of the original repository.
 
-To follow the steps of this article, the first step will be cloning the repository along with its submodules([smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
+To follow along with this tutorial, you will need to clone the repository along with its submodules([smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
 
 ```bash
 git clone --recurse-submodules https://github.com/moondance-labs/chopsticks.git
@@ -39,23 +42,24 @@ Now the development environment is ready to start testing and debugging Tanssi-d
 
 ## Forking a Demo EVM ContainerChain with Chopsticks {: #forking-demo-chain }
 
-To fork an Appchain using Chopsticks, simply execute the command with only the RPC endpoint as a parameter:
+To fork an Appchain using Chopsticks, execute the command with only the RPC endpoint as a parameter:
 
 ```bash
 yarn start --endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
 ```
 
-This will start a local clone of the chain as it was in the latest block.
+This command will start a local clone of the chain as it was in the latest block.
 
 --8<-- 'code/builders/interact/substrate-api/chopsticks/chopsticks-1.md'
 
-Typically, the configuration parameters are included in a configuration file, such as those already included in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [Demo EVM ContainerChain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
+Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [Demo EVM ContainerChain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
 
 === "Demo EVM ContainerChain"
 
     ```yaml
     endpoint: wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
     mock-signature-host: true
+    allow-unresolved-imports: true
     db: ./tmp/db_ftrcon.sqlite
 
     import-storage:
