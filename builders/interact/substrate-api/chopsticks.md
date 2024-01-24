@@ -11,7 +11,7 @@ description: Learn the basics of how to use Chopsticks to replay blocks, dissect
 
 Overall, Chopsticks aims to simplify the process of building blockchain applications on Substrate and make it accessible to a wider range of developers.
 
-In this article, using Chopsticks to fork and interact with the local copy of a Tanssi ContainerChain will be covered.
+This article will cover using Chopsticks to fork and interact with the local copy of a Tanssi ContainerChain.
 
 !!! note
     Chopsticks currently does not support calls done via the Ethereum JSON-RPC. Consequently, you can't fork your chain using Chopsticks and connect Metamask to it.
@@ -75,7 +75,7 @@ Typically, the configuration parameters are stored in a configuration file, as a
             Key: "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac"
     ```
 
-Many other settings can be included in the config file, such as:
+The configuration file accepts all of the following parameters:
 
 |           Option           |                                                 Description                                                  |
 |:--------------------------:|:------------------------------------------------------------------------------------------------------------:|
@@ -83,7 +83,7 @@ Many other settings can be included in the config file, such as:
 |        `timestamp`         |                                     Timestamp of the block to fork from.                                     |
 |         `endpoint`         |                                    The endpoint of the parachain to fork.                                    |
 |          `block`           |                       Use to specify at which block hash or number to replay the fork.                       |
-|      `wasm-override`       |             Path of the WASM to use as the parachain runtime, instead of an endpoint's runtime.              |
+|      `wasm-override`       |             Path of the WASM to use as the parachain runtime instead of an endpoint's runtime.              |
 |            `db`            |               Path to the name of the file that stores or will store the parachain's database.               |
 |          `config`          |                                       Path or URL of the config file.                                        |
 |           `port`           |                                      The port to expose an endpoint on.                                      |
@@ -93,7 +93,7 @@ Many other settings can be included in the config file, such as:
 |           `html`           |                           Include to generate storage diff preview between blocks.                           |
 |   `mock-signature-host`    | Mock signature host so that any signature starts with `0xdeadbeef` and filled by `0xcd` is considered valid. |
 
-You can run the command `yarn start` to fork chains by specifying a local configuration file. Alternatively, if the chain is listed in the repository's `configs` folder, either the name or the GitHub URL can be used. 
+You can run the command `yarn start` to fork chains by specifying a local configuration file. Alternatively, the name or the GitHub URL can be used if the chain is listed in the repository's `configs` folder.
 
 === "Local File Path"
 
@@ -115,7 +115,7 @@ You can run the command `yarn start` to fork chains by specifying a local config
     ```
 
 
-All of the settings (except `genesis` and `timestamp`) can also be passed as flags to configure the environment completely in the command line. For example, the following command forks the Demo EVM ContainerChain at block 100.
+All settings (except `genesis` and `timestamp`) can also be passed as flags to configure the environment completely in the command line. For example, the following command forks the demo EVM ContainerChain at block 100.
 
 ```bash
 yarn start --endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network --block 100
@@ -123,26 +123,26 @@ yarn start --endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network --b
 
 ### Interacting with a Fork {: #interacting-with-a-fork }
 
-When running a fork, by default it will be accessible at:
+When running a fork, by default, it will be accessible at:
 
 ```text
 ws://localhost:8000
 ```
 
-You will be able to interact with the parachain via libraries such as [Polkadot.js](https://github.com/polkadot-js/common){target=_blank} and its [user interface, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=_blank}.  
+You can interact with the parachain via libraries such as [Polkadot.js](https://github.com/polkadot-js/common){target=_blank} and its [user interface, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=_blank}.
 
-You can interact with Chopsticks via the [Polkadot.js Apps hosted user interface](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=_blank}:
+You can interact with Chopsticks via the [Polkadot.js Apps hosted user interface](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}:
 
 ![Polkadot Js](/images/builders/interact/substrate-api/chopsticks/chopsticks-1.png)
 
 You should now be able to interact with the forked chain as you would with the real one.
 
 !!! note
-    If your browser cannot connect to the WebSocket endpoint provided by Chopsticks, you might need to allow insecure connections for the Polkadot.js Apps URL. Another solution is to run the [Docker version of Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=_blank}.
+    If your browser cannot connect to the WebSocket endpoint provided by Chopsticks, you might need to allow insecure connections for the Polkadot.js Apps URL. Another solution is to run the [Docker version of Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
 
 ## Replaying Blocks {: #replaying-blocks }
 
-In the case where you would like to replay a block and retrieve its information to dissect the effects of an extrinsic, you can use the `yarn start run-block` command. Its following flags are:  
+If you would like to replay a block and retrieve its information to dissect the effects of an extrinsic, you can use the `yarn start run-block` command. Its following flags are:
 
 |            Flag            |                                      Description                                       |
 |:--------------------------:|:--------------------------------------------------------------------------------------:|
