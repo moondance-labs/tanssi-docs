@@ -164,7 +164,7 @@ yarn start run-block  \
 
 ## WebSocket Commands {: #websocket-commands }
 
-Chopstick's internal websocket server has special endpoints that allow the manipulation of the local Substrate chain. These are the methods that can be invoked:  
+Chopstick's internal WebSocket server has special endpoints that allow the manipulation of the local Substrate chain. These are the methods that can be invoked:  
 
 |      Method      |      Parameters       |                          Description                          |
 |:----------------:|:---------------------:|:-------------------------------------------------------------:|
