@@ -17,15 +17,15 @@ This guide takes you through all the necessary steps, from installing SubWallet 
 
 First, download and install the [SubWallet extension](https://www.subwallet.app/download.html){target=\_blank}. Creating a new account will generate a seed phrase that can derive multiple Ethereum and Substrate accounts. By default, SubWallet will generate a single Ethereum and a single Substrate account, but you can easily derive more from the same seed phrase. Click **Create a new account** to get started.
 
-![Get started with SubWallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-1.png)
+![Get started with SubWallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-1.webp)
 
 On the following screen, you'll be prompted to create a password to secure your new wallet.
 
-![Create a password for SubWallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-2.png)
+![Create a password for SubWallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-2.webp)
 
 You'll then be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
 
-![Back up your seed phrase in SubWallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-3.png)
+![Back up your seed phrase in SubWallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-3.webp)
 
 !!! note
     You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
@@ -37,11 +37,11 @@ Of course, you can import an existing EVM account into SubWallet. To get started
 1. Press the **All accounts** button at the top
 2. Press the **Import account** icon
 
-![Import account part 1](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-4.png)
+![Import account part 1](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-4.webp)
 
 On the following screen, select the method by which you would like to import the existing account.
 
-![Import existing account part 2](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-5.png)
+![Import existing account part 2](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-5.webp)
 
 On the following screen, you'll be able to provide the relevant seed phrase, private key, JSON file, or QR code, and you can begin using your new account right away.
 
@@ -53,7 +53,7 @@ To configure SubWallet for your EVM ContainerChain, press the **More Options** i
 2. Paste in the block explorer URL of your ContainerChain. The demo EVM ContainerChain's block explorer URL is `https://tanssi-evmexplorer.netlify.app/`
 3. Press **Save**
 
-![Add your ContainerChain Network Details in SubWallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-6.png)
+![Add your ContainerChain Network Details in SubWallet](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-6.webp)
 
 By default, all balances are hidden in SubWallet, but if you press the eye icon, you can toggle balance visibility.
 
@@ -67,7 +67,7 @@ To transfer the native token of your ContainerChain, take the following steps:
 4. Enter the number of tokens to send
 5. Look over the transaction details, then press **Transfer** and subsequently **Approve**
 
-![Send funds on your EVM ContainerChain](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-7.png)
+![Send funds on your EVM ContainerChain](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-7.webp)
 
 This guide focused specifically on configuring SubWallet to work with your EVM ContainerChain, but SubWallet is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a [similar guide for configuring SubWallet for use with your Substrate ContainerChain](/builders/interact/substrate-api/wallets/subwallet){target=\_blank}.
 
