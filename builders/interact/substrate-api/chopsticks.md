@@ -162,7 +162,9 @@ yarn start run-block  \
 
 ## WebSocket Commands {: #websocket-commands }
 
-Chopstick's internal WebSocket server has special endpoints that allow the manipulation of the local Substrate chain. These are the methods that can be invoked:  
+Chopstick's internal WebSocket server has special endpoints that allow the manipulation of the local Substrate chain. 
+
+These are the methods that can be invoked and their parameters:
 
 |      Method      |      Parameters       |                          Description                          |
 |:----------------:|:---------------------:|:-------------------------------------------------------------:|
@@ -171,21 +173,21 @@ Chopstick's internal WebSocket server has special endpoints that allow the manip
 | `dev_timeTravel` |        `date`         |     Sets the timestamp of the block to the `date` value.      |
 |  `dev_setHead`   |    `hashOrNumber`     | Sets the head of the blockchain to a specific hash or number. |
 
-The parameters above are formatted in the following ways:  
+??? code "Parameters details"
 
-|   Parameter    |               Format                |                                Example                                 |
-|:--------------:|:-----------------------------------:|:----------------------------------------------------------------------:|
-|   `options`    | `{ "to": number, "count": number }` |                            `{ "count": 5 }`                            |
-|    `values`    |              `Object`               | `{ "Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" } }`  |
-|  `blockHash`   |              `string`               | `"0x1a34506b33e918a0106b100db027425a83681e2332fe311ee99d6156d2a91697"` |
-|     `date`     |               `Date`                |                        `"2030-08-15T00:00:00"`                         |
-| `hashOrNumber` |               `number               |                                string`                                 |
+    |   Parameter       |               Format                |                                Example                                 |
+    |:-----------------:|:-----------------------------------:|:----------------------------------------------------------------------:|
+    |   `options`       | `{ "to": number, "count": number }` |                            `{ "count": 5 }`                            |
+    |    `values`       |              `Object`               | `{ "Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" } }`  |
+    |  `blockHash`      |              `string`               | `"0x1a34506b33e918a0106b100db027425a83681e2332fe311ee99d6156d2a91697"` |
+    |     `date`        |               `Date`                |                        `"2030-08-15T00:00:00"`                         |
+    | `hashOrNumber`    |         `number | string`           |                                                                        |
 
-- **`options` { "to": number, "count": number }** - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object  
-- **`values` Object** - a JSON object resembling the path to a storage value, similar to what you would retrieve via Polkadot.js  
-- **`blockHash` string** - optional, the block hash at which the storage value is changed  
-- **`date` Date** - a Date string (compatible with the JavaScript Date library) that will change the timestamp at which the next blocks being created will be. All future blocks will be sequentially created after that point in time  
-- **`hashOrNumber` number | string** - if found, the chain head will be set to the block with the block number or block hash of this value  
+    - **`options` { "to": number, "count": number }** - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object  
+    - **`values` Object** - a JSON object resembling the path to a storage value, similar to what you would retrieve via Polkadot.js  
+    - **`blockHash` string** - optional, the block hash at which the storage value is changed  
+    - **`date` Date** - a Date string (compatible with the JavaScript Date library) that will change the timestamp at which the next blocks being created will be. All future blocks will be sequentially created after that point in time  
+    - **`hashOrNumber` number | string** - if found, the chain head will be set to the block with the block number or block hash of this value  
 
 Each method can be invoked by connecting to the WebSocket (`ws://localhost:8000` by default) and sending the data and parameters in the following format. Replace `METHOD_NAME` with the method's name, and replace or delete `PARAMETER_1` and `PARAMETER_2` with the parameter data relevant to the method:  
 
