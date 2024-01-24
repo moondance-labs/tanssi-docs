@@ -144,7 +144,7 @@ Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#
 
 And, depending on whether you are deploying a Snap Appchain or a dedicated one, also adjust these attributes:
 
-=== "Snap Appchains"
+=== "Snap Appchain"
 
     ```json
     {
@@ -164,7 +164,7 @@ And, depending on whether you are deploying a Snap Appchain or a dedicated one, 
     }
     ```
 
-=== "Dedicated Appchains"
+=== "Dedicated Appchain"
 
     ```json
     {
