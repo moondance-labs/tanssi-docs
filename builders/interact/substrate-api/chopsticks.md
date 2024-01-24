@@ -54,26 +54,24 @@ This command will start a local clone of the chain as it was in the latest block
 
 Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [Demo EVM ContainerChain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
 
-=== "Demo EVM ContainerChain"
+```yaml
+endpoint: wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+mock-signature-host: true
+allow-unresolved-imports: true
+db: ./tmp/db_ftrcon.sqlite
 
-    ```yaml
-    endpoint: wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
-    mock-signature-host: true
-    allow-unresolved-imports: true
-    db: ./tmp/db_ftrcon.sqlite
-
-    import-storage:
-        System:
-            Account:
-                - - - "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac" # Alith
-                - providers: 1
-                    sufficients: 1
-                    consumers: 1
-                    data:
-                        free: "100000000000000000000000"
-        Sudo:
-            Key: "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac"
-    ```
+import-storage:
+    System:
+        Account:
+            - - - "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac" # Alith
+            - providers: 1
+                sufficients: 1
+                consumers: 1
+                data:
+                    free: "100000000000000000000000"
+    Sudo:
+        Key: "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac"
+```
 
 The configuration file accepts all of the following parameters:
 
