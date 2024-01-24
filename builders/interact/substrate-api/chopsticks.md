@@ -7,7 +7,7 @@ description: Learn the basics of how to use Chopsticks to replay blocks, dissect
 
 ## Introduction {: #introduction }
 
-[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing Substrate-based chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Appchains for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
+[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing [Substrate-based](/learn/framework/overview/){target=\_blank} chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Appchains for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
 
 Overall, Chopsticks aims to simplify the process of building blockchain applications on Substrate and make it accessible to a wider range of developers.
 
@@ -20,7 +20,7 @@ This article will cover using Chopsticks to fork and interact with the local cop
 
 The original Chopsticks project supports the [Babe](https://docs.substrate.io/reference/glossary/#blind-assignment-of-blockchain-extension-babe){target=\_blank} and [Aura](https://docs.substrate.io/reference/glossary/#authority-round-aura){target=\_blank} block production algorithms. However, to ensure compatibility with the Tanssi block production as a service protocol, modifications have been made and published in a new [fork](https://github.com/moondance-labs/chopsticks.git){target=\_blank} of the original repository.
 
-To follow along with this tutorial, you will need to clone the repository along with its submodules([smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
+To follow along with this tutorial, you will need to clone the repository along with its submodules([Smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
 
 ```bash
 git clone --recurse-submodules https://github.com/moondance-labs/chopsticks.git
