@@ -13,7 +13,7 @@ const main = async () => {
   const alice = keyring.addFromUri('INSERT_ALICES_PRIVATE_KEY');
 
   // Form the transaction
-  const tx = await api.tx.balances.transfer(
+  const tx = await api.tx.balances.transferAllowDeath(
     'INSERT_BOBS_ADDRESS',
     BigInt(12345)
   );

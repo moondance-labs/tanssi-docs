@@ -14,8 +14,8 @@ const main = async () => {
 
   // Construct a list of transactions to batch
   const txs = [
-    api.tx.balances.transfer('INSERT_BOBS_ADDRESS', BigInt(12345)),
-    api.tx.balances.transfer('INSERT_CHARLEYS_ADDRESS', BigInt(12345)),
+    api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(12345)),
+    api.tx.balances.transferAllowDeath('INSERT_CHARLEYS_ADDRESS', BigInt(12345)),
   ];
 
   // Estimate the fees as RuntimeDispatchInfo, using the signer (either
