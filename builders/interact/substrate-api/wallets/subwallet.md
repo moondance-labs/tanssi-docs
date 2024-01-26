@@ -17,15 +17,15 @@ This guide takes you through all the necessary steps, from installing SubWallet 
 
 First, download and install the [SubWallet extension](https://www.subwallet.app/download.html){target=\_blank}. Creating a new account will generate a seed phrase that can derive multiple Ethereum and Substrate accounts. By default, SubWallet will generate a single Ethereum and a single Substrate account, but you can easily derive more from the same seed phrase. Click **Create a new account** to get started.
 
-![Get started with SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-1.png)
+![Get started with SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-1.webp)
 
 On the following screen, you'll be prompted to create a password to secure your new wallet.
 
-![Create a password for SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-2.png)
+![Create a password for SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-2.webp)
 
 You'll then be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
 
-![Back up your seed phrase in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-3.png)
+![Back up your seed phrase in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-3.webp)
 
 !!! note
     You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
@@ -37,11 +37,11 @@ Of course, you can import an existing Substrate account into SubWallet. To get s
 1. Press the **All accounts** button at the top
 2. Press the **Import account** icon
 
-![Import account part 1](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-4.png)
+![Import account part 1](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-4.webp)
 
 On the following screen, select the method by which you would like to import the existing account. If you're importing a Substrate account, you can choose from the seed phrase, Polkadot.js (JSON), or QR code options.
 
-![Import existing account part 2](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-5.png)
+![Import existing account part 2](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-5.webp)
 
 On the following screen, you'll be able to provide the relevant seed phrase, JSON file, or QR code, and you can begin using your new account right away.
 
@@ -52,11 +52,11 @@ SubWallet comes pre-configured with support for the Tanssi Dancebox TestNet, but
 1. Search for `Dancebox`
 2. Toggle the slider on to enable support for Dancebox
 
-![Toggle support for the Dancebox TestNet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-6.png)
+![Toggle support for the Dancebox TestNet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-6.webp)
 
 If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the SubWallet wallet. By default, all balances are hidden in SubWallet, but if you press the eye icon, you can toggle balance visibility.
 
-![See your TestNet account balances in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-7.png)
+![See your TestNet account balances in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-7.webp)
 
 ## Connecting SubWallet to Your Substrate ContainerChain {: #connecting-Subwallet-to-your-substrate-containerchain }
 
@@ -66,20 +66,20 @@ To configure SubWallet for your Substrate ContainerChain, press the **More Optio
 2. Provide a name for your ContainerChain
 3. Press **Save**
 
-![Add Network in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-8.png)
+![Add Network in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-8.webp)
 
 ## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
 
 To connect your Substrate ContainerChain to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your ContainerChain by clicking on the network dropdown and filling in the WSS endpoint of your ContainerChain in the **custom endpoint** field.
 
-![Connect to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-9.png)
+![Connect to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-9.webp)
 
 The SubWallet extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the SubWallet extension and click on the **Connected** icon next to your account at the top. To configure SubWallet to correctly interface with your ContainerChain on Polkadot.js Apps, you should take the following steps:
 
 1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
 2. Press **Connect**
 
-![Connect SubWallet to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-10.png)
+![Connect SubWallet to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-10.webp)
 
 Your SubWallet wallet is now connected to Polkadot.js Apps. After refreshing Polkadot.js Apps, you should see your SubWallet account in the [Accounts page of Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} underneath the **extension** heading.
 
@@ -93,7 +93,7 @@ To send a transaction through the Substrate API, click **Send** next to your acc
 4. Press **View Details** if you'd like to inspect the contents of the transaction
 5. Press **Approve** to submit the transaction
 
-![Send funds through Substrate API with Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-11.png)
+![Send funds through Substrate API with Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-11.webp)
 
 You can also send a transaction through the Substrate API directly from the SubWallet extension without using Polkadot.js Apps. To do so, press the **Send** icon and take the following steps:
 
@@ -103,7 +103,7 @@ You can also send a transaction through the Substrate API directly from the SubW
 4. Enter the number of tokens to send
 5. Look over the transaction details, then press **Transfer** and subsequently **Approve**
 
-![Send funds through Substrate API directly in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-12.png)
+![Send funds through Substrate API directly in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-12.webp)
 
 This guide focused specifically on configuring SubWallet to work with your Substrate ContainerChain, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your EVM ContainerChain](/builders/interact/ethereum-api/wallets/subwallet){target=\_blank}.
 

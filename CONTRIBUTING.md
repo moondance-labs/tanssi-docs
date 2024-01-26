@@ -101,7 +101,7 @@ All landing pages require a logo or relevant icon. You can use the `_index-page-
 
 - Have a transparent background
 - Be 256x256px in size
-- Be added in `.png` format
+- Be added in `.webp` format
 - When exporting the SVG to a PNG, please use a DPI of `300`
 - The colors should be:
   - Light mode: #262626
@@ -112,7 +112,7 @@ These images are stored in the `images/index-pages` subdirectory.
 To add an image to your page, you should have [alt text](https://developers.google.com/style/images#alt-text) and use the following syntax:
 
 ```markdown
-![Alt text goes here](/images/<subdirectory>/<image-file-name>.png)
+![Alt text goes here](/images/<subdirectory>/<image-file-name>.webp)
 ```
 
 ## Snippets

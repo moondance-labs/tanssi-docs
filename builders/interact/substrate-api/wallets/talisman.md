@@ -17,11 +17,11 @@ This guide takes you through all the necessary steps, from installing Talisman t
 
 First, download and install the [Talisman extension](https://www.talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**. 
 
-![Get started with Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-1.png)
+![Get started with Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-1.webp)
 
 On the following screen, you'll be prompted to create a password to secure your new wallet. 
 
-![Enter password for Talisman Wallet](/images/builders/interact/substrate-api/wallets/talisman/talisman-2.png)
+![Enter password for Talisman Wallet](/images/builders/interact/substrate-api/wallets/talisman/talisman-2.webp)
 
 ## Create a Substrate Account {: #create-a-substrate-account }
 
@@ -31,11 +31,11 @@ To create your first Polkadot account in Talisman, take the following steps:
 2. Give your account a name
 3. Press **Create**
 
-![Create your first Polkadot account in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-3.png)
+![Create your first Polkadot account in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-3.webp)
 
 After creating your first account, you'll be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase. 
 
-![Back up your seed phrase](/images/builders/interact/substrate-api/wallets/talisman/talisman-4.png)
+![Back up your seed phrase](/images/builders/interact/substrate-api/wallets/talisman/talisman-4.webp)
 
 !!! note
     You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
@@ -48,7 +48,7 @@ Of course, you can import an existing Substrate account into Talisman. To do so,
 2. Press **Import**
 3. Select **Import via Recovery Phrase**
 
-![Import existing account setup](/images/builders/interact/substrate-api/wallets/talisman/talisman-12.png)
+![Import existing account setup](/images/builders/interact/substrate-api/wallets/talisman/talisman-12.webp)
 
 On the following screen, take the following steps: 
 
@@ -58,7 +58,7 @@ On the following screen, take the following steps:
 4. Select which accounts you'd like to import 
 5. Press **Import**
 
-![Import existing account final steps](/images/builders/interact/substrate-api/wallets/talisman/talisman-13.png)
+![Import existing account final steps](/images/builders/interact/substrate-api/wallets/talisman/talisman-13.webp)
 
 ## Connecting Talisman to the Tanssi Dancebox TestNet {: #connecting-talisman-to-the-tanssi-dancebox-testnet }
 
@@ -68,11 +68,11 @@ Talisman already comes pre-configured with support for the Tanssi Dancebox TestN
 2. Select **Settings**
 3. Ensure that **Enable testnets** is checked
 
-![See your testnet account balances in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-5.png)
+![See your testnet account balances in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-5.webp)
 
 If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancebox tokens, the network will be omitted from your list of assets. 
 
-![See your testnet account balances in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-6.png)
+![See your testnet account balances in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-6.webp)
 
 ## Connecting Talisman to Your Substrate ContainerChain {: #connecting-talisman-to-your-substrate-containerchain }
 
@@ -82,7 +82,7 @@ To configure Talisman for your Substrate ContainerChain, open the Talisman exten
 2. Check the **Enable testnets** box
 3. Press **Add Network**
 
-![Add Network in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-7.png)
+![Add Network in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-7.webp)
 
 On the following page, you'll then be prompted to enter the network details for your ContainerChain. For demonstration purposes, the Dancebox TestNet is used here, but you can substitute these details for your own ContainerChain. To add your ContainerChain to Talisman, take the following steps: 
 
@@ -91,20 +91,20 @@ On the following page, you'll then be prompted to enter the network details for 
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
 
-![Add your ContainerChain Network Details](/images/builders/interact/substrate-api/wallets/talisman/talisman-8.png)
+![Add your ContainerChain Network Details](/images/builders/interact/substrate-api/wallets/talisman/talisman-8.webp)
 
 ## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
 
 To connect your Substrate ContainerChain to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your ContainerChain by clicking on the network dropdown and filling in the WSS endpoint of your ContainerChain in the **custom endpoint** field.
 
-![Connect to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-9.png)
+![Connect to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-9.webp)
 
 The Talisman extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the Talisman extension and click on the **polkadot.js.org** heading at the top. To configure Talisman to correctly interface with your ContainerChain on Polkadot.js Apps, you should take the following steps:
 
 1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
 2. Press **Connect 1**. The value will change depending on the number of accounts you are connecting
 
-![Connect Talisman to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-10.png)
+![Connect Talisman to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-10.webp)
 
 Your Talisman wallet is now connected to Polkadot.js Apps. After refreshing Polkadot.js Apps, you should see your Talisman account in the [Accounts page of Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} underneath the **extension** heading. 
 
@@ -118,7 +118,7 @@ To send a transaction through the Substrate API, click **Send** next to your acc
 4. Press **View Details** if you'd like to inspect the contents of the transaction
 5. Press **Approve** to submit the transaction
 
-![Send funds through Substrate API with Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-11.png)
+![Send funds through Substrate API with Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-11.webp)
 
 
 This guide focused specifically on configuring Talisman to work with your Substrate ContainerChain, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your EVM ContainerChain](/builders/interact/ethereum-api/wallets/talisman){target=\_blank}. 
