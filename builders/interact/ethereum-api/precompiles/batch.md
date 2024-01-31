@@ -263,3 +263,5 @@ If you have followed the [Ethers.js tutorial](/builders/interact/ethereum-api/li
      ```
 
 Afterwards, you should be all set to interact with the batch precompile as one typically would with a contract in [Ethers](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank}.
+
+--8<-- 'text/_disclaimers/third-party-content.md'
