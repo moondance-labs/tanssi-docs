@@ -18,12 +18,10 @@ This article will cover using Chopsticks to fork and interact with the local cop
 
 ## Prerequisites {: #prerequisites }
 
-The original Chopsticks project supports the [Babe](https://docs.substrate.io/reference/glossary/#blind-assignment-of-blockchain-extension-babe){target=\_blank} and [Aura](https://docs.substrate.io/reference/glossary/#authority-round-aura){target=\_blank} block production algorithms. However, to ensure compatibility with the Tanssi block production as a service protocol, modifications have been made and published in a new [fork](https://github.com/moondance-labs/chopsticks.git){target=\_blank} of the original repository.
-
 To follow along with this tutorial, you will need to clone the repository along with its submodules([Smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
 
 ```bash
-git clone --recurse-submodules https://github.com/moondance-labs/chopsticks.git
+git clone --recurse-submodules https://github.com/AcalaNetwork/chopsticks.git
 ```
 
 Then, get into the folder and install the dependencies using [yarn](https://classic.yarnpkg.com/en/docs/install){target=\_blank}:
@@ -109,7 +107,7 @@ You can run the command `yarn start` to fork chains by specifying a local config
 
     ```bash
     yarn start \
-    --config=https://github.com/moondance-labs/chopsticks.git/master/configs/polkadot.yml
+    --config=https://github.com/AcalaNetwork/chopsticks.git/master/configs/polkadot.yml
     ```
 
 
