@@ -48,11 +48,11 @@ Should the third-party module reference any dependency already referenced from a
 
 The following diagram shows how two different references to the same dependency are being included in the runtime, causing the compilation to fail:
 
-![Double reference](/images/builders/build/external-module/external-module-1.png)
+![Double reference](/images/builders/build/external-module/external-module-1.webp)
 
 To resolve this issue, it will be necessary to apply a patch so that the references for the dependency are unified:
 
-![Patched reference](/images/builders/build/external-module/external-module-2.png)
+![Patched reference](/images/builders/build/external-module/external-module-2.webp)
 
 ### Declaring the Dependency {: #declaring-dependency }
 

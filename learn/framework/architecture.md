@@ -24,7 +24,7 @@ The architecture of a Substrate node contains two main components:
 
 From the end-user perspective, all the interaction with the Appchain is usually made through DApps or directly via the node RPC endpoints, for example, using a wallet. When a user triggers a request to fetch data or sends transactions to a node, the core client is responsible for responding or queuing the transactions until execution in the runtime. Still, all these internal aspects of the node design are kept transparent to the user.
 
-![Basic substrate node architecture](/images/learn/framework/architecture/architecture-1.png)
+![Basic substrate node architecture](/images/learn/framework/architecture/architecture-1.webp)
 
 ## The Core Client {: #core-client }
 

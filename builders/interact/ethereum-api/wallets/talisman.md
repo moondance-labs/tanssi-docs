@@ -17,11 +17,11 @@ This guide takes you through all the necessary steps, from installing Talisman t
 
 First, download and install the [Talisman extension](https://www.talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**. 
 
-![Get started with Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-1.png)
+![Get started with Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-1.webp)
 
 On the following screen, you'll be prompted to create a password to secure your new wallet. 
 
-![Enter password for Talisman Wallet](/images/builders/interact/ethereum-api/wallets/talisman/talisman-2.png)
+![Enter password for Talisman Wallet](/images/builders/interact/ethereum-api/wallets/talisman/talisman-2.webp)
 
 ## Creating an Ethereum Account {: #creating-an-ethereum-account }
 
@@ -31,11 +31,11 @@ To create your first Ethereum account, take the following steps:
 2. Give your account a name
 3. Press **Create**
 
-![Create your first Ethereum account in Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-3.png)
+![Create your first Ethereum account in Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-3.webp)
 
 After creating your first account, you'll be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase. 
 
-![Back up your seed phrase](/images/builders/interact/ethereum-api/wallets/talisman/talisman-4.png)
+![Back up your seed phrase](/images/builders/interact/ethereum-api/wallets/talisman/talisman-4.webp)
 
 !!! note
     You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
@@ -48,7 +48,7 @@ Of course, you can import an existing EVM account into Talisman. To do so, take 
 2. Press **Import**
 3. Select **Import via Recovery Phrase** (note, this works for both seeds and private keys)
 
-![Import existing account setup](/images/builders/interact/ethereum-api/wallets/talisman/talisman-9.png)
+![Import existing account setup](/images/builders/interact/ethereum-api/wallets/talisman/talisman-9.webp)
 
 On the following screen, take the following steps: 
 
@@ -58,7 +58,7 @@ On the following screen, take the following steps:
 4. If you imported a mnenomic seed phrase in the prior step, select which accounts you'd like to import 
 5. Press **Import**
 
-![Import existing account final steps](/images/builders/interact/ethereum-api/wallets/talisman/talisman-10.png)
+![Import existing account final steps](/images/builders/interact/ethereum-api/wallets/talisman/talisman-10.webp)
 
 ## Configuring Talisman for Your EVM ContainerChain {: #configuring-talisman-for-your-evm-containerchain }
 
@@ -68,7 +68,7 @@ To configure Talisman for your EVM ContainerChain, open the Talisman extension a
 2. Check the **Enable testnets** box
 3. Press **Add Network**
 
-![Add Network in Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-6.png)
+![Add Network in Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-6.webp)
 
 On the following page, you'll then be prompted to enter the network details for your ContainerChain. For demonstration purposes, the demo EVM ContainerChain is used here, but you can substitute these details for your own ContainerChain. To add your ContainerChain to Talisman, take the following steps: 
 
@@ -77,7 +77,7 @@ On the following page, you'll then be prompted to enter the network details for 
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
 
-![Add your ContainerChain Network Details](/images/builders/interact/ethereum-api/wallets/talisman/talisman-7.png)
+![Add your ContainerChain Network Details](/images/builders/interact/ethereum-api/wallets/talisman/talisman-7.webp)
 
 If you hold a balance of tokens in your newly created account for your ContainerChain, you'll see the balance in the Talisman dashboard. 
 
@@ -91,7 +91,7 @@ To transfer the native token of your ContainerChain, take the following steps:
 4. Enter the amount of tokens to send
 5. Look over the transaction details, then press **Review** and subsequently **Confirm**
 
-![Send funds on your EVM ContainerChain](/images/builders/interact/ethereum-api/wallets/talisman/talisman-8.png)
+![Send funds on your EVM ContainerChain](/images/builders/interact/ethereum-api/wallets/talisman/talisman-8.webp)
 
 
 This guide focused specifically on configuring Talisman to work with your EVM ContainerChain, but Talisman is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Talisman to work with Substrate-based chains.
