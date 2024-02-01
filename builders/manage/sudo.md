@@ -7,7 +7,7 @@ description: Learn how to use the Sudo key to perform privileged actions to mana
 
 ## Introduction {: #introduction }
 
-[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a pallet that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. There can only be a single Sudo account at a time. However, the Sudo keys can be rotated to give Sudo privileges to a new account. 
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. There can only be a single Sudo account at a time. However, the Sudo keys can be rotated to give Sudo privileges to a new account. 
 
 All Tanssi ContainerChains come with the Sudo pallet by default, and you're required to designate an account as the Sudo address when launching your ContainerChain. This enables you to perform privileged actions to manage your chain, such as upgrading your runtime or minting new native tokens. While the Sudo pallet is required to launch your ContainerChain on the TestNet, you can decommission the Sudo pallet and transition to decentralized governance after the MainNet launch.
 
