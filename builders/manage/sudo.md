@@ -79,7 +79,7 @@ To assign an account balance to an account, make sure to have your Sudo account 
 3. Select the **balances** pallet
 4. Select the **forceSetBalance** method
 5. Paste in the account address to endow with tokens or select it from the dropdown
-6. Enter the amount of tokens to endow the account with. In this example, we specify `9000000000000000000` for nine native tokens. Remember that ContainerChains have 18 decimals by default. If you're unsure how many decimals your ContainerChain has, navigate to the **Settings** tab and Click on **Metadata**
+6. Enter the amount of tokens to endow the account with. In this example, we specify `9000000000000000000` for nine native tokens. Remember that EVM ContainerChains have 18 decimals while Substrate or Custom ContainerChains decimals are configured when launching the chain. If you're unsure how many decimals your ContainerChain has, navigate to the **Settings** tab and Click on **Metadata**
 7. Press **Submit Sudo** and confirm the transaction in your wallet
 
 ![Force assign balances on Polkadot.js Apps](/images/builders/manage/sudo/sudo-6.webp)
