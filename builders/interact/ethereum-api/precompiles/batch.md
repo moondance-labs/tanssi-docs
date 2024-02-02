@@ -140,8 +140,9 @@ Try finding a transaction's call data using Remix:
 
 1. Expand the `SimpleContract.sol` contract under **Deployed Contracts**
 2. Expand the **setMessage** function
-3. Enter the input of the function. For this example, **id** will be `1` and **message** will be `"tanssi"`
-4. Instead of sending the transaction, click the copy button next to the **transact** button to copy the call data
+3. Enter the desired **id**, such as `1`
+4. Enter the desired **message**, such as `"tanssi"`
+5. Instead of sending the transaction, click the copy button next to the **transact** button to copy the call data
 
 ![Transaction Call Data](/images/builders/interact/ethereum-api/precompiles/batch/batch-5.webp)
 
