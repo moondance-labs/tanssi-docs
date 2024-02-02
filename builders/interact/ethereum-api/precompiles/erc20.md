@@ -192,3 +192,5 @@ Once the transaction is complete, you can [check the balance](#get-account-balan
 ![Zero Allowance](/images/builders/interact/ethereum-api/precompiles/erc20/erc-13.webp)
 
 And that's it! You've successfully interacted with the ERC-20 precompile using MetaMask and Remix!
+
+--8<-- 'text/_disclaimers/third-party-content.md'
