@@ -10,9 +10,9 @@ keywords: solidity, ethereum, batch, transaction, moonbeam, precompiled, contrac
 
 The Batch Precompile contract on Tanssi EVM Appchains allows developers to combine multiple EVM calls into one.
 
-Currently, having users interact with multiple contracts would require multiple transaction confirmations in the user's wallet. An example would be approving a smart contract's access to a token, and then transferring it. With the Batch Precompile, developers can enhance user experience with batched transactions as it minimizes the number of transactions a user is required to confirm. Additionally, the gas fees paid by a user can be reduced since batching avoids multiple base gas fees (the initial 21000 units of gas spent to begin a transaction).
+Currently, having users interact with multiple contracts would require multiple transaction confirmations in the user's wallet. An example would be approving a smart contract's access to a token and then immediately transferring it. With the Batch Precompile, developers can enhance user experience with batched transactions as it minimizes the number of transactions a user is required to confirm. Additionally, the gas fees paid by a user can be reduced since batching avoids multiple base gas fees (the initial 21000 units of gas spent to begin a transaction).
 
-The precompile interacts directly with [Substrate's EVM pallet](https://polkadot-evm.github.io/frontier/){target=\_blank}. The caller of the batch function will have their address act as the `msg.sender` for all subtransactions, but unlike [delegate calls](https://docs.soliditylang.org/en/v0.8.15/introduction-to-smart-contracts.html#delegatecall-callcode-and-libraries){target=\_blank}, the target contract will still affect its own storage. It is effectively the same as if the user signed multiple transactions, but with only one confirmation.
+The precompile interacts directly with [Substrate's EVM pallet](https://polkadot-evm.github.io/frontier/){target=\_blank}. The caller of the batch function will have their address act as the `msg.sender` for all subtransactions, but unlike [delegate calls](https://docs.soliditylang.org/en/v0.8.15/introduction-to-smart-contracts.html#delegatecall-callcode-and-libraries){target=\_blank}, the target contract will still affect its own storage. It is effectively the same as if the user signed multiple transactions but with only one confirmation.
 
 The Batch Precompile is located at the following address:
 
@@ -160,7 +160,7 @@ The call data can be broken into five lines where:
 
  - The first line is the function selector
  - The second line is equal to 1, which is the **id** that was provided
- - What's left has to do with the **message** input. These last three lines are tricky since strings are a [dynamic type](https://docs.soliditylang.org/en/v0.8.15/abi-spec.html#use-of-dynamic-types){target=\_blank} with a dynamic length. The third line refers to an offset to define where the string's data starts. The fourth line refers to the length of the message in the following line, which is 32 bytes total - the "tanssi" message plus padding
+ - What's left involves the **message** input. These last three lines are tricky since strings are a [dynamic type](https://docs.soliditylang.org/en/v0.8.15/abi-spec.html#use-of-dynamic-types){target=\_blank} with a dynamic length. The third line refers to an offset to define where the string's data starts. The fourth line refers to the length of the message in the following line, which is 32 bytes total - the "tanssi" message plus padding
  
 You can repeat the above steps to capture the call data for values of `2` and `"hello"` such that multiple subcalls can be submitted atomically with the Batch Precompile in the next section. 
 
@@ -202,7 +202,7 @@ So far, transferring native currency and interacting with functions have been se
 
 The following four strings can be combined as inputs for a batch transaction. They will send 1 native token to the public Gerald (`0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b`) account and interact with a predeployed `SimpleContract.sol` contract twice. Here is a break-down:
 
-There are three subtransactions, so there are three addresses in the `to` input array. The first is the public Gerald account, the next two are a predeployed `SimpleContract.sol` contract. You can replace the last two with your own instance of `SimpleContract.sol` if you wish. Or, replace only one: you can interact with multiple contracts in a single message.
+There are three subtransactions which correspond to three addresses in the `to` input array. The first is the public Gerald account and the following two are a `SimpleContract.sol` contract. You can replace the last two with your own instance of `SimpleContract.sol` if you wish. Or, replace only one: you can interact with multiple contracts in a single message.
 
 ```text
 [
@@ -212,7 +212,7 @@ There are three subtransactions, so there are three addresses in the `to` input 
 ]
 ```
 
-There will also be three values for the `value` array. The first address in the `to` input array indicates `1000000000000000000` wei or `1` UNIT of the native token. Remember that the native tokens of Tanssi EVM ContainerChains have [18 decimal points just like Ethereum](https://eth-converter.com/){target=\_blank}. The following two values are 0 because the function that their subtransactions are interacting with do not accept or require native currency.  
+There will also be three values for the `value` array. The first address in the `to` input array indicates `1000000000000000000` wei or `1` UNIT of the native token. Remember that the native tokens of Tanssi EVM ContainerChains have [18 decimal points just like Ethereum](https://eth-converter.com/){target=\_blank}. The following two values are `0` because the function that their subtransactions are interacting with does not accept or require native currency.  
 
 ```text
 ["1000000000000000000", "0", "0"]
