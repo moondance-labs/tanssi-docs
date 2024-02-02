@@ -104,7 +104,7 @@ To assign an account balance to an account, make sure to have your Sudo account 
 
 Changing your ContainerChain's Sudo account is a straightforward process. Also known as rotating your sudo keys, this process will remove sudo access from the existing sudo account and grant it to the new account. There can only be one sudo account at any time. However, you are free to change the sudo account as often as you would like.
 
-Prior to getting started, make sure that you have your existing Sudo account accessible in Polkadot.js Apps. Then, take the following steps:
+Prior to getting started, make sure that you have your existing Sudo account accessible in [Polkadot.js Apps](#configuring-polkadotjs-apps). Then, take the following steps:
 
 1. Navigate to the **Developer** Tab of Polkadot.js Apps for your ContainerChain
 2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps
