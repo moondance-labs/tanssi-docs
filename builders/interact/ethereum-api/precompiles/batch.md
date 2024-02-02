@@ -194,7 +194,7 @@ If you used the same call data as the tutorial, you can check to make sure that 
 
 ![SimpleContract Confirmation](/images/builders/interact/ethereum-api/precompiles/batch/batch-7.webp)
 
-The phrase **"tanssi"** should appear underneath it. You repeat the above steps with an id of "2" and you should see **"hello"**. Congratulations! You have interacted with a function with the Batch Precompile.
+The phrase **"tanssi"** should appear underneath it. You can repeat the above steps with an id of "2" and you should see **"hello"**. Congratulations! You have interacted with a function with the Batch Precompile.
 
 ### Combining Subtransactions {: combining-subtransactions }
 
