@@ -27,7 +27,6 @@ If you're unsure what your ContainerChain's Sudo account is, you can find it in 
 !!! note
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your ContainerChain. 
 
-
 ## Upgrading Your Runtime {: #upgrading-your-runtime }
 
 To get started, head to Polkadot.js Apps for your ContainerChain. The Polkadot.js Apps link for your ContainerChain can be found in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Tooling** section.
