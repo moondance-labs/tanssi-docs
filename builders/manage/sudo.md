@@ -18,7 +18,7 @@ In this guide, you'll learn how to use Sudo to upgrade your ContainerChain's run
 For the examples in this guide, you will need to have the following:
 
  - A Tanssi ContainerChain (Snap or Dedicated)
- - Your ContainerChain's Sudo account connected your ContainerChain's Polkadot.js Apps. 
+ - Your ContainerChain's Sudo account connected to your ContainerChain's Polkadot.js Apps. 
 
 If you're unsure what your ContainerChain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section. 
 
@@ -29,7 +29,7 @@ If you're unsure what your ContainerChain's Sudo account is, you can find it in 
 
 ### Configuring Polkadot.js Apps
 
-After navigating to Polkadot.js Apps for your ContainerChain, you'll need to add your Sudo account. Injecting your Sudo account into Polkadot.js Apps from a browser extension is considered safer than storing accounts directly in the browser. However, you can still import your Sudo account directly into the browser's cache. This method does not require the use of any extensions. To import your an account into Polkadot.js in this manner, take the following steps:
+After navigating to Polkadot.js Apps for your ContainerChain, you'll need to add your Sudo account. Injecting your Sudo account into Polkadot.js Apps from a browser extension is considered safer than storing accounts directly in the browser. However, you can still import your Sudo account directly into the browser's cache. This method does not require the use of any extensions. To import an account into Polkadot.js in this manner, take the following steps:
 
 1. Click on **Settings**
 2. Under **in-browser account creation** select **Allow local in-browser account creation**
@@ -42,7 +42,7 @@ Then, head back to the accounts tab and press **Account**. You'll then be able t
 ![Adding account on Polkadot.js Apps](/images/builders/manage/sudo/sudo-3.webp)
 
 !!! note
-    In-browser key storage is not suitable for production environments. Instructions are provided here for demonstration on testnet environments only. 
+    In-browser key storage is not suitable for production environments. This example is provided for demonstration purposes only in a testnet environment.
 
 ## Upgrading Your Runtime {: #upgrading-your-runtime }
 
