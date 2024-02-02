@@ -1,5 +1,5 @@
 ---
-title: Using Sudo
+title: Using Sudo to Upgrade your Runtime and More
 description: Learn how to use the Sudo key to perform privileged actions to manage your ContainerChain, including upgrading your runtime and minting tokens.
 ---
 

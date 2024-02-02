@@ -1,6 +1,6 @@
 ---
 title: Manage your ContainerChain
-description: After you deploy your ContainerChain, you can maintain and upgrade your ContainerChain with these guides, including actions such as using the Sudo account to take privileged actions.
+description: Learn how to use Sudo to manage your ContainerChain, including upgrading your chain's runtime, minting tokens, and rotating the Sudo keys.
 template: subsection-index-page.html
 hide:
  - toc
