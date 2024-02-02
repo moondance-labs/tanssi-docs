@@ -27,7 +27,7 @@ The Batch Precompile is located at the following address:
 
 [`Batch.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Batch.sol){target=\_blank} is a Solidity interface that allows developers to interact with the precompile's three methods.
 
-??? code "Xtokens.sol"
+??? code "Batch.sol"
 
     ```solidity
     --8<-- 'code/builders/interact/ethereum-api/precompiles/batch/batch.sol'
