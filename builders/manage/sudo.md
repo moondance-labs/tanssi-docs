@@ -30,7 +30,7 @@ If you're unsure what your ContainerChain's Sudo account is, you can find it in 
 
 ## Upgrading Your Runtime {: #upgrading-your-runtime }
 
-To get started, head to Polkadot.js Apps for your ContainerChain. The Polkadot.js Apps Link for your ContainerChain can be found in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Tooling** section. 
+To get started, head to Polkadot.js Apps for your ContainerChain. The Polkadot.js Apps link for your ContainerChain can be found in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Tooling** section.
 
 ![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/sudo/sudo-2.webp)
 
