@@ -110,7 +110,7 @@ The ERC-20 interface allows you to quickly obtain token information, including t
 2. Click **decimals** to get the decimal places of your ContainerChain's native protocol token
 3. Click **name** to get the name of the token
 4. Click **symbol** to get the symbol of the token
-5. Click **totalSupply** to obtain the total supply of native tokens on your ContainerChain.
+5. Click **totalSupply** to obtain the total supply of native tokens on your ContainerChain
 
 ![Total Supply](/images/builders/interact/ethereum-api/precompiles/erc20/erc-6.webp)
 
