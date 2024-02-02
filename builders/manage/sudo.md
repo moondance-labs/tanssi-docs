@@ -18,7 +18,7 @@ In this guide, you'll learn how to use Sudo to upgrade your ContainerChain's run
 For the examples in this guide, you will need to have the following:
 
  - A Tanssi ContainerChain (Snap or Dedicated)
- - Access to your ContainerChain's Sudo account
+ - Your ContainerChain's Sudo account connected your ContainerChain's Polkadot.js Apps. 
 
 If you're unsure what your ContainerChain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section. 
 
@@ -27,11 +27,28 @@ If you're unsure what your ContainerChain's Sudo account is, you can find it in 
 !!! note
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your ContainerChain. 
 
+### Configuring Polkadot.js Apps
+
+After navigating to Polkadot.js Apps for your ContainerChain, you'll need to add your Sudo account. Injecting your Sudo account into Polkadot.js Apps from a browser extension is considered safer than storing accounts directly in the browser. However, you can still import your Sudo account directly into the browser's cache. This method does not require the use of any extensions. To import your an account into Polkadot.js in this manner, take the following steps:
+
+1. Click on **Settings**
+2. Under **in-browser account creation** select **Allow local in-browser account creation**
+3. Press **Save**
+
+![Allowing creation of in-browser storage](/images/builders/manage/sudo/sudo-2.webp)
+
+Then, head back to the accounts tab and press **Account**. You'll then be able to replace the pre-generated private key with that of your sudo account. 
+
+![Adding account on Polkadot.js Apps](/images/builders/manage/sudo/sudo-3.webp)
+
+!!! note
+    In-browser key storage is not suitable for production environments. Instructions are provided here for demonstration on testnet environments only. 
+
 ## Upgrading Your Runtime {: #upgrading-your-runtime }
 
 To get started, head to Polkadot.js Apps for your ContainerChain. The Polkadot.js Apps link for your ContainerChain can be found in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Tooling** section.
 
-![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/sudo/sudo-2.webp)
+![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/sudo/sudo-4.webp)
 
 Prior to the upgrade, you'll need to have the [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload. You'll also need to have your Sudo account accessible in Polkadot.js Apps. Then, take the following steps: 
 
@@ -43,11 +60,11 @@ Prior to the upgrade, you'll need to have the [Wasm runtime](/learn/framework/ar
 6. Upload your Wasm runtime
 7. Press **Submit Sudo** and confirm the transaction in your wallet
 
-![Upgrading your Runtime on Polkadot.js Apps](/images/builders/manage/sudo/sudo-3.webp)
+![Upgrading your Runtime on Polkadot.js Apps](/images/builders/manage/sudo/sudo-5.webp)
 
 You can verify that your runtime upgrade was successful by checking the runtime version in the upper left-hand corner. In this case, we can see that the ContainerChain's runtime was successfully upgraded to version 400. 
 
-![Check Runtime version on Polkadot.js Apps](/images/builders/manage/sudo/sudo-4.webp)
+![Check Runtime version on Polkadot.js Apps](/images/builders/manage/sudo/sudo-6.webp)
 
 ## Minting Tokens {: #minting-tokens }
 
@@ -67,7 +84,7 @@ The next section will demonstrate how to assign arbitrary token balances to acco
 5. Press **+** icon
 6. You'll see the balance information returned at the bottom, including free, reserved, and frozen balances
 
-![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/sudo-5.webp)
+![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/sudo-7.webp)
 
 ### Assigning Balances with Sudo  {: #assigning-balances-with-sudo }  
 
@@ -81,7 +98,7 @@ To assign an account balance to an account, make sure to have your Sudo account 
 6. Enter the amount of tokens to endow the account with. In this example, we specify `9000000000000000000` for nine native tokens. Remember that EVM ContainerChains have 18 decimals while Substrate or Custom ContainerChains decimals are configured when launching the chain. If you're unsure how many decimals your ContainerChain has, navigate to the **Settings** tab and Click on **Metadata**
 7. Press **Submit Sudo** and confirm the transaction in your wallet
 
-![Force assign balances on Polkadot.js Apps](/images/builders/manage/sudo/sudo-6.webp)
+![Force assign balances on Polkadot.js Apps](/images/builders/manage/sudo/sudo-8.webp)
 
 ## Changing the Sudo Account {: #changing-the-sudo-account }
 
@@ -95,7 +112,7 @@ Prior to getting started, make sure that you have your existing Sudo account acc
 4. Select the new account you'll transfer sudo privileges to
 5. Press **Reassign** and confirm the transaction in your wallet
 
-![Change Sudo account on Polkadot.js Apps](/images/builders/manage/sudo/sudo-7.webp)
+![Change Sudo account on Polkadot.js Apps](/images/builders/manage/sudo/sudo-9.webp)
 
 !!! note
     Ensure that you have access to the new sudo account. Once sudo is transferred, it cannot be undone without access to the current sudo key. 
