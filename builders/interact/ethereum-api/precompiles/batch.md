@@ -176,7 +176,7 @@ To use the precompile to send an atomic batch transaction combining two contract
 1. Copy the `SimpleContract.sol` contract's address with the copy button on the right side of its header. Be sure to also have the [call data from the previous section](#finding-a-contract-interactions-call-data)
 2. Expand the batch contract under **Deployed Contracts**
 3. Expand the **batchAll** function
-4. For the **to** input, paste the address `SimpleContract.sol` as follows: `["INSERT_SIMPLE_CONTRACT_ADDRESS","INSERT_SIMPLE_CONTRACT_ADDRESS"]`. Note that you'll need to repeat the address for as many transactions you are batching together, even if the contract address is the same.
+4. For the **to** input, paste the address `SimpleContract.sol` as follows: `["INSERT_SIMPLE_CONTRACT_ADDRESS","INSERT_SIMPLE_CONTRACT_ADDRESS"]`. Note that you'll need to repeat the address for as many transactions you are batching together, even if the contract address is the same
 5. For the value input, since `SimpleContract.sol` does not require any native currency to be paid to it, insert `[0,0]` for 0 Wei
 6. For the **callData** input, insert your call data from the previous section in the following format: `["INSERT_FIRST_CALL_DATA","INSERT_SECOND_CALL_DATA"]`
 7. For the **gasLimit** input, insert `[]`. You can put in a gas limit value for each subcall, or leave it as an empty array
