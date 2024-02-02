@@ -160,7 +160,7 @@ The call data can be broken into five lines, where:
 
  - The first line is the function selector
  - The second line is equal to 1, which is the **id** that was provided
- - What's left has to do with the **message** input. These last three lines are tricky since strings are a [dynamic type](https://docs.soliditylang.org/en/v0.8.15/abi-spec.html#use-of-dynamic-types){target=\_blank} with a dynamic length. The third line refers to an offset to define where the string's data starts. The fourth line refers to the length of the message in the following line, which is 32 bytes total - the "tanssi" message plus padding.  
+ - What's left has to do with the **message** input. These last three lines are tricky since strings are a [dynamic type](https://docs.soliditylang.org/en/v0.8.15/abi-spec.html#use-of-dynamic-types){target=\_blank} with a dynamic length. The third line refers to an offset to define where the string's data starts. The fourth line refers to the length of the message in the following line, which is 32 bytes total - the "tanssi" message plus padding
  
 You can repeat the above steps to capture the call data for values of `2` and `"hello"` such that multiple subcalls can be submitted atomically with the Batch Precompile in the next section. 
 
@@ -177,7 +177,7 @@ To use the precompile to send an atomic batch transaction combining two contract
 1. Copy the `SimpleContract.sol` contract's address with the copy button on the right side of its header. Be sure to also have the [call data from the previous section](#finding-a-contract-interactions-call-data)
 2. Expand the batch contract under **Deployed Contracts**
 3. Expand the **batchAll** function
-4. For the **to** input, paste the address `SimpleContract.sol` as follows: `["INSERT_SIMPLE_CONTRACT_ADDRESS","INSERT_SIMPLE_CONTRACT_ADDRESS"]`. Note that you'll need to repeat the address for as many transactions you are batching together, even if the contract address is the same.
+4. For the **to** input, paste the address `SimpleContract.sol` as follows: `["INSERT_SIMPLE_CONTRACT_ADDRESS","INSERT_SIMPLE_CONTRACT_ADDRESS"]`. Note that you'll need to repeat the address for as many transactions you are batching together, even if the contract address is the same
 5. For the value input, since `SimpleContract.sol` does not require any native currency to be paid to it, insert `[0,0]` for 0 Wei
 6. For the **callData** input, insert your call data from the previous section in the following format: `["INSERT_FIRST_CALL_DATA","INSERT_SECOND_CALL_DATA"]`
 7. For the **gasLimit** input, insert `[]`. You can put in a gas limit value for each subcall, or leave it as an empty array
