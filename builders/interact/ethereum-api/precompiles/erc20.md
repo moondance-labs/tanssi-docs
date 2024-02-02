@@ -12,9 +12,9 @@ The native token ERC-20 precompiled contract on Tanssi EVM ContainerChains allow
 
 One of the main benefits of this precompile is that it removes the necessity of having a wrapped representation of the protocol token as an ERC-20 smart contract, such as WETH on Ethereum. Furthermore, it minimizes the need for multiple wrapped representations of the same protocol token. Consequently, DApps that need to interact with the protocol token via an ERC-20 interface can do so without needing a separate smart contract.
 
-Under the hood, the [ERC-20 precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} executes specific Substrate actions related to the Substrate balances pallet, which is coded in Rust. The balances pallet provides functionality for handling the [various types of balances, setting the free balance, transferring balances, and more.
+Under the hood, the [ERC-20 precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} executes specific Substrate actions related to the Substrate balances module, which is coded in Rust. The balances module provides functionality for handling the various types of balances.
 
-This guide will show you how to interact with UNIT tokens, the native protocol tokens for Snap AppChains on the Tanssi Dancebox Testnet, via the ERC-20 precompile. You can certainly follow along and adapt this guide to interacting with your own ContainerChain as well.
+This guide will show you how to interact with UNIT tokens, the native protocol tokens for Snap AppChains on the Tanssi Dancebox Testnet, via the ERC-20 precompile. You can certainly follow along and adapt this guide to interacting with your own ContainerChain.
 
 The precompile is located at the following address:
 
@@ -28,7 +28,7 @@ The precompile is located at the following address:
 
 ## The ERC-20 Solidity Interface {: #the-erc20-interface }
 
-The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM ContainerChains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank} which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events that a token contract must implement to be interoperable with different applications.
+The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM ContainerChains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events that a token contract must implement to be interoperable with different applications.
 
 ??? code "ERC20.sol"
 
@@ -44,11 +44,11 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have your wallet configured to work with your EVM ContainerChain and an account funded with native tokens. You can add your EVM ContainerChain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you [configure MetaMask for Tanssi with the demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
+To follow along with this tutorial, you will need to have your wallet configured to work with your EVM ContainerChain and an account funded with native tokens. You can add your EVM ContainerChain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ### Add Token to MetaMask {: #add-token-to-metamask }
 
-If you want to interact with your ContainerChain's native token like you would with an ERC-20 in MetaMask, you can create a custom token using the precompile address.
+If you want to interact with your ContainerChain's native token like you would with an ERC-20 in MetaMask, you can add a custom token to your wallet using the precompile address.
 
 To get started, open up MetaMask and make sure you are [connected to your ContainerChain](/builders/interact/ethereum-api/wallets/metamask/) and:
 
@@ -59,12 +59,12 @@ To get started, open up MetaMask and make sure you are [connected to your Contai
 
 Now, you can create a custom token:
 
-1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. As soon as you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they don't you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM ContainerChains is `18`, which is the same as Ethereum's token decimals.
-2. Click **Add Custom Token**
+1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. As soon as you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM ContainerChains is `18`, the same as Ethereum's token decimals.
+2. Click **Next**
 
 ![Add Custom Token](/images/builders/interact/ethereum-api/precompiles/erc20/erc-2.webp)
 
-MetaMask will prompt you to import the tokens. You can review the token details and click **Import Tokens** to import UNIT tokens into your wallet.
+MetaMask will prompt you to confirm the import. You can review the token details and click **Import Tokens** to import UNIT tokens into your wallet.
 
 ![Confirm and Import Tokens](/images/builders/interact/ethereum-api/precompiles/erc20/erc-3.webp)
 
@@ -92,10 +92,10 @@ If the interface was compiled successfully, you will see a green checkmark next 
 
 Instead of deploying the ERC-20 precompile, you will access the interface given the address of the precompiled contract:
 
-1. Click on the **Deploy and Run** tab directly below the **Compile** tab in Remix. Please note the precompiled contract is already deployed
-2. Make sure **Injected Web3** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Web3**, you might be prompted by MetaMask to connect your account to Remix
+1. Click on the **Deploy and Run** tab directly below the **Compile** tab in Remix. Please note that the precompiled contracts are already accessible at their respective addresses. Therefore, there is no deployment step
+2. Make sure **Injected Web3** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Web3**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
-4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Since this is a precompiled contract, there is no need to deploy any code. Instead you are going to provide the address of the precompile in the **At Address** field
+4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead you are going to provide the address of the precompile in the **At Address** field
 5. Provide the address of the ERC-20 precompile: `{{networks.dancebox.precompiles.erc20}}` and click **At Address**
 
 ![Access the address](/images/builders/interact/ethereum-api/precompiles/erc20/erc-5.webp)
@@ -104,7 +104,7 @@ The **IERC20** precompile will appear in the list of **Deployed Contracts**.
 
 ### Get Basic Token Information {: #get-basic-token-information }
 
-The ERC-20 interface allows you to quickly obtain token information, including the token's total supply, name, symbol, and decimal places. You can get this information by following these steps:
+The ERC-20 interface allows you to quickly obtain token information, including the token's total supply, name, symbol, and decimal places. You can retrieve this information by following these steps:
 
 1. Expand the **IERC20** contract under **Deployed Contracts**
 2. Click **decimals** to get the decimal places of your ContainerChain's native protocol token
@@ -130,18 +130,17 @@ Your balance will be displayed under the `balanceOf` function.
 
 ### Approve a Spend {: #approve-a-spend }
 
-To approve a spend, you'll need to provide an address for the spender and the number of tokens  that the spender is allowed to spend. The spender can be an externally owned account or a smart contract. For this example, you can approve the spender to spend 1 UNIT token. To get started, please follow these steps:
+To approve a token spend allowance, you'll need to provide an address for the spender and the number of tokens  that the spender is allowed to spend. The spender can be an externally owned account (EOA) or a smart contract. For this example, you can approve the spender with an allowance of 1 UNIT token. To get started, please follow these steps:
 
 1. Expand the **approve** function
 2. Enter the address of the spender. You should have created two accounts before starting, so you can use the second account as the spender
 3. Enter the amount of tokens the spender can spend for the **value**. For this example, you can allow the spender to spend 1 UNIT token in WEI units (`1000000000000000000`)
 4. Click **transact**
-5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **View full transaction details** to review the amount to be sent and the address of the spender
-6. If everything looks ok, you can click **Confirm** to send the transaction
+5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
 ![Confirm Approve Transaction](/images/builders/interact/ethereum-api/precompiles/erc20/erc-8.webp)
 
-After the transaction has successfully gone through, you'll notice that the balance of your account hasn't changed. This is because you have only approved the spend for the given amount, and the spender hasn't spent the funds. In the next section, you will use the `allowance` function to verify that the spender is able to spend 1 UNIT token on your behalf.
+After the transaction is confirmed, you'll notice that the balance of your account hasn't changed. This is because you have only approved the allowance for the given amount, and the spender hasn't spent the funds. In the next section, you will use the `allowance` function to verify that the spender is able to spend 1 UNIT token on your behalf.
 
 ### Get Allowance of Spender {: #get-allowance-of-spender }
 
@@ -158,13 +157,13 @@ Once the call is complete, the allowance of the spender will be displayed, which
 
 ### Send Transfer {: #send-transfer }
 
-To do a standard transfer and send tokens from your account directly to another account, you can call the `transfer` function by following these steps:
+To send tokens from your account directly to another account, you can call the `transfer` function by following these steps:
 
 1. Expand the **transfer** function
-2. Enter the address to send UNIT tokens to. You should have created two accounts before starting, so you can use the second account as the recipient
+2. Enter the address to send UNIT tokens to
 3. Enter the amount of UNIT tokens to send. For this example, you can send 1 UNIT token (`1000000000000000000`)
 4. Click **transact**
-5. MetaMask will pop up, you can review the transaction details, and if everything looks good, click **Confirm**
+5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
 ![Send Standard Transfer](/images/builders/interact/ethereum-api/precompiles/erc20/erc-10.webp)
 
@@ -188,7 +187,7 @@ Next, you can initiate and send the transfer, to do so:
 
 ![Send Standard Transfer](/images/builders/interact/ethereum-api/precompiles/erc20/erc-12.webp)
 
-Once the transaction is complete, you can [check the balance](#get-account-balance) of the owner and spender using the `balanceOf` function. The spender's balance should have increased by 1 UNIT token, and their allowance should now be depleted. To verify that the spender no longer has an allowance, you can call the `allowance` function, passing in the owner and spender's addresses. You should receive a result of 0.
+Once the transaction is complete, you can [check the balance](#get-account-balance) of the owner and spender using the `balanceOf` function. The spender's balance should have increased by 1 UNIT token, and their allowance should now be depleted. To verify that the spender no longer has an allowance, you can call the `allowance` function by passing in the owner and spender's addresses. You should receive a result of 0.
 
 ![Zero Allowance](/images/builders/interact/ethereum-api/precompiles/erc20/erc-13.webp)
 
