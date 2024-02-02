@@ -3,7 +3,7 @@ title: Using Sudo
 description: Learn how to use the Sudo key to perform privileged actions to manage your ContainerChain, including upgrading your runtime and minting tokens.
 ---
 
-# Using Sudo to Manage your ContainerChain
+# Using Sudo to Manage Your ContainerChain
 
 ## Introduction {: #introduction }
 
