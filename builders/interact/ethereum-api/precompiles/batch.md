@@ -32,8 +32,6 @@ The Batch Precompile is located at the following address:
     ```solidity
     --8<-- 'code/builders/interact/ethereum-api/precompiles/batch/batch.sol'
     ```
-
-
 The interface includes the following functions:
 
 ???+ function "**batchSome**(*address[]* to, *uint256[]* value, *bytes[]* callData, *uint64[]* gasLimit) — performs multiple calls, where the same index of each array combine into the information required for a single subcall. If a subcall reverts, following subcalls will still be attempted"
