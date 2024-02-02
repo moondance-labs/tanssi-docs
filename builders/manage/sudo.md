@@ -18,7 +18,7 @@ In this guide, you'll learn how to use Sudo to upgrade your ContainerChain's run
 For the examples in this guide, you will need to have the following:
 
  - A Tanssi ContainerChain (Snap or Dedicated)
- - Access to your ContainerChain's Sudo Account
+ - Access to your ContainerChain's Sudo account
 
 If you're unsure what your ContainerChain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section. 
 
