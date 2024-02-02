@@ -1,6 +1,6 @@
 ---
 title: Solidity Precompiles
-description: A list of guides for interacting with precompiled contracts on Tanssi EVM ContainerChains, enabling you to interact with Substrate features using the Ethereum API.
+description: These guides showcase interacting with precompiles, which expose Substrate features via the easy-to-access Ethereum API of Tanssi EVM ContainerChains.
 template: subsection-index-page.html
 hide: 
  - toc
