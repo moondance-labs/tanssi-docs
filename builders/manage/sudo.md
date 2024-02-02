@@ -77,7 +77,7 @@ As you know, the Sudo account has the ability to perform privileged functions, i
 
 The next section will demonstrate how to assign arbitrary token balances to accounts using the Sudo account. This process will overwrite the specified account's existing balance, so verifying the account is empty is a good practice before continuing. To check an account's balance, take the following steps:
 
-1. Navigate to the **Developer** tab of Polkadot.js Apps and click on **Chain State**
+1. Navigate to the **Developer** tab of [Polkadot.js Apps](#configuring-polkadotjs-apps) and click on **Chain State**
 2. Select the **system** pallet to query
 3. Select **account** 
 4. Paste in the account address or select it from the dropdown
