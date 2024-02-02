@@ -1,5 +1,5 @@
 ---
-title:  Batch
+title:  Batch Precompile
 description: Learn how to combine multiple transfers and contract interactions together via a Solidity interface with Tanssi's Batch Precompile for your EVM AppChain.
 keywords: solidity, ethereum, batch, transaction, moonbeam, precompiled, contracts
 ---
