@@ -27,18 +27,44 @@ The Batch Precompile is located at the following address:
 
 [`Batch.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Batch.sol){target=\_blank} is a Solidity interface that allows developers to interact with the precompile's three methods.
 
+??? code "Xtokens.sol"
+
+    ```solidity
+    --8<-- 'code/builders/interact/ethereum-api/precompiles/batch/batch.sol'
+    ```
+
+
 The interface includes the following functions:
 
-- **batchSome**(*address[]* to, *uint256[]* value, *bytes[]* callData, *uint64[]* gasLimit) — performs multiple calls, where the same index of each array combine into the information required for a single subcall. If a subcall reverts, following subcalls will still be attempted
-- **batchSomeUntilFailure**(*address[]* to, *uint256[]* value, *bytes[]* callData, *uint64[]* gasLimit) — performs multiple calls, where the same index of each array combine into the information required for a single subcall. If a subcall reverts, no following subcalls will be executed
-- **batchAll**(*address[]* to, *uint256[]* value, *bytes[]* callData, *uint64[]* gasLimit) — performs multiple calls atomically, where the same index of each array combine into the information required for a single subcall. If a subcall reverts, all subcalls will revert
+???+ function "**batchSome**(*address[]* to, *uint256[]* value, *bytes[]* callData, *uint64[]* gasLimit) — performs multiple calls, where the same index of each array combine into the information required for a single subcall. If a subcall reverts, following subcalls will still be attempted"
 
-Each of these functions have the following parameters:
+    === "Parameters"
 
-- ***address[]* to** - an array of addresses to direct subtransactions to, where each entry is a subtransaction
-- ***uint256[]* value** - an array of native currency values to send in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. If this array is shorter than the *to* array, all the following subtransactions will default to a value of 0
-- ***bytes[]* callData** - an array of call data to include in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. If this array is shorter than the *to* array, all of the following subtransactions will include no call data
-- ***uint64[]* gasLimit** - an array of gas limits in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. Values of 0 are interpreted as unlimited and will have all remaining gas of the batch transaction forwarded. If this array is shorter than the *to* array, all of the following subtransactions will have all remaining gas forwarded
+        - `to` - an array of addresses to direct subtransactions to, where each entry is a subtransaction
+        - `value` - an array of native currency values to send in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. If this array is shorter than the *to* array, all the following subtransactions will default to a value of 0
+        - `callData` - an array of call data to include in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. If this array is shorter than the *to* array, all of the following subtransactions will include no call dataMultilocation](#building-the-precompile-multilocation) section
+        - `gasLimit` - an array of gas limits in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. Values of 0 are interpreted as unlimited and will have all remaining gas of the batch transaction forwarded. If this array is shorter than the *to* array, all of the following subtransactions will have all remaining gas forwarded
+
+
+??? function "**batchSomeUntilFailure**(*address[]* to, *uint256[]* value, *bytes[]* callData, *uint64[]* gasLimit) — performs multiple calls, where the same index of each array combine into the information required for a single subcall. If a subcall reverts, no following subcalls will be executed"
+
+    === "Parameters"
+
+        - `to` - an array of addresses to direct subtransactions to, where each entry is a subtransaction
+        - `value` - an array of native currency values to send in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. If this array is shorter than the *to* array, all the following subtransactions will default to a value of 0
+        - `callData` - an array of call data to include in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. If this array is shorter than the *to* array, all of the following subtransactions will include no call dataMultilocation](#building-the-precompile-multilocation) section
+        - `gasLimit` - an array of gas limits in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. Values of 0 are interpreted as unlimited and will have all remaining gas of the batch transaction forwarded. If this array is shorter than the *to* array, all of the following subtransactions will have all remaining gas forwarded
+
+
+??? function "**batchAll**(*address[]* to, *uint256[]* value, *bytes[]* callData, *uint64[]* gasLimit) — performs multiple calls atomically, where the same index of each array combine into the information required for a single subcall. If a subcall reverts, all subcalls will revert"
+
+    === "Parameters"
+
+        - `to` - an array of addresses to direct subtransactions to, where each entry is a subtransaction
+        - `value` - an array of native currency values to send in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. If this array is shorter than the *to* array, all the following subtransactions will default to a value of 0
+        - `callData` - an array of call data to include in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. If this array is shorter than the *to* array, all of the following subtransactions will include no call dataMultilocation](#building-the-precompile-multilocation) section
+        - `gasLimit` - an array of gas limits in the subtransactions, where the index corresponds to the subtransaction of the same index in the *to* array. Values of 0 are interpreted as unlimited and will have all remaining gas of the batch transaction forwarded. If this array is shorter than the *to* array, all of the following subtransactions will have all remaining gas forwarded
+
 
 The interface also includes the following required events:
 
