@@ -27,7 +27,7 @@ If you're unsure what your ContainerChain's Sudo account is, you can find it in 
 !!! note
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your ContainerChain. 
 
-### Configuring Polkadot.js Apps
+### Configuring Polkadot.js Apps { : #configuring-polkadotjs-apps }
 
 After navigating to Polkadot.js Apps for your ContainerChain, you'll need to add your Sudo account. Injecting your Sudo account into Polkadot.js Apps from a browser extension is considered safer than storing accounts directly in the browser. However, you can still import your Sudo account directly into the browser's cache. This method does not require the use of any extensions. To import an account into Polkadot.js in this manner, take the following steps:
 
