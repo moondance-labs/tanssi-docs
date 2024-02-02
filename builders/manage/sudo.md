@@ -42,7 +42,7 @@ Then, head back to the accounts tab and press **Account**. You'll then be able t
 ![Adding account on Polkadot.js Apps](/images/builders/manage/sudo/sudo-3.webp)
 
 !!! note
-    In-browser key storage is not suitable for production environments. This example is provided for demonstration purposes only in a testnet environment.
+    In-browser key storage is not suitable for production environments. This example is provided for demonstration purposes only in a TestNet environment.
 
 ## Upgrading Your Runtime {: #upgrading-your-runtime }
 
