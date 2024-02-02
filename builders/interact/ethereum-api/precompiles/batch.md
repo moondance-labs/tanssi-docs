@@ -10,7 +10,7 @@ keywords: solidity, ethereum, batch, transaction, moonbeam, precompiled, contrac
 
 The Batch Precompile contract on Tanssi EVM Appchains allows developers to combine multiple EVM calls into one.
 
-Currently, having users interact with multiple contracts would require multiple transaction confirmations in the user's wallet. An example would be approving a smart contract's access to a token, then transferring it. With the Batch Precompile, developers can enhance user experience with batched transactions as it minimizes the number of transactions a user is required to confirm to one. Additionally, gas fees can be reduced since batching avoids multiple base gas fees (the initial 21000 units of gas spent to begin a transaction).
+Currently, having users interact with multiple contracts would require multiple transaction confirmations in the user's wallet. An example would be approving a smart contract's access to a token, and then transferring it. With the Batch Precompile, developers can enhance user experience with batched transactions as it minimizes the number of transactions a user is required to confirm. Additionally, the gas fees paid by a user can be reduced since batching avoids multiple base gas fees (the initial 21000 units of gas spent to begin a transaction).
 
 The precompile interacts directly with [Substrate's EVM pallet](https://polkadot-evm.github.io/frontier/){target=\_blank}. The caller of the batch function will have their address act as the `msg.sender` for all subtransactions, but unlike [delegate calls](https://docs.soliditylang.org/en/v0.8.15/introduction-to-smart-contracts.html#delegatecall-callcode-and-libraries){target=\_blank}, the target contract will still affect its own storage. It is effectively the same as if the user signed multiple transactions, but with only one confirmation.
 
@@ -43,7 +43,7 @@ Each of these functions have the following parameters:
 The interface also includes the following required events:
 
 - **SubcallSucceeded**(*uint256* index) - emitted when subcall of the given index succeeds
-- **SubcallFailed**(*uint256* index) - emitted when a subcall of the given index  fails
+- **SubcallFailed**(*uint256* index) - emitted when a subcall of the given index fails
 
 ## Interact with the Solidity Interface {: #interact-with-the-solidity-interface }
 
@@ -83,10 +83,10 @@ If the interface was compiled successfully, you will see a green checkmark next 
 
 Instead of deploying the Batch Precompile, you will access the interface given the address of the precompiled contract:
 
-1. Click on the **Deploy and Run** tab directly below the **Compile** tab in Remix. Please note the precompiled contract is already deployed
+1. Click on the **Deploy and Run** tab directly below the **Compile** tab in Remix. Please note that the precompiled contract is already deployed
 2. Make sure **Injected Provider - MetaMask** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Provider - MetaMask**, you might be prompted by MetaMask to connect your account to Remix
 3. Make sure the correct account is displayed under **ACCOUNT**
-4. Ensure **Batch.sol** is selected in the **CONTRACT** dropdown. Since this is a precompiled contract, there is no need to deploy any code. Instead we are going to provide the address of the precompile in the **At Address** field
+4. Ensure **Batch.sol** is selected in the **CONTRACT** dropdown. Since this is a precompiled contract, there is no need to deploy any code. Instead, we are going to provide the address of the precompile in the **At Address** field
 5. Provide the address of the Batch Precompile: `{{networks.dancebox.precompiles.batch}}` and click **At Address**
 
 ![Access the address](/images/builders/interact/ethereum-api/precompiles/batch/batch-2.webp)
@@ -156,7 +156,7 @@ Now you have the transaction's call data! Considering the example values of `1` 
 674616e7373690000000000000000000000000000000000000000000000000000 // "tanssi" in bytes
 ```
 
-The call data can be broken into five lines, where:
+The call data can be broken into five lines where:
 
  - The first line is the function selector
  - The second line is equal to 1, which is the **id** that was provided
@@ -174,7 +174,7 @@ The `callData` and `gasLimit` fields are more relevant for subtransactions that 
 
 To use the precompile to send an atomic batch transaction combining two contract interactions, take the following steps:
 
-1. Copy the `SimpleContract.sol` contract's address with the copy button on the right side of its header. Be sure to also have the [call data from the previous section](#finding-a-contract-interactions-call-data)
+1. Copy the `SimpleContract.sol` contract's address with the copy button on the right side of its header. Be sure also to have the [call data from the previous section](#finding-a-contract-interactions-call-data)
 2. Expand the batch contract under **Deployed Contracts**
 3. Expand the **batchAll** function
 4. For the **to** input, paste the address `SimpleContract.sol` as follows: `["INSERT_SIMPLE_CONTRACT_ADDRESS","INSERT_SIMPLE_CONTRACT_ADDRESS"]`. Note that you'll need to repeat the address for as many transactions you are batching together, even if the contract address is the same
@@ -194,13 +194,13 @@ If you used the same call data as the tutorial, you can check to make sure that 
 
 ![SimpleContract Confirmation](/images/builders/interact/ethereum-api/precompiles/batch/batch-7.webp)
 
-The phrase **"tanssi"** should appear underneath it. You can repeat the above steps with an id of "2" and you should see **"hello"**. Congratulations! You have interacted with a function with the Batch Precompile.
+The phrase **"tanssi"** should appear underneath it. You can repeat the above steps with an id of "2", and you should see **"hello"**. Congratulations! You have interacted with a function with the Batch Precompile.
 
 ### Combining Subtransactions {: combining-subtransactions }
 
 So far, transferring native currency and interacting with functions have been separate, but they can be intertwined.
 
-The following four strings can be combined as inputs for a batch transaction. They will transact 1 DEV to the public Gerald (`0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b`) account, and interact with a predeployed `SimpleContract.sol` contract twice. Here is a break-down:
+The following four strings can be combined as inputs for a batch transaction. They will send 1 native token to the public Gerald (`0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b`) account and interact with a predeployed `SimpleContract.sol` contract twice. Here is a break-down:
 
 There are three subtransactions, so there are three addresses in the `to` input array. The first is the public Gerald account, the next two are a predeployed `SimpleContract.sol` contract. You can replace the last two with your own instance of `SimpleContract.sol` if you wish. Or, replace only one: you can interact with multiple contracts in a single message.
 
@@ -212,7 +212,7 @@ There are three subtransactions, so there are three addresses in the `to` input 
 ]
 ```
 
-There will also be three values for the `value` array. The first address in the `to` input array has to do with sending 1 DEV, so 1 DEV in Wei is within the array. The following two values are 0 because the function that their subtransactions are interacting with do not accept or require native currency.  
+There will also be three values for the `value` array. The first address in the `to` input array indicates `1000000000000000000` wei or `1` UNIT of the native token. Remember that the native tokens of Tanssi EVM ContainerChains have [18 decimal points just like Ethereum](https://eth-converter.com/){target=\_blank}. The following two values are 0 because the function that their subtransactions are interacting with do not accept or require native currency.  
 
 ```text
 ["1000000000000000000", "0", "0"]
