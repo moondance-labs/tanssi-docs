@@ -159,7 +159,7 @@ The call data can be broken into five lines, where:
 
  - The first line is the function selector
  - The second line is equal to 1, which is the **id** that was provided
- - What's left has to do with the **message** input. These last three lines are tricky since strings are a [dynamic type](https://docs.soliditylang.org/en/v0.8.15/abi-spec.html#use-of-dynamic-types){target=\_blank} with a dynamic length. The third line refers to an offset to define where the string's data starts. The fourth line refers to the length of the message in the following line, which is 32 bytes total - the "tanssi" message plus padding.  
+ - What's left has to do with the **message** input. These last three lines are tricky since strings are a [dynamic type](https://docs.soliditylang.org/en/v0.8.15/abi-spec.html#use-of-dynamic-types){target=\_blank} with a dynamic length. The third line refers to an offset to define where the string's data starts. The fourth line refers to the length of the message in the following line, which is 32 bytes total - the "tanssi" message plus padding
  
 You can repeat the above steps to capture the call data for values of `2` and `"hello"` such that multiple subcalls can be submitted atomically with the Batch Precompile in the next section. 
 
