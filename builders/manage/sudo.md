@@ -88,7 +88,7 @@ The next section will demonstrate how to assign arbitrary token balances to acco
 
 ### Assigning Balances with Sudo  {: #assigning-balances-with-sudo }  
 
-To assign an account balance to an account, make sure to have your Sudo account accessible in Polkadot.js Apps. Then, take the following steps: 
+To assign an account balance to an account, make sure to have your Sudo account accessible in [Polkadot.js Apps](#configuring-polkadotjs-apps). Then, take the following steps: 
 
 1. Navigate to the **Developer** Tab of Polkadot.js Apps for your ContainerChain
 2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps
