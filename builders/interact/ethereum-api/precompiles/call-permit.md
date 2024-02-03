@@ -76,7 +76,7 @@ The parameters of the hash can be broken down as follows:
  - **PERMIT_DOMAIN** - is the `keccak256` of `EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)`
  - **name** - is the name of the signing domain and must be `'Call Permit Precompile'` exactly
  - **version** - is the version of the signing domain. For this case **version** is set to `1`
- - **chainId** - is the chain ID of the network
+ - **chainId** - is the chain ID of your ContainerChain
  - **verifyingContract** - is the address of the contract that will verify the signature. In this case, the Call Permit Precompile address
 
 When `dispatch` is called, the permit needs to be verified before the call is dispatched. The first step is to [compute the domain separator](https://github.com/moonbeam-foundation/moonbeam/blob/ae705bb2e9652204ace66c598a00dcd92445eb81/precompiles/call-permit/src/lib.rs#L138){target=\_blank}. The calculation can be seen in [Moonbeam's implementation](https://github.com/moonbeam-foundation/moonbeam/blob/ae705bb2e9652204ace66c598a00dcd92445eb81/precompiles/call-permit/src/lib.rs#L112-L126){target=\_blank} or you can check out a practical example in [OpenZeppelin's EIP712 contract](ttps://github.com/OpenZeppelin/openzeppelin-contracts/blob/4a9cc8b4918ef3736229a5cc5a310bdc17bf759f/contracts/utils/cryptography/draft-EIP712.sol#L70-L84){target=\_blank}.
