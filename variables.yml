@@ -7,6 +7,7 @@ networks:
     precompiles: 
       erc20: '0x0000000000000000000000000000000000000800'
       batch: '0x0000000000000000000000000000000000000801'
+      call_permit: '0x0000000000000000000000000000000000000802'
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0
