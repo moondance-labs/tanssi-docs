@@ -43,8 +43,8 @@ const createPermitMessageData = () => {
     domain: {
       name: 'Call Permit Precompile',
       version: '1',
-      chainId: 1287,
-      verifyingContract: '0x000000000000000000000000000000000000080a',
+      chainId: INSERT_CHAIN_ID_HERE,
+      verifyingContract: '0x0000000000000000000000000000000000000802',
     },
     message: message,
   };
