@@ -91,7 +91,7 @@ With the final hash and the v, r, and s values, the signature can be [verified a
 
 For this example, you'll learn how to sign a call permit that updates a message in a simple example contract, [`SetMessage.sol`](#example-contract). Before you can generate the call permit signature, you'll need to deploy the contract and define the `dispatch` function arguments for the call permit.
 
-Once you've setup the example contract, then you can setup the Call Permit Precompile contract.
+Once you've set up the example contract, then you can set up the Call Permit Precompile contract.
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
@@ -99,7 +99,7 @@ To follow along with this tutorial, you will need to have your wallet configured
 
 ### Example Contract {: #example-contract }
 
-The `SetMessage.sol` contract will be used as an example of using a call permit, but in practice, any contract can be interacted with.
+The `SetMessage.sol` contract is a perfect example to demonstrate use of the Call Permit Precompile.
 
 ```solidity
 --8<-- 'code/builders/interact/ethereum-api/precompiles/call-permit/set-message.sol'
@@ -117,7 +117,7 @@ You can use [Remix](https://remix.ethereum.org/){target=\_blank} to compile the 
 
 ### Compile & Deploy the Example Contract {: #compile-deploy-example-contract }
 
-First you'll need to compile the example contract:
+First, you'll need to compile the example contract:
 
 1. Click on the **Compile** tab
 2. Then to compile the interface, click on **Compile SetMessage.sol**
@@ -145,7 +145,7 @@ First you'll need to compile the Call Permit Precompile contract:
 
 ![Compiling SetMessage.sol](/images/builders/interact/ethereum-api/precompiles/call-permit/call-4.webp)
 
-Then instead of deploying the contract, you'll just need to access it given the address of the precompile:
+Then, instead of deploying the contract, you'll just need to access it given the address of the precompile:
 
 1. Click on the **Deploy and Run** tab, directly below the **Compile** tab in Remix. Note: you are not deploying a contract here, instead you are accessing a precompiled contract that is already deployed
 2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** drop down
@@ -157,7 +157,7 @@ Then instead of deploying the contract, you'll just need to access it given the 
 
 ## Generate Call Permit Signature {: #generate-call-permit-signature}
 
-In order to interact with the Call Permit Precompile, you have to have or generate a signature to dispatch the call permit with. There are several ways you can generate the signature. This guide will show how to generate the signature using MetaMask's [`@metamask/eth-sig-util` npm package](https://www.npmjs.com/package/@metamask/eth-sig-util){target=\_blank}.
+In order to interact with the Call Permit Precompile, you have to have or generate a signature to dispatch the call permit. There are several ways you can generate the signature. This guide will show how to generate the signature using MetaMask's [`@metamask/eth-sig-util` npm package](https://www.npmjs.com/package/@metamask/eth-sig-util){target=\_blank}.
 
 Here's an overview of the steps that you'll need to take to obtain the signature:
 
@@ -176,7 +176,7 @@ In order to get the signature arguments (`v`, `r`, and `s`), you'll need to sign
 - `from` - the address of the account you want to sign the call permit with
 - `to` - the contract address for the `SetMessage.sol` contract
 - `value` - can be `0` for this example as you'll just be setting a message instead of transferring any funds
-- `data` - you can send any message you would like, you'll just need the hex representation of the message you want to set using the `SetMessage.sol` contract. This will contain the function selector of the `set` function and the string of the message. For this example, you can send `hello world`. To do so, you can use this hex representation:
+- `data` - you can send any message you would like. You'll just need the hex representation of the message you want to set using the `SetMessage.sol` contract. This will contain the function selector of the `set` function and the string of the message. For this example, you can send `hello world`. To do so, you can use this hex representation:
      ```text
      0x4ed3885e0000000000000000000000000000000000000000000000000000000000000020000000000000000000000000000000000000000000000000000000000000000b68656c6c6f20776f726c64000000000000000000000000000000000000000000
      ```
@@ -213,7 +213,7 @@ npm i @metamask/eth-sig-util ethers
 ```
 
 !!! note
-    Never reveal your private keys as they give direct access to your funds. The following steps are for demonstration purposes only.
+    Never reveal your private keys, as they give direct access to your funds. The following steps are for demonstration purposes only.
 
 In the `getSignature.js` file, you can copy and edit the following code snippet. In addition to the fields discussed above in the [Call Permit arguments section](#call-permit-arguments), you'll need to insert the Chain ID of your ContainerChain in the Domain Separator component to properly generate the signature. If you use an incorrect Chain ID, the generated signature will be invalid and no transaction can be dispatched.
 
@@ -239,11 +239,11 @@ In the console, you should see the concatenated signature along with the values 
 
 ## Interact with the Solidity Interface {: #interact-with-the-solidity-interface }
 
-Now that you have generated the call permit signature you will be able to test out calling the `dispatch` function of the Call Permit Precompile.
+Now that you have generated the call permit signature, you will be able to test out calling the `dispatch` function of the Call Permit Precompile.
 
 ### Dispatch a Call {: #dispatch-a-call }
 
-When you send the `dispatch` function, you'll need the same arguments as you used to sign the call permit. To get started, go back to the **Deploy and Run** tab in Remix and under the **Deployed Contracts** section expand the call permit contract. Make sure that you're connected to the account that you want to consume the call permit and pay the transaction fees with. Then take the following steps:
+When you send the `dispatch` function, you'll need the same arguments as you used to sign the call permit. To get started, go back to the **Deploy and Run** tab in Remix, and under the **Deployed Contracts** section, expand the call permit contract. Make sure that you're connected to the account that you want to consume the call permit and pay the transaction fees. Then take the following steps:
 
 1. For the **from** field, enter the account address you used to sign the call permit with
 2. Copy and paste the contract address of `SetMessage.sol`
@@ -258,7 +258,7 @@ When you send the `dispatch` function, you'll need the same arguments as you use
 8. Copy the `r` value you should have retrieved while generating the call permit signature and paste it into the **r** field
 9. Copy the `s` value you should have retrieved while generating the call permit signature and paste it into the **s** field
 10. Click **transact** to send the transaction
-11. MetaMask should pop-up and you can confirm the transaction
+11. MetaMask should pop up and you can confirm the transaction
 
 ![Dispatch the call permit](/images/builders/interact/ethereum-api/precompiles/call-permit/call-8.webp)
 
