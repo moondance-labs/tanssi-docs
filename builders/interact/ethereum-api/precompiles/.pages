@@ -4,3 +4,4 @@ nav:
   - index.md
   - batch.md
   - erc20.md
+  - 'Call Permit': 'call-permit.md'
