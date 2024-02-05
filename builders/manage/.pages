@@ -2,4 +2,4 @@ title: Manage Your ContainerChain
 hide: false
 nav:
   - index.md
-  - sudo.md
+  - 'Using Sudo': 'sudo.md'
