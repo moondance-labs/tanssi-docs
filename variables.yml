@@ -4,7 +4,7 @@ networks:
       stable_version: 17.1.2
     chain_id: 5678
     rpc_url: https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+    gas_to_weight: 25000
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0
-
