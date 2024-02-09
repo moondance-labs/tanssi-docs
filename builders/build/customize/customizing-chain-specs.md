@@ -3,7 +3,7 @@ title: Customizing Chain Specifications
 description: The chain specification contains the initial parameters required for launching a new ContainerChain, including the genesis state, token configuration, and more.
 ---
 
-# Customizing Chain Specifications {: #customizing-chain-specifications } 
+# Customizing Chain Specifications {: #customizing-chain-specifications }
 
 ## Introduction {: #introduction }
 
@@ -14,7 +14,7 @@ The specification contains two main sections:
 - **The client specification** - includes the network parameters, for example, the boot nodes the client connects with when joining the network
 - **The genesis state** - represents the initial state upon which all transactions and state transitions take place. It includes details like the initial registered accounts and their balances, as well as the account with administrator privileges (sudo, if applicable), among other relevant information
 
-This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates/overview/){target=_blank} included in the Tanssi repository) or in a JSON file.
+This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates/overview/){target=\_blank} included in the Tanssi repository) or in a JSON file.
 
 To deploy a ContainerChain through Tanssi, uploading the JSON chain specification file is required. This article will cover the sections and attributes a chain specification contains and how to obtain the file.
 
@@ -34,10 +34,10 @@ The client specification contains the configuration of the network and other set
 - **Code Substitutes** - an emergency feature to replace the runtime when an Appchain is unable to perform a runtime upgrade
 - **Properties** - key-value properties that can be customized and are useful to improve the user experience
 
-In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=_blank}:
+In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=\_blank}:
 
 - **Token Symbol** - a name for your ContainerChain's own token symbol
-- **SS58 Format** - a unique integer that uniquely identifies the accounts in your network with [SS58 encoding](https://docs.substrate.io/reference/address-formats/){target=_blank}. All Substrated-based accounts have the same 32 bytes representation, that are base-58 encoded using this integer, which should be unique between networks
+- **SS58 Format** - a unique integer that uniquely identifies the accounts in your network with [SS58 encoding](https://docs.substrate.io/reference/address-formats/){target=\_blank}. All Substrated-based accounts have the same 32 bytes representation, that are base-58 encoded using this integer, which should be unique between networks
 - **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token
 - **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 
@@ -56,28 +56,37 @@ The following commands will build and generate the chain specification for the E
 To build and generate the chain specifications, take the following steps:
 
 1. Clone the Tanssi code hosted on GitHub
-```bash
-git clone https://github.com/moondance-labs/tanssi
-```
-2. Step into the project folder
-```bash
-cd tanssi
-```
-3. Build the EVM-compatible Appchain template
-```bash
-cargo build -p container-chain-template-frontier-node --release
-```
-This step is quite verbose and might take a while to complete. The following screenshot shows the terminal after successfully finishing the building process (note that the completion time is above 35 minutes):
 
-    ![Building the template](/images/builders/build/customize/customizing-chain-specs-1.png)
+    ```bash
+    git clone https://github.com/moondance-labs/tanssi
+    ```
+
+2. Step into the project folder
+
+    ```bash
+    cd tanssi
+    ```
+
+3. Build the EVM-compatible Appchain template
+
+    ```bash
+    cargo build -p container-chain-template-frontier-node --release
+    ```
+
+    This step is quite verbose and might take a while to complete. The following screenshot shows the terminal after successfully finishing the building process (note that the completion time is above 35 minutes):
+
+    ![Building the template](/images/builders/build/customize/customizing-chain-specs/customizing-chain-specs-1.webp)
+
 4. Generate the chain specification
-```bash
-./target/release/container-chain-template-frontier-node \
-    build-spec > chain_spec.json
-```
+
+    ```bash
+    ./target/release/container-chain-template-frontier-node \
+        build-spec > chain_spec.json
+    ```
+
 After executing the last step, the terminal displays only a log line:
 
-    ![Generating the chain specification](/images/builders/build/customize/customizing-chain-specs-2.png)
+![Generating the chain specification](/images/builders/build/customize/customizing-chain-specs/customizing-chain-specs-2.webp)
 
 And now the `chain_spec.json` file containing the client specification and the genesis state is created in the current folder.
 
@@ -86,7 +95,7 @@ And now the `chain_spec.json` file containing the client specification and the g
 
 ### Editing the JSON Chain Specification File {: #editing-json-chain-specs }
 
-The generated `chain_spec.json` file reflects the parameters set in the Rust chain specifications file. Being a JSON file, it is easy to read and, should any parameter need to be changed, easy to edit. 
+The generated `chain_spec.json` file reflects the parameters set in the Rust chain specifications file. Being a JSON file, it is easy to read and, should any parameter need to be changed, easy to edit.
 
 For example, the following code snippet shows some of the attributes of the client specifications:
 
@@ -124,7 +133,7 @@ For example, the following code snippet shows some of the attributes of the clie
 }
 ```
 
-The other important section of the file is within the `genesis` attribute, which contains the genesis state. In the following JSON snippet, the default values and configuration for some modules are presented as an example: 
+The other important section of the file is within the `genesis` attribute, which contains the genesis state. In the following JSON snippet, the default values and configuration for some modules are presented as an example:
 
 ```json
 {
@@ -202,4 +211,3 @@ After going through the [steps to generate the JSON chain Specification File](#g
 ```
 
 Now that this file has been configured and customized and is in the correct raw JSON format, it can be uploaded to initialize a new ContainerChain in Tanssi.
-

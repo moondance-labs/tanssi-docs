@@ -7,4 +7,4 @@ networks:
     gas_to_weight: 25000
 repository:
   tanssi:
-    release_branch: tanssi-polkadot-v1.1.0
+    release_branch: tanssi-polkadot-v1.3.0

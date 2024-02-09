@@ -48,7 +48,7 @@ The valid transaction queue comprises two pools: ready and future. The ready que
 During the block-building process, a block producer uses a [priority system](https://github.com/paritytech/substrate/blob/fb24fda76d613305ebb2e5728c75362c94b64aa1/frame/transaction-payment/src/lib.rs#L614-L681){target=\_blank} through a transaction orchestration module to order transactions for the next block, until the block reaches its maximum capacity. The block building and execution order has the following operations:
 
 - **Initializing a Block** - known as `on_initialize`,  enables you to define runtime logic executed before any other transaction is accounted for. For example, inherent transactions, like the timestamp in the previous example, are commonly executed when initializing a block. Once the initialization logic is completed, the transaction orchestration module verifies the parent hash in the block header and the trie root to ensure the information is correct
-- **Transaction Execution** - with the block already initialized, the transaction orchestration module executes each valid transaction according to its priority. The initial state is not cached before the execution, meaning that if one of the transactions fails mid-execution, any state changes committed up to that moment can not be reverted, and the subsequent block will be invalid. Consequently, runtime logic should perform all necessary checks to ensure all valid transactions will succeed
+- **Transaction Execution** - with the block already initialized, the transaction orchestration module executes each valid transaction according to its priority. The initial state is not cached before the execution, meaning that if one of the transactions fails mid-execution, any state changes committed up to that moment cannot be reverted, and the subsequent block will be invalid. Consequently, runtime logic should perform all necessary checks to ensure all valid transactions will succeed
 - **Finalizing a Block** - after all queued valid transactions are executed or the block limit is reached, the orchestration module calls into each runtime module the `on_idle` and `on_finalize` functions. These two functions allow the definition of extra business logic that is automatically executed in the block finalization process. After the last `on_finalize` function is called, the orchestration module ensures that the block digest and storage root match what was calculated when the block was initialized
 
 ## Forkless Upgrades {: #forkless-upgrades}
@@ -59,8 +59,8 @@ Forkless upgrades are made possible by storing the state transition function as 
 
 A high-level summary of the runtime upgrade process is shown in the following diagram:
 
-![Runtime Upgrade Process Tanssi Appchains](/images/learn/appchains/runtime-features/dark-runtime-features-1.png#only-dark)
-![Runtime Upgrade Process Tanssi Appchains](/images/learn/appchains/runtime-features/light-runtime-features-1.png#only-light)
+![Runtime Upgrade Process Tanssi Appchains](/images/learn/appchains/runtime-features/dark-runtime-features-1.webp#only-dark)
+![Runtime Upgrade Process Tanssi Appchains](/images/learn/appchains/runtime-features/light-runtime-features-1.webp#only-light)
 
 ## SUDO Account {: #sudo-account}
 

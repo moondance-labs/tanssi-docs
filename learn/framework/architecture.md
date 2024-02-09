@@ -24,7 +24,7 @@ The architecture of a Substrate node contains two main components:
 
 From the end-user perspective, all the interaction with the Appchain is usually made through DApps or directly via the node RPC endpoints, for example, using a wallet. When a user triggers a request to fetch data or sends transactions to a node, the core client is responsible for responding or queuing the transactions until execution in the runtime. Still, all these internal aspects of the node design are kept transparent to the user.
 
-![Basic substrate node architecture](/images/learn/framework/architecture/architecture-1.png)
+![Basic substrate node architecture](/images/learn/framework/architecture/architecture-1.webp)
 
 ## The Core Client {: #core-client }
 
@@ -36,13 +36,13 @@ Some of the main components are:
 - **Storage** - this component manages the state storage of the Appchain in a highly efficient key-value database
 - **Consensus** - this component ensures that all the participants in the network agree on the state of the blockchain, validating transactions, state transitions, and the resulting blocks
 
-The default configuration of a Substrate node and the built-in implementations of the components are usually the best choice for most use cases. Still, teams are welcome to innovate and change or replace any piece of the node or even write a completely different implementation of the core client, such as [Kagome](https://github.com/soramitsu/kagome#intro){target=_blank} (C++ implementation) and [Gossamer](https://github.com/ChainSafe/gossamer#a-go-implementation-of-the-polkadot-host){target=_blank} (Golang implementation).
+The default configuration of a Substrate node and the built-in implementations of the components are usually the best choice for most use cases. Still, teams are welcome to innovate and change or replace any piece of the node or even write a completely different implementation of the core client, such as [Kagome](https://github.com/soramitsu/kagome#intro){target=\_blank} (C++ implementation) and [Gossamer](https://github.com/ChainSafe/gossamer#a-go-implementation-of-the-polkadot-host){target=\_blank} (Golang implementation).
 
 ## The Runtime {: #runtime }
 
 The runtime plays a crucial role in the operation of the Appchain. It contains the core logic and rules to meet the requirements of the use case the developers are building, and, therefore, it is responsible for validating the transactions and executing the state transitions.
 
-Being the core element in an Appchain, designing the Substrate architecture an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org){target=_blank} byte code. 
+Being the core element in an Appchain, designing the Substrate architecture an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org){target=\_blank} byte code. 
 
 The Wasm format offers many advantages to a deployed ContainerChain, including:
 

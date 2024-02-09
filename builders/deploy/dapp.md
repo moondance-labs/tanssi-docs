@@ -5,25 +5,39 @@ description: Learn how to spin up and deploy an Appchain on Tanssi in minutes us
 
 # Deploy your ContainerChain via the Tanssi DApp
 
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/SQw9fn_MOQA?si=INbq35lvKQdJ7IA2' frameborder='0' allowfullscreen></iframe></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
+
 ## Introduction {: #introduction }
 
-Tanssi aims to lower the barrier to entry for building within the Polkadot ecosystem by streamlining the onboarding process and abstracting away the technical details of launching an Appchain. The Tanssi dApp facilitates this process, allowing you to spin up an Appchain and deploy it as a ContainerChain through Tanssi in minutes.
+Tanssi aims to lower the barrier to entry for building within the Polkadot ecosystem by streamlining the onboarding process and abstracting away the technical details of launching an Appchain. The [Tanssi dApp](https://apps.tanssi.network/){target=\_blank} allows you to spin up an Appchain in just minutes. This guide will walk you through the steps required to launch an Appchain on Tanssi's TestNet, Dancebox, via the Tanssi dApp.
 
-This guide will walk you through the steps required to launch an Appchain on Tanssi's TestNet, Dancebox, via the Tanssi dApp.
+## Snap Appchains vs. Dedicated Appchains {: #snap-appchains-vs-dedicated-appchains }
+ 
+[The Tanssi dApp](https://apps.tanssi.network/){target=\_blank} supports the creation of two different types of Appchains, namely:
+
+- Snap Appchain - a temporary Appchain that self-destructs after 48 hours
+- Dedicated Appchain - a long-lasting Appchain for Tanssi ecosystem builders
+
+Both types of Appchains behave identically, with the only difference being the ephemeral nature of the Snap Appchains. Generally speaking, Snap Appchains are best for most builders who want to test the power of a Tanssi-powered Appchain. However, if you require a long-lasting test environment, the Tanssi team will happily assist you with setting up a dedicated Appchain. 
+
+The screenshots and content in this guide will showcase Snap Appchains, but you can follow the same process to configure a dedicated Appchain. 
+
+![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.webp)
 
 ## Overview {: #overview }
 
 Deploying an Appchain via the Tanssi dApp is accomplished as a single, streamlined flow consisting of five distinct steps:
 
-1. Select a [template](/builders/build/templates/overview){target=_blank} and configure it
-2. Verify you have the minimum required balances in both Tanssi and the relay chain to launch a new Appchain
+1. Select a [template](/builders/build/templates/overview){target=\_blank} and configure it
+2. Satisfy the required minimum token balances
 3. Reserve your Appchain ID on the relay chain
-4. Generate your Appchain files based on the template you selected and your Appchain ID
-5. Register your Appchain on Tanssi and the relay chain
+4. Generate your custom Appchain files
+5. Register your Appchain on Tanssi, and the relay chain
 
-![A diagram mapping out the steps for deploying an Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-1.png)
+![A diagram mapping out the steps for deploying an Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-2.webp)
 
-For [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank}, the Tanssi team will manually complete verification, and once verified, the launch process will begin. For Tanssi, the process will be fully decentralized and permissionless.
+For Snap Appchains and Dedicated Appchains on the [Tanssi Dancebox Testnet](/builders/tanssi-network/networks/dancebox){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your Snap Appchain to be ready and about two hours for a dedicated Appchain. For Tanssi MainNet, the process will be fully decentralized and permissionless.
 
 ## Prerequisites {: #prerequisites }
 
@@ -31,64 +45,67 @@ For [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank}, the T
 
 Since Tanssi is built with Substrate, you'll need to use a Substrate-supported wallet to deploy and manage your ContainerChain. Supported wallets include:
 
-- [Polkadot.js extension](https://polkadot.js.org/extension/){target=_blank}
-- [SubWallet](https://www.subwallet.app/){target=_blank}
-- [Talisman](https://www.talisman.xyz/){target=_blank}
+- [Polkadot.js extension](https://polkadot.js.org/extension/){target=\_blank}
+- [SubWallet](https://www.subwallet.app/){target=\_blank}
+- [Talisman](https://www.talisman.xyz/){target=\_blank}
+- [MetaMask Polkadot Snap](https://snaps.metamask.io/snap/npm/chainsafe/polkadot-snap/){target=\_blank}
+- [Enkrypt](https://www.enkrypt.com/){target=\_blank}
 
-Please note that if you deploy an EVM ContainerChain, your users won't need to use a Substrate wallet. They will be able to interact with your ContainerChain using Ethereum-compatible wallets like [MetaMask](/builders/interact/ethereum-api/wallets/metamask){target=_blank}.
+If you deploy an EVM ContainerChain, your users won't need a Substrate wallet. They can interact with your ContainerChain using Ethereum-compatible wallets like [MetaMask](/builders/interact/ethereum-api/wallets/metamask){target=\_blank}.
 
-### Check Token Balances {: #check-token-balances }
+![Connection screen for various Substrate wallets](/images/builders/deploy/dapp/dapp-3.webp)
 
-To configure and deploy your Appchain, you need to meet the minimum balance requirements, which means having enough DANCE tokens, the native Dancebox token, and UNIT tokens, which are the native Alphanet relay chain tokens, to cover the actions listed below:
+### Connect Your Wallet to the DApp {: #connect-wallet }
 
-=== "Dancebox"
-    |              Action               | Balance Required |
-    |:---------------------------------:|:----------------:|
-    | Reserve Appchain ID (Relay Chain) |     20 UNIT      |
-    |  Register Appchain (Relay Chain)  |     70 UNIT      |
-    |    Register Appchain (Tanssi)     |    100 DANCE     |
+To connect your wallet to the Tanssi dApp, click **Connect Wallet** in the upper-right corner. Select the desired wallet type. Then, take the following steps:
 
+1. Choose your account from the dropdown
+2. You'll be prompted to sign a message to log you into the Tanssi dApp. Go ahead and sign the message
 
-To claim DANCE tokens, you need to complete a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=_blank} by providing basic information and your Substrate-based address. Within one business day, you'll receive the necessary DANCE and UNIT tokens for launching your Appchain.
+![Click on the Connect Wallet button to connect your wallet to the Tanssi dApp.](/images/builders/deploy/dapp/dapp-4.webp)
+
+Once connected, you'll see your address in the top-right corner. If you've connected multiple accounts and want to switch accounts, you can click on your address and choose an account from the dropdown menu.
 
 ## Configure Your Appchain {: #configure-your-appchain }
 
-Upon navigating to the [Tanssi dApp](https://apps.tanssi.network/dancebox), you can immediately start creating your Appchain. You'll be able to select a template that best fits your use case and, based on the template, configure specific properties, like the token decimals and symbol, genesis smart contracts and accounts, and more.
+From the [Dashboard](https://apps.tanssi.network/){target=\_blank} or the [Deploy Appchain tab](https://apps.tanssi.network/create){target=\_blank}, you can immediately start configuring your Appchain. To start, choose **Deploy a Snap Appchain** or **Deploy a Dedicated Appchain**. You can read more about [the differences between the two types of Appchains on the Tanssi Testnet](#snap-appchains-vs-dedicated-appchains).
 
-You can choose from either the EVM or Substrate template or upload a raw specification file. To find out more information on the available templates, please refer to the [Templates](/builders/build/templates/overview){target=_blank} documentation.
+![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.webp)
+
+Next, select a template that best fits your use case and configure your Appchain's properties accordingly. You can choose from the EVM or Substrate template or upload a raw specification file. Please refer to the [Templates](/builders/build/templates/overview){target=\_blank} documentation to learn more about the available templates.
 
 ### EVM Template {: #evm-template }
 
-The [EVM template](/builders/build/templates/overview/#baseline-evm-template){target=_blank} provides all the necessary components to add an Ethereum compatibility layer to your Appchain.
-
-Before getting started, you'll need to have an EVM chain ID. This needs to be a unique ID across all Ethereum-compatible chains. Once you have a chain ID you would like to use, you can easily search for it to see if it's already taken on [chainid.network](https://chainid.network/){target=_blank}. Then you'll need to open a pull request on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=_blank} to add your chain configuration details, including the chain ID, to the list to avoid chain ID collisions. This should be done before you continue the deployment process of your Appchain to avoid chain ID collisions.
+The [EVM template](/builders/build/templates/evm/){target=\_blank} provides all the necessary components to add an Ethereum compatibility layer to your Appchain. As part of the setup process, you'll need a unique EVM chain ID that is distinct from all other EVM chains. You can verify that another chain does not already use your EVM chain ID on [chainid.network](https://chainid.network/){target=\_blank}. Before launching your Appchain in production, it's critical that you open a PR to reserve your chain ID on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=\_blank}. It would be best if you did this before you continued the deployment process of your Appchain to avoid chain ID collisions.
 
 !!! note
-    Using a registered EVM chain ID is only necessary for Appchains deployed on the MainNet. When it comes to testing or deploying on the TestNet, you can simply choose any available ID and move forward.
+    A registered EVM chain ID is only necessary for Appchains deployed on the MainNet. When testing or deploying on the TestNet, you can choose any available ID and move forward.
 
-To get started, make sure the **EVM** template is selected from the left-side menu. Then take the following steps:
+To get started, select the **EVM** template from the left-side menu. Then take the following steps:
 
-1. In the properties section, enter your unique chain ID and the symbol for your native token. Decimal places are fixed to 18 digits, the same as Ether itself, to preserve compatibility across EVM tooling
-2. Provide the Ethereum-style address of the account you want to be used as the sudo account and its corresponding initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
-3. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
-4. (Optional) Add genesis smart contracts by providing an address to use and the bytecode for the smart contract. When providing the bytecode, you'll need to remove the `0x` from the beginning of the bytecode
-5. (Optional) You can adjust the gas configurations in the **Advanced** settings. You can choose to change the **Minimum Gas Price**, **Base fee per gas**, **Multiplier**, and **Elasticity**
-6. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
+1. In the **Project Details** section, provide your project's name, your contact email, and your Telegram
+2. In the **Properties** section, enter the symbol of your Appchain's native token and your unique EVM chain ID. Decimal places are fixed to 18 digits, the same as Ether, to preserve compatibility across EVM tooling
+3. Provide the Ethereum-style address of the account you want to use as the sudo account and its corresponding initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
+4. (Optional) Press **Add** to add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
+5. (Optional) Press **Add** to add genesis smart contracts by providing an address to use and the bytecode for the smart contract. When providing the bytecode, you'll need to remove the `0x` from the beginning of the bytecode
+6. (Optional) You can adjust the gas configurations in the **Advanced** settings. You can choose to change the **Minimum Gas Price**, **Base fee per gas**, **Multiplier**, and **Elasticity**
+7. Once you have configured the template for your Appchain, select **Continue** and proceed to the [Check Balances section](#check-balances)
 
-![Create an EVM ContainerChain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-2.png)
+![Create an EVM ContainerChain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-5.webp)
 
 ### Substrate Template {: #substrate-template }
 
-The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template){target=_blank} includes all of the necessary configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Appchain that is both Polkadot and Tanssi compatible.
+The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template){target=\_blank} includes all the configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Appchain that is compatible with both Polkadot and Tanssi.
 
-To get started, make sure the **Substrate** template is selected from the left-side menu. Then take the following steps:
+To get started, select the **Substrate** template from the left-side menu. Then take the following steps:
 
-1. Enter the token decimals and symbol for your native token and the [SS58 address format](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=_blank}
-2. Provide the Substrate-style address of the account you want to be used as the sudo account and its initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
-3. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
-4. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the next step of the deployment process
+1. In the **Project Details** section, provide your project's name, your contact email, and your Telegram
+2. Enter the token decimals and symbol for your native token and the [SS58 address format](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=\_blank}
+3. Provide the Substrate-style address of the account you want to use as the sudo account and its initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
+4. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
+5. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the [Check Balances section](#check-balances)
 
-![Create a baseline Substrate ContainerChain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-3.png)
+![Create a baseline Substrate ContainerChain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-6.webp)
 
 ### Custom {: #custom }
 
@@ -96,8 +113,8 @@ If you already have a Substrate runtime built and have chosen to upload your own
 
 Your runtime must implement the following:
 
-- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
-- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=_blank} section of the [Templates](/builders/build/templates/overview/){target=_blank} page
+- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
+- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
 
 Other required changes in the runtime include:
 
@@ -120,45 +137,79 @@ Other required changes in the runtime include:
     AuraExt: cumulus_pallet_aura_ext = 24,
     ```
 
-Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs){target=_blank} the chain specification paying special attention to: 
+Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs){target=\_blank} the chain specification paying special attention to: 
 
 - `para_id` - within this custom flow, a pre-registered parachain id is required
 - `is_ethereum` - to `true` if exposing Ethereum compatible RPC endpoints is needed
 
+And, depending on whether you are deploying a Snap Appchain or a dedicated one, also adjust these attributes:
+
+=== "Snap Appchain"
+
+    ```json
+    {
+        ...
+        "relay_chain": "rococo_flashbox_relay_testnet",
+        "chainType": "Live",
+        "genesis": {
+            "runtime": {
+                ...
+                "authoritiesNoting": {
+                    "orchestratorParaId": 1000
+                },
+                ...
+            }
+        }
+        ...
+    }
+    ```
+
+=== "Dedicated Appchain"
+
+    ```json
+    {
+        ...
+        "relay_chain": "westend_moonbase_relay_testnet",
+        "chainType": "Live",
+        "genesis": {
+            "runtime": {
+                ...
+                "authoritiesNoting": {
+                    "orchestratorParaId": 3000
+                },
+                ...
+            }
+        }
+        ...
+    }
+    ```
+
 Now, you can upload your custom raw specification file by selecting the **Custom** template and adding your JSON specification file.
 
-![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy/dapp/dapp-4.png)
+![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy/dapp/dapp-7.webp)
 
 !!! note
     The size of a raw chain specifications file should not exceed 2MB.
 
-## Check Your Balances {: #check-balances }
+## Check Balances {: #check-balances }
 
-After configuring your Appchain, the dApp will require you to connect your wallet to check your balances. Provided that you have received enough DANCE and UNIT tokens, you can go ahead.
+Next, you'll need to verify that you have sufficient balances of DANCE and UNIT tokens. If you don't, you can press **Request Tokens** and complete the following login with GitHub or Google. You'll need to complete a few quick onboarding questions, and then you'll be able to press **Request Tokens** again, and they will be delivered to your connected wallet.
 
-### Connect Your Wallet to the DApp {: #connect-wallet }
+![Request tokens](/images/builders/deploy/dapp/dapp-8.webp)
 
-To continue the process, you'll be required to connect your wallet. Depending on the wallet you're using, your wallet may pop up when first navigating to the Tanssi dApp. If so, feel free to follow the prompt, select the accounts you want to interact with, and connect your wallet.
+If you're setting up a dedicated Appchain, you'll need to manually request the necessary tokens via a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank}, and you'll receive the necessary tokens within one business day. The required minimum balances to launch an Appchain are as follows: 
 
-Otherwise, to get started, you can:
+=== "Snap Appchain"
+    |            Chain             | Balance Required |
+    |:----------------------------:|:----------------:|
+    | Flashbox Relay Chain Balance |     70 UNIT      |
+    |  Flashbox Balance (Tanssi)   |    100 DANCE     |
 
-1. Click **Connect Wallet**
-2. Choose your account from the dropdown
-3. You'll be prompted to sign a message, which will log you into the Tanssi dApp. Go ahead and sign the message
-
-![Click on the Connect Wallet button to connect your wallet to the Tanssi dApp.](/images/builders/deploy/dapp/dapp-5.png)
-
-Once connected, you'll see your address in the top-right corner. If you've connected multiple accounts and would like to switch accounts, you can click on your address and choose an account from the dropdown menu.
-
-### Balance Verification {: #balance-verification }
-
-Once you have connected your wallet to the dApp, the **Balance Verification** section will show your DANCE and UNIT token balances. If you meet the requirements, it results in a green checkmark next to each balance, while failing to meet them is indicated by a red X.
-
-If you have already reserved your Appchain ID, you can toggle the switch at the bottom of the **Balance Verification** page, and your balance requirements will change.
-
-Once you meet the balance requirements, you can proceed to the next step by clicking the **Continue** button at the bottom of the page.
-
-![Verify you meet the balance requirements for launching your Appchain.](/images/builders/deploy/dapp/dapp-6.png)
+=== "Dedicated Appchain"
+    |            Chain             | Balance Required |
+    |:----------------------------:|:----------------:|
+    | Moonbase Relay Chain Balance |     110 UNIT     |
+    |  Dancebox Balance (Tanssi)   |    100 DANCE     |
 
 ## Reserve your Appchain ID {: #reserve-appchain-id }
 
@@ -169,23 +220,23 @@ To reserve your Appchain ID, you'll need to submit a transaction. Please make su
 1. To initiate the transaction, click on **Reserve Appchain ID**
 2. Your wallet will pop up, and you'll need to submit the transaction
 
-![Reserve your Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-7.png)
+![Reserve your Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-9.webp)
 
 Once the transaction has successfully gone through, your Appchain ID will be displayed on the dApp, and you'll be able to click **Continue** to proceed to the next step. You'll notice that on your Alphanet relay chain account, 20 UNIT tokens have been removed from your transferrable balance and are now reserved.
 
-![Successfully reserved your Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-8.png)
+![Successfully reserved your Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-10.webp)
 
 ## Generate Your Appchain Files {: #generate-appchain-files }
 
 Before you can deploy your Appchain, you'll need to generate four configuration files:
 
-- [The raw chain specification](/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
-- [The genesis state header](/builders/build/customize/customizing-chain-specs/#genesis-state){target=_blank} - defines the initial state upon which all transactions and state transitions are executed
-- [The genesis Wasm](/learn/framework/architecture/#runtime){target=_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
+- [The raw chain specification](/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=\_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
+- [The genesis state header](/builders/build/customize/customizing-chain-specs/#genesis-state){target=\_blank} - defines the initial state upon which all transactions and state transitions are executed
+- [The genesis Wasm](/learn/framework/architecture/#runtime){target=\_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
 
 These files will automatically be generated for you based on your Appchain ID and your customized template configurations. All you need to do is click **Generate**, and the dApp will generate the required files for you.
 
-![Generate your Appchain files with the click of a button on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-9.png)
+![Generate your Appchain files with the click of a button on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-11.webp)
 
 Once the files have been generated, please click **Continue** to go on to the final step.
 
@@ -198,7 +249,7 @@ To register your Appchain on the relay chain, take the following steps:
 1. Click **Register** under the **Register Appchain in Relay** section
 2. Confirm the transaction in your wallet
 
-![Register your Appchain on the relay chain.](/images/builders/deploy/dapp/dapp-10.png)
+![Register your Appchain on the relay chain.](/images/builders/deploy/dapp/dapp-12.webp)
 
 Once the transaction has gone through successfully, the dApp will update to show that you have successfully registered your Appchain under the **Register Appchain in Relay** section.
 
@@ -207,14 +258,10 @@ Lastly, to register your Appchain on Tanssi, take the following steps:
 1. Click **Register** under the **Register Appchain in Tanssi** section
 2. Confirm the transaction in your wallet
 
-![Register your Appchain on Tanssi.](/images/builders/deploy/dapp/dapp-11.png)
+![Register your Appchain on Tanssi.](/images/builders/deploy/dapp/dapp-13.webp)
 
-Once the transaction has gone through successfully, the dApp will update to show that you have successfully registered your Appchain under the **Register Appchain in Tanssi** section. You can click **Continue** to view the dashboard for your ContainerChain.
+Once the transaction has gone through successfully, the dApp will update to show that you have registered your Appchain. Congratulations! On the dashboard, you can check the status of your deployment and view relevant information, such as the latest block information, RPC and WS endpoints, and more.
 
-![Successful registration of your Appchain on the relay chain and Tanssi.](/images/builders/deploy/dapp/dapp-12.png)
+![The ContainerChain dashboard on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-14.webp)
 
-On the dashboard, you can check the status of your deployment and view relevant information such as the latest block information, RPC and WS endpoints, and more.
-
-![The ContainerChain dashboard on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-13.png)
-
-And that's it! You've successfully registered your Appchain! Once your Appchain has been verified by the Tanssi team, the launch process will automatically begin.
+And that's it! You've successfully registered your Appchain! The launch process will automatically begin once the Tanssi team has verified your Appchain. Once your Appchain is live, you can return to the **Dashboard** to view the RPC URL and other pertinent chain information.

@@ -5,13 +5,17 @@ description: Learn how to use the Ethereum EtherJS Library to send transactions 
 
 # Ethers.js JavaScript Library
 
+<style>.video-container{display:flex;justify-content:space-between;max-width:1000px;margin:0 auto;}.video-column{width:49%;}.embed-container{position:relative;padding-bottom:56.25%;height:0;overflow:hidden;max-width:100%;margin-bottom:10px;}.embed-container iframe,.embed-container object,.embed-container embed{position:absolute;top:0;left:0;width:100%;height:100%;}</style><div class="video-container"><div class="video-column"><div class='embed-container'><iframe src='https://www.youtube.com/embed/bXtknNifO78?si=Hjiah5yhKvBcsE7f' frameborder='0' allowfullscreen></iframe></div></div><div class="video-column"><div class='embed-container'><iframe src='https://www.youtube.com/embed/m9iVeCP7owI?si=krm6z9AsFCDrjlJh' frameborder='0' allowfullscreen></iframe></div></div></div>
+
 ## Introduction {: #introduction }
 
-The [Ethers.js](https://docs.ethers.org/){target=_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=_blank}. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6/){target=_blank}.
+The [Ethers.js](https://docs.ethers.org/){target=\_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=\_blank}. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6/){target=\_blank}.
 
-In this guide, you'll learn how to use setup the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
+In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint. 
 
---8<-- 'text/common/general-js-tutorial-check.md'
+If you prefer video tutorials, you can follow along with the corresponding videos at the top of this page for [Sending Transactions with Ethers.js](#send-a-transaction) and [Deploying Contracts with Ethers.js](#deploy-a-contract).
+
+--8<-- 'text/_common/general-js-tutorial-check.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -37,7 +41,7 @@ For this guide, you'll need to install the Ethers.js library and the Solidity co
 
 ## Setting up the Ethers Provider {: #setting-up-the-ethers-provider }
 
-Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Ethers provider](https://docs.ethers.org/v6/api/providers/){target=_blank} to interact with the network.
+Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Ethers provider](https://docs.ethers.org/v6/api/providers/){target=\_blank} to interact with the network.
 
 To create a provider, you can take the following steps:
 
@@ -117,7 +121,7 @@ balances();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/balances.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/balances.js'
     ```
 
 To run the script and fetch the account balances, you can run the following command:
@@ -128,7 +132,7 @@ node balances.js
 
 If successful, the balances for the origin and receiving address will be displayed in your terminal in UNIT.
 
-![Check Balance Ethers.js](/images/builders/interact/ethereum-api/ethersjs/ethersjs-1.png)
+--8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/balances.md'
 
 ### Send Transaction Script {: #send-transaction-script }
 
@@ -184,7 +188,7 @@ send();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/transaction.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/transaction.js'
     ```
 
 To run the script, you can run the following command in your terminal:
@@ -197,15 +201,15 @@ If the transaction was succesful, in your terminal you'll see the transaction ha
 
 You can also use the `balances.js` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
-![Send Tx Ethers.js](/images/builders/interact/ethereum-api/ethersjs/ethersjs-2.png)
+--8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/transaction.md'
 
 ## Deploy a Contract {: #deploy-a-contract }
 
---8<-- 'text/libraries/contract.md'
+--8<-- 'text/builders/interact/ethereum-api/libraries/contract.md'
 
 ### Compile Contract Script {: #compile-contract-script }
 
---8<-- 'text/libraries/compile.md'
+--8<-- 'text/builders/interact/ethereum-api/libraries/compile.md'
 
 ### Deploy Contract Script {: #deploy-contract-script }
 
@@ -267,7 +271,7 @@ deploy();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/deploy.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/deploy.js'
     ```
 
 To run the script, you can enter the following command into your terminal:
@@ -278,7 +282,7 @@ node deploy.js
 
 If successful, the contract's address will be displayed in the terminal.
 
-![Deploy Contract Etherjs](/images/builders/interact/ethereum-api/ethersjs/ethersjs-3.png)
+--8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/deploy.md'
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
@@ -334,7 +338,7 @@ get();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/get.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/get.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -345,7 +349,7 @@ node get.js
 
 If successful, the value will be displayed in the terminal.
 
-![Get Value from Contract Etherjs](/images/builders/interact/ethereum-api/ethersjs/ethersjs-4.png)
+--8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/get.md'
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
@@ -410,7 +414,7 @@ increment();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/increment.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/increment.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -421,7 +425,7 @@ node increment.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that value is changing as expected:
 
-![Increment Contract Ethers](/images/builders/interact/ethereum-api/ethersjs/ethersjs-5.png)
+--8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/increment.md'
 
 Next you can open the `reset.js` file and take the following steps to create the script:
 
@@ -475,7 +479,7 @@ reset();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/ethersjs/reset.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/reset.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -486,6 +490,6 @@ node reset.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `reset.js` script to make sure that value is changing as expected:
 
-![Reset Contract Ethers](/images/builders/interact/ethereum-api/ethersjs/ethersjs-6.png)
+--8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/reset.md'
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

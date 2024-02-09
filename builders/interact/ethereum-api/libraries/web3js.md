@@ -11,7 +11,7 @@ description: Learn how to use the Ethereum Web3 JavaScript Library to send trans
 
 In this guide, you'll learn how to set up the Web3.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use the Web3.js library to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
 
---8<-- 'text/common/general-js-tutorial-check.md'
+--8<-- 'text/_common/general-js-tutorial-check.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -109,7 +109,7 @@ balances();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/web3js/balances.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/balances.js'
     ```
 
 To run the script and fetch the account balances, you can run the following command:
@@ -120,7 +120,7 @@ node balances.js
 
 If successful, the balances for the origin and receiving address will be displayed in your terminal in ETH.
 
-![Check balance Web3js](/images/builders/interact/ethereum-api/web3js/web3js-1.png)
+![Check balance Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-1.webp)
 
 ### Send Transaction Script {: #send-transaction-script }
 
@@ -182,7 +182,7 @@ send();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/web3js/transaction.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/transaction.js'
     ```
 
 To run the script, you can run the following command in your terminal:
@@ -195,15 +195,15 @@ If the transaction was successful, in your terminal, you'll see the transaction 
 
 You can also use the `balances.js` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
-![Send Tx Web3js](/images/builders/interact/ethereum-api/web3js/web3js-2.png)
+![Send Tx Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-2.webp)
 
 ## Deploy a Contract {: #deploy-a-contract }
 
---8<-- 'text/libraries/contract.md'
+--8<-- 'text/builders/interact/ethereum-api/libraries/contract.md'
 
 ### Compile Contract Script {: #compile-contract-script }
 
---8<-- 'text/libraries/compile.md'
+--8<-- 'text/builders/interact/ethereum-api/libraries/compile.md'
 
 ### Deploy Contract Script {: #deploy-contract-script }
 
@@ -279,7 +279,7 @@ deploy();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/web3js/deploy.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/deploy.js'
     ```
 
 To run the script, you can enter the following command into your terminal:
@@ -290,7 +290,7 @@ node deploy.js
 
 If successful, the contract's address will be displayed in the terminal.
 
-![Deploy Contract Web3js](/images/builders/interact/ethereum-api/web3js/web3js-3.png)
+![Deploy Contract Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-3.webp)
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
@@ -342,7 +342,7 @@ get();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/web3js/get.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/get.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -353,7 +353,7 @@ node get.js
 
 If successful, the value will be displayed in the terminal.
 
-![Get contract variable value Web3js](/images/builders/interact/ethereum-api/web3js/web3js-4.png)
+![Get contract variable value Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-4.webp)
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
@@ -425,7 +425,7 @@ increment();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/web3js/increment.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/increment.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -436,7 +436,7 @@ node increment.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that the value is changing as expected.
 
-![Increment and check value Web3js](/images/builders/interact/ethereum-api/web3js/web3js-5.png)
+![Increment and check value Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-5.webp)
 
 Next you can open the `reset.js` file and take the following steps to create the script:
 
@@ -499,7 +499,7 @@ reset();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/ethereum-api/web3js/reset.js'
+    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/reset.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -510,6 +510,6 @@ node reset.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `reset.js` script to make sure that the value is changing as expected.
 
-![Reset contract Web3js](/images/builders/interact/ethereum-api/web3js/web3js-6.png)
+![Reset contract Web3js](/images/builders/interact/ethereum-api/libraries/web3js/web3js-6.webp)
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

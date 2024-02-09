@@ -7,7 +7,7 @@ description: This guide walks you through how to connect MetaMask, a browser-bas
 
 ## Introduction {: #introduction }
 
-Developers building dApps on top of Tanssi EVM ContainerChains can leverage their Ethereum compatibility features by integrating known Ethereum wallets, such as [MetaMask](https://metamask.io/){target=_blank}. By doing so, they can use the injected library MetaMask provides to interact with the Tanssi EVM ContainerChain.
+Developers building dApps on top of Tanssi EVM ContainerChains can leverage their Ethereum compatibility features by integrating known Ethereum wallets, such as [MetaMask](https://metamask.io/){target=\_blank}. By doing so, they can use the injected library MetaMask provides to interact with the Tanssi EVM ContainerChain.
 
 This guide takes you through all the necessary steps: from installing Metamask, to setting up a wallet, and finally connecting it to your Tanssi EVM ContainerChain.
 
@@ -16,19 +16,19 @@ This guide takes you through all the necessary steps: from installing Metamask, 
 
 ## Install the MetaMask Extension {: #install-the-metamask-extension }
 
-First, you'll start with a fresh and default [MetaMask](https://metamask.io/){target=_blank} installation from the Chrome store. After downloading, installing, and initializing the extension, follow the **Get Started** steps to [setup the wallet](#setup-a-wallet). In there, you need to create a wallet, set a password, and store your secret backup phrase (this gives direct access to your funds, so make sure to store these in a secure place).
+First, you'll start with a fresh and default [MetaMask](https://metamask.io/){target=\_blank} installation from the Chrome store. After downloading, installing, and initializing the extension, follow the **Get Started** steps to [setup the wallet](#setup-a-wallet). In there, you need to create a wallet, set a password, and store your secret backup phrase (this gives direct access to your funds, so make sure to store these in a secure place).
 
 !!! note
     The Metamask browser extension is compatible with Chrome, Chromium based browsers (such as Microsoft Edge and Opera), and Firefox. Metamask is also available as a mobile app for iOS and Android devices.
 
 ## Setup a Wallet {: #setup-a-wallet }
 
-After installing [MetaMask](https://metamask.io){target=_blank}, the setup will automatically open a new task with a welcome screen. Here, you are offered two options:
+After installing [MetaMask](https://metamask.io){target=\_blank}, the setup will automatically open a new task with a welcome screen. Here, you are offered two options:
 
 - **Create a new wallet** - you'll go through some steps to get a new seed phrase. Ensure you store this phrase securely and you don't share it publicly
 - **Import an existing wallet** - you already have a seed phrase stored, and you want to restore an account from that recovery phrase
 
-![Metamask Setup Interface](/images/builders/interact/ethereum-api/wallets/metamask/metamask-1.png)
+![Metamask Setup Interface](/images/builders/interact/ethereum-api/wallets/metamask/metamask-1.webp)
 
 Once you've clicked on the option that adapts to your needs, follow the steps, and you should be all setup.
 
@@ -41,32 +41,32 @@ Once you've created a wallet or imported an existing one, you can also import an
 
 For this example, you'll use private keys from the development account. Click the account switcher button to import an account using its private keys. That is where it says **Account 1**.
 
-![Importing account from private key metamask menu](/images/builders/interact/ethereum-api/wallets/metamask/metamask-2.png)
+![Importing account from private key metamask menu](/images/builders/interact/ethereum-api/wallets/metamask/metamask-2.webp)
 
 Next, click on **Import Account**.
 
-![Importing account from private key account switcher menu](/images/builders/interact/ethereum-api/wallets/metamask/metamask-3.png)
+![Importing account from private key account switcher menu](/images/builders/interact/ethereum-api/wallets/metamask/metamask-3.webp)
 
 Finally, enter the private keys of the account you are trying to import. Once you've entered the private key, click on **Import**.
 
-![Paste your account key into MetaMask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-4.png)
+![Paste your account key into MetaMask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-4.webp)
 
 You should end up with an imported **Account 2** that looks like this:
 
-![MetaMask displaying your new Account 2](/images/builders/interact/ethereum-api/wallets/metamask/metamask-5.png)
+![MetaMask displaying your new Account 2](/images/builders/interact/ethereum-api/wallets/metamask/metamask-5.webp)
 
 ## Connect MetaMask to your Tanssi EVM ContainerChain {: #connect-metamask-to-evm-containerchain }
 
-Once you have [MetaMask](https://metamask.io/){target=_blank} installed and have created or imported an account, you can connect it to your Tanssi EVM ContainerChain. To do so, take the following steps:
+Once you have [MetaMask](https://metamask.io/){target=\_blank} installed and have created or imported an account, you can connect it to your Tanssi EVM ContainerChain. To do so, take the following steps:
 
 1. Click in the upper left network selector menu
 2. Select **Add Network**
 
-![Add new network in Metamask menu](/images/builders/interact/ethereum-api/wallets/metamask/metamask-6.png)
+![Add new network in Metamask menu](/images/builders/interact/ethereum-api/wallets/metamask/metamask-6.webp)
 
 Next, go to the bottom of the page and click on **Add network manually**:
 
-![Add network manually in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-7.png)
+![Add network manually in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-7.webp)
 
 Here, you can configure MetaMask for the following networks:
 
@@ -87,11 +87,11 @@ To do so, fill in the following information:
 5. **Block Explorer** - (optional) URL of the block explorer
 6. Once you've verified all the information, click on **Save**
 
-![Add network in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-8.png)
+![Add network in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-8.webp)
 
 Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted to **Switch to EVM ContainerChain Dancebox**, the network added in this example.
 
-![Successfully added a network in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-9.png)
+![Successfully added a network in Metamask](/images/builders/interact/ethereum-api/wallets/metamask/metamask-9.webp)
 
 ## Interact with the Network {: #interact-with-network }
 
@@ -101,4 +101,4 @@ Once you've [connected Metamask](#connect-metamask-to-evm-containerchain) to you
 - Adding ERC-20s to Metamask and interacting with them
 - Adding ERC-721s to Metamask and interacting with them
 
---8<-- 'text/disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

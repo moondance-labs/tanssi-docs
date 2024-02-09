@@ -1,6 +1,6 @@
 ---
 title: Appchain Overview
-description: Learn the high-level definitions of how a Tanssi Appchain works, its architecture, and the block production as a service mechanism with deterministic finality
+description: Learn the high-level definitions of how a Tanssi Appchain works, its architecture, and its block production as a service mechanism with deterministic finality.
 ---
 
 # Tanssi Appchains Overview {: #appchains-tanssi-overview }
@@ -23,8 +23,8 @@ As previously discussed, Appchains deployed through Tanssi (ContainerChains) are
 
 In contrast, each Tanssi Appchain will host its own Data-Preservers, which contain full archive nodes of the Tanssi Appchain they are hosted in. Still, they will be incentivized through Tanssi's data retrieval as a service. These Data-Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and its Appchains.
 
-![Appchain Architecture Overview](/images/learn/appchains/overview/dark-overview-1.png#only-dark)
-![Appchain Architecture Overview](/images/learn/appchains/overview/light-overview-1.png#only-light)
+![Appchain Architecture Overview](/images/learn/appchains/overview/dark-overview-1.webp#only-dark)
+![Appchain Architecture Overview](/images/learn/appchains/overview/light-overview-1.webp#only-light)
 
 ## Appchain Transaction Flow {: #appchain-transaction}
 
@@ -44,6 +44,6 @@ Next, the PoV is verified by Polkadot validators. Note that Polkadot does not ch
 
 The transaction flow process is summarized in the following diagram:
 
-![Path of an Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/dark-overview-2.png#only-dark)
-![Path of an Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/light-overview-2.png#only-light)
+![Path of an Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/dark-overview-2.webp#only-dark)
+![Path of an Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/light-overview-2.webp#only-light)
 
