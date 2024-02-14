@@ -1,15 +1,21 @@
 ---
 title: Run an RPC Node Using Docker
-description: How to set up and run a ContainerChain node using Docker, so you can have your own RPC endpoint-as-a-backend to support your DApps and interact with your chain.
+description: How to set up and run a Tanssi Appchain node using Docker, so you can have your own RPC endpoint-as-a-backend to support your DApps and interact with your chain.
 ---
 
-# Run an RPC Node Using Docker
+# Run an Appchain Node Using Docker
 
 ## Introduction {: #introduction }
 
-Running an RPC node on a Tanssi ContainerChain allows you to connect to the network, discover other nodes to synch with through a bootnode, and offer an interaction layer for DApps over the WebSocket protocol.
+Running a Tanssi Appchain node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols. 
 
-In this guide, you'll learn how to quickly spin up a ContainerChain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer.
+Nodes store block data and network state. However, developers can run different kinds of nodes:
+ 
+ - **Full Archive Node** - a node storing the entire block data and network state at all block heights. Such nodes are helpful when querying historical data from old blocks. However, a full archive node takes up a lot of space
+ 
+  - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
+
+In this guide, you'll learn how to quickly spin up a Tanssi Appchain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer.
 
 !!! note
     It is not possible to run an RPC node for Snap Appchains as they run on a private network, and their nodes are, therefore, unable to reach for synching.
