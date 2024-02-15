@@ -143,7 +143,6 @@ If everything was successful, you'll see output like the following:
 
 ![Run yarn build and yarn test](/images/builders/tutorials/oracles/phala/phala-5.webp)
 
-
 ### Deploy {: #deploy }
 
 To deploy your aggregator contract for the specified asset / base pair to your EVM Appchain, use the following command:
