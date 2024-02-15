@@ -2,4 +2,5 @@ title: Tutorials
 hide: false
 nav:
   - index.md
+  - oracles
   - 'Index Data with Subsquid': 'subsquid.md'
