@@ -1,5 +1,5 @@
 const chain = defineChain({
-  id: INSERT-EVM-CHAIN-ID,
+  id: INSERT_EVM_CHAIN_ID,
   name: 'dancebox-evm-container',
   rpcUrls: {
     default: {
