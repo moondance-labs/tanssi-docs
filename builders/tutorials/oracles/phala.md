@@ -24,9 +24,7 @@ The aggregator contract receives periodic data updates from the network of oracl
 
 ## Fetch Price Data {: #fetch-price-data }
 
-There are data feed contracts available for the Demo EVM Container Chain networks to demonstrate the functionality of price feed data powered by Phala phat contracts. Price feeds can be easily deployed to your own EVM ContainerChain by [asking the Phala Team](https://dashboard.phala.network/){target=\_blank}.
-
-The price feeds enabled by Phat Contracts use the same interface as the Chainlink price feeds. The data lives in a series of smart contracts (one per price feed) and can be fetched with the aggregator interface:
+There are several price feeds available on the Demo EVM ContainerChain that you can interact with. The price feeds enabled by Phat Contracts use the same interface as the Chainlink price feeds. The data lives in a series of smart contracts (one per price feed) and can be fetched with the aggregator interface:
 
 ???+ code "AggregatorV3Interface.sol"
 
@@ -34,7 +32,7 @@ The price feeds enabled by Phat Contracts use the same interface as the Chainlin
     --8<-- 'code/builders/tutorials/oracles/phala/AggregatorV3Interface.sol'
     ```
 
-As seen above in the interface, there are five functions for fetching data: `decimals`, `description`, `version`, `getRoundData`, and `latestRoundData`. For more information about the `AggregatorV3Interface.sol`, see the [Chainlink API Reference](https://docs.chain.link/data-feeds/api-reference){target=\_blank}
+As seen above in the interface, there are five functions for fetching data: `decimals`, `description`, `version`, `getRoundData`, and `latestRoundData`. For more information about the `AggregatorV3Interface.sol`, see the [Chainlink API Reference](https://docs.chain.link/data-feeds/api-reference){target=\_blank}.
 
 ### Supported Assets {: #supported-assets }
 
@@ -51,11 +49,11 @@ Currently, there are data feed contracts for [the Demo EVM ContainerChain](/buil
    | USDC to USD | {{ networks.dancebox.oracles.phala.usdc_usd }} |    
    | USDT to USD | {{ networks.dancebox.oracles.phala.usdt_usd }} |
 
-### Interacting with Price Feeds on Dancebox Testnet {: #interacting-with-price feeds-on-dancebox-testnet }
+### Interacting with Price Feeds on the Demo EVM ContainerChain {: #interacting-with-price-feeds-on-the-demo-evm-containerchain }
 
 Let's now demonstrate interacting with the price feed contracts on the Demo EVM ContainerChain. These contracts are already deployed on the Demo EVM ContainerChain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
 
-For a refresher on setting up Remix to interface with your ContainerChain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/) guide. Secondly, make sure you have [connected MetaMask](builders/interact/ethereum-api/wallets/metamask/) to the Demo EVM ContainerChain. 
+For a refresher on setting up Remix to interface with your ContainerChain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/) guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/) to the Demo EVM ContainerChain. 
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it. 
 
@@ -86,9 +84,11 @@ It's easy to launch price feeds on your Tanssi EVM ContainerChain! The following
 
 ### Setup {: #setup }
 
-To get started, clone the [Phala Mirrored Price Feed repo](https://github.com/Phala-Network/mirrored-price-feed){target=\_blank} to a local directory. 
+To get started, clone the [Phala Mirrored Price Feed repo](https://github.com/Phala-Network/mirrored-price-feed){target=\_blank} to a local directory. Then, run the following command:
 
-Run `cd mirrored-price-feed/ && yarn install`
+```bash
+cd mirrored-price-feed/ && yarn install
+```
 
 Then, you'll need to configure your `.env` file. There's a convenient sample file in the repo that you can refer to. From the command line, run:  
 
@@ -96,7 +96,7 @@ Then, you'll need to configure your `.env` file. There's a convenient sample fil
 cp env.example .env
 ```
 
-Then edit your `.env` to insert the private key of an account funded on your ContainerChain, and the RPC URL of your ContainerChain. You can fund a dummy account from the Sudo account of your ContainerChain. Your ContainerChain's Sudo address and RPC URL are both accessible from your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}. You can leave the other fields in the `.env` blank. Your `.env` should resemble the below: 
+Next, edit your `.env` to insert the private key of an account funded on your ContainerChain, and the RPC URL of your ContainerChain. You can fund a dummy account from the Sudo account of your ContainerChain. Your ContainerChain's Sudo address and RPC URL are both accessible from your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}. You can leave the other fields in the `.env` blank. Your `.env` should resemble the below: 
 
 ```bash
 --8<-- 'code/builders/tutorials/oracles/phala/env.txt'
@@ -154,13 +154,13 @@ To deploy your aggregator contract for the specified asset / base pair to your E
 yarn deploy
 ```
 
-You'll get a transaction status as well as a contract address. Copy this contract address, as you'll need to refer to it in the next steps. 
+You'll get a transaction status as well as a contract address. Copy this contract address, as you'll need to refer to it in the following steps. 
 
 ![Get output of deployed aggregator contract](/images/builders/tutorials/oracles/phala/phala-6.webp)
 
 ### Access Aggregator Contract {: #access-aggregator-contract }
 
-Let's demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM ContainerChain. You add your ContainerChain to your MetaMask by pressing "Add to MetaMask" on your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
+Let's demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM ContainerChain. You can add your ContainerChain to your MetaMask by pressing "Add to MetaMask" on your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it. 
 
