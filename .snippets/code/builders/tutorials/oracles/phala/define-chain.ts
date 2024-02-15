@@ -3,10 +3,10 @@ const chain = defineChain({
   name: 'dancebox-evm-container',
   rpcUrls: {
     default: {
-      http: ['INSERT-RPC-URL'],
+      http: ['INSERT_RPC_URL'],
     },
     public: {
-      http: ['INSERT-RPC-URL'],
+      http: ['INSERT_RPC_URL'],
     }
   }
 })
