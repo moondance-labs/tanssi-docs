@@ -117,7 +117,7 @@ There's a few more changes that we need to make in `feeder.ts`, the file that ma
 --8<-- 'code/builders/tutorials/oracles/phala/define-chain.ts'
 ```
 
-You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum mainnet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM Appchain. You should erase this array such that it is empty. We'll return to it later and add the contract addresses of our aggregator contracts specific to our own EVM Appchain once they are deployed.  
+You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum MainNet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM Appchain. You should erase this array such that it is empty. Later in this guide, you'll return to it and add the contract addresses of our aggregator contracts specific to your own EVM ContainerChain once they are deployed.
 
 Once you're finished editing, your `feeder.ts` file should resemble the below:
 
