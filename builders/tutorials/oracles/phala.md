@@ -9,15 +9,15 @@ description: Learn how to use Phala, an off-chain compute network, to access rel
 
 [Phala Network](https://phala.network/){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/developers/advanced-topics/blockchain-infrastructure#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while retaining trustlessness, verifiability, and permissionlessness. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/introduction/readme){target=\_blank}.
 
-Phala is not an Oracle network itself, rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized Oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network/){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch. 
+Phala is not an Oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized Oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network/){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch. 
 
 This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the Demo EVM ContainerChain. Next, you'll learn how to [deploy price feeds to your own EVM ContainerChain](#launching-price-feeds-on-your-own-evm-containerchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on your ContainerChain to ensure the integrity of the deployment process.
  
 ## A Crash Course on Price Feeds {: #a-crash-course-on-price-feeds }
 
-Before interacting hands-on with price feeds it's important to understand how price feeds work and how price feed data is accessed by smart contracts. In a standard configuration, each price feed is updated by a decentralized oracle network. Each oracle node is rewarded for publishing the price data to the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}. 
+Before interacting hands-on with price feeds, it's important to understand how price feeds work and how price feed data is accessed by smart contracts. In a standard configuration, each price feed is updated by a decentralized oracle network. Each oracle node is rewarded for publishing the price data to the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}. 
 
-The aggregator contract receives periodic data updates from the network of oracles and aggregates and stores the data on-chain so that consumers can easily fetch it. However, the information is only updated if a minimum number of responses from oracle nodes are received (during an aggregation round). The end-user can retrieve price feeds with read-only operations via an aggregator interface, or via a Consumer interface through the Proxy.
+The aggregator contract receives periodic data updates from the network of oracles and aggregates and stores the data on-chain so that consumers can easily fetch it. However, the information is only updated if a minimum number of responses from oracle nodes are received (during an aggregation round). The end-user can retrieve price feeds with read-only operations via an aggregator interface or via a Consumer interface through the Proxy.
 
 ![Price Feed Diagram](/images/builders/tutorials/oracles/phala/phala-1.webp)
 
@@ -77,7 +77,7 @@ The aggregator contract should now be accessible. To interact with the aggregato
 
 ![Price Feed Diagram](/images/builders/tutorials/oracles/phala/phala-4.webp)
 
-Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `5230364122303`, the decimal point will need to moved 8 places, which corresponds to a Bitcoin price of `$52,303.64` at the time of writing. 
+Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `5230364122303`, the decimal point will need to moved eight places, which corresponds to a Bitcoin price of `$52,303.64` at the time of writing. 
 
 
 ## Launching Price Feeds on Your Own EVM ContainerChain {: #launching-price-feeds-on-your-own-evm-containerchain }
@@ -104,7 +104,7 @@ Then edit your `.env` to insert the private key of an account funded on your Con
 
 ### Configure Deployment Script {: #configure-deployment-script }
 
-Next, you'll need to edit the `OffchainAggregator.s.sol` file located in the scripts directory. `OffchainAggregator.sol` takes two parameters upon deployment, a decimals value and a description of the price feed. The decimal value can remain unchanged at `8`, and the description should be changed to the price feed that you'd like to add to your ContainerChain. In this case, `BTC / USD` is specified. Take care to copy the description exactly as shown, and remember that only specified assets shown in the [Fetch Price Feed Data](#supported-assets) are supported. If you specify an asset not supported by Phala, the price feed will not work correctly. Your `OffchainAggregator.s.sol` should resemble the following: 
+Next, you'll need to edit the `OffchainAggregator.s.sol` file located in the scripts directory. `OffchainAggregator.sol` takes two parameters upon deployment, a `decimals` value, and a description of the price feed. The decimal value can remain unchanged at `8`, and the description should be changed to the price feed that you'd like to add to your ContainerChain. In this case, `BTC / USD` is specified. Take care to copy the description exactly as shown, and remember that only specified assets shown in the [Fetch Price Feed Data](#supported-assets) are supported. If you specify an asset not supported by Phala, the price feed will not work correctly. Your `OffchainAggregator.s.sol` should resemble the following: 
 
 ???+ code "OffchainAggregator.s.sol"
 
@@ -118,7 +118,7 @@ There's a few more changes that we need to make in `feeder.ts`, the file that ma
 --8<-- 'code/builders/tutorials/oracles/phala/define-chain.ts'
 ```
 
-You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum mainnet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the Demo EVM ContainerChain. You should erase this array such that is empty. We'll return to it and add in the contract addresses of our aggregator contracts specific to our own EVM ContainerChain once they are deployed.  
+You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum mainnet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the Demo EVM ContainerChain. You should erase this array such that it is empty. We'll return to it later and add the contract addresses of our aggregator contracts specific to our own EVM ContainerChain once they are deployed.  
 
 Once you're finished editing, your `feeder.ts` file should resemble the below:
 
@@ -141,14 +141,14 @@ yarn build
 yarn test
 ```
 
-If everything was successfull you'll see output like the following:
+If everything was successful, you'll see output like the following:
 
 ![Run yarn build and yarn test](/images/builders/tutorials/oracles/phala/phala-5.webp)
 
 
 ### Deploy {: #deploy }
 
-To deploy your aggregator contract for the specificed asset / base pair to your EVM ContainerChain, use the following command:
+To deploy your aggregator contract for the specified asset / base pair to your EVM ContainerChain, use the following command:
 
 ```bash
 yarn deploy
@@ -173,7 +173,7 @@ Then, take the following steps:
 
 ![Access aggregator contract](/images/builders/tutorials/oracles/phala/phala-7.webp)
 
-Expand the `AggregatorV3Interface` contract to reveal the available functions and click `latestRoundData` to see the most recent price data for the asset pair. You should see a `0` values for all. This is because our aggregator contract has been deployed but it hasn't yet fetched price data. We can fix this with a quick price feed update. 
+Expand the `AggregatorV3Interface` contract to reveal the available functions and click `latestRoundData` to see the most recent price data for the asset pair. You should see `0` values for all. This is because our aggregator contract has been deployed, but it hasn't yet fetched price data. We can fix this with a quick price feed update. 
 
 ![Get output of deployed aggregator contract](/images/builders/tutorials/oracles/phala/phala-8.webp)
 
@@ -195,7 +195,7 @@ npx tsx feeder.ts
 
 ![Get output of deployed aggregator contract](/images/builders/tutorials/oracles/phala/phala-9.webp)
 
-Upon returning to Remix, click `latestRoundData` once more and after waiting a moment, you should see an accurate value returned. 
+Upon returning to Remix, click `latestRoundData` once more, and after waiting a moment, you should see an accurate value returned. 
 
 ![Get output of deployed aggregator contract](/images/builders/tutorials/oracles/phala/phala-10.webp)
 
