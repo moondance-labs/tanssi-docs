@@ -54,7 +54,7 @@ Now we can edit `hardhat.config.js` to include the following network and account
 ???+ code "hardhat.config.js"
 
     ```js
-    --8<-- 'code/builders/tooling/subsquid/hardhat-config.js'
+    --8<-- 'code/builders/tooling/indexers/subsquid/hardhat-config.js'
     ```
 
 !!! remember
@@ -73,7 +73,7 @@ Now we can edit the `MyTok.sol` file to include the following contract, which wi
 ???+ code "MyTok.sol"
 
     ```solidity
-    --8<-- 'code/builders/tooling/subsquid/MyTok.sol'
+    --8<-- 'code/builders/tooling/indexers/subsquid/MyTok.sol'
     ```
 
 ### Deploy an ERC-20 Contract {: #deploy-erc-20-contract }
@@ -86,7 +86,7 @@ To compile the contract, you can run:
 npx hardhat compile
 ```
 
-![Compile contracts using Hardhat](/images/builders/tooling/subsquid/subsquid-1.webp)
+![Compile contracts using Hardhat](/images/builders/tooling/indexers/subsquid/subsquid-1.webp)
 
 This command will compile our contract and generate an `artifacts` directory containing the ABI of the contract.
 
@@ -105,7 +105,7 @@ Let's take the following steps to deploy our contract:
     ???+ code "deploy.js"
 
         ```ts
-        --8<-- 'code/builders/tooling/subsquid/deploy.js'
+        --8<-- 'code/builders/tooling/indexers/subsquid/deploy.js'
         ```
 
 3. Run the script using the `dev` network configurations we set up in the `hardhat.config.js` file:
@@ -131,7 +131,7 @@ In the `transactions.js` file, add the following script and insert the contract 
 ???+ code "transactions.js"
 
     ```ts
-    --8<-- 'code/builders/tooling/subsquid/transactions.js'
+    --8<-- 'code/builders/tooling/indexers/subsquid/transactions.js'
     ```
 
 Run the script to send the transactions:
@@ -142,7 +142,7 @@ npx hardhat run scripts/transactions.js --network demo
 
 As each transaction is sent, you'll see a log printed to the terminal.
 
-![Send transactions using Hardhat](/images/builders/tooling/subsquid/subsquid-2.webp)
+![Send transactions using Hardhat](/images/builders/tooling/indexers/subsquid/subsquid-2.webp)
 
 Now we can move on to creating our Squid to index the data on our local development node.
 
@@ -191,7 +191,7 @@ As mentioned, we'll first need to define the database schema for the transfer da
 ???+ code "schema.graphql"
 
     ```graphql
-    --8<-- 'code/builders/tooling/subsquid/schema.graphql'
+    --8<-- 'code/builders/tooling/indexers/subsquid/schema.graphql'
     ```
 
 Now we can generate the entity classes from the schema, which we'll use when we process the transfer data. This will create new classes for each entity in the `src/model/generated` directory.
@@ -205,7 +205,7 @@ In the next step, we'll use the ERC-20 ABI to automatically generate TypeScript 
 ??? code "ERC-20 ABI"
 
     ```json
-    --8<-- 'code/builders/tooling/subsquid/erc20.json'
+    --8<-- 'code/builders/tooling/indexers/subsquid/erc20.json'
     ```
 
 Next, we can use our contract's ABI to generate TypeScript interface classes. We can do this by running:
@@ -214,7 +214,7 @@ Next, we can use our contract's ABI to generate TypeScript interface classes. We
 sqd typegen
 ```
 
-![Run Subsquid commands](/images/builders/tooling/subsquid/subsquid-3.webp)
+![Run Subsquid commands](/images/builders/tooling/indexers/subsquid/subsquid-3.webp)
 
 This will generate the related TypeScript interface classes in the `src/abi/erc20.ts` file. For this tutorial, we'll be accessing the `events` specifically.
 
@@ -293,7 +293,7 @@ Once you've completed the prior steps, your `processor.ts` file should look simi
 ???+ code "processor.ts"
 
     ```ts
-    --8<-- 'code/builders/tooling/subsquid/processor.ts'
+    --8<-- 'code/builders/tooling/indexers/subsquid/processor.ts'
     ```
 
 ### Transform and Save the Data {: #transform-and-save-the-data}
@@ -313,7 +313,7 @@ We'll demo a sample query in a later section. You can copy and paste the below c
 ???+ code "main.ts"
 
     ```ts
-    --8<-- 'code/builders/tooling/subsquid/main.ts'
+    --8<-- 'code/builders/tooling/indexers/subsquid/main.ts'
     ```
 
 Now we've taken all of the steps necessary and are ready to run our indexer!
@@ -352,7 +352,7 @@ Launch the processor:
 
 In your terminal, you should see your indexer starting to process blocks!
 
-![Get Squid running](/images/builders/tooling/subsquid/subsquid-4.webp)
+![Get Squid running](/images/builders/tooling/indexers/subsquid/subsquid-4.webp)
 
 ## Query Your Squid {: #query-your-squid }
 
@@ -367,10 +367,10 @@ And that's it! You can now run queries against your Squid on the GraphQL playgro
 ???+ code "Example query"
 
     ```ts
-    --8<-- 'code/builders/tooling/subsquid/sample-query.graphql'
+    --8<-- 'code/builders/tooling/indexers/subsquid/sample-query.graphql'
     ```
 
-![Running queries in GraphQL playground](/images/builders/tooling/subsquid/subsquid-5.webp)
+![Running queries in GraphQL playground](/images/builders/tooling/indexers/subsquid/subsquid-5.webp)
 
 ## Debug Your Squid {: #debug-your-squid }
 
@@ -386,7 +386,7 @@ You can also add logging statements directly to your `main.ts` file to indicate 
 ??? code "main.ts"
 
     ```ts
-    --8<-- 'code/builders/tooling/subsquid/main-with-logging.ts'
+    --8<-- 'code/builders/tooling/indexers/subsquid/main-with-logging.ts'
     ```
 
 See the [Subsquid guide to logging](https://docs.subsquid.io/basics/logging/){target=\_blank} for more information on debug mode.
