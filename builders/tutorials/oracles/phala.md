@@ -1,6 +1,6 @@
 ---
 title: Using Phala for Price Feed Oracles
-description: Learn how to use Phala, an off-chain compute network, to access reliable oracle token price feed data on your Tanssi EVM ContainerChain.
+description: Learn how to use Phala, an off-chain compute network, to deploy, access, and update reliable oracle token price feed data on your Tanssi EVM ContainerChain.
 ---
 
 # Launching Price Feeds with Phala
