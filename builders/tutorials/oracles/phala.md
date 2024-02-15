@@ -147,7 +147,7 @@ If everything was successful, you'll see output like the following:
 
 ### Deploy {: #deploy }
 
-To deploy your aggregator contract for the specified asset / base pair to your EVM Appchain, use the following command:
+To deploy your aggregator contract for the specified asset/base pair to your EVM Appchain, use the following command:
 
 ```bash
 yarn deploy
