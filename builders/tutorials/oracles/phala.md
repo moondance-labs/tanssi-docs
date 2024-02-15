@@ -11,7 +11,7 @@ description: Learn how to use Phala, an off-chain compute network, to deploy, ac
 
 Phala is not an Oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized Oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network/){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch. 
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the Demo EVM ContainerChain. Next, you'll learn how to [deploy price feeds to your own EVM ContainerChain](#launching-price-feeds-on-your-own-evm-containerchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on your ContainerChain to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo EVM ContainerChain. Next, you'll learn how to [deploy price feeds to your own EVM ContainerChain](#launching-price-feeds-on-your-own-evm-containerchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on your ContainerChain to ensure the integrity of the deployment process.
  
 ## A Crash Course on Price Feeds {: #a-crash-course-on-price-feeds }
 
