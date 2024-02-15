@@ -39,15 +39,15 @@ As seen above in the interface, there are five functions for fetching data: `dec
 Currently, there are data feed contracts for [the demo EVM ContainerChain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/) for the following asset  pairs: 
 
 
-   | Asset & Base Pair  |          Aggregator Contract          |
-   |:-----------:|:-----------------------------------------------------:|
-   | AAVE to USD | {{ networks.dancebox.oracles.phala.aave_usd }} |
-   | BTC to USD  | {{ networks.dancebox.oracles.phala.btc_usd }}  |    
-   | CRV to USD  | {{ networks.dancebox.oracles.phala.crv_usd }}  |
-   | DAI to USD  | {{ networks.dancebox.oracles.phala.dai_usd }}  |
-   | ETH to USD  | {{ networks.dancebox.oracles.phala.eth_usd }}  |
-   | USDC to USD | {{ networks.dancebox.oracles.phala.usdc_usd }} |    
-   | USDT to USD | {{ networks.dancebox.oracles.phala.usdt_usd }} |
+   | Asset & Base Pair |              Aggregator Contract               |
+   |:-----------------:|:----------------------------------------------:|
+   |    AAVE to USD    | {{ networks.dancebox.oracles.phala.aave_usd }} |
+   |    BTC to USD     | {{ networks.dancebox.oracles.phala.btc_usd }}  |
+   |    CRV to USD     | {{ networks.dancebox.oracles.phala.crv_usd }}  |
+   |    DAI to USD     | {{ networks.dancebox.oracles.phala.dai_usd }}  |
+   |    ETH to USD     | {{ networks.dancebox.oracles.phala.eth_usd }}  |
+   |    USDC to USD    | {{ networks.dancebox.oracles.phala.usdc_usd }} |
+   |    USDT to USD    | {{ networks.dancebox.oracles.phala.usdt_usd }} |
 
 ### Interacting with Price Feeds on the Demo EVM ContainerChain {: #interacting-with-price-feeds-on-the-demo-evm-containerchain }
 
