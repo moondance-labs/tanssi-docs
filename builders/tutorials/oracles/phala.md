@@ -166,7 +166,7 @@ Then, take the following steps:
 1. Head to the **Deploy and Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask** and ensure that your MetaMask is on the network of your EVM Appchain. You can verify the EVM ChainID in Remix if you are unsure
 3. Select the `AggregatorV3Interface` contract from the **CONTRACT** dropdown
-4. Enter the Data Feed contract address corresponding to your desired asset pair that was returned on the command line in the prior section in the **At Address** field and click the **At Address** button
+4. Enter the data feed contract address corresponding to your desired asset pair that was returned on the command line in the prior section in the **At Address** field and click the **At Address** button
 
 ![Access aggregator contract](/images/builders/tutorials/oracles/phala/phala-7.webp)
 
@@ -180,7 +180,7 @@ In a prior section, we cleared out the array of aggregator contracts, but since 
 
 ```typescript
 const aggregatorContracts = {
-  'BTC-USD': 'INSERT-AGGREGATOR-CONTRACT-ADDRESS',
+  'BTC-USD': 'INSERT_AGGREGATOR_CONTRACT_ADDRESS',
 }
 ```
 
