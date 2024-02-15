@@ -127,7 +127,6 @@ Once you're finished editing, your `feeder.ts` file should resemble the below:
     --8<-- 'code/builders/tutorials/oracles/phala/feeder.ts'
     ```
 
-
 ### Build and Test {: #build-and-test }
 
 Run the following commands to build and test the project:
@@ -143,7 +142,6 @@ yarn test
 If everything was successful, you'll see output like the following:
 
 ![Run yarn build and yarn test](/images/builders/tutorials/oracles/phala/phala-5.webp)
-
 
 ### Deploy {: #deploy }
 
