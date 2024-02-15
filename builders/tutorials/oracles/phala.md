@@ -62,7 +62,7 @@ Then, take the following steps:
 1. Head to the **Deploy and Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
 3. Select the `AggregatorV3Interface` contract from the **CONTRACT** dropdown
-4. Enter the Data Feed contract address corresponding to `BTC to USD`, which is `0x89BC5048d634859aef743fF2152363c0e83a6a49` on the demo EVM ContainerChain in the **At Address** field and click the **At Address** button.
+4. Enter the data feed contract address corresponding to `BTC to USD`, which is `0x89BC5048d634859aef743fF2152363c0e83a6a49` on the demo EVM ContainerChain in the **At Address** field and click the **At Address** button
 
 ![Price Feed Diagram](/images/builders/tutorials/oracles/phala/phala-3.webp)
 
@@ -76,7 +76,6 @@ The aggregator contract should now be accessible. To interact with the aggregato
 ![Price Feed Diagram](/images/builders/tutorials/oracles/phala/phala-4.webp)
 
 Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `5230364122303`, the decimal point will need to moved eight places, which corresponds to a Bitcoin price of `$52,303.64` at the time of writing. 
-
 
 ## Launching Price Feeds on Your Own EVM ContainerChain {: #launching-price-feeds-on-your-own-evm-containerchain }
 
