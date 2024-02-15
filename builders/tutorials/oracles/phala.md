@@ -51,7 +51,7 @@ Currently, there are data feed contracts for [the demo EVM Appchain](/builders/t
 
 ### Interacting with Price Feeds on the Demo EVM Appchain {: #interacting-with-price-feeds-on-the-demo-evm-appchain }
 
-Let's now demonstrate interacting with the price feed contracts on the demo EVM Appchain. These contracts are already deployed on the demo EVM Appchain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
+Next, this tutorial will showcase interacting with the price feed contracts on the demo EVM Appchain. These contracts are already deployed on the demo EVM Appchain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
 
 For a refresher on setting up Remix to interface with your Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain. 
 
@@ -157,7 +157,7 @@ You'll get a transaction status as well as a contract address. Copy this contrac
 
 ### Access Aggregator Contract {: #access-aggregator-contract }
 
-Let's demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM Appchain. You can add your Appchain to your MetaMask by pressing "Add to MetaMask" on your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
+Next, this tutorial will demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM Appchain. You can add your Appchain to your MetaMask by pressing **Add to MetaMask** on your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it. 
 
