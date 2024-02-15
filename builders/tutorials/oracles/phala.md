@@ -1,6 +1,6 @@
 ---
 title: Using Phala for Price Feed Oracles
-description: Learn how to use Phala, an off-chain compute network, to deploy, access, and update reliable oracle token price feed data on your Tanssi EVM ContainerChain.
+description: Learn how to use Phala, an off-chain compute network, to deploy, access, and update reliable oracle token price feed data on your Tanssi EVM Appchain.
 ---
 
 # Launching Price Feeds with Phala
@@ -11,7 +11,7 @@ description: Learn how to use Phala, an off-chain compute network, to deploy, ac
 
 Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network/){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch. 
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo EVM ContainerChain. Next, you'll learn how to [deploy price feeds to your own EVM ContainerChain](#launching-price-feeds-on-your-own-evm-containerchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on your ContainerChain to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo EVM Appchain. Next, you'll learn how to [deploy price feeds to your own EVM Appchain](#launching-price-feeds-on-your-own-evm-appchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on your Appchain to ensure the integrity of the deployment process.
  
 ## A Crash Course on Price Feeds {: #a-crash-course-on-price-feeds }
 
@@ -24,7 +24,7 @@ The aggregator contract receives periodic data updates from the network of oracl
 
 ## Fetch Price Data {: #fetch-price-data }
 
-There are several price feeds available on the demo EVM ContainerChain that you can interact with. The price feeds enabled by Phat Contracts use the same interface as the Chainlink price feeds. The data lives in a series of smart contracts (one per price feed) and can be fetched with the aggregator interface:
+There are several price feeds available on the demo EVM Appchain that you can interact with. The price feeds enabled by Phat Contracts use the same interface as the Chainlink price feeds. The data lives in a series of smart contracts (one per price feed) and can be fetched with the aggregator interface:
 
 ???+ code "AggregatorV3Interface.sol"
 
@@ -36,7 +36,7 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ### Supported Assets {: #supported-assets }
 
-Currently, there are data feed contracts for [the demo EVM ContainerChain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/) for the following asset  pairs: 
+Currently, there are data feed contracts for [the demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-appchain/) for the following asset  pairs: 
 
 
    | Asset & Base Pair |              Aggregator Contract               |
@@ -49,11 +49,11 @@ Currently, there are data feed contracts for [the demo EVM ContainerChain](/buil
    |    USDC to USD    | {{ networks.dancebox.oracles.phala.usdc_usd }} |
    |    USDT to USD    | {{ networks.dancebox.oracles.phala.usdt_usd }} |
 
-### Interacting with Price Feeds on the Demo EVM ContainerChain {: #interacting-with-price-feeds-on-the-demo-evm-containerchain }
+### Interacting with Price Feeds on the Demo EVM Appchain {: #interacting-with-price-feeds-on-the-demo-evm-appchain }
 
-Let's now demonstrate interacting with the price feed contracts on the demo EVM ContainerChain. These contracts are already deployed on the demo EVM ContainerChain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
+Let's now demonstrate interacting with the price feed contracts on the demo EVM Appchain. These contracts are already deployed on the demo EVM Appchain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
 
-For a refresher on setting up Remix to interface with your ContainerChain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM ContainerChain. 
+For a refresher on setting up Remix to interface with your Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain. 
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it. 
 
@@ -62,7 +62,7 @@ Then, take the following steps:
 1. Head to the **Deploy and Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
 3. Select the `AggregatorV3Interface` contract from the **CONTRACT** dropdown
-4. Enter the data feed contract address corresponding to `BTC to USD`, which is `0x89BC5048d634859aef743fF2152363c0e83a6a49` on the demo EVM ContainerChain in the **At Address** field and click the **At Address** button
+4. Enter the data feed contract address corresponding to `BTC to USD`, which is `0x89BC5048d634859aef743fF2152363c0e83a6a49` on the demo EVM Appchain in the **At Address** field and click the **At Address** button
 
 ![Price Feed Diagram](/images/builders/tutorials/oracles/phala/phala-3.webp)
 
@@ -77,9 +77,9 @@ The aggregator contract should now be accessible. To interact with the aggregato
 
 Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `5230364122303`, the decimal point will need to moved eight places, which corresponds to a Bitcoin price of `$52,303.64` at the time of writing. 
 
-## Launching Price Feeds on Your Own EVM ContainerChain {: #launching-price-feeds-on-your-own-evm-containerchain }
+## Launching Price Feeds on Your Own EVM Appchain {: #launching-price-feeds-on-your-own-evm-appchain }
 
-It's easy to launch price feeds on your Tanssi EVM ContainerChain! The following sections will walk through the process of launching a variety of price feeds on your Tanssi EVM ContainerChain. This process can be followed for SnapChains and dedicated AppChains on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network/){target=\_blank} for assistance in any production scenarios. 
+It's easy to launch price feeds on your Tanssi EVM Appchain! The following sections will walk through the process of launching a variety of price feeds on your Tanssi EVM Appchain. This process can be followed for SnapChains and dedicated AppChains on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network/){target=\_blank} for assistance in any production scenarios. 
 
 ### Setup {: #setup }
 
@@ -95,7 +95,7 @@ Then, you'll need to configure your `.env` file. There's a convenient sample fil
 cp env.example .env
 ```
 
-Next, edit your `.env` to insert the private key of an account funded on your ContainerChain, and the RPC URL of your ContainerChain. You can fund a dummy account from the Sudo account of your ContainerChain. Your ContainerChain's Sudo address and RPC URL are both accessible from your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}. You can leave the other fields in the `.env` blank. Your `.env` should resemble the below: 
+Next, edit your `.env` to insert the private key of an account funded on your Appchain, and the RPC URL of your Appchain. You can fund a dummy account from the Sudo account of your Appchain. Your Appchain's Sudo address and RPC URL are both accessible from your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}. You can leave the other fields in the `.env` blank. Your `.env` should resemble the below: 
 
 ```bash
 --8<-- 'code/builders/tutorials/oracles/phala/env.txt'
@@ -103,7 +103,7 @@ Next, edit your `.env` to insert the private key of an account funded on your Co
 
 ### Configure Deployment Script {: #configure-deployment-script }
 
-Next, you'll need to edit the `OffchainAggregator.s.sol` file located in the scripts directory. `OffchainAggregator.sol` takes two parameters upon deployment, a `decimals` value, and a description of the price feed. The decimal value can remain unchanged at `8`, and the description should be changed to the price feed that you'd like to add to your ContainerChain. In this case, `BTC / USD` is specified. Take care to copy the description exactly as shown, and remember that only specified assets shown in the [Fetch Price Feed Data](#supported-assets) are supported. If you specify an asset not supported by Phala, the price feed will not work correctly. Your `OffchainAggregator.s.sol` should resemble the following: 
+Next, you'll need to edit the `OffchainAggregator.s.sol` file located in the scripts directory. `OffchainAggregator.sol` takes two parameters upon deployment, a `decimals` value, and a description of the price feed. The decimal value can remain unchanged at `8`, and the description should be changed to the price feed that you'd like to add to your Appchain. In this case, `BTC / USD` is specified. Take care to copy the description exactly as shown, and remember that only specified assets shown in the [Fetch Price Feed Data](#supported-assets) are supported. If you specify an asset not supported by Phala, the price feed will not work correctly. Your `OffchainAggregator.s.sol` should resemble the following: 
 
 ???+ code "OffchainAggregator.s.sol"
 
@@ -111,13 +111,13 @@ Next, you'll need to edit the `OffchainAggregator.s.sol` file located in the scr
     --8<-- 'code/builders/tutorials/oracles/phala/OffchainAggregator.s.sol'
     ```
 
-There's a few more changes that we need to make in `feeder.ts`, the file that maintains and updates our price feeds. You'll need to insert the details of your EVM ContainerChains as follows: 
+There's a few more changes that we need to make in `feeder.ts`, the file that maintains and updates our price feeds. You'll need to insert the details of your EVM Appchain as follows: 
 
 ```typescript
 --8<-- 'code/builders/tutorials/oracles/phala/define-chain.ts'
 ```
 
-You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum mainnet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM ContainerChain. You should erase this array such that it is empty. We'll return to it later and add the contract addresses of our aggregator contracts specific to our own EVM ContainerChain once they are deployed.  
+You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum mainnet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM Appchain. You should erase this array such that it is empty. We'll return to it later and add the contract addresses of our aggregator contracts specific to our own EVM Appchain once they are deployed.  
 
 Once you're finished editing, your `feeder.ts` file should resemble the below:
 
@@ -147,7 +147,7 @@ If everything was successful, you'll see output like the following:
 
 ### Deploy {: #deploy }
 
-To deploy your aggregator contract for the specified asset / base pair to your EVM ContainerChain, use the following command:
+To deploy your aggregator contract for the specified asset / base pair to your EVM Appchain, use the following command:
 
 ```bash
 yarn deploy
@@ -159,14 +159,14 @@ You'll get a transaction status as well as a contract address. Copy this contrac
 
 ### Access Aggregator Contract {: #access-aggregator-contract }
 
-Let's demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM ContainerChain. You can add your ContainerChain to your MetaMask by pressing "Add to MetaMask" on your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
+Let's demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM Appchain. You can add your Appchain to your MetaMask by pressing "Add to MetaMask" on your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it. 
 
 Then, take the following steps:
 
 1. Head to the **Deploy and Run Transactions** tab
-2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask** and ensure that your MetaMask is on the network of your EVM ContainerChain. You can verify the EVM ChainID in Remix if you are unsure
+2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask** and ensure that your MetaMask is on the network of your EVM Appchain. You can verify the EVM ChainID in Remix if you are unsure
 3. Select the `AggregatorV3Interface` contract from the **CONTRACT** dropdown
 4. Enter the Data Feed contract address corresponding to your desired asset pair that was returned on the command line in the prior section in the **At Address** field and click the **At Address** button
 
