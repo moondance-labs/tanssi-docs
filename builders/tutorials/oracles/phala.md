@@ -127,7 +127,6 @@ Once you're finished editing, your `feeder.ts` file should resemble the below:
     --8<-- 'code/builders/tutorials/oracles/phala/feeder.ts'
     ```
 
-
 ### Build and Test {: #build-and-test }
 
 Run the following commands to build and test the project:
