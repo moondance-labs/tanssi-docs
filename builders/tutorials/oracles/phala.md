@@ -24,7 +24,7 @@ The aggregator contract receives periodic data updates from the network of oracl
 
 ## Fetch Price Data {: #fetch-price-data }
 
-There are several price feeds available on the Demo EVM ContainerChain that you can interact with. The price feeds enabled by Phat Contracts use the same interface as the Chainlink price feeds. The data lives in a series of smart contracts (one per price feed) and can be fetched with the aggregator interface:
+There are several price feeds available on the demo EVM ContainerChain that you can interact with. The price feeds enabled by Phat Contracts use the same interface as the Chainlink price feeds. The data lives in a series of smart contracts (one per price feed) and can be fetched with the aggregator interface:
 
 ???+ code "AggregatorV3Interface.sol"
 
@@ -36,7 +36,7 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ### Supported Assets {: #supported-assets }
 
-Currently, there are data feed contracts for [the Demo EVM ContainerChain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/) for the following asset  pairs: 
+Currently, there are data feed contracts for [the demo EVM ContainerChain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/) for the following asset  pairs: 
 
 
    | Asset & Base Pair  |          Aggregator Contract          |
@@ -51,9 +51,9 @@ Currently, there are data feed contracts for [the Demo EVM ContainerChain](/buil
 
 ### Interacting with Price Feeds on the Demo EVM ContainerChain {: #interacting-with-price-feeds-on-the-demo-evm-containerchain }
 
-Let's now demonstrate interacting with the price feed contracts on the Demo EVM ContainerChain. These contracts are already deployed on the Demo EVM ContainerChain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
+Let's now demonstrate interacting with the price feed contracts on the demo EVM ContainerChain. These contracts are already deployed on the demo EVM ContainerChain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
 
-For a refresher on setting up Remix to interface with your ContainerChain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/) guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/) to the Demo EVM ContainerChain. 
+For a refresher on setting up Remix to interface with your ContainerChain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/) guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/) to the demo EVM ContainerChain. 
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it. 
 
@@ -62,7 +62,7 @@ Then, take the following steps:
 1. Head to the **Deploy and Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
 3. Select the `AggregatorV3Interface` contract from the **CONTRACT** dropdown
-4. Enter the Data Feed contract address corresponding to `BTC to USD`, which is `0x89BC5048d634859aef743fF2152363c0e83a6a49` on the Demo EVM ContainerChain in the **At Address** field and click the **At Address** button.
+4. Enter the Data Feed contract address corresponding to `BTC to USD`, which is `0x89BC5048d634859aef743fF2152363c0e83a6a49` on the demo EVM ContainerChain in the **At Address** field and click the **At Address** button.
 
 ![Price Feed Diagram](/images/builders/tutorials/oracles/phala/phala-3.webp)
 
@@ -118,7 +118,7 @@ There's a few more changes that we need to make in `feeder.ts`, the file that ma
 --8<-- 'code/builders/tutorials/oracles/phala/define-chain.ts'
 ```
 
-You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum mainnet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the Demo EVM ContainerChain. You should erase this array such that it is empty. We'll return to it later and add the contract addresses of our aggregator contracts specific to our own EVM ContainerChain once they are deployed.  
+You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum mainnet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM ContainerChain. You should erase this array such that it is empty. We'll return to it later and add the contract addresses of our aggregator contracts specific to our own EVM ContainerChain once they are deployed.  
 
 Once you're finished editing, your `feeder.ts` file should resemble the below:
 
