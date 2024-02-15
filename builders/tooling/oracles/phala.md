@@ -19,7 +19,7 @@ Before interacting hands-on with price feeds, it's important to understand how p
 
 The aggregator contract receives periodic data updates from the network of oracles and aggregates and stores the data on-chain so that consumers can easily fetch it. However, the information is only updated if a minimum number of responses from oracle nodes are received (during an aggregation round). The end-user can retrieve price feeds with read-only operations via an aggregator interface or via a Consumer interface through the Proxy.
 
-![Price Feed Diagram](/images/builders/tutorials/oracles/phala/phala-1.webp)
+![Price Feed Diagram](/images/builders/tooling/oracles/phala/phala-1.webp)
 
 
 ## Fetch Price Data {: #fetch-price-data }
@@ -29,7 +29,7 @@ There are several price feeds available on the demo EVM Appchain that you can in
 ???+ code "AggregatorV3Interface.sol"
 
     ```solidity
-    --8<-- 'code/builders/tutorials/oracles/phala/AggregatorV3Interface.sol'
+    --8<-- 'code/builders/tooling/oracles/phala/AggregatorV3Interface.sol'
     ```
 
 As seen above in the interface, there are five functions for fetching data: `decimals`, `description`, `version`, `getRoundData`, and `latestRoundData`. For more information about the `AggregatorV3Interface.sol`, see the [Chainlink API Reference](https://docs.chain.link/data-feeds/api-reference){target=\_blank}.
@@ -64,7 +64,7 @@ Then, take the following steps:
 3. Select the `AggregatorV3Interface` contract from the **CONTRACT** dropdown
 4. Enter the data feed contract address corresponding to `BTC to USD`, which is `0x89BC5048d634859aef743fF2152363c0e83a6a49` on the demo EVM Appchain in the **At Address** field and click the **At Address** button
 
-![Price Feed Diagram](/images/builders/tutorials/oracles/phala/phala-3.webp)
+![Price Feed Diagram](/images/builders/tooling/oracles/phala/phala-3.webp)
 
 The aggregator contract should now be accessible. To interact with the aggregator contract, take the following steps:
 
@@ -73,7 +73,7 @@ The aggregator contract should now be accessible. To interact with the aggregato
 3. Click `description` to verify the asset pair of the price feed 
 4. Click `latestRoundData` to see the most recent price data for the asset pair. The price data for the pair is returned as the `int256 answer`
 
-![Price Feed Diagram](/images/builders/tutorials/oracles/phala/phala-4.webp)
+![Price Feed Diagram](/images/builders/tooling/oracles/phala/phala-4.webp)
 
 Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `5230364122303`, the decimal point will need to moved eight places, which corresponds to a Bitcoin price of `$52,303.64` at the time of writing. 
 
@@ -98,7 +98,7 @@ cp env.example .env
 Next, edit your `.env` to insert the private key of an account funded on your Appchain, and the RPC URL of your Appchain. You can fund a dummy account from the Sudo account of your Appchain. Your Appchain's Sudo address and RPC URL are both accessible from your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}. You can leave the other fields in the `.env` blank. Your `.env` should resemble the below: 
 
 ```bash
---8<-- 'code/builders/tutorials/oracles/phala/env.txt'
+--8<-- 'code/builders/tooling/oracles/phala/env.txt'
 ```
 
 ### Configure Deployment Script {: #configure-deployment-script }
@@ -108,13 +108,13 @@ Next, you'll need to edit the `OffchainAggregator.s.sol` file located in the scr
 ???+ code "OffchainAggregator.s.sol"
 
     ```solidity
-    --8<-- 'code/builders/tutorials/oracles/phala/OffchainAggregator.s.sol'
+    --8<-- 'code/builders/tooling/oracles/phala/OffchainAggregator.s.sol'
     ```
 
 There's a few more changes that we need to make in `feeder.ts`, the file that maintains and updates our price feeds. You'll need to insert the details of your EVM Appchain as follows: 
 
 ```typescript
---8<-- 'code/builders/tutorials/oracles/phala/define-chain.ts'
+--8<-- 'code/builders/tooling/oracles/phala/define-chain.ts'
 ```
 
 You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum MainNet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM Appchain. You should erase this array such that it is empty. Later in this guide, you'll return to it and add the contract addresses of our aggregator contracts specific to your own EVM ContainerChain once they are deployed.
@@ -124,7 +124,7 @@ Once you're finished editing, your `feeder.ts` file should resemble the below:
 ??? code "feeder.ts"
 
     ```solidity
-    --8<-- 'code/builders/tutorials/oracles/phala/feeder.ts'
+    --8<-- 'code/builders/tooling/oracles/phala/feeder.ts'
     ```
 
 ### Build and Test {: #build-and-test }
@@ -141,7 +141,7 @@ yarn test
 
 If everything was successful, you'll see output like the following:
 
-![Run yarn build and yarn test](/images/builders/tutorials/oracles/phala/phala-5.webp)
+![Run yarn build and yarn test](/images/builders/tooling/oracles/phala/phala-5.webp)
 
 ### Deploy {: #deploy }
 
@@ -153,7 +153,7 @@ yarn deploy
 
 You'll get a transaction status as well as a contract address. Copy this contract address, as you'll need to refer to it in the following steps. 
 
-![Get output of deployed aggregator contract](/images/builders/tutorials/oracles/phala/phala-6.webp)
+![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-6.webp)
 
 ### Access Aggregator Contract {: #access-aggregator-contract }
 
@@ -168,11 +168,11 @@ Then, take the following steps:
 3. Select the `AggregatorV3Interface` contract from the **CONTRACT** dropdown
 4. Enter the data feed contract address corresponding to your desired asset pair that was returned on the command line in the prior section in the **At Address** field and click the **At Address** button
 
-![Access aggregator contract](/images/builders/tutorials/oracles/phala/phala-7.webp)
+![Access aggregator contract](/images/builders/tooling/oracles/phala/phala-7.webp)
 
 Expand the `AggregatorV3Interface` contract to reveal the available functions and click `latestRoundData` to see the most recent price data for the asset pair. You should see `0` values for all. This is because our aggregator contract has been deployed, but it hasn't yet fetched price data. We can fix this with a quick price feed update. 
 
-![Get output of deployed aggregator contract](/images/builders/tutorials/oracles/phala/phala-8.webp)
+![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-8.webp)
 
 ### Trigger Price Feed Update {: #Trigger Price Feed Update }
 
@@ -190,11 +190,11 @@ Then, from the command line, run the following command:
 npx tsx feeder.ts 
 ```
 
-![Get output of deployed aggregator contract](/images/builders/tutorials/oracles/phala/phala-9.webp)
+![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-9.webp)
 
 Upon returning to Remix, click `latestRoundData` once more, and after waiting a moment, you should see an accurate value returned. 
 
-![Get output of deployed aggregator contract](/images/builders/tutorials/oracles/phala/phala-10.webp)
+![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-10.webp)
 
 For more information about using Phala to access off-chain data, be sure to check out the [Phala docs site](https://docs.phala.network/introduction/readme){target=\_blank}.
 
