@@ -27,14 +27,14 @@ const abi = parseAbi([
 
 // Insert your ContainerChain Details Here
 const chain = defineChain({
-  id: INSERT-EVM-CHAIN-ID,
+  id: INSERT_EVM_CHAIN_ID,
   name: 'dancebox-evm-container',
   rpcUrls: {
     default: {
-      http: ['INSERT-RPC-URL'],
+      http: ['INSERT_RPC_URL'],
     },
     public: {
-      http: ['INSERT-RPC-URL'],
+      http: ['INSERT_RPC_URL'],
     }
   }
 })
