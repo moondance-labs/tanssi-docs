@@ -7,6 +7,6 @@ const chain = defineChain({
     },
     public: {
       http: ['INSERT_RPC_URL'],
-    }
-  }
-})
+    },
+  },
+});
