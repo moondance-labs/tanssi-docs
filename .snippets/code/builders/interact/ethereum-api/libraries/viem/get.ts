@@ -25,7 +25,7 @@ export const demoEVM = defineChain({
   blockExplorers: {
     default: {
       name: 'Explorer',
-      url: 'https://tanssi-evmexplorer.netlify.app/',
+      url: 'https://3001-blockscout.a.dancebox.tanssi.network/',
     },
   },
 });

@@ -15,12 +15,14 @@ Nodes store block data and network state. However, developers can run different 
  
   - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
 
-In this guide, you'll learn how to quickly spin up a Tanssi Appchain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer, however, it can be adapted to other operating systems.
+In this guide, you'll learn how to quickly spin up a Tanssi Appchain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
 !!! note
     It is not possible to run an RPC node for Snap Appchains as they run on a private network, and their nodes are, therefore, unreachable for syncing.
 
 ## Checking Prerequisites {: #checking-prerequisites }
+
+### Installing Docker {: #installing-docker}
 
 To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install/){target=\blank}.
 
@@ -40,15 +42,19 @@ This is what a successful execution in the terminal looks like:
 
 --8<-- 'code/node-operators/rpc/terminal/hello-world.md'
 
-## The Docker Image {: #the-docker-image }
+### Pulling the Docker Image {: #pulling-docker-image }
 
-As part of the automated deployment process, two separate Docker images are built and published, one for EVM-compatible Appchains and another for Substrate Appchains. The images bundle together the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
+A Docker image is built and published as part of the automated deployment process, either for a Tanssi EVM-compatible Appchain or another for a Tanssi Substrate Appchain. 
 
-The chain specification is generated when registering the Appchain in the [DApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the Custom Specs option.
+A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
-### Pulling the Docker Image for EVM-Compatible Appchains {: #pulling-evm-docker-image }
+The chain specification is generated when registering the Appchain in the [DApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
 
-If the Appchain was registered in the DApp, choosing the EVM template or uploading a custom specification representing an EVM-compatible Appchain, then execute the following command to pull the Docker image:
+Luckily, running a node requires the right Docker image configured correctly!
+
+### EVM-Compatible Appchains {: #pulling-evm-docker-image }
+
+If the Tanssi Appchain was registered in the DApp, choose the EVM template or upload a custom specification representing a Tanssi EVM-compatible Appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-evm-templates
@@ -58,9 +64,9 @@ The command will download and extract the image and show the status upon executi
 
 --8<-- 'code/node-operators/rpc/terminal/pulling-docker-image.md'
 
-### Pulling the Docker Image for Substrate Appchains {: #pulling-substrate-docker-image }
+### Simple Substrate Appchains {: #pulling-substrate-docker-image }
 
-If the Appchain was registered in the DApp, choosing the basic substrate template or uploading a custom specification file representing a Substrate Appchain, then execute the following command to pull the Docker image:
+If the Appchain was registered in the DApp, choosing the basic Substrate template or uploading a custom specification file representing a Substrate Appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-simple-templates
@@ -70,9 +76,78 @@ The command will download and extract the image and show the status upon executi
 
 ## Start-Up Command {: #start-up-command }
 
-To spin up your node, you must run the Docker image with the `docker run` command.
+To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
 
-The following example spins up an RPC node for the [demo EVM ContainerChain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an id of 3001:
+- `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi Appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network/){target=\_blank}. For example, `3001`
+- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE` with the actual bootnode information
+
+=== "EVM-compatible Appchain"
+
+    ```bash
+    docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+    /chain-network/container-chain-template-frontier-node \
+    --name=para \
+    --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
+    --rpc-port=9944 \
+    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
+    -- \
+    --name=relay \
+    --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+    --rpc-port=9945 \
+    --sync=fast \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+    ```
+
+=== "Simple Substrate Appchain"
+    
+    ```bash
+    docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+    /chain-network/container-chain-template-simple-node \
+    --name=para \
+    --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
+    --rpc-port=9944 \
+    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
+    -- \
+    --name=relay \
+    --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+    --rpc-port=9945 \
+    --sync=fast \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+    ```
+
+!!! note
+    Only the historical state of the last 256 finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
+
+### Fetching Bootnode Information {: #fetching-bootnode-information}
+
+Bootnode information can be read from the Tanssi Appchain storage on its [Polkadot.js explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
+
+To do so, take the following steps:
+
+1. Select `dataPreservers` as the module to query
+2. Set the storage query to `bootNodes`
+3. Provide your Tanssi Appchain ID
+4. Click on the **+** sign
+
+![Getting the bootnode](/images/node-operators/rpc/rpc-1.webp)
+
+### Example Full Node for Demo EVM Appchain {: #example-demo-evm-appchain}
+
+The following example spins up an RPC node for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
 
 ```bash
 docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
@@ -97,32 +172,16 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
 ```
 
-Note that even though the previous command has many parameters, only some of them grouped in the first lines need to be changed to spin up your specific Appchain:
-
-```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-/chain-network/container-chain-template-TEMPLATE_TYPE-node \
---chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
---bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
-...
-```
-
-- **TEMPLATE_TYPE** - replace the text with either `frontier` for EVM ContainerChains or `simple` for Substrate ContainerChains
-- **YOUR_APPCHAIN_ID** - replace the text with your Appchain identifier, which is obtained in the [third step](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} of the registration process
-- **INSERT_YOUR_APPCHAIN_BOOTNODE** - replace the text with the Tanssi provided bootnode, which can be read from the Tanssi Appchain storage on its [Polkadot.js website](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}. The value must be queried from the `dataPreservers`.`bootnodes` storage unit, using your Appchain Id as the option parameter, as shown in the following image:
-
-    ![Getting the bootnode](/images/node-operators/rpc/rpc-1.webp)
-
 ### Run Flags {: #run-flags }
 
-The flags used in the `docker run` command can be adjusted according to your preferences and the hardware configuration, being the following ones some of the most note-worthy:
+The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- **--name** - a human-readable name for this node
-- **--rpc-port** - specifies the JSON-RPC TCP port the node listens on
-- **--unsafe-rpc-external** - exposes the RPC service on all the interfaces
-- **--state-pruning** - specifies when the ContainerChain state should be removed from the database. The `Archive` setting makes the node behave as a full node, keeping all the state
-- **--blocks-pruning** -  specifies how many blocks should be kept in the database. The `Archive` setting makes the node behave as a full node, keeping all the blocks
-- **--detailed-log-output** - enables detailed log output
+- `--name INSERT_NAME` - a human-readable name for this node
+- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
+- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
+- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi Appchain state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
+- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
+- `--detailed-log-output` - enables detailed log output
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
@@ -134,7 +193,7 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 
 ## Syncing Your Node {: #syncing-your-node }
 
-Once your node spins up, the syncing process begins displaying lots of log information from the node configuration, the relay chain, and the node itself. At the beginning of the process, some errors are expected to be displayed, disappearing once the chain gets synced to the last block.
+Once your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
 --8<-- 'code/node-operators/rpc/terminal/syncing-process.md'
 
