@@ -44,7 +44,7 @@ This is what a successful execution in the terminal looks like:
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
-A Docker image is built and published as part of the automated deployment process, either for a Tanssi EVM-compatible Appchain or another for a Tanssi Simple Appchain. 
+A Docker image is built and published as part of the automated deployment process, either for a Tanssi EVM-compatible Appchain or another for a Tanssi Substrate Appchain. 
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
@@ -66,7 +66,7 @@ The command will download and extract the image and show the status upon executi
 
 ### Simple Substrate Appchains {: #pulling-substrate-docker-image }
 
-If the Appchain was registered in the DApp, choosing the basic substrate template or uploading a custom specification file representing a Substrate Appchain, then execute the following command to pull the Docker image:
+If the Appchain was registered in the DApp, choosing the basic Substrate template or uploading a custom specification file representing a Substrate Appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-simple-templates
@@ -78,7 +78,7 @@ The command will download and extract the image and show the status upon executi
 
 To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
 
-- `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi Appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network/){target=\_blank}
+- `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi Appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network/){target=\_blank}. For example, `3001`
 - `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE`  with the actual bootnode information
 
 === "EVM-compatible Appchain"
