@@ -147,7 +147,7 @@ To do so, take the following steps:
 
 ### Example Full Node for Demo EVM Appchain {: #example-demo-evm-appchain}
 
-The following example spins up an RPC node for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an id of `3001`. 
+The following example spins up an RPC node for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
 
 ```bash
 docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
