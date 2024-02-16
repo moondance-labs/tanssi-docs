@@ -181,7 +181,7 @@ Then, take the following steps:
 
 ![Access aggregator contract](/images/builders/tooling/oracles/phala/phala-5.webp)
 
-Expand the `AggregatorV3Interface` contract to reveal the available functions and click `latestRoundData` to see the most recent price data for the asset pair. You should see `0` values for all. This is because your aggregator contract has been deployed, but it hasn't yet fetched price data. You can fix this with a quick price feed update. 
+Expand the **AggregatorV3Interface** contract to reveal the available functions and click **latestRoundData** to see the most recent price data for the asset pair. You should see `0` values for all. This is because your aggregator contract has been deployed, but it hasn't yet fetched price data. You can fix this with a quick price feed update. 
 
 ![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-6.webp)
 
