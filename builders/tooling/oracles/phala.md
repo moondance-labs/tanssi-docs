@@ -11,7 +11,7 @@ description: Learn how to use Phala's off-chain computing network to get reliabl
 
 Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network/){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch. 
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo EVM Appchain. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible Appchain](#launching-price-feeds-on-your-own-evm-appchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on your Appchain to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo Tanssi EVM-compatible Appchain. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible Appchain](#launching-price-feeds-on-your-own-evm-appchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on your Appchain to ensure the integrity of the deployment process.
  
 ## How Phala Enables Price Feeds {: #how-phala-enables-price-feeds }
 
@@ -111,6 +111,10 @@ Next, edit your `.env` to insert the private key of an account funded on your Ap
 ```bash
 --8<-- 'code/builders/tooling/oracles/phala/env.txt'
 ```
+
+
+!!! note
+    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
 
 ### Configure Deployment Script {: #configure-deployment-script }
 
