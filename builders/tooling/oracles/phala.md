@@ -93,7 +93,7 @@ Note that to obtain a readable price, you must account for the decimals of the p
 
 ## Launching Price Feeds on Your Own EVM Appchain {: #launching-price-feeds-on-your-own-evm-appchain }
 
-It's easy to launch price feeds on your Tanssi EVM Appchain! The following sections will walk through the process of launching a variety of price feeds on your Tanssi EVM Appchain. This process can be followed for SnapChains and dedicated AppChains on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network/){target=\_blank} for assistance in any production scenarios. 
+It's easy to launch price feeds on your Tanssi EVM Appchain! The following sections will walk through the process of launching a variety of price feeds on your Tanssi EVM Appchain. This process can be followed for Snap Appchains and dedicated Appchains on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network/){target=\_blank} for assistance in any production scenarios. 
 
 ### Setup {: #setup }
 
