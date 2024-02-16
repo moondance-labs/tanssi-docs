@@ -2,5 +2,6 @@ title: Tooling
 hide: false
 nav:
   - index.md
-  - oracles
   - indexers
+  - oracles
+
