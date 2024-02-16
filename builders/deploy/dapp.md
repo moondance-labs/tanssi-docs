@@ -1,9 +1,9 @@
 ---
-title: Deploy Your ContainerChain via the DApp
+title: Deploy Your Appchain via the DApp
 description: Learn how to spin up and deploy an Appchain on Tanssi in minutes using the Tanssi dApp, a no-code solution for onboarding into the Polkadot ecosystem.
 ---
 
-# Deploy your ContainerChain via the Tanssi DApp
+# Deploy your Appchain via the Tanssi DApp
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/SQw9fn_MOQA?si=INbq35lvKQdJ7IA2' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
@@ -43,7 +43,7 @@ For Snap Appchains and Dedicated Appchains on the [Tanssi Dancebox Testnet](/bui
 
 ### Supported Wallets {: #supported-wallets }
 
-Since Tanssi is built with Substrate, you'll need to use a Substrate-supported wallet to deploy and manage your ContainerChain. Supported wallets include:
+Since Tanssi is built with Substrate, you'll need to use a Substrate-supported wallet to deploy and manage your Appchain. Supported wallets include:
 
 - [Polkadot.js extension](https://polkadot.js.org/extension/){target=\_blank}
 - [SubWallet](https://www.subwallet.app/){target=\_blank}
@@ -51,7 +51,7 @@ Since Tanssi is built with Substrate, you'll need to use a Substrate-supported w
 - [MetaMask Polkadot Snap](https://snaps.metamask.io/snap/npm/chainsafe/polkadot-snap/){target=\_blank}
 - [Enkrypt](https://www.enkrypt.com/){target=\_blank}
 
-If you deploy an EVM ContainerChain, your users won't need a Substrate wallet. They can interact with your ContainerChain using Ethereum-compatible wallets like [MetaMask](/builders/interact/ethereum-api/wallets/metamask){target=\_blank}.
+If you deploy an EVM Appchain, your users won't need a Substrate wallet. They can interact with your Appchain using Ethereum-compatible wallets like [MetaMask](/builders/interact/ethereum-api/wallets/metamask){target=\_blank}.
 
 ![Connection screen for various Substrate wallets](/images/builders/deploy/dapp/dapp-3.webp)
 
@@ -91,7 +91,7 @@ To get started, select the **EVM** template from the left-side menu. Then take t
 6. (Optional) You can adjust the gas configurations in the **Advanced** settings. You can choose to change the **Minimum Gas Price**, **Base fee per gas**, **Multiplier**, and **Elasticity**
 7. Once you have configured the template for your Appchain, select **Continue** and proceed to the [Check Balances section](#check-balances)
 
-![Create an EVM ContainerChain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-5.webp)
+![Create an EVM Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-5.webp)
 
 ### Substrate Template {: #substrate-template }
 
@@ -105,11 +105,11 @@ To get started, select the **Substrate** template from the left-side menu. Then 
 4. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
 5. Once you have configured the template for your Appchain, you can select **Continue** to proceed to the [Check Balances section](#check-balances)
 
-![Create a baseline Substrate ContainerChain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-6.webp)
+![Create a baseline Substrate Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-6.webp)
 
 ### Custom {: #custom }
 
-If you already have a Substrate runtime built and have chosen to upload your own custom specification file, there are some requirements to be aware of that are necessary to ensure the runtime can evolve into a ContainerChain on Tanssi and run properly within the Polkadot ecosystem.
+If you already have a Substrate runtime built and have chosen to upload your own custom specification file, there are some requirements to be aware of that are necessary to ensure the runtime can evolve into an Appchain on Tanssi and run properly within the Polkadot ecosystem.
 
 Your runtime must implement the following:
 
@@ -242,7 +242,7 @@ Once the files have been generated, please click **Continue** to go on to the fi
 
 ## Deploy Your Appchain {: #deploy-your-appchain }
 
-You're finally ready to take your last step towards preparing your Appchain as it evolves into a ContainerChain deployed through Tanssi! For this final step, you'll need to submit two transactions: one to register your Appchain on the relay chain and another to register your Appchain on Tanssi.
+You're finally ready to take your last step towards preparing your Appchain as it evolves into an Appchain deployed through Tanssi! For this final step, you'll need to submit two transactions: one to register your Appchain on the relay chain and another to register your Appchain on Tanssi.
 
 To register your Appchain on the relay chain, take the following steps:
 
@@ -262,6 +262,6 @@ Lastly, to register your Appchain on Tanssi, take the following steps:
 
 Once the transaction has gone through successfully, the dApp will update to show that you have registered your Appchain. Congratulations! On the dashboard, you can check the status of your deployment and view relevant information, such as the latest block information, RPC and WS endpoints, and more.
 
-![The ContainerChain dashboard on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-14.webp)
+![The Appchain dashboard on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-14.webp)
 
 And that's it! You've successfully registered your Appchain! The launch process will automatically begin once the Tanssi team has verified your Appchain. Once your Appchain is live, you can return to the **Dashboard** to view the RPC URL and other pertinent chain information.

@@ -8,7 +8,7 @@ description: Any custom runtime can be adapted to be deployed through Tanssi, pr
 
 ## Introduction {: #introduction }
 
-For teams that already have been working on a Substrate runtime, it will be necessary to implement the required modules and configurations into the runtime. This will ensure that the runtime can evolve into a ContainerChain successfully [deployed through Tanssi](/builders/build/templates/overview/#base-setup-supporting-tanssi
+For teams that already have been working on a Substrate runtime, it will be necessary to implement the required modules and configurations into the runtime. This will ensure that the runtime can evolve into an Appchain successfully [deployed through Tanssi](/builders/build/templates/overview/#base-setup-supporting-tanssi
 ){target=\_blank} and [run properly within Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank}.
 
 Failing to do so might lead to reduced interoperability within the ecosystem and unnecessary exposure to vulnerabilities.
@@ -90,7 +90,7 @@ To support the Tanssi protocol, it will be necessary to add [the modules](#base-
         UncheckedExtrinsic = UncheckedExtrinsic,
     {
         ...
-        // ContainerChain
+        // Appchain
         AuthoritiesNoting: pallet_cc_authorities_noting = 50,
         AuthorInherent: pallet_author_inherent = 51,
         ...

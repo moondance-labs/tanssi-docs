@@ -7,7 +7,7 @@ description: A Substrate node has two main components: the runtime, which contro
 
 ## Introduction {: #introduction }
 
-Substrate is a software development kit (SDK) for building blockchains. This framework is the foundation and engine powering Polkadot's relay chain, the parachains (such as the Tanssi network itself), and the ContainerChains deployed through Tanssi. 
+Substrate is a software development kit (SDK) for building blockchains. This framework is the foundation and engine powering Polkadot's relay chain, the parachains (such as the Tanssi network itself), and the Appchains deployed through Tanssi. 
 
 Written in the Rust language and designed with a modular architecture, Substrate is extremely performant, flexible, and highly customizable, making it the best choice for developing blockchains.
 
@@ -44,7 +44,7 @@ The runtime plays a crucial role in the operation of the Appchain. It contains t
 
 Being the core element in an Appchain, designing the Substrate architecture an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org){target=\_blank} byte code. 
 
-The Wasm format offers many advantages to a deployed ContainerChain, including:
+The Wasm format offers many advantages to a deployed Appchain, including:
 
 - **Portability** - the Wasm format is platform-independent, meaning that the same binary can be distributed and run on different nodes using different hardware architectures and operating systems
 - **Deterministic Execution** - the Wasm format ensures deterministic execution of code, which means that the same input will always produce the same output. Determinacy is a critical aspect in blockchains to obtain the same state transitions across every node in the network and reach a consensus
@@ -54,7 +54,7 @@ Besides the format, internally, a Substrate runtime is built by composing differ
 
 ## Client-Runtime Communication {: #client-runtime-communication }
 
-As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different. While the node is compiled to be installed and run on a specific platform (be it Linux x64 or any other), the ContainerChain runtime is compiled to a Wasm format that is platform-agnostic and runs in an isolated execution environment.
+As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different. While the node is compiled to be installed and run on a specific platform (be it Linux x64 or any other), the Appchain runtime is compiled to a Wasm format that is platform-agnostic and runs in an isolated execution environment.
 
  Bearing in mind the separated execution environments, all the communication between the node client and the runtime occurs through a limited and well-defined interface, allowing the necessary operations such as: 
 

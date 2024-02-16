@@ -1,6 +1,6 @@
 ---
 title: How to use Chopsticks to Fork Your Appchain
-description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi ContainerChain.
+description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi Appchain.
 ---
 
 # How to Use Chopsticks to Fork Your Appchain
@@ -11,7 +11,7 @@ description: Learn the basics of how to use Chopsticks to replay blocks, dissect
 
 Overall, Chopsticks aims to simplify the process of building blockchain applications on Substrate and make it accessible to a wider range of developers.
 
-This article will cover using Chopsticks to fork and interact with the local copy of a Tanssi ContainerChain.
+This article will cover using Chopsticks to fork and interact with the local copy of a Tanssi Appchain.
 
 !!! note
     Chopsticks currently does not support calls done via the Ethereum JSON-RPC. Consequently, you can't fork your chain using Chopsticks and connect Metamask to it.
@@ -38,9 +38,9 @@ Finally, build the project:
 yarn build-wasm
 ```
 
-Now the development environment is ready to start testing and debugging Tanssi-deployed ContainerChains.
+Now the development environment is ready to start testing and debugging Tanssi-deployed Appchains.
 
-## Forking a Demo EVM ContainerChain with Chopsticks {: #forking-demo-chain }
+## Forking a Demo EVM Appchain with Chopsticks {: #forking-demo-chain }
 
 To fork an Appchain using Chopsticks, execute the command with only the RPC endpoint as a parameter:
 
@@ -52,7 +52,7 @@ This command will start a local clone of the chain as it was in the latest block
 
 --8<-- 'code/builders/interact/substrate-api/chopsticks/chopsticks-1.md'
 
-Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [Demo EVM ContainerChain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
+Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [Demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
 
 ```yaml
 endpoint: wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
@@ -113,7 +113,7 @@ You can run the command `yarn start` to fork chains by specifying a local config
     ```
 
 
-All settings (except `genesis` and `timestamp`) can also be passed as flags to configure the environment completely in the command line. For example, the following command forks the demo EVM ContainerChain at block 100.
+All settings (except `genesis` and `timestamp`) can also be passed as flags to configure the environment completely in the command line. For example, the following command forks the demo EVM Appchain at block 100.
 
 ```bash
 yarn start --endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network --block 100
@@ -151,7 +151,7 @@ If you would like to replay a block and retrieve its information to dissect the 
 |           `html`           | Include to generate an HTML representation of the storage diff preview between blocks. |
 |           `open`           |                        Whether to open the HTML representation.                        |
 
-For example, running the following command will re-run the demo EVM ContainerChains's block 1000 and write the storage diff and other data in a `chain-output.json` file:  
+For example, running the following command will re-run the demo EVM Appchains's block 1000 and write the storage diff and other data in a `chain-output.json` file:  
 
 ```bash
 yarn start run-block  \

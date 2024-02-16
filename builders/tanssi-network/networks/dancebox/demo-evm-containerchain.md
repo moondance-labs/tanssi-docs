@@ -1,17 +1,17 @@
 ---
-title: Demo EVM Tanssi ContainerChain
-description: Test our demo EVM Tanssi ContainerChain to discover the capabilities of a fully Ethereum-compatible Appchain deployed through Tanssi in just a few minutes.
+title: Demo EVM Tanssi Appchain
+description: Test our demo EVM Tanssi Appchain to discover the capabilities of a fully Ethereum-compatible Appchain deployed through Tanssi in just a few minutes.
 ---
 
 ## Introduction
 
-A demo EVM Tanssi ContainerChain is deployed on Dancebox for testing purposes. Interact with this chain to discover the capabilities of a fully Ethereum-compatible Appchain deployed through Tanssi.
+A demo EVM Tanssi Appchain is deployed on Dancebox for testing purposes. Interact with this chain to discover the capabilities of a fully Ethereum-compatible Appchain deployed through Tanssi.
 
-This article includes the endpoints to interact with this demo EVM ContainerChain, some block explorers, and a quick start example.
+This article includes the endpoints to interact with this demo EVM Appchain, some block explorers, and a quick start example.
 
 ## Network Endpoints
 
-The demo EVM ContainerChain HTTPS and WSS endpoints are as follows:
+The demo EVM Appchain HTTPS and WSS endpoints are as follows:
 
 === "HTTPS"
 
@@ -27,7 +27,7 @@ The demo EVM ContainerChain HTTPS and WSS endpoints are as follows:
 
 ## Quick Start {: #quick-start }
 
-You can interact with the EVM ContainerChain using standard Ethereum libraries, like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=\_blank}, and [Web3.py](/builders/interact/ethereum-api/libraries/web3py){target=\_blank}. To quickly get started, you'll need to create a provider connected to the EVM ContainerChain:
+You can interact with the EVM Appchain using standard Ethereum libraries, like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=\_blank}, and [Web3.py](/builders/interact/ethereum-api/libraries/web3py){target=\_blank}. To quickly get started, you'll need to create a provider connected to the EVM Appchain:
 
 === "Ethers.js"
 
@@ -71,11 +71,11 @@ You can interact with the EVM ContainerChain using standard Ethereum libraries, 
 
 ### EVM Container Chain ID {: #chain-id }
 
-The EVM ContainerChain has a [chain ID](https://chainlist.org/chain/5678){target=\_blank} of: `5678`, which is `0x162E` in hex.
+The EVM Appchain has a [chain ID](https://chainlist.org/chain/5678){target=\_blank} of: `5678`, which is `0x162E` in hex.
 
 ### Block Explorers {: #block-explorers }
 
-For the EVM ContainerChain, you can use any of the following explorers:
+For the EVM Appchain, you can use any of the following explorers:
 
 - Substrate API - on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank}
 - EVM explorer - on [Blockscout](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank}
