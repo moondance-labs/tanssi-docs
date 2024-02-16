@@ -141,7 +141,7 @@ yarn test
 
 If everything was successful, you'll see output like the following:
 
-![Run yarn build and yarn test](/images/builders/tooling/oracles/phala/phala-5.webp)
+--8<-- 'code/builders/tooling/oracles/phala/terminal/build.md'
 
 ### Deploy {: #deploy }
 
@@ -153,7 +153,7 @@ yarn deploy
 
 You'll get a transaction status as well as a contract address. Copy this contract address, as you'll need to refer to it in the following steps. 
 
-![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-6.webp)
+--8<-- 'code/builders/tooling/oracles/phala/terminal/deploy.md'
 
 ### Access Aggregator Contract {: #access-aggregator-contract }
 
@@ -168,11 +168,11 @@ Then, take the following steps:
 3. Select the `AggregatorV3Interface` contract from the **CONTRACT** dropdown
 4. Enter the data feed contract address corresponding to your desired asset pair that was returned on the command line in the prior section in the **At Address** field and click the **At Address** button
 
-![Access aggregator contract](/images/builders/tooling/oracles/phala/phala-7.webp)
+![Access aggregator contract](/images/builders/tooling/oracles/phala/phala-5.webp)
 
 Expand the `AggregatorV3Interface` contract to reveal the available functions and click `latestRoundData` to see the most recent price data for the asset pair. You should see `0` values for all. This is because our aggregator contract has been deployed, but it hasn't yet fetched price data. We can fix this with a quick price feed update. 
 
-![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-8.webp)
+![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-6.webp)
 
 ### Trigger Price Feed Update {: #Trigger Price Feed Update }
 
@@ -190,11 +190,11 @@ Then, from the command line, run the following command:
 npx tsx feeder.ts 
 ```
 
-![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-9.webp)
+--8<-- 'code/builders/tooling/oracles/phala/terminal/update.md'
 
 Upon returning to Remix, click `latestRoundData` once more, and after waiting a moment, you should see an accurate value returned. 
 
-![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-10.webp)
+![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-8.webp)
 
 For more information about using Phala to access off-chain data, be sure to check out the [Phala docs site](https://docs.phala.network/introduction/readme){target=\_blank}.
 
