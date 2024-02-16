@@ -141,7 +141,7 @@ Once you're finished editing, your `feeder.ts` file should resemble the below:
 
 ???+ code "feeder.ts"
 
-    ```solidity
+    ```ts
     --8<-- 'code/builders/tooling/oracles/phala/feeder.ts'
     ```
 
