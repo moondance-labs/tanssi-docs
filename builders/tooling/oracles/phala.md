@@ -79,10 +79,10 @@ Then, take the following steps:
 
 The aggregator contract should now be accessible. To interact with the aggregator contract, take the following steps:
 
-1. Expand the `AggregatorV3Interface` contract to reveal the available functions
-2. Click `decimals` to query how many digits after the decimal point are included in the returned price data
-3. Click `description` to verify the asset pair of the price feed 
-4. Click `latestRoundData` to see the most recent price data for the asset pair. The price data for the pair is returned as the `int256 answer`
+1. Expand the **AggregatorV3Interface** contract to reveal the available functions
+2. Click **decimals** to query how many digits after the decimal point are included in the returned price data
+3. Click **description** to verify the asset pair of the price feed 
+4. Click **latestRoundData** to see the most recent price data for the asset pair. The price data for the pair is returned as the **int256 answer**
 
 ![Price Feed Diagram](/images/builders/tooling/oracles/phala/phala-4.webp)
 
