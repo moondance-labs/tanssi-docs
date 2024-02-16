@@ -89,7 +89,7 @@ The aggregator contract should now be accessible. To interact with the aggregato
 
 ![Price Feed Diagram](/images/builders/tooling/oracles/phala/phala-4.webp)
 
-Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `5230364122303`, the decimal point will need to moved eight places, which corresponds to a Bitcoin price of `$52,303.64` at the time of writing. 
+Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `5230364122303`, the decimal point will need to be moved eight places, which corresponds to a Bitcoin price of `$52,303.64` at the time of writing. 
 
 ## Launching Price Feeds on Your Own EVM Appchain {: #launching-price-feeds-on-your-own-evm-appchain }
 
