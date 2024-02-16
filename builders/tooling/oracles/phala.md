@@ -72,7 +72,7 @@ Then, take the following steps:
 
 1. Head to the **Deploy and Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
-3. Select the `AggregatorV3Interface` contract from the **CONTRACT** dropdown
+3. Select the **AggregatorV3Interface** contract from the **CONTRACT** dropdown
 4. Enter the data feed contract address corresponding to `BTC to USD`, which is `0x89BC5048d634859aef743fF2152363c0e83a6a49` on the demo EVM Appchain in the **At Address** field and click the **At Address** button
 
 ![Price Feed Diagram](/images/builders/tooling/oracles/phala/phala-3.webp)
