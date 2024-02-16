@@ -111,13 +111,13 @@ Next, you'll need to edit the `OffchainAggregator.s.sol` file located in the scr
     --8<-- 'code/builders/tooling/oracles/phala/OffchainAggregator.s.sol'
     ```
 
-There's a few more changes that we need to make in `feeder.ts`, the file that maintains and updates our price feeds. You'll need to insert the details of your EVM Appchain as follows: 
+There's a few more changes that you need to make in `feeder.ts`, the file that maintains and updates your price feeds. You'll need to insert the details of your EVM Appchain as follows: 
 
 ```typescript
 --8<-- 'code/builders/tooling/oracles/phala/define-chain.ts'
 ```
 
-You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum MainNet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM Appchain. You should erase this array such that it is empty. Later in this guide, you'll return to it and add the contract addresses of our aggregator contracts specific to your own EVM ContainerChain once they are deployed.
+You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum MainNet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM Appchain. You should erase this array such that it is empty. Later in this guide, you'll return to it and add the contract addresses of your aggregator contracts specific to your own EVM ContainerChain once they are deployed.
 
 Once you're finished editing, your `feeder.ts` file should resemble the below:
 
@@ -170,13 +170,13 @@ Then, take the following steps:
 
 ![Access aggregator contract](/images/builders/tooling/oracles/phala/phala-5.webp)
 
-Expand the `AggregatorV3Interface` contract to reveal the available functions and click `latestRoundData` to see the most recent price data for the asset pair. You should see `0` values for all. This is because our aggregator contract has been deployed, but it hasn't yet fetched price data. We can fix this with a quick price feed update. 
+Expand the `AggregatorV3Interface` contract to reveal the available functions and click `latestRoundData` to see the most recent price data for the asset pair. You should see `0` values for all. This is because your aggregator contract has been deployed, but it hasn't yet fetched price data. You can fix this with a quick price feed update. 
 
 ![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-6.webp)
 
 ### Trigger Price Feed Update {: #Trigger Price Feed Update }
 
-In a prior section, we cleared out the array of aggregator contracts, but since we've now deployed an aggregator contract, we should specify it in the `feeder.ts` file so that we can manually trigger a refresh of the price data. Edit the `aggregatorContracts` array as follows:
+In a prior section, you cleared out the array of aggregator contracts, but since you've now deployed an aggregator contract, you should specify it in the `feeder.ts` file so that you can manually trigger a refresh of the price data. Edit the `aggregatorContracts` array as follows:
 
 ```typescript
 const aggregatorContracts = {
@@ -194,7 +194,7 @@ npx tsx feeder.ts
 
 Upon returning to Remix, click `latestRoundData` once more, and after waiting a moment, you should see an accurate value returned. 
 
-![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-8.webp)
+![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-7.webp)
 
 For more information about using Phala to access off-chain data, be sure to check out the [Phala docs site](https://docs.phala.network/introduction/readme){target=\_blank}.
 
