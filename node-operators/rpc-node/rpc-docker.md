@@ -42,13 +42,13 @@ This is what a successful execution in the terminal looks like:
 
 ## The Docker Image {: #the-docker-image }
 
-As part of the automated deployment process, two separate Docker images are built and published, one for EVM-compatible Appchains and another for Substrate Appchains. The images bundle together the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank} along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
+As part of the automated deployment process, two separate Docker images are built and published, one for EVM-compatible Appchains and another for Substrate Appchains. The images bundle together the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
-The chain specification is generated when registering the Appchain in the DApp using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the Custom Specs option.
+The chain specification is generated when registering the Appchain in the [DApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the Custom Specs option.
 
 ### Pulling the Docker Image for EVM-Compatible Appchains {: #pulling-evm-docker-image }
 
-If the Appchain was registered in the DApp choosing the EVM template or uploading a custom specification representing an EVM-compatible Appchain, then execute the following command to pull the Docker image:
+If the Appchain was registered in the DApp, choosing the EVM template or uploading a custom specification representing an EVM-compatible Appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-evm-templates
@@ -60,7 +60,7 @@ The command will download and extract the image and show the status upon executi
 
 ### Pulling the Docker Image for Substrate Appchains {: #pulling-substrate-docker-image }
 
-If the Appchain was registered in the DApp choosing the basic substrate template or uploading a custom specification file representing a Substrate Appchain, then execute the following command to pull the Docker image:
+If the Appchain was registered in the DApp, choosing the basic substrate template or uploading a custom specification file representing a Substrate Appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-simple-templates
@@ -84,7 +84,6 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 /12D3KooWHbs1SetugtcwHUYEAN2j1gE2TW8vmqgfcbcELy4x9hqg \
 -- \
 --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
---database=paritydb \
 --rpc-port=9945 \
 --name=relay \
 --sync=fast \
@@ -128,7 +127,9 @@ The flags used in the `docker run` command can be adjusted according to your pre
 For a complete list of available flags, their description, and possible values, run the following command:
 
 ```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates /chain-network/container-chain-template-frontier-node --help
+docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+/chain-network/container-chain-template-frontier-node \
+--help
 ```
 
 ## Syncing Your Node {: #syncing-your-node }
