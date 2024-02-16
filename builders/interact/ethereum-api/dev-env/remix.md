@@ -119,7 +119,7 @@ Click **Confirm** and, after the transaction is complete, you will see a confirm
 
 ![Verify the reduction in account balance](/images/builders/interact/ethereum-api/dev-environments/remix/remix-14.webp)
 
-You can also look up the transaction on [your ContainerChain's explorer](https://tanssi-evmexplorer.netlify.app/){target=\_blank} to verify the transaction status.
+You can also look up the transaction on [your ContainerChain's explorer](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank} to verify the transaction status.
 
 ![Check transaction status on block explorer for your ContainerChain](/images/builders/interact/ethereum-api/dev-environments/remix/remix-15.webp)
 
