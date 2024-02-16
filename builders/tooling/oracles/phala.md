@@ -203,7 +203,7 @@ npx tsx feeder.ts
 
 --8<-- 'code/builders/tooling/oracles/phala/terminal/update.md'
 
-Upon returning to Remix, click `latestRoundData` once more, and after waiting a moment, you should see an accurate value returned. 
+Upon returning to Remix, click **latestRoundData** once more, and after waiting a moment, you should see an accurate value returned. 
 
 ![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-7.webp)
 
