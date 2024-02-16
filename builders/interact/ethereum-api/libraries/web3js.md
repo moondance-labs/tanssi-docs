@@ -75,7 +75,7 @@ Next, you will create the script for this file and complete the following steps:
 1. [Set up the Web3 provider](#setting-up-the-web3-provider)
 2. Define the `addressFrom` and `addressTo` variables
 3. Create the asynchronous `balances` function which wraps the `web3.eth.getBalance` method
-4. Use the `web3.eth.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `web3.utils.fromWei` function to transform the balance into a more readable number in `UNITS`
+4. Use the `web3.eth.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `web3.utils.fromWei` function to transform the balance into a more readable number in `TANGO`
 5. Lastly, run the `balances` function
 
 ```js
@@ -98,8 +98,8 @@ const balances = async () => {
     'ether'
   );
 
-  console.log(`The balance of ${addressFrom} is: ${balanceFrom} UNITS`);
-  console.log(`The balance of ${addressTo} is: ${balanceTo} UNITS`);
+  console.log(`The balance of ${addressFrom} is: ${balanceFrom} TANGO`);
+  console.log(`The balance of ${addressTo} is: ${balanceTo} TANGO`);
 };
 
 // 5. Call balances function
@@ -124,7 +124,7 @@ If successful, the balances for the origin and receiving address will be display
 
 ### Send Transaction Script {: #send-transaction-script }
 
-You'll only need one file to execute a transaction between accounts. For this example, you'll be transferring 1 UNIT token from an origin address (from which you hold the private key) to another address. To get started, you can create a `transaction.js` file by running:
+You'll only need one file to execute a transaction between accounts. For this example, you'll be transferring 1 TANGO token from an origin address (from which you hold the private key) to another address. To get started, you can create a `transaction.js` file by running:
 
 ```bash
 touch transaction.js

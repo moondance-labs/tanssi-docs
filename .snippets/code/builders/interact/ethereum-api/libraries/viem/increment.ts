@@ -15,8 +15,8 @@ export const demoEVM = defineChain({
   network: 'demo',
   nativeCurrency: {
     decimals: 18,
-    name: 'UNIT',
-    symbol: 'UNIT',
+    name: 'TANGO',
+    symbol: 'TANGO',
   },
   rpcUrls: {
     default: {
