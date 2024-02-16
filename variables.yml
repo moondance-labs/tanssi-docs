@@ -5,6 +5,15 @@ networks:
     chain_id: 5678
     rpc_url: https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
     gas_to_weight: 25000
+    oracles:
+      phala:
+        aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'
+        btc_usd: '0x89BC5048d634859aef743fF2152363c0e83a6a49'
+        crv_usd: '0xf38b25b79A72393Fca2Af88cf948D98c64726273'
+        dai_usd: '0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B'
+        eth_usd: '0x739d71fC66397a28B3A3b7d40eeB865CA05f0185'
+        usdc_usd: '0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252'
+        usdt_usd: '0x5018c16707500D2C89a0446C08f347A024f55AE3'
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0
