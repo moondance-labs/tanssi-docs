@@ -39,26 +39,26 @@ Phala sources its price feed data by mirroring Chainlink's price feeds from Ethe
 
 
 === "Tanssi Demo EVM Appchain"
-    | Asset & Base Pair  |                     Aggregator Contract                      |
-    |:-----------:|:-----------------------------------------------------:|
-    | AAVE to USD | [{{ networks.dancebox.oracles.phala.aave_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x2E1640853bB2dD9f47831582665477865F9240DB){target=\_blank} |
-    | BTC to USD  | [{{ networks.dancebox.oracles.phala.btc_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x89BC5048d634859aef743fF2152363c0e83a6a49){target=\_blank} |
-    | CRV to USD  | [{{ networks.dancebox.oracles.phala.crv_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0xf38b25b79A72393Fca2Af88cf948D98c64726273){target=\_blank}  |
-    | DAI to USD  | [{{ networks.dancebox.oracles.phala.dai_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B){target=\_blank}  |
-    | ETH to USD  | [{{ networks.dancebox.oracles.phala.eth_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x739d71fC66397a28B3A3b7d40eeB865CA05f0185){target=\_blank}  |
-    | USDC to USD | [{{ networks.dancebox.oracles.phala.usdc_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252){target=\_blank} |
-    | USDT to USD | [{{ networks.dancebox.oracles.phala.usdt_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x5018c16707500D2C89a0446C08f347A024f55AE3){target=\_blank} |
+    | Asset & Base Pair |                                                                          Aggregator Contract                                                                           |
+    |:-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+    |    AAVE to USD    | [{{ networks.dancebox.oracles.phala.aave_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x2E1640853bB2dD9f47831582665477865F9240DB){target=\_blank} |
+    |    BTC to USD     | [{{ networks.dancebox.oracles.phala.btc_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x89BC5048d634859aef743fF2152363c0e83a6a49){target=\_blank}  |
+    |    CRV to USD     | [{{ networks.dancebox.oracles.phala.crv_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0xf38b25b79A72393Fca2Af88cf948D98c64726273){target=\_blank}  |
+    |    DAI to USD     | [{{ networks.dancebox.oracles.phala.dai_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B){target=\_blank}  |
+    |    ETH to USD     | [{{ networks.dancebox.oracles.phala.eth_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x739d71fC66397a28B3A3b7d40eeB865CA05f0185){target=\_blank}  |
+    |    USDC to USD    | [{{ networks.dancebox.oracles.phala.usdc_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252){target=\_blank} |
+    |    USDT to USD    | [{{ networks.dancebox.oracles.phala.usdt_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x5018c16707500D2C89a0446C08f347A024f55AE3){target=\_blank} |
 
 === "Ethereum MainNet"
-    |  Asset & Base Pair  |                      Aggregator Contract Address                       |
-    |:------------:|:-------------------------------------------------------:|
-    | AAVE to USD | [0x547a514d5e3769680Ce22B2361c10Ea13619e8a9](https://etherscan.io/address/0x547a514d5e3769680Ce22B2361c10Ea13619e8a9){target=\_blank}  |
-    | BTC to USD  | [0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c](https://etherscan.io/address/0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c){target=\_blank} |
-    | CRV to USD  | [0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f](https://etherscan.io/address/0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f){target=\_blank}  |
-    | DAI to USD  | [0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9](https://etherscan.io/address/0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9){target=\_blank}  |
-    | ETH to USD  | [0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419](https://etherscan.io/address/0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419){target=\_blank}  |
-    | USDC to USD | [0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6](https://etherscan.io/address/0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6){target=\_blank} |
-    | USDT to USD | [0x3E7d1eAB13ad0104d2750B8863b489D65364e32D](https://etherscan.io/address/0x3E7d1eAB13ad0104d2750B8863b489D65364e32D){target=\_blank} |
+    | Asset & Base Pair |                                                      Aggregator Contract Address                                                      |
+    |:-----------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
+    |    AAVE to USD    | [0x547a514d5e3769680Ce22B2361c10Ea13619e8a9](https://etherscan.io/address/0x547a514d5e3769680Ce22B2361c10Ea13619e8a9){target=\_blank} |
+    |    BTC to USD     | [0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c](https://etherscan.io/address/0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c){target=\_blank} |
+    |    CRV to USD     | [0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f](https://etherscan.io/address/0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f){target=\_blank} |
+    |    DAI to USD     | [0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9](https://etherscan.io/address/0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9){target=\_blank} |
+    |    ETH to USD     | [0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419](https://etherscan.io/address/0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419){target=\_blank} |
+    |    USDC to USD    | [0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6](https://etherscan.io/address/0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6){target=\_blank} |
+    |    USDT to USD    | [0x3E7d1eAB13ad0104d2750B8863b489D65364e32D](https://etherscan.io/address/0x3E7d1eAB13ad0104d2750B8863b489D65364e32D){target=\_blank} |
 
 
 
