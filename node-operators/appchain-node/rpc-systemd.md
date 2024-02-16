@@ -22,9 +22,15 @@ In this guide, you'll learn how to spin up a Tanssi Appchain node using a binary
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges.
+To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
 
-The instructions in this guide use the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} stable release. If you want to compile and run your own binary, make sure to meet the [prerequisites](/builders/build/customize/prerequisites/#building-tanssi-template){target=\_blank} to do so.
+- **Node binary** - the instructions in this guide use the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} stable release, however, you can compile and run your own binary. To do so, make sure to also meet the [requeriments](/builders/build/customize/prerequisites){target=\_blank} to build your node
+
+- **Appchain specifications file** - the Appchain specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network/){target=\_blank} by clicking the `Appchain Data` link
+
+    ![Getting the chain specs](/images/node-operators/appchain-node/rpc-systemd/rpc-systemd-1.webp)
+
+- **Relay chain specifications file** - the relay chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha/){target=\_blank}
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -47,9 +53,17 @@ Every new release includes two different node binaries, one for EVM-compatible A
 !!! note
     Optimized binary versions for [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} and [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures are also available in the [releases](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} page.
 
+## Download the Relay Chain Specs File {: #download-relay-specs }
+
+The node binary file includes also the necessary code to run a relay chain node. When launching your Appchain's node, it will also be required to provide the relay chain's specification file as a parameter. Download the relay chain specification file executing:
+
+```bash
+wget https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
+```
+
 ## Setup the Systemd Service {: #setup-systemd-service }
 
-[Systemd](https://systemd.io/){target=\_blank} is a management system for Linux systems that manages services (daemons), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
+[Systemd](https://systemd.io/){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
 
 It is a good practice to have the service running with its own account and grant that account writing access to a specific directory. Run the following commands to configure a new account and the directory:
 
@@ -59,11 +73,10 @@ Create a new account to run the service:
 adduser appchain_node_service --system --no-create-home
 ```
 
-Create a directory to store the binary and data:
+Create a directory to store the required files and data:
 
 ```bash
-mkdir /var/lib/appchain-data && \
-mv ./container-chain-template-*-node /var/lib/appchain-data
+mkdir /var/lib/appchain-data
 ```
 
 Set the folder's ownership to the account that will run the service to ensure writing permission:
@@ -72,11 +85,21 @@ Set the folder's ownership to the account that will run the service to ensure wr
 sudo chown -R appchain_node_service /var/lib/appchain-data
 ```
 
+And finally, move the binary and the relay chain spec to the folder:
+
+```bash
+mv ./container-chain-template-*-node /var/lib/appchain-data && \
+mv ./westend-alphanet-raw-specs.json /var/lib/appchain-data
+```
+
+!!! note
+    To keep all the necessary files grouped in the same directory, it is recommended to also copy there your Appchain's specification file.
+
 ## Create the Systemd Service configuration file {: #create-systemd-configuration }
 
 The next step is to create the Systemd configuration file. 
 
-You can create the file running the following command:
+You can create the file by running the following command:
 
 ```bash
 sudo touch /etc/systemd/system/appchain.service
@@ -99,12 +122,12 @@ SyslogIdentifier=appchain
 SyslogFacility=local7
 KillSignal=SIGHUP
 ExecStart=/var/lib/appchain-data/container-chain-template-APPCHAIN_TYPE-node \
---chain=/chain-network/container-APPCHAIN_ID-raw-specs.json \
+--chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
 --rpc-port=9944 \
 --name=para \
 --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
 -- \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--chain=./westend-alphanet-raw-specs.json \
 --rpc-port=9945 \
 --name=relay \
 --sync=fast \
@@ -123,11 +146,22 @@ WantedBy=multi-user.target
 
 The `ExecStart` command has some parameters that need to be changed to match your specific Appchain:
 
-- **APPCHAIN_TYPE** - replace the text with either `frontier` for EVM ContainerChains or `simple` for Substrate ContainerChains
-- **YOUR_APPCHAIN_ID** - replace the text with your Appchain identifier, which is obtained in the [third step](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} of the registration process
-- **INSERT_YOUR_APPCHAIN_BOOTNODE** - replace the text with the Tanssi provided bootnode, which can be read from the Tanssi Appchain storage on its [Polkadot.js website](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}. The value must be queried from the `dataPreservers`.`bootnodes` storage unit, using your Appchain Id as the option parameter, as shown in the following image:
+- `EVM compatibility` - Tanssi releases two different binaries, one for EVM-compatible Appchains and another for only Substrate Appchains. Replace `APPCHAIN_TYPE` with either `frontier` for EVM Appchains or `simple` for Substrate Appchains
+- `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your Appchain's file name. If the file was copied in the same directory as the binary, then you can use a relative path `./` and append your filename, e.g. `./spec-raw.json`
+- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE` with the actual bootnode information
 
-    ![Getting the bootnode](/images/node-operators/rpc/rpc-1.webp)
+### Fetching Bootnode Information {: #fetching-bootnode-information}
+
+Bootnode information can be read from the Tanssi Appchain storage on its [Polkadot.js explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
+
+To do so, take the following steps:
+
+1. Select `dataPreservers` as the module to query
+2. Set the storage query to `bootNodes`
+3. Provide your Tanssi Appchain ID
+4. Click on the **+** sign
+
+![Getting the bootnode](/images/node-operators/appchain-node/rpc-systemd/rpc-systemd-2.webp)
 
 ## Run the Service {: #run-the-service }
 
