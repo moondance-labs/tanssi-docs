@@ -20,5 +20,5 @@ balance_to = web3.from_wei(
     web3.eth.get_balance(Web3.to_checksum_address(address_to)), "ether"
 )
 
-print(f"The balance of { address_from } is: { balance_from } UNIT")
-print(f"The balance of { address_to } is: { balance_to } UNIT")
+print(f"The balance of { address_from } is: { balance_from } TANGO")
+print(f"The balance of { address_to } is: { balance_to } TANGO")
