@@ -1,6 +1,6 @@
 ---
 title: Using Phala for Price Feed Oracles
-description: Learn how to use Phala's off-chain computing network to get reliable Ethereum Mainnet Chainlink Oracle token price feed data on your Tanssi EVM ContainerChain.
+description: Learn how to use Phala's off-chain computing network to get reliable Ethereum Mainnet Chainlink Oracle token price feed data on your Tanssi EVM Appchain.
 ---
 
 # Launching Price Feeds with Phala
@@ -128,7 +128,7 @@ There's a few more changes that you need to make in `feeder.ts`, the file that m
 --8<-- 'code/builders/tooling/oracles/phala/define-chain.ts'
 ```
 
-You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum MainNet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM Appchain. You should erase this array such that it is empty. Later in this guide, you'll return to it and add the contract addresses of your aggregator contracts specific to your own EVM ContainerChain once they are deployed.
+You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum MainNet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts ` still contains the addresses of the aggregator contracts on the demo EVM Appchain. You should erase this array such that it is empty. Later in this guide, you'll return to it and add the contract addresses of your aggregator contracts specific to your Tanssi EVM Appchain once they are deployed.
 
 Once you're finished editing, your `feeder.ts` file should resemble the below:
 
