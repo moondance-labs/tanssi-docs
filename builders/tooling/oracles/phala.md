@@ -50,7 +50,7 @@ Phala sources its price feed data by mirroring Chainlink's price feeds from Ethe
     |    USDT to USD    | [{{ networks.dancebox.oracles.phala.usdt_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x5018c16707500D2C89a0446C08f347A024f55AE3){target=\_blank} |
 
 === "Ethereum MainNet"
-    | Asset & Base Pair |                                                      Aggregator Contract Address                                                      |
+    | Asset & Base Pair |                                                      Aggregator Contract                                                      |
     |:-----------------:|:-------------------------------------------------------------------------------------------------------------------------------------:|
     |    AAVE to USD    | [0x547a514d5e3769680Ce22B2361c10Ea13619e8a9](https://etherscan.io/address/0x547a514d5e3769680Ce22B2361c10Ea13619e8a9){target=\_blank} |
     |    BTC to USD     | [0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c](https://etherscan.io/address/0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c){target=\_blank} |
@@ -61,8 +61,6 @@ Phala sources its price feed data by mirroring Chainlink's price feeds from Ethe
     |    USDT to USD    | [0x3E7d1eAB13ad0104d2750B8863b489D65364e32D](https://etherscan.io/address/0x3E7d1eAB13ad0104d2750B8863b489D65364e32D){target=\_blank} |
 
 
-
-
 ### Interacting with Price Feeds on the Tanssi Demo EVM Appchain {: #interacting-with-price-feeds-demo-evm-appchain }
 
 Next, this tutorial will showcase interacting with the price feed contracts on the demo EVM Appchain. These contracts are already deployed on the demo EVM Appchain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
@@ -71,6 +69,8 @@ For a refresher on setting up Remix to interface with your Appchain, see the [De
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it. 
 
+![Compile aggregator contract](/images/builders/tooling/oracles/phala/phala-1.webp)
+
 Then, take the following steps:
 
 1. Head to the **Deploy and Run Transactions** tab
@@ -78,7 +78,7 @@ Then, take the following steps:
 3. Select the **AggregatorV3Interface** contract from the **CONTRACT** dropdown
 4. Enter the data feed contract address corresponding to `BTC to USD`, which is `0x89BC5048d634859aef743fF2152363c0e83a6a49` on the demo EVM Appchain in the **At Address** field and click the **At Address** button
 
-![Price Feed Diagram](/images/builders/tooling/oracles/phala/phala-3.webp)
+![Access aggregator contract](/images/builders/tooling/oracles/phala/phala-2.webp)
 
 The aggregator contract should now be accessible. To interact with the aggregator contract, take the following steps:
 
@@ -87,7 +87,7 @@ The aggregator contract should now be accessible. To interact with the aggregato
 3. Click **description** to verify the asset pair of the price feed 
 4. Click **latestRoundData** to see the most recent price data for the asset pair. The price data for the pair is returned as the **int256 answer**
 
-![Price Feed Diagram](/images/builders/tooling/oracles/phala/phala-4.webp)
+![Check price data](/images/builders/tooling/oracles/phala/phala-3.webp)
 
 Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `5230364122303`, the decimal point will need to be moved eight places, which corresponds to a Bitcoin price of `$52,303.64` at the time of writing. 
 
@@ -186,11 +186,11 @@ Then, take the following steps:
 3. Select the **AggregatorV3Interface** contract from the **CONTRACT** dropdown
 4. Enter the data feed contract address corresponding to your desired asset pair that was returned on the command line in the prior section in the **At Address** field and click the **At Address** button
 
-![Access aggregator contract](/images/builders/tooling/oracles/phala/phala-5.webp)
+![Access aggregator contract](/images/builders/tooling/oracles/phala/phala-4.webp)
 
 Expand the **AggregatorV3Interface** contract to reveal the available functions and click **latestRoundData** to see the most recent price data for the asset pair. You should see `0` values for all. This is because your aggregator contract has been deployed, but it hasn't yet fetched price data. You can fix this with a quick price feed update. 
 
-![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-6.webp)
+![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-5.webp)
 
 ### Trigger Price Feed Update {: #Trigger Price Feed Update }
 
@@ -212,7 +212,7 @@ npx tsx feeder.ts
 
 Upon returning to Remix, click **latestRoundData** once more, and after waiting a moment, you should see an accurate value returned. 
 
-![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-7.webp)
+![Check price data](/images/builders/tooling/oracles/phala/phala-6.webp)
 
 For more information about using Phala to access off-chain data, be sure to check out the [Phala docs site](https://docs.phala.network/introduction/readme){target=\_blank}.
 
