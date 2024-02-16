@@ -15,7 +15,7 @@ Nodes store block data and network state. However, developers can run different 
  
   - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
 
-In this guide, you'll learn how to quickly spin up a Tanssi Appchain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer, however, it can be adapted to other operating systems.
+In this guide, you'll learn how to quickly spin up a Tanssi Appchain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
 !!! note
     It is not possible to run an RPC node for Snap Appchains as they run on a private network, and their nodes are, therefore, unreachable for syncing.
@@ -44,17 +44,17 @@ This is what a successful execution in the terminal looks like:
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
-As part of the automated deployment process a Docker images is built and published, that is, either for a Tanssi EVM-compatible Appchains and another for Tanssi Substrate Appchains. 
+A Docker image is built and published as part of the automated deployment process, either for a Tanssi EVM-compatible Appchain or another for a Tanssi Simple Appchain. 
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
 The chain specification is generated when registering the Appchain in the [DApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
 
-Luckily, running a node requires you to run the right Docker image configured correctly!
+Luckily, running a node requires the right Docker image configured correctly!
 
 ### EVM-Compatible Appchains {: #pulling-evm-docker-image }
 
-If the Tanssi Appchain was registered in the DApp, choosing the EVM template or uploading a custom specification representing a Tanssi EVM-compatible Appchain, then execute the following command to pull the Docker image:
+If the Tanssi Appchain was registered in the DApp, choose the EVM template or upload a custom specification representing a Tanssi EVM-compatible Appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-evm-templates
@@ -130,7 +130,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     ```
 
 !!! note
-    By default, only the historical state of the last 256 and finalized blocks is kept in the local database. If you want to run a full archive node, you need to set the `--state-pruning archive` flag. You can find more information in the [flags section](#run-flags).
+    Only the historical state of the last 256 and finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
@@ -174,7 +174,7 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 
 ### Run Flags {: #run-flags }
 
-The flags used in the `docker run` command can be adjusted according to your preferences and the hardware configuration, being the following ones some of the most note-worthy:
+The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
 - **--name** - a human-readable name for this node
 - **--rpc-port** - specifies the JSON-RPC TCP port the node listens on
@@ -193,7 +193,7 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 
 ## Syncing Your Node {: #syncing-your-node }
 
-Once your node spins up, the syncing process begins displaying lots of log information from the node configuration, the relay chain, and the node itself. At the beginning of the process, some errors are expected to be displayed, disappearing once the chain gets synced to the last block.
+Once your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
 --8<-- 'code/node-operators/rpc/terminal/syncing-process.md'
 
