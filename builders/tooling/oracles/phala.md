@@ -139,7 +139,7 @@ You'll also see two arrays of contract addresses at the top of `feeder.ts`. The 
 
 Once you're finished editing, your `feeder.ts` file should resemble the below:
 
-??? code "feeder.ts"
+???+ code "feeder.ts"
 
     ```solidity
     --8<-- 'code/builders/tooling/oracles/phala/feeder.ts'
