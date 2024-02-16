@@ -60,7 +60,7 @@ Phala sources its price feed data by mirroring Chainlink's price feeds from Ethe
 
 
 
-### Interacting with Price Feeds on the Demo EVM Appchain {: #interacting-with-price-feeds-on-the-demo-evm-appchain }
+### Interacting with Price Feeds on the Tanssi Demo EVM Appchain {: #interacting-with-price-feeds-demo-evm-appchain }
 
 Next, this tutorial will showcase interacting with the price feed contracts on the demo EVM Appchain. These contracts are already deployed on the demo EVM Appchain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
 
