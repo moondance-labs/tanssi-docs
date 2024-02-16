@@ -1,6 +1,6 @@
 ---
 title: Oracles
-description: Dive into guides for integrating tools on top of your Tanssi ContainerChain, including launching decentralized Oracle networks for price feeds on your ContainerChain.
+description: Learn how to integrate specialized tools like decentralized price feed Oracles to provide asset price feeds to builders and users of your Tanssi Appchain.
 template: subsection-index-page.html
 hide:
   - toc
