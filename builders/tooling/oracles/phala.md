@@ -15,8 +15,11 @@ This tutorial will walk through a demo of [interacting with price feeds](#fetch-
  
 ## How Phala Enables Price Feeds {: #how-phala-enables-price-feeds }
 
+Phala mirrors [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds){target=\_blank} from Ethereum MainNet. Chainlink Price Feeds have stood the test of time and have wide industry adoption. As a reminder, Chainlink Price Feeds don't rely on any single source of truth, rather, their pricing data is collected and aggregated from a variety of data sources gathered by a decentralized set of independent node operators. This helps to prevent manipulation & erratic pricing data. 
 
+The core component of Phala's system design is the [Secure Enclave](https://docs.phala.network/developers/advanced-topics/blockchain-infrastructure#the-architecture){target=\_blank}, which processes the inputs it receives from the Phala blockchain and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain makes a request for a price feed update, which the Phala off-chain workers fetch from Ethereum Mainnet, and return to the Phala blockchain. 
 
+It's important to note that Phala isn't limited to replicating existing Oracles. You can create entirely new Oracles by sourcing off-chain data via Phat Contracts. In this [Phat-EVM Oracle example](https://github.com/Phala-Network/phat-offchain-rollup/blob/main/EvmRollup.md){target=\_blank}, pricing data is sourced from the CoinGecko API. Price quote updates can then be constantly streamed from the Phat contract (push design), or the EVM smart contract can ask for a refreshed quote from the Phat contract (pull design). 
 
 ## Fetch Price Data {: #fetch-price-data }
 
