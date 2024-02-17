@@ -58,7 +58,7 @@ Every new release includes two different node binaries, one for EVM-compatible A
 The node binary file includes also the necessary code to run a relay chain node. When launching your Appchain's node, it will also be required to provide the relay chain's specification file as a parameter. Download the relay chain specification file executing:
 
 ```bash
-wget https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
+wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
 ```
 
 ## Setup the Systemd Service {: #setup-systemd-service }
@@ -127,7 +127,7 @@ ExecStart=/var/lib/appchain-data/container-chain-template-APPCHAIN_TYPE-node \
 --name=para \
 --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
 -- \
---chain=./westend-alphanet-raw-specs.json \
+--chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
 --rpc-port=9945 \
 --name=relay \
 --sync=fast \
@@ -147,7 +147,7 @@ WantedBy=multi-user.target
 The `ExecStart` command has some parameters that need to be changed to match your specific Appchain:
 
 - `EVM compatibility` - Tanssi releases two different binaries, one for EVM-compatible Appchains and another for only Substrate Appchains. Replace `APPCHAIN_TYPE` with either `frontier` for EVM Appchains or `simple` for Substrate Appchains
-- `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your Appchain's file name. If the file was copied in the same directory as the binary, then you can use a relative path `./` and append your filename, e.g. `./spec-raw.json`
+- `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your Appchain's file name. If the file was copied in the same directory as the binary, then your location will look like `/var/lib/appchain-data/` and your filename, e.g. `/var/lib/appchain-data/spec-raw.json`
 - `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE` with the actual bootnode information
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
