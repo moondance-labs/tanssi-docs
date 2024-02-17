@@ -108,7 +108,16 @@ You will need to deploy your price feed's smart contract on your EVM Appchain pr
 
 The Acurast oracle script is what feeds your onchain oracle with new data. It's the essential link between your price feed accessible on your Tanssi Appchain and the Acurast network. In the Acurast console, you'll upload your script and provide all of the relevant parameters surrounding your price feed's operation, such as frequency, schedule, reward to Acurast processors, and more. You'll need some cACU tokens to pay for the job, which you can obtain from the [faucet](https://faucet.acurast.com/){target=\_blank}.
 
-The [Acurast script for the demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank} can be used a basis for creating your own script. To configure your job, head to the [Acurast console](https://console.acurast.com/create){target=\_blank}, then take the following steps:
+The [Acurast script for the demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank} can be used a basis for creating your own script. Remember to update the contract address and RPC URL fields.
+
+??? code "AcurastScript.js"
+
+    ```js
+    --8<-- 'code/builders/tooling/oracles/acurast/AcurastScript.js'
+    ```
+
+
+To configure your job, head to the [Acurast console](https://console.acurast.com/create){target=\_blank}, then take the following steps:
 
 1. Click **Create Jobs** on the left-hand sidebar underneath the **Consumer** heading
 2. Select **Moonbeam** as the chain 
