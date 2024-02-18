@@ -123,6 +123,7 @@ SyslogFacility=local7
 KillSignal=SIGHUP
 ExecStart=/var/lib/appchain-data/container-chain-template-APPCHAIN_TYPE-node \
 --chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
+--base-path=/var/lib/appchain-data \
 --rpc-port=9944 \
 --name=para \
 --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
