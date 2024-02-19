@@ -1,0 +1,5 @@
+title: Run a block producer
+hide: false
+nav:
+  - index.md
+  - 'Using Systemd': 'block-producer-systemd.md'
