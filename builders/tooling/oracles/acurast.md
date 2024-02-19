@@ -9,7 +9,7 @@ description: Learn how to use Acurast's decentralized serverless cloud to get re
 
 [Acurast](https://acurast.com/){target=\_blank} is a trustless orchestration layer for decentralized compute capabilities. Among other features, Acurast enables you to interact with off-chain price feeds that can be accessed via API. Pricing data is processed through the Acurast network and accessible from EVM-compatible chains like Tanssi EVM Appchains via a [standard Chainlink Aggregator Interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}. 
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Acurast on the demo Tanssi EVM-compatible Appchain. You can also deploy your own price feeds to your Tanssi EVM-compatible Appchain. Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you contact the [Acurast](https://acurast.com/){target=\_blank} team directly as they can assist you with launching price feeds on your Appchain to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Acurast on the [demo Tanssi EVM-compatible Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}. You can also deploy your own price feeds to your Tanssi EVM-compatible Appchain. Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you contact the [Acurast](https://acurast.com/){target=\_blank} team directly as they can assist you with launching price feeds on your Appchain to ensure the integrity of the deployment process.
 
 ## What is Acurast? {: #what-is-acurast }
 
@@ -106,7 +106,7 @@ You will need to deploy your price feed's smart contract on your EVM Appchain pr
 
 ### Building the Acurast Script
 
-The Acurast oracle script is what feeds your onchain oracle with new data. It's the essential link between your price feed accessible on your Tanssi Appchain and the Acurast network. In the Acurast console, you'll upload your script and provide all of the relevant parameters surrounding your price feed's operation, such as frequency, schedule, reward to Acurast processors, and more. You'll need some cACU tokens to pay for the job, which you can obtain from the [faucet](https://faucet.acurast.com/){target=\_blank}.
+The Acurast oracle script is what feeds your on-chain oracle with new data. It's the essential link between your price feed accessible on your Tanssi Appchain and the Acurast network. In the Acurast console, you'll upload your script and provide all of the relevant parameters surrounding your price feed's operation, such as frequency, schedule, reward to Acurast processors, and more. You'll need some cACU tokens to pay for the job, which you can obtain from the [faucet](https://faucet.acurast.com/){target=\_blank}. cACU is the native token of the Acurast Canary network.
 
 The [Acurast script for the demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank} can be used a basis for creating your own script. Remember to update the contract address and RPC URL fields.
 
