@@ -51,7 +51,7 @@ Every new release includes two different node binaries, one for EVM-compatible A
     ```
 
 !!! note
-    Optimized binary versions for [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} and [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures are also available in the [releases](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} page.
+    It is recommended that you run the optimized binary versions for either [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures. They are available in the [releases](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} page.
 
 ## Download the Relay Chain Specs File {: #download-relay-specs }
 
