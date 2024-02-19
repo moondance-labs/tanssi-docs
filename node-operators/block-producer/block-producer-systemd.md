@@ -1,136 +1,152 @@
 ---
-title: Run an RPC Node Using Docker
-description: Learn how to set up and run a Tanssi Appchain node using Docker, which allows you to have your own RPC endpoint to interact with your Appchain.
+title: Run a Tanssi Block Producer
+description: Learn how to set up and run block producers (collators) for Tanssi Appchains using Systemd, allowing you to participate in the protocol and earn rewards.
 ---
 
-# Run an Appchain Node Using Docker
+# Run a Block Producer Node Using Systemd
 
 ## Introduction {: #introduction }
 
-Running a Tanssi Appchain node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols. 
+The Tanssi protocol manages a set of block producers (collators) and assigns them to provide block production services to the active Appchains and the Tanssi network itself.
 
-Nodes store block data and network state. However, developers can run different kinds of nodes:
- 
- - **Full Archive Node** - a node storing the entire block data and network state at all block heights. Such nodes are helpful when querying historical data from old blocks. However, a full archive node takes up a lot of space
- 
-  - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
+The assignment algorithm distributes the available block producers on a per-session basis rotating them randomly, meaning that they will not be producing blocks for the same Appchain for a long period of time.
 
-In this guide, you'll learn how to quickly spin up a Tanssi Appchain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
-
-!!! note
-    It is not possible to run an RPC node for Snap Appchains as they run on a private network, and their nodes are, therefore, unreachable for syncing.
+In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of collators using the latest stable binary file release and managing the service with [Systemd](https://systemd.io/){target=\_blank} on Linux systems.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-### Installing Docker {: #installing-docker}
+To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install/){target=\blank}.
+- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable node release. If you want to build and run your own file, make sure to meet the prerequisites for [building your Appchain node](/builders/build/customize/prerequisites){target=\_blank}
 
-Run the following command to install Docker on a Linux Ubuntu platform:
+- **Tanssi orchestrator specifications file** - the Tanssi orchestrator specification file is needed to run the node. You can download it from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Dancebox/){target=\_blank}
 
-```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
+- **Relay chain specifications file** - the relay chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha/){target=\_blank}
 
-And the following command to check the installation:
+## Download the Latest Release {: #download-latest-release }
 
-```bash
-sudo docker run hello-world
-```
- 
-This is what a successful execution in the terminal looks like:
+Every new release includes two different node binaries, one for EVM-compatible Appchains and another one for Substrate Appchains. To get started, run the following command to get the latest release binary that matches your Appchain type and make it executable:
 
---8<-- 'code/node-operators/rpc/terminal/hello-world.md'
-
-### Pulling the Docker Image {: #pulling-docker-image }
-
-A Docker image is built and published as part of the automated deployment process, either for a Tanssi EVM-compatible Appchain or another for a Tanssi Substrate Appchain. 
-
-A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
-
-The chain specification is generated when registering the Appchain in the [DApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
-
-Luckily, running a node requires the right Docker image configured correctly!
-
-### EVM-Compatible Appchains {: #pulling-evm-docker-image }
-
-If the Tanssi Appchain was registered in the DApp, choose the EVM template or upload a custom specification representing a Tanssi EVM-compatible Appchain, then execute the following command to pull the Docker image:
-
-```bash
-docker pull moondancelabs/dancebox-container-chain-evm-templates
-```
-
-The command will download and extract the image and show the status upon execution:
-
---8<-- 'code/node-operators/rpc/terminal/pulling-docker-image.md'
-
-### Simple Substrate Appchains {: #pulling-substrate-docker-image }
-
-If the Appchain was registered in the DApp, choosing the basic Substrate template or uploading a custom specification file representing a Substrate Appchain, then execute the following command to pull the Docker image:
-
-```bash
-docker pull moondancelabs/dancebox-container-chain-simple-templates
-```
-
-The command will download and extract the image and show the status upon execution, showing a similar output as the previous terminal image.
-
-## Start-Up Command {: #start-up-command }
-
-To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
-
-- `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi Appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network/){target=\_blank}. For example, `3001`
-- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE` with the actual bootnode information
-
-=== "EVM-compatible Appchain"
+=== "EVM-Compatible Appchain"
 
     ```bash
-    docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-    /chain-network/container-chain-template-frontier-node \
-    --name=para \
-    --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
-    --rpc-port=9944 \
-    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
-    -- \
-    --name=relay \
-    --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
-    --rpc-port=9945 \
-    --sync=fast \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-template-frontier-node && \
+    chmod +x ./container-chain-template-frontier-node
     ```
 
-=== "Simple Substrate Appchain"
-    
+=== "Substrate Appchain"
+
     ```bash
-    docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-    /chain-network/container-chain-template-simple-node \
-    --name=para \
-    --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
-    --rpc-port=9944 \
-    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
-    -- \
-    --name=relay \
-    --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
-    --rpc-port=9945 \
-    --sync=fast \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-template-simple-node && \
+    chmod +x ./container-chain-template-simple-node
     ```
 
 !!! note
-    Only the historical state of the last 256 finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
+    Optimized binary versions for [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} and [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures are also available in the [releases](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} page.
+
+## Download the Relay Chain Specs File {: #download-relay-specs }
+
+The node binary file includes also the necessary code to run a relay chain node. When launching your Appchain's node, it will also be required to provide the relay chain's specification file as a parameter. 
+
+Download the relay chain specification file executing:
+
+```bash
+wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
+```
+
+## Setup the Systemd Service {: #setup-systemd-service }
+
+[Systemd](https://systemd.io/){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
+
+It is a good practice to have the service running with its own non-root account and grant that account writing access to a specific directory. Run the following commands to configure a new account and the directory:
+
+Create a new account to run the service:
+
+```bash
+adduser appchain_node_service --system --no-create-home
+```
+
+Create a directory to store the required files and data:
+
+```bash
+mkdir /var/lib/appchain-data
+```
+
+Set the folder's ownership to the account that will run the service to ensure writing permission:
+
+```bash
+sudo chown -R appchain_node_service /var/lib/appchain-data
+```
+
+And finally, move the binary and the relay chain spec to the folder:
+
+```bash
+mv ./container-chain-template-*-node /var/lib/appchain-data && \
+mv ./westend-alphanet-raw-specs.json /var/lib/appchain-data
+```
+
+!!! note
+    To keep all the necessary files grouped in the same directory, it is recommended to also copy there your Appchain's specification file.
+
+### Create the Systemd Service configuration file {: #create-systemd-configuration }
+
+The next step is to create the Systemd configuration file. 
+
+You can create the file by running the following command:
+
+```bash
+sudo touch /etc/systemd/system/appchain.service
+```
+
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service:
+
+```bash
+[Unit]
+Description="Appchain systemd service"
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=10
+User=appchain_node_service
+SyslogIdentifier=appchain
+SyslogFacility=local7
+KillSignal=SIGHUP
+ExecStart=/var/lib/appchain-data/container-chain-template-APPCHAIN_TYPE-node \
+--chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
+--base-path=/var/lib/appchain-data \
+--rpc-port=9944 \
+--name=para \
+--bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
+-- \
+--chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
+--rpc-port=9945 \
+--name=relay \
+--sync=fast \
+--bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
+--bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
+--bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
+--bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
+--bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
+--bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
+--bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
+--bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
+
+[Install]
+WantedBy=multi-user.target
+```
+
+Note that the `ExecStart` command still needs some parameters to be changed before starting the service. The following section focuses on this command and its optional flags.
+
+## The `ExecStart` Command {: #execstart-command }
+
+The previous `ExecStart` example has some parameters that need to be changed to match your specific Appchain:
+
+- `EVM compatibility` - Tanssi releases two different binaries, one for EVM-compatible Appchains and another for only Substrate Appchains. Replace `APPCHAIN_TYPE` with either `frontier` for EVM Appchains or `simple` for Substrate Appchains
+- `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your Appchain's absolute path. If the file was copied in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/appchain-data/YOUR_FILENAME.json`, e.g. `/var/lib/appchain-data/spec-raw.json`
+- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE` with the actual bootnode information
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
@@ -143,38 +159,11 @@ To do so, take the following steps:
 3. Provide your Tanssi Appchain ID
 4. Click on the **+** sign
 
-![Getting the bootnode](/images/node-operators/rpc/rpc-1.webp)
-
-### Example Full Node for Demo EVM Appchain {: #example-demo-evm-appchain}
-
-The following example spins up an RPC node for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
-
-```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-/chain-network/container-chain-template-frontier-node \
---chain=/chain-network/container-3001-raw-specs.json \
---rpc-port=9944 \
---name=para \
---bootnodes=/dns4/fraa-dancebox-c1-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p
-/12D3KooWHbs1SetugtcwHUYEAN2j1gE2TW8vmqgfcbcELy4x9hqg \
--- \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
---rpc-port=9945 \
---name=relay \
---sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
-```
+![Getting the bootnode](/images/node-operators/appchain-node/rpc-systemd/rpc-systemd-2.webp)
 
 ### Run Flags {: #run-flags }
 
-The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
 - `--name INSERT_NAME` - a human-readable name for this node
 - `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
@@ -185,18 +174,83 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
+=== "EVM-compatible Appchain"
+
+    ```bash
+    /var/lib/appchain-data/container-chain-template-frontier-node --help
+    ```
+
+=== "Simple Substrate Appchain"
+
+    ```bash
+    /var/lib/appchain-data/container-chain-template-simple-node --help
+    ```
+
+### Full Node Configuration Example for the Demo EVM Appchain {: #example-demo-evm-appchain}
+
+The following example is a fully functional full-node configuration for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
+
+The raw chain specification file for the demo Appchain is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain/){target=\_blank}. Download the file and place it in the `/var/lib/appchain-data/` directory.
+
 ```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-/chain-network/container-chain-template-frontier-node \
---help
+[Unit]
+Description="Appchain systemd service"
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=10
+User=appchain_node_service
+SyslogIdentifier=appchain
+SyslogFacility=local7
+KillSignal=SIGHUP
+ExecStart=/var/lib/appchain-data/container-chain-template-frontier-node \
+--chain=/var/lib/appchain-data/container-3001-raw-specs.json \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--base-path=/var/lib/appchain-data \
+--rpc-port=9944 \
+--name=para \
+--bootnodes=/dns4/fraa-dancebox-3001-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p/12D3KooWQ9jVpatqmWS41Zf6PHncV4ZmEYvywifRTs9YVoz8HgTM \
+-- \
+--chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
+--rpc-port=9945 \
+--name=relay \
+--sync=fast \
+--bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
+--bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
+--bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
+--bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
+--bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
+--bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
+--bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
+--bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
+
+[Install]
+WantedBy=multi-user.target
 ```
 
-## Syncing Your Node {: #syncing-your-node }
+## Run the Service {: #run-the-service }
 
-Once your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+Finally, enable the service and start it for the first time:
 
---8<-- 'code/node-operators/rpc/terminal/syncing-process.md'
+```bash
+systemctl enable appchain.service && \
+systemctl start appchain.service
+```
 
-!!! note
-    Depending on how long the chain you are syncing your node to, the process might take as long as a few days.
+You can verify that the service is up and running correctly running:
 
+```bash
+systemctl status appchain.service
+```
+
+--8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/check-status.md'
+
+And check the logs, if needed, with the following command:
+
+```bash
+journalctl -f -u appchain.service
+```
