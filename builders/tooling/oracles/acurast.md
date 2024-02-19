@@ -65,7 +65,7 @@ The aggregator contract should now be accessible. To interact with the aggregato
 
 ![Check price data](/images/builders/tooling/oracles/acurast/acurast-3.webp)
 
-Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `51933620000`, the decimal point will need to be moved six places, which corresponds to a Bitcoin price of `$51,933.62` at the time of writing. 
+Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `51933620000`, the decimal point will need to be moved six places, corresponding to a Bitcoin price of `$51,933.62` at the time of writing. 
 
 ### Supported Assets {: #supported-assets }
 
@@ -108,7 +108,7 @@ Before proceeding to the next steps, you must first deploy your price feed's sma
 
 The Acurast oracle script plays a crucial role by updating your on-chain oracle with fresh data, acting as the vital connection between the Tanssi Appchain's price feed and the Acurast network. Through the Acurast console, you will upload this script and specify all necessary parameters for your price feed's operation, including its frequency, schedule, and rewards for Acurast processors, among others. To facilitate this process, you will need cACU tokens, which are available from the [faucet](https://faucet.acurast.com/){target=\_blank}, and serve as the native currency of the Acurast Canary network.
 
-The [Acurast script for the demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank} can be used a basis for creating your own script. Remember to update the contract address and RPC URL fields.
+The [Acurast script for the demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank} can be used as a basis for creating your own script. Remember to update the contract address and RPC URL fields.
 
 ??? code "AcurastScript.js"
 
@@ -136,7 +136,7 @@ Continuing down the same setup page, take the following steps:
 4. Specify the **Interval in minutes**
 5. Specify a job duration and max start delay duration
 6. Select **Number of processors to assign**. The more processors you choose, the proportionally higher amount of cACU you'll need
-7. Select **Max Reward** paid to each processor for each job execution. You don't need to specfify exactly `0.01` cACU - this amount was chosen as an example
+7. Select **Max Reward** paid to each processor for each job execution. You don't need to specify exactly `0.01` cACU - this amount was chosen as an example
 8. Review everything first, then Press **Publish Job**
 
 ![Job setup on Acurast console continued](/images/builders/tooling/oracles/acurast/acurast-5.webp)
