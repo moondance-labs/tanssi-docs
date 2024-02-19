@@ -40,7 +40,7 @@ sudo docker run hello-world
  
 This is what a successful execution in the terminal looks like:
 
---8<-- 'code/node-operators/rpc/terminal/hello-world.md'
+--8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/hello-world.md'
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
@@ -62,7 +62,7 @@ docker pull moondancelabs/dancebox-container-chain-evm-templates
 
 The command will download and extract the image and show the status upon execution:
 
---8<-- 'code/node-operators/rpc/terminal/pulling-docker-image.md'
+--8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/pulling-docker-image.md'
 
 ### Simple Substrate Appchains {: #pulling-substrate-docker-image }
 
@@ -195,7 +195,7 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 
 Once your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
---8<-- 'code/node-operators/rpc/terminal/syncing-process.md'
+--8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/syncing-process.md'
 
 !!! note
     Depending on how long the chain you are syncing your node to, the process might take as long as a few days.
