@@ -75,8 +75,8 @@ Here, you can configure MetaMask for the following networks:
 |       Network Name        |               `EVM ContainerChain Dancebox`                |
 |          RPC URL          | `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network` |
 |         Chain ID          |                           `5678`                           |
-|     Symbol (Optional)     |                           `UNIT`                           |
-| Block Explorer (Optional) |                           `N/A`                            |
+|     Symbol (Optional)     |                          `TANGO`                           |
+| Block Explorer (Optional) |    `https://3001-blockscout.a.dancebox.tanssi.network/`    |
 
 To do so, fill in the following information:
 

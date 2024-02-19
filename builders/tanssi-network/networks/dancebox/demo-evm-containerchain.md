@@ -78,5 +78,5 @@ The EVM ContainerChain has a [chain ID](https://chainlist.org/chain/5678){target
 For the EVM ContainerChain, you can use any of the following explorers:
 
 - Substrate API - on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank}
-- EVM explorer - on [Blockscout](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank}
+- EVM explorer - on [Blockscout](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank} or [Expedition](https://tanssi-evmexplorer.netlify.app/){target=\_blank}
 
