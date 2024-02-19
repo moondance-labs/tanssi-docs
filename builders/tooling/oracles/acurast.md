@@ -15,11 +15,11 @@ This tutorial will walk through a demo of [interacting with price feeds](#fetch-
 
 The Acurast network has three main stakeholders: consumers, processors, and the orchestrator. 
 
-Consumers seek to delegate computational tasks in a manner that is secure, verifiable, and efficient. They can declare and submit these tasks to Acurast network, specifying the exact conditions under which the jobs should be run. 
+[Consumers](https://docs.acurast.com/developers/get-started){target=\_blank} seek to delegate computational tasks in a manner that is secure, verifiable, and efficient. They can declare and submit these tasks to Acurast network, specifying the exact conditions under which the jobs should be run. 
 
-Processors provide their computing power to the Acurast network for the benefit of consumers. In return for executing tasks confidentially and verifiably, processors receive rewards from consumers. Anyone with a modern Android device can participate in the Acurast network as a processor.
+[Processors](https://docs.acurast.com/acurast-processors){target=\_blank} provide their computing power to the Acurast network for the benefit of consumers. In return for executing tasks confidentially and verifiably, processors receive rewards from consumers. Anyone with a [modern Android device](https://docs.google.com/spreadsheets/d/1ZvzmMVey4CM2tuif_zJfWiIxH1qkgA-l7BNJMw4vh54/edit#gid=1844886586){target=\_blank} can participate in the Acurast network as a processor.
 
-And finally, the Acurast Orchestrator is the heart of the consensus layer. It facilitates the orchestration, which includes scheduling jobs and ensuring the smooth matchmaking of computational resources between processors and consumers. This orchestrator is crucial in establishing, agreeing upon, and enforcing the exchange of value between processors and consumers.
+And finally, the [Acurast Orchestrator](https://docs.acurast.com/acurast-orchestrator){target=\_blank} is the heart of the consensus layer. It facilitates the orchestration, which includes scheduling jobs and ensuring the smooth matchmaking of computational resources between processors and consumers. This orchestrator is crucial in establishing, agreeing upon, and enforcing the exchange of value between processors and consumers.
  
 ## Fetch Price Data {: #fetch-price-data }
 
@@ -65,7 +65,7 @@ The aggregator contract should now be accessible. To interact with the aggregato
 
 ![Check price data](/images/builders/tooling/oracles/acurast/acurast-3.webp)
 
-Note that to obtain a readable price, you must account for the decimals of the price feed, which is available with the `decimals()` method. So in this example, where the price feed returned a value of `51933620000`, the decimal point will need to be moved six places, corresponding to a Bitcoin price of `$51,933.62` at the time of writing. 
+Note that to obtain a readable price from the price feed, it's essential to adjust for the feed's decimal places, which can be determined using the `decimals()` method. For instance, if the price feed returns a value of `51933620000`, you'll need to move the decimal point six places to accurately reflect the price. In this example, it corresponds to a Bitcoin price of `$51,933.62` at the time of writing. 
 
 ### Supported Assets {: #supported-assets }
 
@@ -88,7 +88,7 @@ Upon running the above command in your terminal, you'll see a result that resemb
 
 You can build and launch your own Acurast price feed on your Tanssi EVM-compatible Appchain. Please be advised that the steps shown in this tutorial are unaudited, unverified, and for demonstration purposes only - it's highly recommended that you [contact the Acurast team directly](https://acurast.com/){target=\_blank} as they can assist you with launching price feeds on your Appchain to ensure the integrity of the deployment process.
 
-There are two primary components to launching an Acurast price feed, namely, a smart contract, and a script. In the prior example of [Interacting with the BTC/USD price feed](#interacting-with-price-feeds-demo-evm-appchain) on the Demo EVM Appchain, the generic Chainlink interface is used because it is a more straightforward example for demonstration purposes. The underlying smart contract that powers that price feed conforms to the [Chainlink Aggregator interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}, but the demo contract has additional components worthy of discussion. You can find both the demo contract and script at the [Github repo for the Acurast demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/tree/main){target=\_blank}.
+To launch an Acurast price feed, you need two key components: a smart contract and a script. In the prior example of [Interacting with the BTC/USD price feed](#interacting-with-price-feeds-demo-evm-appchain) on the Demo EVM Appchain, the generic Chainlink interface is used because it is a more straightforward example for demonstration purposes. The underlying smart contract that powers that price feed conforms to the [Chainlink Aggregator interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}, but the demo contract has additional components worthy of discussion. You can find both the demo contract and script at the [Github repo for the Acurast demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/tree/main){target=\_blank}.
 
 The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price is updated and when a new round begins. The `setPrice` method is insecure, as shown in this demo smart contract, but it is provided to show you where you might add logic like aggregation consensus, access control checks, and other parameters.
 
