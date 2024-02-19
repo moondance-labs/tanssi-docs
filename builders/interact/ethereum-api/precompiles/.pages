@@ -3,3 +3,4 @@ hide: false
 nav:
   - index.md
   - batch.md
+  - erc20.md
