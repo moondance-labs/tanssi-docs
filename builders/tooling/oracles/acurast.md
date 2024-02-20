@@ -135,7 +135,7 @@ Continuing down the same setup page, take the following steps:
 3. Specify a **Start time** and **End time**
 4. Specify the **Interval in minutes**
 5. Specify a job duration and max start delay duration
-6. Select **Number of processors to assign**. The more processors you choose, the proportionally higher amount of cACU you'll need
+6. Select **Number of processors to assign**. The more processors you choose, the proportionally higher amount of cACU you'll need, which you can get from the [faucet](https://faucet.acurast.com/){target=\_blank}
 7. Select **Max Reward** paid to each processor for each job execution. You don't need to specify exactly `0.01` cACU - this amount was chosen as an example
 8. Review everything first, then Press **Publish Job**
 
