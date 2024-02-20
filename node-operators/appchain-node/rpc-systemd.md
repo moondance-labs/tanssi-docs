@@ -263,3 +263,5 @@ And check the logs, if needed, with the following command:
 ```bash
 journalctl -f -u appchain.service
 ```
+
+--8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/journalctl-logs.md'
