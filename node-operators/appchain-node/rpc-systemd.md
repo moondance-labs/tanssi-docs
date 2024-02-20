@@ -9,7 +9,9 @@ description: Learn how to set up and run a Tanssi Appchain node using Systemd, w
 
 --8<-- 'text/node-operators/appchain-node/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi Appchain node using a binary executable file and managing the service with [Systemd](https://systemd.io/){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi Appchain node using a binary executable file and manage the service with [Systemd](https://systemd.io/){target=\_blank} on Linux systems.
+
+The article follows the good practice of running the service with its own non-root account and granting that account writing access to a specific directory. However, do adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
 !!! note
     It is not possible to run an RPC node for Snap Appchains as they run on a private network, and their nodes are, therefore, unreachable for syncing.
@@ -59,9 +61,7 @@ wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/
 
 ## Setup the Systemd Service {: #setup-systemd-service }
 
-[Systemd](https://systemd.io/){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
-
-It is a good practice to have the service running with its own non-root account and grant that account writing access to a specific directory. Run the following commands to configure a new account and the directory:
+[Systemd](https://systemd.io/){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures. The following commands configure a new account, the directory, and move the previously downloaded files to the right location.
 
 Create a new account to run the service:
 
