@@ -80,9 +80,9 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     ```bash
     docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
     /chain-network/container-chain-template-frontier-node \
-    --name=para \
     --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
     --rpc-port=9944 \
+    --name=para \ 
     --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
     -- \
     --name=relay \
@@ -104,9 +104,9 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     ```bash
     docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
     /chain-network/container-chain-template-simple-node \
-    --name=para \
     --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
     --rpc-port=9944 \
+    --name=para \
     --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
     -- \
     --name=relay \
@@ -128,7 +128,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 --8<-- 'text/node-operators/appchain-node/fetching-bootnode-section.md'
 
-### Example Full Node for Demo EVM Appchain {: #example-demo-evm-appchain}
+### Full Node Example for Demo EVM Appchain {: #example-demo-evm-appchain }
 
 The following example spins up an RPC node for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
 
@@ -138,6 +138,8 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 --chain=/chain-network/container-3001-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
 --bootnodes=/dns4/fraa-dancebox-c1-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p
 /12D3KooWHbs1SetugtcwHUYEAN2j1gE2TW8vmqgfcbcELy4x9hqg \
 -- \

@@ -126,9 +126,9 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     KillSignal=SIGHUP
     ExecStart=/var/lib/appchain-data/container-chain-template-frontier-node \
     --chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
-    --base-path=/var/lib/appchain-data \
     --rpc-port=9944 \
     --name=para \
+    --base-path=/var/lib/appchain-data \
     --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
     -- \
     --chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
@@ -166,9 +166,9 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     KillSignal=SIGHUP
     ExecStart=/var/lib/appchain-data/container-chain-template-simple-node \
     --chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
-    --base-path=/var/lib/appchain-data \
     --rpc-port=9944 \
     --name=para \
+    --base-path=/var/lib/appchain-data \
     --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
     -- \
     --chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
@@ -189,6 +189,52 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     ```
 
 --8<-- 'text/node-operators/appchain-node/fetching-bootnode-section.md'
+
+### Full Node Configuration Example for the Demo EVM Appchain {: #example-demo-evm-appchain}
+
+The following example is a fully functional full-node configuration for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
+
+The raw chain specification file for the demo Appchain is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain/){target=\_blank}. Download the file and place it in the `/var/lib/appchain-data/` directory.
+
+```bash
+[Unit]
+Description="Appchain systemd service"
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=10
+User=appchain_node_service
+SyslogIdentifier=appchain
+SyslogFacility=local7
+KillSignal=SIGHUP
+ExecStart=/var/lib/appchain-data/container-chain-template-frontier-node \
+--chain=/var/lib/appchain-data/container-3001-raw-specs.json \
+--rpc-port=9944 \
+--name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--base-path=/var/lib/appchain-data \
+--bootnodes=/dns4/fraa-dancebox-3001-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p/12D3KooWQ9jVpatqmWS41Zf6PHncV4ZmEYvywifRTs9YVoz8HgTM \
+-- \
+--chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
+--rpc-port=9945 \
+--name=relay \
+--sync=fast \
+--bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
+--bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
+--bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
+--bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
+--bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
+--bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
+--bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
+--bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
+
+[Install]
+WantedBy=multi-user.target
+```
 
 ### Run Flags {: #run-flags }
 
@@ -214,52 +260,6 @@ For a complete list of available flags, their description, and possible values, 
     ```bash
     /var/lib/appchain-data/container-chain-template-simple-node --help
     ```
-
-### Full Node Configuration Example for the Demo EVM Appchain {: #example-demo-evm-appchain}
-
-The following example is a fully functional full-node configuration for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
-
-The raw chain specification file for the demo Appchain is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain/){target=\_blank}. Download the file and place it in the `/var/lib/appchain-data/` directory.
-
-```bash
-[Unit]
-Description="Appchain systemd service"
-After=network.target
-StartLimitIntervalSec=0
-
-[Service]
-Type=simple
-Restart=on-failure
-RestartSec=10
-User=appchain_node_service
-SyslogIdentifier=appchain
-SyslogFacility=local7
-KillSignal=SIGHUP
-ExecStart=/var/lib/appchain-data/container-chain-template-frontier-node \
---chain=/var/lib/appchain-data/container-3001-raw-specs.json \
---state-pruning=archive \
---blocks-pruning=archive \
---base-path=/var/lib/appchain-data \
---rpc-port=9944 \
---name=para \
---bootnodes=/dns4/fraa-dancebox-3001-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p/12D3KooWQ9jVpatqmWS41Zf6PHncV4ZmEYvywifRTs9YVoz8HgTM \
--- \
---chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
---rpc-port=9945 \
---name=relay \
---sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
-
-[Install]
-WantedBy=multi-user.target
-```
 
 ## Run the Service {: #run-the-service }
 
