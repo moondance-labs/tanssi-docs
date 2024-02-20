@@ -7,13 +7,7 @@ description: Learn how to set up and run a Tanssi Appchain node using Systemd, w
 
 ## Introduction {: #introduction }
 
-Running a Tanssi Appchain node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols. 
-
-Nodes store block data and network state. However, developers can run different kinds of nodes:
- 
- - **Full Archive Node** - a node storing the entire block data and network state at all block heights. Such nodes are helpful when querying historical data from old blocks. However, a full archive node takes up a lot of space
- 
-  - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
+--8<-- 'text/node-operators/appchain-node/intro.md'
 
 In this guide, you'll learn how to spin up a Tanssi Appchain node using a binary executable file and managing the service with [Systemd](https://systemd.io/){target=\_blank} on Linux systems.
 
@@ -112,7 +106,7 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
 Note that the `ExecStart` command  has some parameters that need to be changed to match your specific Appchain:
 
 - `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your Appchain's absolute path. If the file was copied in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/appchain-data/YOUR_FILENAME.json`, e.g. `/var/lib/appchain-data/spec-raw.json`
-- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE` with the actual bootnode information
+--8<-- 'text/node-operators/appchain-node/bootnode-item.md'
 
 === "EVM-Compatible Appchain"
 
@@ -194,18 +188,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     WantedBy=multi-user.target
     ```
 
-### Fetching Bootnode Information {: #fetching-bootnode-information}
-
-Bootnode information can be read from the Tanssi Appchain storage on its [Polkadot.js explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
-
-To do so, take the following steps:
-
-1. Select `dataPreservers` as the module to query
-2. Set the storage query to `bootNodes`
-3. Provide your Tanssi Appchain ID
-4. Click on the **+** sign
-
-![Getting the bootnode](/images/node-operators/appchain-node/rpc-systemd/rpc-systemd-2.webp)
+--8<-- 'text/node-operators/appchain-node/fetching-bootnode-section.md'
 
 ### Run Flags {: #run-flags }
 

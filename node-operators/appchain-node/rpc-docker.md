@@ -7,13 +7,7 @@ description: Learn how to set up and run a Tanssi Appchain node using Docker, wh
 
 ## Introduction {: #introduction }
 
-Running a Tanssi Appchain node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols. 
-
-Nodes store block data and network state. However, developers can run different kinds of nodes:
- 
- - **Full Archive Node** - a node storing the entire block data and network state at all block heights. Such nodes are helpful when querying historical data from old blocks. However, a full archive node takes up a lot of space
- 
-  - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
+--8<-- 'text/node-operators/appchain-node/intro.md'
 
 In this guide, you'll learn how to quickly spin up a Tanssi Appchain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
@@ -79,7 +73,7 @@ The command will download and extract the image and show the status upon executi
 To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
 
 - `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi Appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network/){target=\_blank}. For example, `3001`
-- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE` with the actual bootnode information
+--8<-- 'text/node-operators/appchain-node/bootnode-item.md'
 
 === "EVM-compatible Appchain"
 
@@ -132,18 +126,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 !!! note
     Only the historical state of the last 256 finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
 
-### Fetching Bootnode Information {: #fetching-bootnode-information}
-
-Bootnode information can be read from the Tanssi Appchain storage on its [Polkadot.js explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
-
-To do so, take the following steps:
-
-1. Select `dataPreservers` as the module to query
-2. Set the storage query to `bootNodes`
-3. Provide your Tanssi Appchain ID
-4. Click on the **+** sign
-
-![Getting the bootnode](/images/node-operators/appchain-node/rpc-docker/rpc-docker-1.webp)
+--8<-- 'text/node-operators/appchain-node/fetching-bootnode-section.md'
 
 ### Example Full Node for Demo EVM Appchain {: #example-demo-evm-appchain}
 
