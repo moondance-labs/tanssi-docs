@@ -107,55 +107,92 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/appchain.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service:
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service.
 
-```bash
-[Unit]
-Description="Appchain systemd service"
-After=network.target
-StartLimitIntervalSec=0
+Note that the `ExecStart` command  has some parameters that need to be changed to match your specific Appchain:
 
-[Service]
-Type=simple
-Restart=on-failure
-RestartSec=10
-User=appchain_node_service
-SyslogIdentifier=appchain
-SyslogFacility=local7
-KillSignal=SIGHUP
-ExecStart=/var/lib/appchain-data/container-chain-template-APPCHAIN_TYPE-node \
---chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
---base-path=/var/lib/appchain-data \
---rpc-port=9944 \
---name=para \
---bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
--- \
---chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
---rpc-port=9945 \
---name=relay \
---sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Note that the `ExecStart` command still needs some parameters to be changed before starting the service. The following section focuses on this command and its optional flags.
-
-## The `ExecStart` Command {: #execstart-command }
-
-The previous `ExecStart` example has some parameters that need to be changed to match your specific Appchain:
-
-- `EVM compatibility` - Tanssi releases two different binaries, one for EVM-compatible Appchains and another for only Substrate Appchains. Replace `APPCHAIN_TYPE` with either `frontier` for EVM Appchains or `simple` for Substrate Appchains
 - `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your Appchain's absolute path. If the file was copied in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/appchain-data/YOUR_FILENAME.json`, e.g. `/var/lib/appchain-data/spec-raw.json`
 - `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE` with the actual bootnode information
+
+=== "EVM-Compatible Appchain"
+
+    ```bash
+    [Unit]
+    Description="Appchain systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=appchain_node_service
+    SyslogIdentifier=appchain
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart=/var/lib/appchain-data/container-chain-template-frontier-node \
+    --chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
+    --base-path=/var/lib/appchain-data \
+    --rpc-port=9944 \
+    --name=para \
+    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
+    -- \
+    --chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
+    --rpc-port=9945 \
+    --name=relay \
+    --sync=fast \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+=== "Substrate Appchain"
+
+    ```bash
+    [Unit]
+    Description="Appchain systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=appchain_node_service
+    SyslogIdentifier=appchain
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart=/var/lib/appchain-data/container-chain-template-simple-node \
+    --chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
+    --base-path=/var/lib/appchain-data \
+    --rpc-port=9944 \
+    --name=para \
+    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
+    -- \
+    --chain=/var/lib/appchain-data/westend-alphanet-raw-specs.json \
+    --rpc-port=9945 \
+    --name=relay \
+    --sync=fast \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
+    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
+    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
