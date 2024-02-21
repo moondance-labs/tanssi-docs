@@ -7,13 +7,7 @@ description: Learn how to set up and run a Tanssi Appchain node using Docker, wh
 
 ## Introduction {: #introduction }
 
-Running a Tanssi Appchain node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols. 
-
-Nodes store block data and network state. However, developers can run different kinds of nodes:
- 
- - **Full Archive Node** - a node storing the entire block data and network state at all block heights. Such nodes are helpful when querying historical data from old blocks. However, a full archive node takes up a lot of space
- 
-  - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
+--8<-- 'text/node-operators/appchain-node/intro.md'
 
 In this guide, you'll learn how to quickly spin up a Tanssi Appchain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
@@ -40,7 +34,7 @@ sudo docker run hello-world
  
 This is what a successful execution in the terminal looks like:
 
---8<-- 'code/node-operators/rpc/terminal/hello-world.md'
+--8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/hello-world.md'
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
@@ -62,7 +56,7 @@ docker pull moondancelabs/dancebox-container-chain-evm-templates
 
 The command will download and extract the image and show the status upon execution:
 
---8<-- 'code/node-operators/rpc/terminal/pulling-docker-image.md'
+--8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/pulling-docker-image.md'
 
 ### Simple Substrate Appchains {: #pulling-substrate-docker-image }
 
@@ -79,16 +73,16 @@ The command will download and extract the image and show the status upon executi
 To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
 
 - `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi Appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network/){target=\_blank}. For example, `3001`
-- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi Appchain bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_APPCHAIN_BOOTNODE` with the actual bootnode information
+--8<-- 'text/node-operators/appchain-node/bootnode-item.md'
 
 === "EVM-compatible Appchain"
 
     ```bash
     docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
     /chain-network/container-chain-template-frontier-node \
-    --name=para \
     --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
     --rpc-port=9944 \
+    --name=para \ 
     --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
     -- \
     --name=relay \
@@ -110,9 +104,9 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     ```bash
     docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
     /chain-network/container-chain-template-simple-node \
-    --name=para \
     --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
     --rpc-port=9944 \
+    --name=para \
     --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
     -- \
     --name=relay \
@@ -132,22 +126,11 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 !!! note
     Only the historical state of the last 256 finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
 
-### Fetching Bootnode Information {: #fetching-bootnode-information}
+--8<-- 'text/node-operators/appchain-node/fetching-bootnode-section.md'
 
-Bootnode information can be read from the Tanssi Appchain storage on its [Polkadot.js explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
+### Full Node Example for Demo EVM Appchain {: #example-demo-evm-appchain }
 
-To do so, take the following steps:
-
-1. Select `dataPreservers` as the module to query
-2. Set the storage query to `bootNodes`
-3. Provide your Tanssi Appchain ID
-4. Click on the **+** sign
-
-![Getting the bootnode](/images/node-operators/rpc/rpc-1.webp)
-
-### Example Full Node for Demo EVM Appchain {: #example-demo-evm-appchain}
-
-The following example spins up an RPC node for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
+The following example spins up a full archive RPC node for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
 
 ```bash
 docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
@@ -155,6 +138,8 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 --chain=/chain-network/container-3001-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
 --bootnodes=/dns4/fraa-dancebox-c1-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p
 /12D3KooWHbs1SetugtcwHUYEAN2j1gE2TW8vmqgfcbcELy4x9hqg \
 -- \
@@ -176,14 +161,7 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
-- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
-- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
-- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi Appchain state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
-- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
-- `--detailed-log-output` - enables detailed log output
-
-For a complete list of available flags, their description, and possible values, run the following command:
+--8<-- 'text/node-operators/appchain-node/run-flags.md'
 
 ```bash
 docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
@@ -195,7 +173,7 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 
 Once your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
---8<-- 'code/node-operators/rpc/terminal/syncing-process.md'
+--8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/syncing-process.md'
 
 !!! note
     Depending on how long the chain you are syncing your node to, the process might take as long as a few days.
