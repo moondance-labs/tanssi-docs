@@ -3,4 +3,4 @@ hide: false
 nav:
   - index.md
   - appchain-node
-  - block-producer
+  - block-producers
