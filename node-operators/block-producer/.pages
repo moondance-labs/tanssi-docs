@@ -2,4 +2,5 @@ title: Run a block producer
 hide: false
 nav:
   - index.md
+  - 'Using Docker': 'block-producer-docker.md'
   - 'Using Systemd': 'block-producer-systemd.md'
