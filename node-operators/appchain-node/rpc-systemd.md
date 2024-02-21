@@ -11,7 +11,7 @@ description: Learn how to set up and run a Tanssi Appchain node using Systemd, w
 
 In this guide, you'll learn how to spin up a Tanssi Appchain node using a binary executable file and manage the service with [Systemd](https://systemd.io/){target=\_blank} on Linux systems.
 
-The article follows the good practice of running the service with its own non-root account and granting that account writing access to a specific directory. However, do adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
+The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
 !!! note
     It is not possible to run an RPC node for Snap Appchains as they run on a private network, and their nodes are, therefore, unreachable for syncing.
@@ -22,7 +22,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 - **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable node release. If you want to build and run your own file, make sure to follow the instructions for [building your Appchain node](/builders/build/customize/prerequisites){target=\_blank}
 
-- **Appchain specifications file** - the Appchain specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network/){target=\_blank} by clicking the `Appchain Data` link
+- **Appchain specifications file** - the Appchain specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network/){target=\_blank} by clicking the **Appchain Data** link
 
     ![Getting the chain specs](/images/node-operators/appchain-node/rpc-systemd/rpc-systemd-1.webp)
 
@@ -30,7 +30,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 ## Download the Latest Release {: #download-latest-release }
 
-Every new release includes two different node binaries, one for EVM-compatible Appchains and another one for Substrate Appchains. To get started, run the following command to get the latest release binary that matches your Appchain type and make it executable:
+Every new release includes two node binaries, one for EVM-compatible Appchains and another for Substrate Appchains. To get started, run the following command to get the latest release binary that matches your Appchain type and make it executable:
 
 === "EVM-Compatible Appchain"
 
@@ -53,7 +53,7 @@ Every new release includes two different node binaries, one for EVM-compatible A
 
 The node binary file includes also the necessary code to run a relay chain node. When launching your Appchain's node, it will also be required to provide the relay chain's specification file as a parameter. 
 
-Download the relay chain specification file executing:
+Download the relay chain specification file by executing:
 
 ```bash
 wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
@@ -89,9 +89,9 @@ mv ./westend-alphanet-raw-specs.json /var/lib/appchain-data
 ```
 
 !!! note
-    To keep all the necessary files grouped in the same directory, it is recommended to also copy there your Appchain's specification file.
+    To keep all the necessary files grouped in the same directory, it is also recommended to copy your Appchain's specification file there.
 
-### Create the Systemd Service configuration file {: #create-systemd-configuration }
+### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
 The next step is to create the Systemd configuration file. 
 
@@ -101,11 +101,11 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/appchain.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service.
+Now, you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service.
 
 Note that the `ExecStart` command  has some parameters that need to be changed to match your specific Appchain:
 
-- `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your Appchain's absolute path. If the file was copied in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/appchain-data/YOUR_FILENAME.json`, e.g. `/var/lib/appchain-data/spec-raw.json`
+- `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your Appchain's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/appchain-data/YOUR_FILENAME.json`, e.g., `/var/lib/appchain-data/spec-raw.json`
 --8<-- 'text/node-operators/appchain-node/bootnode-item.md'
 
 === "EVM-Compatible Appchain"
