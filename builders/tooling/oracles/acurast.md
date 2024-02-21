@@ -110,7 +110,7 @@ The Acurast oracle script plays a crucial role by updating your on-chain oracle 
 
 The [Acurast script for the demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank} can be used as a basis for creating your own script. Remember to update the contract address and RPC URL fields.
 
-??? code "AcurastScript.js"
+???+ code "AcurastScript.js"
 
     ```js
     --8<-- 'code/builders/tooling/oracles/acurast/AcurastScript.js'
