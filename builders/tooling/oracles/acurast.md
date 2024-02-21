@@ -92,12 +92,11 @@ To launch an Acurast price feed, you need two key components: a smart contract a
 
 The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price is updated and when a new round begins. The `setPrice` method is insecure, as shown in this demo smart contract, but it is provided to show you where you might add logic like aggregation consensus, access control checks, and other parameters.
 
-??? code "InsecureDummyPriceFeed.sol"
+???+ code "InsecureDummyPriceFeed.sol"
 
     ```solidity
     --8<-- 'code/builders/tooling/oracles/acurast/InsecureDummyPriceFeed.sol'
     ```
-
 
 !!! warning
     This demo contract has a number of security vulnerabilities and lacks access control mechanisms, making it unsuitable for any real use. It was developed by the Acurast team for demonstration purposes only. 
