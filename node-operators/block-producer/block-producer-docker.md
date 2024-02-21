@@ -9,9 +9,11 @@ description: Learn how to set up and run block producers (collators) for Tanssi 
 
 The Tanssi protocol manages a set of block producers (AKA collators) and assigns them to provide block production services to all the active Appchains in the Tanssi Ecosystem, and the Tanssi orchestrator itself.
 
-The assignment algorithm distributes the available block producers on a per-session basis rotating them randomly, meaning that they will be producing blocks for the same Appchain for a relatively short period of time, increasing the overall security of the ecosystem.
+The assignment algorithm distributes the available block producers on a per-session basis assigning them to a random Appchain each time, meaning that they will be producing blocks for the same Appchain for a relatively short period of time, increasing the overall security of the ecosystem.
 
-In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of collators using the latest stable binary file release and managing the service with [Systemd](https://systemd.io/){target=\_blank} on Linux systems.
+Since the block producers will serve Appchains that are unknown in advance, the nodes will be run using the Tanssi node specifications, which includes the logic to sync and execute transactions producing blocks for any active Appchain.
+
+In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
