@@ -108,7 +108,7 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=on-failure
 RestartSec=10
-User=sequencer_node_service
+User=sequencer_service
 SyslogIdentifier=sequencer
 SyslogFacility=local7
 KillSignal=SIGHUP
@@ -126,10 +126,10 @@ ExecStart=/var/lib/sequencer-data/tanssi-node \
 --base-path=/var/lib/sequencer-data/container \
 -- \
 --name=sequencer-name-relay \
---chain=/var/lib/sequencer-data/westend-raw-specs.json \
+--chain=/var/lib/sequencer-data/westend-alphanet-raw-specs.json \
 --rpc-port=9945 \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/var/lib/sequencer-data/relay \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 
