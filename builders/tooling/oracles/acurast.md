@@ -7,20 +7,22 @@ description: Learn how to use Acurast's decentralized serverless cloud to get re
 
 ## Introduction {: #introduction }
 
-[Acurast](https://acurast.com/){target=\_blank} is a trustless orchestration layer for decentralized computing capabilities. Among other features, Acurast enables you to interact with off-chain price feeds that can be accessed via API. Pricing data is processed through the Acurast network and accessible from EVM-compatible chains like Tanssi EVM Appchains via a [standard Chainlink Aggregator Interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}. 
+[Acurast](https://acurast.com/){target=\_blank} gives developers complete permisionless access to compute that is trustless, affordable and confidential for deploying their applications.
+
+One of the Acurast's use cases is to enable developers to deploy their own push/pull oracles, interacting with off-chain APIs to bring e.g., price feeds on-chain. Pricing data is confidentially processed through Acurast Processors, pushing data to smart contracts of EVM-compatible chains like Tanssi EVM Appchains to e.g., a [standard Chainlink Aggregator Interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} smart contract.
 
 This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Acurast on the [demo Tanssi EVM-compatible Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}. You can also deploy your own price feeds to your Tanssi EVM-compatible Appchain. Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you contact the [Acurast](https://acurast.com/){target=\_blank} team directly as they can assist you with launching price feeds on your Appchain to ensure the integrity of the deployment process.
 
 ## What is Acurast? {: #what-is-acurast }
 
-The Acurast network has three main stakeholders: consumers, processors, and the orchestrator. 
+Acurast, the decentralized serverless cloud.
 
-[Consumers](https://docs.acurast.com/developers/get-started){target=\_blank} seek to delegate computational tasks in a manner that is secure, verifiable, and efficient. They can declare and submit these tasks to Acurast network, specifying the exact conditions under which the jobs should be run. 
+The cloud is dominated by three main players, this centralization comes at a price: high cost of compute, exclusion of less developed parts of the world, and the hidden cost, loss of data ownership. Acurast is solving all three problems by bringing the convenience of a cloud - whilst giving users full confidentiality over their data - at a fraction of the cost.
 
-[Processors](https://docs.acurast.com/acurast-processors){target=\_blank} provide their computing power to the Acurast network for the benefit of consumers. In return for executing tasks confidentially and verifiably, processors receive rewards from consumers. Anyone with a [modern Android device](https://docs.google.com/spreadsheets/d/1ZvzmMVey4CM2tuif_zJfWiIxH1qkgA-l7BNJMw4vh54/edit#gid=1844886586){target=\_blank} can participate in the Acurast network as a processor.
+To truly disrupt, when competing against giants, one cannot play by the same rules, neither use same tools to win.
 
-And finally, the [Acurast Orchestrator](https://docs.acurast.com/acurast-orchestrator){target=\_blank} is the heart of the consensus layer. It facilitates the orchestration, which includes scheduling jobs and ensuring the smooth matchmaking of computational resources between processors and consumers. This orchestrator is crucial in establishing, agreeing upon, and enforcing the exchange of value between processors and consumers.
- 
+That's exactly why Acurast does not build on expensive server hardware but leverages the champion that every of us have in their pocket - the smartphone. They are not only powerful and have a much lower acquisition cost - but are also extremely energy efficient and excel at compute per Watt; Bringing an energy cost reduction of over 50X compared to a server.
+
 ## Fetch Price Data {: #fetch-price-data }
 
 You can design your Acurast price feed exactly as you wish. The demo price feed built for this tutorial inherits the same interface as the Chainlink price feeds. The data lives in a series of smart contracts (one per price feed) and can be fetched with the aggregator interface:
@@ -41,9 +43,9 @@ This tutorial will showcase interacting with a sample BTC/USD price feed contrac
 0xFbe0a22f16eB990BB428956237eDd8EA798BdFFE
 ```
 
-For a refresher on setting up Remix to interface with your Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain. 
+For a refresher on setting up Remix to interface with your Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain.
 
-Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it. 
+Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
 ![Compile aggregator contract](/images/builders/tooling/oracles/acurast/acurast-1.webp)
 
@@ -60,16 +62,16 @@ The aggregator contract should now be accessible. To interact with the aggregato
 
 1. Expand the **AggregatorV3Interface** contract to reveal the available functions
 2. Click **decimals** to query how many digits after the decimal point are included in the returned price data
-3. Click **description** to verify the asset pair of the price feed 
+3. Click **description** to verify the asset pair of the price feed
 4. Click **latestRoundData** to see the most recent price data for the asset pair. The price data for the pair is returned as the **int256 answer**
 
 ![Check price data](/images/builders/tooling/oracles/acurast/acurast-3.webp)
 
-Note that to obtain a readable price from the price feed, it's essential to adjust for the feed's decimal places, which can be determined using the `decimals()` method. For instance, if the price feed returns a value of `51933620000`, you'll need to move the decimal point six places to accurately reflect the price. In this example, it corresponds to a Bitcoin price of `$51,933.62` at the time of writing. 
+Note that to obtain a readable price from the price feed, it's essential to adjust for the feed's decimal places, which can be determined using the `decimals()` method. For instance, if the price feed returns a value of `51933620000`, you'll need to move the decimal point six places to accurately reflect the price. In this example, it corresponds to a Bitcoin price of `$51,933.62` at the time of writing.
 
 ### Supported Assets {: #supported-assets }
 
-By its design, Acurast can support the price feed of any arbitrary asset that is accessible by an API. The API request that powers the demo price feed is as follows: 
+By its design, Acurast can support the price feed of any arbitrary asset that is accessible by an API. The API request that powers the demo price feed is as follows:
 
 ```bash
 curl "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
@@ -79,10 +81,8 @@ Upon running the above command in your terminal, you'll see a result that resemb
 
 --8<-- 'code/builders/tooling/oracles/acurast/terminal/api.md'
 
-
 !!! note
-    This simple example of fetching a price feed relies on a single source of price feed data from one exchange. You can build a more complex job script that aggregates pricing data from multiple sources. 
-
+This simple example of fetching a price feed relies on a single source of price feed data from one exchange. You can build a more complex job script that aggregates pricing data from multiple sources.
 
 ## Designing and Launching Your Own Price Feed {: #designing-and-launching-your-own-price-feed }
 
@@ -99,7 +99,7 @@ The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price i
     ```
 
 !!! warning
-    This demo contract has a number of security vulnerabilities and lacks access control mechanisms, making it unsuitable for any real use. It was developed by the Acurast team for demonstration purposes only. 
+This demo contract has a number of security vulnerabilities and lacks access control mechanisms, making it unsuitable for any real use. It was developed by the Acurast team for demonstration purposes only.
 
 Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM Appchain. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
 
@@ -115,11 +115,10 @@ The [Acurast script for the demo BTC/USD price feed](https://github.com/Acurast/
     --8<-- 'code/builders/tooling/oracles/acurast/AcurastScript.js'
     ```
 
-
 To configure your job, head to the [Acurast console](https://console.acurast.com/create){target=\_blank}, then take the following steps:
 
 1. Click **Create Jobs** on the left-hand sidebar underneath the **Consumer** heading
-2. Select **Moonbeam** as the chain 
+2. Select **Moonbeam** as the chain
 3. Select **Moonbase** as the environment. Remember that Tanssi's EVM-compatibility is derived from Moonbeam
 4. Select **Price Feeds**
 5. Paste in the code of your job script. You can copy and paste directly from the [script of the sample BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank}, just make sure to change the destination contract to one that you deployed on your Appchain and the RPC node to your [Appchain's RPC URL](https://apps.tanssi.network/)
@@ -127,7 +126,7 @@ To configure your job, head to the [Acurast console](https://console.acurast.com
 
 ![Job setup on Acurast console](/images/builders/tooling/oracles/acurast/acurast-4.webp)
 
-Continuing down the same setup page, take the following steps: 
+Continuing down the same setup page, take the following steps:
 
 1. Select **Use Public Processors**
 2. Select **Interval**
@@ -142,4 +141,4 @@ Continuing down the same setup page, take the following steps:
 
 On the following screen, you'll be able to monitor the status of your job. For more information about using Acurast to build and access price feeds on your Tanssi EVM-compatible Appchain, be sure to check out the [Acurast docs](https://docs.acurast.com/){target=\_blank}.
 
---8<-- 'text/_disclaimers/third-party-content.md'
+--8<-- 'text/\_disclaimers/third-party-content.md'
