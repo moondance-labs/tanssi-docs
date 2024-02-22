@@ -57,6 +57,12 @@ The command will download and extract the image and show the status upon executi
 
 To spin up your node, you must run the Docker image with the `docker run` command. 
 
+Note that the command contains three sections, divided by `-- \`:
+
+- **Tanssi protocol section** - it contains the flags to run the Tanssi node
+- **Block producer section** - it contains the flags to run the block producer node. It is abstract enough to be dynamically adapted in runtime to the specific chain the node will serve
+- **Relay chain section** - contains the flag to run the relay chain node
+
 ```bash
 docker run --network="host" -v "/var/lib/dancebox:/data" \
 moondancelabs/parachain-dancebox \
