@@ -40,7 +40,7 @@ Then, take the following steps:
 
 ![Request tokens](/images/builders/network/networks/dancebox/demo/demo-2.webp)
 
-Your tokens will be disbursed shortly, and you can verify your TANGO token balances by looking up your address on the [explorer](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank}.
+Your tokens will be disbursed shortly, and you can verify your TANGO token balance by looking up your address on the [explorer](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank}.
 
 ## Quick Start {: #quick-start }
 
