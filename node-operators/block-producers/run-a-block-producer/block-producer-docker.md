@@ -13,25 +13,7 @@ In this guide, you'll learn how to spin up a Tanssi block producer to be part of
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-### Installing Docker {: #installing-docker}
-
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install/){target=\blank}.
-
-Run the following command to install Docker on a Linux Ubuntu platform:
-
-```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
-
-And the following command to check the installation:
-
-```bash
-sudo docker run hello-world
-```
- 
-This is what a successful execution in the terminal looks like:
-
---8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/hello-world.md'
+--8<-- 'text/node-operators/installing-docker.md'
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
@@ -100,7 +82,7 @@ docker run -ti moondancelabs/parachain-dancebox \
 
 The first time your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
---8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/syncing-process.md'
+--8<-- 'code/node-operators/terminal/syncing-process.md'
 
 When the syncing with the relay chain and the Tanssi orchestrator is finished, the node will still need to sync with the Appchain it has been assigned to. The syncing with the chain served by the block producer node will happen every time the block producer is rotated.
 
