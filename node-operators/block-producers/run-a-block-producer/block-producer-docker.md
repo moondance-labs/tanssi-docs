@@ -89,17 +89,17 @@ The flags used in the `docker run` command can be adjusted according to your pre
 --8<-- 'text/node-operators/appchain-node/run-flags.md'
 
 ```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-/chain-network/container-chain-template-frontier-node \
+docker run -ti moondancelabs/parachain-dancebox \
+/chain-network/tanssi-node \
 --help
 ```
 
 ## Syncing Your Node {: #syncing-your-node }
 
-Once your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+The first time your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
 --8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/syncing-process.md'
 
-!!! note
-    Depending on how long the chain you are syncing your node to, the process might take as long as a few days.
+When the syncing with the relay chain and the Tanssi orchestrator is finished, the node will still need to sync with the Appchain it has been assigned to. The syncing with the chain served by the block producer node will happen every time the block producer is rotated.
+
 
