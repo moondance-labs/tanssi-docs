@@ -35,10 +35,10 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ## Interacting with Price Feeds on the Tanssi Demo EVM Appchain {: #interacting-with-price-feeds-demo-evm-appchain }
 
-This tutorial will showcase interacting with a sample BTC/USD price feed contract on the demo EVM Appchain. This contract is [already deployed](https://3001-blockscout.a.dancebox.tanssi.network/address/0xFbe0a22f16eB990BB428956237eDd8EA798BdFFE){target=\_blank} on the demo EVM Appchain, so you can interact with it by accessing the aggregator contract at the below contract address:
+This tutorial will showcase interacting with a sample BTC/USDT price feed contract on the demo EVM Appchain, but you can interact any of the price feeds listed in [Supported Assets](#supported-assets). The BTC/USDT price feed is [deployed on the demo EVM Appchain](https://3001-blockscout.a.dancebox.tanssi.network/address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}, so you can interact with it by accessing the aggregator contract at the below contract address:
 
 ```
-0xFbe0a22f16eB990BB428956237eDd8EA798BdFFE
+{{ networks.dancebox.oracles.acurast.btc_usd }}
 ```
 
 For a refresher on setting up Remix to interface with your Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain. 
@@ -83,7 +83,7 @@ Upon running the above command in your terminal, you'll see a result that resemb
 !!! note
     This simple example of fetching a price feed relies on a single source of price feed data from one exchange. You can build a more complex job script that aggregates pricing data from multiple sources. 
 
-Additionally, the Acurast Team has deployed the below price feeds on the Tanssi demo EVM appchain: 
+The Acurast Team has deployed the below price feeds on the Tanssi demo EVM appchain: 
 
 | Asset & Base Pair |                                                                          Aggregator Contract                                                                           |
 |:-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
