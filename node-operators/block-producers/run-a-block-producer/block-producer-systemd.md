@@ -63,27 +63,27 @@ The following commands configure a new account, the directory, and move the prev
 Create a new account to run the service:
 
 ```bash
-adduser sequencer_service --system --no-create-home
+adduser tanssi_service --system --no-create-home
 ```
 
 Create a directory to store the required files and data:
 
 ```bash
-mkdir /var/lib/sequencer-data
+mkdir /var/lib/tanssi-data
 ```
 
 Set the folder's ownership to the account that will run the service to ensure writing permission:
 
 ```bash
-sudo chown -R sequencer_service /var/lib/sequencer-data
+sudo chown -R tanssi_service /var/lib/tanssi-data
 ```
 
 And finally, move the binary and the chain specs to the folder:
 
 ```bash
-mv ./tanssi-node /var/lib/sequencer-data && \
-mv ./westend-alphanet-raw-specs.json /var/lib/sequencer-data && \
-mv ./dancebox-raw-specs.json /var/lib/sequencer-data
+mv ./tanssi-node /var/lib/tanssi-data && \
+mv ./westend-alphanet-raw-specs.json /var/lib/tanssi-data && \
+mv ./dancebox-raw-specs.json /var/lib/tanssi-data
 ```
 
 ### Create the Systemd Service configuration file {: #create-systemd-configuration }
@@ -93,14 +93,14 @@ The next step is to create the Systemd configuration file.
 You can create the file by running the following command:
 
 ```bash
-sudo touch /etc/systemd/system/sequencer.service
+sudo touch /etc/systemd/system/tanssi.service
 ```
 
 Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service:
 
 ```bash
 [Unit]
-Description="Sequencer systemd service"
+Description="Tanssi systemd service"
 After=network.target
 StartLimitIntervalSec=0
 
@@ -108,28 +108,28 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=on-failure
 RestartSec=10
-User=sequencer_service
-SyslogIdentifier=sequencer
+User=tanssi_service
+SyslogIdentifier=tanssi
 SyslogFacility=local7
 KillSignal=SIGHUP
-ExecStart=/var/lib/sequencer-data/tanssi-node \
---chain=/var/lib/sequencer-data/dancebox-raw-specs.json \
+ExecStart=/var/lib/tanssi-data/tanssi-node \
+--chain=/var/lib/tanssi-data/dancebox-raw-specs.json \
 --rpc-port=9944 \
---name=sequencer-name \
---base-path=/var/lib/sequencer-data/para \
+--name=tanssi-name \
+--base-path=/var/lib/tanssi-data/para \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --collator \
 -- \
 --rpc-port=9946 \
---name=sequencer-name-container \
---base-path=/var/lib/sequencer-data/container \
+--name=tanssi-appchain \
+--base-path=/var/lib/tanssi-data/container \
 -- \
 --name=sequencer-name-relay \
---chain=/var/lib/sequencer-data/westend-alphanet-raw-specs.json \
+--chain=/var/lib/tanssi-data/westend-alphanet-raw-specs.json \
 --rpc-port=9945 \
 --sync=fast \
---base-path=/var/lib/sequencer-data/relay \
+--base-path=/var/lib/tanssi-data/relay \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 
@@ -151,14 +151,14 @@ The flags used in the ExecStart command can be adjusted according to your prefer
 Finally, enable the service and start it for the first time:
 
 ```bash
-systemctl enable sequencer.service && \
-systemctl start sequencer.service
+systemctl enable tanssi.service && \
+systemctl start tanssi.service
 ```
 
 You can verify that the service is up and running correctly running:
 
 ```bash
-systemctl status sequencer.service
+systemctl status tanssi.service
 ```
 
 --8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/check-status.md'
@@ -166,5 +166,5 @@ systemctl status sequencer.service
 And check the logs, if needed, with the following command:
 
 ```bash
-journalctl -f -u sequencer.service
+journalctl -f -u tanssi.service
 ```
