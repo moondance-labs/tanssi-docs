@@ -32,8 +32,7 @@ wget https://github.com/moondance-labs/tanssi/releases/latest/download/tanssi-no
 chmod +x ./tanssi-node
 ```
 
-!!! note
-    Optimized binary versions for [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} and [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures are also available in the [releases](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} page.
+--8<-- 'text/node-operators/optimized-binaries-note.md'
 
 ## Download the Tanssi Orchestrator Specs File {: #download-relay-specs }
 
