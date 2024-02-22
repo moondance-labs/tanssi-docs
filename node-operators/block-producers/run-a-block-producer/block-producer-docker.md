@@ -1,17 +1,17 @@
 ---
 title: Run a Block Producer Using Docker
-description: Learn how to set up and run block producers (collators) for Tanssi Appchains using Docker, allowing you to participate in the protocol and earn rewards.
+description: Learn how to set up and run a block producer (aka collator or sequencer) for Tanssi Appchains using Docker to participate in the protocol and earn rewards.
 ---
 
-# Run an Block Procuder in Tanssi Using Docker
+# Run a Block Producer in Tanssi Using Docker
 
 ## Introduction {: #introduction }
 
-The Tanssi protocol manages a set of block producers (AKA collators) and assigns them to provide block production services to all the active Appchains in the Tanssi Ecosystem, and the Tanssi orchestrator itself.
+The Tanssi protocol manages a set of block producers (aka sequencers or collators). It assigns them to provide block production services to all the active Appchains in the Tanssi ecosystem and the Tanssi orchestrator itself.
 
-The assignment algorithm distributes the available block producers on a per-session basis assigning them to a random Appchain each time, meaning that they will be producing blocks for the same Appchain for a relatively short period of time, increasing the overall security of the ecosystem.
+The assignment algorithm distributes the available block producers on a per-session basis, assigning them to a random Appchain each time, meaning that they would be producing blocks for the same Appchain only for a relatively short period of time, increasing the overall security of the ecosystem.
 
-Since the block producers will serve Appchains that are unknown in advance, the nodes will be run using the Tanssi node specifications, which includes the logic to sync and execute transactions producing blocks for any active Appchain.
+Since the block producers will be assigned to serve any Appchain (or the Tanssi orchestrator), the nodes must be run using the Tanssi node binary file, which includes the logic to sync and execute transactions, producing blocks for any active Appchain previously unknown to him.
 
 In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
@@ -39,123 +39,47 @@ This is what a successful execution in the terminal looks like:
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
-A Docker image is built and published as part of the automated deployment process, either for a Tanssi EVM-compatible Appchain or another for a Tanssi Substrate Appchain. 
+A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi block producer requires and the binary file itself.
 
-A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
+A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the Tanssi orchestrator specification file.
 
-The chain specification is generated when registering the Appchain in the [DApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
-
-Luckily, running a node requires the right Docker image configured correctly!
-
-### EVM-Compatible Appchains {: #pulling-evm-docker-image }
-
-If the Tanssi Appchain was registered in the DApp, choose the EVM template or upload a custom specification representing a Tanssi EVM-compatible Appchain, then execute the following command to pull the Docker image:
+The following command to pull the Docker image:
 
 ```bash
-docker pull moondancelabs/dancebox-container-chain-evm-templates
+docker pull moondancelabs/parachain-dancebox
 ```
 
 The command will download and extract the image and show the status upon execution:
 
---8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/pulling-docker-image.md'
-
-### Simple Substrate Appchains {: #pulling-substrate-docker-image }
-
-If the Appchain was registered in the DApp, choosing the basic Substrate template or uploading a custom specification file representing a Substrate Appchain, then execute the following command to pull the Docker image:
-
-```bash
-docker pull moondancelabs/dancebox-container-chain-simple-templates
-```
-
-The command will download and extract the image and show the status upon execution, showing a similar output as the previous terminal image.
+--8<-- 'code/node-operators/block-producers/run-a-block-producer/block-producer-docker/terminal/pulling-docker-image.md'
 
 ## Start-Up Command {: #start-up-command }
 
-To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
-
-- `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi Appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network/){target=\_blank}. For example, `3001`
---8<-- 'text/node-operators/appchain-node/bootnode-item.md'
-
-=== "EVM-compatible Appchain"
-
-    ```bash
-    docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-    /chain-network/container-chain-template-frontier-node \
-    --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
-    --rpc-port=9944 \
-    --name=para \ 
-    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
-    -- \
-    --name=relay \
-    --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
-    --rpc-port=9945 \
-    --sync=fast \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
-    ```
-
-=== "Simple Substrate Appchain"
-    
-    ```bash
-    docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-    /chain-network/container-chain-template-simple-node \
-    --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
-    --rpc-port=9944 \
-    --name=para \
-    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
-    -- \
-    --name=relay \
-    --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
-    --rpc-port=9945 \
-    --sync=fast \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
-    ```
-
-!!! note
-    Only the historical state of the last 256 finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
-
---8<-- 'text/node-operators/appchain-node/fetching-bootnode-section.md'
-
-### Full Node Example for Demo EVM Appchain {: #example-demo-evm-appchain }
-
-The following example spins up a full archive RPC node for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
+To spin up your node, you must run the Docker image with the `docker run` command. 
 
 ```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-/chain-network/container-chain-template-frontier-node \
---chain=/chain-network/container-3001-raw-specs.json \
+docker run --network="host" -v "/var/lib/dancebox:/data" \
+moondancelabs/parachain-dancebox \
+/chain-network/tanssi-node \
+--chain=/chain-network/dancebox-raw-specs.json \
 --rpc-port=9944 \
---name=para \
---state-pruning=archive \
---blocks-pruning=archive \
---bootnodes=/dns4/fraa-dancebox-c1-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p
-/12D3KooWHbs1SetugtcwHUYEAN2j1gE2TW8vmqgfcbcELy4x9hqg \
+--name=collator-name \
+--base-path=/data/para \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--collator \
 -- \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--rpc-port=9946 \
+--name=collator-name-container \
+--base-path=/data/container \
+-- \
+--name=collator-name-relay \
+--chain=/chain-network/westend-raw-specs.json \
 --rpc-port=9945 \
---name=relay \
 --sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+--base-path=/data/relay \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
 ```
 
 ### Run Flags {: #run-flags }
