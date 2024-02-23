@@ -31,7 +31,6 @@ You can access TANGO tokens at the faucet on the [Tanssi dApp](https://apps.tans
 
 ![Add to MetaMask](/images/builders/network/networks/dancebox/demo/demo-1.webp)
 
-
 Then, take the following steps:
 
 1. Press **Request Tokens**
