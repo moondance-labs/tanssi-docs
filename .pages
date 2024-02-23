@@ -1,6 +1,7 @@
 nav:
   - index.md
   - builders
+  - node-operators
   - learn
   - 'Resource Center': 'https://tanssi.network/resources'
   - 'About': 'https://tanssi.network/'

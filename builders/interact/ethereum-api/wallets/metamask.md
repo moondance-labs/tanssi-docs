@@ -75,8 +75,8 @@ Here, you can configure MetaMask for the following networks:
 |       Network Name        |               `EVM Appchain Dancebox`                |
 |          RPC URL          | `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network` |
 |         Chain ID          |                           `5678`                           |
-|     Symbol (Optional)     |                           `UNIT`                           |
-| Block Explorer (Optional) |                           `N/A`                            |
+|     Symbol (Optional)     |                          `TANGO`                           |
+| Block Explorer (Optional) |    `https://3001-blockscout.a.dancebox.tanssi.network/`    |
 
 To do so, fill in the following information:
 
@@ -97,6 +97,7 @@ Once you've added the network, you'll be redirected to a screen stating that you
 
 Once you've [connected Metamask](#connect-metamask-to-evm-appchain) to your Tanssi EVM Appchain, you can start using your wallet by:
 
+- Requesting TANGO tokens from the [demo EVM Appchain faucet](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/#faucet)
 - Sending a token transfer to another address
 - Adding ERC-20s to Metamask and interacting with them
 - Adding ERC-721s to Metamask and interacting with them

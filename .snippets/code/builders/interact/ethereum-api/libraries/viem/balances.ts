@@ -24,7 +24,7 @@ export const demoEVM = defineChain({
   blockExplorers: {
     default: {
       name: 'Explorer',
-      url: 'https://tanssi-evmexplorer.netlify.app/',
+      url: 'https://3001-blockscout.a.dancebox.tanssi.network/',
     },
   },
 });
@@ -50,8 +50,8 @@ const balances = async () => {
     await publicClient.getBalance({ address: addressTo })
   );
 
-  console.log(`The balance of ${addressFrom} is: ${balanceFrom} UNIT`);
-  console.log(`The balance of ${addressTo} is: ${balanceTo} UNIT`);
+  console.log(`The balance of ${addressFrom} is: ${balanceFrom} TANGO`);
+  console.log(`The balance of ${addressTo} is: ${balanceTo} TANGO`);
 };
 
 // 7. Call the balances function

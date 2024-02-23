@@ -193,7 +193,7 @@ Now, you can upload your custom raw specification file by selecting the **Custom
 
 ## Check Balances {: #check-balances }
 
-Next, you'll need to verify that you have sufficient balances of DANCE and UNIT tokens. If you don't, you can press **Request Tokens** and complete the following login with GitHub or Google. You'll need to complete a few quick onboarding questions, and then you'll be able to press **Request Tokens** again, and they will be delivered to your connected wallet.
+Next, you'll need to verify that you have sufficient balances of DANCE and TANGO tokens. If you don't, you can press **Request Tokens** and complete the following login with GitHub or Google. You'll need to complete a few quick onboarding questions, and then you'll be able to press **Request Tokens** again, and they will be delivered to your connected wallet.
 
 ![Request tokens](/images/builders/deploy/dapp/dapp-8.webp)
 
@@ -202,13 +202,13 @@ If you're setting up a dedicated Tanssi Appchain, you'll need to manually reques
 === "Snap Appchain"
     |            Chain             | Balance Required |
     |:----------------------------:|:----------------:|
-    | Flashbox Relay Chain Balance |     70 UNIT      |
+    | Flashbox Relay Chain Balance |     70 TANGO     |
     |  Flashbox Balance (Tanssi)   |    100 DANCE     |
 
 === "Dedicated Appchain"
     |            Chain             | Balance Required |
     |:----------------------------:|:----------------:|
-    | Moonbase Relay Chain Balance |     110 UNIT     |
+    | Moonbase Relay Chain Balance |    110 TANGO     |
     |  Dancebox Balance (Tanssi)   |    100 DANCE     |
 
 ## Reserve your Appchain ID {: #reserve-appchain-id }
@@ -222,7 +222,7 @@ To reserve your Tanssi Appchain ID, you'll need to submit a transaction. Please 
 
 ![Reserve your Tanssi Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-9.webp)
 
-Once the transaction has successfully gone through, your Tanssi Appchain ID will be displayed on the dApp, and you'll be able to click **Continue** to proceed to the next step. You'll notice that on your Alphanet relay chain account, 20 UNIT tokens have been removed from your transferrable balance and are now reserved.
+Once the transaction has successfully gone through, your Tanssi Appchain ID will be displayed on the dApp, and you'll be able to click **Continue** to proceed to the next step. You'll notice that on your Alphanet relay chain account, 20 TANGO tokens have been removed from your transferrable balance and are now reserved.
 
 ![Successfully reserved your Tanssi Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-10.webp)
 

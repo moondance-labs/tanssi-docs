@@ -23,8 +23,8 @@ const balances = async () => {
     'ether'
   );
 
-  console.log(`The balance of ${addressFrom} is: ${balanceFrom} UNIT`);
-  console.log(`The balance of ${addressTo} is: ${balanceTo} UNIT`);
+  console.log(`The balance of ${addressFrom} is: ${balanceFrom} TANGO`);
+  console.log(`The balance of ${addressTo} is: ${balanceTo} TANGO`);
 };
 
 // Call balances function

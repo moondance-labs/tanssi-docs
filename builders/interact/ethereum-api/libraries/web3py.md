@@ -77,7 +77,7 @@ To run the script and fetch the account balances, you can run the following comm
 python3 balances.py
 ```
 
-If successful, the balances for the origin and receiving address will be displayed in your terminal in UNIT.
+If successful, the balances for the origin and receiving address will be displayed in your terminal in TANGO.
 
 ![Check Balance Ethers.js](/images/builders/interact/ethereum-api/libraries/web3py/web3py-1.webp)
 
