@@ -158,5 +158,5 @@ Once your node spins up, the syncing process displays lots of log information fr
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
 !!! note
-    Depending on how long the chain you are syncing your node to, the process might take as long as a few days.
+    The length of the syncing process is directly proportional to the size of the chain you are syncing to.
 

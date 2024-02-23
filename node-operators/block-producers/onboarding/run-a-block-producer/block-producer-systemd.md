@@ -27,10 +27,28 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 To get started, download and make executable the latest binary release by running the following command:
 
-```bash
-wget https://github.com/moondance-labs/tanssi/releases/latest/download/tanssi-node && \
-chmod +x ./tanssi-node
-```
+=== "Generic"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node && \
+    chmod +x ./tanssi-node
+    ```
+
+=== "Intel Skylake"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-skylake && \
+    mv ./tanssi-node-skylake ./tanssi-node && \
+    chmod +x ./tanssi-node
+    ```
+
+=== "AMD Zen3"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-zen3 && \
+    mv ./tanssi-node-zen3 ./tanssi-node && \
+    chmod +x ./tanssi-node
+    ```
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
