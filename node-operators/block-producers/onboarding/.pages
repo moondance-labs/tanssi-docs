@@ -1,0 +1,5 @@
+title: Onboarding
+hide: false
+nav:
+  - index.md
+  - run-a-block-producer
