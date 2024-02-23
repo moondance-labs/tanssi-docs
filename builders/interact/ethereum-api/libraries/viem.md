@@ -7,9 +7,9 @@ description: In this tutorial use the viem TypeScript interface for Ethereum to 
 
 ## Introduction {: #introduction }
 
-[viem](https://viem.sh/){target=\_blank} is a modular TypeScript library that allows developers to interact with abstractions over the JSON-RPC API, making it easy to interact with Ethereum nodes. Since Tanssi EVM Appchains have an Ethereum API available that is fully compatible with Ethereum-style JSON-RPC invocations, developers can leverage this compatibility to interact with any EVM Appchain. For more information on viem, check out their [documentation site](https://viem.sh/docs/getting-started.html){target=\_blank}.
+[viem](https://viem.sh/){target=\_blank} is a modular TypeScript library that allows developers to interact with abstractions over the JSON-RPC API, making it easy to interact with Ethereum nodes. Since Tanssi EVM Appchains have an Ethereum API available that is fully compatible with Ethereum-style JSON-RPC invocations, developers can leverage this compatibility to interact with any Tanssi EVM Appchain. For more information on viem, check out their [documentation site](https://viem.sh/docs/getting-started.html){target=\_blank}.
 
-In this guide, you'll learn how to use viem to send a transaction and deploy a contract on the demo EVM Appchain. This guide can be adapted for use with any EVM Appchain.
+In this guide, you'll learn how to use viem to send a transaction and deploy a contract on the demo EVM Appchain. This guide can be adapted for use with any Tanssi EVM Appchain.
 
 --8<-- 'text/_common/general-js-tutorial-check.md'
 
@@ -56,14 +56,14 @@ Throughout this guide, you'll be creating a bunch of scripts that provide differ
 
 You can create a viem client for reading chain data, like balances or contract data, using the `createPublicClient` function, or you can create a viem client for writing chain data, like sending transactions, using the `createWalletClient` function.
 
-Creating a viem client to interact with your Tanssi EVM Appchain is a two-step process. First, you'll need to import the `defineChain` function from viem. This will allow you to specify the details of your EVM Appchain (or any arbitrary EVM chain). You'll then need to provide all of the chain details, as shown in the next section.
+Creating a viem client to interact with your Tanssi EVM Appchain is a two-step process. First, you'll need to import the `defineChain` function from viem. This will allow you to specify the details of your Tanssi EVM Appchain (or any arbitrary EVM chain). You'll then need to provide all of the chain details, as shown in the next section.
 
 ### For Reading Chain Data {: #for-reading-chain-data }
 
 To create a client for reading chain data, you can take the following steps:
 
 1. Import the `createPublicClient`, `http`, and `defineChain`functions from `viem`
-2. Define the chain details of your EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
+2. Define the chain details of your Tanssi EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. Create the `client` using the `createPublicClient` function and pass in the network and the HTTP RPC endpoint
 
 ```ts
@@ -75,7 +75,7 @@ To create a client for reading chain data, you can take the following steps:
 To create a client for writing chain data, you can take the following steps:
 
 1. Import the `createWalletClient`, `http`, and `defineChain` functions from `viem`, and the `privateKeyToAccount` function from `viem/accounts`
-2. Define the chain details of your EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
+2. Define the chain details of your Tanssi EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. Create your account using the `privateKeyToAccount` function
 4. Create the `client` using the `createWalletClient` function and pass in the account, network, and the HTTP RPC endpoint
 
@@ -109,7 +109,7 @@ touch balances.ts
 Next, you will create the script for this file and complete the following steps:
 
 1. Update your imports to include the `createPublicClient`, `http`,`formatEther`, and `defineChain `functions from `viem` 
-2. Define the chain details of your EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
+2. Define the chain details of your Tanssi EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a public viem client](#for-reading-chain-data), which can be used for reading chain data, such as account balances
 4. Define the `addressFrom` and `addressTo` variables
 5. Create the asynchronous `balances` function that wraps the `publicClient.getBalance` method
@@ -143,7 +143,7 @@ touch transaction.ts
 Next, you will create the script for this file and complete the following steps:
 
 1. Update your imports to include `createPublicClient`, `createWalletClient`, `http`, `parseEther`, and `defineChain` functions from `viem`, as well as the `privateKeyToAccount` function from `viem/accounts`
-2. Define the chain details of your EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
+2. Define the chain details of your Tanssi EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a viem wallet client](#for-writing-chain-data) for writing chain data, which can be used along with your private key to send transactions. **Note: This is for example purposes only. Never store your private keys in a TypeScript file**
 4. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to wait for the transaction receipt
 5. Define the `addressTo` variable
@@ -191,7 +191,7 @@ touch deploy.ts
 Next, you will create the script for this file and complete the following steps:
 
 1. Update your imports to include the `createPublicClient`, `createWalletClient`, `http`, and `defineChain` functions from `viem`, the `privateKeyToAccount` function from `viem/accounts`, and the `contractFile` from the `compile.ts` file you created in the [Compile Contract Script](#compile-contract-script) section
-2. Define the chain details of your EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
+2. Define the chain details of your Tanssi EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a viem wallet client](#for-writing-chain-data) for writing chain data, which will be used along with your private key to deploy the `Incrementer` contract. **Note: This is for example purposes only. Never store your private keys in a TypeScript file**
 4. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to read the transaction receipt for the deployment
 5. Load the contract `bytecode` and `abi` for the compiled contract
@@ -230,7 +230,7 @@ touch get.ts
 Then you can take the following steps to create the script:
 
 1. Update your imports to include the `createPublicClient`, `http`, and `defineChain` functions from `viem`, and the `contractFile` from the `compile.ts` file you created in the [Compile Contract Script](#compile-contract-script) section
-2. Define the chain details of your EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
+2. Define the chain details of your Tanssi EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to read the current number of the `Incrementer` contract
 4. Create the `contractAddress` variable using the address of the deployed contract and the `abi` variable using the `contractFile` from the `compile.ts` file
 5. Create the asynchronous `get` function
@@ -264,7 +264,7 @@ touch increment.ts reset.ts
 Open the `increment.ts` file and take the following steps to create the script:
 
 1. Update your imports to include the `createPublicClient`, `createWalletClient` `http`, and `defineChain` functions from `viem`, the  `privateKeyToAccount` from `viem/accounts'` and the `contractFile` from the `compile.ts` file you created in the [Compile Contract Script](#compile-contract-script) section
-2. Define the chain details of your EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
+2. Define the chain details of your Tanssi EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a viem wallet client](#for-writing-chain-data) for writing chain data, which will be used along with your private key to send a transaction. **Note: This is for example purposes only. Never store your private keys in a TypeScript file**
 4. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to wait for the transaction receipt
 5. Create the `contractAddress` variable using the address of the deployed contract, the `abi` variable using the `contractFile` from the `compile.ts` file, and the `_value` to increment the contract by
@@ -293,7 +293,7 @@ If successful, the transaction hash will be displayed in the terminal. You can u
 Next, you can open the `reset.ts` file and take the following steps to create the script:
 
 1. Update your imports to include the `createPublicClient`, `createWalletClient` `http`, and `defineChain` functions from `viem`, the  `privateKeyToAccount` from `viem/accounts'` and the `contractFile` from the `compile.ts` file you created in the [Compile Contract Script](#compile-contract-script) section
-2. Define the chain details of your EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
+2. Define the chain details of your Tanssi EVM Appchain, making sure to include all fields shown below. Both `public` and `default` RPC URLs are required to be listed, even if they are the same
 3. [Set up a viem wallet client](#for-writing-chain-data) for writing chain data, which will be used along with your private key to send a transaction. **Note: This is for example purposes only. Never store your private keys in a TypeScript file**
 4. [Set up a public viem client](#for-reading-chain-data) for reading chain data, which will be used to wait for the transaction receipt
 5. Create the `contractAddress` variable using the address of the deployed contract and the `abi` variable using the `contractFile` from the `compile.ts` file to increment the contract by

@@ -7,7 +7,7 @@ description: Learn the basics of how to use Chopsticks to replay blocks, dissect
 
 ## Introduction {: #introduction }
 
-[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing [Substrate-based](/learn/framework/overview/){target=\_blank} chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Appchains for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
+[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing [Substrate-based](/learn/framework/overview/){target=\_blank} chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Tanssi Appchains for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
 
 Overall, Chopsticks aims to simplify the process of building blockchain applications on Substrate and make it accessible to a wider range of developers.
 
@@ -42,7 +42,7 @@ Now the development environment is ready to start testing and debugging Tanssi-d
 
 ## Forking a Demo EVM Appchain with Chopsticks {: #forking-demo-chain }
 
-To fork an Appchain using Chopsticks, execute the command with only the RPC endpoint as a parameter:
+To fork a Tanssi Appchain using Chopsticks, execute the command with only the RPC endpoint as a parameter:
 
 ```bash
 yarn start --endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network

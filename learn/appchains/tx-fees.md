@@ -9,11 +9,11 @@ description: Learn about the transaction fee mechanism in Tanssi Appchains, how 
 
 Tanssi Appchains are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://substrate.io/){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment/){target=\_blank}. However, transaction fees on Tanssi EVM-compatible Appchains can be charged at an EVM execution level, bypassing other fee-related modules.
 
-Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi Appchains work with a [weight-based mechanism](https://docs.substrate.io/build/tx-weights-fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi Appchains, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For EVM Appchains, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
+Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi Appchains work with a [weight-based mechanism](https://docs.substrate.io/build/tx-weights-fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi Appchains, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM Appchains, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
 
-A transaction fee scheme is applied on top of the weight-based mechanism to ensure economic incentives are in line to limit the execution time, computation, and number of calls (database read/writes) to perform operations. Transaction fees are fundamental to preventing network spam, as they represent the cost of using the Appchain service. Consequently, a user interacting with the network through a specific function call will pay a transaction fee determined by a baseline fee algorithm.
+A transaction fee scheme is applied on top of the weight-based mechanism to ensure economic incentives are in line to limit the execution time, computation, and number of calls (database read/writes) to perform operations. Transaction fees are fundamental to preventing network spam, as they represent the cost of using the Tanssi Appchain service. Consequently, a user interacting with the network through a specific function call will pay a transaction fee determined by a baseline fee algorithm.
 
-This page covers the fundamentals of transaction fees for Tanssi Appchains. It first covers the underlying transaction fee architecture and how it is adapted to a fully EIP-1559-compliant model for EVM Appchains.
+This page covers the fundamentals of transaction fees for Tanssi Appchains. It first covers the underlying transaction fee architecture and how it is adapted to a fully EIP-1559-compliant model for Tanssi EVM Appchains.
 
 ## Baseline Fees Calculation {: #baseline-fees }
 
@@ -30,7 +30,7 @@ This section outlines all the different concepts associated with transaction fee
 Broadly speaking, weight refers to the execution time it takes to validate a block, measured in picoseconds. Weight is divided into two separate variables:
 
 - **`refTime`** - corresponds to the weight associated with computation time and database reads/writes
-- **`proofSize`** - corresponds to the weight associated with the size of the Proof-Of-Validity (or PoV for short). The PoV is associated with the relevant state of a transaction, and it is what the Appchain block producer shares with the relay chain validator to get its block finalized as part of the [Appchain transaction flow](/learn/appchains/overview/#appchain-transaction){target=\_blank}
+- **`proofSize`** - corresponds to the weight associated with the size of the Proof-Of-Validity (or PoV for short). The PoV is associated with the relevant state of a transaction, and it is what the Tanssi Appchain block producer shares with the relay chain validator to get its block finalized as part of the [Appchain transaction flow](/learn/appchains/overview/#appchain-transaction){target=\_blank}
 
 To find the weights for all function calls, they are benchmarked in a system with reference hardware, and the approximate values of `refTime` and `proofSize` are set. This process is repeated for all function calls that consume blockspace and affect the PoV.
 
@@ -69,15 +69,15 @@ InclusionFee = BaseFee + WeightFee + LengthFee
 FinalFee = InclusionFee + Tip
 ```
 
-All non-EVM function calls available to developers use these baseline calculations for transaction fees. EVM Tanssi Appchains have an extra layer to translate this fee scheme into an Ethereum-like scheme from an Ethereum JSON-RPC and EVM perspective. 
+All non-EVM function calls available to developers use these baseline calculations for transaction fees. Tanssi EVM Appchains have an extra layer to translate this fee scheme into an Ethereum-like scheme from an Ethereum JSON-RPC and EVM perspective. 
 
 ### EVM Transaction Fees {: #evm-transaction-fees }
 
 <!-- https://github.com/polkadot-evm/frontier/blob/272fe8839f87161ed89350de166b379f1f4c6136/frame/base-fee/src/lib.rs#L126-L199 -->
 
-Tanssi offers [templates for full EVM-compatible Appchains](/builders/build/templates/evm/){target=\_blank}. Such Appchains provide an Ethereum-like environment for developers, where they can use Eth-specific libraries like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank}, [Hardhat](/builders/interact/ethereum-api/dev-env/hardhat/){target=_blank}, and [Foundry](/builders/interact/ethereum-api/dev-env/foundry/){target=\_blank}.
+Tanssi offers [templates for full Tanssi EVM-compatible Appchains](/builders/build/templates/evm/){target=\_blank}. Such Appchains provide an Ethereum-like environment for developers, where they can use Eth-specific libraries like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank}, [Hardhat](/builders/interact/ethereum-api/dev-env/hardhat/){target=_blank}, and [Foundry](/builders/interact/ethereum-api/dev-env/foundry/){target=\_blank}.
 
-In addition, all Tansis EVM-compatible Appchains have an [EIP-1559 compatible](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} transaction pricing mechanism for EVM transactions. But they support both commonly used EVM transaction types:
+In addition, all Tanssi EVM-compatible Appchains have an [EIP-1559 compatible](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} transaction pricing mechanism for EVM transactions. But they support both commonly used EVM transaction types:
 
 - **Type 0 (Legacy)** - the transaction fee is calculated through a single gas price value that is included in the signed transaction blob. Because Tanssi EVM-compatible Appchains have a dynamic pricing mechanism, gas price must be greater than the current block's `baseFee` for a transaction to be considered valid
 - **Type 2 (EIP-1559)** - the transaction fee is calculated with a combination of the `maxFeePerGas` and `maxPriorityFeePerGas` from the signed transaction blob, and the network's `baseFee` dynamically changes based on block congestion

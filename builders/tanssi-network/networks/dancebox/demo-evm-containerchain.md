@@ -27,7 +27,7 @@ The demo EVM Appchain HTTPS and WSS endpoints are as follows:
 
 ## Quick Start {: #quick-start }
 
-You can interact with the EVM Appchain using standard Ethereum libraries, like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=\_blank}, and [Web3.py](/builders/interact/ethereum-api/libraries/web3py){target=\_blank}. To quickly get started, you'll need to create a provider connected to the EVM Appchain:
+You can interact with a Tanssi EVM Appchain using standard Ethereum libraries, like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=\_blank}, and [Web3.py](/builders/interact/ethereum-api/libraries/web3py){target=\_blank}. To quickly get started, you'll need to create a provider connected to a Tanssi EVM Appchain:
 
 === "Ethers.js"
 
@@ -71,11 +71,11 @@ You can interact with the EVM Appchain using standard Ethereum libraries, like [
 
 ### EVM Container Chain ID {: #chain-id }
 
-The EVM Appchain has a [chain ID](https://chainlist.org/chain/5678){target=\_blank} of: `5678`, which is `0x162E` in hex.
+The demo EVM Appchain has a [chain ID](https://chainlist.org/chain/5678){target=\_blank} of: `5678`, which is `0x162E` in hex.
 
 ### Block Explorers {: #block-explorers }
 
-For the EVM Appchain, you can use any of the following explorers:
+For the demo EVM Appchain, you can use any of the following explorers:
 
 - Substrate API - on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank}
 - EVM explorer - on [Blockscout](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank}

@@ -17,7 +17,7 @@ The following sections of this article will cover the minimal required software 
 
 [Rust](/learn/framework/overview/#rust-programming-language) is a modern, portable, and performant programming language that is the base of the Substrate blockchain development framework.  
 
-To compile the Appchain, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system.
+To compile the Tanssi Appchain, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system.
 
 In accordance with the instructions described in the [official Rust documentation](https://www.rust-lang.org/tools/install){target=\_blank}, for any system running Linux or MacOS, the following command will do:
 
@@ -107,7 +107,7 @@ git clone https://github.com/moondance-labs/tanssi
 ```bash
 cd tanssi
 ```
-3. Build the Appchain template
+3. Build the Tanssi Appchain template
 === "Baseline EVM"
 
     ```bash
@@ -120,4 +120,4 @@ cd tanssi
     cargo build -p container-chain-template-simple-node --release
     ```
 
-Having a healthy development environment will be necessary to build a customized runtime and to finally generate the chain specification file that will be used to deploy your Appchain.
+Having a healthy development environment will be necessary to build a customized runtime and to finally generate the chain specification file that will be used to deploy your Tanssi Appchain.

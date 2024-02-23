@@ -11,7 +11,7 @@ Appchains deployed through Tanssi as Appchains have many [distinct features](/le
 
 However, because Tanssi Appchains are built with a [modular framework](/learn/framework/){target=\_blank}, they offer many other unique advantages at a runtime level that make them quite extensible. This [unique modularity](/learn/framework/modules/){target=\_blank} allows a developer to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts. 
 
-For example, by including modules from [Frontier](https://github.com/paritytech/frontier){target=\_blank}, which is Substrate's Ethereum compatibility layer, an Appchain can be fully Ethereum-compatible, like [Moonbeam](https://moonbeam.network){target=\_blank}. 
+For example, by including modules from [Frontier](https://github.com/paritytech/frontier){target=\_blank}, which is Substrate's Ethereum compatibility layer, a Tanssi Appchain can be fully Ethereum-compatible, like [Moonbeam](https://moonbeam.network){target=\_blank}. 
 
 Furthermore, the framework used at the heart of Appchains deployed through Tanssi provides specific characteristics that developers should know and that they can leverage as well.
 
@@ -35,15 +35,15 @@ For example, a user initiates a transaction when interacting via an application 
 Then, the block producer will share with a Polkadot validator:
 
 - The block itself with the state transitions
-- The storage components in the Appchain database that the block is modifying
+- The storage components in the Tanssi Appchain database that the block is modifying
 - The necessary hashes of the unaffected points in the Merkle tree of the storage
 
 These components constitute the proof of validity (PoV). 
 
-Next, the PoV is verified by Polkadot validators. Note that Polkadot does not check that the Appchain storage is valid but that the state transitions that affect it are. A summary of that verification is then gossiped to other validators for them to verify it and included in the next Polkadot block. Lastly, that Polkadot block is finalized.
+Next, the PoV is verified by Polkadot validators. Note that Polkadot does not check that the Tanssi Appchain storage is valid but that the state transitions that affect it are. A summary of that verification is then gossiped to other validators for them to verify it and included in the next Polkadot block. Lastly, that Polkadot block is finalized.
 
 The transaction flow process is summarized in the following diagram:
 
-![Path of an Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/dark-overview-2.webp#only-dark)
-![Path of an Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/light-overview-2.webp#only-light)
+![Path of a Tanssi Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/dark-overview-2.webp#only-dark)
+![Path of a Tanssi Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/light-overview-2.webp#only-light)
 

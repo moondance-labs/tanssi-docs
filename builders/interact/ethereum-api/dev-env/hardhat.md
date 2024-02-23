@@ -12,11 +12,11 @@ description: Learn how to use Hardhat, an Ethereum development environment, to c
 
 [Hardhat](https://hardhat.org/){target=\_blank} is an Ethereum development environment that helps developers manage and automate the recurring tasks inherent to building smart contracts and DApps. Hardhat can be used with any EVM Appchain to build, compile, and deploy smart contracts, thanks to the seamless compatibility of Tanssi EVM Appchains.
 
-This guide will cover how to use Hardhat to compile, deploy, and interact with Ethereum smart contracts deployed to the demo Tanssi EVM Appchain. This guide can be adapted for your own Tanssi EVM Appchain by simply adding the RPC URL of your Appchain to your EVM Wallet and switching networks to it.
+This guide will cover how to use Hardhat to compile, deploy, and interact with Ethereum smart contracts deployed to the demo Tanssi EVM Appchain. This guide can be adapted for your own Tanssi EVM Appchain by simply adding the RPC URL of your Tanssi Appchain to your EVM Wallet and switching networks to it.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-For this guide, you'll need to have MetaMask installed and configured to work with your EVM Appchain. You can follow [this guide to configure MetaMask for Tanssi with the Demo EVM Appchain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
+For this guide, you'll need to have MetaMask installed and configured to work with your Tanssi EVM Appchain. You can follow [this guide to configure MetaMask for Tanssi with the Demo EVM Appchain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ## Creating a Hardhat Project {: #creating-a-hardhat-project }
 
@@ -103,15 +103,15 @@ contract Box {
 
 ## The Hardhat Configuration File {: #hardhat-configuration-file }
 
-Before you can deploy the contract to your Appchain, you'll need to modify the Hardhat configuration file and create a secure file to store your private key in.
+Before you can deploy the contract to your Tanssi Appchain, you'll need to modify the Hardhat configuration file and create a secure file to store your private key in.
 
-You can modify the `hardhat.config.js` file to use either the Tanssi Dancebox demo EVM Appchain or your own Appchain:
+You can modify the `hardhat.config.js` file to use either the Tanssi Dancebox demo EVM Appchain or your own Tanssi Appchain:
 
 ```js
 // 1. Import the Ethers plugin required to interact with the contract
 require('@nomicfoundation/hardhat-ethers');
 
-// 2. Add your private key that is funded with tokens of your Appchain
+// 2. Add your private key that is funded with tokens of your Tanssi Appchain
 // This is for example purposes only - **never store your private keys in a JavaScript file**
 const privateKey = 'INSERT_PRIVATE_KEY';
 
@@ -122,7 +122,7 @@ module.exports = {
     // 4. Add the network specification for your Tanssi EVM Appchain
     dancebox: {
       url: '{{ networks.dancebox.rpc_url }}',
-      chainId: {{ networks.dancebox.chain_id }}, // Fill in the EVM ChainID for your Appchain
+      chainId: {{ networks.dancebox.chain_id }}, // Fill in the EVM ChainID for your Tanssi Appchain
       accounts: [privateKey]
     }
   }
@@ -172,7 +172,7 @@ You can now deploy the `Box.sol` contract using the `run` command and specifying
 npx hardhat run --network dancebox scripts/deploy.js
 ```
 
-If you're deploying to another Appchain, make sure that you specify the correct network. The network name needs to match how it's defined in `hardhat.config.js`.
+If you're deploying to another Tanssi Appchain, make sure that you specify the correct network. The network name needs to match how it's defined in `hardhat.config.js`.
 
 After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
@@ -182,7 +182,7 @@ Congratulations, your contract is live! Save the address, as you will use it to 
 
 ## Interacting with the Contract {: #interacting-with-the-contract }
 
-To interact with your newly deployed contract on your Appchain, you can launch the Hardhat `console` by running:
+To interact with your newly deployed contract on your Tanssi Appchain, you can launch the Hardhat `console` by running:
 
 ```sh
 npx hardhat console --network dancebox

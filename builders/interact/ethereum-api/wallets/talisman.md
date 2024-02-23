@@ -62,7 +62,7 @@ On the following screen, take the following steps:
 
 ## Configuring Talisman for Your EVM Appchain {: #configuring-talisman-for-your-evm-appchain }
 
-To configure Talisman for your EVM Appchain, open the Talisman extension and click on the **More Options** tab. Then, take the following steps: 
+To configure Talisman for your Tanssi EVM Appchain, open the Talisman extension and click on the **More Options** tab. Then, take the following steps: 
 
 1. Select **Settings**
 2. Check the **Enable testnets** box
@@ -70,20 +70,20 @@ To configure Talisman for your EVM Appchain, open the Talisman extension and cli
 
 ![Add Network in Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-6.webp)
 
-On the following page, you'll then be prompted to enter the network details for your Appchain. For demonstration purposes, the demo EVM Appchain is used here, but you can substitute these details for your own Appchain. To add your Appchain to Talisman, take the following steps: 
+On the following page, you'll then be prompted to enter the network details for your Tanssi Appchain. For demonstration purposes, the demo EVM Appchain is used here, but you can substitute these details for your own Tanssi Appchain. To add your Tanssi Appchain to Talisman, take the following steps: 
 
-1. Paste in the RPC URL of your Appchain. The demo EVM Appchain's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be autopopulated
-2. Paste in the block explorer URL of your Appchain. The demo EVM Appchain's block explorer URL is `https://tanssi-evmexplorer.netlify.app/`
+1. Paste in the RPC URL of your Tanssi Appchain. The demo EVM Appchain's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be autopopulated
+2. Paste in the block explorer URL of your Tanssi Appchain. The demo EVM Appchain's block explorer URL is `https://tanssi-evmexplorer.netlify.app/`
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
 
-![Add your Appchain Network Details](/images/builders/interact/ethereum-api/wallets/talisman/talisman-7.webp)
+![Add your Tanssi Appchain Network Details](/images/builders/interact/ethereum-api/wallets/talisman/talisman-7.webp)
 
 If you hold a balance of tokens in your newly created account for your Appchain, you'll see the balance in the Talisman dashboard. 
 
 ## Sending Assets on Your EVM Appchain {: #sending-assets-on-your-evm-appchain }
 
-To transfer the native token of your Appchain, take the following steps:
+To transfer the native token of your Tanssi Appchain, take the following steps:
 
 1. Click on the **Send** icon
 2. Click the desired **Send from** account
@@ -94,6 +94,6 @@ To transfer the native token of your Appchain, take the following steps:
 ![Send funds on your EVM Appchain](/images/builders/interact/ethereum-api/wallets/talisman/talisman-8.webp)
 
 
-This guide focused specifically on configuring Talisman to work with your EVM Appchain, but Talisman is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Talisman to work with Substrate-based chains.
+This guide focused specifically on configuring Talisman to work with your Tanssi EVM Appchain, but Talisman is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Talisman to work with Substrate-based chains.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

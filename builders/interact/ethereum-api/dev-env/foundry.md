@@ -7,7 +7,7 @@ description: Learn how to use Foundry, an Ethereum development environment, to c
 
 ## Introduction {: #introduction }
 
-[Foundry](https://github.com/foundry-rs/foundry){target=\_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi EVM Appchains, so it can be used to deploy and interact with smart contracts on your Appchain.
+[Foundry](https://github.com/foundry-rs/foundry){target=\_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi EVM Appchains, so it can be used to deploy and interact with smart contracts on your Tanssi Appchain.
 
 There are four tools that make up Foundry:  
 
@@ -16,7 +16,7 @@ There are four tools that make up Foundry:
 - **[Anvil](https://book.getfoundry.sh/anvil/){target=\_blank}** - a local TestNet node for development purposes that can fork preexisting networks
 - **[Chisel](https://book.getfoundry.sh/chisel/){target=\_blank}** - a Solidity REPL for quickly testing Solidity snippets
 
-This guide will cover how to use Foundry to compile, deploy, and debug Ethereum smart contracts on the demo EVM Appchain. You can follow the same steps to perform these actions on your EVM Appchain by replacing the RPC URL and Chain ID shown in the examples.
+This guide will cover how to use Foundry to compile, deploy, and debug Ethereum smart contracts on the demo EVM Appchain. You can follow the same steps to perform these actions on your Tanssi EVM Appchain by replacing the RPC URL and Chain ID shown in the examples.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -169,7 +169,7 @@ Congratulations, you have successfully deployed and interacted with a contract u
 
 As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil/){target=\_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM Appchain allows you to interact with live contracts deployed on the network.
 
-To fork the demo EVM Appchain from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your EVM Appchain.
+To fork the demo EVM Appchain from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your Tanssi EVM Appchain.
 
 ```bash
 anvil --fork-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
@@ -187,7 +187,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 If you convert the `result` from [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html){target=\_blank}, you should get the latest block number from the time you forked the network.
 
-From here, you can deploy new contracts to your forked instance of the demo EVM Appchain (or any other EVM Appchain) or interact with contracts already deployed. Building off of the previous example in this guide, you can make a call using Cast to check the balance of the minted MYTOK tokens in the account you deployed the contract with:
+From here, you can deploy new contracts to your forked instance of the demo EVM Appchain (or any other Tanssi EVM Appchain) or interact with contracts already deployed. Building off of the previous example in this guide, you can make a call using Cast to check the balance of the minted MYTOK tokens in the account you deployed the contract with:
 
 ```bash
 cast call INSERT_CONTRACT_ADDRESS  "balanceOf(address)(uint256)" \
@@ -374,6 +374,6 @@ npm run test
 
 Finally, while not necessary, it could be worthwhile to move all JavaScript scripts from the `scripts` folder into Foundry's `script` folder and delete the `scripts` folder so that you don't have two folders that serve the same purpose.
 
-Congratulations, you have successfully deployed and interacted with smart contracts on your EVM Appchain using Foundry! For more information, be sure to check out the [Foundry Book](https://book.getfoundry.sh/){target=\_blank}.
+Congratulations, you have successfully deployed and interacted with smart contracts on your Tanssi EVM Appchain using Foundry! For more information, be sure to check out the [Foundry Book](https://book.getfoundry.sh/){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

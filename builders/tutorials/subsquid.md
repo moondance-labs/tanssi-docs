@@ -20,15 +20,15 @@ To follow along with this tutorial, you'll need to have:
 - [Docker installed](https://docs.docker.com/get-docker/){target=\_blank}
 - [Docker Compose installed](https://docs.docker.com/compose/install/){target=\_blank}
 - An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page
-- An [ERC-20 token deployed](#deploy-an-erc20-with-hardhat) to your Appchain, unless you're using the ERC-20 token provided on the demo EVM Appchain
+- An [ERC-20 token deployed](#deploy-an-erc20-with-hardhat) to your Tanssi Appchain, unless you're using the ERC-20 token provided on the demo EVM Appchain
 
 --8<-- 'text/_common/general-js-tutorial-check.md'
 
 ## Deploy an ERC-20 with Hardhat {: #deploy-an-erc20-with-hardhat }
 
-Before we can index anything with Subsquid we need to make sure we have something to index! This section will walk through deploying an ERC-20 token to your Appchain so you can get started indexing it. However, you can feel free to skip to [Create a Subsquid Project](#create-a-subsquid-project) if either of the two scenarios apply:
+Before we can index anything with Subsquid we need to make sure we have something to index! This section will walk through deploying an ERC-20 token to your Tanssi Appchain so you can get started indexing it. However, you can feel free to skip to [Create a Subsquid Project](#create-a-subsquid-project) if either of the two scenarios apply:
 
-- You have already deployed an ERC-20 token to your Appchain (and made several transfers)
+- You have already deployed an ERC-20 token to your Tanssi Appchain (and made several transfers)
 - You would prefer to use an existing ERC-20 token deployed to the demo EVM Appchain (of which there are already several transfer events)
 
 If you'd like to use an existing ERC-20 token on the demo EVM Appchain, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
@@ -49,7 +49,7 @@ Before we dive into creating our project, let's install a couple of dependencies
     yarn add @nomicfoundation/hardhat-ethers ethers @openzeppelin/contracts
     ```
 
-Now we can edit `hardhat.config.js` to include the following network and account configurations for our Appchain. You can replace the demo EVM Appchain values with the respective parameters for your own EVM Appchain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
+Now we can edit `hardhat.config.js` to include the following network and account configurations for our Tanssi Appchain. You can replace the demo EVM Appchain values with the respective parameters for your own Tanssi EVM Appchain which can be found at [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
 
 ???+ code "hardhat.config.js"
 
@@ -228,7 +228,7 @@ Open up the `src` folder and head to the `processor.ts` file. First, we need to 
 export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
 ```
 
-The `.toLowerCase()` is critical because the Subsquid processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. Subsquid has [available archives for many chains](https://docs.subsquid.io/evm-indexing/supported-networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your Appchain has a hosted archive already. But not to worry, Subsquid can easily get the data it needs via your Appchain's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
+The `.toLowerCase()` is critical because the Subsquid processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. Subsquid has [available archives for many chains](https://docs.subsquid.io/evm-indexing/supported-networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your Tanssi Appchain has a hosted archive already. But not to worry, Subsquid can easily get the data it needs via your Tanssi Appchain's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
 
 ```ts
 .setDataSource({
@@ -241,7 +241,7 @@ The `.toLowerCase()` is critical because the Subsquid processor is case-sensitiv
 })
 ```
 
-The Squid template comes with a variable for your RPC URL defined in your `.env` file. You can replace that with the RPC URL for your Appchain. For demonstration purposes, the RPC URL for the demo EVM Appchain is hardcoded directly, as shown above. If you're setting the RPC URL in your `.env`, the respective line will look like this:
+The Squid template comes with a variable for your RPC URL defined in your `.env` file. You can replace that with the RPC URL for your Tanssi Appchain. For demonstration purposes, the RPC URL for the demo EVM Appchain is hardcoded directly, as shown above. If you're setting the RPC URL in your `.env`, the respective line will look like this:
 
 ```text
 RPC_ENDPOINT={{ networks.dancebox.rpc_url }}
@@ -265,7 +265,7 @@ Block range is an important value to modify to narrow the scope of the blocks yo
 .setBlockRange({from: 632400,})
 ```
 
-The chosen start block here corresponds to the relevant block to begin indexing on the demo EVM Appchain, but you should change it to one relevant to your Appchain and indexer project.
+The chosen start block here corresponds to the relevant block to begin indexing on the demo EVM Appchain, but you should change it to one relevant to your Tanssi Appchain and indexer project.
 
 Change the `setFields` section to specify the following data for our processor to ingest:
 

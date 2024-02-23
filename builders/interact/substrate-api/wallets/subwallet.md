@@ -60,21 +60,21 @@ If you have a balance of Dancebox tokens, you'll see your account balance on the
 
 ## Connecting SubWallet to Your Substrate Appchain {: #connecting-Subwallet-to-your-substrate-appchain }
 
-To configure SubWallet for your Substrate Appchain, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Appchain. For demonstration purposes, the Tanssi Dancebox Parachain is used here, but you can substitute these details for your own Appchain. To add your Appchain to SubWallet, take the following steps:
+To configure SubWallet for your Substrate Appchain, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi Appchain. For demonstration purposes, the Tanssi Dancebox Parachain is used here, but you can substitute these details for your own Tanssi Appchain. To add your Tanssi Appchain to SubWallet, take the following steps:
 
-1. Paste in the WSS URL of your Appchain. Other parameters like the parachain ID and token decimals may be auto-populated
-2. Provide a name for your Appchain
+1. Paste in the WSS URL of your Tanssi Appchain. Other parameters like the parachain ID and token decimals may be auto-populated
+2. Provide a name for your Tanssi Appchain
 3. Press **Save**
 
 ![Add Network in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-8.webp)
 
 ## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
 
-To connect your Substrate Appchain to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your Appchain by clicking on the network dropdown and filling in the WSS endpoint of your Appchain in the **custom endpoint** field.
+To connect your Tanssi Substrate Appchain to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your Tanssi Appchain by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi Appchain in the **custom endpoint** field.
 
 ![Connect to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-9.webp)
 
-The SubWallet extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the SubWallet extension and click on the **Connected** icon next to your account at the top. To configure SubWallet to correctly interface with your Appchain on Polkadot.js Apps, you should take the following steps:
+The SubWallet extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the SubWallet extension and click on the **Connected** icon next to your account at the top. To configure SubWallet to correctly interface with your Tanssi Appchain on Polkadot.js Apps, you should take the following steps:
 
 1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
 2. Press **Connect**
@@ -105,6 +105,6 @@ You can also send a transaction through the Substrate API directly from the SubW
 
 ![Send funds through Substrate API directly in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-12.webp)
 
-This guide focused specifically on configuring SubWallet to work with your Substrate Appchain, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your EVM Appchain](/builders/interact/ethereum-api/wallets/subwallet){target=\_blank}.
+This guide focused specifically on configuring SubWallet to work with your Tanssi Substrate Appchain, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your Tanssi EVM Appchain](/builders/interact/ethereum-api/wallets/subwallet){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

@@ -26,7 +26,7 @@ npm install @substrate/api-sidecar@{{ networks.dancebox.substrate_api_sidecar.st
 !!! note
     If the current folder does not already have a Node.js project structure, you need to manually created the `node_modules` directory by typing `mkdir node_modules`.
 
-Substrate API Sidecar v{{ networks.dancebox.substrate_api_sidecar.stable_version }} is the current stable version that has been tested to work with Appchains. You can verify the installation was successful by typing from the installation directory root:
+Substrate API Sidecar v{{ networks.dancebox.substrate_api_sidecar.stable_version }} is the current stable version that has been tested to work with Tanssi Appchains. You can verify the installation was successful by typing from the installation directory root:
 
 ```bash
 node_modules/.bin/substrate-api-sidecar --version
@@ -34,7 +34,7 @@ node_modules/.bin/substrate-api-sidecar --version
 
 ## Setting up the Substrate API Sidecar {: #setting-up-the-substrate-api-sidecar }
 
-In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network you want to connect to. For example, the WSS endpoint of your Appchain. Some examples:
+In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network you want to connect to. For example, the WSS endpoint of your Tanssi Appchain. Some examples:
 
 === "Dancebox"
 
@@ -122,7 +122,7 @@ Consequently, information from specific extrinsics (like balance transfers) can 
 
 ## EVM Field Mapping in Block JSON Object {: #evm-fields-mapping-in-block-json-object }
 
-For EVM Appchains, the information related to EVM execution of each EVM Appchain transaction can be identified by the `method` field under the current extrinsic object, where it is set to:
+For Tanssi EVM Appchains, the information related to EVM execution of each Tanssi EVM Appchain transaction can be identified by the `method` field under the current extrinsic object, where it is set to:
 
 ```text
 {extrinsic_number}.method.pallet = "ethereum"
@@ -166,7 +166,7 @@ extrinsics[extrinsic_number]
 
 ### EVM Transaction Types and Payload {: #transaction-types-and-payload }
 
-EVM Appchains currently support three transaction standards: `legacy`, `eip1559`, and `eip2930`. These correspond to the `transaction type` field in the above JSON object diagram. For each transaction type, the transaction payload contains the following fields:
+Tanssi EVM Appchains currently support three transaction standards: `legacy`, `eip1559`, and `eip2930`. These correspond to the `transaction type` field in the above JSON object diagram. For each transaction type, the transaction payload contains the following fields:
 
 === "EIP1559"
 
@@ -290,11 +290,11 @@ A successfully executed EVM transaction will return either `succeed: "Stopped"` 
 
 ## Monitor Token Balance Transfers {: #monitor-transfers }
 
-The following code samples will demonstrate how to listen to both native token transfers, sent via Substrate or Ethereum API, and ERC-20 token transfers sent via the Ethereum API, using Substrate API Sidecar. Transfers via the Ethereum API are only applicable to EVM Appchains.
+The following code samples will demonstrate how to listen to both native token transfers, sent via Substrate or Ethereum API, and ERC-20 token transfers sent via the Ethereum API, using Substrate API Sidecar. Transfers via the Ethereum API are only applicable to Tanssi EVM Appchains.
 
 ### Native Token Transfers { #native-token-transfers }
 
-Both Tanssi, non-EVM Appchains and EVM Appchains can perform Substrate-based native token balance transfers.
+Both Tanssi non-EVM Appchains and EVM Appchains can perform Substrate-based native token balance transfers.
 
 The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=\_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash` and `transaction status` of native token transfers at both the EVM and Substrate API level.
 
@@ -304,7 +304,7 @@ The following code snippet uses the Axios HTTP client to query the Sidecar endpo
 
 ### ERC-20 Token Transfers {: #erc-20-token-transfers }
 
-Events emitted by smart contracts such as an ERC-20 token contract deployed on EVM Appchains can be decoded from Sidecar block JSON objects. The nesting structure is as following:
+Events emitted by smart contracts such as an ERC-20 token contract deployed on Tanssi EVM Appchains can be decoded from Sidecar block JSON objects. The nesting structure is as following:
 
 ```text
 RESPONSE JSON Block Object:
@@ -354,7 +354,7 @@ Other events emitted by EVM smart contracts can be decoded in a similar fashion,
 
 ## Substrate API Transaction Fees {: #substrate-api-transaction-fees }
 
-For Tanssi, non-EVM Continaer chains and EVM Appchains, all the information around fee data for transactions sent via the Substrate API can be extracted from the following block endpoint:
+For Tanssi non-EVM Appchains and EVM Appchains, all the information around fee data for transactions sent via the Substrate API can be extracted from the following block endpoint:
 
 ```text
 GET /blocks/{blockId}
@@ -414,7 +414,7 @@ extrinsics[extrinsic_number].events[event_number].data[1]
 
 ## Ethereum API Transaction Fees {: #ethereum-api-transaction-fees }
 
-For EVM Appchains, users could also send funds via the Ethereum API. To calculate the fee incurred on transactions sent via the Ethereum API, the following formula can be used:
+For Tanssi EVM Appchains, users could also send funds via the Ethereum API. To calculate the fee incurred on transactions sent via the Ethereum API, the following formula can be used:
 
 === "EIP-1559"
 
@@ -441,7 +441,7 @@ The following sections describe in more detail each of the components needed to 
 
 ### Base Fee {: #base-fee}
 
-The `BaseFee` is the minimum amount charged to send a transaction and is a value set by the network itself. It was introduced in [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. EVM Appchains have a dynamic fee mechanism that aims to replicate the [EIP-1559 fee market mechanism](https://eips.ethereum.org/EIPS/eip-1559#specification){target=\_blank}, where the base fee is adjusted based on block congestion.
+The `BaseFee` is the minimum amount charged to send a transaction and is a value set by the network itself. It was introduced in [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. Tanssi EVM Appchains have a dynamic fee mechanism that aims to replicate the [EIP-1559 fee market mechanism](https://eips.ethereum.org/EIPS/eip-1559#specification){target=\_blank}, where the base fee is adjusted based on block congestion.
 
 For example, for the Dancebox EVM Appchain template the minimum gas price is `1 GWei`.
 
@@ -471,7 +471,7 @@ The relevant data will be stored in the `value` key of the JSON object. This val
 
 The `GasPrice` is used to specify the gas price of legacy transactions prior to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. The `MaxFeePerGas` and `MaxPriorityFeePerGas` were both introduced in EIP-1559 alongside the `BaseFee`. The `MaxFeePerGas` defines the maximum fee permitted to be paid per unit of gas and is the sum of the `BaseFee` and the `MaxPriorityFeePerGas`. The `MaxPriorityFeePerGas` is the maximum priority fee configured by the sender of a transaction that is used to incentive the prioritization of a transaction in a block.
 
-Although EVM Appchains are Ethereum-compatible, they are also Substrate-based chains at their core, and priorities work differently in Substrate than in Ethereum. In Substrate, transactions are not prioritized by gas price. To address this, EVM Appchains uses a modified prioritization system that reprioritizes Substrate transactions using an Ethereum-first solution. A Substrate transaction still goes through the validity process, where it is assigned transaction tags, longevity, and a priority. The original priority is then overwritten with a new priority based on the transaction's fee per gas, which is derived from the transaction's tip and weight. If the transaction is an Ethereum transaction, the priority is set according to the priority fee.
+Although Tanssi EVM Appchains are Ethereum-compatible, they are also Substrate-based chains at their core, and priorities work differently in Substrate than in Ethereum. In Substrate, transactions are not prioritized by gas price. To address this, Tanssi EVM Appchains uses a modified prioritization system that reprioritizes Substrate transactions using an Ethereum-first solution. A Substrate transaction still goes through the validity process, where it is assigned transaction tags, longevity, and a priority. The original priority is then overwritten with a new priority based on the transaction's fee per gas, which is derived from the transaction's tip and weight. If the transaction is an Ethereum transaction, the priority is set according to the priority fee.
 
 It's important to note that priority is not the sole component responsible for determining the order of transactions in a block. Other components, such as the longevity of a transaction, also play a role in the sorting process.
 

@@ -7,7 +7,7 @@ description: Substrate is a modular blockchain framework that makes it easy to b
 
 ## Introduction {: #introduction }
 
-By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building an Appchain and accelerates the deployment and evolution into a Appchain. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules.
+By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building a Tanssi Appchain and accelerates the deployment and evolution into a Tanssi Appchain. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules.
 
 The example presented in the [Modularity](/learn/framework/modules/#custom-module-example){target=\_blank} article shows a simple lottery module exposing two transactions:
 
@@ -265,7 +265,7 @@ pub enum Event<T: Config> {
 
 ### Implementing Storage for State Persistence {: #implementing-storage }
 
-The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of an Appchain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=\_blank}.
+The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of a Tanssi Appchain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=\_blank}.
 
 In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=\_blank}). This can be initialized as follows:
 
@@ -337,6 +337,6 @@ construct_runtime!(
 )
 ```
 
-With everything set, the Appchain now has support for a basic implementation of a lottery.
+With everything set, the Tanssi Appchain now has support for a basic implementation of a lottery.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

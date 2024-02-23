@@ -7,7 +7,7 @@ description: This guide walks you through how to connect Talisman, a Polkadot, S
 
 ## Introduction {: #introduction }
 
-Developers and users of Tanssi Substrate Appchains have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your EVM Appchain](/builders/interact/ethereum-api/wallets/talisman){target=\_blank}. 
+Developers and users of Tanssi Substrate Appchains have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM Appchain](/builders/interact/ethereum-api/wallets/talisman){target=\_blank}. 
 
 Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet-extension/){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz/){target=\_blank}
 
@@ -76,7 +76,7 @@ If you have a balance of Dancebox tokens, you'll see your account balance on the
 
 ## Connecting Talisman to Your Substrate Appchain {: #connecting-talisman-to-your-substrate-appchain }
 
-To configure Talisman for your Substrate Appchain, open the Talisman extension and click on the **More Options** tab. Click on **Settings** > **Networks & Tokens** > **Manage Networks**.
+To configure Talisman for your Tanssi Substrate Appchain, open the Talisman extension and click on the **More Options** tab. Click on **Settings** > **Networks & Tokens** > **Manage Networks**.
 
 1. Slide the network slider to **Polkadot**
 2. Check the **Enable testnets** box
@@ -84,22 +84,22 @@ To configure Talisman for your Substrate Appchain, open the Talisman extension a
 
 ![Add Network in Talisman](/images/builders/interact/substrate-api/wallets/talisman/talisman-7.webp)
 
-On the following page, you'll then be prompted to enter the network details for your Appchain. For demonstration purposes, the Dancebox TestNet is used here, but you can substitute these details for your own Appchain. To add your Appchain to Talisman, take the following steps: 
+On the following page, you'll then be prompted to enter the network details for your Tanssi Appchain. For demonstration purposes, the Dancebox TestNet is used here, but you can substitute these details for your own Tanssi Appchain. To add your Tanssi Appchain to Talisman, take the following steps: 
 
-1. Paste in the RPC URL of your Appchain. Other parameters will be autopopulated
-2. Optionally, enter the block explorer URL of your Appchain, if applicable
+1. Paste in the RPC URL of your Tanssi Appchain. Other parameters will be autopopulated
+2. Optionally, enter the block explorer URL of your Tanssi Appchain, if applicable
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
 
-![Add your Appchain Network Details](/images/builders/interact/substrate-api/wallets/talisman/talisman-8.webp)
+![Add your Tanssi Appchain Network Details](/images/builders/interact/substrate-api/wallets/talisman/talisman-8.webp)
 
 ## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
 
-To connect your Substrate Appchain to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your Appchain by clicking on the network dropdown and filling in the WSS endpoint of your Appchain in the **custom endpoint** field.
+To connect your Tanssi Substrate Appchain to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your Tanssi Appchain by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi Appchain in the **custom endpoint** field.
 
 ![Connect to Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-9.webp)
 
-The Talisman extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the Talisman extension and click on the **polkadot.js.org** heading at the top. To configure Talisman to correctly interface with your Appchain on Polkadot.js Apps, you should take the following steps:
+The Talisman extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the Talisman extension and click on the **polkadot.js.org** heading at the top. To configure Talisman to correctly interface with your Tanssi Appchain on Polkadot.js Apps, you should take the following steps:
 
 1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
 2. Press **Connect 1**. The value will change depending on the number of accounts you are connecting
@@ -121,6 +121,6 @@ To send a transaction through the Substrate API, click **Send** next to your acc
 ![Send funds through Substrate API with Polkadot.js Apps](/images/builders/interact/substrate-api/wallets/talisman/talisman-11.webp)
 
 
-This guide focused specifically on configuring Talisman to work with your Substrate Appchain, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your EVM Appchain](/builders/interact/ethereum-api/wallets/talisman){target=\_blank}. 
+This guide focused specifically on configuring Talisman to work with your Tanssi Substrate Appchain, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your Tanssi EVM Appchain](/builders/interact/ethereum-api/wallets/talisman){target=\_blank}. 
 
 --8<-- 'text/_disclaimers/third-party-content.md'
