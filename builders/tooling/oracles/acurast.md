@@ -101,7 +101,7 @@ The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price i
 !!! warning
     This demo contract has a number of security vulnerabilities and lacks access control mechanisms, making it unsuitable for any real use. It was developed by the Acurast team for demonstration purposes only. 
 
-Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM Appchain. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
+Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM Appchain. Or, you can deploy it to the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/), and you can obtain testnet TANGO tokens from the [Tanssi faucet](https://apps.tanssi.network/demo){target=\_blank}. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
 
 ### Building the Acurast Script
 
