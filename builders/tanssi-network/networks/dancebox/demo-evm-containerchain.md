@@ -27,7 +27,7 @@ The demo EVM ContainerChain HTTPS and WSS endpoints are as follows:
 
 ## Faucet {: #faucet }
 
-You can access TANGO tokens at the faucet at [apps.tanssi.network/demo](https://apps.tanssi.network/demo){target=\_blank}. You can receive up to 100 TANGO tokens every 12 hours. Please do not spam the faucet with unnecessary requests. To request tokens from the faucet, head to [apps.tanssi.network/demo](https://apps.tanssi.network/demo){target=\_blank} and Press **Add to MetaMask**.
+You can access TANGO tokens at the faucet on the [Tanssi dApp](https://apps.tanssi.network/demo){target=\_blank}. You can receive up to 100 TANGO tokens every 12 hours. Please do not spam the faucet with unnecessary requests. To request tokens from the faucet, head to the [Tanssi dApp](https://apps.tanssi.network/demo){target=\_blank} and Press **Add to MetaMask**.
 
 ![Add to MetaMask](/images/builders/network/networks/dancebox/demo/demo-1.webp)
 
