@@ -27,6 +27,8 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 To get started, download and make executable the latest binary release by running the following command:
 
+--8<-- 'text/node-operators/optimized-binaries-note.md'
+
 === "Generic"
 
     ```bash
@@ -49,8 +51,6 @@ To get started, download and make executable the latest binary release by runnin
     mv ./tanssi-node-zen3 ./tanssi-node && \
     chmod +x ./tanssi-node
     ```
-
---8<-- 'text/node-operators/optimized-binaries-note.md'
 
 ## Download the Tanssi Orchestrator Specs File {: #download-relay-specs }
 
@@ -158,6 +158,7 @@ WantedBy=multi-user.target
 
 The flags used in the ExecStart command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
+- `--name INSERT_NAME` - a human-readable name for this node
 --8<-- 'text/node-operators/appchain-node/run-flags.md'
 
 ```bash
