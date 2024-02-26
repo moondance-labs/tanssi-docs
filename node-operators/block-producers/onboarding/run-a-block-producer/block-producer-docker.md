@@ -41,7 +41,7 @@ Note that the command contains three sections, divided by `-- \`:
 - **Block producer section** - it contains the flags to run the block producer node. It is abstract enough to be dynamically adapted in runtime to the specific chain the node will serve
 - **Relay chain section** - contains the flag to run the relay chain node
 
-Name each of the sections with a human-readable name by replacing the `YOUR_TANSSI_NODE_NAME`, `YOUR_BLOCK_PRODUCER_NODE_NAME`, and `YOUR_RELAY_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
+Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME`, `INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME`, and `INSERT_YOUR_RELAY_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
 !!! note
     For better performance, it is recommended that you run the optimized binary version for Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} architecture.
@@ -54,17 +54,17 @@ Name each of the sections with a human-readable name by replacing the `YOUR_TANS
     /chain-network/tanssi-node \
     --chain=/chain-network/dancebox-raw-specs.json \
     --rpc-port=9944 \
-    --name=YOUR_TANSSI_NODE_NAME \
+    --name=INSERT_YOUR_TANSSI_NODE_NAME \
     --base-path=/data/para \
     --state-pruning=2000 \
     --blocks-pruning=2000 \
     --collator \
     -- \
     --rpc-port=9946 \
-    --name=YOUR_BLOCK_PRODUCER_NODE_NAME \
+    --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
     --base-path=/data/container \
     -- \
-    --name=YOUR_RELAY_NODE_NAME \
+    --name=INSERT_YOUR_RELAY_NODE_NAME \
     --chain=/chain-network/westend-raw-specs.json \
     --rpc-port=9945 \
     --sync=fast \
@@ -81,17 +81,17 @@ Name each of the sections with a human-readable name by replacing the `YOUR_TANS
     /chain-network/tanssi-node-skylake \
     --chain=/chain-network/dancebox-raw-specs.json \
     --rpc-port=9944 \
-    --name=YOUR_TANSSI_NODE_NAME \
+    --name=INSERT_YOUR_TANSSI_NODE_NAME \
     --base-path=/data/para \
     --state-pruning=2000 \
     --blocks-pruning=2000 \
     --collator \
     -- \
     --rpc-port=9946 \
-    --name=YOUR_BLOCK_PRODUCER_NODE_NAME \
+    --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
     --base-path=/data/container \
     -- \
-    --name=YOUR_RELAY_NODE_NAME \
+    --name=INSERT_YOUR_RELAY_NODE_NAME \
     --chain=/chain-network/westend-raw-specs.json \
     --rpc-port=9945 \
     --sync=fast \
