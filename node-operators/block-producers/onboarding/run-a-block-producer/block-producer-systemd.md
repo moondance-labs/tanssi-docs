@@ -104,7 +104,7 @@ mv ./westend-alphanet-raw-specs.json /var/lib/tanssi-data && \
 mv ./dancebox-raw-specs.json /var/lib/tanssi-data
 ```
 
-### Create the Systemd Service configuration file {: #create-systemd-configuration }
+### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
 The next step is to create the Systemd configuration file. 
 
@@ -114,7 +114,7 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/tanssi.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service:
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_RELAY_NODE_NAME` tags with a human-readable text in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
 ```bash
 [Unit]
@@ -133,7 +133,7 @@ KillSignal=SIGHUP
 ExecStart=/var/lib/tanssi-data/tanssi-node \
 --chain=/var/lib/tanssi-data/dancebox-raw-specs.json \
 --rpc-port=9944 \
---name=tanssi-name \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --base-path=/var/lib/tanssi-data/para \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
@@ -143,7 +143,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --name=tanssi-appchain \
 --base-path=/var/lib/tanssi-data/container \
 -- \
---name=sequencer-name-relay \
+--name=INSERT_YOUR_RELAY_NODE_NAME \
 --chain=/var/lib/tanssi-data/westend-alphanet-raw-specs.json \
 --rpc-port=9945 \
 --sync=fast \
@@ -154,11 +154,11 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 [Install]
 WantedBy=multi-user.target
 ```
+
 ### Run Flags {: #run-flags }
 
 The flags used in the ExecStart command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
 --8<-- 'text/node-operators/appchain-node/run-flags.md'
 
 ```bash
