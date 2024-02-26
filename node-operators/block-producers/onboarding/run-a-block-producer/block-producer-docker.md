@@ -43,6 +43,9 @@ Note that the command contains three sections, divided by `-- \`:
 
 Name each of the sections with a human-readable name by replacing the `YOUR_TANSSI_NODE_NAME`, `YOUR_BLOCK_PRODUCER_NODE_NAME`, and `YOUR_RELAY_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
+!!! note
+    For better performance, it is recommended that you run the optimized binary versions for Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} architecture.
+
 === "Generic"
 
     ```bash
