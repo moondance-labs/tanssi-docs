@@ -41,30 +41,59 @@ Note that the command contains three sections, divided by `-- \`:
 - **Block producer section** - it contains the flags to run the block producer node. It is abstract enough to be dynamically adapted in runtime to the specific chain the node will serve
 - **Relay chain section** - contains the flag to run the relay chain node
 
-```bash
-docker run --network="host" -v "/var/lib/dancebox:/data" \
-moondancelabs/parachain-dancebox \
-/chain-network/tanssi-node \
---chain=/chain-network/dancebox-raw-specs.json \
---rpc-port=9944 \
---name=collator-name \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
--- \
---rpc-port=9946 \
---name=collator-name-container \
---base-path=/data/container \
--- \
---name=collator-name-relay \
---chain=/chain-network/westend-raw-specs.json \
---rpc-port=9945 \
---sync=fast \
---base-path=/data/relay \
---state-pruning=2000 \
---blocks-pruning=2000 \
-```
+=== "Generic"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    moondancelabs/parachain-dancebox \
+    /chain-network/tanssi-node \
+    --chain=/chain-network/dancebox-raw-specs.json \
+    --rpc-port=9944 \
+    --name=collator-name \
+    --base-path=/data/para \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    --collator \
+    -- \
+    --rpc-port=9946 \
+    --name=collator-name-container \
+    --base-path=/data/container \
+    -- \
+    --name=collator-name-relay \
+    --chain=/chain-network/westend-raw-specs.json \
+    --rpc-port=9945 \
+    --sync=fast \
+    --base-path=/data/relay \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    ```
+
+=== "Intel Skylake"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    moondancelabs/parachain-dancebox \
+    /chain-network/tanssi-node-skylake \
+    --chain=/chain-network/dancebox-raw-specs.json \
+    --rpc-port=9944 \
+    --name=collator-name \
+    --base-path=/data/para \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    --collator \
+    -- \
+    --rpc-port=9946 \
+    --name=collator-name-container \
+    --base-path=/data/container \
+    -- \
+    --name=collator-name-relay \
+    --chain=/chain-network/westend-raw-specs.json \
+    --rpc-port=9945 \
+    --sync=fast \
+    --base-path=/data/relay \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    ```
 
 ### Run Flags {: #run-flags }
 
