@@ -49,25 +49,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" moondancelabs/tanssi \
-    --chain=/chain-network/dancebox-raw-specs.json \
-    --rpc-port=9944 \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --base-path=/data/para \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
-    --collator \
-    -- \
-    --rpc-port=9946 \
-    --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
-    --base-path=/data/container \
-    -- \
-    --name=INSERT_YOUR_RELAY_NODE_NAME \
-    --chain=/chain-network/westend-raw-specs.json \
-    --rpc-port=9945 \
-    --sync=fast \
-    --base-path=/data/relay \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
+    --8<-- 'text/node-operators/block-producers/run-a-block-producer/docker-command.md'
     ```
 
 === "Intel Skylake"
@@ -76,25 +58,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi \
-    --chain=/chain-network/dancebox-raw-specs.json \
-    --rpc-port=9944 \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --base-path=/data/para \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
-    --collator \
-    -- \
-    --rpc-port=9946 \
-    --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
-    --base-path=/data/container \
-    -- \
-    --name=INSERT_YOUR_RELAY_NODE_NAME \
-    --chain=/chain-network/westend-raw-specs.json \
-    --rpc-port=9945 \
-    --sync=fast \
-    --base-path=/data/relay \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
+    --8<-- 'text/node-operators/block-producers/run-a-block-producer/docker-command.md'
     ```
 === "AMD Zen3"
 
@@ -102,25 +66,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi \
-    --chain=/chain-network/dancebox-raw-specs.json \
-    --rpc-port=9944 \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --base-path=/data/para \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
-    --collator \
-    -- \
-    --rpc-port=9946 \
-    --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
-    --base-path=/data/container \
-    -- \
-    --name=INSERT_YOUR_RELAY_NODE_NAME \
-    --chain=/chain-network/westend-raw-specs.json \
-    --rpc-port=9945 \
-    --sync=fast \
-    --base-path=/data/relay \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
+    --8<-- 'text/node-operators/block-producers/run-a-block-producer/docker-command.md'
     ```
 
 ### Run Flags {: #run-flags }
