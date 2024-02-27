@@ -57,53 +57,59 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 - `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi Appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network/){target=\_blank}. For example, `3001`
 --8<-- 'text/node-operators/appchain-node/bootnode-item.md'
 
+--8<-- 'text/node-operators/optimized-binaries-note.md'
+
 === "EVM-compatible Appchain"
 
-    ```bash
-    docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-    /chain-network/container-chain-template-frontier-node \
-    --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
-    --rpc-port=9944 \
-    --name=para \ 
-    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
-    -- \
-    --name=relay \
-    --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
-    --rpc-port=9945 \
-    --sync=fast \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
-    ```
+    === "Generic"
+
+        ```bash
+        docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+        /chain-network/container-chain-template-frontier-node \
+        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+        /chain-network/container-chain-template-frontier-node-skylake \
+        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+        /chain-network/container-chain-template-frontier-node-znver3 \
+        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        ```
 
 === "Simple Substrate Appchain"
     
-    ```bash
-    docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-    /chain-network/container-chain-template-simple-node \
-    --chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
-    --rpc-port=9944 \
-    --name=para \
-    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
-    -- \
-    --name=relay \
-    --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
-    --rpc-port=9945 \
-    --sync=fast \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
-    ```
+    === "Generic"
+
+        ```bash
+        docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
+        /chain-network/container-chain-template-simple-node \
+        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        ```
+
+    === "Intel Skylake"
+    
+        ```bash
+        docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
+        /chain-network/container-chain-template-simple-node-skylake \
+        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        ```
+    
+    === "AMD Zen3"
+    
+        ```bash
+        docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
+        /chain-network/container-chain-template-simple-node-znver3 \
+        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        ```
 
 !!! note
     Only the historical state of the last 256 finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
