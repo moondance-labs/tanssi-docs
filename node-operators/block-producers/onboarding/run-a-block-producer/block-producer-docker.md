@@ -43,15 +43,12 @@ Note that the command contains three sections, divided by `-- \`:
 
 Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME`, `INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME`, and `INSERT_YOUR_RELAY_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
-!!! note
-    For better performance, it is recommended that you run the optimized binary version for Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} architecture.
+--8<-- 'text/node-operators/optimized-binaries-note.md'
 
 === "Generic"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
-    moondancelabs/parachain-dancebox \
-    /chain-network/tanssi-node \
+    docker run --network="host" -v "/var/lib/dancebox:/data" moondancelabs/tanssi \
     --chain=/chain-network/dancebox-raw-specs.json \
     --rpc-port=9944 \
     --name=INSERT_YOUR_TANSSI_NODE_NAME \
@@ -77,8 +74,34 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
-    moondancelabs/parachain-dancebox \
-    /chain-network/tanssi-node-skylake \
+    --entrypoint "/tanssi/tanssi-node-skylake" \
+    moondancelabs/tanssi \
+    --chain=/chain-network/dancebox-raw-specs.json \
+    --rpc-port=9944 \
+    --name=INSERT_YOUR_TANSSI_NODE_NAME \
+    --base-path=/data/para \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    --collator \
+    -- \
+    --rpc-port=9946 \
+    --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    --base-path=/data/container \
+    -- \
+    --name=INSERT_YOUR_RELAY_NODE_NAME \
+    --chain=/chain-network/westend-raw-specs.json \
+    --rpc-port=9945 \
+    --sync=fast \
+    --base-path=/data/relay \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    ```
+=== "AMD Zen3"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    --entrypoint "/tanssi/tanssi-node-znver3" \
+    moondancelabs/tanssi \
     --chain=/chain-network/dancebox-raw-specs.json \
     --rpc-port=9944 \
     --name=INSERT_YOUR_TANSSI_NODE_NAME \
@@ -107,9 +130,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 --8<-- 'text/node-operators/appchain-node/run-flags.md'
 
 ```bash
-docker run -ti moondancelabs/parachain-dancebox \
-/chain-network/tanssi-node \
---help
+docker run -ti moondancelabs/tanssi --help
 ```
 
 ## Syncing Your Node {: #syncing-your-node }
