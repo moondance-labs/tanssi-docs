@@ -31,6 +31,19 @@ The command will download and extract the image and show the status upon executi
 
 --8<-- 'code/node-operators/block-producers/run-a-block-producer/block-producer-docker/terminal/pulling-docker-image.md'
 
+### Setup the Data Directory {: #setup-data-directory }
+
+Running a block producer requires syncing with three chains: the relay chain, the Tanssi chain, and the Appchain it has been assigned to.
+
+Run the following command to create the directory where your block producer will store the databases containing blocks and chain states:
+
+```bash
+mkdir /var/lib/dancebox
+```
+
+!!! note
+    The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
+
 ## Start-Up Command {: #start-up-command }
 
 To spin up your node, you must run the Docker image with the `docker run` command. 
