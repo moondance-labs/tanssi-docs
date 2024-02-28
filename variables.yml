@@ -6,6 +6,13 @@ networks:
     chain_id: 5678
     rpc_url: https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
     gas_to_weight: 25000
+    staking:
+      min_self_del:
+        dance: '10,000'
+        planck: 10000000000000000
+      staking_session_delay:
+        num: 2
+        display: 'two'
     oracles:
       phala:
         aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'

@@ -24,13 +24,13 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 1. Select the account from which you want to send the extrinsic. This account must be the same account that you are delegating to and is the account that you want to become a block producer
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
 3. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to become a block producer
-4. Choose the target pool. The auto-compounding pool
-5. Enter the amount to stake. This amount must meet the minimum, which is 10,000 DANCE tokens. You'll need to submit the value in Planck, so for 10,000, you'll need to enter `10000000000000000`
+4. Choose the target pool
+5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.staking.min_self_del.dance }} DANCE tokens. You'll need to submit the value in Planck, so for {{ networks.dancebox.staking.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.staking.min_self_del.planck }}`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to self-delegate on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-1.webp)
 
-After submitting your self-delegation, it will take a minimum of two sessions before you'll be eligible to produce blocks.
+After submitting your self-delegation, it will take a minimum of {{ networks.dancebox.staking.staking_session_delay.display }} sessions before you'll be able to join the staking pool.
 
 ## Map an Account to Your Block Producer Node {: #map-account }
 
