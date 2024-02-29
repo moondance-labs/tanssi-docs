@@ -113,7 +113,7 @@ Before executing the pending request, you'll need to retrieve the session at whi
 
 ![Query the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-4.webp)
 
-In the example in the above image, the delegate request to join the auto-compounding pool was submitted during session 4,929. So, the request can be executed starting at session 4,931.
+In the example in the above image, the delegate request to join the auto-compounding pool was submitted during session 4,829. So, the request can be executed starting at session 4,831.
 
 Take note of the operation and the session number at which you submitted the request, as you'll need both values to execute the pending request.
 
