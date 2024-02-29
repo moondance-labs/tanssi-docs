@@ -7,7 +7,7 @@ description: Learn how to set up and run a block producer (aka collator or seque
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/block-producers/run-a-block-producer/intro.md'
+--8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/intro.md'
 
 In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
@@ -29,7 +29,7 @@ docker pull moondancelabs/parachain-dancebox
 
 The command will download and extract the image and show the status upon execution:
 
---8<-- 'code/node-operators/block-producers/run-a-block-producer/block-producer-docker/terminal/pulling-docker-image.md'
+--8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/terminal/pulling-docker-image.md'
 
 ## Start-Up Command {: #start-up-command }
 
@@ -49,7 +49,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" moondancelabs/tanssi \
-    --8<-- 'text/node-operators/block-producers/run-a-block-producer/docker-command.md'
+    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
     ```
 
 === "Intel Skylake"
@@ -58,7 +58,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi \
-    --8<-- 'text/node-operators/block-producers/run-a-block-producer/docker-command.md'
+    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
     ```
 === "AMD Zen3"
 
@@ -66,7 +66,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi \
-    --8<-- 'text/node-operators/block-producers/run-a-block-producer/docker-command.md'
+    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
     ```
 
 ### Run Flags {: #run-flags }

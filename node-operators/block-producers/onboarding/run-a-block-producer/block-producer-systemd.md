@@ -7,7 +7,7 @@ description: Learn how to set up and run block producers (collators) for Tanssi 
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/block-producers/run-a-block-producer/intro.md'
+--8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/intro.md'
 
 In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io/){target=\_blank} on Linux systems.
 
