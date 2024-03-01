@@ -15,13 +15,11 @@ This tutorial will walk through a demo of [interacting with price feeds](#fetch-
 
 ## What is Acurast? {: #what-is-acurast }
 
-Acurast, the decentralized serverless cloud.
+Acurast is a decentralized, serverless cloud where everyone can become part of the cloud with their new, used, or even mobile phones with a smashed screen by providing compute power to the cloud and earning rewards. These so-called Processors are scattered across the globe, creating a distributed network of compute across the globe.
 
-The cloud is dominated by three main players, this centralization comes at a price: high cost of compute, exclusion of less developed parts of the world, and the hidden cost, loss of data ownership. Acurast is solving all three problems by bringing the convenience of a cloud - whilst giving users full confidentiality over their data - at a fraction of the cost.
+Giving developers complete permisionless access to compute that is trustless, affordable and confidential for deploying their applications like price feed oracles.
 
-To truly disrupt, when competing against giants, one cannot play by the same rules, neither use same tools to win.
-
-That's exactly why Acurast does not build on expensive server hardware but leverages the champion that every of us have in their pocket - the smartphone. They are not only powerful and have a much lower acquisition cost - but are also extremely energy efficient and excel at compute per Watt; Bringing an energy cost reduction of over 50X compared to a server.
+Processors and developers seamlessly interact through the [Acurast Console](https://console.acurast.com/){target=\_blank} with the Acurast protocol.
 
 ## Fetch Price Data {: #fetch-price-data }
 
