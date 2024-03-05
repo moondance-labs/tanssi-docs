@@ -41,6 +41,18 @@ Run the following command to create the directory where your block producer will
 mkdir /var/lib/dancebox
 ```
 
+Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
+
+```bash
+chown INSERT_DOCKER_USER /var/lib/dancebox
+```
+
+Or run the following command if you want to run the block producer with the current logged-in user:
+
+```bash
+sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
+```
+
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
 
