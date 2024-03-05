@@ -22,12 +22,16 @@ By following the steps outlined in this guide, you'll learn everything you need 
 When establishing eligibility to produce blocks, there are a couple of variables to be aware of:
 
 - **Minimum self-delegation** - there is a minimum amount you must self-delegate to be considered eligible
-- **Number of active candidates** - the top candidates by stake that can actively produce blocks
+- **Session** - a period that has a constant set of block producers
+- **Tanssi block producers per session** - the number of block producers assigned to Tanssi per session
+- **Appchain block producers per session** - the number of block producers assigned to a Tanssi Appchain per session
 
-|          Variable           |                          Value                           |
-|:---------------------------:|:--------------------------------------------------------:|
-|   Minimum self-delegation   | {{ networks.dancebox.staking.min_self_del.dance }} DANCE |
-| Number of active candidates | {{ networks.dancebox.staking.top_eligible_candidates }}  |
+|               Variable               |                                                              Value                                                               |
+|:------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------:|
+|       Minimum self-delegation        |                                 {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE                                 |
+|               Session                |                                          {{ networks.dancebox.session.blocks }} blocks                                           |
+|  Tanssi block producers per session  | {{ networks.dancebox.block_producers.tanssi.min.num }} to {{ networks.dancebox.block_producers.tanssi.max.num }} block producers |
+| Appchain block producers per session |                               {{ networks.dancebox.block_producers.appchain.num }} block producers                               |
 
 ## Map an Account to Your Block Producer Node {: #map-account }
 
@@ -82,11 +86,11 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 ## Submit Self-Delegation {: #submit-self-delegation }
 
-The next step towards becoming eligible to produce blocks on Tanssi and Tanssi Appchains is to delegate to your own account. To do this, you'll be required to submit a minimum of {{ networks.dancebox.staking.min_self_del.dance }} DANCE tokens.
-
-However, you must be in the top {{ networks.dancebox.staking.top_eligible_candidates }} candidates by total stake to produce blocks. So, if the candidate at position {{ networks.dancebox.staking.top_eligible_candidates }} has a total stake of more than {{ networks.dancebox.staking.min_self_del.dance }} DANCE, you'll need to ensure that your total stake is greater than theirs.
+The next step towards becoming eligible to produce blocks on Tanssi and Tanssi Appchains is to delegate to your own account. To do this, you'll be required to submit a minimum of {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
 
 After you've submitted the request to delegate, you'll need to wait for a minimum of {{ networks.dancebox.staking.staking_session_delay.sessions.display }} sessions before you can execute the pending request. There are {{ networks.dancebox.session.blocks }} blocks in a session. So, {{ networks.dancebox.staking.staking_session_delay.sessions.display }} sessions are {{ networks.dancebox.staking.staking_session_delay.blocks }} blocks, which can take around {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
+
+Block producers are assigned upon each session, requiring {{ networks.dancebox.block_producers.appchain.display }} per Appchain and a minimum of {{ networks.dancebox.block_producers.tanssi.min.display }} to {{ networks.dancebox.block_producers.tanssi.max.display }} for Tanssi. The block producers participating in the session are picked from the list of candidates ordered by total stake until the total number of block producers required is covered. So, you'll need to ensure that your total stake is enough to fill one of the slots, which may require more than {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
 
 ### Request Delegate {: #request-delegate }
 
@@ -96,7 +100,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
 3. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to become a block producer
 4. Choose the target pool. The pool can either be the auto-compounding pool, which auto-compounds delegation rewards, or the manual rewards pool, in which all actions related to rewards are manual
-5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.staking.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.staking.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.staking.min_self_del.planck }}`
+5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to self-delegate on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-3.webp)
@@ -149,4 +153,4 @@ If you've followed all of the steps in this guide and have fully synced your blo
 
 ![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-7.webp)
 
-Remember that you'll need to be in the top {{ networks.dancebox.staking.top_eligible_candidates }} candidates by total stake to produce blocks.
+Remember that you'll need to be in the top candidates by total stake to produce blocks, and this is based on the number of [block producers required for each Appchain and Tanssi](#important-variables).

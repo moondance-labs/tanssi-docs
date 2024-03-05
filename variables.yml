@@ -8,11 +8,22 @@ networks:
     gas_to_weight: 25000
     session:
       blocks: 300
-      hours: 1
-    staking:
+      hours: 1      
+    block_producers:
+      appchain: 
+        num: 2
+        display: 'two'
+      tanssi:
+        min: 
+          num: 3
+          display: 'three'
+        max:
+          num: 5
+          display: 'five'
       min_self_del:
         dance: '10,000'
         planck: 10000000000000000
+    staking:
       staking_session_delay:
         sessions:
           num: 2
@@ -21,7 +32,6 @@ networks:
         hours: 
           num: 2
           display: 'two'
-      top_eligible_candidates: 100
     oracles:
       phala:
         aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'
