@@ -81,7 +81,7 @@ The configuration file accepts all of the following parameters:
 |        `timestamp`         |                                     Timestamp of the block to fork from.                                     |
 |         `endpoint`         |                                    The endpoint of the parachain to fork.                                    |
 |          `block`           |                       Use to specify at which block hash or number to replay the fork.                       |
-|      `wasm-override`       |             Path of the WASM to use as the parachain runtime instead of an endpoint's runtime.              |
+|      `wasm-override`       |              Path of the WASM to use as the parachain runtime instead of an endpoint's runtime.              |
 |            `db`            |               Path to the name of the file that stores or will store the parachain's database.               |
 |          `config`          |                                       Path or URL of the config file.                                        |
 |           `port`           |                                      The port to expose an endpoint on.                                      |
@@ -112,7 +112,6 @@ You can run the command `yarn start` to fork chains by specifying a local config
     --config=https://github.com/moondance-labs/chopsticks.git/master/configs/polkadot.yml
     ```
 
-
 All settings (except `genesis` and `timestamp`) can also be passed as flags to configure the environment completely in the command line. For example, the following command forks the demo EVM ContainerChain at block 100.
 
 ```bash
@@ -129,7 +128,7 @@ ws://localhost:8000
 
 You can interact with the parachain via libraries such as [Polkadot.js](https://github.com/polkadot-js/common){target=\_blank} and its [user interface, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}.
 
-![Polkadot Js](/images/builders/interact/substrate-api/chopsticks/chopsticks-1.png)
+![Polkadot Js](/images/builders/interact/substrate-api/chopsticks/chopsticks-1.webp)
 
 You should now be able to interact with the forked chain as you would with the real one.
 
@@ -144,7 +143,7 @@ If you would like to replay a block and retrieve its information to dissect the 
 |:--------------------------:|:--------------------------------------------------------------------------------------:|
 |         `endpoint`         |                         The endpoint of the parachain to fork.                         |
 |          `block`           |            Use to specify at which block hash or number to replay the fork.            |
-|      `wasm-override`       |  Path of the WASM to use as the parachain runtime instead of an endpoint's runtime.   |
+|      `wasm-override`       |   Path of the WASM to use as the parachain runtime instead of an endpoint's runtime.   |
 |            `db`            |    Path to the name of the file that stores or will store the parachain's database.    |
 |          `config`          |                            Path or URL of the config file.                             |
 | `output-path=/[file_path]` |   Use to print out results to a JSON file instead of printing it out in the console.   |
@@ -162,7 +161,7 @@ yarn start run-block  \
 
 ## WebSocket Commands {: #websocket-commands }
 
-Chopstick's internal WebSocket server has special endpoints that allow the manipulation of the local Substrate chain. 
+Chopstick's internal WebSocket server has special endpoints that allow the manipulation of the local Substrate chain.
 
 These are the methods that can be invoked and their parameters:
 
@@ -175,13 +174,13 @@ These are the methods that can be invoked and their parameters:
 
 ??? code "Parameters details"
 
-    |   Parameter       |               Format                |                                Example                                 |
-    |:-----------------:|:-----------------------------------:|:----------------------------------------------------------------------:|
-    |   `options`       | `{ "to": number, "count": number }` |                            `{ "count": 5 }`                            |
-    |    `values`       |              `Object`               | `{ "Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" } }`  |
-    |  `blockHash`      |              `string`               | `"0x1a34506b33e918a0106b100db027425a83681e2332fe311ee99d6156d2a91697"` |
-    |     `date`        |               `Date`                |                        `"2030-08-15T00:00:00"`                         |
-    | `hashOrNumber`    |         `number | string`           |                                                                        |
+    |   Parameter    |               Format                |                                Example                                 |
+    |:--------------:|:-----------------------------------:|:----------------------------------------------------------------------:|
+    |   `options`    | `{ "to": number, "count": number }` |                            `{ "count": 5 }`                            |
+    |    `values`    |              `Object`               | `{ "Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" } }`  |
+    |  `blockHash`   |              `string`               | `"0x1a34506b33e918a0106b100db027425a83681e2332fe311ee99d6156d2a91697"` |
+    |     `date`     |               `Date`                |                        `"2030-08-15T00:00:00"`                         |
+    | `hashOrNumber` |               `number               |                                string`                                 |
 
     - **`options` { "to": number, "count": number }** - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object  
     - **`values` Object** - a JSON object resembling the path to a storage value, similar to what you would retrieve via Polkadot.js  
