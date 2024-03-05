@@ -70,7 +70,7 @@ Another important piece of information that Tanssi stores is the latest header f
 
 ### The Role of the Appchain {: #appchain }
 
-As a collator node assigned to an Tanssi Appchain deployed in Tanssi has built-in Tanssi node functionality, it is technically feasible to read the state from the Tanssi network and the blocks from the relay chain.
+As a collator node assigned to a Tanssi Appchain deployed in Tanssi has built-in Tanssi node functionality, it is technically feasible to read the state from the Tanssi network and the blocks from the relay chain.
 
 Leveraging this ability to access the states, the current collator with the authority to produce a block will read the latest block produced in the relay chain, which contains the state root of the latest block produced in Tanssi. With this state root, it will proceed to read the state in Tanssi and include in the block of the Appchain the latest state root of the Tanssi network, the current set of collators assigned to the Appchain, and its public signature, allowing Tanssi to know who produced the block and reward the collator.
 
