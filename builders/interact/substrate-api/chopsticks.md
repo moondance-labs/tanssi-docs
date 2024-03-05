@@ -164,7 +164,7 @@ Chopstick's internal WebSocket server has special endpoints that allow the manip
 
 These are the methods that can be invoked and their parameters:
 
-??? function "**dev_newBlock** (options) — Generates one or more new blocks"
+???+ function "**dev_newBlock** (options) — Generates one or more new blocks"
 
     === "Parameters"
 
