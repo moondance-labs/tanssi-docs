@@ -173,10 +173,13 @@ These are the methods that can be invoked and their parameters:
     === "Example"
 
         ```js
-        { "count": 5 }
+        import { WsProvider } from '@polkadot/api'
+        const ws = new WsProvider(`ws://localhost:8000`)
+        // Creates five new blocks
+        await ws.send('dev_newBlock', [{ count: 5 }])
         ```
 
-??? function "**dev_setStorage** (values, blockHash) — Create or overwrite the value of any storage"
+??? function "**dev_setStorage** (values, blockHash) — Creates or overwrites the value of any storage"
 
     === "Parameters"
 
@@ -186,7 +189,12 @@ These are the methods that can be invoked and their parameters:
     === "Example"
 
         ```js
-        { "Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" } }
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Overwrites the sudo key
+        await ws.send('dev_setStorage', 
+            [{"Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" }}]
+        );
         ```
 
 ??? function "**dev_timeTravel** (date) — Sets the timestamp of the block to the date value"
@@ -198,7 +206,10 @@ These are the methods that can be invoked and their parameters:
     === "Example"
 
         ```js
-        "2030-08-15T00:00:00"
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Sets the timestamp of the block to 15th August 2030
+        await ws.send('dev_timeTravel', ["2030-08-15T00:00:00"]);
         ```
 
 ??? function "**dev_setHead** (hashOrNumber) — Sets the head of the blockchain to a specific hash or number"
@@ -210,7 +221,10 @@ These are the methods that can be invoked and their parameters:
     === "Example"
 
         ```js
-        500
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Sets the head to block number 500
+        await ws.send('dev_setHead', [500]);
         ```
 
 Each method can be invoked by connecting to the WebSocket (`ws://localhost:8000` by default) and sending the data and parameters in the following format. Replace `METHOD_NAME` with the method's name, and replace or delete `PARAMETER_1` and `PARAMETER_2` with the parameter data relevant to the method:  
