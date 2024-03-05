@@ -12,7 +12,7 @@ Appchains deployed through Tanssi are essentially parachains within the Polkadot
 As presented in the [Included Templates](/learn/tanssi/included-templates#baseline-appchain-template){target=\_blank} from the Learn section, Tanssi already provides two templates to jumpstart the development process:
 
 - **[Baseline Tanssi Appchain template](/learn/tanssi/included-templates/#baseline-appchain-template){target=\_blank}** - a template that provides the basic platform to start adding custom logic in a Substrate-based Tanssi Appchain
-- **[Baseline EVM (Ethereum Virtual Machine) Tanssi Appchain template](/learn/tanssi/included-templates/#baseline-evm-template){target=\_blank}** - a template that provides full Ethereum compatibility
+- **[Baseline Tanssi EVM (Ethereum Virtual Machine) Appchain template](/learn/tanssi/included-templates/#baseline-evm-template){target=\_blank}** - a template that provides full Ethereum compatibility
 
 In this article, the required base setup and how to use the templates as a starting point to start building your Tanssi Appchain are presented.
 
