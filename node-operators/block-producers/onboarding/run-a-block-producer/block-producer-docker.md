@@ -24,12 +24,37 @@ A Docker image combines the binary corresponding to the latest stable release of
 The following command to pull the Docker image:
 
 ```bash
-docker pull moondancelabs/parachain-dancebox
+docker pull moondancelabs/tanssi
 ```
 
 The command will download and extract the image and show the status upon execution:
 
 --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/terminal/pulling-docker-image.md'
+
+### Setup the Data Directory {: #setup-data-directory }
+
+Running a block producer requires syncing with three chains: the relay chain, the Tanssi chain, and the Appchain it has been assigned to.
+
+Run the following command to create the directory where your block producer will store the databases containing blocks and chain states:
+
+```bash
+mkdir /var/lib/dancebox
+```
+
+Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
+
+```bash
+chown INSERT_DOCKER_USER /var/lib/dancebox
+```
+
+Or run the following command if you want to run the block producer with the current logged-in user:
+
+```bash
+sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
+```
+
+!!! note
+    The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
 
 ## Start-Up Command {: #start-up-command }
 
@@ -48,7 +73,9 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 === "Generic"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" moondancelabs/tanssi \
+    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    moondancelabs/tanssi \
     --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
     ```
 
@@ -56,6 +83,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi \
     --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
@@ -64,6 +92,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi \
     --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'

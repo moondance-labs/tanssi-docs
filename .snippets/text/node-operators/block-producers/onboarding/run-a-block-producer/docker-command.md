@@ -1,4 +1,4 @@
---chain=/chain-network/dancebox-raw-specs.json \
+--chain=dancebox \
 --rpc-port=9944 \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --base-path=/data/para \
@@ -11,7 +11,7 @@
 --base-path=/data/container \
 -- \
 --name=INSERT_YOUR_RELAY_NODE_NAME \
---chain=/chain-network/westend-raw-specs.json \
+--chain=westend_moonbase_relay_testnet \
 --rpc-port=9945 \
 --sync=fast \
 --base-path=/data/relay \
