@@ -20,7 +20,7 @@ In this article, the required base setup and how to use the templates as a start
 
 The [Substrate framework](/learn/framework/overview/#substrate-framework){target=\_blank}, included in the Polkadot SDK, already provides out-of-the-box support for the basic functionalities every blockchain needs (such as networking, consensus, and so forth), allowing developers to build new solo chains while focusing on the runtime (state transition function) logic.
 
-To seamlessly integrate a new Tanssi  Appchain into the Polkadot ecosystem, converting a solo chain into a Tanssi Appchain, the Polkadot SDK also includes [Cumulus](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus){target=\_blank}, an extension library to make it easy.
+To seamlessly integrate a new Tanssi Appchain into the Polkadot ecosystem, converting a solo chain into a Tanssi Appchain, the Polkadot SDK also includes [Cumulus](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus){target=\_blank}, an extension library to make it easy.
 
 Parachains are expected to handle their block production through their own set of collators and expose interfaces to communicate with the relay chain. This allows their state transition to be validated, thus benefiting from the shared security model, to send and receive messages to and from other Parachains, and to manage other aspects, such as:
 
