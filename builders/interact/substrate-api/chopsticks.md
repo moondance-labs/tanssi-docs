@@ -164,11 +164,11 @@ Chopstick's internal WebSocket server has special endpoints that allow the manip
 
 These are the methods that can be invoked and their parameters:
 
-??? code "**dev_newBlock** (options) — Generates one or more new blocks"
+??? function "**dev_newBlock** (options) — Generates one or more new blocks"
 
     === "Parameters"
 
-        - **options** - { "to": number, "count": number } - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object
+        - **options** - `{ "to": number, "count": number }` - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object
 
     === "Example"
 
@@ -176,7 +176,7 @@ These are the methods that can be invoked and their parameters:
         { "count": 5 }
         ```
 
-??? code "**dev_setStorage** (values, blockHash) — Create or overwrite the value of any storage"
+??? function "**dev_setStorage** (values, blockHash) — Create or overwrite the value of any storage"
 
     === "Parameters"
 
@@ -189,7 +189,7 @@ These are the methods that can be invoked and their parameters:
         { "Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" } }
         ```
 
-??? code "**dev_timeTravel** (date) — Sets the timestamp of the block to the date value"
+??? function "**dev_timeTravel** (date) — Sets the timestamp of the block to the date value"
 
     === "Parameters"
 
@@ -201,7 +201,7 @@ These are the methods that can be invoked and their parameters:
         "2030-08-15T00:00:00"
         ```
 
-??? code "**dev_setHead** (hashOrNumber) — Sets the head of the blockchain to a specific hash or number"
+??? function "**dev_setHead** (hashOrNumber) — Sets the head of the blockchain to a specific hash or number"
 
     === "Parameters"
 
