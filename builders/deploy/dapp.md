@@ -109,7 +109,7 @@ To get started, select the **Substrate** template from the left-side menu. Then 
 
 ### Custom {: #custom }
 
-If you already have a Substrate runtime built and have chosen to upload your own custom specification file, there are some requirements to be aware of that are necessary to ensure the runtime can evolve into a Tanssi  Appchain on Tanssi and run properly within the Polkadot ecosystem.
+If you already have a Substrate runtime built and have chosen to upload your own custom specification file, there are some requirements to be aware of that are necessary to ensure the runtime can evolve into an Appchain on Tanssi and run properly within the Polkadot ecosystem.
 
 Your runtime must implement the following:
 
