@@ -87,7 +87,7 @@ Once the contract is deployed, you can interact with it from within Remix. To fa
 
 ![Interact with the contract from Remix](/images/builders/interact/ethereum-api/dev-environments/remix/remix-9.webp)
 
-## Interacting with an ERC-20 on Your Appchain from MetaMask {: #interacting-with-an-erc-20-on-your-Appchain-from-metamask }
+## Interacting with an ERC-20 on Your Appchain from MetaMask {: #interacting-with-an-erc-20-on-your-appchain-from-metamask }
 
 Now, open MetaMask to add the newly deployed ERC-20 tokens. Make sure you are connected to the account that deployed the token contract. Additionally, make sure you have copied the contract's address from Remix.
 
