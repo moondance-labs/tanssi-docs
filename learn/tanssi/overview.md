@@ -37,7 +37,7 @@ In summary, Appchains deployed through Tanssi are Layer 1 solutions designed to 
 
 ## General Architecture of Tanssi & Appchains {: #tanssi-architecture}
 
-As previously discussed, Appchains deployed through Tanssi (Appchains/ContainerChains) are customizable blockchains which, among other features, have block production as a service and inherit block finality (consensus) from Polkadot. Consequently, they act as Layer 1 blockchains like Moonbeam, not Layer 2 solutions on top of another Layer 1.
+As previously discussed, Appchains deployed through Tanssi are customizable blockchains which, among other features, have block production as a service and inherit block finality (consensus) from Polkadot. Consequently, they act as Layer 1 blockchains like Moonbeam, not Layer 2 solutions on top of another Layer 1.
 
 A high-level overview of what an Appchain looks like in the ecosystem is presented below.
 
