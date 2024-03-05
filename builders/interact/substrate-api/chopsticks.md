@@ -18,12 +18,10 @@ This article will cover using Chopsticks to fork and interact with the local cop
 
 ## Prerequisites {: #prerequisites }
 
-The original Chopsticks project supports the [Babe](https://docs.substrate.io/reference/glossary/#blind-assignment-of-blockchain-extension-babe){target=\_blank} and [Aura](https://docs.substrate.io/reference/glossary/#authority-round-aura){target=\_blank} block production algorithms. However, to ensure compatibility with the Tanssi block production as a service protocol, modifications have been made and published in a new [fork](https://github.com/moondance-labs/chopsticks.git){target=\_blank} of the original repository.
-
 To follow along with this tutorial, you will need to clone the repository along with its submodules([Smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
 
 ```bash
-git clone --recurse-submodules https://github.com/moondance-labs/chopsticks.git
+git clone --recurse-submodules https://github.com/AcalaNetwork/chopsticks.git
 ```
 
 Then, get into the folder and install the dependencies using [yarn](https://classic.yarnpkg.com/en/docs/install){target=\_blank}:
@@ -109,7 +107,7 @@ You can run the command `yarn start` to fork chains by specifying a local config
 
     ```bash
     yarn start \
-    --config=https://github.com/moondance-labs/chopsticks.git/master/configs/polkadot.yml
+    --config=https://github.com/AcalaNetwork/chopsticks.git/master/configs/polkadot.yml
     ```
 
 
@@ -166,38 +164,67 @@ Chopstick's internal WebSocket server has special endpoints that allow the manip
 
 These are the methods that can be invoked and their parameters:
 
-|      Method      |      Parameters       |                          Description                          |
-|:----------------:|:---------------------:|:-------------------------------------------------------------:|
-|  `dev_newBlock`  |       `options`       |               Generates one or more new blocks.               |
-| `dev_setStorage` | `values`, `blockHash` |         Create or overwrite the value of any storage.         |
-| `dev_timeTravel` |        `date`         |     Sets the timestamp of the block to the `date` value.      |
-|  `dev_setHead`   |    `hashOrNumber`     | Sets the head of the blockchain to a specific hash or number. |
+???+ function "**dev_newBlock** (options) — Generates one or more new blocks"
 
-??? code "Parameters details"
+    === "Parameters"
 
-    |   Parameter       |               Format                |                                Example                                 |
-    |:-----------------:|:-----------------------------------:|:----------------------------------------------------------------------:|
-    |   `options`       | `{ "to": number, "count": number }` |                            `{ "count": 5 }`                            |
-    |    `values`       |              `Object`               | `{ "Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" } }`  |
-    |  `blockHash`      |              `string`               | `"0x1a34506b33e918a0106b100db027425a83681e2332fe311ee99d6156d2a91697"` |
-    |     `date`        |               `Date`                |                        `"2030-08-15T00:00:00"`                         |
-    | `hashOrNumber`    |         `number | string`           |                                                                        |
+        - **options** - `{ "to": number, "count": number }` - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object
 
-    - **`options` { "to": number, "count": number }** - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object  
-    - **`values` Object** - a JSON object resembling the path to a storage value, similar to what you would retrieve via Polkadot.js  
-    - **`blockHash` string** - optional, the block hash at which the storage value is changed  
-    - **`date` Date** - a Date string (compatible with the JavaScript Date library) that will change the timestamp at which the next blocks being created will be. All future blocks will be sequentially created after that point in time  
-    - **`hashOrNumber` number | string** - if found, the chain head will be set to the block with the block number or block hash of this value  
+    === "Example"
 
-Each method can be invoked by connecting to the WebSocket (`ws://localhost:8000` by default) and sending the data and parameters in the following format. Replace `METHOD_NAME` with the method's name, and replace or delete `PARAMETER_1` and `PARAMETER_2` with the parameter data relevant to the method:  
+        ```js
+        import { WsProvider } from '@polkadot/api'
+        const ws = new WsProvider(`ws://localhost:8000`)
+        // Creates five new blocks
+        await ws.send('dev_newBlock', [{ count: 5 }])
+        ```
 
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "METHOD_NAME",
-    "params": ["PARAMETER_1", "PARAMETER_2", "..."]
-}
-```
+??? function "**dev_setStorage** (values, blockHash) — Creates or overwrites the value of any storage"
+
+    === "Parameters"
+
+         - **values** - Object - a JSON object resembling the path to a storage value, similar to what you would retrieve via Polkadot.js  
+        - **blockHash** - String - optional, the block hash at which the storage value is changed  
+        
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Overwrites the sudo key
+        await ws.send('dev_setStorage', 
+            [{"Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" }}]
+        );
+        ```
+
+??? function "**dev_timeTravel** (date) — Sets the timestamp of the block to the date value"
+
+    === "Parameters"
+
+         - **date** - Date - a string compatible with the JavaScript Date library that will change the timestamp at which the next blocks being created will be. All future blocks will be sequentially created after that point in time  
+
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Sets the timestamp of the block to 15th August 2030
+        await ws.send('dev_timeTravel', ["2030-08-15T00:00:00"]);
+        ```
+
+??? function "**dev_setHead** (hashOrNumber) — Sets the head of the blockchain to a specific hash or number"
+
+    === "Parameters"
+
+         - **hashOrNumber** - number | string - if found, the chain head will be set to the block with the block number or block hash of this value
+        
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Sets the head to block number 500
+        await ws.send('dev_setHead', [500]);
+        ```
 
 --8<-- 'text/_disclaimers/third-party-content.md'

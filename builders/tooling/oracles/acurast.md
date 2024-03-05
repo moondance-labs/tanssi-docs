@@ -35,10 +35,10 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ## Interacting with Price Feeds on the Tanssi Demo EVM Appchain {: #interacting-with-price-feeds-demo-evm-appchain }
 
-This tutorial will showcase interacting with a sample BTC/USD price feed contract on the demo EVM Appchain. This contract is [already deployed](https://3001-blockscout.a.dancebox.tanssi.network/address/0xFbe0a22f16eB990BB428956237eDd8EA798BdFFE){target=\_blank} on the demo EVM Appchain, so you can interact with it by accessing the aggregator contract at the below contract address:
+This tutorial will showcase interacting with a sample BTC/USDT price feed contract on the demo EVM Appchain, but you can interact any of the price feeds listed in [Supported Assets](#supported-assets). The BTC/USDT price feed is [deployed on the demo EVM Appchain](https://3001-blockscout.a.dancebox.tanssi.network/address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}, so you can interact with it by accessing the aggregator contract at the below contract address:
 
 ```
-0xFbe0a22f16eB990BB428956237eDd8EA798BdFFE
+{{ networks.dancebox.oracles.acurast.btc_usd }}
 ```
 
 For a refresher on setting up Remix to interface with your Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain.
@@ -52,7 +52,7 @@ Then, take the following steps:
 1. Head to the **Deploy and Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
 3. Select the **AggregatorV3Interface** contract from the **CONTRACT** dropdown
-4. Enter the sample price feed contract address for `BTC to USD`, which is `0xFbe0a22f16eB990BB428956237eDd8EA798BdFFE` on the demo EVM Appchain in the **At Address** field and click the **At Address** button
+4. Enter the sample price feed contract address for `BTC to USD`, which is `{{ networks.dancebox.oracles.acurast.btc_usd }}` on the demo EVM Appchain in the **At Address** field and click the **At Address** button
 
 ![Access aggregator contract](/images/builders/tooling/oracles/acurast/acurast-2.webp)
 
@@ -80,7 +80,20 @@ Upon running the above command in your terminal, you'll see a result that resemb
 --8<-- 'code/builders/tooling/oracles/acurast/terminal/api.md'
 
 !!! note
-This simple example of fetching a price feed relies on a single source of price feed data from one exchange. You can build a more complex job script that aggregates pricing data from multiple sources.
+    This simple example of fetching a price feed relies on a single source of price feed data from one exchange. You can build a more complex job script that aggregates pricing data from multiple sources. 
+
+The Acurast Team has deployed the below price feeds on the Tanssi demo EVM appchain: 
+
+| Asset & Base Pair |                                                                          Aggregator Contract                                                                           |
+|:-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|    AAVE to USDT    | [{{ networks.dancebox.oracles.acurast.aave_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42){target=\_blank} |
+|    BTC to USDT     | [{{ networks.dancebox.oracles.acurast.btc_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}  |
+|    CRV to USDT     | [{{ networks.dancebox.oracles.acurast.crv_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x01F143dfd745861902dA396ad7dfca962e5C83cA){target=\_blank}  |
+|    DAI to USDT     | [{{ networks.dancebox.oracles.acurast.dai_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92){target=\_blank}  |
+|    ETH to USDT     | [{{ networks.dancebox.oracles.acurast.eth_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0x007c3F3cc99302c19792F73b7434E3eCbbC3db25){target=\_blank}  |
+|    USDC to USDT    | [{{ networks.dancebox.oracles.acurast.usdc_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0xe4a46ef4cFbf87D026C3eB293b7672998d932F62){target=\_blank} |
+|    USDT to USD    | [{{ networks.dancebox.oracles.acurast.usdt_usd }}](https://3001-blockscout.a.dancebox.tanssi.network/address/0xf9c885E3A5846CEA887a0D69655BC08e52afe569){target=\_blank} |
+
 
 ## Designing and Launching Your Own Price Feed {: #designing-and-launching-your-own-price-feed }
 
@@ -99,7 +112,7 @@ The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price i
 !!! warning
 This demo contract has a number of security vulnerabilities and lacks access control mechanisms, making it unsuitable for any real use. It was developed by the Acurast team for demonstration purposes only.
 
-Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM Appchain. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
+Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM Appchain. Or, you can deploy it to the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/), and you can obtain testnet TANGO tokens from the [Tanssi faucet](https://apps.tanssi.network/demo){target=\_blank}. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
 
 ### Building the Acurast Script
 
