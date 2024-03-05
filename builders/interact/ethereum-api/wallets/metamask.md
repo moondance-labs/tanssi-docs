@@ -72,7 +72,7 @@ Here, you can configure MetaMask for the following networks:
 
 |         Variable          |                           Value                            |
 |:-------------------------:|:----------------------------------------------------------:|
-|       Network Name        |               `EVM Appchain Dancebox`                |
+|       Network Name        |                  `EVM Appchain Dancebox`                   |
 |          RPC URL          | `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network` |
 |         Chain ID          |                           `5678`                           |
 |     Symbol (Optional)     |                          `TANGO`                           |
