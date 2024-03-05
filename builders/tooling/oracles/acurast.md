@@ -19,7 +19,7 @@ Acurast is a decentralized, serverless cloud where everyone can become part of t
 
 Acurast gives developers complete permissionless access to compute that is trustless, affordable and confidential for deploying their applications like price feed oracles.
 
-Processors and developers seamlessly interact through the [Acurast Console](https://console.acurast.com/){target=\_blank} with the Acurast protocol.
+Processors and developers can seamlessly interact through the [Acurast Console](https://console.acurast.com/){target=\_blank}.
 
 ## Fetch Price Data {: #fetch-price-data }
 
