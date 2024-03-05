@@ -227,15 +227,4 @@ These are the methods that can be invoked and their parameters:
         await ws.send('dev_setHead', [500]);
         ```
 
-Each method can be invoked by connecting to the WebSocket (`ws://localhost:8000` by default) and sending the data and parameters in the following format. Replace `METHOD_NAME` with the method's name, and replace or delete `PARAMETER_1` and `PARAMETER_2` with the parameter data relevant to the method:  
-
-```json
-{
-    "jsonrpc": "2.0",
-    "id": 1,
-    "method": "METHOD_NAME",
-    "params": ["PARAMETER_1", "PARAMETER_2", "..."]
-}
-```
-
 --8<-- 'text/_disclaimers/third-party-content.md'
