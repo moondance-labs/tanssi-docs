@@ -31,7 +31,7 @@ When establishing eligibility to produce blocks, there are a couple of variables
 
 ## Map an Account to Your Block Producer Node {: #map-account }
 
-The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks. By mapping the session key to your account, you create an association between your account and your block-producing node.
+The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your block-producing node.
 
 You will need to create session keys for your primary and backup servers. Each of your servers, your primary and backup, should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
 
@@ -96,7 +96,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
 3. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to become a block producer
 4. Choose the target pool. The pool can either be the auto-compounding pool, which auto-compounds delegation rewards, or the manual rewards pool, in which all actions related to rewards are manual
-5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.staking.min_self_del.dance }} DANCE tokens. You'll need to submit the value in Planck, so for {{ networks.dancebox.staking.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.staking.min_self_del.planck }}`
+5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.staking.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.staking.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.staking.min_self_del.planck }}`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to self-delegate on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-3.webp)
@@ -135,7 +135,7 @@ If the request can be executed, select **Extrinsics** from the **Developer** dro
 6. For **at**, enter the session key at which you submitted the delegate request
 7. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-4.webp)
+![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-6.webp)
 
 Now, you have completed all of the necessary account setup to be eligible to produce blocks!
 
@@ -147,6 +147,6 @@ If you've followed all of the steps in this guide and have fully synced your blo
 2. Click the **+** button next to the extrinsic field
 3. A list of the eligible candidates and their stake will be displayed at the bottom of the page. You can search for your address to ensure you are eligible to produce blocks
 
-![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-4.webp)
+![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-7.webp)
 
 Remember that you'll need to be in the top {{ networks.dancebox.staking.top_eligible_candidates }} candidates by total stake to produce blocks.
