@@ -17,7 +17,7 @@ This tutorial will walk through a demo of [interacting with price feeds](#fetch-
 
 Acurast is a decentralized, serverless cloud where everyone can become part of the cloud with their new, used, or even mobile phones with a smashed screen by providing compute power to the cloud and earning rewards. These so-called Processors are scattered across the globe, creating a distributed network of compute across the globe.
 
-Giving developers complete permisionless access to compute that is trustless, affordable and confidential for deploying their applications like price feed oracles.
+Acurast gives developers complete permissionless access to compute that is trustless, affordable and confidential for deploying their applications like price feed oracles.
 
 Processors and developers seamlessly interact through the [Acurast Console](https://console.acurast.com/){target=\_blank} with the Acurast protocol.
 
