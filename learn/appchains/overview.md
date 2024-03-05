@@ -19,7 +19,7 @@ This section covers the fundamentals of a Tanssi Appchain, from its architecture
 
 ## General Architecture {: #general-architecture}
 
-As previously discussed, Appchains deployed through Tanssi (AppChains/ContainerChains) are customizable blockchains that, among other features, have block production as a service and inherit block finality (consensus) from Polkadot. Consequently, they act as Layer 1 blockchains like Moonbeam, not Layer 2 solutions on top of another Layer 1. Moreover, they can use Polkadot's native interoperability language, called [XCM](https://wiki.polkadot.network/docs/learn-xcm){target=\_blank}, to connect to other ecosystem blockchains (parachains), like [Moonbeam](https://moonbeam.network){target=\_blank}.
+As previously discussed, Appchains deployed through Tanssi are customizable blockchains that, among other features, have block production as a service and inherit block finality (consensus) from Polkadot. Consequently, they act as Layer 1 blockchains like Moonbeam, not Layer 2 solutions on top of another Layer 1. Moreover, they can use Polkadot's native interoperability language, called [XCM](https://wiki.polkadot.network/docs/learn-xcm){target=\_blank}, to connect to other ecosystem blockchains (parachains), like [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 In contrast, each Tanssi Appchain will host its own Data-Preservers, which contain full archive nodes of the Tanssi Appchain they are hosted in. Still, they will be incentivized through Tanssi's data retrieval as a service. These Data-Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and its Appchains.
 
