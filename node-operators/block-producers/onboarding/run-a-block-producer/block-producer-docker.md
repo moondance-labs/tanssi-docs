@@ -73,7 +73,9 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 === "Generic"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" moondancelabs/tanssi \
+    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    moondancelabs/tanssi \
     --8<-- 'text/node-operators/block-producers/run-a-block-producer/docker-command.md'
     ```
 
@@ -81,6 +83,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi \
     --8<-- 'text/node-operators/block-producers/run-a-block-producer/docker-command.md'
@@ -89,6 +92,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi \
     --8<-- 'text/node-operators/block-producers/run-a-block-producer/docker-command.md'
