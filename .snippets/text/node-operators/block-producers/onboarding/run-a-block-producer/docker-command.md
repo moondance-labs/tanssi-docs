@@ -1,19 +1,21 @@
 --chain=dancebox \
---rpc-port=9944 \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --base-path=/data/para \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --collator \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database paritydb \
 -- \
---rpc-port=9946 \
 --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
 --base-path=/data/container \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
 --name=INSERT_YOUR_RELAY_NODE_NAME \
 --chain=westend_moonbase_relay_testnet \
---rpc-port=9945 \
 --sync=fast \
 --base-path=/data/relay \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database paritydb
