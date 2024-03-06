@@ -152,4 +152,4 @@ Continuing down the same setup page, take the following steps:
 
 On the following screen, you'll be able to monitor the status of your job. For more information about using Acurast to build and access price feeds on your Tanssi EVM-compatible Appchain, be sure to check out the [Acurast docs](https://docs.acurast.com/){target=\_blank}.
 
---8<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'
