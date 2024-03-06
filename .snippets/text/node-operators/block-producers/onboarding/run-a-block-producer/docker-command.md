@@ -5,7 +5,7 @@
 --blocks-pruning=2000 \
 --collator \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
+--database paritydb \
 -- \
 --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
 --base-path=/data/container \
@@ -18,4 +18,4 @@
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb 
+--database paritydb
