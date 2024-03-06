@@ -131,6 +131,7 @@ KillSignal=SIGHUP
 ExecStart=/var/lib/tanssi-data/tanssi-node \
 --chain=dancebox \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=warp \
 --base-path=/var/lib/tanssi-data/para \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
@@ -142,8 +143,8 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --base-path=/var/lib/tanssi-data/container \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
---name=INSERT_YOUR_RELAY_NODE_NAME \
 --chain=westend_moonbase_relay_testnet \
+--name=INSERT_YOUR_RELAY_NODE_NAME \
 --sync=fast \
 --base-path=/var/lib/tanssi-data/relay \
 --state-pruning=2000 \
