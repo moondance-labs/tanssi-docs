@@ -106,7 +106,7 @@ mv ./dancebox-raw-specs.json /var/lib/tanssi-data
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
-The next step is to create the Systemd configuration file. 
+The next step is to create the Systemd configuration file.
 
 You can create the file by running the following command:
 
@@ -132,24 +132,24 @@ SyslogFacility=local7
 KillSignal=SIGHUP
 ExecStart=/var/lib/tanssi-data/tanssi-node \
 --chain=/var/lib/tanssi-data/dancebox-raw-specs.json \
---rpc-port=9944 \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --base-path=/var/lib/tanssi-data/para \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --collator \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
---rpc-port=9946 \
 --name=tanssi-appchain \
 --base-path=/var/lib/tanssi-data/container \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
 --name=INSERT_YOUR_RELAY_NODE_NAME \
 --chain=/var/lib/tanssi-data/westend-alphanet-raw-specs.json \
---rpc-port=9945 \
 --sync=fast \
 --base-path=/var/lib/tanssi-data/relay \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 
 [Install]
 WantedBy=multi-user.target
