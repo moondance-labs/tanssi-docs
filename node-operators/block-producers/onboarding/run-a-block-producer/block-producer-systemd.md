@@ -138,6 +138,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --blocks-pruning=2000 \
 --collator \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database paritydb \
 -- \
 --name=tanssi-appchain \
 --base-path=/var/lib/tanssi-data/container \
@@ -150,6 +151,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database paritydb \
 
 [Install]
 WantedBy=multi-user.target
