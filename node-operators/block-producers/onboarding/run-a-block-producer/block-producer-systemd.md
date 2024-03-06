@@ -96,12 +96,10 @@ Set the folder's ownership to the account that will run the service to ensure wr
 sudo chown -R tanssi_service /var/lib/tanssi-data
 ```
 
-And finally, move the binary and the chain specs to the folder:
+And finally, move the binary to the folder:
 
 ```bash
-mv ./tanssi-node /var/lib/tanssi-data && \
-mv ./westend-alphanet-raw-specs.json /var/lib/tanssi-data && \
-mv ./dancebox-raw-specs.json /var/lib/tanssi-data
+mv ./tanssi-node /var/lib/tanssi-data
 ```
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
@@ -131,7 +129,7 @@ SyslogIdentifier=tanssi
 SyslogFacility=local7
 KillSignal=SIGHUP
 ExecStart=/var/lib/tanssi-data/tanssi-node \
---chain=/var/lib/tanssi-data/dancebox-raw-specs.json \
+--chain=dancebox \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --base-path=/var/lib/tanssi-data/para \
 --state-pruning=2000 \
@@ -145,7 +143,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
 --name=INSERT_YOUR_RELAY_NODE_NAME \
---chain=/var/lib/tanssi-data/westend-alphanet-raw-specs.json \
+--chain=westend_moonbase_relay_testnet \
 --sync=fast \
 --base-path=/var/lib/tanssi-data/relay \
 --state-pruning=2000 \
