@@ -1,7 +1,7 @@
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
 // This script will listen to all Native token transfers (Substrate & Ethereum) and extract the tx hash
-// It can be adapted for any ContainerChain
+// It can be adapted for any Tanssi Appchain
 
 const main = async () => {
   // Define the provider

@@ -5,7 +5,7 @@ description: Tanssi is an Appchain protocol that eases the process of deploying 
 
 # What is Tanssi? {: #what-is-tanssi }
 
-Tanssi is an Appchain infrastructure protocol that makes deploying blockchains with custom logic specific to certain types of applications significantly easier than what is available today. These customized blockchains are normally referred to as Appchains, but in Tanssi terms, they are also known as ContainerChains.
+Tanssi is an Appchain infrastructure protocol that makes deploying blockchains with custom logic specific to certain types of applications significantly easier than what is available today.
 
 Appchains provide the ultimate control over the logic that powers the runtime of the blockchain. Consequently, they offer an excellent way for projects to scale and build optimized solutions for their products, resulting in a superior user experience.
 
@@ -37,16 +37,16 @@ In summary, Appchains deployed through Tanssi are Layer 1 solutions designed to 
 
 ## General Architecture of Tanssi & Appchains {: #tanssi-architecture}
 
-As previously discussed, Appchains deployed through Tanssi (ContainerChains) are customizable blockchains which, among other features, have block production as a service and inherit block finality (consensus) from Polkadot. Consequently, they act as Layer 1 blockchains like Moonbeam, not Layer 2 solutions on top of another Layer 1.
+As previously discussed, Appchains deployed through Tanssi are customizable blockchains which, among other features, have block production as a service and inherit block finality (consensus) from Polkadot. Consequently, they act as Layer 1 blockchains like Moonbeam, not Layer 2 solutions on top of another Layer 1.
 
-A high-level overview of what a ContainerChain looks like in the ecosystem is presented below.
+A high-level overview of what an Appchain looks like in the ecosystem is presented below.
 
 ![High-level overview of an Appchain & Tanssi](/images/learn/tanssi/overview/dark-overview-1.webp#only-dark)
 ![High-level overview of an Appchain & Tanssi](/images/learn/tanssi/overview/light-overview-1.webp#only-light)
 
-One of the core differences between a normal Parachain and a Tanssi-powered ContainerChain is that its block producers (also known as collators) are a subset of Tanssi's. In short, this is possible due to Polkadot's unique architecture, as Tanssi and all of the ContainerChains share a common consensus mechanism. Consequently, each chain can retrieve information from other chains in a trustless and decentralized manner, as it is part of the consensus. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical-features){target=\_blank}.
+One of the core differences between a normal Parachain and a Tanssi-powered Appchain is that its block producers (also known as collators) are a subset of Tanssi's. In short, this is possible due to Polkadot's unique architecture, as Tanssi and all of the Appchains share a common consensus mechanism. Consequently, each chain can retrieve information from other chains in a trustless and decentralized manner, as it is part of the consensus. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical-features){target=\_blank}.
 
-While a block producer simultaneously executes blocks from Tanssi and the ContainerChain that was assigned to it, Tanssi and each ContainerChain will have their own set of Data Preservers running full archive nodes for each chain. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and ContainerChains.
+While a block producer simultaneously executes blocks from Tanssi and the Appchain that was assigned to it, Tanssi and each Appchain will have their own set of Data Preservers running full archive nodes for each chain. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and Appchains.
 
 ![Data Preservers of an Appchain & Tanssi](/images/learn/tanssi/overview/dark-overview-2.webp#only-dark)
 ![Data Preservers  of an Appchain & Tanssi](/images/learn/tanssi/overview/light-overview-2.webp#only-light)
