@@ -32,14 +32,14 @@ To get started, download and make executable the latest binary release by runnin
 === "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "Intel Skylake"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-skylake && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-skylake && \
     mv ./tanssi-node-skylake ./tanssi-node && \
     chmod +x ./tanssi-node
     ```
@@ -47,8 +47,8 @@ To get started, download and make executable the latest binary release by runnin
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-zen3 && \
-    mv ./tanssi-node-zen3 ./tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-znver3 && \
+    mv ./tanssi-node-znver3 ./tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
