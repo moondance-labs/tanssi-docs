@@ -33,13 +33,13 @@ The equation for calculating the deposit is:
 deposit base + deposit factor * number of proxies
 ```
 
-You can find each of the relevant variables for the Dancebox testnet below. Note that these values are subject to change for Tanssi MainNet.
+You can find each of the relevant variables for the Dancebox TestNet below. Note that these values are subject to change for Tanssi MainNet.
 
-|    Variable    |                       Value                       |
-|:--------------:|:-------------------------------------------------:|
+|    Variable    |                       Value                        |
+|:--------------:|:--------------------------------------------------:|
 |  Deposit base  |  {{ networks.dancebox.proxy.deposit_base }} DANCE  |
 | Deposit factor | {{ networks.dancebox.proxy.deposit_factor }} DANCE |
-|  Max proxies   | {{ networks.dancebox.proxy.max_proxies }} proxies |
+|  Max proxies   | {{ networks.dancebox.proxy.max_proxies }} proxies  |
 
 ## Proxy Types {: #proxy-types }
 
