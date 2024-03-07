@@ -2,6 +2,4 @@ title: Operational Tasks
 hide: false
 nav:
   - index.md
-  - manage-your-account.md
-  - manage-your-identity.md
   - proxy-accounts.md

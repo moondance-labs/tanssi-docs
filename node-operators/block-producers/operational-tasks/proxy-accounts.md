@@ -6,7 +6,7 @@ Proxy accounts can be set up to perform a limited number of actions on behalf of
 
 Proxy accounts can be set up to perform specific Substrate functions such as author mapping, staking, balances, and more. This can allow you to, for example, grant a trusted individual access to perform collator or delegator functions on your behalf. A proxy could also be used to keep a staking account safe in cold storage.
 
-This guide will show you how to set up a proxy account on the Moonbase Alpha TestNet for balance transfers and how to execute a proxy transaction.
+This tutorial will walk you through the process of configuring a proxy account on the Tanssi Dancebox TestNet specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -51,7 +51,7 @@ When creating a proxy account, you must choose a type of proxy which will define
 - **`Governance`** - allows the proxy account to make transactions related to governance, such as voting or proposing democracy proposals
 - **`NonTransfer`** - this type of proxy account is allowed to submit any type of transaction with the exception of balance transfers
 - **`Balances`** - allows the proxy account to only make transactions related to sending funds
-- **`IdentityJudgement`** - allows the proxy account to request judgement on an [account's identity](/tokens/manage/identity){target=\_blank} from a registrar. The following judgements can be issued:
+- **`IdentityJudgement`** - allows the proxy account to request judgement on an account's identity from a registrar. The following judgements can be issued:
     - **unknown** - (default) no judgement has been made yet
     - **fee paid** - to indicate a user has requested judgement and it is in progress
     - **reasonable** - the information appears reasonable, but no in-depth checks (i.e. formal KYC process) were performed
@@ -98,7 +98,7 @@ A pop-up will appear and you will be able to enter in the required information, 
 
 ![Add a proxy account from the Accounts page of Polkadot.js Apps](/images/node-operators/block-producers/operational-tasks/proxy/proxy-3.webp)
 
-Then take the following steps:
+Then, take the following steps:
 
 1. Select the account you would like to set as a proxy
 2. Select the proxy type
@@ -121,7 +121,7 @@ To check your proxy accounts from the [**Chain state** page](https://polkadot.js
 
 ![Verify your proxy accounts via the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy/proxy-5.webp)
 
-The result will appear on the page showing you information about all of your proxies, including the delegate/proxy account address, the proxy type, the delay period if one was specified, and the total bond amount for all of your proxies in Wei.
+The result will appear on the page showing you information about all of your proxies, including the delegate/proxy account address, the proxy type, the delay period if one was specified, and the total bond amount for all of your proxies in Planck.
 
 As previously mentioned, you can also check your proxy accounts from the **Accounts** page. To do so, you can navigate to the **Accounts** page and there should be a Proxy symbol next to the primary account. Hover over the icon and click on **Manage proxies** to review your proxies.
 
@@ -186,7 +186,7 @@ As previously mentioned, you can also remove a proxy from the **Accounts** page.
 
 A pop-up will appear showing an overview of your proxy accounts. To remove all proxies, you can click on **Clear all**, then you will automatically be prompted to enter your password and submit the transaction. To remove a single proxy, take the following steps:
 
-1. Click the **X** button next to the proxy to remove.
+1. Click the **X** button next to the proxy to remove
 2. Press **Submit**
 
 ![Remove a proxy account from the Accounts page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy/proxy-12.webp)
