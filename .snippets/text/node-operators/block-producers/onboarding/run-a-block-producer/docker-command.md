@@ -1,5 +1,6 @@
 --chain=dancebox \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=warp \
 --base-path=/data/para \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
@@ -11,8 +12,8 @@
 --base-path=/data/container \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
---name=INSERT_YOUR_RELAY_NODE_NAME \
 --chain=westend_moonbase_relay_testnet \
+--name=INSERT_YOUR_RELAY_NODE_NAME \
 --sync=fast \
 --base-path=/data/relay \
 --state-pruning=2000 \
