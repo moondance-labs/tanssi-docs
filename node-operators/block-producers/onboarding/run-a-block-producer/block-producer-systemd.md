@@ -139,7 +139,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --database paritydb \
 -- \
---name=tanssi-appchain \
+--name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
