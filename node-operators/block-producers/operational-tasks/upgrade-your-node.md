@@ -109,7 +109,7 @@ Then, navigate to the directory where your Tanssi binary is stored and remove it
 cd /var/lib/tanssi-data
 ```
 
-Note, depending on the particular binary you have, your tanssi node may be named, `tanssi-node`, `tanssi-node-skylake`, or `tanssi-node-zen3`
+Note, depending on the particular binary you have, your tanssi node may be named `tanssi-node`, `tanssi-node-skylake`, or `tanssi-node-zen3`.
 
 ```bash
 rm tanssi-node
@@ -153,4 +153,4 @@ To verify that it is running correctly, you can use the following command to che
 systemctl status tanssi.service
 ```
 
-And that's it! You've successfully upgraded your Tanssi Node.
+And that's it! You've successfully upgraded your Tanssi Node. You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** Notifications and checking the box for **Releases**. 
