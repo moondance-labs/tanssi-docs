@@ -1,15 +1,15 @@
 ---
 title: Index Your Substrate AppChain with Subsquid
-description: Learn how to use Subsquid, a query node framework for Substrate-based chains, to index and process Substrate data on Your Tanssi Substrate ContainerChain.
+description: Learn how to use Subsquid, a query node framework for Substrate-based chains, to index and process Substrate data on Your Tanssi Substrate Appchain.
 ---
 
-# Indexing Your Substrate ContainerChain with Subsquid
+# Indexing Your Substrate Appchain with Subsquid
 
 ## Introduction {: #introduction }
 
 [Subsquid](https://subsquid.io){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. Subsquid has native and full support for both EVM and Substrate data, even within the same project.
 
-This quick-start guide will show you how to create a Subsquid project and configure it to index data on your Tanssi Substrate ContainerChain. For a more comprehensive end-to-end tutorial, be sure to check out [Using Subsquid to Index Your ContainerChain](/builders/tooling/indexers/subsquid/){target=\_blank}.
+This quick-start guide will show you how to create a Subsquid project and configure it to index data on your Tanssi Substrate Appchain. For a more comprehensive end-to-end tutorial, be sure to check out [Using Subsquid to Index Your Tanssi Appchain](/builders/tooling/indexers/subsquid/){target=\_blank}.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -19,9 +19,9 @@ For the examples in this guide, you will need to have the following:
  - [Docker](https://docs.docker.com/get-docker/){target=\_blank}
  - [Squid CLI](https://docs.subsquid.io/squid-cli/installation/){target=\_blank}
 
-## Index Substrate Data on Your ContainerChain {: #index-substrate-data-on-your-container-chain }
+## Index Substrate Data on Your Appchain {: #index-substrate-data-on-your-appchain }
 
-To get started indexing Substrate data on your ContainerChain, you'll need to create a Subsquid project and configure it for your ContainerChain by taking the following steps:
+To get started indexing Substrate data on your Tanssi Appchain, you'll need to create a Subsquid project and configure it for your Tanssi Appchain by taking the following steps:
 
 1. Create a Subsquid project based on the Substrate template by running:
 
@@ -38,7 +38,7 @@ To get started indexing Substrate data on your ContainerChain, you'll need to cr
     ```
 
 
-3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your ContainerChain. Remove the `archive: lookupArchive` line as a Squid archive will not be used. Here, you'll need to specify the RPC URL of your Tanssi Substrate ContainerChain, as the endpoint is used to ingest chain data
+3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your Tanssi Appchain. Remove the `archive: lookupArchive` line as a Squid archive will not be used. Here, you'll need to specify the RPC URL of your Tanssi Substrate Appchain, as the endpoint is used to ingest chain data
 
     ```ts
       const processor = new EvmBatchProcessor();
@@ -75,8 +75,8 @@ To get started indexing Substrate data on your ContainerChain, you'll need to cr
     }
     ```
 
-And that's all you have to do to configure your Subsquid project to index Substrate data on your Tanssi Substrate ContainerChain! Now you can update the `schema.graphql`, `src/main.ts`, `typegen.json`, and `src/processor.ts` files to index the data you need for your project!
+And that's all you have to do to configure your Subsquid project to index Substrate data on your Tanssi Substrate Appchain! Now you can update the `schema.graphql`, `src/main.ts`, `typegen.json`, and `src/processor.ts` files to index the data you need for your project!
 
-If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your ContainerChain, you can check out the [Using Subsquid to Index Your ContainerChain](/builders/tooling/indexers/subsquid/){target=\_blank} tutorial!
+If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your Tanssi Appchain, you can check out the [Using Subsquid to Index Your Tanssi Appchain](/builders/tooling/indexers/subsquid/){target=\_blank} tutorial!
 
 --8<-- 'text/_disclaimers/third-party-content.md'
