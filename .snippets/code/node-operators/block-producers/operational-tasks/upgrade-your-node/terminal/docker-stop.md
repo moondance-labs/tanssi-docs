@@ -1,5 +1,5 @@
 <div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker ps</span>
+  <span data-ty="input"><span class="file-path"></span>docker ps -a</span>
   <span data-ty>
     <br> 
     <br> CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS  PORTS    NAMES
