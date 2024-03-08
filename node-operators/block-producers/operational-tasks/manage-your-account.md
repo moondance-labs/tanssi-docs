@@ -62,7 +62,7 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 And that's it! You can rotate your session keys as regularly as you'd like. 
 
-## Submit Self-Delegation {: #submit-self-delegation }
+## Change your Self-Delegation {: #change-your-self-delegation }
 
 The next step towards becoming eligible to produce blocks on Tanssi and Tanssi Appchains is to delegate to your own account. To do this, you'll be required to submit a minimum of {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
 
