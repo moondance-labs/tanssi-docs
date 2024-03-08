@@ -1,15 +1,15 @@
 ---
 title: EVM Transactions & Contracts with Web3.py
-description: Learn how to use the Ethereum Web3 Python Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM ContainerChain.
+description: Learn how to use the Ethereum Web3 Python Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM Appchain.
 ---
 
 # Web3.py Python Library
 
 ## Introduction {: #introduction }
 
-[Web3.py](https://web3py.readthedocs.io/) is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with Python. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Web3.py, check their [documentation site](https://web3py.readthedocs.io/){target=\_blank}.
+[Web3.py](https://web3py.readthedocs.io/) is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with Python. Tanssi EVM Appchains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM Appchain node as if they were doing so on Ethereum. For more information on Web3.py, check their [documentation site](https://web3py.readthedocs.io/){target=\_blank}.
 
-In this guide, you'll learn how to use setup the Web3.py library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Web3.py to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint.
+In this guide, you'll learn how to use setup the Web3.py library for your Tanssi EVM Appchain. Next, to showcase the library in action, you'll use Web3.py to send a transaction and deploy a contract on a Tanssi EVM Appchain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM Appchain by simply changing the endpoint.
 
 --8<-- 'text/_common/general-py-tutorial-check.md'
 
@@ -17,7 +17,7 @@ In this guide, you'll learn how to use setup the Web3.py library for your Tanssi
 
 For the examples in this guide, you will need to have the following:
 
- - An account with funds in the Tanssi EVM ContainerChain you are testing with
+ - An account with funds in the Tanssi EVM Appchain you are testing with
 
 ## Installing Web3.py {: #install-web3py }
 
@@ -34,7 +34,7 @@ Throughout this guide, you'll be creating a bunch of scripts that provide differ
 To create a provider, you can take the following steps:
 
 1. Import the `web3` library
-2. Create the `web3` provider suing using the `Web3(Web3.HTTPProvider()))` method and providing the EVM ContainerChain URL
+2. Create the `web3` provider suing using the `Web3(Web3.HTTPProvider()))` method and providing the Tanssi EVM Appchain URL
 
 ```python
 # 1. Import web3.py

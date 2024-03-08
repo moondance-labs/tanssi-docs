@@ -32,14 +32,14 @@ To get started, download and make executable the latest binary release by runnin
 === "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "Intel Skylake"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-skylake && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-skylake && \
     mv ./tanssi-node-skylake ./tanssi-node && \
     chmod +x ./tanssi-node
     ```
@@ -47,8 +47,8 @@ To get started, download and make executable the latest binary release by runnin
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-zen3 && \
-    mv ./tanssi-node-zen3 ./tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-znver3 && \
+    mv ./tanssi-node-znver3 ./tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
@@ -96,17 +96,15 @@ Set the folder's ownership to the account that will run the service to ensure wr
 sudo chown -R tanssi_service /var/lib/tanssi-data
 ```
 
-And finally, move the binary and the chain specs to the folder:
+And finally, move the binary to the folder:
 
 ```bash
-mv ./tanssi-node /var/lib/tanssi-data && \
-mv ./westend-alphanet-raw-specs.json /var/lib/tanssi-data && \
-mv ./dancebox-raw-specs.json /var/lib/tanssi-data
+mv ./tanssi-node /var/lib/tanssi-data
 ```
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
-The next step is to create the Systemd configuration file. 
+The next step is to create the Systemd configuration file.
 
 You can create the file by running the following command:
 
@@ -131,25 +129,28 @@ SyslogIdentifier=tanssi
 SyslogFacility=local7
 KillSignal=SIGHUP
 ExecStart=/var/lib/tanssi-data/tanssi-node \
---chain=/var/lib/tanssi-data/dancebox-raw-specs.json \
---rpc-port=9944 \
+--chain=dancebox \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=warp \
 --base-path=/var/lib/tanssi-data/para \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --collator \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database paritydb \
 -- \
---rpc-port=9946 \
---name=tanssi-appchain \
+--name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
+--chain=westend_moonbase_relay_testnet \
 --name=INSERT_YOUR_RELAY_NODE_NAME \
---chain=/var/lib/tanssi-data/westend-alphanet-raw-specs.json \
---rpc-port=9945 \
 --sync=fast \
 --base-path=/var/lib/tanssi-data/relay \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database paritydb \
 
 [Install]
 WantedBy=multi-user.target

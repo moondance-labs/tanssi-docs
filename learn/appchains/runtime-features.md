@@ -53,9 +53,9 @@ During the block-building process, a block producer uses a [priority system](htt
 
 ## Forkless Upgrades {: #forkless-upgrades}
 
-Appchains deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.substrate.io/maintain/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Appchain is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
+Appchains deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.substrate.io/maintain/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi Appchain is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
 
-Forkless upgrades are made possible by storing the state transition function as a WebAssembly (WASM) blob in both the Appchain and Polkadot. When a new runtime is scheduled through a function call in the Appchain, Polkadot validates this block, so it is notified and readies itself to validate incoming blocks using the most recent state transition function. Following a specified runtime upgrade delay period, a Tanssi block producer on the Appchain constructs a block that references a Polkadot block, signaling to the Appchain that it can now apply the new runtime. Consequently, this new state transition function is utilized for that specific block. As all infrastructure participants at the Appchain level employ the on-chain WASM blob, every Appchain node operator can validate new blocks using the latest state transition function.
+Forkless upgrades are made possible by storing the state transition function as a WebAssembly (WASM) blob in both the Tanssi Appchain and Polkadot. When a new runtime is scheduled through a function call in the Tanssi Appchain, Polkadot validates this block, so it is notified and readies itself to validate incoming blocks using the most recent state transition function. Following a specified runtime upgrade delay period, a Tanssi block producer on the Tanssi Appchain constructs a block that references a Polkadot block, signaling to the Tanssi Appchain that it can now apply the new runtime. Consequently, this new state transition function is utilized for that specific block. As all infrastructure participants at the Appchain level employ the on-chain WASM blob, every Tanssi Appchain node operator can validate new blocks using the latest state transition function.
 
 A high-level summary of the runtime upgrade process is shown in the following diagram:
 
@@ -68,7 +68,7 @@ Tanssi Appchains may use a specific module called [SUDO](https://paritytech.gith
 
 Consequently, the SUDO account can perform **any** action that the runtime allows the _Root_ origin to execute. This can include:
 
-- Mint new native Appchain tokens
+- Mint new native Tanssi Appchain tokens
 - Perform [forkless runtime upgrades](#forkless-upgrades)
 - Send transactions impersonating other [origin types](#origins). Therefore, SUDO can send transactions on behalf of other users without accessing their private key
 
