@@ -140,7 +140,7 @@ The flags used in the ExecStart command can be adjusted according to your prefer
 --8<-- 'text/node-operators/appchain-node/run-flags.md'
 
 ```bash
-/var/lib/sequencer-data/tanssi-node  --help
+/var/lib/tanssi-data//tanssi-node  --help
 ```
 
 ## Run the Service {: #run-the-service }
