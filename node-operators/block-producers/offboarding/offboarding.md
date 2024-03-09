@@ -7,15 +7,15 @@ description: These step-by-step instructions will show you how to properly offbo
 
 ## Introduction {: #introduction }
 
-This guide will show you how to properly wind down your operations as a Tanssi block producer. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}. By following the steps outlined in this guide, you'll be able to properly cease operations as a Tanssi block producer. 
+This guide will show you how to properly wind down your operations as a Tanssi block producer. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}. By following the steps outlined in this guide, you can properly cease operations as a Tanssi block producer. 
 
 ## Request Undelegation {: #request-undelegation }
 
-When you set up your Tanssi block producer node, you had to submit a delegation bond of at least {{ networks.dancebox.block_producers.min_self_del.dance }} Dance. To get that back, and to remove your block producer from from the list of eligible candidates, you'll need to take a series of steps similiar to those contained in the onboarding process.
+When you set up your Tanssi block producer node, you had to submit a delegation bond of at least {{ networks.dancebox.block_producers.min_self_del.dance }} Dance. To get that back and remove your block producer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
 
 Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
-1. Select the account from which you want to send the extrinsic. This account must be your existing block producer account that you originally delegated from
+1. Select the account from which you want to send the extrinsic. This account must be your existing block producer account that you initially delegated from
 2. Select the **pooledStaking** module 
 3. Select the **requestUndelegate** extrinsic
 4. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to decommission as a block producer
@@ -58,7 +58,7 @@ If at least two sessions have passed from the session you submitted the extrinsi
 4. For **delegator**, enter your account, which is the same account you sent the self-delegate request from
 5. For **operation**, select **Leaving**
 6. For **candidate**, enter the same account as you did in the **delegator** field
-7. For **at**, enter the session key at which you submitted the delegate request
+7. For **at**, enter the session number at which you submitted the delegate request
 8. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/offboarding/offboarding/offboarding-4.webp)
@@ -69,7 +69,7 @@ If you'd like, you can verify that your block-producing node is no longer in the
 
 1. Select the **pooledStaking** module and the **sortedEligibleCandidates** query
 2. Click the **+** button next to the extrinsic field
-3. A list of the eligible candidates and their stake will be displayed at the bottom of the page. You can search for your address to ensure that it does not exist in the list
+3. A list of the eligible candidates and their stakes will be displayed at the bottom of the page. You can search for your address to ensure that it does not exist in the list
 
 ![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/block-producers/offboarding/offboarding/offboarding-5.webp)
 
@@ -77,7 +77,7 @@ If you'd like, you can verify that your block-producing node is no longer in the
 
 Session keys are used to perform network operations, such as signing blocks, whereas your block producer account holds the staked funds and has an on-chain identity. By unmapping the session key to your account, you sever the association between your block producer account and your block-producing node. 
 
-The unmapping step is taken only as part of the offboarding process. If you need to rotate / change your session keys, for example, a service provider runs a Tanssi block producer on your behalf and you're migrating to a new provider, you'll need to follow the instructions for mapping (rotating) your session keys. You should not purge your keys as part of the session key rotation process.
+The unmapping step is taken only as part of the offboarding process. If you need to rotate/change your session keys, you'll need to follow the [instructions for mapping (rotating) your session keys](/node-operators/block-producers/onboarding/account-setup/#map-session-keys){target=\_blank}. You should not purge your keys during the session key rotation process.
 
 To unmap your session keys, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
