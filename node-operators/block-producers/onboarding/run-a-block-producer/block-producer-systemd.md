@@ -19,9 +19,6 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 - **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}
 
-- **Tanssi orchestrator specifications file** - the Tanssi orchestrator specifications file is needed to run the block producer. You can download it from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Dancebox/){target=\_blank}
-
-- **Relay chain specifications file** - the relay chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha/){target=\_blank}
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -51,26 +48,6 @@ To get started, download and make executable the latest binary release by runnin
     mv ./tanssi-node-znver3 ./tanssi-node && \
     chmod +x ./tanssi-node
     ```
-
-## Download the Tanssi Orchestrator Specs File {: #download-relay-specs }
-
-The downloaded node binary file includes the Tanssi protocol logic that allows the block producer to rotate to, sync with, and produce blocks for any chain within the Tanssi ecosystem. When launching your Block producer's node, it will be required to provide the Tanssi's specification file as a parameter. 
-
-Download the specification file executing:
-
-```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancebox/dancebox-raw-specs.json
-```
-
-## Download the Relay Chain Specs File {: #download-relay-specs }
-
-The node binary file includes also the necessary code to run a relay chain node. When launching your Block Producer's node, it will also be required to provide the relay chain's specification file as a parameter. 
-
-Download the relay chain specification file executing:
-
-```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
-```
 
 ## Setup the Systemd Service {: #setup-systemd-service }
 
