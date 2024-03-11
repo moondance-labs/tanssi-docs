@@ -1,13 +1,13 @@
 ---
 title: Appchain Development Framework Overview
-description: Substrate is a blockchain development framework built in Rust Programming Language that streamlines and speeds up the process of developing new Appchains.
+description: Substrate is a blockchain development framework built in Rust Programming Language that streamlines and speeds up the process of developing new appchains.
 ---
 
 # Appchain Development Framework Overview {: #appchain-dev-framework-overview }
 
 ## Introduction {: #introduction }
 
-Building an Appchain from scratch is a very complex task that requires deep knowledge in a wide range of areas, including (but not limited to):
+Building an appchain from scratch is a very complex task that requires deep knowledge in a wide range of areas, including (but not limited to):
 
 - **Consensus Algorithms** - consensus ensures that all participants in the blockchain network agree on the validity of transactions. Some popular consensus mechanisms include Proof of Work (PoW) and Proof of Stake (PoS)
 
@@ -17,7 +17,7 @@ Building an Appchain from scratch is a very complex task that requires deep know
 
 - **Data Structures** - besides the list of blocks, where each block contains a set of transactions along with a reference to the previous block, an optimized and performant strategy to store the state of the network is needed
 
-- **Governance** - if the Appchain is designed to be permissionless, a voting mechanism is important in order to keep it evolving and reflecting the community will
+- **Governance** - if the appchain is designed to be permissionless, a voting mechanism is important in order to keep it evolving and reflecting the community will
 
 - **Upgradeability** - it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
@@ -29,23 +29,23 @@ Substrate is an extremely performant, flexible, modular, and highly customizable
 
 Many of its great features, such as performance, ease of use, and modularity, are owed to the decision made on which programming language to build on, and this is where [Rust Programming Language](#rust-programming-language) was the first choice, being fast, portable, and providing a wonderful model to handle memory, amongst other reasons detailed in the next section.
 
-When developing an Appchain, Substrate represents a great head start by providing a ready-to-use set of implementations of the main building blocks a project needs:
+When developing an appchain, Substrate represents a great head start by providing a ready-to-use set of implementations of the main building blocks a project needs:
 
 - **Consensus Algorithms** - there are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality), but due to the high degree of customization Substrate offers, teams can always choose to develop their specific consensus to adapt to the use case needs, as the Moonbeam team did with the [Nimbus Parachain Consensus Framework](https://docs.moonbeam.network/learn/features/consensus/){target=\_blank}
 
-- **Runtime Modules** - many built-in modules (explained in detail in the [modules](/learn/framework/modules) section) can be selected and configured into your Appchain, such as accounts, balances, staking, governance, identity, and more
+- **Runtime Modules** - many built-in modules (explained in detail in the [modules](/learn/framework/modules) section) can be selected and configured into your appchain, such as accounts, balances, staking, governance, identity, and more
 
 - **Networking** - built-in protocols and libraries for establishing connections, propagating transactions and blocks, synchronizing the blockchain state, and managing network interactions
 
 - **Storage** - built-in storage mechanisms for efficient data storage and retrieval
 
-- **Transaction Queue** - built-in transaction queue system that manages transaction validation, prioritization, and inclusion in blocks, ensuring the consistency and integrity of the Appchain's state
+- **Transaction Queue** - built-in transaction queue system that manages transaction validation, prioritization, and inclusion in blocks, ensuring the consistency and integrity of the appchain's state
 
-- **RPC APIs** - Substrate provides Remote Procedure Call (RPC) APIs that enable external applications to interact with the Appchain by querying blockchain data, submitting transactions, and accessing various functionalities exposed by the runtime
+- **RPC APIs** - Substrate provides Remote Procedure Call (RPC) APIs that enable external applications to interact with the appchain by querying blockchain data, submitting transactions, and accessing various functionalities exposed by the runtime
 
-Every feature Substrate offers can be used as-is, extended, customized, or replaced to meet the specific requirements of the use case of the Appchain.
+Every feature Substrate offers can be used as-is, extended, customized, or replaced to meet the specific requirements of the use case of the appchain.
 
-Substrate streamlines and speeds up the process of developing new Appchains. When used in conjunction with Tanssi, which helps in handling the infrastructure and overseeing the deployment, the task of launching a new Appchain becomes significantly simpler!
+Substrate streamlines and speeds up the process of developing new appchains. When used in conjunction with Tanssi, which helps in handling the infrastructure and overseeing the deployment, the task of launching a new appchain becomes significantly simpler!
 
 ## Rust Programming Language {: #rust-programming-language}
 
