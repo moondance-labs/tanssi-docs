@@ -79,7 +79,7 @@ python3 balances.py
 
 If successful, the balances for the origin and receiving address will be displayed in your terminal in TANGO.
 
-![Check Balance Ethers.js](/images/builders/interact/ethereum-api/libraries/web3py/web3py-1.webp)
+![Check Balance Ethers.js](/images/explore/developer-toolkit/ethereum-api/libraries/web3py/web3py-1.webp)
 
 
 ### Send Transaction Script {: #send-transaction-script }
@@ -113,7 +113,7 @@ If the transaction was succesful, in your terminal you'll see the transaction ha
 
 You can also use the `balances.py` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
-![Send Tx Web3.py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-2.webp)
+![Send Tx Web3.py](/images/explore/developer-toolkit/ethereum-api/libraries/web3py/web3py-2.webp)
 
 ## Deploy a Contract {: #deploy-a-contract }
 
@@ -171,7 +171,7 @@ python3 deploy.py
 
 If successful, the contract's address will be displayed in the terminal.
 
-![Deploy Contract Web3py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-3.webp)
+![Deploy Contract Web3py](/images/explore/developer-toolkit/ethereum-api/libraries/web3py/web3py-3.webp)
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
@@ -203,7 +203,7 @@ python3 get.py
 
 If successful, the value will be displayed in the terminal.
 
-![Read from Contract Web3py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-4.webp)
+![Read from Contract Web3py](/images/explore/developer-toolkit/ethereum-api/libraries/web3py/web3py-4.webp)
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
@@ -235,7 +235,7 @@ python3 increment.py
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.py` script alongside the `increment.py` script to make sure that value is changing as expected:
 
-![Increment Contract Web3py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-5.webp)
+![Increment Contract Web3py](/images/explore/developer-toolkit/ethereum-api/libraries/web3py/web3py-5.webp)
 
 Next you can open the `reset.py` file and take the following steps to create the script:
 
@@ -259,6 +259,6 @@ python3 reset.py
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.py` script alongside the `reset.py` script to make sure that value is changing as expected:
 
-![Reset Contract Web3py](/images/builders/interact/ethereum-api/libraries/web3py/web3py-6.webp)
+![Reset Contract Web3py](/images/explore/developer-toolkit/ethereum-api/libraries/web3py/web3py-6.webp)
 
 --8<-- 'text/_disclaimers/third-party-content.md'

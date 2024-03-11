@@ -6,4 +6,3 @@ nav:
   - 'Polkadot.js API': 'polkadot-js-api.md'
   - 'Sidecar API': 'sidecar-api.md'
   - wallets
-  - indexers

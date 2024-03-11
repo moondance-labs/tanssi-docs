@@ -43,7 +43,7 @@ For a refresher on setting up Remix to interface with the demo EVM Appchain, see
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
-![Compile aggregator contract](/images/builders/tooling/oracles/acurast/acurast-1.webp)
+![Compile aggregator contract](/images/explore/integrations/oracles/acurast/acurast-1.webp)
 
 Then, take the following steps:
 
@@ -52,7 +52,7 @@ Then, take the following steps:
 3. Select the **AggregatorV3Interface** contract from the **CONTRACT** dropdown
 4. Enter the sample price feed contract address for `BTC to USD`, which is `{{ networks.dancebox.oracles.acurast.btc_usd }}` on the demo EVM Appchain in the **At Address** field and click the **At Address** button
 
-![Access aggregator contract](/images/builders/tooling/oracles/acurast/acurast-2.webp)
+![Access aggregator contract](/images/explore/integrations/oracles/acurast/acurast-2.webp)
 
 The aggregator contract should now be accessible. To interact with the aggregator contract, take the following steps:
 
@@ -61,7 +61,7 @@ The aggregator contract should now be accessible. To interact with the aggregato
 3. Click **description** to verify the asset pair of the price feed
 4. Click **latestRoundData** to see the most recent price data for the asset pair. The price data for the pair is returned as the **int256 answer**
 
-![Check price data](/images/builders/tooling/oracles/acurast/acurast-3.webp)
+![Check price data](/images/explore/integrations/oracles/acurast/acurast-3.webp)
 
 Note that to obtain a readable price from the price feed, it's essential to adjust for the feed's decimal places, which can be determined using the `decimals()` method. For instance, if the price feed returns a value of `51933620000`, you'll need to move the decimal point six places to accurately reflect the price. In this example, it corresponds to a Bitcoin price of `$51,933.62` at the time of writing.
 
@@ -132,7 +132,7 @@ To configure your job, head to the [Acurast console](https://console.acurast.com
 5. Paste in the code of your job script. You can copy and paste directly from the [script of the sample BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank}, just make sure to change the destination contract to one that you deployed on your Appchain and the RPC node to your [Appchain's RPC URL](https://apps.tanssi.network/)
 6. Optionally, you can test your code here. Any error messages will be readable in the browser's console
 
-![Job setup on Acurast console](/images/builders/tooling/oracles/acurast/acurast-4.webp)
+![Job setup on Acurast console](/images/explore/integrations/oracles/acurast/acurast-4.webp)
 
 Continuing down the same setup page, take the following steps:
 
@@ -145,7 +145,7 @@ Continuing down the same setup page, take the following steps:
 7. Select **Max Reward** paid to each processor for each job execution. You don't need to specify exactly `0.01` cACU - this amount was chosen as an example
 8. Review everything first, then Press **Publish Job**
 
-![Job setup on Acurast console continued](/images/builders/tooling/oracles/acurast/acurast-5.webp)
+![Job setup on Acurast console continued](/images/explore/integrations/oracles/acurast/acurast-5.webp)
 
 On the following screen, you'll be able to monitor the status of your job. For more information about using Acurast to build and access price feeds on your Tanssi EVM-compatible Appchain, be sure to check out the [Acurast docs](https://docs.acurast.com/){target=\_blank}.
 

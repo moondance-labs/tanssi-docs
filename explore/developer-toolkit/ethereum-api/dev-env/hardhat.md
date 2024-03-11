@@ -51,7 +51,7 @@ You will need to create a Hardhat project if you don't already have one. You can
 
 5. A menu will appear which will allow you to create a new project or use a sample project. For this example, you can choose **Create an empty hardhat.config.js**
 
-![Hardhat Create Project](/images/builders/interact/ethereum-api/dev-environments/hardhat/hardhat-1.webp)
+![Hardhat Create Project](/images/explore/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-1.webp)
 
 This will create a Hardhat config file (`hardhat.config.js`) in your project directory.
 
@@ -139,7 +139,7 @@ To compile the contract you can simply run:
 npx hardhat compile
 ```
 
-![Hardhat Contract Compile](/images/builders/interact/ethereum-api/dev-environments/hardhat/hardhat-2.webp)
+![Hardhat Contract Compile](/images/explore/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-2.webp)
 
 After compilation, an `artifacts` directory is created: it holds the bytecode and metadata of the contract, which are `.json` files. It’s a good idea to add this directory to your `.gitignore`.
 
@@ -176,7 +176,7 @@ If you're deploying to another Tanssi Appchain, make sure that you specify the c
 
 After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
-![Hardhat Contract Deploy](/images/builders/interact/ethereum-api/dev-environments/hardhat/hardhat-3.webp)
+![Hardhat Contract Deploy](/images/explore/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-3.webp)
 
 Congratulations, your contract is live! Save the address, as you will use it to interact with this contract instance in the next step.
 
@@ -210,7 +210,7 @@ Next, you can take the following steps, entering one line at a time:
 
 The transaction will be signed by your EVM account and be broadcast to the network. The output should look similar to:
 
-![Transaction output](/images/builders/interact/ethereum-api/dev-environments/hardhat/hardhat-4.webp)
+![Transaction output](/images/explore/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-4.webp)
 
 Notice your address labeled `from`, the address of the contract, and the `data` that is being passed. Now, you can retrieve the value by running:
 
