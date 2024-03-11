@@ -35,8 +35,7 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ### Supported Assets {: #supported-assets }
 
-Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum mainnet. Currently, there are data feed contracts for [the demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-appchain/) for the following asset  pairs: 
-
+Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum mainnet. Currently, there are data feed contracts for [the demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/) for the following asset  pairs:
 
 === "Tanssi Demo EVM Appchain"
     | Asset & Base Pair |                                                                          Aggregator Contract                                                                           |
@@ -59,7 +58,6 @@ Phala sources its price feed data by mirroring Chainlink's price feeds from Ethe
     |    ETH to USD     | [0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419](https://etherscan.io/address/0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419){target=\_blank} |
     |    USDC to USD    | [0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6](https://etherscan.io/address/0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6){target=\_blank} |
     |    USDT to USD    | [0x3E7d1eAB13ad0104d2750B8863b489D65364e32D](https://etherscan.io/address/0x3E7d1eAB13ad0104d2750B8863b489D65364e32D){target=\_blank} |
-
 
 ### Interacting with Price Feeds on the Tanssi Demo EVM Appchain {: #interacting-with-price-feeds-demo-evm-appchain }
 
@@ -115,7 +113,6 @@ Next, edit your `.env` to insert the private key of an account funded on your ap
 --8<-- 'code/builders/tooling/oracles/phala/env.txt'
 ```
 
-
 !!! note
     You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
 
@@ -169,7 +166,7 @@ To deploy your aggregator contract for the specified asset/base pair to your EVM
 yarn deploy
 ```
 
-You'll get a transaction status as well as a contract address. Copy this contract address, as you'll need to refer to it in the following steps. 
+You'll get a transaction status as well as a contract address. Copy this contract address, as you'll need to refer to it in the following steps.
 
 --8<-- 'code/builders/tooling/oracles/phala/terminal/deploy.md'
 
@@ -177,7 +174,7 @@ You'll get a transaction status as well as a contract address. Copy this contrac
 
 Next, this tutorial will demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM appchain. You can add your appchain to your MetaMask by pressing **Add to MetaMask** on your dashboard on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}.
 
-Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it. 
+Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
 Then, take the following steps:
 
@@ -188,7 +185,7 @@ Then, take the following steps:
 
 ![Access aggregator contract](/images/builders/tooling/oracles/phala/phala-4.webp)
 
-Expand the **AggregatorV3Interface** contract to reveal the available functions and click **latestRoundData** to see the most recent price data for the asset pair. You should see `0` values for all. This is because your aggregator contract has been deployed, but it hasn't yet fetched price data. You can fix this with a quick price feed update. 
+Expand the **AggregatorV3Interface** contract to reveal the available functions and click **latestRoundData** to see the most recent price data for the asset pair. You should see `0` values for all. This is because your aggregator contract has been deployed, but it hasn't yet fetched price data. You can fix this with a quick price feed update.
 
 ![Get output of deployed aggregator contract](/images/builders/tooling/oracles/phala/phala-5.webp)
 
