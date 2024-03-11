@@ -7,17 +7,15 @@ description: Learn how to use Acurast's decentralized serverless cloud to get re
 
 ## Introduction {: #introduction }
 
-[Acurast](https://acurast.com/){target=\_blank} gives developers complete permissionless access to compute that is trustless, affordable and confidential for deploying their applications.
+[Acurast](https://acurast.com/){target=\_blank} gives developers complete permissionless access to compute that is trustless, affordable, and confidential for deploying their applications.
 
 One of Acurast's use cases is to enable developers to deploy their own push/pull oracles, interacting with off-chain APIs to bring price feeds on-chain. Pricing data is confidentially processed through Acurast Processors, pushing data to smart contracts of EVM-compatible chains like Tanssi EVM Appchains via a [standard Chainlink Aggregator Interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}.
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Acurast on the [demo Tanssi EVM-compatible Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}. You can also deploy your own price feeds to your Tanssi EVM-compatible Appchain. Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you contact the [Acurast](https://acurast.com/){target=\_blank} team directly as they can assist you with launching price feeds on your Appchain to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Acurast on the [demo Tanssi EVM-compatible Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}. You can also deploy your own price feeds to your Tanssi EVM-compatible Appchain. Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you contact the [Acurast](https://acurast.com/){target=\_blank} team directly as they can assist you with launching price feeds on an Appchain to ensure the integrity of the deployment process.
 
 ## What is Acurast? {: #what-is-acurast }
 
 Acurast is a decentralized, serverless cloud where everyone can become part of the cloud with their new, used, or even mobile phones with a smashed screen by providing compute power to the cloud and earning rewards. These so-called Processors are scattered across the globe, creating a distributed network of compute across the globe.
-
-Acurast gives developers complete permissionless access to compute that is trustless, affordable and confidential for deploying their applications like price feed oracles.
 
 Processors and developers can seamlessly interact through the [Acurast Console](https://console.acurast.com/){target=\_blank}.
 
@@ -35,13 +33,13 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ## Interacting with Price Feeds on the Tanssi Demo EVM Appchain {: #interacting-with-price-feeds-demo-evm-appchain }
 
-This tutorial will showcase interacting with a sample BTC/USDT price feed contract on the demo EVM Appchain, but you can interact any of the price feeds listed in [Supported Assets](#supported-assets). The BTC/USDT price feed is [deployed on the demo EVM Appchain](https://3001-blockscout.a.dancebox.tanssi.network/address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}, so you can interact with it by accessing the aggregator contract at the below contract address:
+This tutorial will showcase interacting with a sample BTC/USDT price feed contract on the demo EVM Appchain, but you can interact with any of the price feeds listed in [Supported Assets](#supported-assets). The BTC/USDT price feed is [deployed on the demo EVM Appchain](https://3001-blockscout.a.dancebox.tanssi.network/address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}, so you can interact with it by accessing the aggregator contract at the below contract address:
 
 ```text
 {{ networks.dancebox.oracles.acurast.btc_usd }}
 ```
 
-For a refresher on setting up Remix to interface with your Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain.
+For a refresher on setting up Remix to interface with the demo EVM Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
@@ -98,7 +96,7 @@ The Acurast team has deployed the below price feeds on the Tanssi demo EVM Appch
 
 You can build and launch your own Acurast price feed on your Tanssi EVM-compatible Appchain. Please be advised that the steps shown in this tutorial are unaudited, unverified, and for demonstration purposes only - it's highly recommended that you [contact the Acurast team directly](https://acurast.com/){target=\_blank} as they can assist you with launching price feeds on your Appchain to ensure the integrity of the deployment process.
 
-To launch an Acurast price feed, you need two key components: a smart contract and a script. In the prior example of [Interacting with the BTC/USD price feed](#interacting-with-price-feeds-demo-evm-appchain) on the demo EVM Appchain, the generic Chainlink interface is used because it is a more straightforward example for demonstration purposes. The underlying smart contract that powers that price feed conforms to the [Chainlink Aggregator interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}, but the demo contract has additional components worthy of discussion. You can find both the demo contract and script at the [GitHub repo for the Acurast demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/tree/main){target=\_blank}.
+To launch an Acurast price feed, you need two key components: a smart contract and a script. In the prior example of [Interacting with the BTC/USD price feed](#interacting-with-price-feeds-demo-evm-appchain) on the demo EVM Appchain, the generic Chainlink interface is used because it is a more straightforward example for demonstration purposes. The underlying smart contract that powers that price feed conforms to the [Chainlink Aggregator interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}, but the demo contract has additional components worthy of discussion. You can find both the demo contract and script in the [GitHub repo for the Acurast demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/tree/main){target=\_blank}.
 
 The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price is updated and when a new round begins. The `setPrice` method is insecure, as shown in this demo smart contract, but it is provided to show you where you might add logic like aggregation consensus, access control checks, and other parameters.
 
@@ -109,9 +107,9 @@ The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price i
     ```
 
 !!! warning
-    This demo contract has a number of security vulnerabilities and lacks access control mechanisms, making it unsuitable for any real use. It was developed by the Acurast team for demonstration purposes only.
+    This demo contract has some security vulnerabilities and lacks access control mechanisms, making it unsuitable for any real use. It was developed by the Acurast team for demonstration purposes only.
 
-Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM Appchain. Or, you can deploy it to the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/), and you can obtain TestNet TANGO tokens from the [Tanssi faucet](https://apps.tanssi.network/demo){target=\_blank}. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
+Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM Appchain. Or, you can deploy it to the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}, and you can obtain TestNet TANGO tokens from the [Tanssi faucet](https://apps.tanssi.network/demo){target=\_blank}. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
 
 ### Building the Acurast Script
 

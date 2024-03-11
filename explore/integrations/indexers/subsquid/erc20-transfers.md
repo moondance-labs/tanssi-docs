@@ -1,9 +1,9 @@
 ---
-title: Using Subsquid to Index Your Appchain
+title: Index ERC-20 Transfers on an EVM Appchain
 description: Learn how to use Subsquid, a query node framework that can index both Substrate and EVM data, to process blockchain data for your Tanssi Appchain.
 ---
 
-# Using Subsquid to Index Your Appchain
+# Indexing ERC-20 Transfers on a Tanssi EVM Appchain
 
 ## Introduction {: #introduction }
 
@@ -20,7 +20,6 @@ To follow along with this tutorial, you'll need to have:
 - [Docker installed](https://docs.docker.com/get-docker/){target=\_blank}
 - [Docker Compose installed](https://docs.docker.com/compose/install/){target=\_blank}
 - An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/interact/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page
-- An [ERC-20 token deployed](#deploy-an-erc20-with-hardhat) to your Tanssi Appchain, unless you're using the ERC-20 token provided on the demo EVM Appchain
 
 --8<-- 'text/_common/general-js-tutorial-check.md'
 
@@ -408,7 +407,7 @@ Error: connect ECONNREFUSED 127.0.0.1:23798
      at createConnectionError (node:net:1634:14)
      at afterConnectMultiple (node:net:1664:40) {
      errno: -61,code: 'ECONNREFUSED',syscall: 'connect',
-     address: '127.0.0.1',port: 23798}]}
+     address: '127.0.0.1',port: 23798}
 ```
 
 To resolve this, run `sqd up` before you run `sqd migration:generate`
