@@ -121,7 +121,7 @@ balances();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/balances.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethersjs/balances.js'
     ```
 
 To run the script and fetch the account balances, you can run the following command:
@@ -132,7 +132,7 @@ node balances.js
 
 If successful, the balances for the origin and receiving address will be displayed in your terminal in TANGO.
 
---8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/balances.md'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethers/terminal/balances.md'
 
 ### Send Transaction Script {: #send-transaction-script }
 
@@ -188,7 +188,7 @@ send();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/transaction.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethersjs/transaction.js'
     ```
 
 To run the script, you can run the following command in your terminal:
@@ -201,15 +201,15 @@ If the transaction was succesful, in your terminal you'll see the transaction ha
 
 You can also use the `balances.js` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
---8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/transaction.md'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethers/terminal/transaction.md'
 
 ## Deploy a Contract {: #deploy-a-contract }
 
---8<-- 'text/builders/interact/ethereum-api/libraries/contract.md'
+--8<-- 'text/explore/developer-toolkit/ethereum-api/libraries/contract.md'
 
 ### Compile Contract Script {: #compile-contract-script }
 
---8<-- 'text/builders/interact/ethereum-api/libraries/compile.md'
+--8<-- 'text/explore/developer-toolkit/ethereum-api/libraries/compile.md'
 
 ### Deploy Contract Script {: #deploy-contract-script }
 
@@ -271,7 +271,7 @@ deploy();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/deploy.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethersjs/deploy.js'
     ```
 
 To run the script, you can enter the following command into your terminal:
@@ -282,7 +282,7 @@ node deploy.js
 
 If successful, the contract's address will be displayed in the terminal.
 
---8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/deploy.md'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethers/terminal/deploy.md'
 
 ### Read Contract Data (Call Methods) {: #read-contract-data }
 
@@ -338,7 +338,7 @@ get();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/get.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethersjs/get.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -349,7 +349,7 @@ node get.js
 
 If successful, the value will be displayed in the terminal.
 
---8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/get.md'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethers/terminal/get.md'
 
 ### Interact with Contract (Send Methods) {: #interact-with-contract }
 
@@ -414,7 +414,7 @@ increment();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/increment.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethersjs/increment.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -425,7 +425,7 @@ node increment.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that value is changing as expected:
 
---8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/increment.md'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethers/terminal/increment.md'
 
 Next you can open the `reset.js` file and take the following steps to create the script:
 
@@ -479,7 +479,7 @@ reset();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/ethersjs/reset.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethersjs/reset.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -490,6 +490,6 @@ node reset.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `reset.js` script to make sure that value is changing as expected:
 
---8<-- 'code/builders/interact/ethereum-api/libraries/ethers/terminal/reset.md'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/ethers/terminal/reset.md'
 
 --8<-- 'text/_disclaimers/third-party-content.md'

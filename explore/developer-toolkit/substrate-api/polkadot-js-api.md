@@ -105,7 +105,7 @@ console.log(
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/substrate-api/polkadot-js-api/state-queries.js'
+    --8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/state-queries.js'
     ```
 
 ### RPC Queries {: #rpc-queries }
@@ -134,7 +134,7 @@ console.log(
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/substrate-api/polkadot-js-api/rpc-queries.js'
+    --8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/rpc-queries.js'
     ```
 
 ### Query Subscriptions {: #query-subscriptions }
@@ -172,7 +172,7 @@ await api.query.system.account(addr, ({ nonce, data: balance }) => {
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/substrate-api/polkadot-js-api/query-subscriptions.js'
+    --8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/query-subscriptions.js'
     ```
 
 ## Create a Keyring for a Account {: #keyrings }
@@ -201,19 +201,19 @@ There are a number of ways to add an account to the keyring instance, including 
 === "From Mnemonic (ECDSA)"
 
     ```javascript
-    --8<-- 'code/builders/interact/substrate-api/polkadot-js-api/adding-accounts-mnemonic-ecdsa.js'
+    --8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-mnemonic-ecdsa.js'
     ```
 
 === "From Private Key (ECDSA)"
 
     ```javascript
-    --8<-- 'code/builders/interact/substrate-api/polkadot-js-api/adding-accounts-private-key-ecdsa.js'
+    --8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-private-key-ecdsa.js'
     ```
 
 === "From Mnemonic (SR25519)"
 
     ```javascript
-    --8<-- 'code/builders/interact/substrate-api/polkadot-js-api/adding-accounts-mnemonic-sr25519.js'
+    --8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-mnemonic-sr25519.js'
     ```
 
 ## Sending Transactions  {: #transactions }
@@ -252,7 +252,7 @@ console.log(`Submitted with hash ${txHash}`);
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/substrate-api/polkadot-js-api/basic-transactions.js'
+    --8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/basic-transactions.js'
     ```
 
 Note that the `signAndSend` function can also accept optional parameters, such as the `nonce`. For example, `signAndSend(alice, { nonce: aliceNonce })`. You can use the [sample code from the State Queries](#state-queries){target=\_blank} section to retrieve the correct nonce, including transactions in the mempool.
@@ -278,7 +278,7 @@ console.log(`Transaction fee: ${partialFee.toHuman()}`);
 
 ??? code "View the complete script"
     ```js
-    --8<-- 'code/builders/interact/substrate-api/polkadot-js-api/payment-info.js'
+    --8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/payment-info.js'
     ```
 
 
@@ -324,7 +324,7 @@ api.tx.utility
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/substrate-api/polkadot-js-api/batch-transactions.js'
+    --8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/batch-transactions.js'
     ```
 
 ## Sample Code for Monitoring Native Token Transfers { #sample-code-for-monitoring-native-token-transfers }
@@ -336,7 +336,7 @@ The following code snippet uses [`subscribeFinalizedHeads`](https://polkadot.js.
 Then, it checks if any event corresponds to a `balances.Transfer` event. If so, it will extract the `from`, `to`, `amount`, and the `tx hash` of the transfer and display it on the console. Note that the `amount` is shown in the smallest unit (Wei).  You can find all the available information about Polkadot.js and the Substrate JSON RPC in their [official documentation site](https://polkadot.js.org/docs/substrate/rpc){target=\_blank}.
 
 ```typescript
---8<-- 'code/builders/interact/substrate-api/polkadot-js-api/balance-event.ts'
+--8<-- 'code/explore/developer-toolkit/substrate-api/polkadot-js-api/balance-event.ts'
 ```
 
 In addition, you can find more sample code snippets related to more specific cases around balance transfers at this [GitHub page](https://gist.github.com/crystalin/b2ce44a208af60d62b5ecd1bad513bce){target=\_blank}.

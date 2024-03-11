@@ -34,7 +34,7 @@ Next, you can create a new file to save the Solidity smart contract. To do so, t
 Next, paste the following smart contract into the editor tab:
 
 ```solidity
---8<-- 'code/builders/interact/ethereum-api/dev-env/remix/erc20.sol'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/dev-env/remix/erc20.sol'
 ```
 
 ![Paste the contract into the editor](/images/explore/developer-toolkit/ethereum-api/dev-environments/remix/remix-3.webp)

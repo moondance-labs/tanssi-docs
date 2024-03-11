@@ -68,7 +68,7 @@ Next, you will create the script for this file and complete the following steps:
 3. Get the balance for the accounts using the `web3.eth.get_balance` function and format the results using the `web3.from_wei`
 
 ```python
---8<-- 'code/builders/interact/ethereum-api/libraries/web3py/balances.py'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3py/balances.py'
 ```
 
 To run the script and fetch the account balances, you can run the following command:
@@ -100,7 +100,7 @@ Next, you will create the script for this file and complete the following steps:
 6. Using the signed transaction, you can then send it using the `web3.eth.send_raw_transaction` function and wait for the transaction receipt by using the `web3.eth.wait_for_transaction_receipt` function
 
 ```python
---8<-- 'code/builders/interact/ethereum-api/libraries/web3py/transaction.py'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3py/transaction.py'
 ```
 
 To run the script, you can run the following command in your terminal:
@@ -117,7 +117,7 @@ You can also use the `balances.py` script to check that the balances for the ori
 
 ## Deploy a Contract {: #deploy-a-contract }
 
---8<-- 'text/builders/interact/ethereum-api/libraries/contract.md'
+--8<-- 'text/explore/developer-toolkit/ethereum-api/libraries/contract.md'
 
 ### Compile Contract Script {: #compile-contract-script }
 
@@ -135,7 +135,7 @@ Next, you will create the script for this file and complete the following steps:
 4. Export the contract's ABI and bytecode
 
 ```python
---8<-- 'code/builders/interact/ethereum-api/libraries/web3py/compile.py'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3py/compile.py'
 ```
 
 !!! note
@@ -160,7 +160,7 @@ Next, you will create the script for this file and complete the following steps:
 7. Using the signed transaction, you can then send it using the `web3.eth.send_raw_transaction` function and wait for the transaction receipt by using the `web3.eth.wait_for_transaction_receipt` function
 
 ```python
---8<-- 'code/builders/interact/ethereum-api/libraries/web3py/deploy.py'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3py/deploy.py'
 ```
 
 To run the script, you can enter the following command into your terminal:
@@ -192,7 +192,7 @@ Then you can take the following steps to create the script:
 5. Using the contract instance, you can then call the `number` function
 
 ```python
---8<-- 'code/builders/interact/ethereum-api/libraries/web3py/get.py'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3py/get.py'
 ```
 
 To run the script, you can enter the following command in your terminal:
@@ -224,7 +224,7 @@ Open the `increment.py` file and take the following steps to create the script:
 7. Using the signed transaction, you can then send it using the `web3.eth.send_raw_transaction` function and wait for the transaction receipt by using the `web3.eth.wait_for_transaction_receipt` function
 
 ```python
---8<-- 'code/builders/interact/ethereum-api/libraries/web3py/increment.py'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3py/increment.py'
 ```
 
 To run the script, you can enter the following command in your terminal:
@@ -248,7 +248,7 @@ Next you can open the `reset.py` file and take the following steps to create the
 7. Using the signed transaction, you can then send it using the `web3.eth.send_raw_transaction` function and wait for the transaction receipt by using the `web3.eth.wait_for_transaction_receipt` function
 
 ```python
---8<-- 'code/builders/interact/ethereum-api/libraries/web3py/reset.py'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3py/reset.py'
 ```
 
 To run the script, you can enter the following command in your terminal:

@@ -87,7 +87,7 @@ touch MyToken.sol
 Open the file and add the following contract to it:
 
 ```solidity
---8<-- 'code/builders/interact/ethereum-api/dev-env/foundry/erc20.sol'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/dev-env/foundry/erc20.sol'
 ```
 
 Before you attempt to compile, install OpenZeppelin contracts as a dependency. You may have to commit previous changes to git beforehand. By default, Foundry uses git submodules instead of npm packages, so the traditional npm import path and command are not used. Instead, use the name of OpenZeppelin's GitHub repository:

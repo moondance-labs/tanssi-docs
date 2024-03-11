@@ -26,7 +26,7 @@ You can design your Acurast price feed exactly as you wish. The demo price feed 
 ???+ code "AggregatorV3Interface.sol"
 
     ```solidity
-    --8<-- 'code/builders/tooling/oracles/acurast/AggregatorV3Interface.sol'
+    --8<-- 'code/explore/integrations/oracles/acurast/AggregatorV3Interface.sol'
     ```
 
 As seen above in the interface, there are five functions for fetching data: `decimals`, `description`, `version`, `getRoundData`, and `latestRoundData`. For more information about the `AggregatorV3Interface.sol`, see the [Chainlink API Reference](https://docs.chain.link/data-feeds/api-reference){target=\_blank}.
@@ -75,7 +75,7 @@ curl "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
 
 Upon running the above command in your terminal, you'll see a result that resembles the following:
 
---8<-- 'code/builders/tooling/oracles/acurast/terminal/api.md'
+--8<-- 'code/explore/integrations/oracles/acurast/terminal/api.md'
 
 !!! note
     This simple example of fetching a price feed relies on a single source of price feed data from one exchange. You can build a more complex job script that aggregates pricing data from multiple sources.
@@ -103,7 +103,7 @@ The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price i
 ???+ code "InsecureDummyPriceFeed.sol"
 
     ```solidity
-    --8<-- 'code/builders/tooling/oracles/acurast/InsecureDummyPriceFeed.sol'
+    --8<-- 'code/explore/integrations/oracles/acurast/InsecureDummyPriceFeed.sol'
     ```
 
 !!! warning
@@ -120,7 +120,7 @@ The [Acurast script for the demo BTC/USD price feed](https://github.com/Acurast/
 ???+ code "AcurastScript.js"
 
     ```js
-    --8<-- 'code/builders/tooling/oracles/acurast/AcurastScript.js'
+    --8<-- 'code/explore/integrations/oracles/acurast/AcurastScript.js'
     ```
 
 To configure your job, head to the [Acurast console](https://console.acurast.com/create){target=\_blank}, then take the following steps:

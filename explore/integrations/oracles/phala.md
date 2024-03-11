@@ -28,7 +28,7 @@ There are several price feeds available on the demo EVM Appchain that you can in
 ???+ code "AggregatorV3Interface.sol"
 
     ```solidity
-    --8<-- 'code/builders/tooling/oracles/phala/AggregatorV3Interface.sol'
+    --8<-- 'code/explore/integrations/oracles/phala/AggregatorV3Interface.sol'
     ```
 
 As seen above in the interface, there are five functions for fetching data: `decimals`, `description`, `version`, `getRoundData`, and `latestRoundData`. For more information about the `AggregatorV3Interface.sol`, see the [Chainlink API Reference](https://docs.chain.link/data-feeds/api-reference){target=\_blank}.
@@ -110,7 +110,7 @@ cp env.example .env
 Next, edit your `.env` to insert the private key of an account funded on your Appchain, and the RPC URL of your Appchain. If building on your own Appchain, you can fund a dummy account from the Sudo account of your Appchain. Your Appchain's Sudo address and RPC URL are both accessible from your dashboard on the [Tanssi DApp](https://apps.tanssi.network/){target=\_blank}. You can leave the other fields in the `.env` blank. Your `.env` should resemble the below:
 
 ```bash
---8<-- 'code/builders/tooling/oracles/phala/env.txt'
+--8<-- 'code/explore/integrations/oracles/phala/env.txt'
 ```
 
 !!! note
@@ -123,13 +123,13 @@ Next, you'll need to edit the `OffchainAggregator.s.sol` file located in the scr
 ???+ code "OffchainAggregator.s.sol"
 
     ```solidity
-    --8<-- 'code/builders/tooling/oracles/phala/OffchainAggregator.s.sol'
+    --8<-- 'code/explore/integrations/oracles/phala/OffchainAggregator.s.sol'
     ```
 
 There are a few more changes that you need to make in `feeder.ts`, the file that maintains and updates your price feeds. You'll need to insert the details of your EVM Appchain as follows:
 
 ```typescript
---8<-- 'code/builders/tooling/oracles/phala/define-chain.ts'
+--8<-- 'code/explore/integrations/oracles/phala/define-chain.ts'
 ```
 
 You'll also see two arrays of contract addresses at the top of `feeder.ts`. The first array, named `mainnetFeedContracts` refers to Ethereum MainNet aggregator contract addresses, and you can leave that untouched. The second array, named `aggregatorContracts` still contains the addresses of the aggregator contracts on the demo EVM Appchain. You should erase this array such that it is empty. Later in this guide, you'll return to it and add the contract addresses of your aggregator contracts specific to your Tanssi EVM Appchain once they are deployed.
@@ -139,7 +139,7 @@ Once you're finished editing, your `feeder.ts` file should resemble the below:
 ???+ code "feeder.ts"
 
     ```ts
-    --8<-- 'code/builders/tooling/oracles/phala/feeder.ts'
+    --8<-- 'code/explore/integrations/oracles/phala/feeder.ts'
     ```
 
 ### Build and Test {: #build-and-test }
@@ -156,7 +156,7 @@ yarn test
 
 If everything was successful, you'll see output like the following:
 
---8<-- 'code/builders/tooling/oracles/phala/terminal/build.md'
+--8<-- 'code/explore/integrations/oracles/phala/terminal/build.md'
 
 ### Deploy {: #deploy }
 
@@ -168,7 +168,7 @@ yarn deploy
 
 You'll get a transaction status as well as a contract address. Copy this contract address, as you'll need to refer to it in the following steps.
 
---8<-- 'code/builders/tooling/oracles/phala/terminal/deploy.md'
+--8<-- 'code/explore/integrations/oracles/phala/terminal/deploy.md'
 
 ### Access Aggregator Contract {: #access-aggregator-contract }
 
@@ -205,7 +205,7 @@ Then, from the command line, run the following command:
 npx tsx feeder.ts 
 ```
 
---8<-- 'code/builders/tooling/oracles/phala/terminal/update.md'
+--8<-- 'code/explore/integrations/oracles/phala/terminal/update.md'
 
 Upon returning to Remix, click **latestRoundData** once more, and after waiting a moment, you should see an accurate value returned.
 

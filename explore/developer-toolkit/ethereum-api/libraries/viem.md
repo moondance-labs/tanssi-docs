@@ -67,7 +67,7 @@ To create a client for reading chain data, you can take the following steps:
 3. Create the `client` using the `createPublicClient` function and pass in the network and the HTTP RPC endpoint
 
 ```ts
---8<-- 'code/builders/interact/ethereum-api/libraries/viem/read-chain-data.ts'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/read-chain-data.ts'
 ```
 
 ### For Writing Chain Data {: #for-writing-chain-data }
@@ -85,13 +85,13 @@ To create a client for writing chain data, you can take the following steps:
 
 
 ```ts
---8<-- 'code/builders/interact/ethereum-api/libraries/viem/write-chain-data.ts'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/write-chain-data.ts'
 ```
 
 !!! note
     To interact with browser-based wallets, you can use the following code to create an account. In this snippet, `demo` refers to the demo EVM Appchain created with `defineChain`.
     ```ts
-    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/browser-based-wallets.ts'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/browser-based-wallets.ts'
     ```
 
 ## Send a Transaction {: #send-transaction }
@@ -119,7 +119,7 @@ Next, you will create the script for this file and complete the following steps:
 ???+ code "View balances.ts"
 
     ```ts
-    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/balances.ts'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/balances.ts'
     ```
 
 To run the script and fetch the account balances, you can run the following command:
@@ -155,7 +155,7 @@ Next, you will create the script for this file and complete the following steps:
 ???+ code "View transaction.ts"
 
     ```ts
-    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/transaction.ts'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/transaction.ts'
     ```
 
 To run the script, you can run the following command in your terminal:
@@ -170,14 +170,14 @@ If the transaction was successful, in your terminal, you'll see the transaction 
 
 ## Deploy a Contract {: #deploy-contract }
 
---8<-- 'text/builders/interact/ethereum-api/libraries/contract.md'
+--8<-- 'text/explore/developer-toolkit/ethereum-api/libraries/contract.md'
 
 ### Compile Contract Script {: #compile-contract-script }
 
---8<-- 'text/builders/interact/ethereum-api/libraries/compile-ts.md'
+--8<-- 'text/explore/developer-toolkit/ethereum-api/libraries/compile-ts.md'
 
 ```js
---8<-- 'code/builders/interact/ethereum-api/libraries/viem/compile.ts'
+--8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/compile.ts'
 ```
 
 ### Deploy Contract Script {: #deploy-contract-script }
@@ -203,7 +203,7 @@ Next, you will create the script for this file and complete the following steps:
 ???+ code "View deploy.ts"
 
     ```ts
-    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/deploy.ts'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/deploy.ts'
     ```
 
 
@@ -240,7 +240,7 @@ Then you can take the following steps to create the script:
 ???+ code "View get.ts"
 
     ```ts
-    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/get.ts'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/get.ts'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -276,7 +276,7 @@ Open the `increment.ts` file and take the following steps to create the script:
 ???+ code "View increment.ts"
 
     ```ts
-    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/increment.ts'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/increment.ts'
     ```
 
 
@@ -305,7 +305,7 @@ Next, you can open the `reset.ts` file and take the following steps to create th
 ???+ code "View reset.ts"
 
     ```ts
-    --8<-- 'code/builders/interact/ethereum-api/libraries/viem/reset.ts'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/viem/reset.ts'
     ```
 
 

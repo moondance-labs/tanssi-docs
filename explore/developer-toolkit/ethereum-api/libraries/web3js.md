@@ -109,7 +109,7 @@ balances();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/balances.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3js/balances.js'
     ```
 
 To run the script and fetch the account balances, you can run the following command:
@@ -182,7 +182,7 @@ send();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/transaction.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3js/transaction.js'
     ```
 
 To run the script, you can run the following command in your terminal:
@@ -199,11 +199,11 @@ You can also use the `balances.js` script to check that the balances for the ori
 
 ## Deploy a Contract {: #deploy-a-contract }
 
---8<-- 'text/builders/interact/ethereum-api/libraries/contract.md'
+--8<-- 'text/explore/developer-toolkit/ethereum-api/libraries/contract.md'
 
 ### Compile Contract Script {: #compile-contract-script }
 
---8<-- 'text/builders/interact/ethereum-api/libraries/compile.md'
+--8<-- 'text/explore/developer-toolkit/ethereum-api/libraries/compile.md'
 
 ### Deploy Contract Script {: #deploy-contract-script }
 
@@ -279,7 +279,7 @@ deploy();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/deploy.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3js/deploy.js'
     ```
 
 To run the script, you can enter the following command into your terminal:
@@ -342,7 +342,7 @@ get();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/get.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3js/get.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -425,7 +425,7 @@ increment();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/increment.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3js/increment.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
@@ -499,7 +499,7 @@ reset();
 ??? code "View the complete script"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/libraries/web3js/reset.js'
+    --8<-- 'code/explore/developer-toolkit/ethereum-api/libraries/web3js/reset.js'
     ```
 
 To run the script, you can enter the following command in your terminal:
