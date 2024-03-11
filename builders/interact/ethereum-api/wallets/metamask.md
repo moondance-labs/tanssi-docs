@@ -1,15 +1,15 @@
 ---
 title: How to Connect MetaMask
-description: This guide walks you through how to connect MetaMask, a browser-based Ethereum wallet, to your Tanssi EVM Appchain and how to transfer funds.
+description: This guide walks you through how to connect MetaMask, a browser-based Ethereum wallet, to your Tanssi EVM appchain and how to transfer funds.
 ---
 
 # Interacting with your Tanssi EVM Appchain Using MetaMask
 
 ## Introduction {: #introduction }
 
-Developers building dApps on top of Tanssi EVM Appchains can leverage their Ethereum compatibility features by integrating known Ethereum wallets, such as [MetaMask](https://metamask.io/){target=\_blank}. By doing so, they can use the injected library MetaMask provides to interact with the Tanssi EVM Appchain.
+Developers building dApps on top of Tanssi EVM appchains can leverage their Ethereum compatibility features by integrating known Ethereum wallets, such as [MetaMask](https://metamask.io/){target=\_blank}. By doing so, they can use the injected library MetaMask provides to interact with the Tanssi EVM appchain.
 
-This guide takes you through all the necessary steps: from installing Metamask, to setting up a wallet, and finally connecting it to your Tanssi EVM Appchain.
+This guide takes you through all the necessary steps: from installing Metamask, to setting up a wallet, and finally connecting it to your Tanssi EVM appchain.
 
 !!! note
     You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
@@ -57,7 +57,7 @@ You should end up with an imported **Account 2** that looks like this:
 
 ## Connect MetaMask to your Tanssi EVM Appchain {: #connect-metamask-to-evm-appchain }
 
-Once you have [MetaMask](https://metamask.io/){target=\_blank} installed and have created or imported an account, you can connect it to your Tanssi EVM Appchain. To do so, take the following steps:
+Once you have [MetaMask](https://metamask.io/){target=\_blank} installed and have created or imported an account, you can connect it to your Tanssi EVM appchain. To do so, take the following steps:
 
 1. Click in the upper left network selector menu
 2. Select **Add Network**
@@ -95,7 +95,7 @@ Once you've added the network, you'll be redirected to a screen stating that you
 
 ## Interact with the Network {: #interact-with-network }
 
-Once you've [connected Metamask](#connect-metamask-to-evm-appchain) to your Tanssi EVM Appchain, you can start using your wallet by:
+Once you've [connected Metamask](#connect-metamask-to-evm-appchain) to your Tanssi EVM appchain, you can start using your wallet by:
 
 - Requesting TANGO tokens from the [demo EVM Appchain faucet](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/#faucet)
 - Sending a token transfer to another address
