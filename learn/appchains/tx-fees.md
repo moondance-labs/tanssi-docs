@@ -75,7 +75,7 @@ All non-EVM function calls available to developers use these baseline calculatio
 
 <!-- https://github.com/polkadot-evm/frontier/blob/272fe8839f87161ed89350de166b379f1f4c6136/frame/base-fee/src/lib.rs#L126-L199 -->
 
-Tanssi offers [templates for full Tanssi EVM-compatible Appchains](/builders/build/templates/evm/){target=\_blank}. Such Appchains provide an Ethereum-like environment for developers, where they can use Eth-specific libraries like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank}, [Hardhat](/builders/interact/ethereum-api/dev-env/hardhat/){target=_blank}, and [Foundry](/builders/interact/ethereum-api/dev-env/foundry/){target=\_blank}.
+Tanssi offers [templates for full Tanssi EVM-compatible Appchains](/builders/build/templates/evm/){target=\_blank}. Such Appchains provide an Ethereum-like environment for developers, where they can use Eth-specific libraries like [Ethers.js](/explore/developer-toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Hardhat](/explore/developer-toolkit/ethereum-api/dev-env/hardhat/){target=_blank}, and [Foundry](/explore/developer-toolkit/ethereum-api/dev-env/foundry/){target=\_blank}.
 
 In addition, all Tanssi EVM-compatible Appchains have an [EIP-1559 compatible](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} transaction pricing mechanism for EVM transactions. But they support both commonly used EVM transaction types:
 

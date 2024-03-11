@@ -39,7 +39,7 @@ This tutorial will showcase interacting with a sample BTC/USDT price feed contra
 {{ networks.dancebox.oracles.acurast.btc_usd }}
 ```
 
-For a refresher on setting up Remix to interface with the demo EVM Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain.
+For a refresher on setting up Remix to interface with the demo EVM Appchain, see the [Deploy Smart Contracts with Remix](/explore/developer-toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/explore/developer-toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 

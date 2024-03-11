@@ -63,7 +63,7 @@ Phala sources its price feed data by mirroring Chainlink's price feeds from Ethe
 
 Next, this tutorial will showcase interacting with the price feed contracts on the demo EVM Appchain. These contracts are already deployed on the demo EVM Appchain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
 
-For a refresher on setting up Remix to interface with the demo EVM Appchain, see the [Deploy Smart Contracts with Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain.
+For a refresher on setting up Remix to interface with the demo EVM Appchain, see the [Deploy Smart Contracts with Remix](/explore/developer-toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/explore/developer-toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM Appchain.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 

@@ -7,7 +7,7 @@ description: This guide walks you through how to connect Talisman, a Polkadot, S
 
 ## Introduction {: #introduction }
 
-Developers and users of Tanssi Substrate Appchains have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM Appchain](/builders/interact/ethereum-api/wallets/talisman){target=\_blank}.
+Developers and users of Tanssi Substrate Appchains have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM Appchain](/explore/developer-toolkit/ethereum-api/wallets/talisman){target=\_blank}.
 
 Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet-extension/){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz/){target=\_blank}
 
@@ -121,6 +121,6 @@ To send a transaction through the Substrate API, click **Send** next to your acc
 ![Send funds through Substrate API with Polkadot.js Apps](/images/explore/developer-toolkit/substrate-api/wallets/talisman/talisman-11.webp)
 
 
-This guide focused specifically on configuring Talisman to work with your Tanssi Substrate Appchain, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your Tanssi EVM Appchain](/builders/interact/ethereum-api/wallets/talisman){target=\_blank}.
+This guide focused specifically on configuring Talisman to work with your Tanssi Substrate Appchain, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your Tanssi EVM Appchain](/explore/developer-toolkit/ethereum-api/wallets/talisman){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
