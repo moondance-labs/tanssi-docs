@@ -49,4 +49,4 @@ One of the core differences between a normal Parachain and a Tanssi-powered appc
 While a block producer simultaneously executes blocks from Tanssi and the appchain that was assigned to it, Tanssi and each appchain will have their own set of Data Preservers running full archive nodes for each chain. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and appchains.
 
 ![Data Preservers of an appchain & Tanssi](/images/learn/tanssi/overview/dark-overview-2.webp#only-dark)
-![Data Preservers  of an appchain & Tanssi](/images/learn/tanssi/overview/light-overview-2.webp#only-light)
+![Data Preservers of an appchain & Tanssi](/images/learn/tanssi/overview/light-overview-2.webp#only-light)
