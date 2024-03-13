@@ -54,7 +54,7 @@ You can interact with a Tanssi EVM appchain using standard Ethereum libraries, l
     import { ethers } from "ethers";
 
     const providerRPC = {
-      EvmAppchain: {
+      evmAppchain: {
         name: 'dancebox-evm-appchain',
         // Insert your RPC URL here
         rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', 
@@ -62,10 +62,10 @@ You can interact with a Tanssi EVM appchain using standard Ethereum libraries, l
       },
     };
     const provider = new ethers.JsonRpcProvider(
-      providerRPC.EvmAppchain.rpc, 
+      providerRPC.evmAppchain.rpc, 
       {
-        chainId: providerRPC.EvmAppchain.chainId,
-        name: providerRPC.EvmAppchain.name,
+        chainId: providerRPC.evmAppchain.chainId,
+        name: providerRPC.evmAppchain.name,
       }
     );
     ```
