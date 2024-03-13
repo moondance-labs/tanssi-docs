@@ -1,5 +1,5 @@
 ---
-title: Prerequisites for building an appchain
+title: Prerequisites for Building an Appchain
 description: Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your appchain.
 ---
 

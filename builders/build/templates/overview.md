@@ -25,7 +25,7 @@ To seamlessly integrate a new Tanssi appchain into the Polkadot ecosystem, conve
 Parachains are expected to handle their block production through their own set of block producers and expose interfaces to communicate with the relay chain. This allows their state transition to be validated, thus benefiting from the shared security model, to send and receive messages to and from other Parachains, and to manage other aspects, such as:
 
 - **Consensus** - Cumulus adds the necessary functionality to allow the block producers to produce blocks, gossip and validate them, and coordinate with the relay chain to get notified about the block's finality
-- **[XCM](https://wiki.polkadot.network/docs/learn-xcm){target=\_blank}** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a Tanssi  appchain to communicate and interoperate with the other sibling chains within the ecosystem
+- **[XCM](https://wiki.polkadot.network/docs/learn-xcm){target=\_blank}** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a Tanssi appchain to communicate and interoperate with the other sibling chains within the ecosystem
 - **Runtime Upgrades** - a runtime upgrade in a Tanssi appchain must be informed to the relay chain to allow its validators to check on the blocks produced by the block producers of the Tanssi appchains. Cumulus notifies the upgrade to the relay chain and waits the required amount of time (blocks) before enacting the change
 
 The provided templates already implement Cumulus, so they are ready to be customized and deployed through Tanssi to work and operate within the ecosystem without any issues.

@@ -131,7 +131,7 @@ To configure your job, head to the [Acurast console](https://console.acurast.com
 2. Select **Moonbeam** as the chain
 3. Select **Moonbase** as the environment. Remember that Tanssi's EVM-compatibility is derived from Moonbeam
 4. Select **Price Feeds**
-5. Paste in the code of your job script. You can copy and paste directly from the [script of the sample BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank}, just make sure to change the destination contract to one that you deployed on your appchain and the RPC node to your [Appchain's RPC URL](https://apps.tanssi.network/)
+5. Paste in the code of your job script. You can copy and paste directly from the [script of the sample BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank}, just make sure to change the destination contract to one that you deployed on your appchain and the RPC node to your appchain's RPC URL, which can be found on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}
 6. Optionally, you can test your code here. Any error messages will be readable in the browser's console
 
 ![Job setup on Acurast console](/images/builders/tooling/oracles/acurast/acurast-4.webp)
