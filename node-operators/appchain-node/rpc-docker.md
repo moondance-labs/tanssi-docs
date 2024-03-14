@@ -118,7 +118,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 ### Full Node Example for Demo EVM Appchain {: #example-demo-evm-appchain }
 
-The following example spins up a full archive RPC node for the [demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
+The following example spins up a full archive RPC node for the [demo EVM appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
 
 ```bash
 docker run -ti moondancelabs/dancebox-container-chain-evm-templates \

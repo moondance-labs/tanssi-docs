@@ -30,7 +30,7 @@ This means that this template is ready to be built as-is and deployed through Ta
 
 ## Included Modules {: #included-modules }
 
-The Tanssi EVM appchain template is built on top of the [Substrate Appchain template](/builders/build/templates/substrate/){target=\_blank}. Consequently, it includes the same [baseline modules](/builders/build/templates/substrate/#included-modules).
+The Tanssi EVM appchain template is built on top of the [Substrate appchain template](/builders/build/templates/substrate/){target=\_blank}. Consequently, it includes the same [baseline modules](/builders/build/templates/substrate/#included-modules).
 
 In addition, the specific modules included for full Ethereum-compatibility are the following:
 

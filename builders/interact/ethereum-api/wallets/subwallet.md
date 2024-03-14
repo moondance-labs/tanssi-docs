@@ -69,6 +69,6 @@ To transfer the native token of your Tanssi appchain, take the following steps:
 
 ![Send funds on your Tanssi EVM Appchain](/images/builders/interact/ethereum-api/wallets/subwallet/subwallet-7.webp)
 
-This guide focused specifically on configuring SubWallet to work with your Tanssi EVM appchain, but SubWallet is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a [similar guide for configuring SubWallet for use with your Substrate Appchain](/builders/interact/substrate-api/wallets/subwallet){target=\_blank}.
+This guide focused specifically on configuring SubWallet to work with your Tanssi EVM appchain, but SubWallet is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a [similar guide for configuring SubWallet for use with your Substrate appchain](/builders/interact/substrate-api/wallets/subwallet){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

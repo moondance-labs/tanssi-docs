@@ -91,7 +91,7 @@ To transfer the native token of your Tanssi appchain, take the following steps:
 4. Enter the amount of tokens to send
 5. Look over the transaction details, then press **Review** and subsequently **Confirm**
 
-![Send funds on your EVM Appchain](/images/builders/interact/ethereum-api/wallets/talisman/talisman-8.webp)
+![Send Funds on your EVM Appchain](/images/builders/interact/ethereum-api/wallets/talisman/talisman-8.webp)
 
 
 This guide focused specifically on configuring Talisman to work with your Tanssi EVM appchain, but Talisman is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Talisman to work with Substrate-based chains.

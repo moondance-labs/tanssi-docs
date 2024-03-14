@@ -90,7 +90,7 @@ It is important to note that both pallets include the mentioned data in the bloc
 
 ## Deploy an Appchain {: #deploy-an-appchain }
 
-After building on top of one of the provided [Tanssi Appchain Templates](/learn/tanssi/included-templates){target=\_blank} and finishing the development process, developers are ready to deploy their appchain in Tanssi.
+After building on top of one of the provided [Tanssi appchain templates](/learn/tanssi/included-templates){target=\_blank} and finishing the development process, developers are ready to deploy their appchain in Tanssi.
 
 This is a fairly straightforward step, where the teams only need to generate and upload the [chain specification](https://docs.substrate.io/build/chain-spec/){target=\_blank} to the Tanssi network.
 

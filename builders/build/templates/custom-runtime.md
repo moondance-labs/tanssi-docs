@@ -90,7 +90,7 @@ To support the Tanssi protocol, it will be necessary to add [the modules](#base-
         UncheckedExtrinsic = UncheckedExtrinsic,
     {
         ...
-        // Tanssi Appchain
+        // Tanssi appchain
         AuthoritiesNoting: pallet_cc_authorities_noting = 50,
         AuthorInherent: pallet_author_inherent = 51,
         ...

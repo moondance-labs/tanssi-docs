@@ -16,8 +16,8 @@ Tanssi aims to lower the barrier to entry for building within the Polkadot ecosy
  
 [The Tanssi dApp](https://apps.tanssi.network/){target=\_blank} supports the creation of two different types of appchains, namely:
 
-- Snap Appchain - a temporary appchain that self-destructs after 48 hours
-- Dedicated Appchain - a long-lasting appchain for Tanssi ecosystem builders
+- Snap appchain - a temporary appchain that self-destructs after 48 hours
+- Dedicated appchain - a long-lasting appchain for Tanssi ecosystem builders
 
 Both types of Tanssi appchains behave identically, with the only difference being the ephemeral nature of the Snap appchains. Generally speaking, Snap appchains are best for most builders who want to test the power of a Tanssi-powered appchain. However, if you require a long-lasting test environment, the Tanssi team will happily assist you with setting up a dedicated appchain. 
 
@@ -68,7 +68,7 @@ Once connected, you'll see your address in the top-right corner. If you've conne
 
 ## Configure Your Appchain {: #configure-your-appchain }
 
-From the [Dashboard](https://apps.tanssi.network/){target=\_blank} or the [Deploy Appchain tab](https://apps.tanssi.network/create){target=\_blank}, you can immediately start configuring your Tanssi appchain. To start, choose **Deploy a Snap Appchain** or **Deploy a Dedicated Appchain**. You can read more about [the differences between the two types of Appchains on the Tanssi Testnet](#snap-appchains-vs-dedicated-appchains).
+From the [Dashboard](https://apps.tanssi.network/){target=\_blank} or the [Deploy appchain tab](https://apps.tanssi.network/create){target=\_blank}, you can immediately start configuring your Tanssi appchain. To start, choose **Deploy a Snap Appchain** or **Deploy a Dedicated Appchain**. You can read more about [the differences between the two types of appchains on the Tanssi Testnet](#snap-appchains-vs-dedicated-appchains).
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.webp)
 

@@ -16,7 +16,7 @@ This guide walks through the process of creating and deploying a Solidity-based 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-For the purposes of this guide, you'll need to have MetaMask installed and configured to work with your Tanssi EVM appchain. You can follow [this guide to configure MetaMask for Tanssi with the demo EVM Appchain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
+For the purposes of this guide, you'll need to have MetaMask installed and configured to work with your Tanssi EVM appchain. You can follow [this guide to configure MetaMask for Tanssi with the demo EVM appchain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ## Getting Started with Remix {: #getting-started-with-remix }
 
@@ -119,8 +119,8 @@ Click **Confirm** and, after the transaction is complete, you will see a confirm
 
 ![Verify the reduction in account balance](/images/builders/interact/ethereum-api/dev-environments/remix/remix-14.webp)
 
-You can also look up the transaction on [your Tanssi Appchain's explorer](https://tanssi-evmexplorer.netlify.app/){target=\_blank} to verify the transaction status.
+You can also look up the transaction on [your Tanssi appchain's explorer](https://tanssi-evmexplorer.netlify.app/){target=\_blank} to verify the transaction status.
 
-![Check transaction status on block explorer for your Tanssi Appchain](/images/builders/interact/ethereum-api/dev-environments/remix/remix-15.webp)
+![Check transaction status on block explorer for your Tanssi appchain](/images/builders/interact/ethereum-api/dev-environments/remix/remix-15.webp)
 
 --8<-- 'text/_disclaimers/third-party-content.md'

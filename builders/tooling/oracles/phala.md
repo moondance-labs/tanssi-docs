@@ -11,7 +11,7 @@ description: Learn how to use Phala's off-chain computing network to get reliabl
 
 Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network/){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch. 
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo Tanssi EVM-compatible appchain. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible Appchain](#launching-price-feeds-on-your-own-evm-appchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on your appchain to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo Tanssi EVM-compatible appchain. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible appchain](#launching-price-feeds-on-your-own-evm-appchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on your appchain to ensure the integrity of the deployment process.
  
 ## How Phala Enables Price Feeds {: #how-phala-enables-price-feeds }
 
@@ -35,7 +35,7 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ### Supported Assets {: #supported-assets }
 
-Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum mainnet. Currently, there are data feed contracts for [the demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/) for the following asset  pairs:
+Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum mainnet. Currently, there are data feed contracts for [the demo EVM appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/) for the following asset  pairs:
 
 === "Tanssi Demo EVM Appchain"
     | Asset & Base Pair |                                                                          Aggregator Contract                                                                           |

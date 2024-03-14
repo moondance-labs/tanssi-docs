@@ -105,6 +105,6 @@ You can also send a transaction through the Substrate API directly from the SubW
 
 ![Send funds through Substrate API directly in SubWallet](/images/builders/interact/substrate-api/wallets/subwallet/subwallet-12.webp)
 
-This guide focused specifically on configuring SubWallet to work with your Tanssi Substrate appchain, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your Tanssi EVM Appchain](/builders/interact/ethereum-api/wallets/subwallet){target=\_blank}.
+This guide focused specifically on configuring SubWallet to work with your Tanssi Substrate appchain, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your Tanssi EVM appchain](/builders/interact/ethereum-api/wallets/subwallet){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

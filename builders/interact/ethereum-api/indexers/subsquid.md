@@ -9,7 +9,7 @@ description: Learn how to use Subsquid, a query node framework for Substrate-bas
 
 [Subsquid](https://subsquid.io){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. Subsquid has native and full support for both EVM and Substrate data, even within the same project.
 
-This quick-start guide will show you how to create a Subsquid project and configure it to index data on your Tanssi EVM appchain. For a more comprehensive end-to-end tutorial, be sure to check out [Using Subsquid to Index Your Tanssi Appchain](/builders/tooling/indexers/subsquid/){target=\_blank}.
+This quick-start guide will show you how to create a Subsquid project and configure it to index data on your Tanssi EVM appchain. For a more comprehensive end-to-end tutorial, be sure to check out [Using Subsquid to Index Your Tanssi appchain](/builders/tooling/indexers/subsquid/){target=\_blank}.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -92,6 +92,6 @@ To get started indexing EVM data on your Tanssi EVM, you'll need to create a Sub
 
 And that's all you have to do to configure your Subsquid project to index EVM data on your Tanssi EVM appchain! Now you can update the `schema.graphql`, `src/main.ts`, and `src/processor.ts` files to index the data you need for your project!
 
-If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your Tanssi appchain, you can check out the [Using Subsquid to Index Your Tanssi Appchain](/builders/tooling/indexers/subsquid/){target=\_blank} tutorial!
+If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your Tanssi appchain, you can check out the [Using Subsquid to Index Your Tanssi appchain](/builders/tooling/indexers/subsquid/){target=\_blank} tutorial!
 
 --8<-- 'text/_disclaimers/third-party-content.md'

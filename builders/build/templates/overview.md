@@ -11,8 +11,8 @@ Appchains deployed through Tanssi are essentially parachains within the Polkadot
 
 As presented in the [Included Templates](/learn/tanssi/included-templates#baseline-appchain-template){target=\_blank} from the Learn section, Tanssi already provides two templates to jumpstart the development process:
 
-- **[Baseline Tanssi Appchain template](/learn/tanssi/included-templates/#baseline-appchain-template){target=\_blank}** - a template that provides the basic platform to start adding custom logic in a Substrate-based Tanssi appchain
-- **[Baseline Tanssi EVM (Ethereum Virtual Machine) Appchain template](/learn/tanssi/included-templates/#baseline-evm-template){target=\_blank}** - a template that provides full Ethereum compatibility
+- **[Baseline Tanssi appchain template](/learn/tanssi/included-templates/#baseline-appchain-template){target=\_blank}** - a template that provides the basic platform to start adding custom logic in a Substrate-based Tanssi appchain
+- **[Baseline Tanssi EVM (Ethereum Virtual Machine) appchain template](/learn/tanssi/included-templates/#baseline-evm-template){target=\_blank}** - a template that provides full Ethereum compatibility
 
 In this article, the required base setup and how to use the templates as a starting point to start building your Tanssi appchain are presented.
 
@@ -45,7 +45,7 @@ More information about Tanssi's block production as a service and the interactio
 
 ## Start Building {: #getting-started }
 
-To start building on top of the provided templates, be it the [Baseline Tanssi Appchain template](/builders/build/templates/substrate){target=\_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm){target=\_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and start adding [built-in modules](/builders/build/customize/adding-built-in-module/){target=\_blank} or [custom-made modules](/builders/build/customize/adding-custom-made-module/){target=\_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} tag.
+To start building on top of the provided templates, be it the [Baseline Tanssi appchain template](/builders/build/templates/substrate){target=\_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm){target=\_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and start adding [built-in modules](/builders/build/customize/adding-built-in-module/){target=\_blank} or [custom-made modules](/builders/build/customize/adding-custom-made-module/){target=\_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} tag.
 
 This approach comes with some advantages, such as:
 
@@ -55,4 +55,4 @@ This approach comes with some advantages, such as:
 - Run the included tests, ensuring that block production on your Tanssi appchain works as intended
 - Run a local environment, spinning up a relay chain, the Tanssi orchestrator, and your Tanssi appchain with the included [Zombienet](https://paritytech.github.io/zombienet/){target=\_blank} configuration
 
-If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy your Tanssi Appchain via the Tanssi DApp](/builders/deploy/dapp){target=\_blank} article to know how to use the Tanssi DApp to register and get your chain up and running.
+If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy your Tanssi appchain via the Tanssi dApp](/builders/deploy/dapp){target=\_blank} article to know how to use the Tanssi dApp to register and get your chain up and running.
