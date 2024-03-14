@@ -102,9 +102,9 @@ For example, the following code snippet shows some of the attributes of the clie
 ```json
 {
     // Set the name for the specification of this network
-    "name": "Frontier Container 1000",
+    "name": "Frontier appchain 1000",
     // Set an id for the specifications of this network
-    "id": "frontier_container_1000",
+    "id": "frontier_appchain_1000",
     // Network will be live
     "chainType": "Live",
     "bootNodes": [
@@ -113,7 +113,7 @@ For example, the following code snippet shows some of the attributes of the clie
     // Optional attribute, defaults to null
     "telemetryEndpoints": null,
     // Set a protocol identifier for this network
-    "protocolId": "container-chain-1000",
+    "protocolId": "appchain-chain-1000",
     // Set properties to define the token and the ethereum compatibility
     "properties": {
         "isEthereum": true,

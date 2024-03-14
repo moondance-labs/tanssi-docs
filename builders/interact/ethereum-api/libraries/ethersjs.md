@@ -55,8 +55,8 @@ import { ethers } from "ethers";
 
 // 2. Define network configurations
 const providerRPC = {
-  EvmContainer: {
-    name: 'dancebox-evm-container',
+  evmAppchain: {
+    name: 'dancebox-evm-appchain',
     // Insert your RPC URL here
     rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', 
     chainId: 5678, // 0x162E in hex,
@@ -64,10 +64,10 @@ const providerRPC = {
 };
 // 3. Create ethers provider
 const provider = new ethers.JsonRpcProvider(
-  providerRPC.EvmContainer.rpc, 
+  providerRPC.evmAppchain.rpc, 
   {
-    chainId: providerRPC.EvmContainer.chainId,
-    name: providerRPC.EvmContainer.name,
+    chainId: providerRPC.evmAppchain.chainId,
+    name: providerRPC.evmAppchain.name,
   }
 );
 ```
