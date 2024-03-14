@@ -45,8 +45,8 @@ When a new session starts, the Tanssi protocol will put the queued assignment in
 
 The following picture shows an example of how the algorithm distributes ten available block producers, with a minimum threshold of three block producers for the Tanssi network and two block producers for each of the appchains.
 
-![Collators Assignment Algorithm](/images/learn/tanssi/technical/light-technical-3.webp#only-light)
-![Collators Assignment Algorithm](/images/learn/tanssi/technical/dark-technical-3.webp#only-dark)
+![Block Producers Assignment Algorithm](/images/learn/tanssi/technical/light-technical-3.webp#only-light)
+![Block Producers Assignment Algorithm](/images/learn/tanssi/technical/dark-technical-3.webp#only-dark)
 
 ### The Role of the Relay Chain {: #relay-chain }
 
