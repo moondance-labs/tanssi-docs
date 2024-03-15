@@ -35,7 +35,7 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ### Supported Assets {: #supported-assets }
 
-Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum MainNet. Currently, there are data feed contracts for [the demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-appchain/) for the following asset pairs:
+Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum MainNet. Currently, there are data feed contracts for [the demo EVM Appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/) for the following asset pairs:
 
 === "Tanssi Demo EVM Appchain"
     | Asset & Base Pair |                                                                          Aggregator Contract                                                                           |
