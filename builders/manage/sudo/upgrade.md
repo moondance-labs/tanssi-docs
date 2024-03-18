@@ -1,5 +1,5 @@
 ---
-title: Upgrade Runtime
+title: Upgrade Your Appchain's Runtime
 description: Learn how to use the Sudo key to manage your appchain by performing the privileged action of upgrading the runtime of your Tanssi appchain.
 ---
 
