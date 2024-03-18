@@ -27,7 +27,7 @@ If you're unsure what your Tanssi Appchain's Sudo account is, you can find it in
 
 ## Minting Tokens {: #minting-tokens }
 
-As you know, the Sudo account has the ability to perform privileged functions, including minting additional tokens. When setting up your Tanssi Appchain on [apps.tanssi.network](https://apps.tanssi.network/){target=\_blank}, you can specify genesis account balances. In other words, you have the ability to endow accounts with initial balances upon launching your Tanssi Appchain. However, you can also mint new tokens after launch with the help of the Sudo account.
+As you know, the Sudo account has the ability to perform privileged functions, including minting additional tokens. When setting up your Tanssi Appchain on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, you can specify genesis account balances. In other words, you have the ability to endow accounts with initial balances upon launching your Tanssi Appchain. However, you can also mint new tokens after launch with the help of the Sudo account.
 
 !!! note
     This tutorial demonstrates assigning arbitrary token balances on a TestNet Appchain that has no value. You should carefully consider the ramifications of creating additional tokens on your own Tanssi Appchain.
