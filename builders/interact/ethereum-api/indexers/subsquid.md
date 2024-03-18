@@ -1,5 +1,5 @@
 ---
-title: Index Your Tanssi EVM AppChain with Subsquid
+title: Index Your Tanssi EVM Appchain with Subsquid
 description: Learn how to use Subsquid, a query node framework for Substrate-based chains, to index and process EVM data Your Tanssi EVM appchain.
 ---
 
