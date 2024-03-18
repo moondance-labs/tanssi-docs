@@ -3,7 +3,7 @@ title: Managing Sudo
 description: Learn how to manage the sudo account of your appchain, including viewing and importing the sudo key into Polkadot.js Apps and changing the current sudo key.
 ---
 
-# Using Sudo to Manage Your Appchain
+# Managing Your Appchain's Sudo Account
 
 ## Introduction {: #introduction }
 
