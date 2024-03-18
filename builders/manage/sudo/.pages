@@ -2,6 +2,6 @@ title: Using Sudo
 hide: false
 nav:
   - index.md
-  - sudo.md
-  - upgrade.md
-  - 'Minting Tokens': 'minting.md'
+  - 'Manage Sudo Account': 'sudo.md'
+  - 'Dispatch Runtime Upgrades': 'upgrade.md'
+  - 'Mint Tokens': 'minting.md'
