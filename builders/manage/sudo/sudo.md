@@ -9,7 +9,7 @@ description: Learn how to manage the sudo account of your appchain, including vi
 
 [Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. There can only be a single Sudo account at a time. However, the Sudo keys can be rotated to give Sudo privileges to a new account.
 
-All Tanssi Appchains come with the Sudo pallet by default, and you're required to designate an account as the Sudo address when launching your Appchain. This enables you to perform privileged actions to manage your chain, such as upgrading your runtime or minting new native tokens. While the Sudo pallet is required to launch your Tanssi Appchain on the TestNet, you can decommission the Sudo pallet and transition to decentralized governance after the MainNet launch.
+All Tanssi appchains come with the Sudo pallet by default, and you're required to designate an account as the Sudo address when launching your appchain. This enables you to perform privileged actions to manage your chain, such as upgrading your runtime or minting new native tokens. While the Sudo pallet is required to launch your Tanssi appchain on the TestNet, you can decommission the Sudo pallet and transition to decentralized governance after the MainNet launch.
 
 In the following guide, you'll learn how to view the current Sudo account for your appchain and how to change it, alongside importing it into Polkadot.js Apps. There are similar guides in this section explaining how to use the Sudo account to perform privileged actions, such as [upgrading your runtime](/builders/manage/sudo/upgrade/){target=\_blank} and [minting native tokens](/builders/manage/sudo/minting/){target=\_blank}. 
 
@@ -17,19 +17,19 @@ In the following guide, you'll learn how to view the current Sudo account for yo
 
 For the examples in this guide, you will need to have the following:
 
- - A Tanssi Appchain (Snap or Dedicated)
- - Your Appchain's Sudo account connected to your Appchain's Polkadot.js Apps
+ - A Tanssi appchain (Snap or Dedicated)
+ - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps
 
-If you're unsure what your Tanssi Appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
+If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/sudo/sudo-1.webp)
 
 !!! note
-    You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi Appchain.
+    You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
 
 ### Configuring Polkadot.js Apps { : #configuring-polkadotjs-apps }
 
-After navigating to Polkadot.js Apps for your Tanssi Appchain, you'll need to add your Sudo account. Injecting your Sudo account into Polkadot.js Apps from a browser extension is considered safer than storing accounts directly in the browser. However, you can still import your Sudo account directly into the browser's cache. This method does not require the use of any extensions. To import an account into Polkadot.js in this manner, take the following steps:
+After navigating to Polkadot.js Apps for your Tanssi appchain, you'll need to add your Sudo account. Injecting your Sudo account into Polkadot.js Apps from a browser extension is considered safer than storing accounts directly in the browser. However, you can still import your Sudo account directly into the browser's cache. This method does not require the use of any extensions. To import an account into Polkadot.js in this manner, take the following steps:
 
 1. Click on **Settings**
 2. Under **in-browser account creation** select **Allow local in-browser account creation**
@@ -46,11 +46,11 @@ Then, head back to the accounts tab and press **Account**. You'll then be able t
 
 ## Changing the Sudo Account {: #changing-the-sudo-account }
 
-Changing your Tanssi Appchain's Sudo account is a straightforward process. Also known as rotating your sudo keys, this process will remove sudo access from the existing sudo account and grant it to the new account. There can only be one sudo account at any time. However, you are free to change the sudo account as often as you would like.
+Changing your Tanssi appchain's Sudo account is a straightforward process. Also known as rotating your sudo keys, this process will remove sudo access from the existing sudo account and grant it to the new account. There can only be one sudo account at any time. However, you are free to change the sudo account as often as you would like.
 
 Prior to getting started, make sure that you have your existing Sudo account accessible in [Polkadot.js Apps](#configuring-polkadotjs-apps). Then, take the following steps:
 
-1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi Appchain
+1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain
 2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps
 3. Select the **Set sudo key** heading
 4. Select the new account you'll transfer sudo privileges to
