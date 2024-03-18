@@ -1,5 +1,5 @@
 ---
 title: Home
-description: Welcome to the Tanssi Network Documentation Site. Your Gateway to Rapid, Efficient, and Effortless Appchain Deployment.
+description: Welcome to the Tanssi Network documentation site. Your gateway to rapid, efficient, and effortless appchain deployment.
 template: home.html
 ---

@@ -2,7 +2,7 @@
 import { createWalletClient, http, defineChain } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
 
-// 2. Specify the details of your EVM Appchain
+// 2. Specify the details of your EVM appchain
 export const demoEVM = defineChain({
   id: 5678,
   name: 'demo',
