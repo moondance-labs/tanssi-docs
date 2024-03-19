@@ -136,7 +136,7 @@ If the request can be executed, select **Extrinsics** from the **Developer** dro
 3. For **delegator**, enter your account, which is the same account you sent the self-delegate request from
 4. For **operation**, select the type of operation to execute. This should be either **JoiningAutoCompounding** or **JoiningManualRewards**, depending on the target pool you selected at the time of submitting the self-delegation request
 5. For **candidate**, enter the same account as you did in the **delegator** field
-6. For **at**, enter the session key at which you submitted the delegate request
+6. For **at**, enter the session index at which you submitted the delegate request
 7. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-6.webp)
