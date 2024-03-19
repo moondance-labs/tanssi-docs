@@ -1,6 +1,6 @@
 ---
 title: Run a Tanssi Block Producer
-description: Learn how to set up and run block producers (collators) for Tanssi Appchains using Systemd, allowing you to participate in the protocol and earn rewards.
+description: Learn how to set up and run block producers (collators) for Tanssi appchains using Systemd, allowing you to participate in the protocol and earn rewards.
 ---
 
 # Run a Block Producer Node Using Systemd
