@@ -1,6 +1,6 @@
 ---
 title: Managing the Sudo Account
-description: Learn how to manage the sudo account of your appchain, including viewing and importing the sudo key into Polkadot.js Apps and changing the current sudo key.
+description: Learn how to manage the Sudo account of your appchain, including viewing and importing the Sudo key into Polkadot.js Apps and changing the current Sudo key.
 ---
 
 # Managing Your Appchain's Sudo Account
@@ -37,7 +37,7 @@ After navigating to Polkadot.js Apps for your Tanssi appchain, you'll need to ad
 
 ![Allowing creation of in-browser storage](/images/builders/manage/sudo/sudo/sudo-2.webp)
 
-Then, head back to the accounts tab and press **Account**. You'll then be able to replace the pre-generated private key with that of your sudo account.
+Then, head back to the accounts tab and press **Account**. You'll then be able to replace the pre-generated private key with that of your Sudo account.
 
 ![Adding account on Polkadot.js Apps](/images/builders/manage/sudo/sudo/sudo-3.webp)
 
@@ -46,20 +46,20 @@ Then, head back to the accounts tab and press **Account**. You'll then be able t
 
 ## Changing the Sudo Account {: #changing-the-sudo-account }
 
-Changing your Tanssi appchain's Sudo account is a straightforward process. Also known as rotating your sudo keys, this process will remove sudo access from the existing sudo account and grant it to the new account. There can only be one sudo account at any time. However, you are free to change the sudo account as often as you would like.
+Changing your Tanssi appchain's Sudo account is a straightforward process. Also known as rotating your Sudo keys, this process will remove Sudo access from the existing Sudo account and grant it to the new account. There can only be one Sudo account at any time. However, you are free to change the Sudo account as often as you would like.
 
 Prior to getting started, make sure that you have your existing Sudo account accessible in [Polkadot.js Apps](#configuring-polkadotjs-apps). Then, take the following steps:
 
 1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain
 2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps
-3. Select the **Set sudo key** heading
-4. Select the new account you'll transfer sudo privileges to
+3. Select the **Set Sudo key** heading
+4. Select the new account you'll transfer Sudo privileges to
 5. Press **Reassign** and confirm the transaction in your wallet
 
 ![Change Sudo account on Polkadot.js Apps](/images/builders/manage/sudo/sudo/sudo-4.webp)
 
 !!! note
-    Ensure that you have access to the new sudo account. Once sudo is transferred, it cannot be undone without access to the current sudo key.
+    Ensure that you have access to the new Sudo account. Once Sudo is transferred, it cannot be undone without access to the current Sudo key.
 
 And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tanssi appchain.
 
