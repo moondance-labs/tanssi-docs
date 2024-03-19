@@ -7,7 +7,7 @@ description: In these step-by-step instructions, learn how to properly offboard 
 
 ## Introduction {: #introduction }
 
-This guide will show you how to properly wind down your operations as a Tanssi block producer. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}. Offboarding a block producer node is a two-step process that involves removing your delegation and unmapping your session keys. By following the steps outlined in this guide, you can properly cease operations as a Tanssi block producer. 
+This guide will show you how to wind down your operations as a Tanssi block producer properly. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}. Offboarding a block producer node is a two-step process that involves removing your delegation and unmapping your session keys. Following the steps outlined in this guide, you can cease operations as a Tanssi block producer. 
 
 ## Request Undelegation {: #request-undelegation }
 
@@ -15,18 +15,18 @@ When you set up your Tanssi block producer node, you had to submit a delegation 
 
 ### Viewing Existing Stake {: #viewing-existing-stake }
 
-Prior to undelegating, it is helpful to first see how much you have staked, as you'll need to provide this figure in a later step. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain State** from the dropdown, and take the following steps:
+Before undelegating, it is helpful first to see how much you have staked, as you'll need to provide this figure later. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain State** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module
 2. Select the **pools** query
 3. Enter your block producer account
 4. Ensure that the **include option** slider is toggled on
-5. In the **option** field, you can select **CandidateTotalStake** to see the amount that you have staked in Plank. Alternatively, you can select **AutoCompoundingShares** or **ManualRewardShares** depending on the staking configuration used when setting up your block producer node 
+5. In the **option** field, you can select **CandidateTotalStake** to see the amount you have staked in Plank. Alternatively, you can select **AutoCompoundingShares** or **ManualRewardShares** depending on the staking configuration used when setting up your block producer node 
 6. Click the **+** button next to the extrinsic field
 
 ![Check existing stake on Polkadot.js Apps](/images/node-operators/block-producers/offboarding/offboarding/offboarding-1.webp)
 
-The corresponding candidate total stake (in Planck) or the number of shares will be displayed. Make a note of this amount as you'll need it in the next section. 
+The corresponding candidate's total stake (in Planck) or the number of shares will be displayed. Note this amount, as you'll need it in the next section. 
 
 ### Submit Undelegation Request {: #submit-undelegation-request }
 
@@ -45,7 +45,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 
 ### Execute the Pending Request {: #execute-pending-request }
 
-You'll need to wait a minimum of two sessions before you can execute the pending request. For example, if you submitted the undelegation request at session `1`, the earliest it can be executed is session `3`. Each session is comprised of `{{ networks.dancebox.session.blocks }}` and translates to about one hour. So, two sessions corresponds to approximately {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
+You'll need to wait at least two sessions before executing the pending request. For example, if you submitted the undelegation request at session `1`, the earliest it can be executed is session `3`. Each session is comprised of `{{ networks.dancebox.session.blocks }}` and translates to about one hour. So, two sessions correspond to approximately {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
 
 Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
