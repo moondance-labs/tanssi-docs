@@ -77,7 +77,7 @@ If you'd like, you can verify that your block-producing node is no longer in the
 
 Session keys are used to perform network operations, such as signing blocks, whereas your block producer account holds the staked funds and has an on-chain identity. By unmapping the session key to your account, you sever the association between your block producer account and your block-producing node. 
 
-The unmapping step is taken only as part of the offboarding process. If you need to rotate/change your session keys, you'll need to follow the [instructions for mapping (rotating) your session keys](/node-operators/block-producers/onboarding/account-setup/#map-session-keys){target=\_blank}. You should not purge your keys during the session key rotation process.
+The unmapping step is taken only as part of the offboarding process. If you need to rotate/change your session keys, you'll need to follow the [generating and mapping new session keys](/node-operators/block-producers/onboarding/account-setup/#map-session-keys){target=\_blank}. You should not purge your keys during the session key rotation process.
 
 To unmap your session keys, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
