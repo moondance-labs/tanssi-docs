@@ -11,7 +11,7 @@ This guide will show you how to properly wind down your operations as a Tanssi b
 
 ## Request Undelegation {: #request-undelegation }
 
-When you set up your Tanssi block producer node, you had to submit a delegation bond of at least {{ networks.dancebox.block_producers.min_self_del.dance }} Dance. To get that back and remove your block producer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
+When you set up your Tanssi block producer node, you had to submit a delegation bond of at least {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE. To get that back and remove your block producer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
 
 Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
@@ -19,7 +19,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 2. Select the **pooledStaking** module 
 3. Select the **requestUndelegate** extrinsic
 4. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to decommission as a block producer
-5. Choose the target pool that you originally used when configuring your delegation (either Autocompounding or Manual)
+5. Choose the target pool that you originally used when configuring your delegation (either **Autocompounding** or **Manual**)
 6. Select **Stake** from the dropdown
 7. Enter the amount to unstake. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}. As a reminder, the minimum stake amount is {{ networks.dancebox.block_producers.min_self_del.dance }}. Therefore, if you delegated the minimum amount without autocompounding, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 8. Click **Submit Transaction** and sign and send the transaction from your wallet
