@@ -1,5 +1,5 @@
 ---
-title: Offboarding
+title: Decommission Block Producer Node
 description: In these step-by-step instructions, learn how to properly offboard as a Tanssi block producer, including unmapping your session keys and unstaking your bond.
 ---
 
