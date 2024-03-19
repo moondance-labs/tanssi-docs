@@ -31,7 +31,7 @@ To get started, head to Polkadot.js Apps for your Tanssi appchain. The Polkadot.
 
 ![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/sudo/upgrade/upgrade-2.webp)
 
-Prior to the upgrade, you'll need to have the [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload. You'll also need to have your Sudo account accessible in Polkadot.js Apps. Then, take the following steps:
+Prior to the upgrade, you'll need to have the [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload. You'll also need to have your [Sudo account accessible in Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain
 2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps
