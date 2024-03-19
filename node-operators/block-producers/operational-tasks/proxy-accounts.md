@@ -193,7 +193,7 @@ A pop-up will appear showing an overview of your proxy accounts. To remove all p
 
 On the transaction confirmation screen, take the following steps:
 
-1. Ensure that you do not use a proxy for this call (As this example is a balances proxy, the call to remove the proxy needs to come from the account being proxied rather than the proxy account)
+1. Ensure that you do not use a proxy for this call (as this example is a balances proxy, the call to remove the proxy needs to come from the primary account rather than the proxy account)
 2. Enter your password for the respective account
 3. Press **Sign and Submit**
 
