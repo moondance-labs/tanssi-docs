@@ -39,7 +39,7 @@ Before executing the pending request, you'll need to retrieve the session at whi
 
 ![Query the pending undelegation request on Polkadot.js Apps](/images/node-operators/block-producers/offboarding/offboarding/offboarding-2.webp)
 
-In the example in the above image, the undelegate request to leave the auto-compounding pool was submitted during session `5,037`. So, the request can be executed starting at session `5,039`. Take note of the operation and the session number at which you submitted the request, as you'll need both values to execute the pending request.
+In the example in the above image, the undelegate request to leave the auto-compounding pool was submitted during session `5,037`. So, the request can be executed starting at session `5,039`. Take note of the operation and the session index at which you submitted the request, as you'll need both values to execute the pending request.
 
 You can run another query from the **Chain state** page to check the current session. To do so, you can:
 
@@ -58,7 +58,7 @@ If at least two sessions have passed from the session you submitted the extrinsi
 4. For **delegator**, enter your account, which is the same account you sent the self-delegate request from
 5. For **operation**, select **Leaving**
 6. For **candidate**, enter the same account as you did in the **delegator** field
-7. For **at**, enter the session number at which you submitted the delegate request
+7. For **at**, enter the session index at which you submitted the delegate request
 8. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/offboarding/offboarding/offboarding-4.webp)
