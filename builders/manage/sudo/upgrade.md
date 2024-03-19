@@ -9,7 +9,7 @@ description: Learn how to use the Sudo key to manage your appchain by performing
 
 [Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This enables you to perform privileged actions in the course of managing your appchain, such as upgrading your Tanssi appchain's runtime. 
 
-In this guide, you'll learn how to use Sudo to upgrade your Tanssi appchain's runtime. With Sudo access, upgrading your chain is a quick and easy process. Note that appchain teams in production will have the option to phase out sudo access and rely on governance to process runtime upgrades. 
+In this guide, you'll learn how to use Sudo to upgrade your Tanssi appchain's runtime. With Sudo access, upgrading your chain is a quick and easy process. Note that appchain teams in production will have the option to phase out Sudo access and rely on governance to process runtime upgrades. 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
