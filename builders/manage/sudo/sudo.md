@@ -24,7 +24,7 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/sudo/sudo-1.webp)
 
-!!! note
+!!! warning
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
 
 ### Configuring Polkadot.js Apps { : #configuring-polkadotjs-apps }
@@ -41,7 +41,7 @@ Then, head back to the accounts tab and press **Account**. You'll then be able t
 
 ![Adding account on Polkadot.js Apps](/images/builders/manage/sudo/sudo/sudo-3.webp)
 
-!!! note
+!!! warning
     In-browser key storage is not suitable for production environments. This example is provided for demonstration purposes only in a TestNet environment.
 
 ## Changing the Sudo Account {: #changing-the-sudo-account }

@@ -22,7 +22,7 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/minting/minting-1.webp)
 
-!!! note
+!!! warning
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
 
 ## Minting Tokens {: #minting-tokens }
