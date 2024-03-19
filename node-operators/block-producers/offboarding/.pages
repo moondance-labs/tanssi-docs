@@ -2,4 +2,4 @@ title: Offboarding
 hide: false
 nav:
   - index.md
-  - offboarding.md
+  - 'Decommission Block Producer': 'account.md'

@@ -1,5 +1,5 @@
 ---
-title: Decommission Block Producer Node
+title: Decommission Block Producer
 description: In these step-by-step instructions, learn how to properly offboard as a Tanssi block producer, including unmapping your session keys and unstaking your bond.
 ---
 
@@ -7,11 +7,11 @@ description: In these step-by-step instructions, learn how to properly offboard 
 
 ## Introduction {: #introduction }
 
-This guide will show you how to properly wind down your operations as a Tanssi block producer. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}. By following the steps outlined in this guide, you can properly cease operations as a Tanssi block producer. 
+This guide will show you how to properly wind down your operations as a Tanssi block producer. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}. Offboarding a block producer node is a two-step process that involves removing your delegation and unmapping your session keys. By following the steps outlined in this guide, you can properly cease operations as a Tanssi block producer. 
 
 ## Request Undelegation {: #request-undelegation }
 
-When you set up your Tanssi block producer node, you had to submit a delegation bond of at least {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE. To get that back and remove your block producer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
+When you set up your Tanssi block producer node, you had to submit a delegation bond of at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. To get that back and remove your block producer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
 
 Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
@@ -27,6 +27,8 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 ![Create and submit an extrinsic to un-delegate on Polkadot.js Apps](/images/node-operators/block-producers/offboarding/offboarding/offboarding-1.webp)
 
 ### Execute the Pending Request {: #execute-pending-request }
+
+You'll need to wait a minimum of two sessions before you can execute the pending request. For example, if you submitted the undelegation request at session `1`, the earliest it can be executed is session `3`. Each session is comprised of `{{ networks.dancebox.session.blocks }}` and translates to about one hour. So, two sessions corresponds to approximately {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
 
 Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
