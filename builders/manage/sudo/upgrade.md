@@ -34,7 +34,7 @@ To get started, head to Polkadot.js Apps for your Tanssi appchain. The Polkadot.
 Prior to the upgrade, you'll need to have the [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload. You'll also need to have your [Sudo account accessible in Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain
-2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps
+2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}
 3. Select the **system** pallet
 4. Select **setCode**
 5. Toggle the **fileUpload** switch to enable uploading your Wasm runtime file
