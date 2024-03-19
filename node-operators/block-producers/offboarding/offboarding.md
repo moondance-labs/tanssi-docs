@@ -30,7 +30,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 
 Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
-1. Select the **pooledStaking** module.
+1. Select the **pooledStaking** module
 2. Select the **pendingOperations** query
 3. Enter your block producer account
 4. Toggle the **include option** slider off
