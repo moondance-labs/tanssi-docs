@@ -1,6 +1,6 @@
 ---
 title: Offboarding
-description: These step-by-step instructions will show you how to properly offboard as a Tanssi block producer including unmapping your session key and unstaking your bond.
+description: In these step-by-step instructions, learn how to properly offboard as a Tanssi block producer, including unmapping your session keys and unstaking your bond.
 ---
 
 # Offboard as a Tanssi Block Producer
