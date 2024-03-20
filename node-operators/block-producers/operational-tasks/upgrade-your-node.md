@@ -7,6 +7,8 @@ description: Follow these instructions to update your node to the latest version
 
 ## Introduction {: #introduction }
 
+Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. 
+
 This tutorial covers upgrading your Tanssi block producer node. This guide assumes that you've already set up your account and spun up a [block producer node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank}. This guide will show you how to upgrade your node whether you're using [Docker](/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/){target=\_blank} or [Systemd](/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-systemd/){target=\_blank}. 
 
 ## Upgrading Docker Nodes {: #upgrading-docker-nodes }
@@ -29,7 +31,7 @@ Your terminal interaction will resemble the following:
 
 --8<-- 'code/node-operators/block-producers/operational-tasks/upgrade-your-node/terminal/docker-stop.md'
 
-To restart the node, you can use the command you used when launching your block producer node. The Docker command is configured to automatically retrieve the latest version.  
+To restart the node, you can use the command you used when launching your block producer node. The Docker command is configured to automatically retrieve the latest version. The node will resume syncing blocks from where it left off when the Docker process was stopped.  
 
 === "Generic"
 
@@ -152,5 +154,7 @@ To verify that it is running correctly, you can use the following command to che
 ```bash
 systemctl status tanssi.service
 ```
+
+## Conclusion {: #conclusion }
 
 And that's it! You've successfully upgraded your Tanssi Node. You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**. 
