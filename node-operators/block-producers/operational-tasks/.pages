@@ -2,5 +2,5 @@ title: Operational Tasks
 hide: false
 nav:
   - index.md
-  - 'Upgrade Your Node': 'upgrade-your-node.md'
+  - upgrade-your-node
   - proxy-accounts.md
