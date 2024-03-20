@@ -119,7 +119,7 @@ To remove a proxy from the [**Extrinsics** page](https://polkadot.js.org/apps/?r
 3. Choose **removeProxy** to remove a single proxy or **removeProxies** to remove all associated proxies
 4. Choose **Id** from the **AccountIdLookupOf** dropdown
 5. If removing a single proxy, enter the proxy account to remove in the **delegate** field
-6. Select the **proxyType** to remove, in this case choose **Balances**
+6. Select the **proxyType** to remove, in this case choose **Staking**
 7. Optionally, select a delay period in block numbers
 8. Click **Submit Transaction**
 
