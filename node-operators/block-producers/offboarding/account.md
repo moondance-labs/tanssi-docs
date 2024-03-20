@@ -15,7 +15,7 @@ This guide will show you how to wind down your operations as a Tanssi block prod
 
 When you set up your Tanssi block producer node, you had to submit a delegation bond of at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. To get that back and remove your block producer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
 
-### Viewing Existing Stake {: #viewing-existing-stake }
+### View Existing Stake {: #viewing-existing-stake }
 
 Before undelegating, it is helpful first to see how much you have staked, as you'll need to provide this figure later. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain State** from the dropdown, and take the following steps:
 
