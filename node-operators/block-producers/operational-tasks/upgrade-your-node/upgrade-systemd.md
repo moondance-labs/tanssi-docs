@@ -38,21 +38,21 @@ To download the latest release and change permissions on it so the Tanssi servic
 === "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/latest/download/tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "Intel Skylake"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-skylake -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/latest/download/tanssi-node-skylake -O tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-znver3 -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/latest/download/tanssi-node-znver3 -O tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
