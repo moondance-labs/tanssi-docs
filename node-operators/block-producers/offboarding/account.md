@@ -47,7 +47,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 
 ### Execute the Pending Request {: #execute-pending-request }
 
-You'll need to wait at least two sessions before executing the pending request. For example, if you submitted the undelegation request at session `1`, the earliest it can be executed is session `3`. Each session is comprised of `{{ networks.dancebox.session.blocks }}` and translates to about one hour. So, two sessions correspond to approximately {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
+You'll need to wait at least two sessions before executing the pending request. For example, if you submitted the undelegation request at session `1`, the earliest it can be executed is session `3`. Each session is comprised of `{{ networks.dancebox.session.blocks }}` blocks and translates to about {{ networks.dancebox.session.display }} hour per session. So, two sessions correspond to approximately {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
 
 Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
