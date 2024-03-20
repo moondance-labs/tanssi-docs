@@ -7,7 +7,9 @@ description: In these step-by-step instructions, learn how to properly offboard 
 
 ## Introduction {: #introduction }
 
-This guide will show you how to wind down your operations as a Tanssi block producer properly. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}. Offboarding a block producer node is a two-step process that involves removing your delegation and unmapping your session keys. Following the steps outlined in this guide, you can cease operations as a Tanssi block producer. 
+As a block producer, there may come a time when you need to gracefully exit the network. Decommissioning your account involves a two-step process to ensure that your node is properly disassociated from your account and that you receive your bond back.
+
+This guide will show you how to wind down your operations as a Tanssi block producer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}.
 
 ## Request Undelegation {: #request-undelegation }
 
