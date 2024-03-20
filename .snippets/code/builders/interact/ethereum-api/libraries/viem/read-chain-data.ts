@@ -1,7 +1,7 @@
 // 1. Import the necessary components from viem
 import { createPublicClient, http, defineChain } from 'viem';
 
-// 2. Specify the details of your EVM ContainerChain
+// 2. Specify the details of your EVM appchain
 export const demoEVM = defineChain({
   id: 5678,
   name: 'demo',

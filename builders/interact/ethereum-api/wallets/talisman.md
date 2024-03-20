@@ -1,17 +1,17 @@
 ---
 title: How to Connect Talisman to Tanssi
-description: This guide walks you through how to connect Talisman, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi EVM ContainerChain. 
+description: This guide walks you through how to connect Talisman, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi EVM appchain. 
 ---
 
-# Interacting with Your Tanssi EVM ContainerChain Using Talisman
+# Interacting with Your Tanssi EVM Appchain Using Talisman
 
 ## Introduction {: #introduction }
 
-Developers and users of Tanssi EVM ContainerChains have a variety of options when it comes to wallets. Thanks to their seamless Ethereum compatibility, Tanssi EVM ContainerChains support a great variety of popular wallets, such as Talisman. 
+Developers and users of Tanssi EVM appchains have a variety of options when it comes to wallets. Thanks to their seamless Ethereum compatibility, Tanssi EVM appchains support a great variety of popular wallets, such as Talisman. 
 
 Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with Talisman using the Substrate API](/builders/interact/substrate-api/wallets/talisman){target=\_blank}. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and [Firefox](https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet-extension/){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz/){target=\_blank}
 
-This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi EVM ContainerChain, and sending funds.
+This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi EVM appchain, and sending funds.
 
 ## Setting Up Talisman {: #setting-up-talisman }
 
@@ -60,9 +60,9 @@ On the following screen, take the following steps:
 
 ![Import existing account final steps](/images/builders/interact/ethereum-api/wallets/talisman/talisman-10.webp)
 
-## Configuring Talisman for Your EVM ContainerChain {: #configuring-talisman-for-your-evm-containerchain }
+## Configuring Talisman for Your EVM Appchain {: #configuring-talisman-for-your-evm-appchain }
 
-To configure Talisman for your EVM ContainerChain, open the Talisman extension and click on the **More Options** tab. Then, take the following steps: 
+To configure Talisman for your Tanssi EVM appchain, open the Talisman extension and click on the **More Options** tab. Then, take the following steps: 
 
 1. Select **Settings**
 2. Check the **Enable testnets** box
@@ -70,20 +70,20 @@ To configure Talisman for your EVM ContainerChain, open the Talisman extension a
 
 ![Add Network in Talisman](/images/builders/interact/ethereum-api/wallets/talisman/talisman-6.webp)
 
-On the following page, you'll then be prompted to enter the network details for your ContainerChain. For demonstration purposes, the demo EVM ContainerChain is used here, but you can substitute these details for your own ContainerChain. To add your ContainerChain to Talisman, take the following steps: 
+On the following page, you'll then be prompted to enter the network details for your Tanssi appchain. For demonstration purposes, the demo EVM appchain is used here, but you can substitute these details for your own Tanssi appchain. To add your Tanssi appchain to Talisman, take the following steps: 
 
-1. Paste in the RPC URL of your ContainerChain. The demo EVM ContainerChain's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be autopopulated
-2. Paste in the block explorer URL of your ContainerChain. The demo EVM ContainerChain's block explorer URL is `https://3001-blockscout.a.dancebox.tanssi.network/`
+1. Paste in the RPC URL of your Tanssi appchain. The demo EVM appchain's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be autopopulated
+2. Paste in the block explorer URL of your Tanssi appchain. The demo EVM appchain's block explorer URL is `https://3001-blockscout.a.dancebox.tanssi.network/`
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
 
-![Add your ContainerChain Network Details](/images/builders/interact/ethereum-api/wallets/talisman/talisman-7.webp)
+![Add your Tanssi Appchain Network Details](/images/builders/interact/ethereum-api/wallets/talisman/talisman-7.webp)
 
-If you hold a balance of tokens in your newly created account for your ContainerChain, you'll see the balance in the Talisman dashboard. 
+If you hold a balance of tokens in your newly created account for your appchain, you'll see the balance in the Talisman dashboard. 
 
-## Sending Assets on Your EVM ContainerChain {: #sending-assets-on-your-evm-containerchain }
+## Sending Assets on Your EVM Appchain {: #sending-assets-on-your-evm-appchain }
 
-To transfer the native token of your ContainerChain, take the following steps:
+To transfer the native token of your Tanssi appchain, take the following steps:
 
 1. Click on the **Send** icon
 2. Click the desired **Send from** account
@@ -91,9 +91,9 @@ To transfer the native token of your ContainerChain, take the following steps:
 4. Enter the amount of tokens to send
 5. Look over the transaction details, then press **Review** and subsequently **Confirm**
 
-![Send funds on your EVM ContainerChain](/images/builders/interact/ethereum-api/wallets/talisman/talisman-8.webp)
+![Send Funds on your EVM Appchain](/images/builders/interact/ethereum-api/wallets/talisman/talisman-8.webp)
 
 
-This guide focused specifically on configuring Talisman to work with your EVM ContainerChain, but Talisman is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Talisman to work with Substrate-based chains.
+This guide focused specifically on configuring Talisman to work with your Tanssi EVM appchain, but Talisman is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Talisman to work with Substrate-based chains.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

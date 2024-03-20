@@ -3,4 +3,4 @@ hide: false
 nav:
   - index.md
   - 'Overview': overview.md
-  - 'Demo EVM ContainerChain': demo-evm-containerchain.md
+  - 'Demo EVM Appchain': demo-evm-containerchain.md

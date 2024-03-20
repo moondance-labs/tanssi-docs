@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // This script will decode all native token transfers (Substrate & Ethereum)
 // in a given Sidecar block, and extract the tx hash. It can be adapted for
-// any ContainerChain.
+// any Tanssi appchain.
 
 // Endpoint to retrieve the latest block
 const endpoint = 'http://127.0.0.1:8080/blocks/head';

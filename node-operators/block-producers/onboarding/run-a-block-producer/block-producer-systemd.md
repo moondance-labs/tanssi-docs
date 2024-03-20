@@ -1,6 +1,6 @@
 ---
 title: Run a Tanssi Block Producer
-description: Learn how to set up and run block producers (collators) for Tanssi Appchains using Systemd, allowing you to participate in the protocol and earn rewards.
+description: Learn how to set up and run block producers (collators) for Tanssi appchains using Systemd, allowing you to participate in the protocol and earn rewards.
 ---
 
 # Run a Block Producer Node Using Systemd
@@ -19,9 +19,6 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 - **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}
 
-- **Tanssi orchestrator specifications file** - the Tanssi orchestrator specifications file is needed to run the block producer. You can download it from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Dancebox/){target=\_blank}
-
-- **Relay chain specifications file** - the relay chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha/){target=\_blank}
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -32,45 +29,23 @@ To get started, download and make executable the latest binary release by runnin
 === "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "Intel Skylake"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-skylake && \
-    mv ./tanssi-node-skylake ./tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-skylake -O tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-zen3 && \
-    mv ./tanssi-node-zen3 ./tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-znver3 -O tanssi-node && \
     chmod +x ./tanssi-node
     ```
-
-## Download the Tanssi Orchestrator Specs File {: #download-relay-specs }
-
-The downloaded node binary file includes the Tanssi protocol logic that allows the block producer to rotate to, sync with, and produce blocks for any chain within the Tanssi ecosystem. When launching your Block producer's node, it will be required to provide the Tanssi's specification file as a parameter. 
-
-Download the specification file executing:
-
-```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancebox/dancebox-raw-specs.json
-```
-
-## Download the Relay Chain Specs File {: #download-relay-specs }
-
-The node binary file includes also the necessary code to run a relay chain node. When launching your Block Producer's node, it will also be required to provide the relay chain's specification file as a parameter. 
-
-Download the relay chain specification file executing:
-
-```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
-```
 
 ## Setup the Systemd Service {: #setup-systemd-service }
 
@@ -131,6 +106,7 @@ KillSignal=SIGHUP
 ExecStart=/var/lib/tanssi-data/tanssi-node \
 --chain=dancebox \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=warp \
 --base-path=/var/lib/tanssi-data/para \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
@@ -138,12 +114,12 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --database paritydb \
 -- \
---name=tanssi-appchain \
+--name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
---name=INSERT_YOUR_RELAY_NODE_NAME \
 --chain=westend_moonbase_relay_testnet \
+--name=INSERT_YOUR_RELAY_NODE_NAME \
 --sync=fast \
 --base-path=/var/lib/tanssi-data/relay \
 --state-pruning=2000 \
@@ -162,7 +138,7 @@ The flags used in the ExecStart command can be adjusted according to your prefer
 --8<-- 'text/node-operators/appchain-node/run-flags.md'
 
 ```bash
-/var/lib/sequencer-data/tanssi-node  --help
+/var/lib/tanssi-data/tanssi-node  --help
 ```
 
 ## Run the Service {: #run-the-service }

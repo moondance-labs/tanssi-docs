@@ -1,13 +1,13 @@
 ---
-title: Prerequisites for building a ContainerChain
-description: Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your ContainerChain.
+title: Prerequisites for Building an Appchain
+description: Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your appchain.
 ---
 
-# Prerequisites for Building a ContainerChain {: #prerequisites }
+# Prerequisites for Building an Appchain {: #prerequisites }
 
 ## Introduction {: #introduction }
 
-Deploying a ContainerChain through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.substrate.io/build/chain-spec/){target=\_blank} to upload to the Tanssi network and make it go live.
+Deploying an appchain through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.substrate.io/build/chain-spec/){target=\_blank} to upload to the Tanssi network and make it go live.
 
 Even though Tanssi provides chain specifications for the [available templates](/learn/tanssi/included-templates), it could be necessary to generate a new one to match any changes the use case might need to be implemented in the runtime.
 
@@ -17,7 +17,7 @@ The following sections of this article will cover the minimal required software 
 
 [Rust](/learn/framework/overview/#rust-programming-language) is a modern, portable, and performant programming language that is the base of the Substrate blockchain development framework.  
 
-To compile the Appchain, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system.
+To compile the Tanssi appchain, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system.
 
 In accordance with the instructions described in the [official Rust documentation](https://www.rust-lang.org/tools/install){target=\_blank}, for any system running Linux or MacOS, the following command will do:
 
@@ -107,7 +107,7 @@ git clone https://github.com/moondance-labs/tanssi
 ```bash
 cd tanssi
 ```
-3. Build the Appchain template
+3. Build the Tanssi appchain template
 === "Baseline EVM"
 
     ```bash
@@ -120,4 +120,4 @@ cd tanssi
     cargo build -p container-chain-template-simple-node --release
     ```
 
-Having a healthy development environment will be necessary to build a customized runtime and to finally generate the chain specification file that will be used to deploy your Appchain.
+Having a healthy development environment will be necessary to build a customized runtime and to finally generate the chain specification file that will be used to deploy your Tanssi appchain.
