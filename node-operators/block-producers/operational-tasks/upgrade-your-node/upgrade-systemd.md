@@ -38,23 +38,21 @@ To download the latest release and change permissions on it so the Tanssi servic
 === "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "Intel Skylake"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-skylake && \
-    mv ./tanssi-node-skylake ./tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-skylake -O tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-zen3 && \
-    mv ./tanssi-node-zen3 ./tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-znver3 -O tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
@@ -65,7 +63,7 @@ You can restart your Tanssi Systemd service with the following command:
 systemctl start tanssi.service
 ```
 
-To verify that it is running correctly, you can use the following command to check the logs: 
+The node will resume syncing blocks from where it left off when the Systemd service was stopped. To verify that it is running correctly, you can use the following command to check the logs: 
 
 ```bash
 systemctl status tanssi.service
