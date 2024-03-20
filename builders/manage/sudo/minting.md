@@ -1,6 +1,6 @@
 ---
 title: Minting Native Tokens with Sudo 
-description: Learn how to use the Sudo key to manage your appchain and performing the privileged action of minting additional native tokens of your Tanssi appchain.
+description: Learn how to use the Sudo key to manage your appchain and perform the privileged action of minting additional native tokens of your Tanssi appchain.
 ---
 
 # Using Sudo to Mint Native Tokens
