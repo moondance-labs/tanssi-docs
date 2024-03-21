@@ -56,7 +56,6 @@ To download the latest release and change permissions on it so the Tanssi servic
     chmod +x ./tanssi-node
     ```
 
-
 You can restart your Tanssi Systemd service with the following command:
 
 ```bash
