@@ -95,7 +95,8 @@ The complete commands with specific version tags are thus as follows:
     moondancelabs/tanssi:v0.5 \
     --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
     ```
+And that's it! You've successfully upgraded your Tanssi node.
 
-## Conclusion {: #conclusion }
+## Subscribe to Release Notifications {: #subscribe }
 
-And that's it! You've successfully upgraded your Tanssi Node. You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**. 
+You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**. 
