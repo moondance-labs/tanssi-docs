@@ -24,7 +24,7 @@ docker ps -a
 The container ID is the first column and if you're running multiple Docker containers, you can identify it by the image name of `moondancelabs/tanssi`. You can run the stop command as follows: 
 
 ```bash
-docker stop INSERT_YOUR_CONTAINER_ID_HERE
+docker stop INSERT_YOUR_CONTAINER_ID
 ```
 
 Your terminal interaction will resemble the following:
