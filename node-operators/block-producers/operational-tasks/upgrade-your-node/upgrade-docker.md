@@ -85,6 +85,7 @@ The complete commands with specific version tags are thus as follows:
     moondancelabs/tanssi:v0.5 \
     --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
     ```
+
 === "AMD Zen3"
 
     ```bash
