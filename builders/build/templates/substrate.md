@@ -25,7 +25,7 @@ Here are some of the features that come with this template:
 - Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank}
 - Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=\_blank}
 - Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=\_blank}
-- Use the [Polkadot.js API](/explore/developer-toolkit/substrate-api/polkadot-js-api){target=\_blank} to interact with the Substrate API
+- Use the [Polkadot.js API](/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api){target=\_blank} to interact with the Substrate API
 
 By leveraging these features in the template, you can kickstart your Tanssi Appchain development and customize it to meet your specific requirements and innovations.
 

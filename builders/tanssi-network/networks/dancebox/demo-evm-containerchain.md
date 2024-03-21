@@ -46,7 +46,7 @@ Your tokens will be disbursed shortly, and you can verify your TANGO token balan
 
 ## Quick Start {: #quick-start }
 
-You can interact with a Tanssi EVM Appchain using standard Ethereum libraries, like [Ethers.js](/explore/developer-toolkit/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/explore/developer-toolkit/ethereum-api/libraries/web3js){target=\_blank}, and [Web3.py](/explore/developer-toolkit/ethereum-api/libraries/web3py){target=\_blank}. To quickly get started, you'll need to create a provider connected to a Tanssi EVM Appchain:
+You can interact with a Tanssi EVM Appchain using standard Ethereum libraries, like [Ethers.js](/dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/dapp-developers/developer-toolkit/ethereum-api/libraries/web3js){target=\_blank}, and [Web3.py](/dapp-developers/developer-toolkit/ethereum-api/libraries/web3py){target=\_blank}. To quickly get started, you'll need to create a provider connected to a Tanssi EVM Appchain:
 
 === "Ethers.js"
 
