@@ -27,7 +27,7 @@ Then, navigate to the directory where your Tanssi binary is stored and remove it
 cd /var/lib/tanssi-data
 ```
 
-Note, depending on the particular binary you have, your Tanssi node may be named `tanssi-node`, `tanssi-node-skylake`, or `tanssi-node-zen3`.
+Your Tanssi binary file will most likely be named `tanssi-node`. If not, you can replace `tanssi-node` below with the correct name of your Tanssi binary file.
 
 ```bash
 rm tanssi-node
