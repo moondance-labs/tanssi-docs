@@ -45,7 +45,7 @@ On the following screen, select the method by which you would like to import the
 
 On the following screen, you'll be able to provide the relevant seed phrase, private key, JSON file, or QR code, and you can begin using your new account right away.
 
-## Configuring SubWallet for Your EVM Appchain {: #configuring-subwallet-for-your-evm-Appchain }
+## Configuring SubWallet for Your EVM Appchain {: #configuring-subwallet-for-your-evm-appchain }
 
 To configure SubWallet for your Tanssi EVM appchain, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi appchain. For demonstration purposes, the demo EVM appchain is used here, but you can substitute these details for your own Tanssi appchain. To add your Tanssi appchain to SubWallet, take the following steps:
 

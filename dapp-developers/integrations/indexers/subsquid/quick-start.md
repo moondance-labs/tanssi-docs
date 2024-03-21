@@ -9,9 +9,9 @@ description: Learn how to use Subsquid, a query node framework for Substrate-bas
 
 [Subsquid](https://subsquid.io){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. Subsquid has native and full support for both EVM and Substrate data, even within the same project.
 
-This quick-start guide will show you how to create a Subsquid project and configure it to index data on a Tanssi Appchain. There is one section catered towards [Substrate Appchains](#index-substrate-appchains) and another towards [EVM Appchains](#index-evm-appchains). However, if you're building on an EVM Appchain, you may also reference the Substrate section, if you also need to index Substrate data.
+This quick-start guide will show you how to create a Subsquid project and configure it to index data on a Tanssi appchain. There is one section catered towards [Substrate appchains](#index-substrate-appchains) and another towards [EVM appchains](#index-evm-appchains). However, if you're building on an EVM appchain, you may also reference the Substrate section, if you also need to index Substrate data.
 
-For a more comprehensive end-to-end tutorial for EVM Appchains, be sure to check out the [Indexing ERC-20 Transfers on a Tanssi EVM Appchain](/dapp-developers/integrations/indexers/subsquid/erc20-transfers/){target=\_blank} tutorial.
+For a more comprehensive end-to-end tutorial for EVM appchains, be sure to check out the [Indexing ERC-20 Transfers on a Tanssi EVM Appchain](/dapp-developers/integrations/indexers/subsquid/erc20-transfers/){target=\_blank} tutorial.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -23,7 +23,7 @@ For the examples in this guide, you will need to have the following:
 
 ## Index a Tanssi Substrate Appchain {: #index-substrate-appchains }
 
-To get started indexing Substrate data on your Tanssi Appchain, you'll need to create a Subsquid project and configure it for your Tanssi Appchain by taking the following steps:
+To get started indexing Substrate data on your Tanssi appchain, you'll need to create a Subsquid project and configure it for your Tanssi appchain by taking the following steps:
 
 1. Create a Subsquid project based on the Substrate template by running
 
@@ -39,7 +39,7 @@ To get started indexing Substrate data on your Tanssi Appchain, you'll need to c
     npm ci
     ```
 
-3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your Tanssi Appchain. Remove the `archive: lookupArchive` line as a Squid archive will not be used. Here, you'll need to specify the RPC URL of your Tanssi Substrate Appchain, as the endpoint is used to ingest chain data
+3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your Tanssi appchain. Remove the `archive: lookupArchive` line as a Squid archive will not be used. Here, you'll need to specify the RPC URL of your Tanssi Substrate appchain, as the endpoint is used to ingest chain data
 
     ```ts
     const processor = new EvmBatchProcessor();
@@ -76,11 +76,11 @@ To get started indexing Substrate data on your Tanssi Appchain, you'll need to c
     }
     ```
 
-And that's all you have to do to configure your Subsquid project to index Substrate data on your Tanssi Substrate Appchain! Now you can update the `schema.graphql`, `src/main.ts`, `typegen.json`, and `src/processor.ts` files to index the data you need for your project!
+And that's all you have to do to configure your Subsquid project to index Substrate data on your Tanssi Substrate appchain! Now you can update the `schema.graphql`, `src/main.ts`, `typegen.json`, and `src/processor.ts` files to index the data you need for your project!
 
 ## Index a Tanssi EVM Appchain {: #index-evm-appchains }
 
-To get started indexing EVM data on a Tanssi EVM Appchain, you'll need to create a Subsquid project and configure it for your Tanssi Appchain by taking the following steps:
+To get started indexing EVM data on a Tanssi EVM appchain, you'll need to create a Subsquid project and configure it for your Tanssi appchain by taking the following steps:
 
 1. You can create a Subsquid project for EVM data by using the generic [EVM template](https://github.com/subsquid-labs/squid-evm-template){target=\_blank} or you can use the [ABI template](https://github.com/subsquid-labs/squid-abi-template){target=\_blank} for indexing data related to a specific contract
 
@@ -107,7 +107,7 @@ To get started indexing EVM data on a Tanssi EVM Appchain, you'll need to create
     npm ci
     ```
 
-3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your Tanssi Appchain. Remove the `archive: lookupArchive('eth-mainnet')` line as a Squid archive will not be used. Here, the RPC URL of the demo EVM Appchain is specified. The Squid project will use the RPC endpoint to ingest the relevant data
+3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your Tanssi appchain. Remove the `archive: lookupArchive('eth-mainnet')` line as a Squid archive will not be used. Here, the RPC URL of the demo EVM appchain is specified. The Squid project will use the RPC endpoint to ingest the relevant data
 
     ```ts
     const processor = new EvmBatchProcessor();
@@ -117,7 +117,7 @@ To get started indexing EVM data on a Tanssi EVM Appchain, you'll need to create
     ```
 
     !!! note
-        To try this out on the demo EVM Appchain, you can use the following RPC URL:
+        To try this out on the demo EVM appchain, you can use the following RPC URL:
 
         ```text
         https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
@@ -155,8 +155,8 @@ To get started indexing EVM data on a Tanssi EVM Appchain, you'll need to create
     }
     ```
 
-And that's all you have to do to configure your Subsquid project to index EVM data on your Tanssi EVM Appchain! Now you can update the `schema.graphql`, `src/main.ts`, and `src/processor.ts` files to index the data you need for your project!
+And that's all you have to do to configure your Subsquid project to index EVM data on your Tanssi EVM appchain! Now you can update the `schema.graphql`, `src/main.ts`, and `src/processor.ts` files to index the data you need for your project!
 
-If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your Tanssi Appchain, you can check out the [Using Subsquid to Index Your Tanssi Appchain](/dapp-developers/integrations/indexers/subsquid/erc20-transfers/){target=\_blank} tutorial!
+If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your Tanssi appchain, you can check out the [Indexing ERC-20 Transfers on a Tanssi EVM Appchain](/dapp-developers/integrations/indexers/subsquid/erc20-transfers/){target=\_blank} tutorial!
 
 --8<-- 'text/_disclaimers/third-party-content.md'

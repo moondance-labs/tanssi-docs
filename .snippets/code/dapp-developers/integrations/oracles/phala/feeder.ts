@@ -29,7 +29,7 @@ const abi = parseAbi([
   'function getRoundData(uint80 _roundId) public view returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound)',
 ]);
 
-// Insert your Appchain Details Here
+// Insert your appchain details here
 const chain = defineChain({
   id: INSERT_EVM_CHAIN_ID,
   name: 'dancebox-evm-appchain',
