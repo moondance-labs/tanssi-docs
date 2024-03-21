@@ -1,5 +1,5 @@
 ---
-title: Upgrade your Block Producer Systemd Node
+title: Upgrade Your Block Producer Systemd Node
 description: Follow these instructions to update your Tanssi block producer node running via Systemd to the latest version of the Tanssi client software.
 ---
 
