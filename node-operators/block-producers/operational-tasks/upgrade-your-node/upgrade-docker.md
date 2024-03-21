@@ -1,5 +1,5 @@
 ---
-title: Upgrade your Block Producer Docker Node
+title: Upgrade Your Block Producer Docker Node
 description: Follow these instructions to update your Tanssi block producer node running via Systemd to the latest version of the Tanssi client software.
 ---
 
@@ -7,7 +7,7 @@ description: Follow these instructions to update your Tanssi block producer node
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. Tanssi Block Producers can subscribe to [Github Notifications](#conclusion) to be alerted for new client release versions. 
+Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. Tanssi block producers can subscribe to [GitHub notifications](#conclusion) to be alerted for new client release versions. 
 
 This tutorial covers upgrading your Tanssi block producer node that was configured using Docker. It assumes you have already set up your account and launched a [block producer node using Docker](/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/){target=\_blank}. 
 
@@ -21,10 +21,10 @@ First, get the container ID of your Tanssi block producer node with the followin
 docker ps -a
 ```
 
-The container ID is the first column and if you're running multiple docker containers, you can identify it by the image name of `moondancelabs/tanssi`. You can run the stop command as follows: 
+The container ID is the first column and if you're running multiple Docker containers, you can identify it by the image name of `moondancelabs/tanssi`. You can run the stop command as follows: 
 
 ```bash
-docker stop INSERT_YOUR_CONTAINER_ID_HERE
+docker stop INSERT_YOUR_CONTAINER_ID
 ```
 
 Your terminal interaction will resemble the following:
@@ -85,6 +85,7 @@ The complete commands with specific version tags are thus as follows:
     moondancelabs/tanssi:v0.5 \
     --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
     ```
+
 === "AMD Zen3"
 
     ```bash
