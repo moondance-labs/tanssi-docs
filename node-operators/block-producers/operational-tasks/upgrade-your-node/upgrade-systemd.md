@@ -7,7 +7,7 @@ description: Follow these instructions to update your Tanssi block producer node
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. Tanssi Block Producers can subscribe to [Github Notifications](#conclusion) to be alerted for new client release versions. 
+Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. Tanssi block producers can subscribe to [GitHub notifications](#conclusion) to be alerted for new client release versions. 
 
 This tutorial covers upgrading your Tanssi block producer node that was configured using Systemd. It assumes you have already set up your account and launched a [block producer node using Systemd](/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-systemd/){target=\_blank}. 
 
