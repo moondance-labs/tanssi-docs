@@ -7,7 +7,7 @@ description: Follow these instructions to update your Tanssi block producer node
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. Tanssi Block Producers can subscribe to [Github Notifications](#conclusion) to be alerted for new client release versions. 
+Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. Tanssi Block Producers can subscribe to [Github Notifications](#subscribe) to be alerted for new client release versions. 
 
 This tutorial covers upgrading your Tanssi block producer node that was configured using Systemd. It assumes you have already set up your account and launched a [block producer node using Systemd](/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-systemd/){target=\_blank}. 
 
@@ -68,6 +68,8 @@ The node will resume syncing blocks from where it left off when the Systemd serv
 systemctl status tanssi.service
 ```
 
-## Conclusion {: #conclusion }
+And that's it! You've successfully upgraded your Tanssi node.
 
-And that's it! You've successfully upgraded your Tanssi Node. You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**. 
+## Subscribe to Release Notifications {: #subscribe }
+
+You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**. 
