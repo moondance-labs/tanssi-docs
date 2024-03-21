@@ -1,17 +1,17 @@
 ---
 title: How to use the Polkadot.js API
-description: Learn how to use the Polkadot.js API to interact with a Tanssi Appchain to get chain data and send transactions (extrinsics) via the Substrate API.
+description: Learn how to use the Polkadot.js API to interact with a Tanssi appchain to get chain data and send transactions (extrinsics) via the Substrate API.
 ---
 
 # Polkadot.js API Library
 
 ## Introduction {: #introduction }
 
-[Polkadot.js](https://wiki.polkadot.network/docs/polkadotjs){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Appchain! The [Polkadot.js API](https://polkadot.js.org/docs/api/){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query an Appchain and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
+[Polkadot.js](https://wiki.polkadot.network/docs/polkadotjs){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your appchain! The [Polkadot.js API](https://polkadot.js.org/docs/api/){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query an appchain and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
 
-You can use the Polkadot.js API to query on-chain data and send extrinsics from the Substrate side of your Tanssi Appchain. You can query runtime constants, chain state, events, transaction (extrinsic) data, and more.
+You can use the Polkadot.js API to query on-chain data and send extrinsics from the Substrate side of your Tanssi appchain. You can query runtime constants, chain state, events, transaction (extrinsic) data, and more.
 
-Here you will find an overview of the available functionalities and some commonly used code examples to get you started on interacting with your Tanssi Appchain using the Polkadot.js API library.
+Here you will find an overview of the available functionalities and some commonly used code examples to get you started on interacting with your Tanssi appchain using the Polkadot.js API library.
 
 --8<-- 'text/_common/general-js-tutorial-check.md'
 
@@ -35,7 +35,7 @@ The library also includes other core components, like Keyring for account manage
 
 ## Create an API Provider Instance {: #creating-an-API-provider-instance }
 
-To start interacting with your Tanssi Appchain using the Polkadot.js API, you first need to instantiate an instance of the Polkadot.js API. Create the `WsProvider` using the WebSocket endpoint of your Tanssi Appchain.
+To start interacting with your Tanssi appchain using the Polkadot.js API, you first need to instantiate an instance of the Polkadot.js API. Create the `WsProvider` using the WebSocket endpoint of your Tanssi appchain.
 
 ```javascript
 // Import
@@ -71,7 +71,7 @@ Where `<type>` can be either:
 - `rpc` - for endpoints specific to RPC calls
 - `consts` - for endpoints specific to runtime constants
 
-And therefore, none of the information contained in the `api.{query, tx, rpc, consts}.<module>.<method>` endpoints are hard-coded in the API. This allows the Polkadot.js API library to be modular and adapt to any Substrate-based chains with different [modules](/learn/framework/modules){target=\_blank}, like your Tanssi Appchain!
+And therefore, none of the information contained in the `api.{query, tx, rpc, consts}.<module>.<method>` endpoints are hard-coded in the API. This allows the Polkadot.js API library to be modular and adapt to any Substrate-based chains with different [modules](/learn/framework/modules){target=\_blank}, like your Tanssi appchain!
 
 ## Query On-Chain Data {: #querying-for-information }
 
@@ -181,7 +181,7 @@ The Keyring object is used for maintaining key pairs, and the signing of any dat
 
 ### Create a Keyring Instance {: #creating-a-keyring-instance }
 
-You can create an instance by just creating an instance of the Keyring class and specifying the default type of wallet address used. The default wallet type is `SR25519`, but for Tanssi EVM-compatible Appchains, the wallet type should be `ethereum`.
+You can create an instance by just creating an instance of the Keyring class and specifying the default type of wallet address used. The default wallet type is `SR25519`, but for Tanssi EVM-compatible appchains, the wallet type should be `ethereum`.
 
 ```javascript
 // Import the keyring as required

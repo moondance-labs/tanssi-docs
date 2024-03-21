@@ -1,13 +1,13 @@
 ---
 title: Customizing Chain Specifications
-description: The chain specification contains the initial parameters required for launching a new Tanssi Appchain, including genesis state, token configuration, and more.
+description: The chain specification contains the initial parameters required for launching a new Tanssi appchain, including genesis state, token configuration, and more.
 ---
 
 # Customizing Chain Specifications {: #customizing-chain-specifications }
 
 ## Introduction {: #introduction }
 
-The chain specification refers to a set of parameters and configurations that define the characteristics and behavior of a new Tanssi Appchain. It defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks. Many initial settings cannot be changed after the network is launched without generating a completely different chain.
+The chain specification refers to a set of parameters and configurations that define the characteristics and behavior of a new Tanssi appchain. It defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks. Many initial settings cannot be changed after the network is launched without generating a completely different chain.
 
 The specification contains two main sections:
 
@@ -16,7 +16,7 @@ The specification contains two main sections:
 
 This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates/overview/){target=\_blank} included in the Tanssi repository) or in a JSON file.
 
-To deploy an Appchain through Tanssi, uploading the JSON chain specification file is required. This article will cover the sections and attributes a chain specification contains and how to obtain the file.
+To deploy an appchain through Tanssi, uploading the JSON chain specification file is required. This article will cover the sections and attributes a chain specification contains and how to obtain the file.
 
 ## The Client Specification {: #client-specification }
 
@@ -29,23 +29,23 @@ The client specification contains the configuration of the network and other set
 - **Boot Nodes** - set of boot nodes that will be used when the new node joins the network and syncs
 - **Telemetry Endpoints** - an optional list of endpoints to send information and monitor the operation of the network
 - **Protocol Id** - a unique name defining the network protocol
-- **Relay Chain** - defines the relay chain the Tanssi Appchain interacts with
+- **Relay Chain** - defines the relay chain the Tanssi appchain interacts with
 - **Parachain Id** - sets the parachain id that has been reserved and assigned in the relay chain
-- **Code Substitutes** - an emergency feature to replace the runtime when a Tanssi Appchain is unable to perform a runtime upgrade
+- **Code Substitutes** - an emergency feature to replace the runtime when a Tanssi appchain is unable to perform a runtime upgrade
 - **Properties** - key-value properties that can be customized and are useful to improve the user experience
 
 In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api){target=\_blank}:
 
-- **Token Symbol** - a name for your Tanssi Appchain's own token symbol
+- **Token Symbol** - a name for your Tanssi appchain's own token symbol
 - **SS58 Format** - a unique integer that uniquely identifies the accounts in your network with [SS58 encoding](https://docs.substrate.io/reference/address-formats/){target=\_blank}. All Substrated-based accounts have the same 32 bytes representation, that are base-58 encoded using this integer, which should be unique between networks
 - **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token
 - **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 
 ## The Genesis State {: #genesis-state }
 
-All the collators assigned to the Tanssi Appchain must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
+All the block producers assigned to the Tanssi appchain must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
 
-This genesis state will define the starting point of the Tanssi Appchain. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
+This genesis state will define the starting point of the Tanssi appchain. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
 
 For example, in the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module. In addition, the template also has a sudo account (which **should be modified**) for the `Sudo` module, which provides unique priviledges to the given account, and that can be offboarded once an on-chain democracy module is plugged in.
 
@@ -67,7 +67,7 @@ To build and generate the chain specifications, take the following steps:
     cd tanssi
     ```
 
-3. Build the Tanssi EVM-compatible Appchain template
+3. Build the Tanssi EVM-compatible appchain template
 
     ```bash
     cargo build -p container-chain-template-frontier-node --release
@@ -91,7 +91,7 @@ After executing the last step, the terminal displays only a log line:
 And now the `chain_spec.json` file containing the client specification and the genesis state is created in the current folder.
 
 !!! note
-    The JSON chain specifications can be generated in two different versions: the human readable, which is the one generated following the previous steps, and the raw version, which is the one needed to deploy the Appchain through Tanssi. More about how to generate the raw version [later](#generating-raw-specs-file) in this article.
+    The JSON chain specifications can be generated in two different versions: the human readable, which is the one generated following the previous steps, and the raw version, which is the one needed to deploy the appchain through Tanssi. More about how to generate the raw version [later](#generating-raw-specs-file) in this article.
 
 ### Editing the JSON Chain Specification File {: #editing-json-chain-specs }
 
@@ -102,9 +102,9 @@ For example, the following code snippet shows some of the attributes of the clie
 ```json
 {
     // Set the name for the specification of this network
-    "name": "Frontier Container 1000",
+    "name": "Frontier appchain 1000",
     // Set an id for the specifications of this network
-    "id": "frontier_container_1000",
+    "id": "frontier_appchain_1000",
     // Network will be live
     "chainType": "Live",
     "bootNodes": [
@@ -113,7 +113,7 @@ For example, the following code snippet shows some of the attributes of the clie
     // Optional attribute, defaults to null
     "telemetryEndpoints": null,
     // Set a protocol identifier for this network
-    "protocolId": "container-chain-1000",
+    "protocolId": "appchain-chain-1000",
     // Set properties to define the token and the ethereum compatibility
     "properties": {
         "isEthereum": true,
@@ -201,7 +201,7 @@ An example of a non-manually editable attribute is the Wasm runtime (in the gene
 
 ## Generating a Raw JSON Chain Specification File {: #generating-raw-specs-file }
 
-One final step before deploying the Tanssi Appchain is converting the JSON specification file to a raw format, which is a compact, less-readable version of the same file, required to initialize a node.
+One final step before deploying the Tanssi appchain is converting the JSON specification file to a raw format, which is a compact, less-readable version of the same file, required to initialize a node.
 
 After going through the [steps to generate the JSON chain Specification File](#generating-json-chain-specs) and editing its values, the following command will convert the chain specs file into the required raw format:
 
@@ -210,4 +210,4 @@ After going through the [steps to generate the JSON chain Specification File](#g
     build-spec --chain=chain_spec.json --raw > raw_chain_spec.json
 ```
 
-Now that this file has been configured and customized and is in the correct raw JSON format, it can be uploaded to initialize a new Appchain in Tanssi.
+Now that this file has been configured and customized and is in the correct raw JSON format, it can be uploaded to initialize a new appchain in Tanssi.
