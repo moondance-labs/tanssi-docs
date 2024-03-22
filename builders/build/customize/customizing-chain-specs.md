@@ -34,7 +34,7 @@ The client specification contains the configuration of the network and other set
 - **Code Substitutes** - an emergency feature to replace the runtime when a Tanssi appchain is unable to perform a runtime upgrade
 - **Properties** - key-value properties that can be customized and are useful to improve the user experience
 
-In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/interact/substrate-api/polkadot-js-api){target=\_blank}:
+In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api){target=\_blank}:
 
 - **Token Symbol** - a name for your Tanssi appchain's own token symbol
 - **SS58 Format** - a unique integer that uniquely identifies the accounts in your network with [SS58 encoding](https://docs.substrate.io/reference/address-formats/){target=\_blank}. All Substrated-based accounts have the same 32 bytes representation, that are base-58 encoded using this integer, which should be unique between networks

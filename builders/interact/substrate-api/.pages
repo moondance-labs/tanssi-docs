@@ -1,9 +1,0 @@
-title: Substrate API
-hide: false
-nav:
-  - index.md
-  - 'Chopsticks': 'chopsticks.md'
-  - 'Polkadot.js API': 'polkadot-js-api.md'
-  - 'Sidecar API': 'sidecar-api.md'
-  - wallets
-  - indexers

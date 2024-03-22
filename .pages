@@ -1,7 +1,6 @@
 nav:
   - index.md
   - builders
+  - dapp-developers
   - node-operators
   - learn
-  - 'Resource Center': 'https://tanssi.network/resources'
-  - 'About': 'https://tanssi.network/'

@@ -50,7 +50,7 @@ Every new release includes two node binaries, one for EVM-compatible appchains a
 
 ## Download the Relay Chain Specs File {: #download-relay-specs }
 
-The node binary file includes also the necessary code to run a relay chain node. When launching your appchain's node, it will also be required to provide the relay chain's specification file as a parameter. 
+The node binary file includes also the necessary code to run a relay chain node. When launching your appchain's node, it will also be required to provide the relay chain's specification file as a parameter.
 
 Download the relay chain specification file by executing:
 
@@ -92,7 +92,7 @@ mv ./westend-alphanet-raw-specs.json /var/lib/appchain-data
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
-The next step is to create the Systemd configuration file. 
+The next step is to create the Systemd configuration file.
 
 You can create the file by running the following command:
 
@@ -191,7 +191,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
 
 ### Full Node Configuration Example for the Demo EVM Appchain {: #example-demo-evm-appchain}
 
-The following example deploys a fully functional full archive node for the [demo EVM appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`. 
+The following example deploys a fully functional full archive node for the [demo EVM appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank} deployed on Dancebox with an ID of `3001`.
 
 The raw chain specification file for the demo appchain is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain/){target=\_blank}. Download the file and place it in the `/var/lib/appchain-data/` directory.
 
