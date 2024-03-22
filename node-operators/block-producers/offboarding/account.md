@@ -23,12 +23,14 @@ Before undelegating, it is helpful first to see how much you have staked, as you
 2. Select the **pools** query
 3. Enter your block producer account
 4. Ensure that the **include option** slider is toggled on
-5. In the **option** field, you can select **CandidateTotalStake** to see the amount you have staked in Plank. Alternatively, you can select **AutoCompoundingShares** or **ManualRewardShares** depending on the staking configuration used when setting up your block producer node 
+5. In the **option** field, you select **JoiningShares**
 6. Click the **+** button next to the extrinsic field
 
 ![Check existing stake on Polkadot.js Apps](/images/node-operators/block-producers/offboarding/offboarding/offboarding-1.webp)
 
-The corresponding candidate's total stake (in Planck) or the number of shares will be displayed. Note this amount, as you'll need it in the next section. 
+Note, **JoiningShares** returns only the initial amount you delegated when configuring your block producer. To get your total amount staked, you'll need to repeat the above steps for either **ManualRewardShares** or **ManualRewardSharesHeldStake** if you didn't select Autocompounding, and either **AutoCompoundingShares** or **AutoCompoundingSharesHeldStake** if you configured Autocompounding. Then add your autocompounding or manual shares value to **JoiningShares** to get your total delegation outstanding.
+
+As an example, the total stake of an autocompounding block producer can be calculated by adding **JoiningShares** to **AutoCompoundingShares**. Note this amount, as you'll need it in the next section. 
 
 ### Submit Undelegation Request {: #submit-undelegation-request }
 
