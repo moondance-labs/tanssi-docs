@@ -5,3 +5,4 @@ nav:
   - 'Overview': 'overview.md'
   - 'Technical Features': 'technical-features.md'
   - 'Included Templates': 'included-templates.md'
+  - 'Proxy Accounts': 'proxy-accounts.md'
