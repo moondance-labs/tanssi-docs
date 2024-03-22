@@ -4,7 +4,7 @@ description: Follow these step-by-step instructions to configure a proxy account
 ---
 
 
-# Setting up a Proxy Account
+# Set Up a Proxy Account
 
 ## Introduction {: #introduction }
 
@@ -27,6 +27,8 @@ If you need help importing your accounts into Polkadot.js Apps, please check out
 ## Creating a Staking Proxy Account {: #creating-a-staking-proxy-account }
 
 There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions, potentially for malicious actions, and cancel if necessary before execution.
+
+You also have the option of creating a proxy of type **Any** which grants the proxy account full and unrestricted control over the primary account. This means that the proxy account can transfer funds, and perform any arbitrary action. The following demo will showcase configuring a **Staking** proxy, which is more restrictive than an **Any** proxy, as it limits functions to activities that pertain to staking, such as delegating, undelegating, and mapping session keys. 
 
 To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
 
@@ -86,13 +88,13 @@ You can also check your proxy accounts from the **Accounts** page. To do so, nav
 
 ![Hover over the proxy icon to manage your proxies via the Accounts page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-6.webp)
 
-A pop-up will appear where you can view an overview of all of your proxy accounts.
+A pop-up will appear where you can see an overview of all of your proxy accounts.
 
 ![Review your proxy accounts.](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-7.webp)
 
 ## Executing a Proxy Transaction {: #executing-a-proxy-transaction }
 
-Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the staking proxy account on behalf of your block producer account, also known as the primary account or the account that is being proxied. The following example will demonstrate initiating a delegation. The proxy configuration shown is a realistic example of how you might have your own proxy configured for your block producer primary account.
+Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the staking proxy account on behalf of your block producer account, also known as the primary account or the account that is being proxied. The following example will demonstrate initiating a self-delegation. The proxy configuration shown is a realistic example of how you might have your own proxy configured for your block producer primary account.
 
 To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} and take the following steps:
 
@@ -104,64 +106,16 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 6. Select the **pooledStaking** call
 7. Choose the **requestDelegate** extrinsic
 8. Enter the **candidate** address, which is the block producer account
-9. Select **AutoCompounding** for the **pool** field
+9. Select **AutoCompounding** or **ManualRewards** for the **pool** field
 10. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 11. Click **Submit Transaction**
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-8.webp)
 
-A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/block-producers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. After executing the pending request, you can [verify that your block producer is in the list of eligible candidates](/node-operators/block-producers/onboarding/account-setup/#verify){target=\_blank}.
+A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/block-producers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/block-producers/onboarding/account-setup/#map-session-keys) via proxy. 
 
-That's it! You've successfully executed a transaction using a proxy account on behalf of your primary account.
+After you've mapped your session keys and executed the pending delegation request, you can [verify that your block producer is in the list of eligible candidates](/node-operators/block-producers/onboarding/account-setup/#verify){target=\_blank}.
 
-## Removing a Proxy Account {: #removing-a-proxy-account }
-
-Similarly to adding a proxy account, there are a couple of ways that you can remove a proxy account, either from the **Extrinsics** page or the **Accounts** page. Regardless of which page you use, you can elect to remove a single proxy account or all proxies associated with your primary account.
-
-To remove a proxy from the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, you can take the following steps:
-
-1. From the **using the selected account** dropdown, select your primary account
-2. Then select **proxy**
-3. Choose **removeProxy** to remove a single proxy or **removeProxies** to remove all associated proxies
-4. Choose **Id** from the **AccountIdLookupOf** dropdown
-5. If removing a single proxy, enter the proxy account to remove in the **delegate** field
-6. Select the **proxyType** to remove, in this case choose **Staking**
-7. Optionally, select a delay period in block numbers
-8. Click **Submit Transaction**
-
-![Remove a proxy account from the Extrinsics page of Polkadot.js Apps](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-10.webp)
-
-A pop-up will appear asking you to authorize and sign the transaction. You can sign and send the transaction from the primary or proxy account, but the call to remove the proxy must be sent from the primary account. Enter your password and click **Sign and Submit**.
-
-On the transaction confirmation screen, take the following steps:
-
-1. Ensure that you do not use a proxy for this call (the call to remove the proxy needs to come from the primary account rather than the proxy account)
-2. Enter your password for the respective account
-3. Press **Sign and Submit**
-
-![Remove a proxy account from the Extrinsics page of Polkadot.js Apps, confirmation](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-11.webp)
-
-To check that the proxy or proxy accounts have been removed, follow the steps in the [Verifying your Proxy Account](#verifying-your-proxy-account) section.
-
-As previously mentioned, you can also remove a proxy from the **Accounts** page. To do so, on the **Accounts** page, select the three vertical dots next to the primary account and select **Manage Proxies**.
-
-![Click on the Manage Proxies button to review and manage your proxy accounts.](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-12.webp)
-
-A pop-up will appear showing an overview of your proxy accounts. To remove all proxies, you can click on **Clear all**, then you will automatically be prompted to enter your password and submit the transaction. To remove a single proxy, take the following steps:
-
-1. Click the **X** button next to the proxy to remove
-2. Press **Submit**
-
-![Remove a proxy account from the Accounts page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-13.webp)
-
-On the transaction confirmation screen, take the following steps:
-
-1. Ensure that you do not use a proxy for this call (the call to remove the proxy needs to come from the primary account rather than the proxy account)
-2. Enter your password for the respective account
-3. Press **Sign and Submit**
-
-![Remove a proxy account from the Accounts page of Polkadot.js Apps, confirmation](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-14.webp)
-
-Once the transaction has successfully been submitted, you can review your current proxies, or if you removed all proxies, you will notice the proxy icon is no longer being displayed next to the primary account. And that's it! You've successfully created a proxy, reviewed all proxy accounts associated with your primary account, executed a proxy transaction, and removed a proxy account!
+That's it! You've successfully executed a transaction using a proxy account on behalf of your primary block producer account. For information about proxy accounts including how to remove proxy accounts, check out the guide to proxy accounts in the learn section.  
 
 --8<-- 'text/_disclaimers/third-party-content.md'

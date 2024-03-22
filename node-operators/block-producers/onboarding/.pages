@@ -3,5 +3,5 @@ hide: false
 nav:
   - index.md
   - run-a-block-producer
-  - proxy-accounts.md
-  - 'Set Up Your Account': 'account-setup.md'
+  - 'Set Up Block Producer Account': 'account-setup.md'
+  - 'Set Up a Proxy Account': 'proxy-accounts.md'
