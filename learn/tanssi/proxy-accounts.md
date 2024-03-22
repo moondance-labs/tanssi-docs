@@ -8,7 +8,7 @@ description: Follow these step-by-step instructions to learn how proxies work an
 
 ## Introduction {: #introduction }
 
-Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and are helpful for keeping the underlying accounts safe. Your proxy account can act as a "hot wallet" to perform regular maintenance duties on behalf of your "cold wallet" block producer account. For added safety, you can regularly rotate the proxy account. 
+Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and are helpful for keeping the underlying accounts safe. Your proxy account can act as a "hot wallet" to interact with the network on behalf of your "cold wallet" account. For added safety, you can regularly rotate the proxy account. 
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum level of access required to carry out their duties via a specific type of proxy account. 
 
