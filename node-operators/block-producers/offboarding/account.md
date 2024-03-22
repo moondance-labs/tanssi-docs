@@ -39,7 +39,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 3. Select the **requestUndelegate** extrinsic
 4. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to decommission as a block producer
 5. Choose the target pool that you originally used when configuring your delegation (either **Autocompounding** or **Manual**)
-6. Select **Stake** from the dropdown
+6. Select **Stake** or **Shares** from the dropdown
 7. Enter the amount to unstake. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}. As a reminder, the minimum stake amount is {{ networks.dancebox.block_producers.min_self_del.dance }}. Therefore, if you delegated the minimum amount without autocompounding, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 8. Click **Submit Transaction** and sign and send the transaction from your wallet
 
