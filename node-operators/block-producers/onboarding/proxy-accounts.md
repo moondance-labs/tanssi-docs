@@ -8,11 +8,11 @@ description: Follow these step-by-step instructions to configure a proxy account
 
 ## Introduction {: #introduction }
 
-Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and are helpful for keeping the underlying accounts safe. As a block producer on Tanssi, it's a good idea to take advantage of proxy accounts to interact with the network in place of your block producer account. Your proxy account can act as a "hot wallet" to perform regular maintenance duties on behalf of your "cold wallet" block producer account. For added safety, you can regularly rotate the proxy account. 
+Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and are helpful for keeping the underlying accounts safe. As a block producer on Tanssi, it's a good idea to take advantage of proxy accounts to interact with the network in place of your block producer account. The staking proxy type conveniently allows the proxy account to manage the staking activities, such as delegating and rotating session keys, on behalf of the primary block producer account. However, the staking proxy account does not have access to perform arbitrary balances transfers. Your proxy account can act as a "hot wallet" to perform regular maintenance duties on behalf of your "cold wallet" block producer account. For added safety, you can regularly rotate the proxy account. 
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum level of access required to carry out their duties via a specific type of proxy account. For more background on Proxy accounts and how they work in Tanssi, be sure to check out the Guide to Proxy Accounts in the Learn section.
 
-This tutorial will walk you through configuring a proxy account on the Tanssi Dancebox TestNet specifically for operations as a block producer. Then, it will demonstrate performing an example action using the newly created staking proxy.
+This tutorial will walk you through configuring a staking proxy account on the Tanssi Dancebox TestNet specifically for operations as a block producer. Then, it will demonstrate initiating a delegation using the newly created staking proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -20,7 +20,7 @@ To follow along with this tutorial, you will need to have:
 
 - [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
 - Create or have two accounts accessible in Polkadot.js Apps
-- At least one of the accounts will need to be funded with `DANCE` tokens
+- Both accounts will need to be funded with `DANCE` tokens, and the block producer account will need at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` `DANCE`
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/interact/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
