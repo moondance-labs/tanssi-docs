@@ -15,7 +15,7 @@ Tanssi's EVM appchain template is specifically designed for teams developing the
 
 ## EVM Appchain Template {: #evm-appchain-template }
 
-Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and for Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime.
+Since the template already contains the necessary configuration for seamless integration into the Polkadot ecosystem and Tanssi protocol compatibility, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime.
 
 This means that this template is ready to be built as-is and deployed through Tanssi, unlocking many features, such as:
 
@@ -30,11 +30,11 @@ This means that this template is ready to be built as-is and deployed through Ta
 
 ## Included Modules {: #included-modules }
 
-The Tanssi EVM appchain template is built on top of the [Substrate appchain template](/builders/build/templates/substrate/){target=\_blank}. Consequently, it includes the same [baseline modules](/builders/build/templates/substrate/#included-modules).
+Besides the modules and configurations that make the Tanssi EVM appchain template compatible with the Tanssi protocol, It also includes [many modules](/builders/build/templates/overview/#included-modules){target=\_blank} to provide basic functionalities.
 
-In addition, the specific modules included for full Ethereum-compatibility are the following:
+To reach full Ethereum compatibility, these specific modules are also included:
 
 - **[pallet_evm](https://docs.rs/pallet-evm/latest/pallet_evm/){target=\_blank}** - the EVM pallet allows for unmodified EVM bytecode to be executed in a Substrate-based blockchain. It uses the Rust-based [SputnikVM](https://github.com/rust-ethereum/evm){target=\_blank} as the underlying EVM engine
 - **[pallet_ethereum](https://docs.rs/pallet-ethereum/latest/pallet_ethereum/){target=\_blank}** - the Ethereum pallet works together with the EVM pallet to provide full emulation for Ethereum block processing. Among many other tasks, it is responsible for creating emulated Ethereum blocks for Ethereum-specific components such as EVM logs
 
-Both of the included modules are part of [Frontier](https://github.com/paritytech/frontier){target=\_blank}, which is the backbone of Ethereum-compatible Substrate-based chains.
+Both modules are part of [Frontier](https://github.com/paritytech/frontier){target=\_blank}, which is the backbone of Ethereum-compatible Substrate-based chains.
