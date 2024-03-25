@@ -354,8 +354,8 @@ import { numberToHex } from '@polkadot/util';
 
 // Set the key type to string
 type txType = {
-    [key: string]: any
-}
+  [key: string]: any;
+};
 
 // Define the raw signed transaction
 const txData: txType = {
