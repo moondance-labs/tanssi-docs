@@ -3,4 +3,3 @@ hide: false
 nav:
   - index.md
   - upgrade-your-node
-  - proxy-accounts.md
