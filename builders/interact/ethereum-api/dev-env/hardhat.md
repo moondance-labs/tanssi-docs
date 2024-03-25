@@ -10,7 +10,7 @@ description: Learn how to use Hardhat, an Ethereum development environment, to c
 
 ## Introduction {: #introduction }
 
-[Hardhat](https://hardhat.org/){target=\_blank} is an Ethereum development environment that helps developers manage and automate the recurring tasks inherent to building smart contracts and DApps. Hardhat can be used with any EVM appchain to build, compile, and deploy smart contracts, thanks to the seamless compatibility of Tanssi EVM appchains.
+[Hardhat](https://hardhat.org/){target=\_blank} is an Ethereum development environment that helps developers manage and automate the recurring tasks inherent to building smart contracts and dApps. Hardhat can be used with any EVM appchain to build, compile, and deploy smart contracts, thanks to the seamless compatibility of Tanssi EVM appchains.
 
 This guide will cover how to use Hardhat to compile, deploy, and interact with Ethereum smart contracts deployed to the demo Tanssi EVM appchain. This guide can be adapted for your own Tanssi EVM appchain by simply adding the RPC URL of your Tanssi appchain to your EVM Wallet and switching networks to it.
 

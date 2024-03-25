@@ -47,7 +47,7 @@ This template also includes Tanssi's [Author Noting](https://github.com/moondanc
 
 Extending the *Baseline Tanssi appchain template*, this template provides not only Tanssi protocol support but also an EVM and full Ethereum compatibility.
 
-Leveraging the [Frontier project](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for appchains to allow running unmodified Ethereum DApps.
+Leveraging the [Frontier project](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for appchains to allow running unmodified Ethereum dApps.
 
 Using this template, appchains support the deployment and running of any existing Smart Contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Remix](https://remix.ethereum.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, [Truffle](https://trufflesuite.com){target=\_blank}, and many more out of the box, with no extra adapters.
 
