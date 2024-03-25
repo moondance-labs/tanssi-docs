@@ -19,10 +19,10 @@ The Substrate framework is designed for maximum customizability, providing a ful
 
 The architecture of a Substrate node contains two main components:
 
-- **Core Client** - handles the communication with the outer world (other nodes, DApps, end users, among others), and many other internal responsibilities, such as storage and communication
+- **Core Client** - handles the communication with the outer world (other nodes, dApps, end users, among others), and many other internal responsibilities, such as storage and communication
 - **Runtime** - implements the custom logic of the Tanssi appchain, executes transactions, and manages the state transitions
 
-From the end-user perspective, all the interaction with the Tanssi appchain is usually made through DApps or directly via the node RPC endpoints, for example, using a wallet. When a user triggers a request to fetch data or sends transactions to a node, the core client is responsible for responding or queuing the transactions until execution in the runtime. Still, all these internal aspects of the node design are kept transparent to the user.
+From the end-user perspective, all the interaction with the Tanssi appchain is usually made through dApps or directly via the node RPC endpoints, for example, using a wallet. When a user triggers a request to fetch data or sends transactions to a node, the core client is responsible for responding or queuing the transactions until execution in the runtime. Still, all these internal aspects of the node design are kept transparent to the user.
 
 ![Basic substrate node architecture](/images/learn/framework/architecture/architecture-1.webp)
 
@@ -32,7 +32,7 @@ The core client comprises components responsible for everything in the operation
 
 Some of the main components are: 
 
-- **Networking** - this component handles the communication with the peers in the network (synchronizing blocks, propagating transactions, and so on) and exposes the endpoints that allow DApps to integrate and interact with the Tanssi appchain
+- **Networking** - this component handles the communication with the peers in the network (synchronizing blocks, propagating transactions, and so on) and exposes the endpoints that allow dApps to integrate and interact with the Tanssi appchain
 - **Storage** - this component manages the state storage of the Tanssi appchain in a highly efficient key-value database
 - **Consensus** - this component ensures that all the participants in the network agree on the state of the blockchain, validating transactions, state transitions, and the resulting blocks
 
