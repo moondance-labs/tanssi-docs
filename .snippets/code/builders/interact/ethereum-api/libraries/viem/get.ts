@@ -2,7 +2,7 @@
 import { createPublicClient, http, defineChain } from 'viem';
 import contractFile from './compile';
 
-// 2. Specify the details of your EVM Appchain
+// 2. Specify the details of your EVM appchain
 export const demoEVM = defineChain({
   id: 5678,
   name: 'demo',

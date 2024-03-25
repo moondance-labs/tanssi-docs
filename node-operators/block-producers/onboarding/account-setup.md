@@ -1,13 +1,13 @@
 ---
 title: Setup an Account to Produce Blocks
-description: Follow these step-by-step instructions on becoming eligible to produce blocks on Tanssi and Tanssi Appchains and setting up your account for rewards payouts.
+description: Follow these step-by-step instructions on becoming eligible to produce blocks on Tanssi and Tanssi appchains and setting up your account for rewards payouts.
 ---
 
 # Set Up Your Account to Produce Blocks on Tanssi
 
 ## Introduction {: #introduction }
 
-Before you can start producing blocks on Tanssi and Tanssi Appchains, you'll need to set up your account and establish your eligibility.
+Before you can start producing blocks on Tanssi and Tanssi appchains, you'll need to set up your account and establish your eligibility.
 
 You must have spun up a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} to tackle the account setup steps in this guide.
 
@@ -24,7 +24,7 @@ When establishing eligibility to produce blocks, there are a couple of variables
 - **Minimum self-delegation** - there is a minimum amount you must self-delegate to be considered eligible
 - **Session** - a period that has a constant set of block producers
 - **Tanssi block producers per session** - the number of block producers assigned to Tanssi per session
-- **Appchain block producers per session** - the number of block producers assigned to a Tanssi Appchain per session
+- **Appchain block producers per session** - the number of block producers assigned to a Tanssi appchain per session
 
 |               Variable               |                                                              Value                                                               |
 |:------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------:|
@@ -43,7 +43,7 @@ You will need to create session keys for your primary and backup servers. Each o
 
 Before generating session keys, you must be [running a block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank}.
 
-To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your collator's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
+To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your block producer's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
 
 ```bash
 curl http://127.0.0.1:9944 -H \
@@ -86,11 +86,11 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 ## Submit Self-Delegation {: #submit-self-delegation }
 
-The next step towards becoming eligible to produce blocks on Tanssi and Tanssi Appchains is to delegate to your own account. To do this, you'll be required to submit a minimum of {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
+The next step towards becoming eligible to produce blocks on Tanssi and Tanssi appchains is to delegate to your own account. To do this, you'll be required to submit a minimum of {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
 
 After you've submitted the request to delegate, you'll need to wait for a minimum of {{ networks.dancebox.staking.staking_session_delay.sessions.display }} sessions before you can execute the pending request. There are {{ networks.dancebox.session.blocks }} blocks in a session. So, {{ networks.dancebox.staking.staking_session_delay.sessions.display }} sessions are {{ networks.dancebox.staking.staking_session_delay.blocks }} blocks, which can take around {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
 
-Block producers are assigned upon each session, requiring {{ networks.dancebox.block_producers.appchain.display }} per Appchain and a minimum of {{ networks.dancebox.block_producers.tanssi.min.display }} to {{ networks.dancebox.block_producers.tanssi.max.display }} for Tanssi. The block producers participating in the session are picked from the list of candidates ordered by total stake until the total number of block producers required is covered. So, you'll need to ensure that your total stake is enough to fill one of the slots, which may require more than {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
+Block producers are assigned upon each session, requiring {{ networks.dancebox.block_producers.appchain.display }} per appchain and a minimum of {{ networks.dancebox.block_producers.tanssi.min.display }} to {{ networks.dancebox.block_producers.tanssi.max.display }} for Tanssi. The block producers participating in the session are picked from the list of candidates ordered by total stake until the total number of block producers required is covered. So, you'll need to ensure that your total stake is enough to fill one of the slots, which may require more than {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
 
 ### Request Delegate {: #request-delegate }
 
@@ -136,7 +136,7 @@ If the request can be executed, select **Extrinsics** from the **Developer** dro
 3. For **delegator**, enter your account, which is the same account you sent the self-delegate request from
 4. For **operation**, select the type of operation to execute. This should be either **JoiningAutoCompounding** or **JoiningManualRewards**, depending on the target pool you selected at the time of submitting the self-delegation request
 5. For **candidate**, enter the same account as you did in the **delegator** field
-6. For **at**, enter the session index at which you submitted the delegate request
+6. For **at**, enter the session id at which you submitted the delegate request
 7. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-6.webp)
@@ -153,4 +153,4 @@ If you've followed all of the steps in this guide and have fully synced your blo
 
 ![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-7.webp)
 
-Remember that you'll need to be in the top candidates by total stake to produce blocks, and this is based on the number of [block producers required for each Appchain and Tanssi](#important-variables).
+Remember that you'll need to be in the top candidates by total stake to produce blocks, and this is based on the number of [block producers required for each appchain and Tanssi](#important-variables).

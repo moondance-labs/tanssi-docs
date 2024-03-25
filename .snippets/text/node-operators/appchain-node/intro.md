@@ -1,4 +1,4 @@
-Running a Tanssi Appchain node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols. 
+Running a Tanssi appchain node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols. 
 
 Nodes store block data and network state. However, developers can run different kinds of nodes:
  
