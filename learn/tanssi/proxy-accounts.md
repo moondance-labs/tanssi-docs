@@ -144,7 +144,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 7. Choose the **transferKeepAlive** extrinsic
 8. Choose **Id** from the **AccountIdLookupOf** dropdown
 9. In the **dest** field, enter the address you would like to send funds to
-10. In the **value** field, enter the amount of Dancebox tokens to send. For this example, you can send `2` Dancebox tokens.
+10. In the **value** field, enter the amount of Dancebox tokens to send. For this example, you can send `2` Dancebox tokens
 11. Click **Submit Transaction**
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/learn/tanssi/proxy/proxy-8.webp)
