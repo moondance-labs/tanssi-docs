@@ -115,6 +115,6 @@ A pop-up will appear for you to authorize and sign the transaction. Enter your p
 
 After you've mapped your session keys and executed the pending delegation request, you can [verify that your block producer is in the list of eligible candidates](/node-operators/block-producers/onboarding/account-setup/#verify){target=\_blank}.
 
-That's it! You've successfully executed a transaction using a proxy account on behalf of your primary block producer account. For information about proxy accounts including how to remove proxy accounts, check out the guide to proxy accounts in the learn section.  
+That's it! You've successfully executed a transaction using a proxy account on behalf of your primary block producer account. Please check out the Proxy Accounts guide for more information, including how to remove them. 
 
 --8<-- 'text/_disclaimers/third-party-content.md'
