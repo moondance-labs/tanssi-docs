@@ -30,7 +30,7 @@ This means that this template is ready to be built as-is and deployed through Ta
 
 ## Included Modules {: #included-modules }
 
-Besides the modules and configurations that make the Tanssi EVM appchain template compatible with the Tanssi protocol, It also includes [many modules](/builders/build/templates/overview/#included-modules){target=\_blank} to provide basic functionalities.
+Besides the modules and configurations that make the Tanssi EVM appchain template compatible with the Tanssi protocol, it also includes [many modules](/builders/build/templates/overview/#included-modules){target=\_blank} to provide basic functionalities.
 
 To reach full Ethereum compatibility, these specific modules are also included:
 
