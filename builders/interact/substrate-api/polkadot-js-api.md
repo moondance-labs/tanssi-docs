@@ -352,8 +352,13 @@ import { encode } from '@polkadot/util-rlp';
 import { keccakAsHex } from '@polkadot/util-crypto';
 import { numberToHex } from '@polkadot/util';
 
+// Set the key type to string
+type txType = {
+    [key: string]: any
+}
+
 // Define the raw signed transaction
-const txData = {
+const txData: txType = {
   nonce: numberToHex(1),
   gasPrice: numberToHex(21000000000),
   gasLimit: numberToHex(21000),
