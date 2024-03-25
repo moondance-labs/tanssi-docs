@@ -52,11 +52,12 @@ When creating a proxy account, you must choose a type of proxy that will define 
 
 - **`Any`** - allows the proxy account to use any function supported by the proxy pallet. There is no filtering of calls.
 - **`CancelProxy`** - allows the proxy account to reject and remove any announced proxy calls
-- **`Staking`** - allows the proxy account to perform staking-related transactions, such as block producer and `authorMapping()` functions 
+- **`Staking`** - allows the proxy account to perform staking-related transactions, such as block producer and `session()` functions 
 - **`NonTransfer`** - this type of proxy account is allowed to submit any type of transaction with the exception of balance transfers
 - **`Balances`** - allows the proxy account to only make transactions related to sending funds
 - **`Registrar`** - allows the proxy account to only make transactions related to the registrar pallet
 - **`SudoRegistrar`** - allows the proxy account to only make transactions related to the registrar pallet that need to be called by Sudo
+- **`Governance`** - allows the proxy account to only make transactions related to the governance pallet, such as voting or creating democracy proposals. Note, governance is not yet enabled on Tanssi. You can create governance proxy accounts but they will not be able to take any actions until governance is enabled 
 
 For this guide, you will be setting up a proxy account using the balances proxy type. Since this type enables the proxy to spend funds on behalf of the primary account, you should exercise caution and only provide access to accounts you trust. The proxy will have access to transfer all of the funds within the primary account, and if not trusted, the proxy could drain the primary account. Ensure that you maintain oversight of your proxy accounts and remove any proxies that are no longer needed.
 
