@@ -50,7 +50,7 @@ You can find each of the relevant variables for the Dancebox TestNet below. Note
 
 When creating a proxy account, you must choose a type of proxy that will define how the proxy can be used. The available options are:
 
-- **`Any`** - allows the proxy account to use any function supported by the proxy pallet. There is no filtering of calls.
+- **`Any`** - allows the proxy account to use any function supported by the proxy pallet. There is no filtering of calls
 - **`CancelProxy`** - allows the proxy account to reject and remove any announced proxy calls
 - **`Staking`** - allows the proxy account to perform staking-related transactions, such as block producer and `session()` functions 
 - **`NonTransfer`** - this type of proxy account is allowed to submit any type of transaction with the exception of balance transfers
