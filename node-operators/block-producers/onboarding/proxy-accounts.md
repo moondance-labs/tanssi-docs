@@ -7,7 +7,9 @@ description: Follow these step-by-step instructions to configure a proxy account
 
 ## Introduction {: #introduction }
 
-Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and are helpful for keeping the underlying accounts safe. As a block producer on Tanssi, it's a good idea to take advantage of proxy accounts to interact with the network in place of your block producer account. The staking proxy type conveniently allows the proxy account to manage the staking activities, such as delegating and rotating session keys, on behalf of the primary block producer account. However, the staking proxy account does not have access to perform arbitrary balances transfers. Your proxy account can act as a "hot wallet" to perform regular maintenance duties on behalf of your "cold wallet" block producer account. For added safety, you can regularly rotate the proxy account. 
+Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and are helpful for keeping the underlying accounts safe. As a block producer on Tanssi, it's a good idea to take advantage of proxy accounts to interact with the network in place of your block producer account.
+
+The staking proxy type conveniently allows the proxy account to manage staking activities, such as delegating and rotating session keys, on behalf of the primary block producer account, effectively transforming it into a "hot wallet" for performing regular maintenance duties on behalf of your "cold wallet" block producer account. For added safety, you can regularly rotate the proxy account. 
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum access required to carry out their duties via a specific proxy account. For more background on proxy accounts and how they work in Tanssi, check out the Proxy Accounts guide in the Learn section.
 
