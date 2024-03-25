@@ -111,7 +111,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-8.webp)
 
-A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/block-producers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/block-producers/onboarding/account-setup/#map-session-keys) via proxy. 
+A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/block-producers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/block-producers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy. 
 
 After you've mapped your session keys and executed the pending delegation request, you can [verify that your block producer is in the list of eligible candidates](/node-operators/block-producers/onboarding/account-setup/#verify){target=\_blank}.
 
