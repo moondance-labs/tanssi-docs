@@ -24,13 +24,13 @@ A Docker image is built and published as part of the automated deployment proces
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
-The chain specification is generated when registering the appchain in the [DApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
+The chain specification is generated when registering the appchain in the [dApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
 
 Luckily, running a node requires the right Docker image configured correctly!
 
 ### EVM-Compatible Appchains {: #pulling-evm-docker-image }
 
-If the Tanssi appchain was registered in the DApp, choose the EVM template or upload a custom specification representing a Tanssi EVM-compatible appchain, then execute the following command to pull the Docker image:
+If the Tanssi appchain was registered in the dApp, choose the EVM template or upload a custom specification representing a Tanssi EVM-compatible appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-evm-templates
@@ -42,7 +42,7 @@ The command will download and extract the image and show the status upon executi
 
 ### Simple Substrate Appchains {: #pulling-substrate-docker-image }
 
-If the appchain was registered in the DApp, choosing the basic Substrate template or uploading a custom specification file representing a Substrate appchain, then execute the following command to pull the Docker image:
+If the appchain was registered in the dApp, choosing the basic Substrate template or uploading a custom specification file representing a Substrate appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-simple-templates

@@ -111,12 +111,12 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --database paritydb \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
 -- \
 --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
 -- \
 --chain=westend_moonbase_relay_testnet \
 --name=INSERT_YOUR_RELAY_NODE_NAME \
@@ -124,8 +124,8 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --base-path=/var/lib/tanssi-data/relay \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --database paritydb \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
 
 [Install]
 WantedBy=multi-user.target
