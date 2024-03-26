@@ -1,6 +1,6 @@
 networks:
   dancebox:
-    client_version: latest
+    client_version: v0.5.0
     substrate_api_sidecar:
       stable_version: 17.1.2
     chain_id: 5678
@@ -50,6 +50,10 @@ networks:
         eth_usd: '0x007c3F3cc99302c19792F73b7434E3eCbbC3db25'
         usdc_usd: '0xe4a46ef4cFbf87D026C3eB293b7672998d932F62'
         usdt_usd: '0xf9c885E3A5846CEA887a0D69655BC08e52afe569'
+    proxy:
+      deposit_base: 10.08
+      deposit_factor: 0.33
+      max_proxies: 32
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0
