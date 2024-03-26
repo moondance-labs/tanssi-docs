@@ -1,18 +1,18 @@
 ---
 title: Adding a Custom-Made Module
-description: Substrate is a modular blockchain framework that makes it easy to build unique and innovative Appchains composing built-in modules with custom-made ones.
+description: Substrate is a modular blockchain framework that makes it easy to build unique and innovative appchains composing built-in modules with custom-made ones.
 ---
 
 # Adding a Custom-Made Module {: #adding-custom-made-module }
 
 ## Introduction {: #introduction }
 
-By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building an Appchain and accelerates the deployment and evolution into a ContainerChain. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules.
+By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building a Tanssi appchain and accelerates the deployment and evolution into a Tanssi appchain. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules.
 
 The example presented in the [Modularity](/learn/framework/modules/#custom-module-example){target=\_blank} article shows a simple lottery module exposing two transactions:
 
 - **Buy tickets** - this function manages a user's entry into the lottery. In essence, it verifies that the participant has a sufficient balance, is not already participating, and takes care of transferring funds to register the user for the lottery
-- **Award prize** - this function that handles a user entering into the lottery. At a high level, it fetches a pseudo random number to obtain a winner and handles the award distribution
+- **Award prize** - this function that handles a user entering into the lottery. At a high level, it fetches a pseudo-random number to obtain a winner and handles the award distribution
 
 The implementation of those transactions also uses storage, emits events, defines custom errors, and relies on other modules to handle currency (to charge for the tickets and transfer the total amount to the winner) and randomize the winner selection.
 
@@ -154,7 +154,7 @@ pub trait Config: frame_system::Config {
 }
 ```
 
-This abstract definition of dependencies is crucial to avoid coupling to a specific use case and to enable the modules to serve as basic building blocks for Substrate Appchains.
+This abstract definition of dependencies is crucial to avoid coupling to a specific use case and to enable the modules to serve as basic building blocks for Substrate appchains.
 
 ### Implementing Transactions {: #implementing-transactions }
 
@@ -265,7 +265,7 @@ pub enum Event<T: Config> {
 
 ### Implementing Storage for State Persistence {: #implementing-storage }
 
-The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of an Appchain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=\_blank}.
+The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of a Tanssi appchain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=\_blank}.
 
 In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=\_blank}). This can be initialized as follows:
 
@@ -337,6 +337,6 @@ construct_runtime!(
 )
 ```
 
-With everything set, the Appchain now has support for a basic implementation of a lottery.
+With everything set, the Tanssi appchain now has support for a basic implementation of a lottery.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

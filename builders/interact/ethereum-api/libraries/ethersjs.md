@@ -1,6 +1,6 @@
 ---
 title: EVM Transactions & Contracts with Ethers.js
-description: Learn how to use the Ethereum EtherJS Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM ContainerChain.
+description: Learn how to use the Ethereum EtherJS Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM appchain.
 ---
 
 # Ethers.js JavaScript Library
@@ -9,9 +9,9 @@ description: Learn how to use the Ethereum EtherJS Library to send transactions 
 
 ## Introduction {: #introduction }
 
-The [Ethers.js](https://docs.ethers.org/){target=\_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=\_blank}. Tanssi EVM ContainerChains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM ContainerChain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6/){target=\_blank}.
+The [Ethers.js](https://docs.ethers.org/){target=\_blank} library provides a set of tools to interact with Ethereum Nodes with JavaScript, similar to [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=\_blank}. Tanssi EVM appchains have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM appchain node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6/){target=\_blank}.
 
-In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM ContainerChain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM ContainerChain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM ContainerChain by simply changing the endpoint. 
+In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM appchain. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM appchain running in Tanssi's [Dancebox](/builders/tanssi-network/networks/dancebox){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM appchain by simply changing the endpoint. 
 
 If you prefer video tutorials, you can follow along with the corresponding videos at the top of this page for [Sending Transactions with Ethers.js](#send-a-transaction) and [Deploying Contracts with Ethers.js](#deploy-a-contract).
 
@@ -21,7 +21,7 @@ If you prefer video tutorials, you can follow along with the corresponding video
 
 For the examples in this guide, you will need to have the following:
 
- - An account with funds in the Tanssi EVM ContainerChain you are testing with
+ - An account with funds in the Tanssi EVM appchain you are testing with
 
 ## Installing Ethers.js {: #install-ethersjs }
 
@@ -55,8 +55,8 @@ import { ethers } from "ethers";
 
 // 2. Define network configurations
 const providerRPC = {
-  EvmContainer: {
-    name: 'dancebox-evm-container',
+  evmAppchain: {
+    name: 'dancebox-evm-appchain',
     // Insert your RPC URL here
     rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', 
     chainId: 5678, // 0x162E in hex,
@@ -64,10 +64,10 @@ const providerRPC = {
 };
 // 3. Create ethers provider
 const provider = new ethers.JsonRpcProvider(
-  providerRPC.EvmContainer.rpc, 
+  providerRPC.evmAppchain.rpc, 
   {
-    chainId: providerRPC.EvmContainer.chainId,
-    name: providerRPC.EvmContainer.name,
+    chainId: providerRPC.evmAppchain.chainId,
+    name: providerRPC.evmAppchain.name,
   }
 );
 ```

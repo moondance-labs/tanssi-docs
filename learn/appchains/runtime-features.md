@@ -1,6 +1,6 @@
 ---
 title: Core Runtime Features
-description: Learn about the core features of a Tanssi Appchain, the transactions types, how they are executed and included in a block, and the forkless runtime upgrades
+description: Learn about the core features of a Tanssi appchain, the transactions types, how they are executed and included in a block, and the forkless runtime upgrades
 ---
 
 # Core Runtime Features {: #core-runtime-features }
@@ -9,15 +9,15 @@ description: Learn about the core features of a Tanssi Appchain, the transaction
 
 Appchains deployed through Tanssi have [many benefits](/learn/tanssi/overview/#what-tanssi-provides){target=\_blank} due to its unique [architecture](/learn/tanssi/overview/#tanssi-architecture){target=\_blank}.
 
-Nevertheless, Tanssi Appchains are also unique due to the [framework](/learn/framework/){target=\_blank} (Substrate) they are built on top of, which provides some unique characteristics that developers can leverage to fine-tune specific behaviors in their runtime.
+Nevertheless, Tanssi appchains are also unique due to the [framework](/learn/framework/){target=\_blank} (Substrate) they are built on top of, which provides some unique characteristics that developers can leverage to fine-tune specific behaviors in their runtime.
 
-This section covers some of these Tanssi Appchain core runtime-specific features, including the different origins a transaction might have, the different types of transactions and how they are executed and included in a block, the special account known as _SUDO_, and the quite unique feature of a Substrate-based Appchain: the forkless runtime upgrades.
+This section covers some of these Tanssi appchain core runtime-specific features, including the different origins a transaction might have, the different types of transactions and how they are executed and included in a block, the special account known as _SUDO_, and the quite unique feature of a Substrate-based appchain: the forkless runtime upgrades.
 
 ## Origins {: #origins}
 
-Generally speaking, all calls in a Tanssi Appchain have an origin. But what is an origin? Developers from the EVM realm might be familiar with the concept of _msg.sender_ in EVM transactions. Origins are to Tanssi Appchains what _msg.sender_ is to an EVM transaction, but supercharged with many extra functionalities.
+Generally speaking, all calls in a Tanssi appchain have an origin. But what is an origin? Developers from the EVM realm might be familiar with the concept of _msg.sender_ in EVM transactions. Origins are to Tanssi appchains what _msg.sender_ is to an EVM transaction, but supercharged with many extra functionalities.
 
-An origin defines where the call is coming from. In contrast to Ethereum-compatible chains, there can be many origins in Tanssi Appchains. For example, the _msg.sender_ of an EVM transaction is known as a _signed origin_, which means that the call is a transaction that was signed by some on-chain account's private key. This allows the runtime to authenticate the source of the call and, for example, charge transaction fees to the associated account.
+An origin defines where the call is coming from. In contrast to Ethereum-compatible chains, there can be many origins in Tanssi appchains. For example, the _msg.sender_ of an EVM transaction is known as a _signed origin_, which means that the call is a transaction that was signed by some on-chain account's private key. This allows the runtime to authenticate the source of the call and, for example, charge transaction fees to the associated account.
 
 However, origins can do much more than represent a private key/public key pair. Origins also have different privilege levels. For example, a _signed origin_ can send a transaction that is dispatched by the private key/public key pair but should not be able to authorize a runtime upgrade. 
 
@@ -30,7 +30,7 @@ Some of the most common types of origins are:
 
 ## Transaction Types {: #transaction-types}
 
-Tanssi Appchains have three main types of transactions:
+Tanssi appchains have three main types of transactions:
 
 - **Signed Transactions** - include a signed payload requesting to execute some runtime call. Generally, the signature is associated with a private key/public key pair. Depending on the runtime logic, the account associated with the signature pays a transaction fee
 - **Unsigned Transactions** - include an unsigned payload requesting to execute some runtime call. Because these transactions are unsigned, there is no account associated with them. Consequently, runtimes need to define specific conditions that prevent network spam or replay attacks because there is no fee mechanism to prevent such malicious behaviors. One example of an unsigned transaction is executing pre-approved actions, like a runtime upgrade
@@ -38,7 +38,7 @@ Tanssi Appchains have three main types of transactions:
 
 ## Transaction Execution {: #transaction-execution}
 
-When a user or application submits a signed transaction to a Tanssi Appchain, the transaction is validated at a full-node level using rules defined in the runtime, and then it is queued in a transaction pool. This ensures that only transactions that comply with certain chain-specific conditions are considered to be included in a block.
+When a user or application submits a signed transaction to a Tanssi appchain, the transaction is validated at a full-node level using rules defined in the runtime, and then it is queued in a transaction pool. This ensures that only transactions that comply with certain chain-specific conditions are considered to be included in a block.
 
 !!! note
     The most common type of transaction is a signed transaction. Nevertheless, unsigned transactions are also validated before they are queued in the transaction pool.
@@ -53,9 +53,9 @@ During the block-building process, a block producer uses a [priority system](htt
 
 ## Forkless Upgrades {: #forkless-upgrades}
 
-Appchains deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.substrate.io/maintain/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Appchain is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
+Appchains deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.substrate.io/maintain/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi appchain is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
 
-Forkless upgrades are made possible by storing the state transition function as a WebAssembly (WASM) blob in both the Appchain and Polkadot. When a new runtime is scheduled through a function call in the Appchain, Polkadot validates this block, so it is notified and readies itself to validate incoming blocks using the most recent state transition function. Following a specified runtime upgrade delay period, a Tanssi block producer on the Appchain constructs a block that references a Polkadot block, signaling to the Appchain that it can now apply the new runtime. Consequently, this new state transition function is utilized for that specific block. As all infrastructure participants at the Appchain level employ the on-chain WASM blob, every Appchain node operator can validate new blocks using the latest state transition function.
+Forkless upgrades are made possible by storing the state transition function as a WebAssembly (WASM) blob in both the Tanssi appchain and Polkadot. When a new runtime is scheduled through a function call in the Tanssi appchain, Polkadot validates this block, so it is notified and readies itself to validate incoming blocks using the most recent state transition function. Following a specified runtime upgrade delay period, a Tanssi block producer on the Tanssi appchain constructs a block that references a Polkadot block, signaling to the Tanssi appchain that it can now apply the new runtime. Consequently, this new state transition function is utilized for that specific block. As all infrastructure participants at the appchain level employ the on-chain WASM blob, every Tanssi appchain node operator can validate new blocks using the latest state transition function.
 
 A high-level summary of the runtime upgrade process is shown in the following diagram:
 
@@ -64,11 +64,11 @@ A high-level summary of the runtime upgrade process is shown in the following di
 
 ## SUDO Account {: #sudo-account}
 
-Tanssi Appchains may use a specific module called [SUDO](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/pallet/struct.Pallet.html){target=\_blank}. This module introduces a new type of account, also named _SUDO_, that can execute transactions with the [_Root_ origin](#origins).
+Tanssi appchains may use a specific module called [SUDO](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/pallet/struct.Pallet.html){target=\_blank}. This module introduces a new type of account, also named _SUDO_, that can execute transactions with the [_Root_ origin](#origins).
 
 Consequently, the SUDO account can perform **any** action that the runtime allows the _Root_ origin to execute. This can include:
 
-- Mint new native Appchain tokens
+- Mint new native Tanssi appchain tokens
 - Perform [forkless runtime upgrades](#forkless-upgrades)
 - Send transactions impersonating other [origin types](#origins). Therefore, SUDO can send transactions on behalf of other users without accessing their private key
 
