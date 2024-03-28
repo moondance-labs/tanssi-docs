@@ -7,14 +7,14 @@ description: Learn how to use Sudo to enable and disable maintenance mode which 
 
 ## Introduction {: #introduction }
 
-The [Maintenance pallet](https://moonbeam.network/blog/maintenance-mode/){target=\_blank} is a module that is designed for use only in emergency situations that present existential threats to the network. Enabling maintenance mode on your appchain will suspend the processing of all regular transactions including EVM interactions. Block production continues at a regular cadence and allows for governance and staking functions to continue. 
+The [Maintenance pallet](https://moonbeam.network/blog/maintenance-mode/){target=\_blank} is a module that is designed for use only in emergency situations that present existential threats to the network. Enabling maintenance mode on your appchain will suspend the processing of all regular transactions, including EVM interactions. Block production continues at a regular cadence and allows for governance and staking functions to continue. 
 
 !!! warning
-    Enabling maintenance mode on a production network can have significant ramifications to the contracts on your chain. While maintenance mode is enabled, no smart contract transactions are processed. It's critical to carefully consider the potential ramifications of maintenance mode prior to activating it. 
+    Enabling maintenance mode on a production network can significantly impact the contracts on your chain. While maintenance mode is enabled, no smart contract transactions are processed, so it's critical to consider the potential ramifications before activating it. 
 
 Maintenance mode filters (ignores) all calls outside of governance and staking. Once maintenance mode is exited, your chain will process any pending transactions that queued up while your chain was in maintenance mode. Maintenance mode is intended to be used only as a temporary, emergency measure. 
 
-For example, imagine discovering a critical exploit on your appchain that, if exploited by malicious actors, could result in significant financial losses. While you can address the issue by implementing a runtime upgrade, the process takes time—precious time during which your appchain remains vulnerable to attack. One potential solution is to first activate maintenance mode on your appchain, then complete the runtime upgrade, and exit maintenance mode once the fix has been verified.
+For example, imagine discovering a critical exploit on your appchain that could result in significant financial losses if malicious actors exploit it. While you can address the issue by implementing a runtime upgrade, the process takes time—precious time during which your appchain remains vulnerable to attack. One potential solution is to activate maintenance mode on your appchain, complete the runtime upgrade, and exit maintenance mode once the fix has been verified.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -58,7 +58,7 @@ To verify that maintenance mode has been successfully enabled, you can check in 
 
 ![Check maintenance mode is disabled](/images/builders/manage/sudo/maintenance/maintenance-5.webp)
 
-Remember that using maintenance mode is an emergency action that should only be activated when your chain is at dire risk. It may be useful to establish a policy for your appchain that sets specific circuit breaker triggers for when maintenance mode will be enabled. Having a policy established in advance will also make decision-making more streamlined during a potentially stressful situation.  
+Remember that using maintenance mode is an emergency action that should only be activated when your chain is at dire risk. It may be worthwhile to establish a policy for your appchain that sets specific circuit breaker triggers for when maintenance mode will be enabled. Having a policy established in advance will also make decision-making more streamlined during a potential emergency situation.  
 
 And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tanssi appchain.
 
