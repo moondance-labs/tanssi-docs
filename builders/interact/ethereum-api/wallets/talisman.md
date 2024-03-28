@@ -73,7 +73,7 @@ To configure Talisman for your Tanssi EVM appchain, open the Talisman extension 
 On the following page, you'll then be prompted to enter the network details for your Tanssi appchain. For demonstration purposes, the demo EVM appchain is used here, but you can substitute these details for your own Tanssi appchain. To add your Tanssi appchain to Talisman, take the following steps: 
 
 1. Paste in the RPC URL of your Tanssi appchain. The demo EVM appchain's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be autopopulated
-2. Paste in the block explorer URL of your Tanssi appchain. The demo EVM appchain's block explorer URL is `https://3001-blockscout.a.dancebox.tanssi.network/`
+2. Paste in the block explorer URL of your Tanssi appchain. The demo EVM appchain's block explorer URL is `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
 
