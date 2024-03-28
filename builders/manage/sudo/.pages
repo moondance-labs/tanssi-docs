@@ -5,3 +5,5 @@ nav:
   - 'Manage The Sudo Account': 'sudo.md'
   - 'Dispatch Runtime Upgrades': 'upgrade.md'
   - 'Mint Tokens': 'minting.md'
+  - 'Impersonate Accounts': 'impersonate.md'
+  - 'Using Maintenance Mode': 'maintenance.md'
