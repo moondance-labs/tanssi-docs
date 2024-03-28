@@ -7,9 +7,12 @@ description: Learn how to use the Sudo key to dispatch calls by signing a transa
 
 ## Introduction {: #introduction }
 
-[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This enables you to perform privileged actions in the course of managing your appchain, such as impersonating other accounts. 
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This allows you to perform privileged actions while managing your appchain, such as impersonating other accounts. 
 
-In this guide, you'll learn how to use Sudo to impersonate other accounts. As an example, this guide will use the Sudo account to pose as an arbitrary account and set an identity of that particular account. 
+In this guide, you'll learn how to use Sudo to impersonate other accounts. As an example, this guide will use the Sudo account to pose as an arbitrary account and transfer funds from said account.
+
+!!! warning
+    The balance transfer demonstrated in this guide is dubious, shown only as an example of using Sudo. 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -20,44 +23,55 @@ For the examples in this guide, you will need to have the following:
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
 
-![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/minting/minting-1.webp)
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/impersonate/impersonate-1.webp)
 
 !!! warning
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
 
-## Minting Tokens {: #minting-tokens }
+## Using Sudo As {: #using-sudo-as }
 
-As you know, the Sudo account has the ability to perform privileged functions, including minting additional tokens. When setting up your Tanssi appchain on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, you can specify genesis account balances. In other words, you have the ability to endow accounts with initial balances upon launching your Tanssi appchain. However, you can also mint new tokens after launch with the help of the Sudo account.
+As you know, the Sudo account can perform privileged functions, including impersonating other accounts. When submitting a call via `sudoAs`, the runtime will first authenticate the Sudo key and then dispatch the desired function call with the `Signed` origin from a given account. In the following example, we'll use `sudoAs` to send some tokens to another account. While the result is similar to using sudo with a `forceBalanceTransfer` call, the following example uses a regular balance transfer call where the origin is the sender's account rather than the sudo account. 
 
-!!! note
-    This tutorial demonstrates assigning arbitrary token balances on a TestNet appchain that has no value. You should carefully consider the ramifications of creating additional tokens on your own Tanssi appchain.
+To make a `sudoAs` call to impersonate another account, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps. Then, take the following steps:
 
-### Checking Existing Account Balance {: #checking-existing-account-balance }
+1. Select the **sudo** pallet
+2. Select the **sudoAs** method
+3. Select or paste in the desired account to impersonate
+4. Select the desired pallet for the call to submit. In this case, it is the **balances** pallet
+5. Select the **transferAllowDeath** method 
+6. Specify the destination account for the balance transfer
+7. Specify the number of tokens to send
+8. Press **SubmitSudo** and confirm the resulting pop-up
 
-The next section will demonstrate how to assign arbitrary token balances to accounts using the Sudo account. This process will overwrite the specified account's existing balance, so verifying the account is empty is a good practice before continuing. To check an account's balance, take the following steps:
+![Make a sudo as call](/images/builders/manage/sudo/impersonate/impersonate-2.webp)
 
-1. Navigate to the **Developer** tab of [Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps) and click on **Chain State**
-2. Select the **system** pallet to query
-3. Select **account**
-4. Paste in the account address or select it from the dropdown
-5. Press **+** icon
-6. You'll see the balance information returned at the bottom, including free, reserved, and frozen balances
+The other account had a starting balance of `1,000` tokens prior to the call, and has subsequently dropped to `995` as expected. 
 
-![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/minting/minting-2.webp)
+![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/impersonate/impersonate-3.webp)
 
-### Assigning Balances with Sudo {: #assigning-balances-with-sudo }  
+## Using Sudo and Dispatch As Utility {: #using-sudo-and-dispatch-as-utility }
 
-To assign an account balance to an account, make sure to have your Sudo account accessible in [Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps). Then, take the following steps:
+The following section will demonstrate using sudo to dispatch calls from an arbitrary origin. When submitting a call in this manner, the runtime will first authenticate the sudo key and then dispatch the call using the `utility` pallet and the `dispatchAs` function, allowing the transaction's origin to be exactly what you'd like.  
 
-1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain
-2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps
-3. Select the **balances** pallet
-4. Select the **forceSetBalance** method
-5. Paste in the account address to endow with tokens or select it from the dropdown
-6. Enter the amount of tokens to endow the account with. In this example, we specify `9000000000000000000` for nine native tokens. Remember that Tanssi EVM appchains have 18 decimals, while Substrate or custom appchains configure the decimals when launching the chain. If you're unsure how many decimals your Tanssi appchain has, navigate to the **Settings** tab and click on **Metadata**
-7. Press **Submit Sudo** and confirm the transaction in your wallet
+To do so, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps. Then, take the following steps:
 
-![Force assign balances on Polkadot.js Apps](/images/builders/manage/sudo/minting/minting-3.webp)
+1. Select the **sudo** pallet
+2. Select the **sudo** method
+4. Select the desired pallet for the call to submit. In this case, it is the **utility** pallet
+5. Select the **dispatchAs** method 
+6. Select **system** from the dropdown
+7. Select the **signed** origin. This indicates we want the origin of the transaction to be the account we specify rather than root
+8. Select the desired pallet for the call to submit. In this case, it is the **balances** pallet
+9. Select the **transferAllowDeath** method 
+10. Specify the destination account for the balance transfer
+11. Specify the number of tokens to send
+12. Press **SubmitSudo** and confirm the resulting pop-up
+
+![Use Sudo Dispatch As on Polkadot.js Apps](/images/builders/manage/sudo/impersonate/impersonate-4.webp)
+
+The other account had a starting balance of `995` tokens prior to the call, and has subsequently dropped to `990` as expected. 
+
+![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/impersonate/impersonate-5.webp)
 
 And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tanssi appchain.
 
