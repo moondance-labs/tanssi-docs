@@ -42,7 +42,7 @@ Then, take the following steps:
 !!! note
     TANGO tokens have no value. Please don't spam the faucet with unnecessary requests.
 
-Your tokens will be disbursed shortly, and you can verify your TANGO token balance by looking up your address on the [explorer](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank}.
+Your tokens will be disbursed shortly, and you can verify your TANGO token balance by looking up your address on the [explorer](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank}.
 
 ## Quick Start {: #quick-start }
 
@@ -97,4 +97,4 @@ The demo EVM appchain has a [chain ID](https://chainlist.org/chain/5678){target=
 For the demo EVM appchain, you can use any of the following explorers:
 
 - Substrate API - on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank}
-- EVM explorer - on [Blockscout](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank} or [Expedition](https://tanssi-evmexplorer.netlify.app/){target=\_blank}
+- EVM explorer - on [Blockscout](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank} or [Expedition](https://tanssi-evmexplorer.netlify.app/){target=\_blank}

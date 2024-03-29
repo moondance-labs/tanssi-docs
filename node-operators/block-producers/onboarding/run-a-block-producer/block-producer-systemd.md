@@ -29,21 +29,21 @@ To get started, download and make executable the latest binary release by runnin
 === "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "Intel Skylake"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-skylake -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-skylake -O tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/{{ networks.dancebox.client_version }}/download/tanssi-node-znver3 -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-znver3 -O tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
@@ -111,12 +111,12 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --database paritydb \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
 -- \
 --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
 -- \
 --chain=westend_moonbase_relay_testnet \
 --name=INSERT_YOUR_RELAY_NODE_NAME \
@@ -124,8 +124,8 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --base-path=/var/lib/tanssi-data/relay \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --database paritydb \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
 
 [Install]
 WantedBy=multi-user.target

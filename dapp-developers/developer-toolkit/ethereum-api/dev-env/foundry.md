@@ -179,7 +179,7 @@ Your forked instance will have 10 development accounts that are pre-funded with 
 
 ![Forking terminal screen](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-5.webp)
 
-To verify you have forked the network, you can query the latest block number and compare it to the current block number of the [demo EVM appchain](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank}.
+To verify you have forked the network, you can query the latest block number and compare it to the current block number of the [demo EVM appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank}.
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 

@@ -31,7 +31,7 @@ export const demoEVM = defineChain({
   blockExplorers: {
     default: {
       name: 'Explorer',
-      url: 'https://3001-blockscout.a.dancebox.tanssi.network/',
+      url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/',
     },
   },
 });
