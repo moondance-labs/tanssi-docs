@@ -7,11 +7,11 @@ description: Follow these step-by-step instructions to configure a proxy account
 
 ## Introduction {: #introduction }
 
-Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and are helpful for keeping the underlying accounts safe. As a block producer on Tanssi, it's a good idea to take advantage of proxy accounts to interact with the network in place of your block producer account.
+Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and help keep the underlying accounts safe. As a block producer on Tanssi, it's a good idea to take advantage of proxy accounts to interact with the network in place of your block producer account.
 
-The staking proxy type conveniently allows the proxy account to manage staking activities, such as delegating and rotating session keys, on behalf of the primary block producer account, effectively transforming it into a "hot wallet" for performing regular maintenance duties on behalf of your "cold wallet" block producer account. For added safety, you can regularly rotate the proxy account. 
+The staking proxy type conveniently allows the proxy account to manage staking activities, such as delegating and rotating session keys, on behalf of the primary block producer account, effectively transforming it into a "hot wallet" for performing regular maintenance duties on behalf of your "cold wallet" block producer account. For added safety, you can regularly rotate the proxy account.
 
-Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum access required to carry out their duties via a specific proxy account. For more background on proxy accounts and how they work in Tanssi, check out the Proxy Accounts guide in the Learn section.
+Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum access required to carry out their duties via a specific proxy account.
 
 This tutorial will walk you through configuring a staking proxy account on the Tanssi Dancebox TestNet specifically for operations as a block producer. Then, it will demonstrate initiating a delegation using the newly created staking proxy.
 
@@ -29,14 +29,14 @@ If you need help importing your accounts into Polkadot.js Apps, please check out
 
 There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions and provides a limited period of time to cancel any actions.
 
-You also have the option of creating a proxy of type **Any** which grants the proxy account full and unrestricted control over the primary account. This means that the proxy account can transfer funds, and perform any arbitrary action. The following demo will showcase configuring a **Staking** proxy, which is more restrictive than an **Any** proxy, as it limits functions to activities that pertain to staking, such as delegating, undelegating, and mapping session keys. 
+You also have the option of creating a proxy of type **Any** which grants the proxy account full and unrestricted control over the primary account. This means that the proxy account can transfer funds, and perform any arbitrary action. The following demo will showcase configuring a **Staking** proxy, which is more restrictive than an **Any** proxy, as it limits functions to activities that pertain to staking, such as delegating, undelegating, and mapping session keys.
 
 To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
 
 1. Select the primary account
 2. From the **submit the following extrinsic** dropdown, select **proxy**
 3. Choose the **addProxy** extrinsic
-4. Choose **Id** from the **AccountIdLookupOf** dropdown 
+4. Choose **Id** from the **AccountIdLookupOf** dropdown
 5. Select the **delegate** account for the proxy
 6. From the **proxyType** dropdown, choose **Staking**
 7. Optionally, you can add a time delay using a specified number of blocks to add an additional layer of security for the primary account to review the pending transaction
@@ -113,10 +113,10 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy/proxy-block-8.webp)
 
-A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/block-producers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/block-producers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy. 
+A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/block-producers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/block-producers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
 
 After you've mapped your session keys and executed the pending delegation request, you can [verify that your block producer is in the list of eligible candidates](/node-operators/block-producers/onboarding/account-setup/#verify){target=\_blank}.
 
-That's it! You've successfully executed a transaction using a proxy account on behalf of your primary block producer account. Please check out the Proxy Accounts guide for more information, including how to remove them. 
+That's it! You've successfully executed a transaction using a proxy account on behalf of your primary block producer account.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
