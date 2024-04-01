@@ -7,21 +7,21 @@ description: Follow these instructions to update your Tanssi block producer node
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. Tanssi block producers can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions. 
+Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. Tanssi block producers can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
 
-This tutorial covers upgrading your Tanssi block producer node that was configured using Docker. It assumes you have already set up your account and launched a [block producer node using Docker](/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/){target=\_blank}. 
+This tutorial covers upgrading your Tanssi block producer node that was configured using Docker. It assumes you have already set up your account and launched a [block producer node using Docker](/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/){target=\_blank}.
 
 ## Upgrading Docker Nodes {: #upgrading-docker-nodes }
 
 If you're running your block producer node with Docker, updating your node is as simple as stopping the running container and restarting it with the new version tag.
 
-First, get the container ID of your Tanssi block producer node with the following command: 
+First, get the container ID of your Tanssi block producer node with the following command:
 
 ```bash
 docker ps -a
 ```
 
-The container ID is the first column and if you're running multiple Docker containers, you can identify it by the image name of `moondancelabs/tanssi`. You can run the stop command as follows: 
+The container ID is the first column and if you're running multiple Docker containers, you can identify it by the image name of `moondancelabs/tanssi`. You can run the stop command as follows:
 
 ```bash
 docker stop INSERT_YOUR_CONTAINER_ID
@@ -99,4 +99,4 @@ And that's it! You've successfully upgraded your Tanssi node.
 
 ## Subscribe to Release Notifications {: #subscribe }
 
-You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**. 
+You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.
