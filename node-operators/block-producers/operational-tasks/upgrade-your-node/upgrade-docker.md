@@ -29,7 +29,7 @@ docker stop INSERT_YOUR_CONTAINER_ID
 
 Your terminal interaction will resemble the following:
 
---8<-- 'code/node-operators/block-producers/operational-tasks/upgrade-your-node/terminal/docker-stop.md'
+--8<-- 'code/node-operators/block-producers/operational-tasks/upgrade-your-node/upgrade-docker/terminal/docker-stop.md'
 
 To restart the node, you can use the command you used when launching your block producer node. The Docker command is configured to automatically retrieve the latest version. The node will resume syncing blocks from where it left off when the Docker process was stopped.  
 
@@ -39,7 +39,7 @@ To restart the node, you can use the command you used when launching your block 
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     moondancelabs/tanssi \
-    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
+    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 
 === "Intel Skylake"
@@ -49,7 +49,7 @@ To restart the node, you can use the command you used when launching your block 
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi \
-    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
+    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 === "AMD Zen3"
 
@@ -58,7 +58,7 @@ To restart the node, you can use the command you used when launching your block 
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi \
-    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
+    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 
 ### Specifying a Version Tag {: #specifying-a-version-tag }
@@ -73,7 +73,7 @@ The complete commands with specific version tags are thus as follows:
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     moondancelabs/tanssi:v0.5 \
-    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
+    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 
 === "Intel Skylake"
@@ -83,7 +83,7 @@ The complete commands with specific version tags are thus as follows:
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi:v0.5 \
-    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
+    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 
 === "AMD Zen3"
@@ -93,7 +93,7 @@ The complete commands with specific version tags are thus as follows:
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi:v0.5 \
-    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
+    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 And that's it! You've successfully upgraded your Tanssi node.
 
