@@ -36,7 +36,6 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
     --8<-- 'code/builders/interact/ethereum-api/precompiles/erc20/erc20.sol'
     ```
 
-
 !!! note
     The ERC-20 precompile does not include `deposit` and `withdraw` functions and subsequent events expected from a wrapped token contract, such as WETH.
 
