@@ -134,7 +134,7 @@ To approve a token spend allowance, you'll need to provide an address for the sp
 
 1. Expand the **approve** function
 2. Enter the address of the spender. You should have created two accounts before starting, so you can use the second account as the spender
-3. Enter the amount of tokens the spender can spend for the **value**. For this example, you can allow the spender to spend 1 UNIT token in WEI units (`1000000000000000000`)
+3. Enter the amount of tokens the spender can spend for the **value**. For this example, you can allow the spender to spend 1 UNIT token in Wei units (`1000000000000000000`)
 4. Click **transact**
 5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
