@@ -8,7 +8,7 @@ keywords: solidity, ethereum, call permit, permit, gasless transaction, moonbeam
 
 ## Introduction {: #introduction }
 
-The Call Permit Precompile on Tanssi EVM ContainerChains allows a user to sign a permit, an [EIP-712](https://eips.ethereum.org/EIPS/eip-712){target=\_blank} signed message, for any EVM call and it can be dispatched by anyone or any smart contract. It is similar to the Permit Signing of ERC-20 approvals introduced in [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612){target=\_blank}, except it applies to any EVM call instead of only approvals.
+The Call Permit Precompile on Tanssi EVM appchains allows a user to sign a permit, an [EIP-712](https://eips.ethereum.org/EIPS/eip-712){target=\_blank} signed message, for any EVM call and it can be dispatched by anyone or any smart contract. It is similar to the Permit Signing of ERC-20 approvals introduced in [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612){target=\_blank}, except it applies to any EVM call instead of only approvals.
 
 When the call permit is dispatched, it is done so on behalf of the user who signed the permit and the user or contract that dispatches the permit is responsible for paying transaction fees. As such, the precompile can be used to perform gas-less transactions.
 
@@ -74,7 +74,7 @@ The parameters of the hash can be broken down as follows:
  - **PERMIT_DOMAIN** - is the `keccak256` of `EIP712Domain(string name,string version,uint256 chainId,address verifyingContract)`
  - **name** - is the name of the signing domain and must be `'Call Permit Precompile'` exactly
  - **version** - is the version of the signing domain. For this case **version** is set to `1`
- - **chainId** - is the chain ID of your ContainerChain
+ - **chainId** - is the chain ID of your appchain
  - **verifyingContract** - is the address of the contract that will verify the signature. In this case, the Call Permit Precompile address
 
 When `dispatch` is called, the permit needs to be verified before the call is dispatched. The first step is to [compute the domain separator](https://github.com/moonbeam-foundation/moonbeam/blob/ae705bb2e9652204ace66c598a00dcd92445eb81/precompiles/call-permit/src/lib.rs#L138){target=\_blank}. The calculation can be seen in [Moonbeam's implementation](https://github.com/moonbeam-foundation/moonbeam/blob/ae705bb2e9652204ace66c598a00dcd92445eb81/precompiles/call-permit/src/lib.rs#L112-L126){target=\_blank} or you can check out a practical example in [OpenZeppelin's EIP712 contract](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/4a9cc8b4918ef3736229a5cc5a310bdc17bf759f/contracts/utils/cryptography/draft-EIP712.sol#L70-L84){target=\_blank}.
@@ -93,7 +93,7 @@ Once you've set up the example contract, then you can set up the Call Permit Pre
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have your wallet configured to work with your EVM ContainerChain and an account funded with native tokens. You can add your EVM ContainerChain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
+To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM appchain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ### Example Contract {: #example-contract }
 
@@ -148,7 +148,7 @@ Then, instead of deploying the contract, you'll just need to access it given the
 1. Click on the **Deploy and Run** tab, directly below the **Compile** tab in Remix. Note: you are not deploying a contract here, instead you are accessing a precompiled contract that is already deployed
 2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** drop down
 3. Ensure **CallPermit.sol** is selected in the **CONTRACT** dropdown. Since this is a precompiled contract, there is no deployment step. Rather you'll provide the address of the precompile in the **At Address** field
-4. Provide the address of the Call Permit Precompile for Tanssi EVM ContainerChains: `{{networks.dancebox.precompiles.call_permit}}` and click **At Address**
+4. Provide the address of the Call Permit Precompile for Tanssi EVM appchains: `{{networks.dancebox.precompiles.call_permit}}` and click **At Address**
 5. The Call Permit Precompile will appear in the list of **Deployed Contracts**
 
 ![Provide the address](/images/builders/interact/ethereum-api/precompiles/call-permit/call-5.webp)
@@ -161,7 +161,7 @@ Here's an overview of the steps that you'll need to take to obtain the signature
 
 1. The `message` will be created and includes some of the data that is needed to create the call permit. It includes the arguments that will be passed into the `dispatch` function and the nonce of the signer
 2. A JSON structure of the data the user needs to sign will be assembled for the call permit and include all of the types for the `dispatch` arguments and the nonce. This will result in the `CallPermit` type and will be saved as the `primaryType`
-3. The domain separator will be created using `"Call Permit Precompile"` exactly for the name, the version of your DApp or platform, the chain ID of the network the signature is to be used on, and the address of the contract that will verify the signature. Note that you'll need to specify the chain ID of your ContainerChain in the script to generate the correct signature
+3. The domain separator will be created using `"Call Permit Precompile"` exactly for the name, the version of your DApp or platform, the chain ID of the network the signature is to be used on, and the address of the contract that will verify the signature. Note that you'll need to specify the chain ID of your appchain in the script to generate the correct signature
 4. All of the assembled data, the `types`, `domain`, `primaryType` and `message`, will be signed using MetaMask (either in the browser or through the MetaMask's JavaScript signing library)
 5. The signature will be returned and you can use [Ethers.js](https://docs.ethers.org/){target=\_blank} [`Signature.from` method](https://docs.ethers.org/v6/api/crypto/#Signature_from){target=\_blank} to return the `v`, `r`, and `s` values of the signature
 
@@ -213,7 +213,7 @@ npm i @metamask/eth-sig-util ethers
 !!! remember
     Never reveal your private keys, as they give direct access to your funds. The following steps are for demonstration purposes only.
 
-In the `getSignature.js` file, you can copy and edit the following code snippet. In addition to the fields discussed above in the [Call Permit arguments section](#call-permit-arguments), you'll need to insert the Chain ID of your ContainerChain in the Domain Separator component to properly generate the signature. If you use an incorrect Chain ID, the generated signature will be invalid and no transaction can be dispatched.
+In the `getSignature.js` file, you can copy and edit the following code snippet. In addition to the fields discussed above in the [Call Permit arguments section](#call-permit-arguments), you'll need to insert the Chain ID of your appchain in the Domain Separator component to properly generate the signature. If you use an incorrect Chain ID, the generated signature will be invalid and no transaction can be dispatched.
 
 ???+ code "getSignature.js"
 
