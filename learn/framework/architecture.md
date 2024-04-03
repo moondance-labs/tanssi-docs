@@ -7,7 +7,7 @@ description: A Substrate node has two main components: the runtime, which contro
 
 ## Introduction {: #introduction }
 
-Substrate is a software development kit (SDK) for building blockchains. This framework is the foundation and engine powering Polkadot's relay chain, the parachains (such as the Tanssi network itself), and the ContainerChains deployed through Tanssi. 
+Substrate is a software development kit (SDK) for building blockchains. This framework is the foundation and engine powering Polkadot's relay chain, the parachains (such as the Tanssi network itself), and the appchains deployed through Tanssi. 
 
 Written in the Rust language and designed with a modular architecture, Substrate is extremely performant, flexible, and highly customizable, making it the best choice for developing blockchains.
 
@@ -19,10 +19,10 @@ The Substrate framework is designed for maximum customizability, providing a ful
 
 The architecture of a Substrate node contains two main components:
 
-- **Core Client** - handles the communication with the outer world (other nodes, DApps, end users, among others), and many other internal responsibilities, such as storage and communication
-- **Runtime** - implements the custom logic of the Appchain, executes transactions, and manages the state transitions
+- **Core Client** - handles the communication with the outer world (other nodes, dApps, end users, among others), and many other internal responsibilities, such as storage and communication
+- **Runtime** - implements the custom logic of the Tanssi appchain, executes transactions, and manages the state transitions
 
-From the end-user perspective, all the interaction with the Appchain is usually made through DApps or directly via the node RPC endpoints, for example, using a wallet. When a user triggers a request to fetch data or sends transactions to a node, the core client is responsible for responding or queuing the transactions until execution in the runtime. Still, all these internal aspects of the node design are kept transparent to the user.
+From the end-user perspective, all the interaction with the Tanssi appchain is usually made through dApps or directly via the node RPC endpoints, for example, using a wallet. When a user triggers a request to fetch data or sends transactions to a node, the core client is responsible for responding or queuing the transactions until execution in the runtime. Still, all these internal aspects of the node design are kept transparent to the user.
 
 ![Basic substrate node architecture](/images/learn/framework/architecture/architecture-1.webp)
 
@@ -32,19 +32,19 @@ The core client comprises components responsible for everything in the operation
 
 Some of the main components are: 
 
-- **Networking** - this component handles the communication with the peers in the network (synchronizing blocks, propagating transactions, and so on) and exposes the endpoints that allow DApps to integrate and interact with the Appchain
-- **Storage** - this component manages the state storage of the Appchain in a highly efficient key-value database
+- **Networking** - this component handles the communication with the peers in the network (synchronizing blocks, propagating transactions, and so on) and exposes the endpoints that allow dApps to integrate and interact with the Tanssi appchain
+- **Storage** - this component manages the state storage of the Tanssi appchain in a highly efficient key-value database
 - **Consensus** - this component ensures that all the participants in the network agree on the state of the blockchain, validating transactions, state transitions, and the resulting blocks
 
 The default configuration of a Substrate node and the built-in implementations of the components are usually the best choice for most use cases. Still, teams are welcome to innovate and change or replace any piece of the node or even write a completely different implementation of the core client, such as [Kagome](https://github.com/soramitsu/kagome#intro){target=\_blank} (C++ implementation) and [Gossamer](https://github.com/ChainSafe/gossamer#a-go-implementation-of-the-polkadot-host){target=\_blank} (Golang implementation).
 
 ## The Runtime {: #runtime }
 
-The runtime plays a crucial role in the operation of the Appchain. It contains the core logic and rules to meet the requirements of the use case the developers are building, and, therefore, it is responsible for validating the transactions and executing the state transitions.
+The runtime plays a crucial role in the operation of the Tanssi appchain. It contains the core logic and rules to meet the requirements of the use case the developers are building, and, therefore, it is responsible for validating the transactions and executing the state transitions.
 
-Being the core element in an Appchain, designing the Substrate architecture an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org){target=\_blank} byte code. 
+Being the core element in a Tanssi appchain, designing the Substrate architecture an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org){target=\_blank} byte code. 
 
-The Wasm format offers many advantages to a deployed ContainerChain, including:
+The Wasm format offers many advantages to a deployed Tanssi appchain, including:
 
 - **Portability** - the Wasm format is platform-independent, meaning that the same binary can be distributed and run on different nodes using different hardware architectures and operating systems
 - **Deterministic Execution** - the Wasm format ensures deterministic execution of code, which means that the same input will always produce the same output. Determinacy is a critical aspect in blockchains to obtain the same state transitions across every node in the network and reach a consensus
@@ -54,7 +54,7 @@ Besides the format, internally, a Substrate runtime is built by composing differ
 
 ## Client-Runtime Communication {: #client-runtime-communication }
 
-As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different. While the node is compiled to be installed and run on a specific platform (be it Linux x64 or any other), the ContainerChain runtime is compiled to a Wasm format that is platform-agnostic and runs in an isolated execution environment.
+As previously described, the two main components of a Substrate node (the core client and the runtime) have a clear separation of concerns. Beyond the functional responsibilities, at a lower level, their binary representation and execution environments are different. While the node is compiled to be installed and run on a specific platform (be it Linux x64 or any other), the Tanssi appchain runtime is compiled to a Wasm format that is platform-agnostic and runs in an isolated execution environment.
 
  Bearing in mind the separated execution environments, all the communication between the node client and the runtime occurs through a limited and well-defined interface, allowing the necessary operations such as: 
 

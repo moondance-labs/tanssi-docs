@@ -4,3 +4,4 @@ nav:
   - index.md
   - 'Overview': 'overview.md'
   - runtime-features.md
+  - tx-fees.md
