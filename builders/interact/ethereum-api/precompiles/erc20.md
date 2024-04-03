@@ -25,7 +25,6 @@ The precompile is located at the following address:
 !!! note
     There can be some unintended consequences when using precompiles. Tanssi's Native Token ERC-20 Precompile is derived from Moonbeam's, and as such, please familiarize yourself with [Moonbeam's Precompile Security Considerations](https://docs.moonbeam.network/builders/get-started/eth-compare/security/){target=\_blank}.
 
-
 ## The ERC-20 Solidity Interface {: #the-erc20-interface }
 
 The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM ContainerChains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events a token contract must implement to be interoperable with different applications.
