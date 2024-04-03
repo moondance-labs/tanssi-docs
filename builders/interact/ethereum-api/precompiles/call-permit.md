@@ -210,7 +210,7 @@ Next, you can install the MetaMask signing library and [Ethers.js](https://docs.
 npm i @metamask/eth-sig-util ethers
 ```
 
-!!! note
+!!! remember
     Never reveal your private keys, as they give direct access to your funds. The following steps are for demonstration purposes only.
 
 In the `getSignature.js` file, you can copy and edit the following code snippet. In addition to the fields discussed above in the [Call Permit arguments section](#call-permit-arguments), you'll need to insert the Chain ID of your ContainerChain in the Domain Separator component to properly generate the signature. If you use an incorrect Chain ID, the generated signature will be invalid and no transaction can be dispatched.
