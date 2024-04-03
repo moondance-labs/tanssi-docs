@@ -232,7 +232,7 @@ In the console, you should see the concatenated signature along with the values 
 ![Signature values in the console](/images/builders/interact/ethereum-api/precompiles/call-permit/call-7.webp)
 
 !!! note
-    Take care when copying the `v`, `r`, and `s` values to the Dispatch method of the precompile. The ordering of `v`, `r`, and `s` values in the precompile may not be the same as output by the script. 
+    Take care when copying the `v`, `r`, and `s` values to the `dispatch` method of the precompile. The ordering of `v`, `r`, and `s` values in the precompile may not be the same as output by the script. 
 
 ## Interact with the Solidity Interface {: #interact-with-the-solidity-interface }
 
