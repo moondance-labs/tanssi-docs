@@ -221,7 +221,6 @@ In the `getSignature.js` file, you can copy and edit the following code snippet.
     --8<-- 'code/builders/interact/ethereum-api/precompiles/call-permit/getSignature.js'
     ```
 
-
 To run the script, use the following command:
 
 ```bash
