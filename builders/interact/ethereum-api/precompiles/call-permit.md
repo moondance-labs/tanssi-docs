@@ -23,7 +23,6 @@ The Call Permit Precompile is located at the following address:
 !!! note
     There can be some unintended consequences when using precompiles. Tanssi's Call Permit Precompile is derived from Moonbeam's, and as such, please familiarize yourself with [Moonbeam's Precompile Security Considerations](https://docs.moonbeam.network/builders/get-started/eth-compare/security/){target=\_blank}. 
 
-
 ## The Call Permit Solidity Interface {: #the-call-permit-interface }
 
 [`CallPermit.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/CallPermit.sol){target=\_blank} is a Solidity interface that allows developers to interact with the precompile's three methods.
