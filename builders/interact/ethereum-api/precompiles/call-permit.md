@@ -57,7 +57,6 @@ The interface includes the following functions:
 
         - `owner` - the address of the account to check
 
-
 ??? function "**DOMAIN_SEPARATOR**() — returns the EIP-712 domain separator which is used to avoid replay attacks. It follows the [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612#specification){target=\_blank} implementation"
 
     === "Parameters"
