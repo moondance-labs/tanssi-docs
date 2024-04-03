@@ -61,7 +61,11 @@ The interface includes the following functions:
 
     === "Parameters"
 
-        - This function takes no parameters
+        None
+
+    === "Returns"
+        The EIP-712 domain separator which is used to avoid replay attacks.
+
 
 The domain separator is defined in the [EIP-712 standard](https://eips.ethereum.org/EIPS/eip-712){target=\_blank} and is calculated as:
 
