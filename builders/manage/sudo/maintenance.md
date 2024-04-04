@@ -1,6 +1,6 @@
 ---
 title: Using Maintenance Mode 
-description: Learn how to use Sudo to enable and disable maintenance mode which effectively pauses your appchain, while still producing blocks and allowing select calls.
+description: Learn how to use Sudo to turn on and off maintenance mode, which effectively pauses your appchain while still producing blocks and allowing select calls.
 ---
 
 # Using Maintenance Mode
