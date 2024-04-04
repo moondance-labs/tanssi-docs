@@ -76,7 +76,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     moondancelabs/tanssi \
-    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
+    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 
 === "Intel Skylake"
@@ -86,7 +86,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi \
-    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
+    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 === "AMD Zen3"
 
@@ -95,7 +95,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi \
-    --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/docker-command.md'
+    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 
 ### Run Flags {: #run-flags }
@@ -115,5 +115,3 @@ The first time your node spins up, the syncing process displays lots of log info
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
 When the syncing with the relay chain and the Tanssi orchestrator is finished, the node will still need to sync with the appchain it has been assigned to. The syncing with the chain served by the block producer node will happen every time the block producer is rotated.
-
-

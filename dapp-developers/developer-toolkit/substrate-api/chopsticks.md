@@ -126,7 +126,7 @@ ws://localhost:8000
 
 You can interact with the parachain via libraries such as [Polkadot.js](https://github.com/polkadot-js/common){target=\_blank} and its [user interface, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}.
 
-![Polkadot Js](/images/dapp-developers/developer-toolkit/substrate-api/chopsticks/chopsticks-1.png)
+![Polkadot Js](/images/dapp-developers/developer-toolkit/substrate-api/chopsticks/chopsticks-1.webp)
 
 You should now be able to interact with the forked chain as you would with the real one.
 
