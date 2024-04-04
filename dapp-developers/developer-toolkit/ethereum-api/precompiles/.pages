@@ -2,4 +2,4 @@ title: Precompiles
 hide: false
 nav:
   - index.md
-  - batch.md
+  - 'Batch': batch.md

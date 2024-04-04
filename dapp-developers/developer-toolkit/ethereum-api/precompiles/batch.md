@@ -32,6 +32,7 @@ The Batch Precompile is located at the following address:
     ```solidity
     --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/batch/batch.sol'
     ```
+
 The interface includes the following functions:
 
 ???+ function "**batchSome**(*address[]* to, *uint256[]* value, *bytes[]* callData, *uint64[]* gasLimit) — performs multiple calls, where the same index of each array combine into the information required for a single subcall. If a subcall reverts, following subcalls will still be attempted"
@@ -70,7 +71,7 @@ The interface also includes the following required events:
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you [configure MetaMask for Tanssi with the demo EVM appchain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
+To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you [configure MetaMask for Tanssi with the demo EVM appchain](/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ### Example Contract {: #example-contract}
 
@@ -155,7 +156,7 @@ Once the transaction is complete, you can check both of the accounts' balances, 
 
 ### Find a Contract Interaction's Call Data {: #find-a-contract-interactions-call-data }
 
-Visual interfaces like [Remix](/builders/interact/ethereum-api/dev-env/remix/){target=\_blank} and handy libraries like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank} hide the way that Ethereum transactions interact with Solidity smart contracts. The name and input types of a function are hashed into a [function selector](https://docs.soliditylang.org/en/latest/abi-spec.html#function-selector-and-argument-encoding){target=\_blank} and the input data is encoded. These two pieces are then combined and sent as the transaction's call data. To send a subtransaction within a batch transaction, the sender needs to know its call data beforehand.
+Visual interfaces like [Remix](/dapp-developers/developer-toolkit/ethereum-api/dev-env/remix/){target=\_blank} and handy libraries like [Ethers.js](/dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} hide the way that Ethereum transactions interact with Solidity smart contracts. The name and input types of a function are hashed into a [function selector](https://docs.soliditylang.org/en/latest/abi-spec.html#function-selector-and-argument-encoding){target=\_blank} and the input data is encoded. These two pieces are then combined and sent as the transaction's call data. To send a subtransaction within a batch transaction, the sender needs to know its call data beforehand.
 
 Try finding a transaction's call data using Remix:
 
@@ -195,7 +196,7 @@ The `callData` and `gasLimit` fields are more relevant for subtransactions that 
 
 To use the precompile to send an atomic batch transaction combining two contract interactions, take the following steps:
 
-1. Copy the `SimpleContract.sol` contract's address with the copy button on the right side of its header. Be sure also to have the [call data from the previous section](#finding-a-contract-interactions-call-data)
+1. Copy the `SimpleContract.sol` contract's address with the copy button on the right side of its header. Be sure also to have the [call data from the previous section](#find-a-contract-interactions-call-data)
 2. Expand the batch contract under **Deployed Contracts**
 3. Expand the **batchAll** function
 4. For the **to** input, paste the address `SimpleContract.sol` as follows: `["INSERT_SIMPLE_CONTRACT_ADDRESS","INSERT_SIMPLE_CONTRACT_ADDRESS"]`. Note that you'll need to repeat the address for as many transactions you are batching together, even if the contract address is the same
@@ -261,7 +262,7 @@ And that's it! You've successfully interacted with the ERC-20 precompile using M
 
 ## Ethereum Development Libraries {: #ethereum-development-libraries }
 
-If you have followed the [Ethers.js tutorial](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank}, you may find it difficult to find the call data for a function. The answer is hidden within Ether's `Interface` object, where the [encodeFunctionData](https://docs.ethers.org/v6/api/abi/#Interface-encodeFunctionData){target=\_blank} function allows you to input your function name and inputs to receive the resultant call data. [Web3.js](/builders/interact/ethereum-api/libraries/web3js/){target=\_blank} has a similar function, [encodeFunctionCall](https://web3js.readthedocs.io/en/v1.2.11/web3-eth-abi.html#encodefunctioncall){target=\_blank}.
+If you have followed the [Ethers.js tutorial](/dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, you may find it difficult to find the call data for a function. The answer is hidden within Ether's `Interface` object, where the [encodeFunctionData](https://docs.ethers.org/v6/api/abi/#Interface-encodeFunctionData){target=\_blank} function allows you to input your function name and inputs to receive the resultant call data. [Web3.js](/dapp-developers/developer-toolkit/ethereum-api/libraries/web3js/){target=\_blank} has a similar function, [encodeFunctionCall](https://web3js.readthedocs.io/en/v1.2.11/web3-eth-abi.html#encodefunctioncall){target=\_blank}.
 
 !!! note
     The code snippets presented in the following sections are not meant for production environments. Please make sure you adapt it for each use case.
@@ -284,6 +285,6 @@ If you have followed the [Ethers.js tutorial](/builders/interact/ethereum-api/li
      --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/batch/web3py-batch.py'
      ```
 
-Afterwards, you should be all set to interact with the Batch Precompile as one typically would with a contract in [Ethers](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank}.
+Afterwards, you should be all set to interact with the Batch Precompile as one typically would with a contract in [Ethers](/dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
