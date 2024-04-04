@@ -42,7 +42,7 @@ To get started creating your proxy account, head to the **Developer** tab and se
 7. Optionally, you can add a time delay using a specified number of blocks to add an additional layer of security for the primary account to review the pending transaction
 8. Click **Submit Transaction**
 
-![Add a proxy account from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/onboarding/proxy-accounts/proxy-1.webp)
+![Add a proxy account from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy-accounts/proxy-1.webp)
 
 You will then be prompted to authorize and sign the transaction. Click **Sign and Submit** to create the proxy relationship. Once the transaction has been successfully submitted, you will receive some notifications confirming the transaction.
 
@@ -58,7 +58,7 @@ As previously mentioned, you can also create a proxy from the **Accounts** page.
 
 A pop-up will appear and you can enter the required information, such as the proxied/primary account, the proxy account, and the type of proxy to create a proxy account. First, click **Add proxy**.
 
-![Add a proxy account from the Accounts page of Polkadot.js Apps](/images/node-operators/block-producers/onboarding/proxy-accounts/proxy-3.webp)
+![Add a proxy account from the Accounts page of Polkadot.js Apps](/images/node-operators/block-producers/operational-tasks/proxy-accounts/proxy-3.webp)
 
 Then, take the following steps:
 
@@ -66,7 +66,7 @@ Then, take the following steps:
 2. Select the proxy type
 3. Click **Submit** and sign the transaction
 
-![Add the details of the proxy account, including the proxy account and type.](/images/node-operators/block-producers/onboarding/proxy-accounts/proxy-4.webp)
+![Add the details of the proxy account, including the proxy account and type.](/images/node-operators/block-producers/operational-tasks/proxy-accounts/proxy-4.webp)
 
 In the next section, you will learn how to verify that your proxy account was set up successfully.
 
@@ -81,17 +81,17 @@ To check your proxy accounts from the [**Chain state** page](https://polkadot.js
 3. Select your primary/proxied account
 4. Click on the **+** button to send the query
 
-![Verify your proxy accounts via the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/onboarding/proxy-accounts/proxy-5.webp)
+![Verify your proxy accounts via the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy-accounts/proxy-5.webp)
 
 The result will appear on the page showing you information about all of your proxies, including the delegate/proxy account address, the proxy type, the delay period if one was specified, and the total bond amount for all of your proxies in Planck.
 
 You can also check your proxy accounts from the **Accounts** page. To do so, navigate to the **Accounts** page, and there should be a Proxy symbol next to the primary account. Hover over the icon and click on **Manage proxies** to review your proxies.
 
-![Hover over the proxy icon to manage your proxies via the Accounts page of Polkadot.js Apps.](/images/node-operators/block-producers/onboarding/proxy-accounts/proxy-6.webp)
+![Hover over the proxy icon to manage your proxies via the Accounts page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy-accounts/proxy-6.webp)
 
 A pop-up will appear where you can see an overview of all of your proxy accounts.
 
-![Review your proxy accounts.](/images/node-operators/block-producers/onboarding/proxy-accounts/proxy-7.webp)
+![Review your proxy accounts.](/images/node-operators/block-producers/operational-tasks/proxy-accounts/proxy-7.webp)
 
 ## Executing a Proxy Transaction {: #executing-a-proxy-transaction }
 
@@ -111,7 +111,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 10. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 11. Click **Submit Transaction**
 
-![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/onboarding/proxy-accounts/proxy-8.webp)
+![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy-accounts/proxy-8.webp)
 
 A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/block-producers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/block-producers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
 
