@@ -1,6 +1,6 @@
 ---
 title:  Native Token ERC-20 Precompile
-description:  Learn how to access and interact with an ERC-20 representation of the native token on Tanssi EVM ContainerChains through the precompiled ERC-20 Interface.
+description:  Learn how to access and interact with an ERC-20 representation of the native token on Tanssi EVM appchains through the precompiled ERC-20 Interface.
 keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts
 ---
 
@@ -8,13 +8,13 @@ keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts
 
 ## Introduction {: #introduction }
 
-The native token ERC-20 precompiled contract on Tanssi EVM ContainerChains allows developers to interact with the native protocol token through an ERC-20 interface. Although your ContainerChain's native token is not an ERC-20 token, now you can interact with it as if it was a vanilla ERC-20.
+The native token ERC-20 precompiled contract on Tanssi EVM appchains allows developers to interact with the native protocol token through an ERC-20 interface. Although your appchain's native token is not an ERC-20 token, now you can interact with it as if it was a vanilla ERC-20.
 
 One of the main benefits of this precompile is that it removes the necessity of having a wrapped representation of the protocol token as an ERC-20 smart contract, such as WETH on Ethereum. Furthermore, it minimizes the need for multiple wrapped representations of the same protocol token. Consequently, DApps that need to interact with the protocol token via an ERC-20 interface can do so without needing a separate smart contract.
 
 Under the hood, the [ERC-20 precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} executes specific Substrate actions related to the Substrate balances module, which is coded in Rust. The balances module provides functionality for handling the various types of balances.
 
-This guide will show you how to interact with UNIT tokens, the native protocol tokens for Snap appchains on the Tanssi Dancebox Testnet, via the ERC-20 precompile. You can follow along and adapt this guide to interacting with your own ContainerChain.
+This guide will show you how to interact with UNIT tokens, the native protocol tokens for Snap appchains on the Tanssi Dancebox Testnet, via the ERC-20 precompile. You can follow along and adapt this guide to interacting with your own appchain.
 
 The precompile is located at the following address:
 
@@ -27,7 +27,7 @@ The precompile is located at the following address:
 
 ## The ERC-20 Solidity Interface {: #the-erc20-interface }
 
-The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM ContainerChains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events a token contract must implement to be interoperable with different applications.
+The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM appchains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events a token contract must implement to be interoperable with different applications.
 
 ??? code "ERC20.sol"
 
@@ -42,13 +42,13 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have your wallet configured to work with your EVM ContainerChain and an account funded with native tokens. You can add your EVM ContainerChain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM ContainerChain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
+To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM appchain](/builders/interact/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ### Add Token to MetaMask {: #add-token-to-metamask }
 
-If you want to interact with your ContainerChain's native token like you would with an ERC-20 in MetaMask, you can add a custom token to your wallet using the precompile address.
+If you want to interact with your appchain's native token like you would with an ERC-20 in MetaMask, you can add a custom token to your wallet using the precompile address.
 
-To get started, open up MetaMask and make sure you are [connected to your ContainerChain](/builders/interact/ethereum-api/wallets/metamask/) and:
+To get started, open up MetaMask and make sure you are [connected to your appchain](/builders/interact/ethereum-api/wallets/metamask/) and:
 
 1. Switch to the **Assets** tab
 2. Click on **Import tokens**
@@ -57,7 +57,7 @@ To get started, open up MetaMask and make sure you are [connected to your Contai
 
 Now, you can create a custom token:
 
-1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM ContainerChains is `18`, the same as Ethereum's token decimals.
+1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM appchains is `18`, the same as Ethereum's token decimals.
 2. Click **Next**
 
 ![Add Custom Token](/images/builders/interact/ethereum-api/precompiles/erc20/erc-2.webp)
@@ -66,7 +66,7 @@ MetaMask will prompt you to confirm the import. You can review the token details
 
 ![Confirm and Import Tokens](/images/builders/interact/ethereum-api/precompiles/erc20/erc-3.webp)
 
-And that's it! You've successfully added the UNIT token as a custom ERC-20 token on your Tanssi EVM ContainerChain.
+And that's it! You've successfully added the UNIT token as a custom ERC-20 token on your Tanssi EVM appchain.
 
 ### Remix Set Up {: #remix-set-up }
 
@@ -105,10 +105,10 @@ The **IERC20** precompile will appear in the list of **Deployed Contracts**.
 The ERC-20 interface lets you quickly obtain token information, including the token's total supply, name, symbol, and decimal places. You can retrieve this information by following these steps:
 
 1. Expand the **IERC20** contract under **Deployed Contracts**
-2. Click **decimals** to get the decimal places of your ContainerChain's native protocol token
+2. Click **decimals** to get the decimal places of your appchain's native protocol token
 3. Click **name** to get the name of the token
 4. Click **symbol** to get the symbol of the token
-5. Click **totalSupply** to obtain the total supply of native tokens on your ContainerChain
+5. Click **totalSupply** to obtain the total supply of native tokens on your appchain
 
 ![Total Supply](/images/builders/interact/ethereum-api/precompiles/erc20/erc-6.webp)
 
@@ -116,7 +116,7 @@ The results of each function call are displayed under the respective functions.
 
 ### Get Account Balance {: #get-account-balance }
 
-You can check the balance of any address on your ContainerChain by calling the `balanceOf` function and passing in an address:
+You can check the balance of any address on your appchain by calling the `balanceOf` function and passing in an address:
 
 1. Expand the **balanceOf** function
 2. Enter an address you would like to check the balance of for the **owner**
