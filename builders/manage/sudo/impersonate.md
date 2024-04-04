@@ -28,7 +28,7 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 !!! warning
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
 
-## Using Sudo As {: #using-sudo-as }
+## Using the Sudo As Method {: #using-the-sudo-as-method }
 
 As you know, the Sudo account can perform privileged functions, including impersonating other accounts. When submitting a call via `sudoAs`, the runtime will first authenticate the Sudo key and then dispatch the desired function call with the `Signed` origin from a given account. In the following example, we'll use `sudoAs` to send some tokens to another account. While the result is similar to using sudo with a `forceBalanceTransfer` call, the following example uses a regular balance transfer call where the origin is the sender's account rather than the sudo account. 
 
