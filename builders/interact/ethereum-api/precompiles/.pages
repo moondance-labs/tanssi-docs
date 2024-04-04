@@ -3,4 +3,4 @@ hide: false
 nav:
   - index.md
   - batch.md
-  - erc20.md
+  - 'Native Token ERC-20': 'erc20.md'
