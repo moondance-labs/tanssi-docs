@@ -1,0 +1,6 @@
+title: Subsquid
+hide: false
+nav:
+  - index.md
+  - 'Quick Start': 'quick-start.md'
+  - 'Index ERC-20 Transfers': 'erc20-transfers.md'

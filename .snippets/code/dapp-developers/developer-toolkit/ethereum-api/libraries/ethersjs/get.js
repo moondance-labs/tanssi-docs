@@ -1,0 +1,41 @@
+// Import ethers and compile
+import { ethers } from 'ethers';
+import contractFile from './compile.js';
+
+// Define network configurations
+const providerRPC = {
+  evmAppchain: {
+    name: 'dancebox-evm-appchain',
+    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+    chainId: 5678, // 0x162E in hex,
+  },
+};
+
+// Create ethers provider
+const provider = new ethers.JsonRpcProvider(providerRPC.evmAppchain.rpc, {
+  chainId: providerRPC.evmAppchain.chainId,
+  name: providerRPC.evmAppchain.name,
+});
+
+// Contract address variable
+const contractAddress = 'INSERT_CONTRACT_ADDRESS';
+
+// Create contract instance
+const incrementer = new ethers.Contract(
+  contractAddress,
+  contractFile.abi,
+  provider
+);
+
+// Create get function
+const get = async () => {
+  console.log(`Making a call to contract at address: ${contractAddress}`);
+
+  // Call contract
+  const data = await incrementer.number();
+
+  console.log(`The current number stored is: ${data}`);
+};
+
+// Call get function
+get();

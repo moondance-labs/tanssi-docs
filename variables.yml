@@ -1,5 +1,6 @@
 networks:
   dancebox:
+    client_version: v0.5.0
     substrate_api_sidecar:
       stable_version: 17.1.2
     chain_id: 5678
@@ -7,7 +8,55 @@ networks:
     precompiles: 
       erc20: '0x0000000000000000000000000000000000000800'
       batch: '0x0000000000000000000000000000000000000801'
+    gas_to_weight: 25000
+    session:
+      blocks: 300
+      hours: 1
+      display: 'one'      
+    block_producers:
+      appchain: 
+        num: 2
+        display: 'two'
+      tanssi:
+        min: 
+          num: 3
+          display: 'three'
+        max:
+          num: 5
+          display: 'five'
+      min_self_del:
+        dance: '10,000'
+        planck: 10000000000000000
+    staking:
+      staking_session_delay:
+        sessions:
+          num: 2
+          display: 'two'
+        blocks: 600
+        hours: 
+          num: 2
+          display: 'two'
+    oracles:
+      phala:
+        aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'
+        btc_usd: '0x89BC5048d634859aef743fF2152363c0e83a6a49'
+        crv_usd: '0xf38b25b79A72393Fca2Af88cf948D98c64726273'
+        dai_usd: '0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B'
+        eth_usd: '0x739d71fC66397a28B3A3b7d40eeB865CA05f0185'
+        usdc_usd: '0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252'
+        usdt_usd: '0x5018c16707500D2C89a0446C08f347A024f55AE3'
+      acurast:
+        aave_usd: '0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42'
+        btc_usd: '0x02093b190D9462d964C11587f7DedD92718D7B56'
+        crv_usd: '0x01F143dfd745861902dA396ad7dfca962e5C83cA'
+        dai_usd: '0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92'
+        eth_usd: '0x007c3F3cc99302c19792F73b7434E3eCbbC3db25'
+        usdc_usd: '0xe4a46ef4cFbf87D026C3eB293b7672998d932F62'
+        usdt_usd: '0xf9c885E3A5846CEA887a0D69655BC08e52afe569'
+    proxy:
+      deposit_base: 10.08
+      deposit_factor: 0.33
+      max_proxies: 32
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0
-

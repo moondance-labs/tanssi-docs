@@ -23,9 +23,9 @@ The Dancebox TestNet HTTPS and WSS endpoints are as follows:
     wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
     ```
 
-### Demo EVM ContainerChain
+### Demo EVM Appchain
 
-The demo EVM ContainerChain HTTPS and WSS endpoints are as follows:
+The demo EVM appchain HTTPS and WSS endpoints are as follows:
 
 === "HTTPS"
 
