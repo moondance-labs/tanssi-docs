@@ -49,7 +49,7 @@ The other account had a starting balance of `1,000` tokens prior to the call, an
 
 ![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/impersonate/impersonate-3.webp)
 
-## Using Sudo and Dispatch As Utility {: #using-sudo-and-dispatch-as-utility }
+## Using Sudo and the Dispatch As Utility {: #using-sudo-and-dispatch-as-utility }
 
 The following section will demonstrate using sudo to dispatch calls from an arbitrary origin. When submitting a call in this manner, the runtime will first authenticate the sudo key and then dispatch the call using the `utility` pallet and the `dispatchAs` function, allowing the transaction's origin to be exactly what you'd like.  
 
