@@ -1,7 +1,0 @@
-title: Precompiles
-hide: false
-nav:
-  - index.md
-  - batch.md
-  - 'Call Permit': 'call-permit.md'
-  - erc20.md
