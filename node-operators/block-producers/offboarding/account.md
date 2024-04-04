@@ -122,4 +122,4 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 ![Verifying Unmapping was successful](/images/node-operators/block-producers/offboarding/account/account-8.webp)
 
-And that's it! You have successfully offboarded a Tanssi block producer. If you change your mind at any point and want to onboard back as a Tanssi block producer, you can follow the steps in the [onboarding guide](node-operators/block-producers/onboarding/account-setup/){target=\_blank}.
+And that's it! You have successfully offboarded a Tanssi block producer. If you change your mind at any point and want to onboard back as a Tanssi block producer, you can follow the steps in the [onboarding guide](/node-operators/block-producers/onboarding/account-setup/){target=\_blank}.
