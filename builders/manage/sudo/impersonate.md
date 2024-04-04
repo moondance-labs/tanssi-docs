@@ -30,7 +30,7 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 
 ## Using the Sudo As Method {: #using-the-sudo-as-method }
 
-As you know, the Sudo account can perform privileged functions, including impersonating other accounts. When submitting a call via `sudoAs`, the runtime will first authenticate the Sudo key and then dispatch the desired function call with the `Signed` origin from a given account. In the following example, we'll use `sudoAs` to send some tokens to another account. While the result is similar to using Sudo with a `forceBalanceTransfer` call, the following example uses a regular balance transfer call where the origin is the sender's account rather than the Sudo account. 
+As you know, the Sudo account can perform privileged functions, including impersonating other accounts. When submitting a call via `sudoAs`, the runtime will first authenticate the Sudo key and then dispatch the desired function call with the `Signed` origin from a given account. In the following example, `sudoAs` will be used to send some tokens to another account. While the result is similar to using Sudo with a `forceBalanceTransfer` call, the following example uses a regular balance transfer call where the origin is the sender's account rather than the Sudo account. 
 
 To make a `sudoAs` call to impersonate another account, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps. Then, take the following steps:
 
@@ -60,7 +60,7 @@ To do so, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi 
 4. Select the desired pallet for the call to submit. In this case, it is the **utility** pallet
 5. Select the **dispatchAs** method 
 6. Select **system** from the dropdown
-7. Select the **signed** origin. This indicates we want the origin of the transaction to be the account we specify rather than root
+7. Select the **signed** origin. This sets the origin of the transaction to be the specified account rather than root
 8. Select the desired pallet for the call to submit. In this case, it is the **balances** pallet
 9. Select the **transferAllowDeath** method 
 10. Specify the destination account for the balance transfer
