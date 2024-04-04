@@ -30,7 +30,7 @@ The Batch Precompile is located at the following address:
 ??? code "Batch.sol"
 
     ```solidity
-    --8<-- 'code/builders/interact/ethereum-api/precompiles/batch/batch.sol'
+    --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/batch/batch.sol'
     ```
 The interface includes the following functions:
 
@@ -77,7 +77,7 @@ To follow along with this tutorial, you will need to have your wallet configured
 The contract `SimpleContract.sol` will be used as an example of batching contract interactions, but in practice, any contract can be interacted with.
 
 ```solidity
---8<-- 'code/builders/interact/ethereum-api/precompiles/batch/simple-contract.sol'
+--8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/batch/simple-contract.sol'
 ```
 
 ### Remix Set Up {: #remix-set-up }
@@ -269,19 +269,19 @@ If you have followed the [Ethers.js tutorial](/builders/interact/ethereum-api/li
 === "Ethers.js"
 
      ```js
-     --8<-- 'code/builders/interact/ethereum-api/precompiles/batch/ethers-batch.js'
+     --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/batch/ethers-batch.js'
      ```
 
 === "Web3.js"
 
      ```js
-     --8<-- 'code/builders/interact/ethereum-api/precompiles/batch/web3js-batch.js'
+     --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/batch/web3js-batch.js'
      ```
 
 === "Web3.py"
 
      ```py
-     --8<-- 'code/builders/interact/ethereum-api/precompiles/batch/web3py-batch.py'
+     --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/batch/web3py-batch.py'
      ```
 
 Afterwards, you should be all set to interact with the Batch Precompile as one typically would with a contract in [Ethers](/builders/interact/ethereum-api/libraries/ethersjs/){target=\_blank}.
