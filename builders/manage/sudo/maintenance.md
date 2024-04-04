@@ -7,7 +7,7 @@ description: Learn how to use Sudo to turn on and off maintenance mode, which ef
 
 ## Introduction {: #introduction }
 
-The [Maintenance pallet](https://moonbeam.network/blog/maintenance-mode/){target=\_blank} is a module that is designed for use only in emergency situations that present existential threats to the network. Enabling maintenance mode on your appchain will suspend the processing of all regular transactions, including EVM interactions. Block production continues at a regular cadence and allows for governance and staking functions to continue. 
+The [Maintenance pallet](https://moonbeam.network/blog/maintenance-mode/){target=\_blank} is a module that is designed for use only in emergencies that present existential threats to the network. Enabling maintenance mode on your appchain will suspend the processing of all regular transactions, including EVM interactions. Block production continues at a regular cadence and allows governance and staking functions to continue. 
 
 Maintenance mode filters (ignores) all calls outside of governance and staking. Once maintenance mode is exited, your chain will process any pending transactions that queued up while your chain was in maintenance mode. Maintenance mode is intended to be used only as a temporary, emergency measure. 
 
@@ -28,11 +28,11 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/maintenance/maintenance-1.webp)
 
 !!! warning
-    You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
+    It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
 
 ## Enabling Maintenance Mode {: #enabling-maintenance-mode }
 
-As you know, the Sudo account has the ability to perform privileged functions, such as enabling and disabling maintenance mode. To enter maintenance mode and stop regular transaction processing, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+As you know, the Sudo account can perform privileged functions, such as enabling and disabling maintenance mode. To enter maintenance mode and stop regular transaction processing, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **maintenanceMode** pallet
 2. Select the **enterMaintenanceMode** method
@@ -40,13 +40,13 @@ As you know, the Sudo account has the ability to perform privileged functions, s
 
 ![Enable maintenance mode](/images/builders/manage/sudo/maintenance/maintenance-2.webp)
 
-To verify that maintenance mode has been successfully enabled, you can check in the **Explorer** section under the **Network** tab and review the recent events. 
+To verify that maintenance mode has been enabled, you can check the **Explorer** section under the **Network** tab and review the recent events. 
 
 ![Check maintenance mode is enabled](/images/builders/manage/sudo/maintenance/maintenance-3.webp)
 
 ## Exiting Maintenance Mode {: #exiting-maintenance-mode }
 
-To exit maintenance mode and return your appchain to normal operation, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+To exit maintenance mode and return your appchain to normal operation, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **maintenanceMode** pallet
 2. Select the **resumeNormalOperation** method
@@ -54,12 +54,12 @@ To exit maintenance mode and return your appchain to normal operation, navigate 
 
 ![Exit maintenance mode](/images/builders/manage/sudo/maintenance/maintenance-4.webp)
 
-To verify that maintenance mode has been successfully enabled, you can check in the **Explorer** section under the **Network** tab and review the recent events. 
+To verify that maintenance mode has been disabled, you can check in the **Explorer** section under the **Network** tab and review the recent events. 
 
 ![Check maintenance mode is disabled](/images/builders/manage/sudo/maintenance/maintenance-5.webp)
 
-Remember that using maintenance mode is an emergency action that should only be activated when your chain is at dire risk. It may be worthwhile to establish a policy for your appchain that sets specific circuit breaker triggers for when maintenance mode will be enabled. Having a policy established in advance will also make decision-making more streamlined during a potential emergency situation.  
+Remember that using maintenance mode is an emergency action that should only be activated when your chain is at dire risk. It may be worthwhile to establish a policy for your appchain that sets specific circuit breaker triggers to determine when maintenance mode will be enabled. Establishing a policy in advance will also streamline decision-making during a potential emergency.  
 
-And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tanssi appchain.
+And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on using the Sudo account to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
