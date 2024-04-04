@@ -115,7 +115,7 @@ You can use [Remix](https://remix.ethereum.org/){target=\_blank} to compile the 
 2. Paste the `CallPermit.sol` contract into a Remix file named `CallPermit.sol`
 3. Paste the `SetMessage.sol` contract into a Remix file named `SetMessage.sol`
 
-![Copying and pasting the example contract into Remix](/images/builders/interact/ethereum-api/precompiles/call-permit/call-1.webp)
+![Copying and pasting the example contract into Remix](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-1.webp)
 
 ### Compile & Deploy the Example Contract {: #compile-deploy-example-contract }
 
@@ -124,7 +124,7 @@ First, you'll need to compile the example contract:
 1. Click on the **Compile** tab
 2. Then to compile the interface, click on **Compile SetMessage.sol**
 
-![Compiling SetMessage.sol](/images/builders/interact/ethereum-api/precompiles/call-permit/call-2.webp)
+![Compiling SetMessage.sol](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-2.webp)
 
 Then you can deploy it:
 
@@ -134,7 +134,7 @@ Then you can deploy it:
 4. Click **Deploy**
 5. MetaMask will pop up and you'll need to **Confirm** the transaction
 
-![Provide the address](/images/builders/interact/ethereum-api/precompiles/call-permit/call-3.webp)
+![Provide the address](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-3.webp)
 
 The contract will appear under the list of **Deployed Contracts** on the left side panel. Copy the contract address as you will need to use it to generate the call permit signature in the next section.
 
@@ -145,7 +145,7 @@ First you'll need to compile the Call Permit Precompile contract:
 1. Click on the **Compile** tab
 2. Then to compile the interface, click on **Compile CallPermit.sol**
 
-![Compiling SetMessage.sol](/images/builders/interact/ethereum-api/precompiles/call-permit/call-4.webp)
+![Compiling SetMessage.sol](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-4.webp)
 
 Then, instead of deploying the contract, you'll just need to access it given the address of the precompile:
 
@@ -155,7 +155,7 @@ Then, instead of deploying the contract, you'll just need to access it given the
 4. Provide the address of the Call Permit Precompile for Tanssi EVM appchains: `{{networks.dancebox.precompiles.call_permit}}` and click **At Address**
 5. The Call Permit Precompile will appear in the list of **Deployed Contracts**
 
-![Provide the address](/images/builders/interact/ethereum-api/precompiles/call-permit/call-5.webp)
+![Provide the address](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-5.webp)
 
 ## Generate Call Permit Signature {: #generate-call-permit-signature}
 
@@ -191,7 +191,7 @@ The nonce of the signer will also be needed. If this is your first time signing 
 2. Next to the **nonces** function, enter the address of the signer and click on **nonces**
 3. The result will be returned directly under the function
 
-![Get the nonce](/images/builders/interact/ethereum-api/precompiles/call-permit/call-6.webp)
+![Get the nonce](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-6.webp)
 
 ### Use MetaMask's JS Signing Library {: #use-metamasks-signing-library }
 
@@ -233,7 +233,7 @@ node getSignature.js
 
 In the console, you should see the concatenated signature along with the values for the signature including the `v`, `r`, and `s` values. Copy these values as you'll need them when interacting with the Call Permit Precompile in the following sections.
 
-![Signature values in the console](/images/builders/interact/ethereum-api/precompiles/call-permit/call-7.webp)
+![Signature values in the console](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-7.webp)
 
 !!! note
     Take care when copying the `v`, `r`, and `s` values to the `dispatch` method of the precompile. The ordering of `v`, `r`, and `s` values in the precompile may not be the same as output by the script. 
@@ -261,7 +261,7 @@ When you send the `dispatch` function, you'll need the same arguments as you use
 10. Click **transact** to send the transaction
 11. MetaMask should pop up and you can confirm the transaction
 
-![Dispatch the call permit](/images/builders/interact/ethereum-api/precompiles/call-permit/call-8.webp)
+![Dispatch the call permit](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-8.webp)
 
 Once the transaction goes through, you can verify that the message was updated to `hello world`. To do so, you can:
 
@@ -269,7 +269,7 @@ Once the transaction goes through, you can verify that the message was updated t
 2. Click on **get**
 3. The result will appear below the function, and it should show `hello world`
 
-![Verify the dispatch was executed as intended](/images/builders/interact/ethereum-api/precompiles/call-permit/call-9.webp)
+![Verify the dispatch was executed as intended](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-9.webp)
 
 Congratulations! You've successfully generated a call permit signature and used it to dispatch a call on behalf of the call permit signer.
 
