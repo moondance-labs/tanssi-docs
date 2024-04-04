@@ -66,7 +66,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
         /chain-network/container-chain-template-frontier-node \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
     === "Intel Skylake"
@@ -74,7 +74,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
         /chain-network/container-chain-template-frontier-node-skylake \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
     === "AMD Zen3"
@@ -82,17 +82,17 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
         /chain-network/container-chain-template-frontier-node-znver3 \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
 === "Simple Substrate Appchain"
-    
+
     === "Generic"
 
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
         /chain-network/container-chain-template-simple-node \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
     === "Intel Skylake"
@@ -100,7 +100,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
         /chain-network/container-chain-template-simple-node-skylake \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
     
     === "AMD Zen3"
@@ -108,7 +108,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
         /chain-network/container-chain-template-simple-node-znver3 \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
 !!! note
@@ -165,4 +165,3 @@ Once your node spins up, the syncing process displays lots of log information fr
 
 !!! note
     The length of the syncing process is directly proportional to the size of the chain you are syncing to.
-
