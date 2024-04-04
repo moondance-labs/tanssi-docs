@@ -30,7 +30,7 @@ The Call Permit Precompile is located at the following address:
 ??? code "CallPermit.sol"
 
     ```solidity
-    --8<-- 'code/builders/interact/ethereum-api/precompiles/call-permit/call-permit.sol'
+    --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-permit.sol'
     ```
 
 The interface includes the following functions:
@@ -104,7 +104,7 @@ To follow along with this tutorial, you will need to have your wallet configured
 The `SetMessage.sol` contract is a perfect example to demonstrate use of the Call Permit Precompile.
 
 ```solidity
---8<-- 'code/builders/interact/ethereum-api/precompiles/call-permit/set-message.sol'
+--8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/set-message.sol'
 ```
 
 ### Remix Set Up {: #remix-set-up }
@@ -222,7 +222,7 @@ In the `getSignature.js` file, you can copy and edit the following code snippet.
 ???+ code "getSignature.js"
 
     ```js
-    --8<-- 'code/builders/interact/ethereum-api/precompiles/call-permit/getSignature.js'
+    --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/getSignature.js'
     ```
 
 To run the script, use the following command:
