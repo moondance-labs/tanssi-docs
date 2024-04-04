@@ -46,8 +46,8 @@ Below is an example of an `index.md` file:
 
 ```markdown
 ---
-title: Build your ContainerChain
-description: Install the software to compile your ContainerChain, configure your genesis state and core functionalities, test locally and get ready to deploy through Tanssi.
+title: Build your Appchain
+description: Install the software to compile your appchain, configure your genesis state and core functionalities, test locally and get ready to deploy through Tanssi.
 template: subsection-index-page.html
 hide:
  - toc

@@ -1,0 +1,22 @@
+--chain=dancebox \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=warp \
+--base-path=/data/para \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--collator \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database paritydb \
+-- \
+--name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+--base-path=/data/container \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+-- \
+--chain=westend_moonbase_relay_testnet \
+--name=INSERT_YOUR_RELAY_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database paritydb
