@@ -159,14 +159,14 @@ Then, instead of deploying the contract, you'll just need to access it given the
 
 ## Generate Call Permit Signature {: #generate-call-permit-signature}
 
-In order to interact with the Call Permit Precompile, you have to have or generate a signature to dispatch the call permit. There are several ways you can generate the signature. This guide will show how to generate the signature using MetaMask's [`@metamask/eth-sig-util` npm package](https://www.npmjs.com/package/@metamask/eth-sig-util){target=\_blank}.
+In order to interact with the Call Permit Precompile, you have to have or generate a signature to dispatch the call permit. There are several ways you can generate the signature. This guide will show how to generate the signature using [Ethers.js](https://docs.ethers.org/){target=\_blank}.
 
 Here's an overview of the steps that you'll need to take to obtain the signature:
 
 1. The `message` will be created and includes some of the data that is needed to create the call permit. It includes the arguments that will be passed into the `dispatch` function and the nonce of the signer
 2. A JSON structure of the data the user needs to sign will be assembled for the call permit and include all of the types for the `dispatch` arguments and the nonce. This will result in the `CallPermit` type and will be saved as the `primaryType`
 3. The domain separator will be created using `"Call Permit Precompile"` exactly for the name, the version of your dApp or platform, the chain ID of the network the signature is to be used on, and the address of the contract that will verify the signature. Note that you'll need to specify the chain ID of your appchain in the script to generate the correct signature
-4. All of the assembled data, the `types`, `domain`, `primaryType` and `message`, will be signed using MetaMask (either in the browser or through the MetaMask's JavaScript signing library)
+4. All of the assembled data will be signed using Ethers.js
 5. The signature will be returned and you can use [Ethers.js](https://docs.ethers.org/){target=\_blank} [`Signature.from` method](https://docs.ethers.org/v6/api/crypto/#Signature_from){target=\_blank} to return the `v`, `r`, and `s` values of the signature
 
 ### The Call Permit Arguments {: #call-permit-arguments }
@@ -193,9 +193,9 @@ The nonce of the signer will also be needed. If this is your first time signing 
 
 ![Get the nonce](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/call-permit/call-6.webp)
 
-### Use MetaMask's JS Signing Library {: #use-metamasks-signing-library }
+### Use Ethers to Create the Signature {: #use-ethers-to-create-the-signature }
 
-To generate the call permit signature using JavaScript and MetaMask's [`@metamask/eth-sig-util` npm package](https://www.npmjs.com/package/@metamask/eth-sig-util){target=\_blank}, you'll first need to create a project locally. You can do so with the following commands:
+To generate the call permit signature using JavaScript and Ethers, you'll first need to create a project locally. You can do so with the following commands:
 
 ```bash
 mkdir call-permit-example && cd call-permit-example && touch getSignature.js
@@ -208,10 +208,10 @@ You should now have a file where you can create the script to get the signature 
 "type": "module"
 ```
 
-Next, you can install the MetaMask signing library and [Ethers.js](https://docs.ethers.org/){target=\_blank}:
+Next, you can install [Ethers.js](https://docs.ethers.org/){target=\_blank}:
 
 ```bash
-npm i @metamask/eth-sig-util ethers
+npm i ethers
 ```
 
 !!! remember

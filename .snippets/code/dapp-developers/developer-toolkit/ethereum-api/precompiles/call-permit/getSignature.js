@@ -1,5 +1,4 @@
 import { ethers } from 'ethers';
-import { signTypedData, SignTypedDataVersion } from '@metamask/eth-sig-util';
 
 const from = 'INSERT_FROM_ADDRESS';
 const to = 'INSERT_TO_ADDRESS';
@@ -23,12 +22,6 @@ const createPermitMessageData = () => {
 
   const typedData = {
     types: {
-      EIP712Domain: [
-        { name: 'name', type: 'string' },
-        { name: 'version', type: 'string' },
-        { name: 'chainId', type: 'uint256' },
-        { name: 'verifyingContract', type: 'address' },
-      ],
       CallPermit: [
         { name: 'from', type: 'address' },
         { name: 'to', type: 'address' },
@@ -43,7 +36,7 @@ const createPermitMessageData = () => {
     domain: {
       name: 'Call Permit Precompile',
       version: '1',
-      chainId: INSERT_CHAIN_ID_HERE,
+      chainId: INSERT-CHAIN-ID,
       verifyingContract: '0x0000000000000000000000000000000000000802',
     },
     message: message,
@@ -58,11 +51,10 @@ const createPermitMessageData = () => {
 const messageData = createPermitMessageData();
 
 // For demo purposes only. Never store your private key in a JavaScript/TypeScript file
-const signature = signTypedData({
-  privateKey: Buffer.from('INSERT_FROM_ACCOUNT_PRIVATE_KEY', 'hex'),
-  data: messageData.typedData,
-  version: SignTypedDataVersion.V4,
-});
+const privateKey = 'INSERT_PRIVATE_KEY';
+const wallet = new ethers.Wallet(privateKey);
+
+const signature = await wallet.signTypedData(messageData.typedData.domain, messageData.typedData.types, messageData.message);
 
 console.log(`Transaction successful with hash: ${signature}`);
 
@@ -72,4 +64,5 @@ const formattedSignature = {
   s: ethersSignature.s,
   v: ethersSignature.v,
 };
+
 console.log(formattedSignature);
