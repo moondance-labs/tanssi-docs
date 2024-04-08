@@ -51,7 +51,7 @@ As previously mentioned, you can also create a proxy from the **Accounts** page.
 1. Select the three vertical dots next to the primary account
 2. Select **Add proxy**
 
-![Select the Add proxy menu item from the Accounts page of Polkadot.js Apps.](/images/node-operators/block-producers/onboarding/proxy-accounts/proxy-2.webp)
+![Select the Add proxy menu item from the Accounts page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy-accounts/proxy-2.webp)
 
 !!! note
     If the account already has a proxy, **Manage proxies** will be displayed as an option instead of **Add proxy**.
