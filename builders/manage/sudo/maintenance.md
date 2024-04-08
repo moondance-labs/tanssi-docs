@@ -46,7 +46,7 @@ To verify that maintenance mode has been enabled, you can check the **Explorer**
 
 ## Exiting Maintenance Mode {: #exiting-maintenance-mode }
 
-To exit maintenance mode and return your appchain to normal operation, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+To exit maintenance mode and return your appchain to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **maintenanceMode** pallet
 2. Select the **resumeNormalOperation** method
