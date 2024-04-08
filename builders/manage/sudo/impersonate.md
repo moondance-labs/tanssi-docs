@@ -53,7 +53,7 @@ The other account had a starting balance of `1,000` tokens before the call, and 
 
 The following section will demonstrate using Sudo to dispatch calls from an arbitrary origin. When submitting a call in this manner, the runtime will first authenticate the Sudo key and then dispatch the call using the `utility` pallet and the `dispatchAs` function, allowing the transaction's origin to be exactly what you'd like.  
 
-To do so, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Ensure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+To do so, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Ensure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **Sudo** pallet
 2. Select the **Sudo** method
