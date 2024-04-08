@@ -32,7 +32,7 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 
 As you know, the Sudo account can perform privileged functions, including impersonating other accounts. When submitting a call via `sudoAs`, the runtime will first authenticate the Sudo key and then dispatch the desired function call with the `Signed` origin from a given account. In the following example, the `sudoAs` method will orchestrate sending some tokens to another account. While the result is similar to using Sudo with a `forceBalanceTransfer` call, the following example uses a regular balance transfer call where the origin is the sender's account rather than the Sudo account. 
 
-To make a `sudoAs` call to impersonate another account, navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Ensure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps. Then, take the following steps:
+To make a `sudoAs` call to impersonate another account, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Ensure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps. Then, take the following steps:
 
 1. Select the **Sudo** pallet
 2. Select the **sudoAs** method
