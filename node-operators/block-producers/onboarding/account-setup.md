@@ -11,7 +11,7 @@ Before you can start producing blocks on Tanssi and Tanssi appchains, you'll nee
 
 You must have spun up a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} to tackle the account setup steps in this guide.
 
-You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed.
+You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/block-producers/operational-tasks/proxy-accounts){target=\_blank} for additional security. 
 
 To establish eligibility, you must delegate yourself as a block producer and meet the minimum bond requirements.
 
