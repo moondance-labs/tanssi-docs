@@ -11,31 +11,35 @@ description: Learn how to use the Polkadot.js API to interact with a Tanssi appc
 
 You can use the Polkadot.js API to query on-chain data and send extrinsics from the Substrate side of your Tanssi appchain. You can query runtime constants, chain state, events, transaction (extrinsic) data, and more.
 
-Here you will find an overview of the available functionalities and some commonly used code examples to get you started on interacting with your Tanssi appchain using the Polkadot.js API library.
+Here you will find an overview of the available functionalities and some commonly used [TypeScript](https://www.typescriptlang.org/){target=\_blank} code examples to get you started on interacting with your Tanssi appchain using the Polkadot.js API library.
 
 --8<-- 'text/_common/general-js-tutorial-check.md'
 
 ## Install Polkadot.js API {: #installing-polkadot.js-api-library }
 
-First, you need to install the Polkadot.js API library for your project through a package manager, such as `yarn`. Install it in your project directory with the following command:
+First, you need to install the Polkadot.js API library and the RLP library through a package manager such as `yarn`. Both dependencies are required to run the examples in this guide successfully.
+
+Install them in your project directory with the following command:
 
 === "npm"
 
     ```bash
     npm i @polkadot/api
+    npm i @polkadot/util-rlp
     ```
 
 === "yarn"
 
     ```bash
     yarn add @polkadot/api
+    yarn add @polkadot/util-rlp
     ```
 
 The library also includes other core components, like Keyring for account management or some utilities that are used throughout this guide.
 
 ## Create an API Provider Instance {: #creating-an-API-provider-instance }
 
-To start interacting with your Tanssi appchain using the Polkadot.js API, you first need to instantiate an instance of the Polkadot.js API. Create the `WsProvider` using the WebSocket endpoint of your Tanssi appchain.
+To start interacting with your Tanssi appchain using the Polkadot.js API, you first need to create an instance of the Polkadot.js API. Create the `WsProvider` using the WebSocket endpoint of your Tanssi appchain.
 
 ```javascript
 // Import
