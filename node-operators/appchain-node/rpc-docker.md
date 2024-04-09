@@ -24,13 +24,13 @@ A Docker image is built and published as part of the automated deployment proces
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
-The chain specification is generated when registering the appchain in the [DApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
+The chain specification is generated when registering the appchain in the [dApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
 
 Luckily, running a node requires the right Docker image configured correctly!
 
 ### EVM-Compatible Appchains {: #pulling-evm-docker-image }
 
-If the Tanssi appchain was registered in the DApp, choose the EVM template or upload a custom specification representing a Tanssi EVM-compatible appchain, then execute the following command to pull the Docker image:
+If the Tanssi appchain was registered in the dApp, choose the EVM template or upload a custom specification representing a Tanssi EVM-compatible appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-evm-templates
@@ -42,7 +42,7 @@ The command will download and extract the image and show the status upon executi
 
 ### Simple Substrate Appchains {: #pulling-substrate-docker-image }
 
-If the appchain was registered in the DApp, choosing the basic Substrate template or uploading a custom specification file representing a Substrate appchain, then execute the following command to pull the Docker image:
+If the appchain was registered in the dApp, choosing the basic Substrate template or uploading a custom specification file representing a Substrate appchain, then execute the following command to pull the Docker image:
 
 ```bash
 docker pull moondancelabs/dancebox-container-chain-simple-templates
@@ -66,7 +66,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
         /chain-network/container-chain-template-frontier-node \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
     === "Intel Skylake"
@@ -74,7 +74,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
         /chain-network/container-chain-template-frontier-node-skylake \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
     === "AMD Zen3"
@@ -82,17 +82,17 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
         /chain-network/container-chain-template-frontier-node-znver3 \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
 === "Simple Substrate Appchain"
-    
+
     === "Generic"
 
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
         /chain-network/container-chain-template-simple-node \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
     === "Intel Skylake"
@@ -100,7 +100,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
         /chain-network/container-chain-template-simple-node-skylake \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
     
     === "AMD Zen3"
@@ -108,7 +108,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
         /chain-network/container-chain-template-simple-node-znver3 \
-        --8<-- 'text/node-operators/appchain-node/docker-command.md'
+        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
 !!! note
@@ -165,4 +165,3 @@ Once your node spins up, the syncing process displays lots of log information fr
 
 !!! note
     The length of the syncing process is directly proportional to the size of the chain you are syncing to.
-

@@ -43,6 +43,19 @@ If you don't include these modules in the Tanssi appchain's runtime, there won't
 
 More information about Tanssi's block production as a service and the interaction between Tanssi, the relay chain, and your Tanssi appchain can be found in the [Technical Features](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank} article.
 
+## Included Modules {: #included-modules }
+
+Besides the necessary modules to support the operation of the Tanssi appchain as part of the broader Polkadot ecosystem and the modules that enable the Tanssi protocol and its block production mechanism, many other modules provide functional behavior that the users can interact with. 
+
+These are some of the functional modules exposing a behavior to the users that are included in the templates and ready to use:
+
+- **[pallet_balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - the Balances pallet provides functions for handling accounts and balances for the Tanssi appchain native currency
+- **[pallet_utility](https://paritytech.github.io/polkadot-sdk/master/pallet_utility/index.html){target=\_blank}** - the Utility pallet provides functions to execute multiple calls in a single dispatch. Besides batching transactions, this module also allows the execution of a call from an alternative signed origin
+- **[pallet_proxy](https://paritytech.github.io/polkadot-sdk/master/pallet_proxy/index.html){target=\_blank}** - the Proxy pallet provides functions to delegate to other accounts (proxies) the permission to dispatch calls from a proxied origin
+- **[pallet_maintenance_mode](https://github.com/moondance-labs/moonkit/blob/tanssi-polkadot-v1.3.0/pallets/maintenance-mode/src/lib.rs){target=\_blank}** - the Maintenance Mode pallet allows the Tanssi appchain to be set to a mode where it doesn't execute balance/asset transfers or other transactions, such as XCM calls. This could be useful when upgrading the runtime in an emergency, when executing large storage migrations, or when a security vulnerability is discovered
+- **[pallet_tx_pause](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank}** - the Tx Pause pallet allows a valid origin (typically Root) to pause (and unpause) an entire module or a single transaction. A paused transaction (or all the transactions included in a paused pallet) will fail when called until it is unpaused. This module provides a higher degree of granularity compared to maintenance mode, making it particularly useful when a faulty or vulnerable transaction is identified in the runtime
+- **[pallet_multisig](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/multisig/src/lib.rs){target=\_blank}** - the Multisig pallet enables transaction dispatches that require -typically- more than one signature. A multisig transaction defines a set of authorized accounts and a threshold for its approval, requiring consensus among multiple parties
+
 ## Start Building {: #getting-started }
 
 To start building on top of the provided templates, be it the [Baseline Tanssi appchain template](/builders/build/templates/substrate){target=\_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm){target=\_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and start adding [built-in modules](/builders/build/customize/adding-built-in-module/){target=\_blank} or [custom-made modules](/builders/build/customize/adding-custom-made-module/){target=\_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} tag.

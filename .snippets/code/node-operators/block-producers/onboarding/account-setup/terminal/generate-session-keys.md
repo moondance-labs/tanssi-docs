@@ -8,5 +8,7 @@
     <br>        "params": []
     <br>    }'
   </span>
-  <span data-ty>{"jsonrpc":"2.0","result":"0x76afaf334bd33b82d0b8fbd6a2845cb3b9b785edf1dce4ccefd4973fa79fed2b","id":1}</span>
+  <span data-ty>{"jsonrpc":"2.0","result":</span>
+  <span data-ty>
+  "0x76afaf334bd33b82d0b8fbd6a2845cb3b9b785edf1dce4ccefd4973fa79fed2b","id":1}</span>
 </div>

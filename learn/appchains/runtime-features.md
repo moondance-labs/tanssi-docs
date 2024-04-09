@@ -19,7 +19,7 @@ Generally speaking, all calls in a Tanssi appchain have an origin. But what is a
 
 An origin defines where the call is coming from. In contrast to Ethereum-compatible chains, there can be many origins in Tanssi appchains. For example, the _msg.sender_ of an EVM transaction is known as a _signed origin_, which means that the call is a transaction that was signed by some on-chain account's private key. This allows the runtime to authenticate the source of the call and, for example, charge transaction fees to the associated account.
 
-However, origins can do much more than represent a private key/public key pair. Origins also have different privilege levels. For example, a _signed origin_ can send a transaction that is dispatched by the private key/public key pair but should not be able to authorize a runtime upgrade. 
+However, origins can do much more than represent a private key/public key pair. Origins also have different privilege levels. For example, a _signed origin_ can send a transaction that is dispatched by the private key/public key pair but should not be able to authorize a runtime upgrade.
 
 Some of the most common types of origins are:
 
