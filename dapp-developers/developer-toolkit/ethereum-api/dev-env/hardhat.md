@@ -165,8 +165,9 @@ Next, you can write your Hardhat Ignition module. To get started, take the follo
 1. Import the `buildModule` function from the Hardhat Ignition module
 2. Export a module using `buildModule`
 3. Use the `getAccount` method to select the deployer account
-4. Deploy the `Box` contract
-5. Return an object from the module. This makes the `Box` contract accessible for interaction in Hardhat tests and scripts
+4. Specify custom gas price and gas limit settings for the deployment
+5. Deploy the `Box` contract
+6. Return an object from the module. This makes the `Box` contract accessible for interaction in Hardhat tests and scripts
 
 ```js
 --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/Box.js'
