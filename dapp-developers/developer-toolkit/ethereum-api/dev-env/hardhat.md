@@ -16,11 +16,11 @@ This guide will cover how to use Hardhat to compile, deploy, and interact with E
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-For this guide, you'll need to have MetaMask installed and configured to work with your Tanssi EVM appchain. You can follow [this guide to configure MetaMask for Tanssi with the demo EVM appchain](/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+For this guide, you'll need MetaMask installed and configured to work with your Tanssi EVM appchain. You can follow [this guide to configure MetaMask for Tanssi with the demo EVM appchain](/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ## Creating a Hardhat Project {: #creating-a-hardhat-project }
 
-You will need to create a Hardhat project if you don't already have one. You can create one by completing the following steps:
+You must create a Hardhat project if you don't already have one. You can create one by completing the following steps:
 
 1. Create a directory for your project
 
@@ -28,7 +28,7 @@ You will need to create a Hardhat project if you don't already have one. You can
     mkdir hardhat && cd hardhat
     ```
 
-2. Initialize the project which will create a `package.json` file
+2. Initialize the project, which will create a `package.json` file
 
     ```sh
     npm init -y
@@ -47,9 +47,9 @@ You will need to create a Hardhat project if you don't already have one. You can
     ```
 
     !!! note
-        `npx` is used to run executables installed locally in your project. Although Hardhat can be installed globally, it is recommended to install it locally in each project so that you can control the version on a project-by-project basis.
+        `npx` is used to run executables installed locally in your project. Although Hardhat can be installed globally, installing it locally in each project is recommended so you can control the version on a project-by-project basis.
 
-5. A menu will appear which will allow you to create a new project or use a sample project. For this example, you can choose **Create an empty hardhat.config.js**
+5. A menu will appear allowing you to create a new project or use a sample project. For this example, you can choose **Create an empty hardhat.config.js**
 
 ![Hardhat Create Project](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-1.webp)
 
@@ -69,7 +69,7 @@ npm install --save-dev @nomicfoundation/hardhat-ignition-ethers
 
 ## The Contract File {: #the-contract-file }
 
-With your empty project created, next, you are going to create a `contracts` directory. You can do so by running the following command:
+With your empty project created, you will create a `contracts` directory next. You can do so by running the following command:
 
 ```sh
 mkdir contracts && cd contracts
@@ -148,11 +148,11 @@ npx hardhat compile
 
 --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/terminal/compile.md'
 
-After compilation, an `artifacts` directory is created: it holds the bytecode and metadata of the contract, which are `.json` files. It’s a good idea to add this directory to your `.gitignore`.
+After compilation, an `artifacts` directory is created: it holds the bytecode and metadata of the contract, which are `.json` files. Adding this directory to your `.gitignore` is a good idea.
 
 ## Deploying the Contract {: #deploying-the-contract }
 
-To deploy the contract, you'll use Hardhat Ignition, a declarative framework for deploying smart contracts. Hardhat Ignition is designed to make it easy to manage recurring tasks surrounding smart contract  deployment and testing. For more information about Hardhat Ignition and its architecture, be sure to check out the [Hardhat Ignition docs](https://hardhat.org/ignition/docs/getting-started#overview){target=\_blank}. 
+To deploy the contract, you'll use Hardhat Ignition, a declarative framework for deploying smart contracts. Hardhat Ignition is designed to make managing recurring tasks surrounding smart contract deployment and testing easy. For more information about Hardhat Ignition and its architecture, be sure to check out the [Hardhat Ignition docs](https://hardhat.org/ignition/docs/getting-started#overview){target=\_blank}. 
 
 To set up the proper file structure for your Ignition module, create a folder named `ignition` and a subdirectory called `modules`.  Then add a new file to it called `Box.js`. You can take all three of these steps with the following command:
 
@@ -172,13 +172,13 @@ Next, you can write your Hardhat Ignition module. To get started, take the follo
 --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/Box.js'
 ```
 
-To run the script and deploy the `Box.sol` contract, use the following command, which requires you to specify the network name as defined in your `hardhat.config.js`. If you don't specify a network, hardhat will deploy the contract to a local hardhat network by default. 
+To run the script and deploy the `Box.sol` contract, use the following command, which requires you to specify the network name as defined in your `hardhat.config.js`. Hardhat will deploy the contract to a local hardhat network by default if you don't specify a network.  
 
 ```sh
 npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox
 ```
 
-You'll be prompted to confirm the network you wish to deploy to. After a few seconds after you confirm, the contract is deployed, and you'll see the contract address in the terminal. If you're deploying to another Tanssi appchain, make sure that you specify the correct network. The network name needs to match how it's defined in `hardhat.config.js`.
+You'll be prompted to confirm the network you wish to deploy to. After a few seconds after you confirm, the contract is deployed, and you'll see the contract address in the terminal. If you're deploying to another Tanssi appchain, make sure that you specify the correct network. The network name must match how it's defined in `hardhat.config.js`.
 
 After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
@@ -214,11 +214,11 @@ Next, you can take the following steps, entering one line at a time:
     await box.store(5);
     ```
 
-The transaction will be signed by your EVM account and be broadcast to the network. The output should look similar to:
+Your EVM account will sign the transaction and broadcast it to the network. The output should look similar to:
 
 --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/terminal/interact.md'
 
-Notice your address labeled `from`, the address of the contract, and the `data` that is being passed. Now, you can retrieve the value by running:
+Notice your address labeled `from`, the contract's address, and the `data` being passed. Now, you can retrieve the value by running:
 
 ```js
 await box.retrieve();
@@ -227,7 +227,7 @@ await box.retrieve();
 You should see `5` or the value you initially stored.
 
 !!! note
-    If you run the retrieve command immediately after storing the value, you may see the old value. Running the retrieval command again after waiting a moment will return the correct value.
+    If you run the retrieve command immediately after storing the value, you may see the old value. Rerunning the retrieval command after waiting a moment will return the correct value.
 
 Congratulations, you have successfully deployed and interacted with a contract using Hardhat!
 
