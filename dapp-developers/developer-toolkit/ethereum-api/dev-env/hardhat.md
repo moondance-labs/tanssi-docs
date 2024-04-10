@@ -179,9 +179,7 @@ To run the script and deploy the `Box.sol` contract, use the following command, 
 npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox
 ```
 
-You'll be prompted to confirm the network you wish to deploy to. After a few seconds after you confirm, the contract is deployed, and you'll see the contract address in the terminal. If you're deploying to another Tanssi appchain, make sure that you specify the correct network. The network name must match how it's defined in `hardhat.config.js`.
-
-After a few seconds, the contract is deployed, and you should see the address in the terminal.
+You'll be prompted to confirm the network you wish to deploy to. After a few seconds after you confirm, the contract is deployed, and you'll see the contract address in the terminal. If you're deploying to another Tanssi appchain, make sure that you specify the correct network. The network name must match how it's defined in `hardhat.config.js`. After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
 --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/terminal/deploy.md'
 
