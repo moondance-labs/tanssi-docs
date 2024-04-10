@@ -61,6 +61,12 @@ Once you have your Hardhat project, you can also install the [Ethers plugin](htt
 npm install @nomicfoundation/hardhat-ethers ethers@6
 ```
 
+Additionally, you'll need to install the `hardhat-ignition-ethers` plugin to enable deployment of smart contracts with Hardhat Ignition. You can install it with the following command:
+
+```sh
+npm install --save-dev @nomicfoundation/hardhat-ignition-ethers
+```
+
 ## The Contract File {: #the-contract-file }
 
 With your empty project created, next, you are going to create a `contracts` directory. You can do so by running the following command:
@@ -108,8 +114,9 @@ Before you can deploy the contract to your Tanssi appchain, you'll need to modif
 You can modify the `hardhat.config.js` file to use either the Tanssi Dancebox demo EVM appchain or your own Tanssi appchain:
 
 ```js
-// 1. Import the Ethers plugin required to interact with the contract
+// 1. Import the Ethers and Hardhat Ignition plugins required to interact with the contract
 require('@nomicfoundation/hardhat-ethers');
+require('@nomicfoundation/hardhat-ignition-ethers');
 
 // 2. Add your private key that is funded with tokens of your Tanssi appchain
 // This is for example purposes only - **never store your private keys in a JavaScript file**
@@ -139,44 +146,43 @@ To compile the contract you can simply run:
 npx hardhat compile
 ```
 
-![Hardhat Contract Compile](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-2.webp)
+--8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/terminal/compile.md'
 
 After compilation, an `artifacts` directory is created: it holds the bytecode and metadata of the contract, which are `.json` files. It’s a good idea to add this directory to your `.gitignore`.
 
 ## Deploying the Contract {: #deploying-the-contract }
 
-In order to deploy the `Box.sol` smart contract, you will need to write a simple deployment script. You can create a new directory for the script, name it `scripts`, and add a new file to it called `deploy.js`:
+To deploy the contract, you'll use Hardhat Ignition, a declarative framework for deploying smart contracts. Hardhat Ignition is designed to make it easy to manage recurring tasks surrounding smart contract  deployment and testing. For more information about Hardhat Ignition and its architecture, be sure to check out the [Hardhat Ignition docs](https://hardhat.org/ignition/docs/getting-started#overview){target=\_blank}. 
+
+To set up the proper file structure for your Ignition module, create a folder named `ignition` and a subdirectory called `modules`.  Then add a new file to it called `Box.js`. You can take all three of these steps with the following command:
 
 ```sh
-mkdir scripts && cd scripts
-touch deploy.js
+mkdir ignition && mkdir ignition/modules && touch ignition/modules/Box.js
 ```
 
-Next, you need to write your deployment script, which can be done using `ethers`. Because you'll be running it with Hardhat, you don't need to import any libraries.
+Next, you can write your Hardhat Ignition module. To get started, take the following steps:
 
-To get started, take the following steps:
+1. Import the `buildModule` function from the Hardhat Ignition module
+2. Export a module using `buildModule`
+3. Use the `getAccount` method to select the deployer account
+4. Deploy the `Box` contract
+5. Return an object from the module. This makes the `Box` contract accessible for interaction in Hardhat tests and scripts
 
-1. Create a local instance of the contract with the `getContractFactory` method
-2. Define a custom gas price and gas limit (this is a temporary stopgap)
-3. Use the `deploy` method that exists within this instance to instantiate the smart contract
-4. Wait for the deployment by using `waitForDeployment`
-5. Once deployed, you can fetch the address of the contract using the contract instance
-
-```ts
---8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/deploy.js'
+```js
+--8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/Box.js'
 ```
 
-You can now deploy the `Box.sol` contract using the `run` command and specifying `dancebox` as the network:
+To run the script and deploy the `Box.sol` contract, use the following command, which requires you to specify the network name as defined in your `hardhat.config.js`. If you don't specify a network, hardhat will deploy the contract to a local hardhat network by default. 
 
 ```sh
-npx hardhat run --network dancebox scripts/deploy.js
+npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox
 ```
 
-If you're deploying to another Tanssi appchain, make sure that you specify the correct network. The network name needs to match how it's defined in `hardhat.config.js`.
+You'll be prompted to confirm the network you wish to deploy to. After a few seconds after you confirm, the contract is deployed, and you'll see the contract address in the terminal. If you're deploying to another Tanssi appchain, make sure that you specify the correct network. The network name needs to match how it's defined in `hardhat.config.js`.
 
 After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
-![Hardhat Contract Deploy](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-3.webp)
+--8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/terminal/deploy.md'
 
 Congratulations, your contract is live! Save the address, as you will use it to interact with this contract instance in the next step.
 
@@ -199,7 +205,7 @@ Next, you can take the following steps, entering one line at a time:
 2. Connect the local instance to the deployed contract, using the address of the contract
 
     ```js
-    const box = await Box.attach('0x707D4Eb8B3fec49884c217A659b01238afee1697');
+    const box = await Box.attach('0xa84caB60db6541573a091e5C622fB79e175E17be');
     ```
 
 3. Interact with the attached contract. For this example, you can call the `store` method and store a simple value
@@ -210,7 +216,7 @@ Next, you can take the following steps, entering one line at a time:
 
 The transaction will be signed by your EVM account and be broadcast to the network. The output should look similar to:
 
-![Transaction output](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-4.webp)
+--8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/terminal/interact.md'
 
 Notice your address labeled `from`, the address of the contract, and the `data` that is being passed. Now, you can retrieve the value by running:
 
