@@ -7,13 +7,15 @@ description: Follow these step-by-step instructions to establish an identity inc
 
 ## Introduction {: #introduction }
 
-The [Substrate](/learn/platform/technology/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, Riot (now known as Element) name. You can also take advantage of custom fields to include any other relevant information.
+The [Substrate](/learn/platform/technology/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity as a Tanssi block producer boosts visibility and ensures that your display name is automatically populated when users input your block producer address.
 
-This guide will show you how to configure an identity with a display name and other parameters so that you can more easily recognizable as a block producer. 
+The identity you configure goes beyond a simple display name. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, Riot (now known as Element) name. You can also take advantage of custom fields to include any other relevant information.
+
+This guide will demonstrate how to set up an identity complete with a display name and additional parameters, enhancing your visibility and recognizability as a block producer
 
 ## General Definitions {: #general-definitions }
 
-To store your information on-chain, you must bond some funds, which eventually will be returned once the identity has been cleared. There are two categories of fields: default and custom. If custom fields are used, you will be required to submit an additional deposit for each field.
+To store your information on-chain, you must bond some funds, which eventually will be returned once the identity has been cleared. There are two categories of fields: default and custom. There is a basic deposit amount reserved upon identity creation and a storage deposit for each additional byte of data stored on-chain.
 
 - **Default fields include** - your legal name, display name, website, Twitter handle, Discord, Riot (now known as Element) name
 
@@ -42,9 +44,9 @@ If you need help importing your accounts into Polkadot.js Apps, please check out
 
 ## Get Started {: #get-started }
 
-There are a couple different ways to set and clear an identity using the Polkadot.js Apps, depending on the information to be included. If you intend to register your identity using only the default fields, you can follow the instructions for [Managing an Identity via the Accounts UI](#managing-an-identity-via-accounts). **This is the recommended way to set and manage your identity**.
+There are a couple different ways to set and clear an identity using the Polkadot.js Apps, depending on the information to be included. If you intend to register your identity using only the default fields, you can follow the instructions for [Managing an Identity via the Accounts UI](#manage-via-accounts). **This is the recommended way to set and manage your identity**.
 
-If you are looking for a more customizable experience and want to add custom fields beyond the default fields, you can follow the instructions for [Managing an Identity via the Extrinsics UI](#managing-an-identity-via-extrinsics).
+If you are looking for a more customizable experience and want to add custom fields beyond the default fields, you can follow the instructions for [Managing an Identity via the Extrinsics UI](#manage-via-extrinsics).
 
 !!! note
     Please note that it is recommended to use the **Accounts** UI on Polkadot.js Apps to manage your identity as it provides an easy-to-use interface that enforces character limits. If you use the **Extrinsics** UI, please be aware that your input for each field (i.e, name, email, etc.) must be 32 characters or less, otherwise, your information will be cut off.
