@@ -3,154 +3,137 @@ title: Set an Identity as a Block Producer
 description: Follow these step-by-step instructions to establish an identity including a name and info so you can be more easily recognizable as a block producer on Tanssi.
 ---
 
-# Set Up Your Account to Produce Blocks on Tanssi
+# Set Up an Identity
 
 ## Introduction {: #introduction }
 
-Before you can start producing blocks on Tanssi and Tanssi appchains, you'll need to set up your account and establish your eligibility.
+The [Substrate](/learn/platform/technology/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, Riot (now known as Element) name. You can also take advantage of custom fields to include any other relevant information.
 
-You must have spun up a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} to tackle the account setup steps in this guide.
+This guide will show you how to configure an identity with a display name and other parameters so that you can more easily recognizable as a block producer. 
 
-You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/block-producers/operational-tasks/proxy-accounts){target=\_blank} for additional security. 
+## General Definitions {: #general-definitions }
 
-To establish eligibility, you must delegate yourself as a block producer and meet the minimum bond requirements.
+To store your information on-chain, you must bond some funds, which eventually will be returned once the identity has been cleared. There are two categories of fields: default and custom. If custom fields are used, you will be required to submit an additional deposit for each field.
 
-By following the steps outlined in this guide, you'll learn everything you need to know to get started producing blocks within the Tanssi ecosystem.
+- **Default fields include** - your legal name, display name, website, Twitter handle, Discord, Riot (now known as Element) name
 
-## Important Variables {: #important-variables }
+- **Custom fields include** - any other relevant information.
 
-When establishing eligibility to produce blocks, there are a couple of variables to be aware of:
+- **Subaccounts** - You can link subaccounts underneath a primary account. This may be useful, for example, if a block producer service is running multiple different block producer nodes
 
-- **Minimum self-delegation** - there is a minimum amount you must self-delegate to be considered eligible
-- **Session** - a period that has a constant set of block producers
-- **Tanssi block producers per session** - the number of block producers assigned to Tanssi per session
-- **Appchain block producers per session** - the number of block producers assigned to a Tanssi appchain per session
+    |       Variable        |                               Definition                                |                      Value                      |
+    |:---------------------:|:-----------------------------------------------------------------------:|:-----------------------------------------------:|
+    |     Basic deposit     |           The amount held on deposit for setting an identity            | {{ networks.dancebox.identity.basic_deposit }} DANCE |
+    |     Deposit per byte     | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.dancebox.identity.per_byte_deposit }} DANCE |
+    | Max additional fields |     Maximum number of additional fields that may be stored in an ID     |   {{ networks.dancebox.identity.max_fields }}   |
+    | Max Subaccounts |     Maximum number of subaccounts that can be defined under an account identity    |   {{ networks.dancebox.identity.max_subaccounts }}   |
 
-|               Variable               |                                                              Value                                                               |
-|:------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------:|
-|       Minimum self-delegation        |                                 {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE                                 |
-|               Session                |                                          {{ networks.dancebox.session.blocks }} blocks                                           |
-|  Tanssi block producers per session  | {{ networks.dancebox.block_producers.tanssi.min.num }} to {{ networks.dancebox.block_producers.tanssi.max.num }} block producers |
-| Appchain block producers per session |                               {{ networks.dancebox.block_producers.appchain.num }} block producers                               |
 
-## Map an Account to Your Block Producer Node {: #map-account }
+## Checking Prerequisites { : #checking-prerequisites }
 
-The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your block-producing node.
+For this guide, you will need the following:
 
-You will need to create session keys for your primary and backup servers. Each of your servers, your primary and backup, should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
+To follow along with this tutorial, you will need to have:
 
-### Generate Session Keys {: #generate-session-keys }
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
+- At least one account funded with `DANCE` tokens
 
-Before generating session keys, you must be [running a block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank}.
+If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/interact/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
-To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your block producer's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
+## Get Started {: #get-started }
 
-```bash
-curl http://127.0.0.1:9944 -H \
-"Content-Type:application/json;charset=utf-8" -d \
-  '{
-    "jsonrpc":"2.0",
-    "id":1,
-    "method":"author_rotateKeys",
-    "params": []
-  }'
-```
+There are a couple different ways to set and clear an identity using the Polkadot.js Apps, depending on the information to be included. If you intend to register your identity using only the default fields, you can follow the instructions for [Managing an Identity via the Accounts UI](#managing-an-identity-via-accounts). **This is the recommended way to set and manage your identity**.
 
-Your hex-encoded session keys will be printed to the terminal in the `"result"` field.
+If you are looking for a more customizable experience and want to add custom fields beyond the default fields, you can follow the instructions for [Managing an Identity via the Extrinsics UI](#managing-an-identity-via-extrinsics).
 
---8<-- 'code/node-operators/block-producers/onboarding/account-setup/terminal/generate-session-keys.md'
+!!! note
+    Please note that it is recommended to use the **Accounts** UI on Polkadot.js Apps to manage your identity as it provides an easy-to-use interface that enforces character limits. If you use the **Extrinsics** UI, please be aware that your input for each field (i.e, name, email, etc.) must be 32 characters or less, otherwise, your information will be cut off.
 
-Make sure you write down your session keys; you'll need to map your session keys to your account in the next section.
+## Manage an Identity via Accounts {: #manage-via-accounts }
 
-### Map Session Keys {: #map-session-keys }
+### Set an Identity {: #set-identity-accounts }
 
-To perform the next step and map your session keys to your account, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+To get started with setting an identity using the Accounts UI, head to the [Accounts tab](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} on the Polkadot.js Apps explorer.
 
-1. Select your account, which should be the same account that you previously self-delegated
-2. Select the **session** module and the **setKeys** extrinsic
-3. For **keys**, enter your session keys
-4. For **proof**, enter `0x`
-5. Click **Submit Transaction** and sign and send the transaction from your wallet
+You should already have an account connected, so you can go ahead and click on your account name to verify and take note of your balances. After you send the transaction to set an identity, the deposit(s) you submitted will be moved from your transferable balance to your reserved balance.
 
-![Create and submit an extrinsic to set session keys on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-1.webp)
+![Starting account balances](/images/node-operators/block-producers/onboarding/identity/identity-1.webp)
 
-Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+To set your identity, you'll need to:
 
-1. Select the **session** module and the **keyOwner** query
-2. Enter `nmbs` in the **SpCoreCryptoKeyTypeId** field
-3. For **Bytes**, enter your hex-encoded session keys
-4. Click the **+** button next to the extrinsic field
-5. The account associated with the session keys, which should be your account, will be displayed at the bottom of the page
+1. Click on the 3 vertical dots next to the account you would like to set an identity for
+2. A menu will pop up. Click **Set on-chain identity**
 
-![Create and submit query to verify session keys on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-2.webp)
+![Set on-chain identity](/images/node-operators/block-producers/onboarding/identity/identity-2.webp)
 
-## Submit Self-Delegation {: #submit-self-delegation }
+Next, the menu to register and set your identity will pop-up and you can start filling in your information. You are not required to enter information for every single field, you can choose to fill in just one field or all of them, it's up to you. For this example:
 
-The next step towards becoming eligible to produce blocks on Tanssi and Tanssi appchains is to delegate to your own account. To do this, you'll be required to submit a minimum of {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
+1. Set your display name
+2. Click on the **include field** toggle for email and then enter in your email
+3. Click on the **include field** toggle for web and then enter in your website URL
+4. Click on the **include field** toggle for Twitter and then enter in your Twitter handle
+5. After you're done filling in your information and the deposit amount looks alright to you, click **Set Identity**
 
-After you've submitted the request to delegate, you'll need to wait for a minimum of {{ networks.dancebox.staking.staking_session_delay.sessions.display }} sessions before you can execute the pending request. There are {{ networks.dancebox.session.blocks }} blocks in a session. So, {{ networks.dancebox.staking.staking_session_delay.sessions.display }} sessions are {{ networks.dancebox.staking.staking_session_delay.blocks }} blocks, which can take around {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
+![Set your identity](/images/node-operators/block-producers/onboarding/identity/identity-3.webp)
 
-Block producers are assigned upon each session, requiring {{ networks.dancebox.block_producers.appchain.display }} per appchain and a minimum of {{ networks.dancebox.block_producers.tanssi.min.display }} to {{ networks.dancebox.block_producers.tanssi.max.display }} for Tanssi. The block producers participating in the session are picked from the list of candidates ordered by total stake until the total number of block producers required is covered. So, you'll need to ensure that your total stake is enough to fill one of the slots, which may require more than {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
+You will then be prompted to sign the transaction. If everything looks good, you can enter your password and click **Sign and Submit** to sign and send the transaction.
 
-### Request Delegate {: #request-delegate }
+You should see status notifications pop-up in the top right hand corner. Once the transaction has been confirmed, you can click on your account name again and the panel will slide out on the right side of the page. Your balances will have changed, and you’ll also see your new identity information.
 
-Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+![Updated account balances](/images/node-operators/block-producers/onboarding/identity/identity-4.webp)
 
-1. Select the account from which you want to send the extrinsic. This account must be the same account that you are delegating to and is the account that you want to become a block producer
-2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
-3. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to become a block producer
-4. Choose the target pool. The pool can either be the auto-compounding pool, which auto-compounds delegation rewards, or the manual rewards pool, in which all actions related to rewards are manual
-5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
-6. Click **Submit Transaction** and sign and send the transaction from your wallet
+If the identity information matches what you entered, you’ve successfully set an identity!
 
-![Create and submit an extrinsic to self-delegate on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-3.webp)
+Once you clear your identity, the deposit in your reserved balance will get transferred back to your transferable balance. If you need to make changes to your identity, you can go through the process of setting your identity again. Please note that you will need to ensure all fields are re-entered, even if only one field needs to be changed, or they will be overwritten. You will not need to pay another deposit, unless custom fields are used, but you will need to pay gas fees.
 
-### Execute the Pending Request {: #execute-pending-request }
+## Manage an Identity via Extrinsics {: #manage-via-extrinsics }
 
-Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+### Set an Identity {: #set-identity-extrinsics }
 
-1. Select the **pooledStaking** module and the **pendingOperations** query
-2. Enter your account
-3. Toggle the **include option** slider off
-4. Click the **+** button next to the extrinsic field
-5. The pending request will be displayed at the bottom of the page
+To register an identity using the extrinsics UI, navigate to the [Extrinsics page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} on Polkadot.js Apps. Please ensure that for each identity field, your input does not exceed 32 characters. To complete your identity, take the following steps:
 
-![Query the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-4.webp)
+1. Select your account
+2. Select identity from the **submit the following extrinsic** dropdown
+3. Then select the **setIdentity(info)** function
+4. Select **Raw** as the data format to enter your **Display Name**
+5. Enter the data for **Display** in the selected format 
+6. Select **Raw** as the data format to enter your web address
+7. Enter your website URL in the selected format 
+8. Select **Raw** as the data format to enter your email
+9. Enter your email address in the selected format 
+10. Select **Raw** as the data format to enter your Twitter handle
+11. Enter your Twitter in the selected format. Enter the username only, starting with the `@` symbol
+12. Review the prepared fields and press **Submit Transaction**
 
-In the example in the above image, the delegate request to join the auto-compounding pool was submitted during session 4,829. So, the request can be executed starting at session 4,831.
+![Set on-chain identity](/images/node-operators/block-producers/onboarding/identity/identity-5.webp)
 
-Take note of the operation and the session number at which you submitted the request, as you'll need both values to execute the pending request.
+Optionally, if you would like to enter custom fields, take the following steps:
 
-You can run another query from the **Chain state** page to check the current session. To do so, you can:
+1. Scroll to the top and click on **Add item**
+2. Two fields will appear: the first for the field name and the second for the value. Select **Raw** as the data format to enter the field name
+3. Enter the field name in the specified format
+4. Select **Raw** as the data format to enter the custom value
+5. Enter the custom value in the specified format
 
-1. Select the **session** module and the **currentIndex** query
-2. Click the **+** button next to the extrinsic field
-3. The current session will be displayed at the bottom of the page
+![Add custom fields](/images/node-operators/block-producers/onboarding/identity/identity-6.webp)
 
-![Query the current session index on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-5.webp)
+Finally, once all of your identity information has been added, you can scroll to the bottom of the page and click **Submit Transaction**.
 
-If the request can be executed, select **Extrinsics** from the **Developer** dropdown and take the following steps:
+You will then be prompted to sign the transaction. Remember, there is an additional deposit required for each additional custom field. If everything looks good, you can enter your password and click **Sign and Submit** to sign and send the transaction.
 
-1. Select the account from which you want to send the extrinsic
-2. Select the **pooledStaking** module and the **executePendingOperations** extrinsic
-3. For **delegator**, enter your account, which is the same account you sent the self-delegate request from
-4. For **operation**, select the type of operation to execute. This should be either **JoiningAutoCompounding** or **JoiningManualRewards**, depending on the target pool you selected at the time of submitting the self-delegation request
-5. For **candidate**, enter the same account as you did in the **delegator** field
-6. For **at**, enter the session id at which you submitted the delegate request
-7. Click **Submit Transaction** and sign and send the transaction from your wallet
+You should see status notifications pop-up in the top right hand corner confirming the transaction. If successful, you’ve set an identity! Congratulations! To make sure everything went through and your identity information looks good, next you can confirm your identity.
 
-![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-6.webp)
+### Confirm an Identity {: #confirm-identity-extrinsics }
 
-Now, you have completed all of the necessary account setup to be eligible to produce blocks!
+To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [Chain state](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
 
-## Verify That Your Account Is in the List of Eligible Candidates {: #verify }
+On the **Chain State** UI, make sure **Storage** is selected. Then you can start to request your identity information:
 
-If you've followed all of the steps in this guide and have fully synced your block-producing node, you are now eligible to produce blocks. To verify that you are in the list of eligible candidates, you can go to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+1. Set **selected state query** to **identity**
+2. Select the **identityOf(AccountId)** function
+3. Select your account
+4. Click the **+** button to get your identity information
 
-1. Select the **pooledStaking** module and the **sortedEligibleCandidates** query
-2. Click the **+** button next to the extrinsic field
-3. A list of the eligible candidates and their stake will be displayed at the bottom of the page. You can search for your address to ensure you are eligible to produce blocks
+![Request identity information](/images/node-operators/block-producers/onboarding/identity/identity-7.webp)
 
-![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-7.webp)
-
-Remember that you'll need to be in the top candidates by total stake to produce blocks, and this is based on the number of [block producers required for each appchain and Tanssi](#important-variables).
+You can see now that you’ve successfully set an identity! Once you clear your identity, the deposit in your reserved balance will get transferred back to your transferable balance. If you need to make changes to your identity, you can go through the process of setting your identity again. Please note that you will need to ensure all fields are re-entered, even if only one field needs to be changed, or they will be overwritten. You will not need to pay another deposit, unless custom fields are used, but you will need to pay gas fees.

@@ -54,6 +54,11 @@ networks:
       deposit_base: 10.08
       deposit_factor: 0.33
       max_proxies: 32
+    identity:
+      basic_deposit: 12.58
+      max_fields: 100
+      per_byte_deposit: 0.1
+      max_subaccounts: 100
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0
