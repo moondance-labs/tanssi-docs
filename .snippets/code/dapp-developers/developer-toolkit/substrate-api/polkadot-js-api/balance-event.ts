@@ -17,7 +17,7 @@ const main = async () => {
     async (lastFinalizedHeader) => {
       const [{ block }, records] = await Promise.all([
         polkadotApi.rpc.chain.getBlock(lastFinalizedHeader.hash),
-        polkadotApi.query.system.events.at(lastFinalizedHeader.hash),
+        (await polkadotApi.at(lastFinalizedHeader.hash)).query.system.events(),
       ]);
 
       block.extrinsics.forEach((extrinsic, index) => {

@@ -15,7 +15,7 @@ const main = async () => {
   // Form the transaction
   const tx = await api.tx.balances.transferAllowDeath(
     'INSERT_BOBS_ADDRESS',
-    BigInt(12345)
+    BigInt(INSERT_VALUE)
   );
 
   // Retrieve the encoded calldata of the transaction

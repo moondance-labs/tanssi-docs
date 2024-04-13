@@ -41,7 +41,7 @@ The library also includes other core components, like Keyring for account manage
 
 To start interacting with your Tanssi appchain using the Polkadot.js API, you first need to create an instance of the Polkadot.js API. Create the `WsProvider` using the WebSocket endpoint of your Tanssi appchain.
 
-```javascript
+```typescript
 // Import
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
@@ -85,13 +85,13 @@ In this section, you will learn how to query for on-chain information using the 
 
 This category of queries retrieves information related to the current state of the chain. These endpoints are generally of the form `api.query.<module>.<method>`, where the module and method decorations are generated through metadata. You can see a list of all available endpoints by examining the `api.query` object, for example via:
 
-```javascript
+```typescript
 console.log(api.query);
 ```
 
 For example, assuming you've [initialized the API](#creating-an-API-provider-instance), you can retrieve basic account information with the following snippet:
 
-```javascript
+```typescript
 // Define wallet address
 const addr = 'INSERT_ADDRESS';
 
@@ -108,21 +108,21 @@ console.log(
 
 ??? code "View the complete script"
 
-    ```js
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/state-queries.js'
+    ```typescript
+    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/state-queries.ts'
     ```
 
 ### RPC Queries {: #rpc-queries }
 
 The RPC calls provide the backbone for the transmission of data to and from the node. This means that all API endpoints such as `api.query`, `api.tx` or `api.derive` just wrap RPC calls, providing information in the encoded format as expected by the node. You can see a list of all available endpoints by examining the `api.rpc` object, for example, via:
 
-```javascript
+```typescript
 console.log(api.rpc);
 ```
 
 The `api.rpc` interface follows the a similar format to `api.query`. For instance, assuming you've [initialized the API](#creating-an-API-provider-instance), you can get chain data and latest header with the following snippet:
 
-```javascript
+```typescript
 // Retrieve the chain name
 const chain = await api.rpc.system.chain();
 
@@ -137,15 +137,15 @@ console.log(
 
 ??? code "View the complete script"
 
-    ```js
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/rpc-queries.js'
+    ```typescript
+    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/rpc-queries.ts'
     ```
 
 ### Query Subscriptions {: #query-subscriptions }
 
 The `rpc` API also provides endpoints for subscriptions. Assuming you've [initialized the API](#creating-an-API-provider-instance), you can adapt the previous example to start using subscriptions to listen to new blocks.
 
-```javascript
+```typescript
 // Retrieve the chain name
 const chain = await api.rpc.system.chain();
 
@@ -161,7 +161,7 @@ The general pattern for `api.rpc.subscribe*` functions is to pass a callback int
 
 Other calls under `api.query.*` can be modified in a similar fashion to use subscription by providing a callback function, including calls that have parameters. Here is an example of how to subscribe to balance changes in an account:
 
-```javascript
+```typescript
 // Define wallet address
 const addr = 'INSERT_ADDRESS';
 
@@ -175,11 +175,11 @@ await api.query.system.account(addr, ({ nonce, data: balance }) => {
 
 ??? code "View the complete script"
 
-    ```js
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/query-subscriptions.js'
+    ```typescript
+    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/query-subscriptions.ts'
     ```
 
-## Create a Keyring for a Account {: #keyrings }
+## Create a Keyring for an Account {: #keyrings }
 
 The Keyring object is used for maintaining key pairs, and the signing of any data, whether it's a transfer, a message, or a contract interaction.  
 
@@ -187,7 +187,7 @@ The Keyring object is used for maintaining key pairs, and the signing of any dat
 
 You can create an instance by just creating an instance of the Keyring class and specifying the default type of wallet address used. The default wallet type is `SR25519`, but for Tanssi EVM-compatible appchains, the wallet type should be `ethereum`.
 
-```javascript
+```typescript
 // Import the keyring as required
 import Keyring from '@polkadot/keyring';
 
@@ -200,31 +200,31 @@ const keyring = new Keyring({ type: 'sr25519' });
 
 ### Add an Account to a Keyring {: #adding-accounts }
 
-There are a number of ways to add an account to the keyring instance, including from the mnemonic phrase and from the shortform private key. The following sample code will provide some examples:
+There are a number of ways to add an account to the keyring instance, including from the mnemonic phrase and the short-form private key. The following sample code will provide some examples:
 
 === "From Mnemonic (ECDSA)"
 
-    ```javascript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-mnemonic-ecdsa.js'
+    ```typescript
+    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-mnemonic-ecdsa.ts'
     ```
 
 === "From Private Key (ECDSA)"
 
-    ```javascript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-private-key-ecdsa.js'
+    ```typescript
+    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-private-key-ecdsa.ts'
     ```
 
 === "From Mnemonic (SR25519)"
 
-    ```javascript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-mnemonic-sr25519.js'
+    ```typescript
+    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-mnemonic-sr25519.ts'
     ```
 
 ## Sending Transactions  {: #transactions }
 
 Transaction endpoints are exposed on endpoints generally of the form `api.tx.<module>.<method>`, where the module and method decorations are generated through metadata. These allow you to submit transactions for inclusion in blocks, be they transfers, interactions with pallets, or anything else Moonbeam supports. You can see a list of all available endpoints by examining the `api.tx` object, for example, via:
 
-```javascript
+```typescript
 console.log(api.tx);
 ```
 
@@ -232,18 +232,18 @@ console.log(api.tx);
 
 The Polkadot.js API library can be used to send transactions to the network. For example, assuming you've [initialized the API](#creating-an-API-provider-instance) and a [keyring instance](#creating-a-keyring-instance), you can use the following snippet to send a basic transaction (this code sample will also retrieve the encoded calldata of the transaction as well as the transaction hash after submitting):
 
-```javascript
+```typescript
 // Initialize wallet key pairs
 const alice = keyring.addFromUri('INSERT_ALICES_PRIVATE_KEY');
 
 // Form the transaction
 const tx = await api.tx.balances.transferAllowDeath(
   'INSERT_BOBS_ADDRESS',
-  BigInt(12345)
+  BigInt(INSERT_VALUE)
 );
 
 // Retrieve the encoded calldata of the transaction
-const encodedCalldata = tx.method.toHex()
+const encodedCallData = tx.method.toHex()
 console.log(`Encoded calldata: ${encodedCallData}`);
 
 // Sign and send the transaction
@@ -255,8 +255,8 @@ console.log(`Submitted with hash ${txHash}`);
 
 ??? code "View the complete script"
 
-    ```js
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/basic-transactions.js'
+    ```typescript
+    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/basic-transactions.ts'
     ```
 
 Note that the `signAndSend` function can also accept optional parameters, such as the `nonce`. For example, `signAndSend(alice, { nonce: aliceNonce })`. You can use the [sample code from the State Queries](#state-queries){target=\_blank} section to retrieve the correct nonce, including transactions in the mempool.
@@ -269,9 +269,9 @@ The `paymentInfo` function returns weight information in terms of `refTime` and 
 
 For example, assuming you've [initialized the API](#creating-an-API-provider-instance), the following snippet shows how you can get the weight info for a simple balance transfer between two accounts:
 
-```javascript
+```typescript
 // Transaction to get weight information
-const tx = api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(12345));
+const tx = api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(INSERT_VALUE));
 
 // Get weight info
 const { partialFee, weight } = await tx.paymentInfo('INSERT_SENDERS_ADDRESS');
@@ -281,8 +281,8 @@ console.log(`Transaction fee: ${partialFee.toHuman()}`);
 ```
 
 ??? code "View the complete script"
-    ```js
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/payment-info.js'
+    ```typescript
+    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/payment-info.ts'
     ```
 
 
@@ -298,11 +298,11 @@ The Polkadot.js API allows transactions to be batch processed via the `api.tx.ut
 
 For example, assuming you've [initialized the API](#creating-an-API-provider-instance), a [keyring instance](#creating-a-keyring-instance) and [added an account](#adding-accounts), the following example makes a couple of transfers in one transaction:
 
-```javascript
+```typescript
 // Construct a list of transactions to batch
 const txs = [
-  api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(12345)),
-  api.tx.balances.transferAllowDeath('INSERT_CHARLEYS_ADDRESS', BigInt(12345)),
+  api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(INSERT_VALUE)),
+  api.tx.balances.transferAllowDeath('INSERT_CHARLEYS_ADDRESS', BigInt(INSERT_VALUE)),
 ];
 
 // Estimate the fees as RuntimeDispatchInfo, using the signer (either
@@ -314,7 +314,7 @@ const info = await api.tx.utility
 console.log(`Estimated fees: ${info}`);
 
 // Construct the batch and send the transactions
-api.tx.utility
+await api.tx.utility
   .batch(txs)
   .signAndSend(alice, ({ status }) => {
     if (status.isInBlock) {
@@ -327,8 +327,8 @@ api.tx.utility
 
 ??? code "View the complete script"
 
-    ```js
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/batch-transactions.js'
+    ```typescript
+    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/batch-transactions.ts'
     ```
 
 ## Sample Code for Monitoring Native Token Transfers { #sample-code-for-monitoring-native-token-transfers }
@@ -351,7 +351,7 @@ The Polkadot.js API also includes a number of utility libraries for computing co
 
 The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://eth.wiki/fundamentals/rlp){target=\_blank}) encoding and then hashing the result with keccak256.
 
-```javascript
+```typescript
 import { encode } from '@polkadot/util-rlp';
 import { keccakAsHex } from '@polkadot/util-crypto';
 import { numberToHex } from '@polkadot/util';

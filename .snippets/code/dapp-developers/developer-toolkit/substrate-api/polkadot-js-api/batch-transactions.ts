@@ -14,8 +14,8 @@ const main = async () => {
 
   // Construct a list of transactions to batch
   const txs = [
-    api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(12345)),
-    api.tx.balances.transferAllowDeath('INSERT_CHARLEYS_ADDRESS', BigInt(12345)),
+    api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(INSERT_VALUE)),
+    api.tx.balances.transferAllowDeath('INSERT_CHARLEYS_ADDRESS', BigInt(INSERT_VALUE)),
   ];
 
   // Estimate the fees as RuntimeDispatchInfo, using the signer (either
@@ -25,7 +25,7 @@ const main = async () => {
   console.log(`Estimated fees: ${info}`);
 
   // Construct the batch and send the transactions
-  api.tx.utility.batch(txs).signAndSend(alice, async ({ status }) => {
+  await api.tx.utility.batch(txs).signAndSend(alice, async ({ status }) => {
     if (status.isInBlock) {
       console.log(`Included in ${status.asInBlock}`);
 
