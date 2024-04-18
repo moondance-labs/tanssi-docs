@@ -1,17 +1,17 @@
 ---
-title: Set an Identity as a Block Producer
-description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable as a block producer on Tanssi.
+title: Set an Account Identity
+description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
 ---
 
 # Set Up an Identity
 
 ## Introduction {: #introduction }
 
-The [Substrate](/learn/platform/technology/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity as a Tanssi block producer boosts visibility and ensures that your display name is automatically populated when users input your block producer address.
+The [Substrate](/learn/platform/technology/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. 
 
 The identity you configure goes beyond a simple display name. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, and Riot (now known as Element) name. You can also use custom fields to include any other relevant information.
 
-This guide will demonstrate how to set up an identity complete with a display name and additional parameters, enhancing your visibility and recognizability as a block producer.
+This guide will demonstrate how to set up an identity complete with a display name and additional parameters, enhancing your visibility and recognizability. 
 
 ## General Definitions {: #general-definitions }
 
@@ -21,7 +21,7 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 - **Custom fields include** - any other relevant information
 
-- **Subaccounts** - You can link subaccounts underneath a primary account. This may be useful, for example, if a block producer service is running multiple different block producer nodes
+- **Subaccounts** - You can link subaccounts underneath a primary account. As an example, a block producer service that's running multiple different block producer nodes can establish subaccounts to demonstrate an official link between the nodes
 
     |       Variable        |                               Definition                                |                      Value                      |
     |:---------------------:|:-----------------------------------------------------------------------:|:-----------------------------------------------:|
