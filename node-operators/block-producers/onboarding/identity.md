@@ -7,11 +7,11 @@ description: Follow these step-by-step instructions to establish an identity, in
 
 ## Introduction {: #introduction }
 
-The [Substrate](/learn/platform/technology/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. 
+The [Substrate](/learn/platform/technology/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. 
 
 The identity you configure goes beyond a simple display name. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, and Riot (now known as Element) name. You can also use custom fields to include any other relevant information.
 
-This guide will demonstrate how to set up an identity complete with a display name and additional parameters, enhancing your visibility and recognizability. 
+This guide will demonstrate setting up an identity with a display name and additional parameters, enhancing your visibility and recognizability. 
 
 ## General Definitions {: #general-definitions }
 
@@ -44,7 +44,7 @@ If you need help importing your accounts into Polkadot.js Apps, please check out
 
 Depending on the information to be included, there are a couple of different ways to set and clear an identity using Polkadot.js Apps. If you intend to register your identity using only the default fields, you can follow the instructions for [Managing an Identity via the Accounts UI](#manage-via-accounts). **This is the recommended way to set and manage your identity**.
 
-If you want a more customizable experience and want to add custom fields beyond the default fields, follow the instructions for [Managing an Identity via the Extrinsics UI](#manage-via-extrinsics).
+If you want to add custom fields beyond the default fields, follow the instructions for [Managing an Identity via the Extrinsics UI](#manage-via-extrinsics).
 
 !!! note
     Please note that using the **Accounts** UI on Polkadot.js Apps is recommended to manage your identity as it provides an easy-to-use interface that enforces character limits. If you use the **Extrinsics** UI, please be aware that your input for each field (i.e., name, email, etc.) must be 32 characters or less; otherwise, your information will be cut off.
@@ -78,11 +78,11 @@ Next, the menu to register and set your identity will pop up, and you can start 
 
 You will then be prompted to sign the transaction. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction.
 
-You should see status notifications pop up in the top right-hand corner. Once the transaction has been confirmed, you can click on your account name again, and the panel will slide out on the right side of the page. Your balances will have changed, and you’ll also see your new identity information.
+You should see status notifications pop up in the top right-hand corner. Once the transaction has been confirmed, you can click on your account name again, and the panel will slide out on the right side of the page. Your balances will have changed, and you'll also see your new identity information.
 
 ![Updated account balances](/images/node-operators/block-producers/onboarding/identity/identity-4.webp)
 
-If the identity information matches what you entered, you’ve successfully set an identity!
+If the identity information matches what you entered, you've successfully set an identity!
 
 Once you clear your identity, the deposit in your reserved balance will get transferred back to your transferable balance. If you need to change your identity, you can go through the process of setting your identity again. Please note that you must ensure all fields are re-entered, even if only one field needs to be changed, or they will be overwritten. You will not need to pay another deposit unless custom fields are used, but you will need to pay gas fees.
 
@@ -121,7 +121,7 @@ Finally, once all of your identity information has been added, you can scroll to
 
 You will then be prompted to sign the transaction. Remember, an additional deposit is required for each additional custom field. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction.
 
-You should see status notifications pop up in the top right-hand corner confirming the transaction. If successful, you’ve set an identity! Congratulations! To ensure everything went through and your identity information looks good, you can verify your identity.
+You should see status notifications pop up in the top right-hand corner confirming the transaction. If successful, you've set an identity! Congratulations! To ensure everything went through and your identity information looks good, you can verify your identity.
 
 ### Confirm an Identity {: #confirm-identity-extrinsics }
 
@@ -136,4 +136,4 @@ On the **Chain State** UI, make sure **Storage** is selected. Then you can start
 
 ![Request identity information](/images/node-operators/block-producers/onboarding/identity/identity-7.webp)
 
-You can see now that you’ve successfully set an identity! Once you clear your identity, the deposit in your reserved balance will get transferred back to your transferable balance. If you need to make changes to your identity, you can go through the process of setting your identity again. Please note that you must ensure all fields are re-entered, even if only one field needs to be changed, or they will be overwritten. You will not need to pay another deposit unless custom fields are used, but you will need to pay gas fees.
+You can see now that you've successfully set an identity! Once you clear your identity, the deposit in your reserved balance will get transferred back to your transferable balance. If you need to change your identity, you can go through the process of setting your identity again. Please note that you must ensure all fields are re-entered, even if only one field needs to be changed, or they will be overwritten. You will not need to pay another deposit unless custom fields are used, but you will need to pay gas fees.
