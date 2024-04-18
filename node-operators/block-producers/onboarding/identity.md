@@ -19,7 +19,7 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 - **Default fields include** - your legal name, display name, website, Twitter handle, Discord, Riot (now known as Element) name
 
-- **Custom fields include** - any other relevant information.
+- **Custom fields include** - any other relevant information
 
 - **Subaccounts** - You can link subaccounts underneath a primary account. This may be useful, for example, if a block producer service is running multiple different block producer nodes
 
@@ -34,8 +34,6 @@ To store your information on-chain, you must bond some funds, which will eventua
 ## Checking Prerequisites { : #checking-prerequisites }
 
 For this guide, you will need the following:
-
-To follow along with this tutorial, you will need to have:
 
 - [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
 - At least one account funded with `DANCE` tokens
