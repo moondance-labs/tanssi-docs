@@ -51,14 +51,14 @@ You must create a Hardhat project if you don't already have one. You can create 
 
 5. A menu will appear allowing you to create a new project or use a sample project. For this example, you can choose **Create an empty hardhat.config.js**
 
-![Hardhat Create Project](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-1.webp)
+--8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/terminal/create.md'
 
 This will create a Hardhat config file (`hardhat.config.js`) in your project directory.
 
 Once you have your Hardhat project, you can also install the [Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank}. This provides a convenient way to use the [Ethers.js](/dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. To install it, run the following command:
 
 ```sh
-npm install @nomicfoundation/hardhat-ethers ethers@6
+npm install @nomicfoundation/hardhat-ethers ethers
 ```
 
 Additionally, you'll need to install the `hardhat-ignition-ethers` plugin to enable deployment of smart contracts with Hardhat Ignition. You can install it with the following command:
@@ -152,12 +152,12 @@ After compilation, an `artifacts` directory is created: it holds the bytecode an
 
 ## Deploying the Contract {: #deploying-the-contract }
 
-To deploy the contract, you'll use Hardhat Ignition, a declarative framework for deploying smart contracts. Hardhat Ignition is designed to make managing recurring tasks surrounding smart contract deployment and testing easy. For more information about Hardhat Ignition and its architecture, be sure to check out the [Hardhat Ignition docs](https://hardhat.org/ignition/docs/getting-started#overview){target=\_blank}. 
+To deploy the contract, you'll use Hardhat Ignition, a declarative framework for deploying smart contracts. Hardhat Ignition is designed to make managing recurring tasks surrounding smart contract deployment and testing easy. For more information, be sure to check out the [Hardhat Ignition docs](https://hardhat.org/ignition/docs/getting-started#overview){target=\_blank}. 
 
 To set up the proper file structure for your Ignition module, create a folder named `ignition` and a subdirectory called `modules`.  Then add a new file to it called `Box.js`. You can take all three of these steps with the following command:
 
 ```sh
-mkdir ignition && mkdir ignition/modules && touch ignition/modules/Box.js
+mkdir ignition ignition/modules && touch ignition/modules/Box.js
 ```
 
 Next, you can write your Hardhat Ignition module. To get started, take the following steps:
