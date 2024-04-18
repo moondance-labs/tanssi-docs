@@ -1,3 +1,4 @@
+import '@polkadot/api-augment';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
 // This script will listen to all Native token transfers (Substrate & Ethereum) and extract the tx hash
@@ -16,7 +17,7 @@ const main = async () => {
     async (lastFinalizedHeader) => {
       const [{ block }, records] = await Promise.all([
         polkadotApi.rpc.chain.getBlock(lastFinalizedHeader.hash),
-        polkadotApi.query.system.events.at(lastFinalizedHeader.hash),
+        (await polkadotApi.at(lastFinalizedHeader.hash)).query.system.events(),
       ]);
 
       block.extrinsics.forEach((extrinsic, index) => {

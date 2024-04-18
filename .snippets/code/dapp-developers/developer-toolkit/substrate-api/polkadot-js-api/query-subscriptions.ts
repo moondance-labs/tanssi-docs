@@ -1,3 +1,4 @@
+import '@polkadot/api-augment';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
 const main = async () => {
