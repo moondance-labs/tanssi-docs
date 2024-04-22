@@ -48,7 +48,6 @@ Since Tanssi is built with Substrate, you'll need to use a Substrate-supported w
 - [Polkadot.js extension](https://polkadot.js.org/extension/){target=\_blank}
 - [SubWallet](https://www.subwallet.app/){target=\_blank}
 - [Talisman](https://www.talisman.xyz/){target=\_blank}
-- [MetaMask Polkadot Snap](https://snaps.metamask.io/snap/npm/chainsafe/polkadot-snap/){target=\_blank}
 - [Enkrypt](https://www.enkrypt.com/){target=\_blank}
 
 If you deploy a Tanssi EVM appchain, your users won't need a Substrate wallet. They can interact with your Tanssi appchain using Ethereum-compatible wallets like [MetaMask](/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask){target=\_blank}.
