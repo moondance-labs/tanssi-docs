@@ -109,7 +109,7 @@ console.log(
 ??? code "View the complete script"
 
     ```typescript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/state-queries.ts'
+    --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/state-queries.ts'
     ```
 
 ### RPC Queries {: #rpc-queries }
@@ -138,7 +138,7 @@ console.log(
 ??? code "View the complete script"
 
     ```typescript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/rpc-queries.ts'
+    --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/rpc-queries.ts'
     ```
 
 ### Query Subscriptions {: #query-subscriptions }
@@ -176,7 +176,7 @@ await api.query.system.account(addr, ({ nonce, data: balance }) => {
 ??? code "View the complete script"
 
     ```typescript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/query-subscriptions.ts'
+    --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/query-subscriptions.ts'
     ```
 
 ## Create a Keyring for an Account {: #keyrings }
@@ -205,19 +205,19 @@ There are a number of ways to add an account to the keyring instance, including 
 === "From Mnemonic (ECDSA)"
 
     ```typescript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-mnemonic-ecdsa.ts'
+    --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/adding-accounts-mnemonic-ecdsa.ts'
     ```
 
 === "From Private Key (ECDSA)"
 
     ```typescript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-private-key-ecdsa.ts'
+    --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/adding-accounts-private-key-ecdsa.ts'
     ```
 
 === "From Mnemonic (SR25519)"
 
     ```typescript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/adding-accounts-mnemonic-sr25519.ts'
+    --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/adding-accounts-mnemonic-sr25519.ts'
     ```
 
 ## Sending Transactions  {: #transactions }
@@ -256,7 +256,7 @@ console.log(`Submitted with hash ${txHash}`);
 ??? code "View the complete script"
 
     ```typescript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/basic-transactions.ts'
+    --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/basic-transactions.ts'
     ```
 
 Note that the `signAndSend` function can also accept optional parameters, such as the `nonce`. For example, `signAndSend(alice, { nonce: aliceNonce })`. You can use the [sample code from the State Queries](#state-queries){target=\_blank} section to retrieve the correct nonce, including transactions in the mempool.
@@ -282,7 +282,7 @@ console.log(`Transaction fee: ${partialFee.toHuman()}`);
 
 ??? code "View the complete script"
     ```typescript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/payment-info.ts'
+    --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/payment-info.ts'
     ```
 
 
@@ -328,7 +328,7 @@ await api.tx.utility
 ??? code "View the complete script"
 
     ```typescript
-    --8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/batch-transactions.ts'
+    --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/batch-transactions.ts'
     ```
 
 ## Sample Code for Monitoring Native Token Transfers { #sample-code-for-monitoring-native-token-transfers }
@@ -340,7 +340,7 @@ The following code snippet uses [`subscribeFinalizedHeads`](https://polkadot.js.
 Then, it checks if any event corresponds to a `balances.Transfer` event. If so, it will extract the `from`, `to`, `amount`, and the `tx hash` of the transfer and display it on the console. Note that the `amount` is shown in the smallest unit (Wei).  You can find all the available information about Polkadot.js and the Substrate JSON RPC in their [official documentation site](https://polkadot.js.org/docs/substrate/rpc){target=\_blank}.
 
 ```typescript
---8<-- 'code/dapp-developers/developer-toolkit/substrate-api/polkadot-js-api/balance-event.ts'
+--8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/balance-event.ts'
 ```
 
 In addition, you can find more sample code snippets related to more specific cases around balance transfers at this [GitHub page](https://gist.github.com/crystalin/b2ce44a208af60d62b5ecd1bad513bce){target=\_blank}.

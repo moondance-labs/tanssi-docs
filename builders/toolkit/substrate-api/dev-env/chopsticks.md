@@ -48,7 +48,7 @@ yarn start --endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
 
 This command will start a local clone of the chain as it was in the latest block.
 
---8<-- 'code/dapp-developers/developer-toolkit/substrate-api/chopsticks/chopsticks-1.md'
+--8<-- 'code/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.md'
 
 Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [demo EVM appchain](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
 
@@ -126,7 +126,7 @@ ws://localhost:8000
 
 You can interact with the parachain via libraries such as [Polkadot.js](https://github.com/polkadot-js/common){target=\_blank} and its [user interface, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}.
 
-![Polkadot Js](/images/dapp-developers/developer-toolkit/substrate-api/chopsticks/chopsticks-1.webp)
+![Polkadot Js](/images/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.webp)
 
 You should now be able to interact with the forked chain as you would with the real one.
 

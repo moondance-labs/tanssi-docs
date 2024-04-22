@@ -87,7 +87,7 @@ touch MyToken.sol
 Open the file and add the following contract to it:
 
 ```solidity
---8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/foundry/erc20.sol'
+--8<-- 'code/builders/toolkit/ethereum-api/dev-env/foundry/erc20.sol'
 ```
 
 Before you attempt to compile, install OpenZeppelin contracts as a dependency. You may have to commit previous changes to git beforehand. By default, Foundry uses git submodules instead of npm packages, so the traditional npm import path and command are not used. Instead, use the name of OpenZeppelin's GitHub repository:
@@ -104,7 +104,7 @@ Once all dependencies have been installed, you can compile the contract:
 forge build
 ```
 
-![Foundry Contract Compile](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-1.webp)
+![Foundry Contract Compile](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-1.webp)
 
 After compilation, two folders will be created: `out` and `cache`. The ABI and bytecode for your contracts will be contained within the `out` folder. These two folders are already ignored by the `.gitignore` included in the default Foundry project initialization.
 
@@ -121,7 +121,7 @@ src/MyToken.sol:MyToken
 
 After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
-![Foundry Contract Deploy](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-2.webp)
+![Foundry Contract Deploy](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-2.webp)
 
 Congratulations, your contract is live! Save the address, as you will use it to interact with this contract instance in the next step.
 
@@ -143,7 +143,7 @@ You should get this data in hexadecimal format:
 
 This is far from readable, but you can use Cast to convert it into your desired format. In this case, the data is text, so you can convert it into ASCII characters to see "My Token":
 
-![Foundry Contract View](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-3.webp)
+![Foundry Contract View](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-3.webp)
 
 ```bash
 cast --to-ascii 0x000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000074d79546f6b656e00000000000000000000000000000000000000000000000000
@@ -161,7 +161,7 @@ INSERT_YOUR_CONTRACT_ADDRESS \
 
 The transaction will be signed by your EVM account and be broadcast to the network. The output should look similar to:
 
-![Foundry Contract Interaction](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-4.webp)
+![Foundry Contract Interaction](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-4.webp)
 
 Congratulations, you have successfully deployed and interacted with a contract using Foundry!
 
@@ -177,7 +177,7 @@ anvil --fork-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
 
 Your forked instance will have 10 development accounts that are pre-funded with 10,000 test tokens. The forked instance is available at `http://127.0.0.1:8545/`. The output in your terminal should resemble the following:
 
-![Forking terminal screen](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-5.webp)
+![Forking terminal screen](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-5.webp)
 
 To verify you have forked the network, you can query the latest block number and compare it to the current block number of the [demo EVM appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank}.
 
@@ -220,7 +220,7 @@ Let's say you were interested in how `abi` encoded data because you're looking i
 
 `memdump` will dump all of the data in your current session. You'll likely see something like this below. If you aren't good at reading hexadecimal or if you don't know how ABI encoding works, then you might not be able to find where the `myData` variable has been stored.
 
-![memdump in Chisel](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-6.webp)
+![memdump in Chisel](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-6.webp)
 
 Fortunately, Chisel lets you easily figure out where this information is stored. Using the `!rawstack` command, you can find the location in the stack where the value of a variable is:
 
@@ -230,7 +230,7 @@ Fortunately, Chisel lets you easily figure out where this information is stored.
 
 In this situation, since `myData` is over 32 bytes in length, the memory pointer is displayed instead. But that's exactly what's needed since you already know the entirety of the stack from the `!memdump` command.
 
-![rawstack in Chisel](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-7.webp)
+![rawstack in Chisel](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-7.webp)
 
 The `!rawstack` command shows that the `myData` variable is stored at `0x80`, so when comparing this with the memory dump retrieved from the `!memdump` command, it looks like `myData` is stored like this:  
 
@@ -259,7 +259,7 @@ abi.encode(100, true, "Build with Tanssi")
 
 You should see something like the following:  
 
-![Expressions in Chisel](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-8.webp)
+![Expressions in Chisel](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-8.webp)
 
 While it doesn't display the data in the same way, you still get the contents of the data, and it also further breaks down how the information is coded, such as letting you know that the `0xa0` value defines the length of the data.  
 
@@ -302,7 +302,7 @@ Then to view and interact with your stored Chisel states, you can take the follo
     !rawstack myNumber
     ```  
 
-![Saving state in Chisel](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-9.webp)
+![Saving state in Chisel](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-9.webp)
 
 You can even fork networks while using Chisel:
 
@@ -316,13 +316,13 @@ Then, for example, you can query the balance of the Alice account on the demo EV
 0x44236223aB4291b93EEd10E4B511B37a398DEE55.balance
 ```
 
-![Forking in Chisel](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/foundry/foundry-10.webp)
+![Forking in Chisel](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-10.webp)
 
 If you want to learn more about Chisel, download Foundry and refer to its [official reference page](https://book.getfoundry.sh/reference/chisel/){target=\_blank}.
 
 ## Foundry with Hardhat {: #foundry-with-hardhat }  
 
-Often, there will be the case where a project that you wish to integrate with has all of its setup within [Hardhat](/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/){target=\_blank}, making it an arduous task to convert the entirety of the project into Foundry. This additional work is avoidable by creating a hybrid project that uses both Hardhat and Foundry features together. This is possible with Hardhat's [hardhat-foundry plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-foundry){target=\_blank}.  
+Often, there will be the case where a project that you wish to integrate with has all of its setup within [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/){target=\_blank}, making it an arduous task to convert the entirety of the project into Foundry. This additional work is avoidable by creating a hybrid project that uses both Hardhat and Foundry features together. This is possible with Hardhat's [hardhat-foundry plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-foundry){target=\_blank}.  
 
 To convert your preexisting Foundry project to a hybrid project, you will essentially have to install a Hardhat project into the same folder:  
 
@@ -332,7 +332,7 @@ npm install --save-dev hardhat @nomicfoundation/hardhat-foundry
 npx hardhat init
 ```
 
-For more information, please refer to our documentation on [Creating a Hardhat Project](/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank}.
+For more information, please refer to our documentation on [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank}.
 
 After initializing the new Hardhat project, a few new folders and files should appear: `contracts`, `hardhat.config.js`, `scripts`, and `test/Lock.js`. You'll need to make a few modifications to create a hybrid project:
 

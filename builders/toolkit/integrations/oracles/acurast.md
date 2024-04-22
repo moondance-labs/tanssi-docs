@@ -26,7 +26,7 @@ You can design your Acurast price feed exactly as you wish. The demo price feed 
 ???+ code "AggregatorV3Interface.sol"
 
     ```solidity
-    --8<-- 'code/dapp-developers/integrations/oracles/acurast/AggregatorV3Interface.sol'
+    --8<-- 'code/builders/toolkit/integrations/oracles/acurast/AggregatorV3Interface.sol'
     ```
 
 As seen above in the interface, there are five functions for fetching data: `decimals`, `description`, `version`, `getRoundData`, and `latestRoundData`. For more information about the `AggregatorV3Interface.sol`, see the [Chainlink API Reference](https://docs.chain.link/data-feeds/api-reference){target=\_blank}.
@@ -39,11 +39,11 @@ This tutorial will showcase interacting with a sample BTC/USDT price feed contra
 {{ networks.dancebox.oracles.acurast.btc_usd }}
 ```
 
-For a refresher on setting up Remix to interface with the demo EVM appchain, see the [Deploy Smart Contracts with Remix](/dapp-developers/developer-toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM appchain.
+For a refresher on setting up Remix to interface with the demo EVM appchain, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM appchain.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
-![Compile aggregator contract](/images/dapp-developers/integrations/oracles/acurast/acurast-1.webp)
+![Compile aggregator contract](/images/builders/toolkit/integrations/oracles/acurast/acurast-1.webp)
 
 Then, take the following steps:
 
@@ -52,7 +52,7 @@ Then, take the following steps:
 3. Select the **AggregatorV3Interface** contract from the **CONTRACT** dropdown
 4. Enter the sample price feed contract address for `BTC to USD`, which is `{{ networks.dancebox.oracles.acurast.btc_usd }}` on the demo EVM appchain in the **At Address** field and click the **At Address** button
 
-![Access aggregator contract](/images/dapp-developers/integrations/oracles/acurast/acurast-2.webp)
+![Access aggregator contract](/images/builders/toolkit/integrations/oracles/acurast/acurast-2.webp)
 
 The aggregator contract should now be accessible. To interact with the aggregator contract, take the following steps:
 
@@ -61,7 +61,7 @@ The aggregator contract should now be accessible. To interact with the aggregato
 3. Click **description** to verify the asset pair of the price feed
 4. Click **latestRoundData** to see the most recent price data for the asset pair. The price data for the pair is returned as the **int256 answer**
 
-![Check price data](/images/dapp-developers/integrations/oracles/acurast/acurast-3.webp)
+![Check price data](/images/builders/toolkit/integrations/oracles/acurast/acurast-3.webp)
 
 Note that to obtain a readable price from the price feed, it's essential to adjust for the feed's decimal places, which can be determined using the `decimals()` method. For instance, if the price feed returns a value of `51933620000`, you'll need to move the decimal point six places to accurately reflect the price. In this example, it corresponds to a Bitcoin price of `$51,933.62` at the time of writing.
 
@@ -75,7 +75,7 @@ curl "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
 
 Upon running the above command in your terminal, you'll see a result that resembles the following:
 
---8<-- 'code/dapp-developers/integrations/oracles/acurast/terminal/api.md'
+--8<-- 'code/builders/toolkit/integrations/oracles/acurast/terminal/api.md'
 
 !!! note
     This simple example of fetching a price feed relies on a single source of price feed data from one exchange. You can build a more complex job script that aggregates pricing data from multiple sources.
@@ -103,7 +103,7 @@ The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price i
 ???+ code "InsecureDummyPriceFeed.sol"
 
     ```solidity
-    --8<-- 'code/dapp-developers/integrations/oracles/acurast/InsecureDummyPriceFeed.sol'
+    --8<-- 'code/builders/toolkit/integrations/oracles/acurast/InsecureDummyPriceFeed.sol'
     ```
 
 !!! warning
@@ -120,7 +120,7 @@ The [Acurast script for the demo BTC/USD price feed](https://github.com/Acurast/
 ???+ code "AcurastScript.js"
 
     ```js
-    --8<-- 'code/dapp-developers/integrations/oracles/acurast/AcurastScript.js'
+    --8<-- 'code/builders/toolkit/integrations/oracles/acurast/AcurastScript.js'
     ```
 
 To configure your job, head to the [Acurast console](https://console.acurast.com/create){target=\_blank}, then take the following steps:
@@ -132,7 +132,7 @@ To configure your job, head to the [Acurast console](https://console.acurast.com
 5. Paste in the code of your job script. You can copy and paste directly from the [script of the sample BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/blob/main/acurast_scripts/oracle_job.js){target=\_blank}, just make sure to change the destination contract to one that you deployed on your appchain and the RPC node to your appchain's RPC URL, which can be found on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}
 6. Optionally, you can test your code here. Any error messages will be readable in the browser's console
 
-![Job setup on Acurast console](/images/dapp-developers/integrations/oracles/acurast/acurast-4.webp)
+![Job setup on Acurast console](/images/builders/toolkit/integrations/oracles/acurast/acurast-4.webp)
 
 Continuing down the same setup page, take the following steps:
 
@@ -145,7 +145,7 @@ Continuing down the same setup page, take the following steps:
 7. Select **Max Reward** paid to each processor for each job execution. You don't need to specify exactly `0.01` cACU - this amount was chosen as an example
 8. Review everything first, then Press **Publish Job**
 
-![Job setup on Acurast console continued](/images/dapp-developers/integrations/oracles/acurast/acurast-5.webp)
+![Job setup on Acurast console continued](/images/builders/toolkit/integrations/oracles/acurast/acurast-5.webp)
 
 On the following screen, you'll be able to monitor the status of your job. For more information about using Acurast to build and access price feeds on your Tanssi EVM-compatible appchain, be sure to check out the [Acurast docs](https://docs.acurast.com/){target=\_blank}.
 

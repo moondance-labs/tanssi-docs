@@ -28,7 +28,7 @@ After installing [MetaMask](https://metamask.io){target=\_blank}, the setup will
 - **Create a new wallet** - you'll go through some steps to get a new seed phrase. Ensure you store this phrase securely and you don't share it publicly
 - **Import an existing wallet** - you already have a seed phrase stored, and you want to restore an account from that recovery phrase
 
-![Metamask Setup Interface](/images/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/metamask-1.webp)
+![Metamask Setup Interface](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-1.webp)
 
 Once you've clicked on the option that adapts to your needs, follow the steps, and you should be all setup.
 
@@ -41,19 +41,19 @@ Once you've created a wallet or imported an existing one, you can also import an
 
 For this example, you'll use private keys from the development account. Click the account switcher button to import an account using its private keys. That is where it says **Account 1**.
 
-![Importing account from private key metamask menu](/images/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/metamask-2.webp)
+![Importing account from private key metamask menu](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-2.webp)
 
 Next, click on **Import Account**.
 
-![Importing account from private key account switcher menu](/images/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/metamask-3.webp)
+![Importing account from private key account switcher menu](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-3.webp)
 
 Finally, enter the private keys of the account you are trying to import. Once you've entered the private key, click on **Import**.
 
-![Paste your account key into MetaMask](/images/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/metamask-4.webp)
+![Paste your account key into MetaMask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-4.webp)
 
 You should end up with an imported **Account 2** that looks like this:
 
-![MetaMask displaying your new Account 2](/images/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/metamask-5.webp)
+![MetaMask displaying your new Account 2](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-5.webp)
 
 ## Connect MetaMask to your Tanssi EVM Appchain {: #connect-metamask-to-evm-appchain }
 
@@ -62,11 +62,11 @@ Once you have [MetaMask](https://metamask.io/){target=\_blank} installed and hav
 1. Click in the upper left network selector menu
 2. Select **Add Network**
 
-![Add new network in Metamask menu](/images/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/metamask-6.webp)
+![Add new network in Metamask menu](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-6.webp)
 
 Next, go to the bottom of the page and click on **Add network manually**:
 
-![Add network manually in Metamask](/images/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/metamask-7.webp)
+![Add network manually in Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-7.webp)
 
 Here, you can configure MetaMask for the following networks:
 
@@ -87,11 +87,11 @@ To do so, fill in the following information:
 5. **Block Explorer** - (optional) URL of the block explorer
 6. Once you've verified all the information, click on **Save**
 
-![Add network in Metamask](/images/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/metamask-8.webp)
+![Add network in Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-8.webp)
 
 Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted to **Switch to EVM Appchain Dancebox**, the network added in this example.
 
-![Successfully added a network in Metamask](/images/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/metamask-9.webp)
+![Successfully added a network in Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-9.webp)
 
 ## Interact with the Network {: #interact-with-network }
 

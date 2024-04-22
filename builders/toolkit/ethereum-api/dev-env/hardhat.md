@@ -16,7 +16,7 @@ This guide will cover how to use Hardhat to compile, deploy, and interact with E
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-For this guide, you'll need to have MetaMask installed and configured to work with your Tanssi EVM appchain. You can follow [this guide to configure MetaMask for Tanssi with the demo EVM appchain](/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+For this guide, you'll need to have MetaMask installed and configured to work with your Tanssi EVM appchain. You can follow [this guide to configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ## Creating a Hardhat Project {: #creating-a-hardhat-project }
 
@@ -51,11 +51,11 @@ You will need to create a Hardhat project if you don't already have one. You can
 
 5. A menu will appear which will allow you to create a new project or use a sample project. For this example, you can choose **Create an empty hardhat.config.js**
 
-![Hardhat Create Project](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-1.webp)
+![Hardhat Create Project](/images/builders/toolkit/ethereum-api/dev-environments/hardhat/hardhat-1.webp)
 
 This will create a Hardhat config file (`hardhat.config.js`) in your project directory.
 
-Once you have your Hardhat project, you can also install the [Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank}. This provides a convenient way to use the [Ethers.js](/dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. To install it, run the following command:
+Once you have your Hardhat project, you can also install the [Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank}. This provides a convenient way to use the [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. To install it, run the following command:
 
 ```sh
 npm install @nomicfoundation/hardhat-ethers ethers@6
@@ -139,7 +139,7 @@ To compile the contract you can simply run:
 npx hardhat compile
 ```
 
-![Hardhat Contract Compile](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-2.webp)
+![Hardhat Contract Compile](/images/builders/toolkit/ethereum-api/dev-environments/hardhat/hardhat-2.webp)
 
 After compilation, an `artifacts` directory is created: it holds the bytecode and metadata of the contract, which are `.json` files. It’s a good idea to add this directory to your `.gitignore`.
 
@@ -163,7 +163,7 @@ To get started, take the following steps:
 5. Once deployed, you can fetch the address of the contract using the contract instance
 
 ```ts
---8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/dev-env/hardhat/deploy.js'
+--8<-- 'code/builders/toolkit/ethereum-api/dev-env/hardhat/deploy.js'
 ```
 
 You can now deploy the `Box.sol` contract using the `run` command and specifying `dancebox` as the network:
@@ -176,7 +176,7 @@ If you're deploying to another Tanssi appchain, make sure that you specify the c
 
 After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
-![Hardhat Contract Deploy](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-3.webp)
+![Hardhat Contract Deploy](/images/builders/toolkit/ethereum-api/dev-environments/hardhat/hardhat-3.webp)
 
 Congratulations, your contract is live! Save the address, as you will use it to interact with this contract instance in the next step.
 
@@ -210,7 +210,7 @@ Next, you can take the following steps, entering one line at a time:
 
 The transaction will be signed by your EVM account and be broadcast to the network. The output should look similar to:
 
-![Transaction output](/images/dapp-developers/developer-toolkit/ethereum-api/dev-environments/hardhat/hardhat-4.webp)
+![Transaction output](/images/builders/toolkit/ethereum-api/dev-environments/hardhat/hardhat-4.webp)
 
 Notice your address labeled `from`, the address of the contract, and the `data` that is being passed. Now, you can retrieve the value by running:
 

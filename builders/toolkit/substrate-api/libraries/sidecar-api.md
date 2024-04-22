@@ -72,7 +72,7 @@ node_modules/.bin/substrate-api-sidecar
 
 If the installation and configuration are successful, you should see this output in the console:
 
-![Successful Output](/images/dapp-developers/developer-toolkit/substrate-api/sidecar-api/sidecar-1.webp)
+![Successful Output](/images/builders/toolkit/substrate-api/libraries/sidecar-api/sidecar-1.webp)
 
 ## Substrate API Sidecar Endpoints {: #substrate-api-sidecar-endpoints }
 
@@ -299,7 +299,7 @@ Both Tanssi non-EVM appchains and EVM appchains can perform Substrate-based nati
 The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist/){target=\_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash` and `transaction status` of native token transfers at both the EVM and Substrate API level.
 
 ```typescript
---8<-- 'code/dapp-developers/developer-toolkit/substrate-api/sidecar/sidecar-transfer.ts'
+--8<-- 'code/builders/toolkit/substrate-api/libraries/sidecar/sidecar-transfer.ts'
 ```
 
 ### ERC-20 Token Transfers {: #erc-20-token-transfers }
