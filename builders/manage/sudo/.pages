@@ -5,6 +5,7 @@ nav:
   - 'Manage the Sudo Account': 'sudo.md'
   - 'Dispatch Runtime Upgrades': 'upgrade.md'
   - 'Enabling Maintenance Mode': 'maintenance.md'
+  - 'Pausing Transactions or Modules': 'pause-transactions.md'
   - 'Impersonate Accounts': 'impersonate.md'
   - 'Mint Tokens': 'minting.md'
 
