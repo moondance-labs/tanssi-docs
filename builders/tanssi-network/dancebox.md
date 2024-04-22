@@ -7,13 +7,17 @@ description: Dancebox is the Tanssi TestNet, and it is the easiest way to get st
 
 ## Introduction
 
-Dancebox is the first public Tanssi TestNet, allowing teams to onboard and get their appchains up and running in minutes.
+Dancebox is the first public Tanssi TestNet and is designed to streamline the deployment of appchains. It allows teams to swiftly onboard and launch their appchains within minutes, providing a robust environment for testing and development.
 
-To get an appchain deployed through Tanssi, after [getting the required tokens](#get-testnet-tokens), just follow the [registration steps in the Dapp](/builders/deploy/dapp/){target=\_blank}.
+This quick reference page offers all the essentials you need to get started on Dancebox.
 
-## Get TestNet Tokens {: #get-testnet-tokens }
+## TestNet Tokens {: #testnet-tokens }
 
-You can request DANCE tokens by completing a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank} and providing basic information and your Substrate-based address. Within one business day, you'll receive DANCE tokens for testing.
+DANCE tokens serve as the native currency within the Dancebox Network. To initiate the deployment of an appchain on Dancebox, you'll need to obtain DANCE tokens. Follow these steps:
+
+1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank} website
+2. Complete the form by providing basic information and your Substrate-based address
+3. Within one business day of submitting the form, you'll receive DANCE tokens for testing
 
 !!! note
     DANCE tokens have no value. Please don't submit unnecessary requests.
@@ -42,4 +46,3 @@ For Dancebox, you can use the following block explorer:
 - [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank}
 
 Support for additional block explorers is in the works and as more explorers support Dancebox, this section will be updated accordingly.
-

@@ -1,6 +1,7 @@
-title: Developer Toolkit
+title: Appchain Toolkit
 hide: false
 nav:
   - index.md
   - ethereum-api
   - substrate-api
+  - integrations

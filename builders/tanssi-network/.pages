@@ -1,7 +1,7 @@
-title: Tanssi Network
+title: Tanssi Networks
 hide: false
 nav:
   - index.md
-  - networks
-  - 'Endpoints': 'endpoints.md'
-  
+  - 'Dancebox': 'dancebox.md'
+  - 'Demo EVM Appchain': 'demo-evm-appchain.md'
+  - 'Network Endpoints': 'endpoints.md'
