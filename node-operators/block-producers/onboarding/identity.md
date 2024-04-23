@@ -137,3 +137,20 @@ On the **Chain State** UI, make sure **Storage** is selected. Then you can start
 ![Request identity information](/images/node-operators/block-producers/onboarding/identity/identity-7.webp)
 
 You can see now that you've successfully set an identity! Once you clear your identity, the deposit in your reserved balance will get transferred back to your transferable balance. If you need to change your identity, you can go through the process of setting your identity again. Please note that you must ensure all fields are re-entered, even if only one field needs to be changed, or they will be overwritten. You will not need to pay another deposit unless custom fields are used, but you will need to pay gas fees.
+
+## Clear an Identity {: #confirm-identity-extrinsics }
+
+To clear your identity, take the following steps from Extrinsics tab of the Polkadot.js Apps UI: 
+
+1. Select your account from the **using the selected account** dropdown
+2. Select **identity** from the **submit the following extrinsic** dropdown
+3. Then select the **clearIdentity()** function
+4. Click **Submit Transaction**
+
+![Clear an identity](/images/node-operators/block-producers/onboarding/identity/identity-8.webp)
+
+You will then be prompted to sign the transaction. If everything looks good, you can enter your password and click Sign and Submit to sign and send the transaction. You should see status notifications pop-up in the top right hand corner confirming the transaction.
+
+To confirm that your identity information has been successfully removed, revisit the steps outlined in the [Confirm an Identity section](#confirm-identity-extrinsics). This time, instead of displaying your identity details, the response should indicate "none," confirming that no identity information is currently linked to your account. Additionally, when you check your balances, you will find that the deposit initially made for setting your identity has been credited back to your transferable balance. This completes the process of clearing your identity.
+
+![Clear an identity confirmation](/images/node-operators/block-producers/onboarding/identity/identity-9.webp)
