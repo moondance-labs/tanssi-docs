@@ -39,7 +39,7 @@ In the terminal that Sidecar will run, export the environmental variable for the
 === "Dancebox"
 
     ```bash
-    export SAS_SUBSTRATE_URL=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
+    export SAS_SUBSTRATE_URL=wss://{{ networks.dancebox.dns_name }}
     ```
 
 === "Dancebox EVM Appchain"

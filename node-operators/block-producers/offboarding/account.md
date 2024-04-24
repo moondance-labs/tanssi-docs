@@ -17,7 +17,7 @@ When you set up your Tanssi block producer node, you had to submit a delegation 
 
 ### View Existing Stake {: #viewing-existing-stake }
 
-Before undelegating, it is helpful first to see how much you have staked, as you'll need to provide this figure later. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain State** from the dropdown, and take the following steps:
+Before undelegating, it is helpful first to see how much you have staked, as you'll need to provide this figure later. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain State** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module
 2. Select the **pools** query
@@ -34,7 +34,7 @@ As an example, the total stake of an autocompounding block producer can be calcu
 
 ### Submit Undelegation Request {: #submit-undelegation-request }
 
-Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
 1. Select the account from which you want to send the extrinsic. This account must be your existing block producer account that you initially delegated from
 2. Select the **pooledStaking** module
@@ -51,7 +51,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 
 You'll need to wait at least two sessions before executing the pending request. For example, if you submitted the undelegation request at session `1`, the earliest it can be executed is session `3`. Each session is comprised of `{{ networks.dancebox.session.blocks }}` blocks and translates to about {{ networks.dancebox.session.display }} hour per session. So, two sessions correspond to approximately {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
 
-Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module
 2. Select the **pendingOperations** query
@@ -88,7 +88,7 @@ If at least two sessions have passed from the session you submitted the extrinsi
 
 ### Verify That Your Account Is Not in the List of Eligible Candidates {: #verify }
 
-If you'd like, you can verify that your block-producing node is no longer in the list of eligible candidates. To do so, go to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+If you'd like, you can verify that your block-producing node is no longer in the list of eligible candidates. To do so, go to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module and the **sortedEligibleCandidates** query
 2. Click the **+** button next to the extrinsic field
@@ -102,7 +102,7 @@ Session keys are used to perform network operations, such as signing blocks, whe
 
 The unmapping step is taken only as part of the offboarding process. If you need to rotate/change your session keys, you'll need to follow the [generating and mapping new session keys](/node-operators/block-producers/onboarding/account-setup/#map-session-keys){target=\_blank}. You should not purge your keys during the session key rotation process.
 
-To unmap your session keys, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+To unmap your session keys, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
 1. Select your Tanssi block producer account
 2. Select the **session** module
@@ -111,7 +111,7 @@ To unmap your session keys, head to [Polkadot.js Apps](https://polkadot.js.org/a
 
 ![Unmap session keys on Polkadot.js Apps](/images/node-operators/block-producers/offboarding/account/account-7.webp)
 
-Using the `session.keyOwner` method, you can verify that your session keys have been unmapped from your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Using the `session.keyOwner` method, you can verify that your session keys have been unmapped from your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **session** module
 2. Select the **keyOwner** query

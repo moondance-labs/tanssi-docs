@@ -14,13 +14,13 @@ The Dancebox TestNet HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://fraa-dancebox-rpc.a.dancebox.tanssi.network/
+    https://{{ networks.dancebox.dns_name }}/
     ```
 
 === "WSS"
 
     ```text
-    wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
+    wss://{{ networks.dancebox.dns_name }}
     ```
 
 ### Demo EVM Appchain
