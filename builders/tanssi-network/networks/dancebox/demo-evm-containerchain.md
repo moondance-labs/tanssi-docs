@@ -35,18 +35,18 @@ Then, take the following steps:
 
 1. Press **Request Tokens**
 2. Select the account you'd like to receive TANGO tokens and press **Next**
-3. Press **Connect** 
+3. Press **Connect**
 
 ![Request tokens](/images/builders/network/networks/dancebox/demo/demo-2.webp)
 
 !!! note
-    TANGO tokens have no value. Please don't spam the faucet with unnecessary requests. 
+    TANGO tokens have no value. Please don't spam the faucet with unnecessary requests.
 
-Your tokens will be disbursed shortly, and you can verify your TANGO token balance by looking up your address on the [explorer](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank}.
+Your tokens will be disbursed shortly, and you can verify your TANGO token balance by looking up your address on the [explorer](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank}.
 
 ## Quick Start {: #quick-start }
 
-You can interact with a Tanssi EVM appchain using standard Ethereum libraries, like [Ethers.js](/builders/interact/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/builders/interact/ethereum-api/libraries/web3js){target=\_blank}, and [Web3.py](/builders/interact/ethereum-api/libraries/web3py){target=\_blank}. To quickly get started, you'll need to create a provider connected to a Tanssi EVM appchain:
+You can interact with a Tanssi EVM appchain using standard Ethereum libraries, like [Ethers.js](/dapp-developers/developer-toolkit/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/dapp-developers/developer-toolkit/ethereum-api/libraries/web3js){target=\_blank}, and [Web3.py](/dapp-developers/developer-toolkit/ethereum-api/libraries/web3py){target=\_blank}. To quickly get started, you'll need to create a provider connected to a Tanssi EVM appchain:
 
 === "Ethers.js"
 
@@ -97,5 +97,4 @@ The demo EVM appchain has a [chain ID](https://chainlist.org/chain/5678){target=
 For the demo EVM appchain, you can use any of the following explorers:
 
 - Substrate API - on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank}
-- EVM explorer - on [Blockscout](https://3001-blockscout.a.dancebox.tanssi.network/){target=\_blank} or [Expedition](https://tanssi-evmexplorer.netlify.app/){target=\_blank}
-
+- EVM explorer - on [Blockscout](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank} or [Expedition](https://tanssi-evmexplorer.netlify.app/){target=\_blank}

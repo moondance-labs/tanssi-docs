@@ -1,0 +1,10 @@
+title: Using Sudo
+hide: false
+nav:
+  - index.md
+  - 'Manage the Sudo Account': 'sudo.md'
+  - 'Dispatch Runtime Upgrades': 'upgrade.md'
+  - 'Enabling Maintenance Mode': 'maintenance.md'
+  - 'Impersonate Accounts': 'impersonate.md'
+  - 'Mint Tokens': 'minting.md'
+

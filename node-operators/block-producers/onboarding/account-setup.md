@@ -11,7 +11,7 @@ Before you can start producing blocks on Tanssi and Tanssi appchains, you'll nee
 
 You must have spun up a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} to tackle the account setup steps in this guide.
 
-You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed.
+You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/block-producers/operational-tasks/proxy-accounts){target=\_blank} for additional security. 
 
 To establish eligibility, you must delegate yourself as a block producer and meet the minimum bond requirements.
 
@@ -136,7 +136,7 @@ If the request can be executed, select **Extrinsics** from the **Developer** dro
 3. For **delegator**, enter your account, which is the same account you sent the self-delegate request from
 4. For **operation**, select the type of operation to execute. This should be either **JoiningAutoCompounding** or **JoiningManualRewards**, depending on the target pool you selected at the time of submitting the self-delegation request
 5. For **candidate**, enter the same account as you did in the **delegator** field
-6. For **at**, enter the session key at which you submitted the delegate request
+6. For **at**, enter the session id at which you submitted the delegate request
 7. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-6.webp)
