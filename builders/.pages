@@ -2,6 +2,7 @@ title: Appchain Developers
 hide: false
 nav:
   - index.md
+  - account-management
   - build
   - deploy
   - manage
