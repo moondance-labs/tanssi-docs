@@ -57,14 +57,14 @@ To get started with setting an identity using the Accounts UI, head to the [Acco
 
 You should already have an account connected, so you can click on your account name to verify and note your balances. After you send the transaction to set an identity, the deposit(s) you submitted will be moved from your transferable balance to your reserved balance.
 
-![Starting account balances](/images/node-operators/block-producers/onboarding/identity/identity-1.webp)
+![Starting account balances](/images/builders/account-management/identity/identity-1.webp)
 
 To set your identity, you'll need to:
 
 1. Click on the three vertical dots next to the account you would like to set an identity for
 2. A menu will pop up. Click **Set on-chain identity**
 
-![Set on-chain identity](/images/node-operators/block-producers/onboarding/identity/identity-2.webp)
+![Set on-chain identity](/images/builders/account-management/identity/identity-2.webp)
 
 Next, the menu to register and set your identity will pop up, and you can start filling in your information. You are not required to enter information for every single field; you can choose to fill in just one field or all of them; it's up to you. For this example:
 
@@ -74,13 +74,13 @@ Next, the menu to register and set your identity will pop up, and you can start 
 4. Click on the **include field** toggle for Twitter and then enter in your Twitter handle
 5. Review the prior data fields and click **Set Identity**
 
-![Set your identity](/images/node-operators/block-producers/onboarding/identity/identity-3.webp)
+![Set your identity](/images/builders/account-management/identity/identity-3.webp)
 
 You will then be prompted to sign the transaction. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction.
 
 You should see status notifications pop up in the top right-hand corner. Once the transaction has been confirmed, you can click on your account name again, and the panel will slide out on the right side of the page. Your balances will have changed, and you'll also see your new identity information.
 
-![Updated account balances](/images/node-operators/block-producers/onboarding/identity/identity-4.webp)
+![Updated account balances](/images/builders/account-management/identity/identity-4.webp)
 
 If the identity information matches what you entered, you've successfully set an identity!
 
@@ -105,7 +105,7 @@ To register an identity using the extrinsics UI, navigate to the [Extrinsics pag
 11. Enter your Twitter in the selected format. Enter the username only, starting with the `@` symbol
 12. Review the prepared fields and press **Submit Transaction**
 
-![Set on-chain identity](/images/node-operators/block-producers/onboarding/identity/identity-5.webp)
+![Set on-chain identity](/images/builders/account-management/identity/identity-5.webp)
 
 Optionally, if you would like to enter custom fields, take the following steps:
 
@@ -115,7 +115,7 @@ Optionally, if you would like to enter custom fields, take the following steps:
 4. Select **Raw** as the data format to enter the custom value
 5. Enter the custom value in the specified format
 
-![Add custom fields](/images/node-operators/block-producers/onboarding/identity/identity-6.webp)
+![Add custom fields](/images/builders/account-management/identity/identity-6.webp)
 
 Finally, once all of your identity information has been added, you can scroll to the bottom of the page and click **Submit Transaction**.
 
@@ -134,7 +134,7 @@ On the **Chain State** UI, make sure **Storage** is selected. Then you can start
 3. Select your account
 4. Click the **+** button to get your identity information
 
-![Request identity information](/images/node-operators/block-producers/onboarding/identity/identity-7.webp)
+![Request identity information](/images/builders/account-management/identity/identity-7.webp)
 
 You can see now that you've successfully set an identity! Once you clear your identity, the deposit in your reserved balance will get transferred back to your transferable balance. If you need to change your identity, you can go through the process of setting your identity again. Please note that you must ensure all fields are re-entered, even if only one field needs to be changed, or they will be overwritten. You will not need to pay another deposit unless custom fields are used, but you will need to pay gas fees.
 
@@ -147,10 +147,10 @@ To clear your identity, take the following steps from Extrinsics tab of the Polk
 3. Then select the **clearIdentity()** function
 4. Click **Submit Transaction**
 
-![Clear an identity](/images/node-operators/block-producers/onboarding/identity/identity-8.webp)
+![Clear an identity](/images/builders/account-management/identity/identity-8.webp)
 
 You will then be prompted to sign the transaction. If everything looks good, you can enter your password and click Sign and Submit to sign and send the transaction. You should see status notifications pop-up in the top right hand corner confirming the transaction.
 
 To confirm that your identity information has been successfully removed, revisit the steps outlined in the [Confirm an Identity section](#confirm-identity-extrinsics). This time, instead of displaying your identity details, the response should indicate "none," confirming that no identity information is currently linked to your account. Additionally, when you check your balances, you will find that the deposit initially made for setting your identity has been credited back to your transferable balance. This completes the process of clearing your identity.
 
-![Clear an identity confirmation](/images/node-operators/block-producers/onboarding/identity/identity-9.webp)
+![Clear an identity confirmation](/images/builders/account-management/identity/identity-9.webp)
