@@ -63,7 +63,7 @@ To restart the node, you can use the command you used when launching your block 
 
 ### Specifying a Version Tag {: #specifying-a-version-tag }
 
-The Docker commands above will automatically fetch the latest release version tag, but if you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by appending the version tag to the image name. For example, if you wanted to fetch version `v0.5`, rather than specifying the image name as `moondancelabs/tanssi`, you would indicate `moondancelabs/tanssi:v0.5` as the image name.
+The Docker commands above will automatically fetch the latest release version tag, but if you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by appending the version tag to the image name. For example, if you wanted to fetch version `{{ networks.dancebox.client_version }}`, rather than specifying the image name as `moondancelabs/tanssi`, you would indicate `moondancelabs/tanssi:{{ networks.dancebox.client_version }}` as the image name.
 
 The complete commands with specific version tags are thus as follows:
 
@@ -72,7 +72,7 @@ The complete commands with specific version tags are thus as follows:
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/tanssi:v0.5 \
+    moondancelabs/tanssi:{{ networks.dancebox.client_version }} \
     --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 
@@ -82,7 +82,7 @@ The complete commands with specific version tags are thus as follows:
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
-    moondancelabs/tanssi:v0.5 \
+    moondancelabs/tanssi:{{ networks.dancebox.client_version }} \
     --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 
@@ -92,7 +92,7 @@ The complete commands with specific version tags are thus as follows:
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
-    moondancelabs/tanssi:v0.5 \
+    moondancelabs/tanssi:{{ networks.dancebox.client_version }} \
     --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
     ```
 And that's it! You've successfully upgraded your Tanssi node.
