@@ -1,6 +1,6 @@
 ---
 title: Network Endpoints
-description: Tanssi networks have two endpoints available for users to connect to: one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
+description: Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
 ---
 
 ## Network Endpoints
@@ -23,9 +23,9 @@ The Dancebox TestNet HTTPS and WSS endpoints are as follows:
     wss://fraa-dancebox-rpc.a.dancebox.tanssi.network
     ```
 
-### Demo EVM ContainerChain
+### Demo EVM Appchain
 
-The demo EVM ContainerChain HTTPS and WSS endpoints are as follows:
+The demo EVM appchain HTTPS and WSS endpoints are as follows:
 
 === "HTTPS"
 

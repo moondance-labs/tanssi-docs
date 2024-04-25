@@ -19,7 +19,9 @@ Tanssi's staking module mechanics were inspired by the concept of liquidity pool
 
 Each block producer has four liquidity pools through which delegators move as they perform different staking operations. In short, each liquidity pool represents a different state throughout the staking process: joining, staking through manual rewards, staking through auto-compounded rewards, and leaving. Nevertheless, one core difference is that LP tokens in common AMMs are transferable while staking shares tokens are not.
 
-A delegator has three simple transactions to go through the different states (liquidity pools): delegate (for manual or auto-compound rewards), undelegate, and execute pending operations. A liquidity pool has a set of shares that can be considered LP tokens in traditional AMMs. When users join a new liquidity pool, they are given several shares (LP tokens) that depend on the pool type, number of tokens staked, total number of shares, and total number of tokens staked in that pool.
+A delegator has four simple transactions to go through the different states (liquidity pools): delegate (for manual or auto-compound rewards), undelegate, swap, and execute pending operations. For example, users who want to stake through either rewards pool can use the delegate call and join the Joining Pool immediately. After a delay, users (or anyone else) can execute the pending operation and enter the initially set rewards pool. Once there, users can swap between reward pools as often as they like. Lastly, users in a rewards pool can use the undelegate call to go into the Leaving Pool and unstake the tokens by them (or anyone else) executing the pending request after a given delay.
+
+Liquidity pools have a set of shares that can be considered LP tokens in traditional AMMs. When users join a new liquidity pool, they are given several shares (LP tokens) that depend on the pool type, number of tokens staked, total number of shares, and total number of tokens staked in that pool.
 
 Rewards are assigned to a block's producer Manual or Auto-Compounded Reward Pools when Tanssi attests that the specific block production slot that block producer was assigned to has been fulfilled, and the block was produced successfully.
 
@@ -30,6 +32,14 @@ The delegate and undelegate operations need to be sent by the delegator itself. 
 The following diagram summarizes the high-level flow of a delegator delegating and undelegating tokens to a block producer. User actions are highlighted in cyan, while different pools are highlighted in coral.
 
 ![High-level overview of Tanssi Staking mechanics](/images/learn/tanssi/staking/staking-1.webp)
+
+## Staking Paremeters {: #staking-parameters }
+
+=== "Dancebox"
+    |             Variable             |                                                                         Value                                                                         |
+    |:--------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|
+    |          Joining Delay          |                        {{ networks.dancebox.staking.joining_delay_blocks }} blocks ({{ networks.dancebox.staking.joining_delay_hours }} hours)                        |
+    |          Leaving Delay          |                        {{ networks.dancebox.staking.leaving_delay_blocks }} blocks ({{ networks.dancebox.staking.leaving_delay_hours }} hours)                        |
 
 ## Staking Pools {: #staking-pools}
 
@@ -107,12 +117,3 @@ Tanssi's staking module allows users to swap their stake from one type of reward
 First, all pending Manual Rewards Pool rewards are claimed at a protocol level, as liquidity is either added or removed. Therefore, the checkpoint rewards counter needs to be synced with the pool. Next, shares from the original pool are consumed and exchanged in favor of native protocol tokens at the current pool price. Then, shares of the new pool are attained at that pool's price. Lastly, any dust tokens remaining are automatically exchanged in favor of Leaving Pool shares. Note that all of the above is executed in the same block, and users don't have to wait for delays to earn rewards in the new pool. The dust in the Leaving Pool can be claimed after the required delays have passed.
 
 ![High-level overview of Swapping between Manual and AUto-Compounded Pools when Staking](/images/learn/tanssi/staking/staking-6.webp)
-
-## Staking Paremeters {: #staking-parameters }
-
-=== "Dancebox"
-    |             Variable             |                                                                         Value                                                                         |
-    |:--------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|
-    |          Joining Delay          |                        {{ networks.dancebox.staking.joining_delay_blocks }} blocks ({{ networks.dancebox.staking.joining_delay_hours }} hours)                        |
-    |          Leaving Delay          |                        {{ networks.dancebox.staking.leaving_delay_blocks }} blocks ({{ networks.dancebox.staking.leaving_delay_hours }} hours)                        |
-

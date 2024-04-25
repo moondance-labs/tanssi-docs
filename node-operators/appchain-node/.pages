@@ -1,0 +1,6 @@
+title: Run an Appchain Node
+hide: false
+nav:
+  - index.md
+  - 'Using Docker': 'rpc-docker.md'
+  - 'Using Systemd': 'rpc-systemd.md'
