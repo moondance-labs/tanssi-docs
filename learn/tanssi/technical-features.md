@@ -78,6 +78,8 @@ The Tanssi protocol relies on the relay chain as a means to provide the necessar
 
 ### The Role of the Tanssi Network {: #tanssi-newtwork }
 
+As previously discussed, the Tanssi protocol assigns block producers to the Tanssi network itself and the Tanssi appchains, and the result of this assignment is stored within the chain state.
+
 Another important piece of information that Tanssi stores is the latest header for every ContainerChain. This data is read from the relay chain and, being stored in every Tanssi block, it allows the protocol to keep track of the state in every chain and also to identify and reward accordingly the collator that produced their last block.
 
 ![Tanssi Network](/images/learn/tanssi/technical/technical-5.webp)
