@@ -31,6 +31,22 @@ The Tanssi network and the ContainerChains can be considered sibling chains, mea
 
 Their responsibility and how they interact with each other through the relay chain will be covered in the following sections.
 
+### Block Producer Selection Process {: #block-producer-selection-process}
+
+At any given time, Tanssi and all Tanssi Appchains require a certain amount of block producers that depends on the number of Appchains and the current block production configuration set in Tanssi. The configuration sets the maximum nombre of total block producers, minimum and maximum numbers of block producers required for Tanssi itself, and the number of block producers each Appchain has assigned.
+
+=== "Dancebox"
+    |             Variable             |                                                                         Value                                                                         |
+    |:--------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|
+    |          Max. # of Block Producers          |                        {{ networks.dancebox.collators_config.max_collators }}      |
+    |          Min. # of Block Producers (Tanssi)          |                        {{ networks.dancebox.collators_config.min_orchestrator_collator }}      |
+    |          Max. # of Block Producers (Tanssi)          |                        {{ networks.dancebox.collators_config.max_orchestrator_collator }}      |
+    |          # of Block Producers (Appchains)          |                        {{ networks.dancebox.collators_config.collator_per_container }}      |
+
+Once the required number of block producers for a given session is known, Tanssi uses two mechanisms to decide the actual set of block producers that will be distributed among all chains (Tanssi and Appchains). The first mechanism is through the Invunerables module, which sets a list of fixed block producers that are prioritized by the protocol, and serves as a way to ensure block production stability in certain scenarios like TestNets. The second mechanism, is through the [Tanssi staking module](/learn/tanssi/staking){target=\_blank}.
+
+Tanssi staking module helps creating a decentralized set of block producers for Tanssi and all Tanssi Appchains by providing the protocol a sorted list of block producers by staked amount. Then, Tanssi appends the sorted list to the invunerable block producers (if exists), and starts the block producer assignation process.
+
 ### Collator Assignment {: #collators-assignment }
 
 The Tanssi protocol manages a set of collators and assigns them to provide block production services to the active ContainerChains and the Tanssi network itself.
@@ -61,8 +77,6 @@ The collators that Tanssi assigns to serve the different ContainerChains also ru
 The Tanssi protocol relies on the relay chain as a means to provide the necessary data to both, Tanssi and its ContainerChains, allowing them to collaborate and validate the correctness of the block production service.
 
 ### The Role of the Tanssi Network {: #tanssi-newtwork }
-
-As previously discussed, the Tanssi protocol assigns collators to the Tanssi network itself and the ContainerChains, and the result of this assignment is stored within the chain state.
 
 Another important piece of information that Tanssi stores is the latest header for every ContainerChain. This data is read from the relay chain and, being stored in every Tanssi block, it allows the protocol to keep track of the state in every chain and also to identify and reward accordingly the collator that produced their last block.
 

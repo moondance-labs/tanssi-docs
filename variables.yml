@@ -5,6 +5,18 @@ networks:
     chain_id: 5678
     rpc_url: https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
     gas_to_weight: 25000
+    collators_config:
+      max_collators: 70
+      min_orchestrator_collator: 3
+      max_orchestrator_collator: 5
+      collator_per_container: 3
+      full_rotation_period: 12
+    staking:
+      joining_delay_blocks: 14400
+      joining_delay_hours: 2
+      leaving_delay_blocks: 14400
+      leaving_delay_hours: 2
+      max_buffer_size: 100
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0

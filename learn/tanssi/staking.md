@@ -31,6 +31,9 @@ The following diagram summarizes the high-level flow of a delegator delegating a
 
 ![High-level overview of Tanssi Staking mechanics](/images/learn/tanssi/staking/staking-1.webp)
 
+## Staking Pools {: #staking-pools}
+
+The following section goes through each of the liquidity pools that represent a step throughout the staking process.
 
 ### Joining Pool {: $joining-pool}
 
@@ -40,7 +43,10 @@ As a practical example, Alice starts the staking process targeting the Manual Re
 
 Joining Pools for each block producer have a one-to-one ratio of shares per token staked. Therefore, if Alice is staking 100 tokens, she will receive 100 shares (LP tokens) of the Joining Pool she entered. When her delegate pending operation is executed, the protocol consumes her shares of the Joining Pool in favor of native protocol tokens, which are immediately swapped to shares in either the Manual Rewards or Auto-Compound Rewards Pools.
 
+The following diagrams assumes a user is staking into the Manual Rewards Pool.
+
 ![High-level overview of the Joining Pool when Staking](/images/learn/tanssi/staking/staking-2.webp)
+
 
 ### Manual Rewards Pool {: #manual-rewards-pool}
 
@@ -90,14 +96,23 @@ After an entire session passes, any user can execute the pending operation. Then
 
 The primary purpose of the Leaving Pool is to provide a buffer for users leaving the staking mechanics. Consequently, through this buffer, the protocol can implement a slashing mechanism that affects undelegating users, but their stake was active during the slashable event. Nevertheless, slashing has not been implemented in Tanssi.
 
+The following diagrams assumes a user is unstaking from the Manual Rewards Pool.
+
+![High-level overview of the Leaving Pool when Staking](/images/learn/tanssi/staking/staking-5.webp)
+
 ### Swapping Between Rewards Pools {: #swap-rewards-pool}
 
 Tanssi's staking module allows users to swap their stake from one type of reward pool to another. Users can use this functionality to move partial or full amounts of the staked tokens in a specific pool. The main benefit is that users don't have to go through the Leaving Pool and the Joining Pool again to move their stake.
 
 First, all pending Manual Rewards Pool rewards are claimed at a protocol level, as liquidity is either added or removed. Therefore, the checkpoint rewards counter needs to be synced with the pool. Next, shares from the original pool are consumed and exchanged in favor of native protocol tokens at the current pool price. Then, shares of the new pool are attained at that pool's price. Lastly, any dust tokens remaining are automatically exchanged in favor of Leaving Pool shares. Note that all of the above is executed in the same block, and users don't have to wait for delays to earn rewards in the new pool. The dust in the Leaving Pool can be claimed after the required delays have passed.
 
+![High-level overview of Swapping between Manual and AUto-Compounded Pools when Staking](/images/learn/tanssi/staking/staking-6.webp)
+
 ## Staking Paremeters {: #staking-parameters }
 
-
-
+=== "Dancebox"
+    |             Variable             |                                                                         Value                                                                         |
+    |:--------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|
+    |          Joining Delay          |                        {{ networks.dancebox.staking.joining_delay_blocks }} blocks ({{ networks.dancebox.staking.joining_delay_hours }} hours)                        |
+    |          Leaving Delay          |                        {{ networks.dancebox.staking.leaving_delay_blocks }} blocks ({{ networks.dancebox.staking.leaving_delay_hours }} hours)                        |
 
