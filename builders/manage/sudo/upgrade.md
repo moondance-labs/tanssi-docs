@@ -13,10 +13,11 @@ In this guide, you'll learn how to use Sudo to upgrade your Tanssi appchain's ru
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-For the examples in this guide, you will need to have the following:
+For the example in this guide, you will need to have the following:
 
  - A Tanssi appchain (Snap or Dedicated)
  - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+- The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
 
@@ -25,13 +26,26 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 !!! warning
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
 
+## Obtaining the Wasm Runtime {: #obtaining-wasm-runtime }
+
+If your chain is based on one of the official templates, you can find and download the official Wasm runtime binary file in the releases section in the Tanssi [repository](https://github.com/moondance-labs/tanssi/releases){target\_blank}. The latest runtime release version is [600](https://github.com/moondance-labs/tanssi/releases/tag/runtime-600){target\_blank}.
+
+- [Download the latest runtime for the EVM Template](https://github.com/moondance-labs/tanssi/releases/download/runtime-600/frontier-template-runtime-600.wasm){target=\_blank}
+- [Download the latest runtime for the Substrate Template](https://github.com/moondance-labs/tanssi/releases/download/runtime-600/simple-template-runtime-600.wasm){target=\_blank}
+
+!!! note
+    If you are compiling the runtime manually, make sure to use the wasm version `compact` and `compressed`, which is optimized and lighter.
+
+!!! warning
+    You should always upgrade the runtime following the releases in an orderly fashion, applying one release after another without skipping any of them. This ensures that the changes (migrations) in the internal data structures are applied, preserving data consistency.
+
 ## Upgrading Your Runtime {: #upgrading-your-runtime }
 
 To get started, head to Polkadot.js Apps for your Tanssi appchain. The Polkadot.js Apps link for your Tanssi appchain can be found in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Tooling** section.
 
 ![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/sudo/upgrade/upgrade-2.webp)
 
-Prior to the upgrade, you'll need to have the [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload. You'll also need to have your [Sudo account accessible in Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+With your [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload and your [Sudo account accessible in Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}, take the following steps:
 
 1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain
 2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}
