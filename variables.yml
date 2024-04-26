@@ -36,10 +36,10 @@ networks:
     staking:
       joining_delay_sessions: 2
       joining_delay_blocks: 600
-      joining_delay_hours: 2
+      joining_delay_hours: 1
       leaving_delay_sessions: 2
       leaving_delay_blocks: 600
-      leaving_delay_hours: 2
+      leaving_delay_hours: 1
       max_buffer_size: 100
     oracles:  
       phala:
