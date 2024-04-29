@@ -97,7 +97,7 @@ Once you've added the network, you'll be redirected to a screen stating that you
 
 Once you've [connected Metamask](#connect-metamask-to-evm-appchain) to your Tanssi EVM appchain, you can start using your wallet by:
 
-- Requesting TANGO tokens from the [demo EVM appchain faucet](/builders/tanssi-network/networks/dancebox/demo-evm-containerchain/#faucet)
+- Requesting TANGO tokens from the [demo EVM appchain faucet](/builders/tanssi-network/testnet/demo-evm-appchain/#faucet)
 - Sending a token transfer to another address
 - Adding ERC-20s to Metamask and interacting with them
 - Adding ERC-721s to Metamask and interacting with them

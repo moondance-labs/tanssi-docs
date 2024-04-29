@@ -15,7 +15,7 @@ You can access TANGO tokens, the native currency of the EVM demo appchain, at th
 
 To request tokens from the faucet, head to the [Tanssi dApp](https://apps.tanssi.network/demo){target=\_blank} and press **Add to MetaMask**.
 
-![Add to MetaMask](/images/builders/network/networks/dancebox/demo/demo-1.webp)
+![Add to MetaMask](/images/builders/tanssi-network/testnet/demo-evm-appchain/demo-1.webp)
 
 Then, take the following steps:
 
@@ -23,7 +23,7 @@ Then, take the following steps:
 2. Select the account you'd like to receive TANGO tokens and press **Next**
 3. Press **Connect**
 
-![Request tokens](/images/builders/network/networks/dancebox/demo/demo-2.webp)
+![Request tokens](/images/builders/tanssi-network/testnet/demo-evm-appchain/demo-2.webp)
 
 !!! note
     TANGO tokens have no value. Please don't spam the faucet with unnecessary requests.

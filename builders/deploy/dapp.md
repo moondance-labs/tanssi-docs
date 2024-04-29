@@ -37,7 +37,7 @@ Deploying a Tanssi appchain via the Tanssi dApp is accomplished as a single, str
 
 ![A diagram mapping out the steps for deploying a Tanssi appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-2.webp)
 
-For Snap appchains and Dedicated appchains on the [Tanssi Dancebox Testnet](/builders/tanssi-network/networks/dancebox){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your Snap appchain to be ready and about two hours for a dedicated Tanssi appchain. For Tanssi MainNet, the process will be fully decentralized and permissionless.
+For Snap appchains and Dedicated appchains on the [Tanssi Dancebox Testnet](/builders/tanssi-network/testnet/dancebox){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your Snap appchain to be ready and about two hours for a dedicated Tanssi appchain. For Tanssi MainNet, the process will be fully decentralized and permissionless.
 
 ## Prerequisites {: #prerequisites }
 
