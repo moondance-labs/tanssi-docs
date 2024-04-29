@@ -3,11 +3,11 @@ title: Baseline EVM Template
 description: The Tanssi repository includes an EVM template that provides all the necessary configurations to launch an appchain that is fully compatible with Ethereum.
 ---
 
-# Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
+# Baseline EVM Template {: #baseline-evm-template }
 
 ## Introduction {: #introduction }
 
-Tanssi's EVM appchain template is specifically designed for teams developing their applications on top of an EVM (Ethereum Virtual Machine). It contains all the essential parts to add the extra layer of Ethereum compatibility to a Substrate node:
+Tanssi's EVM (Ethereum Virtual Machine) appchain template is specifically designed for teams developing their applications on top of an EVM (Ethereum Virtual Machine). It contains all the essential parts to add the extra layer of Ethereum compatibility to a Substrate node:
 
 - **EVM** - adds a Rust-based Ethereum Virtual Machine execution layer for EVM-based smart contract applications
 - **Etherum JSON RPC Support** - Tanssi EVM appchains are fully [Ethereum JSON RPC](https://ethereum.org/en/developers/docs/apis/json-rpc/){target=\_blank} compliant. Consequently, all Ethereum-based tools like [MetaMask](https://metamask.io/){target=\_blank}, [Ethers.js](https://docs.ethers.org/){target=\_blank}, [Viem](https://viem.sh/){target=\_blank}, [Hardhat](https://hardhat.org/){target=\_blank}, [Foundry](https://book.getfoundry.sh/){target=\_blank} and more, work seamlessly out of the box
