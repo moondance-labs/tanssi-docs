@@ -5,6 +5,7 @@ networks:
       stable_version: 17.1.2
     chain_id: 5678
     rpc_url: https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+    dns_name: dancebox.tanssi-api.network
     gas_to_weight: 25000
     session:
       blocks: 300
