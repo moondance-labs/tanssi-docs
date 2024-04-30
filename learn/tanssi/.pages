@@ -3,5 +3,6 @@ hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
-  - 'Technical Features': 'technical-features.md'
+  - 'Block Production Services': 'technical-features.md'
   - 'Included Templates': 'included-templates.md'
+  - 'network-features'
