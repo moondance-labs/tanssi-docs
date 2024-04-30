@@ -7,14 +7,14 @@ description: Learn how to use Sudo to pause hand-picked transactions (or even en
 
 ## Introduction {: #introduction }
 
-The [Maintenance pallet](https://moonbeam.network/blog/maintenance-mode/){target=\_blank} is a module that is designed for use only in emergencies that present existential threats to the network. Enabling maintenance mode on your appchain will suspend the processing of all regular transactions, including EVM interactions. Block production continues at a regular cadence and allows governance and staking functions to continue. 
+The [Tx-pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} is one of the [built-in modules](/learn/framework/modules/#built-in-modules){target=\_blank} included in the Polkadot SDK and became available in any Tanssi appchain based on a template version [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} or higher.
 
-Maintenance mode filters (ignores) all calls outside of governance and staking. Once maintenance mode is exited, your chain will process any pending transactions that queued up while your chain was in maintenance mode. Maintenance mode is intended to be used only as a temporary, emergency measure. 
+This module allows an appchain to avoid momentarily the execution of a set of hand-picked transactions, or even disable complete modules along with their included transactions while the rest of the transactions can keep working and being called as usual. This feature is useful in several scenarios, such as disabling functionality in which a security threat has been discovered, enabling seasonal functionality disabling it when it is no longer needed, enabling a set of transactions exactly on a launch date, and so on.
 
-For example, imagine discovering a critical exploit on your appchain that could result in significant financial losses if malicious actors exploit it. While you can address the issue by implementing a runtime upgrade, the process takes time—precious time during which your appchain remains vulnerable to attack. One potential solution is to activate maintenance mode on your appchain, complete the runtime upgrade, and exit maintenance mode once the fix has been verified.
+In an emergency scenario, when a critical exploit is discovered, this module allows the appchain to isolate and stop only the affected functionality, effectively minimizing the impact. 
 
 !!! warning
-    Enabling maintenance mode on a production network can significantly impact the contracts on your chain. While maintenance mode is enabled, no smart contract transactions are processed, so it's critical to consider the potential ramifications before activating it. 
+    At the time of the writing this module hasn't yet been audited, therefore, It is not recommended for production use. 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -30,27 +30,29 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 !!! warning
     It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
 
-## Enabling Maintenance Mode {: #enabling-maintenance-mode }
+## Pausing Transactions {: #pausing-transactions }
 
-As you know, the Sudo account can perform privileged functions, such as enabling and disabling maintenance mode. To enter maintenance mode and stop regular transaction processing, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+As you know, the Sudo account can perform privileged functions, such as pausing and unpausing transactions. To pause a transaction, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
-1. Select the **maintenanceMode** pallet
-2. Select the **enterMaintenanceMode** method
-3. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
+1. Select the **txPause** pallet
+2. Select the **pause** method
+3. Insert the **transaction** that will be paused, in this example, `transferAllowDeath` from the `balances` module
+4. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
 
-![Enable maintenance mode](/images/builders/manage/sudo/maintenance/maintenance-2.webp)
+![Pause transaction](/images/builders/manage/sudo/maintenance/maintenance-2.webp)
 
-To verify that maintenance mode has been enabled, you can check the **Explorer** section under the **Network** tab and review the recent events. 
+To verify that the transaction has been effectively paused, you can try executing it and you should see an error.
 
-![Check maintenance mode is enabled](/images/builders/manage/sudo/maintenance/maintenance-3.webp)
+![Check transaction is paused](/images/builders/manage/sudo/maintenance/maintenance-3.webp)
 
-## Exiting Maintenance Mode {: #exiting-maintenance-mode }
+## Unpausing Transactions {: #unpausing-transactions }
 
-To exit maintenance mode and return your appchain to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+To unpause a transaction and return it to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
-1. Select the **maintenanceMode** pallet
-2. Select the **resumeNormalOperation** method
-3. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
+1. Select the **txPause** pallet
+2. Select the **unpause** method
+3. Select the **unpause** method
+4. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
 
 ![Exit maintenance mode](/images/builders/manage/sudo/maintenance/maintenance-4.webp)
 
