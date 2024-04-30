@@ -1,5 +1,5 @@
 ---
-title: Technical Features of Tanssi
+title: Block Production Services
 description: Tanssi provides block production services assigning block producers to the appchains, requiring minimal changes to the code for appchains to be deployed.
 ---
 
@@ -94,20 +94,3 @@ Once the block is completed with the Tanssi appchain transactions, it will be pr
 
 ![Tanssi appchain block production](/images/learn/tanssi/technical/technical-6.webp)
 
-## Building a Modular Appchain Supporting Tanssi Protocol {: #modular-blockchain-supporting-tanssi }
-
-To make your appchain Tanssi compliant and ready to become a deployed appchain, adding references to the following two modules is required:
-
--**Author Noting Pallet** - this pallet has the objective of implementing the necessary logic to read and include in the Tanssi appchain block the set of block producers assigned to provide block production services in the current session
-
--**Author Inherent Pallet** - this pallet is necessary to allow the block producer to include in the block its identity and be recognized and awarded accordingly
-
-It is important to note that both pallets include the mentioned data in the block using Inherents, which are a special form of transaction that only the block producer can include.
-
-## Deploy an Appchain {: #deploy-an-appchain }
-
-After building on top of one of the provided [Tanssi appchain templates](/learn/tanssi/included-templates){target=\_blank} and finishing the development process, developers are ready to deploy their appchain in Tanssi.
-
-This is a fairly straightforward step, where the teams only need to generate and upload the [chain specification](https://docs.substrate.io/build/chain-spec/){target=\_blank} to the Tanssi network.
-
-The Tanssi network will then assign a set of block producers to the newly added appchain that will start producing blocks in the next session, setting the network alive and making it able to receive and execute transactions.
