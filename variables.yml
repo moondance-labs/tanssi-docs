@@ -1,6 +1,6 @@
 networks:
   dancebox:
-    client_version: v0.5.0
+    client_version: v0.6.1
     substrate_api_sidecar:
       stable_version: 17.1.2
     chain_id: 5678
@@ -8,17 +8,24 @@ networks:
     precompiles: 
       erc20: '0x0000000000000000000000000000000000000800'
       batch: '0x0000000000000000000000000000000000000801'
+    dns_name: dancebox.tanssi-api.network
     gas_to_weight: 25000
     session:
       blocks: 300
       hours: 1
-      display: 'one'      
+      display: 'one'
     block_producers:
-      appchain: 
+      configuration:
+        max_block_producers: 70
+        min_orchestrator_block_producers: 3
+        max_orchestrator_block_producers: 5
+        block_producer_per_container: 3
+        full_rotation_period: 12
+      appchain:
         num: 2
         display: 'two'
       tanssi:
-        min: 
+        min:
           num: 3
           display: 'three'
         max:
@@ -28,14 +35,16 @@ networks:
         dance: '10,000'
         planck: 10000000000000000
     staking:
-      staking_session_delay:
-        sessions:
-          num: 2
-          display: 'two'
-        blocks: 600
-        hours: 
-          num: 2
-          display: 'two'
+      joining_delay_sessions: 2
+      joining_delay_sessions_text: 'two'
+      joining_delay_blocks: 1200
+      joining_delay_hours: 1
+      joining_delay_hours_text: 'one'
+      leaving_delay_sessions: 2
+      leaving_delay_sessions_text: 'two'
+      leaving_delay_blocks: 1200
+      leaving_delay_hours: 1
+      leaving_delay_hours_text: 'one'
     oracles:
       phala:
         aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'

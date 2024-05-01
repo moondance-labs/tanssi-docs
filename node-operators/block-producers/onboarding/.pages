@@ -4,4 +4,3 @@ nav:
   - index.md
   - run-a-block-producer
   - 'Set Up Your Account': 'account-setup.md'
-  - 'Use a Proxy Account': 'proxy-accounts.md'

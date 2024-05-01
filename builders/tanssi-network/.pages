@@ -1,7 +1,6 @@
-title: Tanssi Network
+title: Tanssi Networks
 hide: false
 nav:
   - index.md
-  - networks
-  - 'Endpoints': 'endpoints.md'
-  
+  - testnet
+  - 'Network Endpoints': 'endpoints.md'

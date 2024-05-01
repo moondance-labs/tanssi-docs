@@ -1,5 +1,5 @@
 ---
-title: Technical Features of Tanssi
+title: Block Production Services
 description: Tanssi provides block production services assigning block producers to the appchains, requiring minimal changes to the code for appchains to be deployed.
 ---
 
@@ -31,9 +31,25 @@ The Tanssi network and the appchains can be considered sibling chains, meaning t
 
 Their responsibility and how they interact with each other through the relay chain will be covered in the following sections.
 
-### Block Producers Assignment {: #collators-assignment }
+### Block Producer Selection Process {: #block-producer-selection-process}
 
-The Tanssi protocol manages a set of block producers and assigns them to provide block production services to the active Tanssi appchains and the Tanssi network itself.
+At any given time, Tanssi and all Tanssi Appchains require a certain amount of block producers that depends on the number of Appchains and the current block production configuration set in Tanssi. The configuration sets the maximum nombre of total block producers, minimum and maximum numbers of block producers required for Tanssi itself, and the number of block producers each Appchain has assigned.
+
+=== "Dancebox"
+    |             Variable             |                                                                         Value                                                                         |
+    |:--------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------:|
+    |          Max. # of Block Producers          |                        {{ networks.dancebox.block_producers.configuration.max_block_producers }}      |
+    |          Min. # of Block Producers (Tanssi)          |                        {{ networks.dancebox.block_producers.configuration.min_orchestrator_block_producers }}      |
+    |          Max. # of Block Producers (Tanssi)          |                        {{ networks.dancebox.block_producers.configuration.max_orchestrator_block_producers }}      |
+    |          # of Block Producers (Appchains)          |                        {{ networks.dancebox.block_producers.configuration.block_producer_per_container }}      |
+
+Once the required number of block producers for a given session is known, Tanssi uses two mechanisms to decide the actual set of block producers that will be distributed among all chains (Tanssi and appchains). The first mechanism is through the Invunerables module, which sets a list of fixed block producers prioritized by the protocol and serves as a way to ensure block production stability in certain scenarios like TestNets. The second mechanism is through the [Tanssi staking module](/learn/tanssi/staking){target=\_blank}.
+
+The Tanssi staking module helps create a decentralized set of block producers for Tanssi and all Tanssi appchains by providing the protocol a sorted list of block producers by staked amount. Then, Tanssi appends the sorted list to the invulnerable block producers (if exists) and starts the block producer assignation process.
+
+### Block Producers Assignment {: #block_producers-assignment }
+
+Once the block production set is known, Tanssi assigns them to provide block production services to the active Tanssi Appchains and the Tanssi network itself.
 
 The assignment algorithm will start distributing the available block producers, serving first the Tanssi network and then the appchains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of block producers. In the provided [templates](/learn/tanssi/included-templates){target=\_blank}, the default session duration is set to 1800 blocks, which, with an average block time of 12 seconds, translates to (roughly) six hours.
 
@@ -78,20 +94,3 @@ Once the block is completed with the Tanssi appchain transactions, it will be pr
 
 ![Tanssi appchain block production](/images/learn/tanssi/technical/technical-6.webp)
 
-## Building a Modular Appchain Supporting Tanssi Protocol {: #modular-blockchain-supporting-tanssi }
-
-To make your appchain Tanssi compliant and ready to become a deployed appchain, adding references to the following two modules is required:
-
--**Author Noting Pallet** - this pallet has the objective of implementing the necessary logic to read and include in the Tanssi appchain block the set of block producers assigned to provide block production services in the current session
-
--**Author Inherent Pallet** - this pallet is necessary to allow the block producer to include in the block its identity and be recognized and awarded accordingly
-
-It is important to note that both pallets include the mentioned data in the block using Inherents, which are a special form of transaction that only the block producer can include.
-
-## Deploy an Appchain {: #deploy-an-appchain }
-
-After building on top of one of the provided [Tanssi appchain templates](/learn/tanssi/included-templates){target=\_blank} and finishing the development process, developers are ready to deploy their appchain in Tanssi.
-
-This is a fairly straightforward step, where the teams only need to generate and upload the [chain specification](https://docs.substrate.io/build/chain-spec/){target=\_blank} to the Tanssi network.
-
-The Tanssi network will then assign a set of block producers to the newly added appchain that will start producing blocks in the next session, setting the network alive and making it able to receive and execute transactions.
