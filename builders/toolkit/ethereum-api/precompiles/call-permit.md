@@ -1,5 +1,5 @@
 ---
-title:  Call Permit Precompile Contract
+title:  Call Permit
 description: Learn how to use the Call Permit Precompile on Tanssi EVM appchains to sign a permit for any EVM call that can be dispatched by anyone or any smart contract.
 keywords: solidity, ethereum, call permit, permit, gasless transaction, moonbeam, precompiled, contracts, tanssi
 ---
