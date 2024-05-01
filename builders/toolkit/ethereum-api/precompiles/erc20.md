@@ -32,7 +32,7 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 ??? code "ERC20.sol"
 
     ```solidity
-    --8<-- 'code/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc20.sol'
+    --8<-- 'code/builders/toolkit/ethereum-api/precompiles/erc20/erc20.sol'
     ```
 
 !!! note
