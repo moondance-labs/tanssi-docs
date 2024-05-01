@@ -1,6 +1,0 @@
-title: Dancebox
-hide: false
-nav:
-  - index.md
-  - 'Overview': overview.md
-  - 'Demo EVM Appchain': demo-evm-containerchain.md
