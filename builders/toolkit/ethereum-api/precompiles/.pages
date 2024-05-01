@@ -1,0 +1,5 @@
+title: Precompiles
+hide: false
+nav:
+  - index.md
+  - 'Batch': batch.md
