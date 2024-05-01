@@ -53,18 +53,18 @@ To get started, open up MetaMask and make sure you are [connected to your appcha
 1. Switch to the **Assets** tab
 2. Click on **Import tokens**
 
-![Import Tokens from Assets Tab in MetaMask](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-1.webp)
+![Import Tokens from Assets Tab in MetaMask](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-1.webp)
 
 Now, you can create a custom token:
 
 1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM appchains is `18`, the same as Ethereum's token decimals.
 2. Click **Next**
 
-![Add Custom Token](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-2.webp)
+![Add Custom Token](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-2.webp)
 
 MetaMask will prompt you to confirm the import. You can review the token details and click **Import Tokens** to import UNIT tokens into your wallet.
 
-![Confirm and Import Tokens](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-3.webp)
+![Confirm and Import Tokens](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-3.webp)
 
 And that's it! You've successfully added the UNIT token as a custom ERC-20 token on your Tanssi EVM appchain.
 
@@ -82,7 +82,7 @@ Next, you will need to compile the interface in Remix:
 1. Click on the **Compile** tab, second from top
 2. Compile the interface by clicking on **Compile IERC20.sol**
 
-![Compiling IERC20.sol](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-4.webp)
+![Compiling IERC20.sol](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-4.webp)
 
 When compilation is completed, you will see a green checkmark next to the **Compile** tab.
 
@@ -96,7 +96,7 @@ Instead of deploying the ERC-20 precompile, you will access the interface given 
 4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
 5. Provide the address of the ERC-20 precompile: `{{networks.dancebox.precompiles.erc20}}` and click **At Address**
 
-![Access the address](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-5.webp)
+![Access the address](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-5.webp)
 
 The **IERC20** precompile will appear in the list of **Deployed Contracts**.
 
@@ -110,7 +110,7 @@ The ERC-20 interface lets you quickly obtain token information, including the to
 4. Click **symbol** to get the symbol of the token
 5. Click **totalSupply** to obtain the total supply of native tokens on your appchain
 
-![Total Supply](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-6.webp)
+![Total Supply](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-6.webp)
 
 The results of each function call are displayed under the respective functions.
 
@@ -122,7 +122,7 @@ You can check the balance of any address on your appchain by calling the `balanc
 2. Enter an address you would like to check the balance of for the **owner**
 2. Click **call**
 
-![Get Balance of an Account](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-7.webp)
+![Get Balance of an Account](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-7.webp)
 
 Your balance will be displayed under the `balanceOf` function.
 
@@ -136,7 +136,7 @@ To approve a token spend allowance, you'll need to provide an address for the sp
 4. Click **transact**
 5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
-![Confirm Approve Transaction](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-8.webp)
+![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-8.webp)
 
 After the transaction is confirmed, you'll notice that the balance of your account has stayed the same. This is because you have only approved the allowance for the given amount, and the spender hasn't spent the funds. In the next section, you will use the `allowance` function to verify that the spender can spend 1 UNIT token on your behalf.
 
@@ -149,7 +149,7 @@ To check that the spender received the allowance approved in the [Approve a Spen
 3. Enter the address of the **spender** that you used in the previous section
 4. Click **call**
 
-![Get Allowance of Spender](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-9.webp)
+![Get Allowance of Spender](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-9.webp)
 
 Once the call is complete, the allowance of the spender will be displayed, which should be equivalent to 1 UNIT token (`1000000000000000000`).
 
@@ -163,7 +163,7 @@ To send tokens from your account directly to another account, you can call the `
 4. Click **transact**
 5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
-![Send Standard Transfer](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-10.webp)
+![Send Standard Transfer](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-10.webp)
 
 Once the transaction is complete, you can [check your balance](#get-account-balance) using the `balanceOf` function or by looking at MetaMask. You'll notice that your balance has decreased by 1 UNIT token. You can also use the `balanceOf` function to ensure that the recipients balance has increased by 1 UNIT token as expected.
 
@@ -173,7 +173,7 @@ So far, you have approved an allowance of 1 UNIT token for the spender and sent 
 
 First, you need to switch to the spender's account in MetaMask. Once you switch to the spender's account, you'll notice that the selected address in Remix under the **Accounts** tab is now the spender's.
 
-![Switch accounts Remix](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-11.webp)
+![Switch accounts Remix](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-11.webp)
 
 Next, you can initiate and send the transfer. To do so, take the following steps:
 
@@ -183,11 +183,11 @@ Next, you can initiate and send the transfer. To do so, take the following steps
 4. Enter the amount of UNIT tokens to send. Again, the spender is currently only allowed to send 1 UNIT token, so enter `1000000000000000000`
 5. Click **transact**
 
-![Send Standard Transfer](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-12.webp)
+![Send Standard Transfer](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-12.webp)
 
 Once the transaction is complete, you can [check the balance](#get-account-balance) of the owner and spender using the `balanceOf` function. The spender's balance should have increased by 1 UNIT token, and their allowance should now be depleted. To verify that the spender no longer has an allowance, you can call the `allowance` function by passing in the owner and spender's addresses. You should receive a result of 0.
 
-![Zero Allowance](/images/dapp-developers/developer-toolkit/ethereum-api/precompiles/erc20/erc-13.webp)
+![Zero Allowance](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-13.webp)
 
 And that's it! You've successfully interacted with the ERC-20 precompile using MetaMask and Remix!
 
