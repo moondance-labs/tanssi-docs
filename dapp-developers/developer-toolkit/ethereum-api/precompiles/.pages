@@ -1,6 +1,0 @@
-title: Precompiles
-hide: false
-nav:
-  - index.md
-  - batch.md
-  - 'Native Token ERC-20': 'erc20.md'
