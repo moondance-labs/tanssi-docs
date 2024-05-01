@@ -64,7 +64,7 @@ Make sure you write down your session keys; you'll need to map your session keys
 
 ### Map Session Keys {: #map-session-keys }
 
-To perform the next step and map your session keys to your account, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+To perform the next step and map your session keys to your account, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
 1. Select your account, which should be the same account that you previously self-delegated
 2. Select the **session** module and the **setKeys** extrinsic
@@ -74,7 +74,7 @@ To perform the next step and map your session keys to your account, head to [Pol
 
 ![Create and submit an extrinsic to set session keys on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-1.webp)
 
-Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **session** module and the **keyOwner** query
 2. Enter `nmbs` in the **SpCoreCryptoKeyTypeId** field
@@ -88,13 +88,13 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 The next step towards becoming eligible to produce blocks on Tanssi and Tanssi appchains is to delegate to your own account. To do this, you'll be required to submit a minimum of {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
 
-After you've submitted the request to delegate, you'll need to wait for a minimum of {{ networks.dancebox.staking.staking_session_delay.sessions.display }} sessions before you can execute the pending request. There are {{ networks.dancebox.session.blocks }} blocks in a session. So, {{ networks.dancebox.staking.staking_session_delay.sessions.display }} sessions are {{ networks.dancebox.staking.staking_session_delay.blocks }} blocks, which can take around {{ networks.dancebox.staking.staking_session_delay.hours.display }} hours.
+After you've submitted the request to delegate, you'll need to wait for a minimum of {{ networks.dancebox.staking.joining_delay_sessions_text }} sessions before you can execute the pending request. There are {{ networks.dancebox.session.blocks }} blocks in a session. So, {{ networks.dancebox.staking.joining_delay_sessions_text }} sessions are {{ networks.dancebox.staking.joining_delay_blocks }} blocks, which can take around {{ networks.dancebox.staking.joining_delay_hours_text }} hours.
 
 Block producers are assigned upon each session, requiring {{ networks.dancebox.block_producers.appchain.display }} per appchain and a minimum of {{ networks.dancebox.block_producers.tanssi.min.display }} to {{ networks.dancebox.block_producers.tanssi.max.display }} for Tanssi. The block producers participating in the session are picked from the list of candidates ordered by total stake until the total number of block producers required is covered. So, you'll need to ensure that your total stake is enough to fill one of the slots, which may require more than {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
 
 ### Request Delegate {: #request-delegate }
 
-Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
 1. Select the account from which you want to send the extrinsic. This account must be the same account that you are delegating to and is the account that you want to become a block producer
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
@@ -107,7 +107,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox
 
 ### Execute the Pending Request {: #execute-pending-request }
 
-Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module and the **pendingOperations** query
 2. Enter your account
@@ -145,7 +145,7 @@ Now, you have completed all of the necessary account setup to be eligible to pro
 
 ## Verify That Your Account Is in the List of Eligible Candidates {: #verify }
 
-If you've followed all of the steps in this guide and have fully synced your block-producing node, you are now eligible to produce blocks. To verify that you are in the list of eligible candidates, you can go to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+If you've followed all of the steps in this guide and have fully synced your block-producing node, you are now eligible to produce blocks. To verify that you are in the list of eligible candidates, you can go to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module and the **sortedEligibleCandidates** query
 2. Click the **+** button next to the extrinsic field
