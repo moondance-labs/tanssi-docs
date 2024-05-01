@@ -13,7 +13,7 @@ And the following command to check the installation:
 ```bash
 sudo docker run hello-world
 ```
- 
+
 This is what a successful execution in the terminal looks like:
 
 --8<-- 'code/node-operators/terminal/hello-world.md'
