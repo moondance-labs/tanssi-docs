@@ -2,6 +2,6 @@ title: Dev Environments
 hide: false
 nav:
   - index.md
-  - 'Deploy Contracts with Remix': remix.md
-  - 'Deploy Contracts with Hardhat': hardhat.md
-  - 'Deploy Contracts with Foundry': foundry.md
+  - 'Remix': remix.md
+  - 'Hardhat': hardhat.md
+  - 'Foundry': foundry.md
