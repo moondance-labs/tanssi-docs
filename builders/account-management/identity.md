@@ -53,7 +53,7 @@ If you want to add custom fields beyond the default fields, follow the instructi
 
 ### Set an Identity {: #set-identity-accounts }
 
-To get started with setting an identity using the Accounts UI, head to the [Accounts tab](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} on the Polkadot.js Apps explorer.
+To get started with setting an identity using the Accounts UI, head to the [**Accounts** tab](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} on the Polkadot.js Apps explorer.
 
 You should already have an account connected, so you can click on your account name to verify and note your balances. After you send the transaction to set an identity, the deposit(s) you submitted will be moved from your transferable balance to your reserved balance.
 
@@ -90,7 +90,7 @@ Once you clear your identity, the deposit in your reserved balance will get tran
 
 ### Set an Identity {: #set-identity-extrinsics }
 
-To register an identity using the extrinsics UI, navigate to the [Extrinsics page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} on Polkadot.js Apps. Please ensure your input does not exceed 32 characters for each identity field. To complete your identity, take the following steps:
+To register an identity using the extrinsics UI, navigate to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} on Polkadot.js Apps. Please ensure your input does not exceed 32 characters for each identity field. To complete your identity, take the following steps:
 
 1. Select your account
 2. Select identity from the **submit the following extrinsic** dropdown
@@ -125,7 +125,7 @@ You should see status notifications pop up in the top right-hand corner confirmi
 
 ### Confirm an Identity {: #confirm-identity-extrinsics }
 
-To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [Chain state](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
+To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [**Chain state**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
 
 On the **Chain State** UI, make sure **Storage** is selected. Then you can start to request your identity information:
 
@@ -140,7 +140,7 @@ You can see now that you've successfully set an identity! Once you clear your id
 
 ## Clear an Identity {: #confirm-identity-extrinsics }
 
-To clear your identity, take the following steps from Extrinsics tab of the Polkadot.js Apps UI: 
+To clear your identity, take the following steps from **Extrinsics** tab of the Polkadot.js Apps UI: 
 
 1. Select your account from the **using the selected account** dropdown
 2. Select **identity** from the **submit the following extrinsic** dropdown
@@ -149,7 +149,7 @@ To clear your identity, take the following steps from Extrinsics tab of the Polk
 
 ![Clear an identity](/images/builders/account-management/identity/identity-8.webp)
 
-You will then be prompted to sign the transaction. If everything looks good, you can enter your password and click Sign and Submit to sign and send the transaction. You should see status notifications pop-up in the top right hand corner confirming the transaction.
+You will then be prompted to sign the transaction. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction. You should see status notifications in the top right-hand corner confirming the transaction.
 
 To confirm that your identity information has been successfully removed, revisit the steps outlined in the [Confirm an Identity section](#confirm-identity-extrinsics). This time, instead of displaying your identity details, the response should indicate "none," confirming that no identity information is currently linked to your account. Additionally, when you check your balances, you will find that the deposit initially made for setting your identity has been credited back to your transferable balance. This completes the process of clearing your identity.
 
