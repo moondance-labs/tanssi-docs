@@ -2,9 +2,9 @@ title: Builders
 hide: false
 nav:
   - index.md
-  - account-management
   - build
   - deploy
   - manage
   - toolkit
+  - account-management
   - tanssi-network
