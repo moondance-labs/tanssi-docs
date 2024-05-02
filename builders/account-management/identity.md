@@ -140,7 +140,7 @@ You can see now that you've successfully set an identity! Once you clear your id
 
 ## Clear an Identity {: #confirm-identity-extrinsics }
 
-To clear your identity, take the following steps from Extrinsics tab of the Polkadot.js Apps UI: 
+To clear your identity, take the following steps from **Extrinsics** tab of the Polkadot.js Apps UI: 
 
 1. Select your account from the **using the selected account** dropdown
 2. Select **identity** from the **submit the following extrinsic** dropdown
