@@ -1,0 +1,5 @@
+title: Account Management
+hide: false
+nav:
+  - index.md
+  - 'On-Chain Identities': 'identity.md'
