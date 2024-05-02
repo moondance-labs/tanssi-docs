@@ -55,7 +55,7 @@ You will need to create a Hardhat project if you don't already have one. You can
 
 This will create a Hardhat config file (`hardhat.config.js`) in your project directory.
 
-Once you have your Hardhat project, you can also install the [Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank}. This provides a convenient way to use the [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. To install it, run the following command:
+Once you have your Hardhat project, you can also install the [Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers/){target=\_blank}. This provides a convenient way to use the [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. To install it, run the following command:
 
 ```sh
 npm install @nomicfoundation/hardhat-ethers ethers@6

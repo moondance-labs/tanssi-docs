@@ -7,11 +7,11 @@ description: Learn how to use Subsquid, a query node framework that can index bo
 
 ## Introduction {: #introduction }
 
-[Subsquid](https://subsquid.io){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In very simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org/){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
+[Subsquid](https://subsquid.io/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In very simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org/){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
 
 Subsquid has native and full support for both EVM and Substrate data. Subsquid offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi appchain and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
 
-This tutorial is a step-by-step guide to building a Squid to index EVM data from start to finish. It's recommended that you follow along, taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial in the tanssiSquid GitHub repository](https://github.com/themacexpert/tanssiSquid){target=\_blank}.
+This tutorial is a step-by-step guide to building a Squid to index EVM data from start to finish. It's recommended that you follow along, taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial in the tanssiSquid GitHub repository](https://github.com/themacexpert/tanssiSquid/){target=\_blank}.
 
 ## Check Prerequisites {: #check-prerequisites }
 
@@ -19,7 +19,7 @@ To follow along with this tutorial, you'll need to have:
 
 - [Docker installed](https://docs.docker.com/get-docker/){target=\_blank}
 - [Docker Compose installed](https://docs.docker.com/compose/install/){target=\_blank}
-- An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page
+- An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project/){target=\_blank} section of our Hardhat documentation page
 
 --8<-- 'text/_common/general-js-tutorial-check.md'
 
@@ -32,9 +32,9 @@ Before we can index anything with Subsquid we need to make sure we have somethin
 
 If you'd like to use an existing ERC-20 token on the demo EVM appchain, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
 
-In this section, we'll show you how to deploy an ERC-20 to your EVM appchain and we'll write a quick script to fire off a series of transfers that will be picked up by our Subsquid indexer. Ensure that you have initialized an empty Hardhat project via the instructions in the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page.
+In this section, we'll show you how to deploy an ERC-20 to your EVM appchain and we'll write a quick script to fire off a series of transfers that will be picked up by our Subsquid indexer. Ensure that you have initialized an empty Hardhat project via the instructions in the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project/){target=\_blank} section of our Hardhat documentation page.
 
-Before we dive into creating our project, let's install a couple of dependencies that we'll need: the [Hardhat Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank} and [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x/){target=\_blank}. The Hardhat Ethers plugin provides a convenient way to use the [Ethers](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. We'll use OpenZeppelin's base ERC-20 implementation to create an ERC-20. To install both of these dependencies, you can run:
+Before we dive into creating our project, let's install a couple of dependencies that we'll need: the [Hardhat Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers/){target=\_blank} and [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x/){target=\_blank}. The Hardhat Ethers plugin provides a convenient way to use the [Ethers](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. We'll use OpenZeppelin's base ERC-20 implementation to create an ERC-20. To install both of these dependencies, you can run:
 
 === "npm"
 
@@ -361,7 +361,7 @@ To query your squid, open up a new terminal window within your project and run t
 sqd serve
 ```
 
-And that's it! You can now run queries against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=\_blank}. Try crafting your own GraphQL query, or use the below one:
+And that's it! You can now run queries against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql/){target=\_blank}. Try crafting your own GraphQL query, or use the below one:
 
 ???+ code "Example query"
 

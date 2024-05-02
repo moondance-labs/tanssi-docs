@@ -21,7 +21,7 @@ In this guide, you'll learn how to spin up a Tanssi block producer to be part of
 
 A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi block producer requires and the binary file itself.
 
-A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the Tanssi orchestrator specification file.
+A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture/){target=\_blank}, along with the Tanssi orchestrator specification file.
 
 The following command to pull the Docker image:
 

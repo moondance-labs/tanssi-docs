@@ -25,7 +25,7 @@ Fortunately, there is no need to write implementations of these blockchain compo
 
 ## Substrate Framework {: #substrate-framework}
 
-Substrate is an extremely performant, flexible, modular, and highly customizable framework to build blockchains. It is the base upon which the Polkadot relay chain itself is built and also the many parachains in the ecosystem, such as [Moonbeam](https://moonbeam.network){target=blank} and Tanssi.
+Substrate is an extremely performant, flexible, modular, and highly customizable framework to build blockchains. It is the base upon which the Polkadot relay chain itself is built and also the many parachains in the ecosystem, such as [Moonbeam](https://moonbeam.network/){target=blank} and Tanssi.
 
 Many of its great features, such as performance, ease of use, and modularity, are owed to the decision made on which programming language to build on, and this is where [Rust Programming Language](#rust-programming-language) was the first choice, being fast, portable, and providing a wonderful model to handle memory, amongst other reasons detailed in the next section.
 
@@ -33,7 +33,7 @@ When developing an appchain, Substrate represents a great head start by providin
 
 - **Consensus Algorithms** - there are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality), but due to the high degree of customization Substrate offers, teams can always choose to develop their specific consensus to adapt to the use case needs, as the Moonbeam team did with the [Nimbus Parachain Consensus Framework](https://docs.moonbeam.network/learn/features/consensus/){target=\_blank}
 
-- **Runtime Modules** - many built-in modules (explained in detail in the [modules](/learn/framework/modules) section) can be selected and configured into your appchain, such as accounts, balances, staking, governance, identity, and more
+- **Runtime Modules** - many built-in modules (explained in detail in the [modules](/learn/framework/modules/){target=\_blank} section) can be selected and configured into your appchain, such as accounts, balances, staking, governance, identity, and more
 
 - **Networking** - built-in protocols and libraries for establishing connections, propagating transactions and blocks, synchronizing the blockchain state, and managing network interactions
 
@@ -49,7 +49,7 @@ Substrate streamlines and speeds up the process of developing new appchains. Whe
 
 ## Rust Programming Language {: #rust-programming-language}
 
-[Rust](https://www.rust-lang.org){target=\_blank} is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages){target=blank}.
+[Rust](https://www.rust-lang.org/){target=\_blank} is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages/){target=blank}.
 
 In addition to providing a great experience for developers, Rust excels in many areas:
 

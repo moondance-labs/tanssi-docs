@@ -19,22 +19,22 @@ Since the template already contains the necessary configuration for seamless int
 
 This means that this template is ready to be built as-is and deployed through Tanssi, unlocking many features, such as:
 
-- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank}
-- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=\_blank}
-- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=\_blank}
-- Use the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api){target=\_blank} to interact with the Substrate API
+- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service/){target=\_blank}
+- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa/){target=\_blank}
+- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security/){target=\_blank}
+- Use the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} to interact with the Substrate API
 - Connect any Ethereum wallet, such as [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} and Ledger
-- Use well-known Ethereum libraries like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js){target=\_blank}, [Web3.py](/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, and more
-- Deploy EVM smart contracts with tools like [Remix](https://remix.ethereum.org/){target=\_blank}, [Hardhat](https://hardhat.org/){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, and more
+- Use well-known Ethereum libraries like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, [Web3.py](/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, and more
+- Deploy EVM smart contracts with tools like [Remix](https://remix.ethereum.org/){target=\_blank}, [Hardhat](https://hardhat.org/){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry/){target=\_blank}, and more
 
 
 ## Included Modules {: #included-modules }
 
-Besides the modules and configurations that make the Tanssi EVM appchain template compatible with the Tanssi protocol, it also includes [many modules](/builders/build/templates/overview/#included-modules){target=\_blank} to provide basic functionalities.
+Besides the modules and configurations that make the Tanssi EVM appchain template compatible with the Tanssi protocol, it also includes [many modules](/builders/build/templates/overview/#included-modules/){target=\_blank} to provide basic functionalities.
 
 To reach full Ethereum compatibility, these specific modules are also included:
 
-- **[pallet_evm](https://docs.rs/pallet-evm/latest/pallet_evm/){target=\_blank}** - the EVM pallet allows for unmodified EVM bytecode to be executed in a Substrate-based blockchain. It uses the Rust-based [SputnikVM](https://github.com/rust-ethereum/evm){target=\_blank} as the underlying EVM engine
+- **[pallet_evm](https://docs.rs/pallet-evm/latest/pallet_evm/){target=\_blank}** - the EVM pallet allows for unmodified EVM bytecode to be executed in a Substrate-based blockchain. It uses the Rust-based [SputnikVM](https://github.com/rust-ethereum/evm/){target=\_blank} as the underlying EVM engine
 - **[pallet_ethereum](https://docs.rs/pallet-ethereum/latest/pallet_ethereum/){target=\_blank}** - the Ethereum pallet works together with the EVM pallet to provide full emulation for Ethereum block processing. Among many other tasks, it is responsible for creating emulated Ethereum blocks for Ethereum-specific components such as EVM logs
 
-Both modules are part of [Frontier](https://github.com/paritytech/frontier){target=\_blank}, which is the backbone of Ethereum-compatible Substrate-based chains.
+Both modules are part of [Frontier](https://github.com/paritytech/frontier/){target=\_blank}, which is the backbone of Ethereum-compatible Substrate-based chains.

@@ -63,7 +63,7 @@ To restart the node, you can use the command you used when launching your block 
 
 ### Specifying a Version Tag {: #specifying-a-version-tag }
 
-The Docker commands above will automatically fetch the latest release version tag, but if you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by appending the version tag to the image name. For example, if you wanted to fetch version `{{ networks.dancebox.client_version }}`, rather than specifying the image name as `moondancelabs/tanssi`, you would indicate `moondancelabs/tanssi:{{ networks.dancebox.client_version }}` as the image name.
+The Docker commands above will automatically fetch the latest release version tag, but if you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags/){target=\_blank}, you can do so by appending the version tag to the image name. For example, if you wanted to fetch version `{{ networks.dancebox.client_version }}`, rather than specifying the image name as `moondancelabs/tanssi`, you would indicate `moondancelabs/tanssi:{{ networks.dancebox.client_version }}` as the image name.
 
 The complete commands with specific version tags are thus as follows:
 
@@ -99,4 +99,4 @@ And that's it! You've successfully upgraded your Tanssi node.
 
 ## Subscribe to Release Notifications {: #subscribe }
 
-You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.
+You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi/){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.

@@ -7,7 +7,7 @@ description: Learn the basics of how to use Chopsticks to replay blocks, dissect
 
 ## Introduction {: #introduction }
 
-[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing [Substrate-based](/learn/framework/overview/){target=\_blank} chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Tanssi appchains for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
+[Chopsticks](https://github.com/AcalaNetwork/chopsticks/){target=\_blank} provides a developer-friendly method of locally forking existing [Substrate-based](/learn/framework/overview/){target=\_blank} chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Tanssi appchains for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
 
 Overall, Chopsticks aims to simplify the process of building blockchain applications on Substrate and make it accessible to a wider range of developers.
 
@@ -18,13 +18,13 @@ This article will cover using Chopsticks to fork and interact with the local cop
 
 ## Prerequisites {: #prerequisites }
 
-To follow along with this tutorial, you will need to clone the repository along with its submodules([Smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
+To follow along with this tutorial, you will need to clone the repository along with its submodules([Smoldot](https://github.com/smol-dot/smoldot.git/){target=\_blank}):
 
 ```bash
 git clone --recurse-submodules https://github.com/AcalaNetwork/chopsticks.git
 ```
 
-Then, get into the folder and install the dependencies using [yarn](https://classic.yarnpkg.com/en/docs/install){target=\_blank}:
+Then, get into the folder and install the dependencies using [yarn](https://classic.yarnpkg.com/en/docs/install/){target=\_blank}:
 
 ```bash
  cd chopsticks && yarn
@@ -124,14 +124,14 @@ When running a fork, by default, it will be accessible at:
 ws://localhost:8000
 ```
 
-You can interact with the parachain via libraries such as [Polkadot.js](https://github.com/polkadot-js/common){target=\_blank} and its [user interface, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}.
+You can interact with the parachain via libraries such as [Polkadot.js](https://github.com/polkadot-js/common/){target=\_blank} and its [user interface, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer/){target=\_blank}.
 
 ![Polkadot Js](/images/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.webp)
 
 You should now be able to interact with the forked chain as you would with the real one.
 
 !!! note
-    If your browser cannot connect to the WebSocket endpoint provided by Chopsticks, you might need to allow insecure connections for the Polkadot.js Apps URL. Another solution is to run the [Docker version of Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
+    If your browser cannot connect to the WebSocket endpoint provided by Chopsticks, you might need to allow insecure connections for the Polkadot.js Apps URL. Another solution is to run the [Docker version of Polkadot.js Apps](https://github.com/polkadot-js/apps#docker/){target=\_blank}.
 
 ## Replaying Blocks {: #replaying-blocks }
 

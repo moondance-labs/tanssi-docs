@@ -9,7 +9,7 @@ description: Substrate is a modular blockchain framework that makes it easy to b
 
 By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building a Tanssi appchain and accelerates the deployment and evolution into a Tanssi appchain. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules.
 
-The example presented in the [Modularity](/learn/framework/modules/#custom-module-example){target=\_blank} article shows a simple lottery module exposing two transactions:
+The example presented in the [Modularity](/learn/framework/modules/#custom-module-example/){target=\_blank} article shows a simple lottery module exposing two transactions:
 
 - **Buy tickets** - this function manages a user's entry into the lottery. In essence, it verifies that the participant has a sufficient balance, is not already participating, and takes care of transferring funds to register the user for the lottery
 - **Award prize** - this function that handles a user entering into the lottery. At a high level, it fetches a pseudo-random number to obtain a winner and handles the award distribution
@@ -29,16 +29,16 @@ In this article, the following steps, necessary to build and add the example mod
 
 To follow the steps in this guide, you will need to have the following:
 
-- Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} from Github
+- Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi/){target=\_blank} from Github
 - Rust compiler and Cargo package manager
 
-You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/customize/prerequisites/#installing-rust){target=\_blank}.
+You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/customize/prerequisites/#installing-rust/){target=\_blank}.
 
 ## Creating the Lottery Module Files {: #creating-lottery-module-files }
 
 Before starting your coding process, it's essential to create the files containing your logic. Substrate modules are abstract and intended for reuse across different runtimes with various customizations. To achieve this, you'll use Cargo, Rust's package manager, to create the module as a new package.
 
-As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
+As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi/){target=\_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
 
 ```bash
 cd container-chains/pallets
@@ -86,7 +86,7 @@ The full example of the `Cargo.toml` file sets, besides the attributes, the depe
 
 ## Adding Custom Logic {: #adding-custom-logic}
 
-As presented in the [custom-made module](/learn/framework/modules/#custom-modules){target=\_blank} section of the modularity article, creating a module involves implementing the following attribute macros, of which the first three are mandatory:
+As presented in the [custom-made module](/learn/framework/modules/#custom-modules/){target=\_blank} section of the modularity article, creating a module involves implementing the following attribute macros, of which the first three are mandatory:
 
 --8<-- 'text/builders/build/customize/custom-made-module/pallets-macros-descriptions.md'
 

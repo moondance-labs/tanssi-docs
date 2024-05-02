@@ -15,7 +15,7 @@ This quick reference page offers all the essentials you need to get started on D
 
 DANCE tokens serve as the native currency within the Dancebox Network. To initiate the deployment of an appchain on Dancebox, you'll need to obtain DANCE tokens. Follow these steps:
 
-1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank} website
+1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens/){target=\_blank} website
 2. Complete the form by providing basic information and your Substrate-based address
 3. Within one business day of submitting the form, you'll receive DANCE tokens for testing
 
@@ -43,6 +43,6 @@ Dancebox has two types of endpoints available for users to connect to: one for H
 For Dancebox, you can use the following block explorer:
 
 - [Dancebox Subscan](https://dancebox.subscan.io/){target=\_blank}
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/explorer){target=\_blank}
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/explorer/){target=\_blank}
 
 Support for additional block explorers is in the works and as more explorers support Dancebox, this section will be updated accordingly.

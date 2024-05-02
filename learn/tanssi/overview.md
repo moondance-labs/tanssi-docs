@@ -27,7 +27,7 @@ Tanssi addresses the most common appchain problems by:
 
 - **Block Production as a Service** - appchains built with Tanssi have their blocks produced by Tanssi's incentivized workers (block-producers). Tanssi guarantees the liveness of the appchain and a decentralized set of block-producers
 
-- **Consensus on Demand** -  appchains deployed through Tanssi are not Layer 2 solutions, as they inherit block finality (consensus) from Polkadot, either on a continuous basis ([Parachain](https://wiki.polkadot.network/docs/learn-parachains){target=\_blank}), or on a per block model ([on-demand Parachain](https://wiki.polkadot.network/docs/learn-parathreads){target=\_blank}). Consequently, appchains built with Tanssi, as Layer 1 solutions, will have access to a robust consensus mechanism from the genesis block
+- **Consensus on Demand** -  appchains deployed through Tanssi are not Layer 2 solutions, as they inherit block finality (consensus) from Polkadot, either on a continuous basis ([Parachain](https://wiki.polkadot.network/docs/learn-parachains/){target=\_blank}), or on a per block model ([on-demand Parachain](https://wiki.polkadot.network/docs/learn-parathreads/){target=\_blank}). Consequently, appchains built with Tanssi, as Layer 1 solutions, will have access to a robust consensus mechanism from the genesis block
 
 - **Modular Blockchain Framework** - appchains built with Tanssi can use a modular blockchain framework called [Substrate](https://substrate.io/){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their appchain's custom logic
 
@@ -44,7 +44,7 @@ A high-level overview of what an appchain looks like in the ecosystem is present
 ![High-level overview of an appchain & Tanssi](/images/learn/tanssi/overview/dark-overview-1.webp#only-dark)
 ![High-level overview of an appchain & Tanssi](/images/learn/tanssi/overview/light-overview-1.webp#only-light)
 
-One of the core differences between a normal Parachain and a Tanssi-powered appchain is that its block producers (also known as collators) are a subset of Tanssi's. In short, this is possible due to Polkadot's unique architecture, as Tanssi and all of the appchains share a common consensus mechanism. Consequently, each chain can retrieve information from other chains in a trustless and decentralized manner, as it is part of the consensus. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical-features){target=\_blank}.
+One of the core differences between a normal Parachain and a Tanssi-powered appchain is that its block producers (also known as collators) are a subset of Tanssi's. In short, this is possible due to Polkadot's unique architecture, as Tanssi and all of the appchains share a common consensus mechanism. Consequently, each chain can retrieve information from other chains in a trustless and decentralized manner, as it is part of the consensus. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical-features/){target=\_blank}.
 
 While a block producer simultaneously executes blocks from Tanssi and the appchain that was assigned to it, Tanssi and each appchain will have their own set of Data Preservers running full archive nodes for each chain. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and appchains.
 
