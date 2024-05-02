@@ -149,7 +149,7 @@ To clear your identity, take the following steps from Extrinsics tab of the Polk
 
 ![Clear an identity](/images/builders/account-management/identity/identity-8.webp)
 
-You will then be prompted to sign the transaction. If everything looks good, you can enter your password and click Sign and Submit to sign and send the transaction. You should see status notifications pop-up in the top right hand corner confirming the transaction.
+You will then be prompted to sign the transaction. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction. You should see status notifications in the top right-hand corner confirming the transaction.
 
 To confirm that your identity information has been successfully removed, revisit the steps outlined in the [Confirm an Identity section](#confirm-identity-extrinsics). This time, instead of displaying your identity details, the response should indicate "none," confirming that no identity information is currently linked to your account. Additionally, when you check your balances, you will find that the deposit initially made for setting your identity has been credited back to your transferable balance. This completes the process of clearing your identity.
 
