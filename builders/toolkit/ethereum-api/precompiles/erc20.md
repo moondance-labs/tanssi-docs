@@ -57,7 +57,7 @@ To get started, open up MetaMask and make sure you are [connected to your appcha
 
 Now, you can create a custom token:
 
-1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM appchains is `18`, the same as Ethereum's token decimals.
+1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM appchains is `18`, the same as Ethereum's token decimals
 2. Click **Next**
 
 ![Add Custom Token](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-2.webp)
