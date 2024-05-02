@@ -43,10 +43,10 @@ If your chain is based on one of the official templates, you can download the of
 You should always upgrade the runtime following the releases in an orderly fashion, applying one release after another without skipping any of them. To do so, you need to know your appchain's current runtime version, which you'll find in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section. For example, if your runtime version is `300`, you should upgrade first to `400`, then `500`, then `600`, and so on until the latest available version.
 
 !!! warning
-    Applying the upgrades in order ensures that the changes (migrations) in the internal data structures are applied, preserving data consistency. Doing otherwise might **stall** your Appchain.
+    Applying the upgrades in order ensures that the changes (migrations) in the internal data structures are applied, preserving data consistency. Doing otherwise might **stall** your appchain.
 
 !!! note
-    If you are compiling the runtime manually, make sure to use the wasm version `compact` and `compressed`, which is optimized and lighter.
+    If you are compiling the runtime manually, make sure to use the Wasm version `compact` and `compressed`, which is optimized and lighter.
 
 ## Upgrading Your Runtime {: #upgrading-your-runtime }
 
