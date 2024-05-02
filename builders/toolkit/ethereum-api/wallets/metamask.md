@@ -76,7 +76,7 @@ Here, you can configure MetaMask for the following networks:
 |          RPC URL          | `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network` |
 |         Chain ID          |                           `5678`                           |
 |     Symbol (Optional)     |                          `TANGO`                           |
-| Block Explorer (Optional) |    `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`    |
+| Block Explorer (Optional) | `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`  |
 
 To do so, fill in the following information:
 
