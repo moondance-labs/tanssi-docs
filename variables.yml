@@ -6,6 +6,7 @@ networks:
     chain_id: 5678
     rpc_url: https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
     precompiles: 
+      erc20: '0x0000000000000000000000000000000000000800'
       batch: '0x0000000000000000000000000000000000000801'
     dns_name: dancebox.tanssi-api.network
     gas_to_weight: 25000
