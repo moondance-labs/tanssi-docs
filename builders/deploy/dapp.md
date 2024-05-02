@@ -37,7 +37,7 @@ Deploying a Tanssi appchain via the Tanssi dApp is accomplished as a single, str
 
 ![A diagram mapping out the steps for deploying a Tanssi appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-2.webp)
 
-For Snap appchains and Dedicated appchains on the [Tanssi Dancebox Testnet](/builders/tanssi-network/networks/dancebox){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your Snap appchain to be ready and about two hours for a dedicated Tanssi appchain. For Tanssi MainNet, the process will be fully decentralized and permissionless.
+For Snap appchains and Dedicated appchains on the [Tanssi Dancebox Testnet](/builders/tanssi-network/testnet/dancebox){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your Snap appchain to be ready and about two hours for a dedicated Tanssi appchain. For Tanssi MainNet, the process will be fully decentralized and permissionless.
 
 ## Prerequisites {: #prerequisites }
 
@@ -48,10 +48,9 @@ Since Tanssi is built with Substrate, you'll need to use a Substrate-supported w
 - [Polkadot.js extension](https://polkadot.js.org/extension/){target=\_blank}
 - [SubWallet](https://www.subwallet.app/){target=\_blank}
 - [Talisman](https://www.talisman.xyz/){target=\_blank}
-- [MetaMask Polkadot Snap](https://snaps.metamask.io/snap/npm/chainsafe/polkadot-snap/){target=\_blank}
 - [Enkrypt](https://www.enkrypt.com/){target=\_blank}
 
-If you deploy a Tanssi EVM appchain, your users won't need a Substrate wallet. They can interact with your Tanssi appchain using Ethereum-compatible wallets like [MetaMask](/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask){target=\_blank}.
+If you deploy a Tanssi EVM appchain, your users won't need a Substrate wallet. They can interact with your Tanssi appchain using Ethereum-compatible wallets like [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask){target=\_blank}.
 
 ![Connection screen for various Substrate wallets](/images/builders/deploy/dapp/dapp-3.webp)
 

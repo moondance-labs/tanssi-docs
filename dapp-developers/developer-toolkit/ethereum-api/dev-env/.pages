@@ -1,7 +1,0 @@
-title: Dev Environments
-hide: false
-nav:
-  - index.md
-  - remix.md
-  - hardhat.md
-  - foundry.md

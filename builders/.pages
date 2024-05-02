@@ -1,8 +1,10 @@
-title: Appchain Developers
+title: Builders
 hide: false
 nav:
   - index.md
   - build
   - deploy
   - manage
+  - toolkit
+  - account-management
   - tanssi-network

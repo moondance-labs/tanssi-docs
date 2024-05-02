@@ -1,0 +1,6 @@
+title: TestNet
+hide: false
+nav:
+  - index.md
+  - 'Dancebox': 'dancebox.md'
+  - 'Demo EVM Appchain': 'demo-evm-appchain.md'
