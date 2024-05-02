@@ -5,6 +5,8 @@ networks:
       stable_version: 17.1.2
     chain_id: 5678
     rpc_url: https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+    precompiles: 
+      batch: '0x0000000000000000000000000000000000000801'
     dns_name: dancebox.tanssi-api.network
     gas_to_weight: 25000
     session:
@@ -63,6 +65,11 @@ networks:
       deposit_base: 10.08
       deposit_factor: 0.33
       max_proxies: 32
+    identity:
+      basic_deposit: 12.58
+      max_fields: 100
+      per_byte_deposit: 0.1
+      max_subaccounts: 100
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0
