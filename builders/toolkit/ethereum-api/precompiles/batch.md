@@ -12,7 +12,7 @@ The Batch Precompile contract on Tanssi EVM appchains allows developers to combi
 
 Currently, having users interact with multiple contracts would require multiple transaction confirmations in the user's wallet. An example would be approving a smart contract's access to a token and then immediately transferring it. With the Batch Precompile, developers can enhance user experience with batched transactions as it minimizes the number of transactions a user is required to confirm. Additionally, the gas fees paid by a user can be reduced since batching avoids multiple base gas fees (the initial 21000 units of gas spent to begin a transaction).
 
-The precompile interacts directly with [Substrate's EVM pallet](https://polkadot-evm.github.io/frontier/){target=\_blank}. The caller of the batch function will have their address act as the `msg.sender` for all subtransactions, but unlike [delegate calls](https://docs.soliditylang.org/en/v0.8.15/introduction-to-smart-contracts.html#delegatecall-callcode-and-libraries/){target=\_blank}, the target contract will still affect its own storage. It is effectively the same as if the user signed multiple transactions but with only one confirmation.
+The precompile interacts directly with [Substrate's EVM pallet](https://polkadot-evm.github.io/frontier/){target=\_blank}. The caller of the batch function will have their address act as the `msg.sender` for all subtransactions, but unlike [delegate calls](https://docs.soliditylang.org/en/v0.8.15/introduction-to-smart-contracts.html#delegatecall-callcode-and-libraries){target=\_blank}, the target contract will still affect its own storage. It is effectively the same as if the user signed multiple transactions but with only one confirmation.
 
 The Batch Precompile is located at the following address:
 
@@ -25,7 +25,7 @@ The Batch Precompile is located at the following address:
 
 ## The Batch Solidity Interface {: #the-batch-interface }
 
-[`Batch.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Batch.sol/){target=\_blank} is a Solidity interface that allows developers to interact with the precompile's three methods.
+[`Batch.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Batch.sol){target=\_blank} is a Solidity interface that allows developers to interact with the precompile's three methods.
 
 ??? code "Batch.sol"
 
@@ -83,7 +83,7 @@ The contract `SimpleContract.sol` will be used as an example of batching contrac
 
 ### Remix Set Up {: #remix-set-up }
 
-You can interact with the Batch Precompile using [Remix](https://remix.ethereum.org/){target=\_blank}. You'll need a copy of [`Batch.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Batch.sol/){target=\_blank} and `SimpleContract.sol`. To add the precompile to Remix and follow along with the tutorial, you will need to:
+You can interact with the Batch Precompile using [Remix](https://remix.ethereum.org/){target=\_blank}. You'll need a copy of [`Batch.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Batch.sol){target=\_blank} and `SimpleContract.sol`. To add the precompile to Remix and follow along with the tutorial, you will need to:
 
 1. Click on the **File explorer** tab
 2. Paste the `Batch.sol` contract into a Remix file named **Batch.sol**
@@ -182,7 +182,7 @@ The call data can be broken into five lines where:
 
  - The first line is the function selector
  - The second line is equal to 1, which is the **id** that was provided
- - What's left involves the **message** input. These last three lines are tricky since strings are a [dynamic type](https://docs.soliditylang.org/en/v0.8.15/abi-spec.html#use-of-dynamic-types/){target=\_blank} with a dynamic length. The third line refers to an offset to define where the string's data starts. The fourth line refers to the length of the message in the following line, which is 32 bytes total - the "tanssi" message plus padding
+ - What's left involves the **message** input. These last three lines are tricky since strings are a [dynamic type](https://docs.soliditylang.org/en/v0.8.15/abi-spec.html#use-of-dynamic-types){target=\_blank} with a dynamic length. The third line refers to an offset to define where the string's data starts. The fourth line refers to the length of the message in the following line, which is 32 bytes total - the "tanssi" message plus padding
  
 You can repeat the above steps to capture the call data for values of `2` and `"hello"` such that multiple subcalls can be submitted atomically with the Batch Precompile in the next section. 
 
@@ -262,7 +262,7 @@ And that's it! You've successfully interacted with the ERC-20 precompile using M
 
 ## Ethereum Development Libraries {: #ethereum-development-libraries }
 
-If you have followed the [Ethers.js tutorial](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, you may find it difficult to find the call data for a function. The answer is hidden within Ether's `Interface` object, where the [encodeFunctionData](https://docs.ethers.org/v6/api/abi/#Interface-encodeFunctionData/){target=\_blank} function allows you to input your function name and inputs to receive the resultant call data. [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank} has a similar function, [encodeFunctionCall](https://web3js.readthedocs.io/en/v1.2.11/web3-eth-abi.html#encodefunctioncall){target=\_blank}.
+If you have followed the [Ethers.js tutorial](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, you may find it difficult to find the call data for a function. The answer is hidden within Ether's `Interface` object, where the [encodeFunctionData](https://docs.ethers.org/v6/api/abi/#Interface-encodeFunctionData){target=\_blank} function allows you to input your function name and inputs to receive the resultant call data. [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank} has a similar function, [encodeFunctionCall](https://web3js.readthedocs.io/en/v1.2.11/web3-eth-abi.html#encodefunctioncall){target=\_blank}.
 
 !!! note
     The code snippets presented in the following sections are not meant for production environments. Please make sure you adapt it for each use case.

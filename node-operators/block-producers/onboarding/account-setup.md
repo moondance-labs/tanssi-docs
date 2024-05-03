@@ -11,7 +11,7 @@ Before you can start producing blocks on Tanssi and Tanssi appchains, you'll nee
 
 You must have spun up a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer/){target=\_blank} to tackle the account setup steps in this guide.
 
-You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys/){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/block-producers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
+You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/block-producers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
 
 To establish eligibility, you must delegate yourself as a block producer and meet the minimum bond requirements.
 
@@ -35,7 +35,7 @@ When establishing eligibility to produce blocks, there are a couple of variables
 
 ## Map an Account to Your Block Producer Node {: #map-account }
 
-The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys/){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your block-producing node.
+The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your block-producing node.
 
 You will need to create session keys for your primary and backup servers. Each of your servers, your primary and backup, should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
 
@@ -64,7 +64,7 @@ Make sure you write down your session keys; you'll need to map your session keys
 
 ### Map Session Keys {: #map-session-keys }
 
-To perform the next step and map your session keys to your account, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics/){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+To perform the next step and map your session keys to your account, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
 1. Select your account, which should be the same account that you previously self-delegated
 2. Select the **session** module and the **setKeys** extrinsic
@@ -74,7 +74,7 @@ To perform the next step and map your session keys to your account, head to [Pol
 
 ![Create and submit an extrinsic to set session keys on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-1.webp)
 
-Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics/){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **session** module and the **keyOwner** query
 2. Enter `nmbs` in the **SpCoreCryptoKeyTypeId** field
@@ -94,20 +94,20 @@ Block producers are assigned upon each session, requiring {{ networks.dancebox.b
 
 ### Request Delegate {: #request-delegate }
 
-Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics/){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
 1. Select the account from which you want to send the extrinsic. This account must be the same account that you are delegating to and is the account that you want to become a block producer
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
 3. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to become a block producer
 4. Choose the target pool. The pool can either be the auto-compounding pool, which auto-compounds delegation rewards, or the manual rewards pool, in which all actions related to rewards are manual
-5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit/){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
+5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to self-delegate on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-3.webp)
 
 ### Execute the Pending Request {: #execute-pending-request }
 
-Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics/){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module and the **pendingOperations** query
 2. Enter your account
@@ -145,7 +145,7 @@ Now, you have completed all of the necessary account setup to be eligible to pro
 
 ## Verify That Your Account Is in the List of Eligible Candidates {: #verify }
 
-If you've followed all of the steps in this guide and have fully synced your block-producing node, you are now eligible to produce blocks. To verify that you are in the list of eligible candidates, you can go to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics/){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+If you've followed all of the steps in this guide and have fully synced your block-producing node, you are now eligible to produce blocks. To verify that you are in the list of eligible candidates, you can go to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module and the **sortedEligibleCandidates** query
 2. Click the **+** button next to the extrinsic field

@@ -36,7 +36,7 @@ Some of the main components are:
 - **Storage** - this component manages the state storage of the Tanssi appchain in a highly efficient key-value database
 - **Consensus** - this component ensures that all the participants in the network agree on the state of the blockchain, validating transactions, state transitions, and the resulting blocks
 
-The default configuration of a Substrate node and the built-in implementations of the components are usually the best choice for most use cases. Still, teams are welcome to innovate and change or replace any piece of the node or even write a completely different implementation of the core client, such as [Kagome](https://github.com/soramitsu/kagome#intro/){target=\_blank} (C++ implementation) and [Gossamer](https://github.com/ChainSafe/gossamer#a-go-implementation-of-the-polkadot-host/){target=\_blank} (Golang implementation).
+The default configuration of a Substrate node and the built-in implementations of the components are usually the best choice for most use cases. Still, teams are welcome to innovate and change or replace any piece of the node or even write a completely different implementation of the core client, such as [Kagome](https://github.com/soramitsu/kagome#intro){target=\_blank} (C++ implementation) and [Gossamer](https://github.com/ChainSafe/gossamer#a-go-implementation-of-the-polkadot-host){target=\_blank} (Golang implementation).
 
 ## The Runtime {: #runtime }
 

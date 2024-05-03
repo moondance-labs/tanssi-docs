@@ -38,7 +38,7 @@ This tutorial will generate a multiple reference compile-time error. Finally, th
 
 ### Add a Third-Party Dependency {: #add-third-party-dependency }
 
-Similarly to what is described in the [built-in module](/builders/build/customize/adding-built-in-module/#adding-a-built-in-module-to-runtime/){target=\_blank} article, adding a third-party module requires the following steps:
+Similarly to what is described in the [built-in module](/builders/build/customize/adding-built-in-module/#adding-a-built-in-module-to-runtime){target=\_blank} article, adding a third-party module requires the following steps:
 
 1. Declare the dependency in the root `Cargo.toml` file
 2. Make the standard features available to the compiler

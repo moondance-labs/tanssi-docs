@@ -15,7 +15,7 @@ The following sections of this article will cover the minimal required software 
 
 ## Installing Rust {: #installing-rust }
 
-[Rust](/learn/framework/overview/#rust-programming-language/){target=\_blank} is a modern, portable, and performant programming language that is the base of the Substrate blockchain development framework.  
+[Rust](/learn/framework/overview/#rust-programming-language){target=\_blank} is a modern, portable, and performant programming language that is the base of the Substrate blockchain development framework.  
 
 To compile the Tanssi appchain, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system.
 

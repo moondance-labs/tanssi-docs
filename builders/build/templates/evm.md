@@ -19,18 +19,17 @@ Since the template already contains the necessary configuration for seamless int
 
 This means that this template is ready to be built as-is and deployed through Tanssi, unlocking many features, such as:
 
-- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service/){target=\_blank}
-- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa/){target=\_blank}
-- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security/){target=\_blank}
+- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank}
+- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=\_blank}
+- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=\_blank}
 - Use the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} to interact with the Substrate API
 - Connect any Ethereum wallet, such as [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} and Ledger
 - Use well-known Ethereum libraries like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, [Web3.py](/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, and more
 - Deploy EVM smart contracts with tools like [Remix](https://remix.ethereum.org/){target=\_blank}, [Hardhat](https://hardhat.org/){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry/){target=\_blank}, and more
 
-
 ## Included Modules {: #included-modules }
 
-Besides the modules and configurations that make the Tanssi EVM appchain template compatible with the Tanssi protocol, it also includes [many modules](/builders/build/templates/overview/#included-modules/){target=\_blank} to provide basic functionalities.
+Besides the modules and configurations that make the Tanssi EVM appchain template compatible with the Tanssi protocol, it also includes [many modules](/builders/build/templates/overview/#included-modules){target=\_blank} to provide basic functionalities.
 
 To reach full Ethereum compatibility, these specific modules are also included:
 

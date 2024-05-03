@@ -21,7 +21,7 @@ For example, imagine discovering a critical exploit on your appchain that could 
 For the examples in this guide, you will need to have the following:
 
  - A Tanssi appchain (Snap or Dedicated)
- - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps/){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+ - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
 
@@ -32,7 +32,7 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 
 ## Enabling Maintenance Mode {: #enabling-maintenance-mode }
 
-As you know, the Sudo account can perform privileged functions, such as enabling and disabling maintenance mode. To enter maintenance mode and stop regular transaction processing, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps/){target=\_blank}. Then, take the following steps:
+As you know, the Sudo account can perform privileged functions, such as enabling and disabling maintenance mode. To enter maintenance mode and stop regular transaction processing, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **maintenanceMode** pallet
 2. Select the **enterMaintenanceMode** method
@@ -46,7 +46,7 @@ To verify that maintenance mode has been enabled, you can check the **Explorer**
 
 ## Exiting Maintenance Mode {: #exiting-maintenance-mode }
 
-To exit maintenance mode and return your appchain to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps/){target=\_blank}. Then, take the following steps:
+To exit maintenance mode and return your appchain to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **maintenanceMode** pallet
 2. Select the **resumeNormalOperation** method

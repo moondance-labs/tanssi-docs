@@ -19,19 +19,19 @@ This tutorial will walk you through configuring a staking proxy account on the T
 
 To follow along with this tutorial, you will need to have:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/accounts/){target=\_blank} open and connected to the Tanssi Dancebox TestNet
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
 - Create or have two accounts accessible in Polkadot.js Apps
 - Both accounts will need to be funded with `DANCE` tokens, and the block producer account will need at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` `DANCE`
 
-If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman#connecting-to-polkadotjs/){target=\_blank} guide.
+If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman#connecting-to-polkadotjs){target=\_blank} guide.
 
 ## Creating a Staking Proxy Account {: #creating-a-staking-proxy-account }
 
-There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/accounts/){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions and provides a limited period of time to cancel any actions.
+There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions and provides a limited period of time to cancel any actions.
 
 You also have the option of creating a proxy of type **Any** which grants the proxy account full and unrestricted control over the primary account. This means that the proxy account can transfer funds, and perform any arbitrary action. The following demo will showcase configuring a **Staking** proxy, which is more restrictive than an **Any** proxy, as it limits functions to activities that pertain to staking, such as delegating, undelegating, and mapping session keys.
 
-To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/extrinsics/){target=\_blank} from the dropdown. Next, you will need to take the following steps:
+To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
 
 1. Select the primary account
 2. From the **submit the following extrinsic** dropdown, select **proxy**
@@ -74,7 +74,7 @@ In the next section, you will learn how to verify that your proxy account was se
 
 You can verify that your proxy account has been successfully set up in a couple of ways: either through the **Accounts** page or via the **Chain state** page.
 
-To check your proxy accounts from the [**Chain state** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/chainstate/){target=\_blank}, you can take the following steps:
+To check your proxy accounts from the [**Chain state** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, you can take the following steps:
 
 1. From the **selected state query** dropdown, select **proxy**
 2. Choose the **proxies** extrinsic
@@ -97,7 +97,7 @@ A pop-up will appear where you can see an overview of all of your proxy accounts
 
 Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the staking proxy account on behalf of your block producer account, also known as the primary account or the account that is being proxied. The following example will demonstrate initiating a self-delegation. The proxy configuration shown is a realistic example of how you might have your own proxy configured for your block producer primary account.
 
-To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/extrinsics/){target=\_blank} and take the following steps:
+To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank} and take the following steps:
 
 1. Select the proxy account to submit the transaction from the **using the select account** dropdown
 2. From the **submit the following extrinsic** menu, select **proxy**
@@ -113,9 +113,9 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/block-producers/operational-tasks/proxy-accounts/proxy-8.webp)
 
-A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/block-producers/onboarding/account-setup/#execute-pending-request/){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/block-producers/onboarding/account-setup/#map-session-keys/){target=\_blank} via proxy.
+A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/block-producers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/block-producers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
 
-After you've mapped your session keys and executed the pending delegation request, you can [verify that your block producer is in the list of eligible candidates](/node-operators/block-producers/onboarding/account-setup/#verify/){target=\_blank}.
+After you've mapped your session keys and executed the pending delegation request, you can [verify that your block producer is in the list of eligible candidates](/node-operators/block-producers/onboarding/account-setup/#verify){target=\_blank}.
 
 That's it! You've successfully executed a transaction using a proxy account on behalf of your primary block producer account.
 

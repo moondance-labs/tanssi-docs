@@ -7,7 +7,7 @@ description: Learn how to use Phala's off-chain computing network to get reliabl
 
 ## Introduction {: #introduction }
 
-[Phala Network](https://phala.network/){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/developers/advanced-topics/blockchain-infrastructure#the-architecture/){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/introduction/readme/){target=\_blank}.
+[Phala Network](https://phala.network/){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/developers/advanced-topics/blockchain-infrastructure#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/introduction/readme/){target=\_blank}.
 
 Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network/){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch.
 
@@ -17,7 +17,7 @@ This tutorial will walk through a demo of [interacting with price feeds](#fetch-
 
 Phala mirrors [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds/){target=\_blank} from Ethereum MainNet. Chainlink Price Feeds have stood the test of time and have wide industry adoption. As a reminder, Chainlink Price Feeds don't rely on any single source of truth, rather, their pricing data is collected and aggregated from a variety of data sources gathered by a decentralized set of independent node operators. This helps to prevent manipulation and erratic pricing data.
 
-The core component of Phala's system design is the [Secure Enclave](https://docs.phala.network/developers/advanced-topics/blockchain-infrastructure#the-architecture/){target=\_blank}, which processes the inputs it receives from the Phala blockchain, acting as an encrypted message queue, and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain requests a price feed update, which the Phala off-chain workers fetch from Ethereum MainNet, and return to the Phala blockchain.
+The core component of Phala's system design is the [Secure Enclave](https://docs.phala.network/developers/advanced-topics/blockchain-infrastructure#the-architecture){target=\_blank}, which processes the inputs it receives from the Phala blockchain, acting as an encrypted message queue, and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain requests a price feed update, which the Phala off-chain workers fetch from Ethereum MainNet, and return to the Phala blockchain.
 
 It's important to note that Phala isn't limited to replicating existing Oracles. You can create entirely new Oracles by sourcing off-chain data via Phat Contracts. In this [Phat-EVM Oracle example](https://github.com/Phala-Network/phat-offchain-rollup/blob/main/EvmRollup.md/){target=\_blank}, pricing data is sourced from the CoinGecko API. Price quote updates can then be constantly streamed from the Phat contract (push design), or the EVM smart contract can ask for a refreshed quote from the Phat contract (pull design).
 
@@ -65,7 +65,7 @@ Next, this tutorial will showcase interacting with the price feed contracts on t
 
 For a refresher on setting up Remix to interface with the demo EVM appchain, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM appchain.
 
-Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol/){target=\_blank} into a new file in Remix and compile it.
+Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
 ![Compile aggregator contract](/images/builders/toolkit/integrations/oracles/phala/phala-1.webp)
 
@@ -174,7 +174,7 @@ You'll get a transaction status as well as a contract address. Copy this contrac
 
 Next, this tutorial will demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM appchain. You can add your appchain to your MetaMask by pressing **Add to MetaMask** on your dashboard on the [Tanssi DApp](https://apps.tanssi.network/){target=\_blank}.
 
-Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol/){target=\_blank} into a new file in Remix and compile it.
+Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
 Then, take the following steps:
 

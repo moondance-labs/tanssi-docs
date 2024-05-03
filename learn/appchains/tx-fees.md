@@ -30,7 +30,7 @@ This section outlines all the different concepts associated with transaction fee
 Broadly speaking, weight refers to the execution time it takes to validate a block, measured in picoseconds. Weight is divided into two separate variables:
 
 - **`refTime`** - corresponds to the weight associated with computation time and database reads/writes
-- **`proofSize`** - corresponds to the weight associated with the size of the Proof-Of-Validity (or PoV for short). The PoV is associated with the relevant state of a transaction, and it is what the Tanssi appchain block producer shares with the relay chain validator to get its block finalized as part of the [appchain transaction flow](/learn/appchains/overview/#appchain-transaction/){target=\_blank}
+- **`proofSize`** - corresponds to the weight associated with the size of the Proof-Of-Validity (or PoV for short). The PoV is associated with the relevant state of a transaction, and it is what the Tanssi appchain block producer shares with the relay chain validator to get its block finalized as part of the [appchain transaction flow](/learn/appchains/overview/#appchain-transaction){target=\_blank}
 
 To find the weights for all function calls, they are benchmarked in a system with reference hardware, and the approximate values of `refTime` and `proofSize` are set. This process is repeated for all function calls that consume blockspace and affect the PoV.
 

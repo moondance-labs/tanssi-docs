@@ -7,7 +7,7 @@ description: Any custom runtime can be adapted to be deployed through Tanssi, pr
 
 ## Introduction {: #introduction }
 
-For teams that already have been working on a Substrate runtime, it will be necessary to implement the required modules and configurations into the runtime. This will ensure that the runtime can evolve into a Tanssi appchain successfully [deployed through Tanssi](/builders/build/templates/overview/#base-setup-supporting-tanssi/){target=\_blank} and [run properly within Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot/){target=\_blank}.
+For teams that already have been working on a Substrate runtime, it will be necessary to implement the required modules and configurations into the runtime. This will ensure that the runtime can evolve into a Tanssi appchain successfully [deployed through Tanssi](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank} and [run properly within Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank}.
 
 Failing to do so might lead to reduced interoperability within the ecosystem and unnecessary exposure to vulnerabilities.
 

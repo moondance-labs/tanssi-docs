@@ -22,15 +22,15 @@ Since the provided template already includes the essential configurations for se
 
 Here are some of the features that come with this template:
 
-- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service/){target=\_blank}
-- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa/){target=\_blank}
-- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security/){target=\_blank}
+- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank}
+- Use [Polkadot's finality gadget](https://wiki.polkadot.network/docs/learn-consensus#finality-gadget-grandpa){target=\_blank}
+- Benefit from [Polkadot's shared security model](https://wiki.polkadot.network/docs/learn-parachains#shared-security){target=\_blank}
 - Use the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} to interact with the Substrate API
 
 By leveraging these features in the template, you can kickstart your Tanssi appchain development and customize it to meet your specific requirements and innovations.
 
 ## Adding Extra Dependencies {: #adding-extra-dependencies }
 
-The Substrate appchain template includes all the required modules and configurations that make it compatible with the Tanssi protocol, and also [many other modules](/builders/build/templates/overview/#included-modules/){target=\_blank} that provide basic functionalities.
+The Substrate appchain template includes all the required modules and configurations that make it compatible with the Tanssi protocol, and also [many other modules](/builders/build/templates/overview/#included-modules){target=\_blank} that provide basic functionalities.
 
 This template is meant to be built on top of it, as most use cases require expanded capabilities, adding existing or custom modules. To learn how to add new functionalities to your runtime, check the [customize runtime](/builders/build/customize/){target=\_blank} section.

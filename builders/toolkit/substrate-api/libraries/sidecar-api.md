@@ -360,7 +360,7 @@ For Tanssi non-EVM appchains and EVM appchains, all the information around fee d
 GET /blocks/{blockId}
 ```
 
-The block endpoints will return data relevant to one or more blocks. You can read more about the block endpoints on the [official Sidecar documentation](https://paritytech.github.io/substrate-api-sidecar/dist/#operations-tag-blocks/){target=\_blank}.
+The block endpoints will return data relevant to one or more blocks. You can read more about the block endpoints on the [official Sidecar documentation](https://paritytech.github.io/substrate-api-sidecar/dist/#operations-tag-blocks){target=\_blank}.
 
 Read as a JSON object, for a given `pallet` (module) and `method`, the transaction fee is provided by an associated event with the following extructure:
 
@@ -441,7 +441,7 @@ The following sections describe in more detail each of the components needed to 
 
 ### Base Fee {: #base-fee}
 
-The `BaseFee` is the minimum amount charged to send a transaction and is a value set by the network itself. It was introduced in [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559/){target=\_blank}. Tanssi EVM appchains have a dynamic fee mechanism that aims to replicate the [EIP-1559 fee market mechanism](https://eips.ethereum.org/EIPS/eip-1559#specification/){target=\_blank}, where the base fee is adjusted based on block congestion.
+The `BaseFee` is the minimum amount charged to send a transaction and is a value set by the network itself. It was introduced in [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559/){target=\_blank}. Tanssi EVM appchains have a dynamic fee mechanism that aims to replicate the [EIP-1559 fee market mechanism](https://eips.ethereum.org/EIPS/eip-1559#specification){target=\_blank}, where the base fee is adjusted based on block congestion.
 
 For example, for the Dancebox EVM appchain template the minimum gas price is `1 GWei`.
 

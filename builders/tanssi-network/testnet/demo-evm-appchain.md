@@ -50,7 +50,7 @@ The demo EVM appchain HTTPS and WSS endpoints are as follows:
 
 For the demo EVM appchain, you can use any of the following explorers:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer/){target=\_blank} (Substrate API)
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank} (Substrate API)
 - [Blockscout](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank} (Ethereum API)
 - [Expedition](https://tanssi-evmexplorer.netlify.app/){target=\_blank}{target=\_blank} (Ethereum API)
 

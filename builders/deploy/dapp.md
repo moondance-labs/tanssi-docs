@@ -96,7 +96,7 @@ To get started, select the **EVM** template from the left-side menu. Then take t
 
 ### Substrate Template {: #substrate-template }
 
-The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template/){target=\_blank} includes all the configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Tanssi appchain that is compatible with both Polkadot and Tanssi.
+The [Substrate template](/builders/build/templates/overview/#baseline-appchain-template){target=\_blank} includes all the configurations for seamless integration with Tanssi and the Polkadot ecosystem. It can be used as the baseline specification to build a custom Tanssi appchain that is compatible with both Polkadot and Tanssi.
 
 To get started, select the **Substrate** template from the left-side menu. Then take the following steps:
 
@@ -114,8 +114,8 @@ If you already have a Substrate runtime built and have chosen to upload your own
 
 Your runtime must implement the following:
 
-- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot/){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
-- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi/){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
+- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
+- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
 
 Other required changes in the runtime include:
 
@@ -138,7 +138,7 @@ Other required changes in the runtime include:
     AuraExt: cumulus_pallet_aura_ext = 24,
     ```
 
-Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs/){target=\_blank} the chain specification paying special attention to: 
+Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs){target=\_blank} the chain specification paying special attention to:
 
 - `para_id` - within this custom flow, a pre-registered parachain id is required
 - `is_ethereum` - to `true` if exposing Ethereum compatible RPC endpoints is needed
@@ -231,9 +231,9 @@ Once the transaction has successfully gone through, your Tanssi appchain ID will
 
 Before you can deploy your Tanssi appchain, you'll need to generate four configuration files:
 
-- [The raw chain specification](/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file/){target=\_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
-- [The genesis state header](/builders/build/customize/customizing-chain-specs/#genesis-state/){target=\_blank} - defines the initial state upon which all transactions and state transitions are executed
-- [The genesis Wasm](/learn/framework/architecture/#runtime/){target=\_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
+- [The raw chain specification](/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=\_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
+- [The genesis state header](/builders/build/customize/customizing-chain-specs/#genesis-state){target=\_blank} - defines the initial state upon which all transactions and state transitions are executed
+- [The genesis Wasm](/learn/framework/architecture/#runtime){target=\_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
 
 These files will automatically be generated for you based on your Tanssi appchain ID and your customized template configurations. All you need to do is click **Generate**, and the dApp will generate the required files for you.
 

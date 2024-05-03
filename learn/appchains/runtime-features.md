@@ -7,7 +7,7 @@ description: Learn about the core features of a Tanssi appchain, the transaction
 
 ## Introduction {: #introduction}
 
-Appchains deployed through Tanssi have [many benefits](/learn/tanssi/overview/#what-tanssi-provides/){target=\_blank} due to its unique [architecture](/learn/tanssi/overview/#tanssi-architecture/){target=\_blank}.
+Appchains deployed through Tanssi have [many benefits](/learn/tanssi/overview/#what-tanssi-provides){target=\_blank} due to its unique [architecture](/learn/tanssi/overview/#tanssi-architecture){target=\_blank}.
 
 Nevertheless, Tanssi appchains are also unique due to the [framework](/learn/framework/){target=\_blank} (Substrate) they are built on top of, which provides some unique characteristics that developers can leverage to fine-tune specific behaviors in their runtime.
 
@@ -45,7 +45,7 @@ When a user or application submits a signed transaction to a Tanssi appchain, th
 
 The valid transaction queue comprises two pools: ready and future. The ready queue contains all transactions that can be included in a new pending block. The future queue is for transactions that don't meet all the criteria to be included now but might become valid. For example, transactions with a future nonce. Invalid transactions are directly rejected.
 
-During the block-building process, a block producer uses a [priority system](https://github.com/paritytech/substrate/blob/fb24fda76d613305ebb2e5728c75362c94b64aa1/frame/transaction-payment/src/lib.rs#L614-L681/){target=\_blank} through a transaction orchestration module to order transactions for the next block, until the block reaches its maximum capacity. The block building and execution order has the following operations:
+During the block-building process, a block producer uses a [priority system](https://github.com/paritytech/substrate/blob/fb24fda76d613305ebb2e5728c75362c94b64aa1/frame/transaction-payment/src/lib.rs#L614-L681){target=\_blank} through a transaction orchestration module to order transactions for the next block, until the block reaches its maximum capacity. The block building and execution order has the following operations:
 
 - **Initializing a Block** - known as `on_initialize`,  enables you to define runtime logic executed before any other transaction is accounted for. For example, inherent transactions, like the timestamp in the previous example, are commonly executed when initializing a block. Once the initialization logic is completed, the transaction orchestration module verifies the parent hash in the block header and the trie root to ensure the information is correct
 - **Transaction Execution** - with the block already initialized, the transaction orchestration module executes each valid transaction according to its priority. The initial state is not cached before the execution, meaning that if one of the transactions fails mid-execution, any state changes committed up to that moment cannot be reverted, and the subsequent block will be invalid. Consequently, runtime logic should perform all necessary checks to ensure all valid transactions will succeed

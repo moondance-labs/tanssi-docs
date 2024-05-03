@@ -41,7 +41,7 @@ As a sibling chain of the other members of the ecosystem (like the Tanssi networ
 
 The Baseline Tanssi appchain Template is based on the [Substrate Parachain Template](https://github.com/substrate-developer-hub/substrate-parachain-template/){target=\_blank} featuring [Cumulus](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/){target=\_blank} SDK, which includes all the required functionality for the block producers logic, p2p, database, and synchronization layers between the appchain and the relay chain, making the integration of a new appchain into the Polkadot ecosystem a breeze.
 
-This template also includes Tanssi's [Author Noting](https://github.com/moondance-labs/tanssi/blob/master/pallets/author-noting/src/lib.rs/){target=\_blank} pallet, which implements the logic for retrieving and validating the set of block producers assigned to provide block production services to the appchain. It also includes logic that allows a block producer to sign the block when the consensus mechanism determines that it is the block producer's turn to produce the block (and thus be rewarded accordingly).
+This template also includes Tanssi's [Author Noting](https://github.com/moondance-labs/tanssi/blob/master/pallets/author-noting/src/lib.rs){target=\_blank} pallet, which implements the logic for retrieving and validating the set of block producers assigned to provide block production services to the appchain. It also includes logic that allows a block producer to sign the block when the consensus mechanism determines that it is the block producer's turn to produce the block (and thus be rewarded accordingly).
 
 ### Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
 

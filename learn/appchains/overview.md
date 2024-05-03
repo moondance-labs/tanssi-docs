@@ -7,7 +7,7 @@ description: Learn the high-level definitions of how a Tanssi appchain works, it
 
 ## Introduction {: #introduction }
 
-Appchains deployed through Tanssi have many [distinct features](/learn/tanssi/overview/#what-tanssi-provides/){target=\_blank}, such as block production as a service.
+Appchains deployed through Tanssi have many [distinct features](/learn/tanssi/overview/#what-tanssi-provides){target=\_blank}, such as block production as a service.
 
 However, because Tanssi appchains are built with a [modular framework](/learn/framework/){target=\_blank}, they offer many other unique advantages at a runtime level that make them quite extensible. This [unique modularity](/learn/framework/modules/){target=\_blank} allows a developer to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
