@@ -7,9 +7,9 @@ description: Learn how to use the Sudo key to manage your appchain by performing
 
 ## Introduction {: #introduction }
 
-[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This enables you to perform privileged actions in the course of managing your appchain, such as upgrading your Tanssi appchain's runtime. 
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This enables you to perform privileged actions in the course of managing your appchain, such as upgrading your Tanssi appchain's runtime.
 
-In this guide, you'll learn how to use Sudo to upgrade your Tanssi appchain's runtime. With Sudo access, upgrading your chain is a quick and easy process. Note that appchain teams in production will have the option to phase out Sudo access and rely on governance to process runtime upgrades. 
+In this guide, you'll learn how to use Sudo to upgrade your Tanssi appchain's runtime. With Sudo access, upgrading your chain is a quick and easy process. Note that appchain teams in production will have the option to phase out Sudo access and rely on governance to process runtime upgrades.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -17,7 +17,7 @@ For the example in this guide, you will need to have the following:
 
  - A Tanssi appchain (Snap or Dedicated)
  - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
-- The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one
+ - The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one
 
 If you're unsure what your Tanssi appchain's Sudo account or runtime version is, you can find them in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
 

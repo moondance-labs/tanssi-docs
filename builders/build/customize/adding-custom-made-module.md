@@ -29,7 +29,7 @@ In this article, the following steps, necessary to build and add the example mod
 
 To follow the steps in this guide, you will need to have the following:
 
-- Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} from Github
+- Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi/){target=\_blank} from Github
 - Rust compiler and Cargo package manager
 
 You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/customize/prerequisites/#installing-rust){target=\_blank}.
@@ -38,7 +38,7 @@ You can read more about how to install Rust and Cargo is in the [prerequisites a
 
 Before starting your coding process, it's essential to create the files containing your logic. Substrate modules are abstract and intended for reuse across different runtimes with various customizations. To achieve this, you'll use Cargo, Rust's package manager, to create the module as a new package.
 
-As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
+As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi/){target=\_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
 
 ```bash
 cd container-chains/pallets

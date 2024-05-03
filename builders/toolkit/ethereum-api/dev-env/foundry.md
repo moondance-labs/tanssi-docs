@@ -7,7 +7,7 @@ description: Learn how to use Foundry, an Ethereum development environment, to c
 
 ## Introduction {: #introduction }
 
-[Foundry](https://github.com/foundry-rs/foundry){target=\_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi EVM appchains, so it can be used to deploy and interact with smart contracts on your Tanssi appchain.
+[Foundry](https://github.com/foundry-rs/foundry/){target=\_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi EVM appchains, so it can be used to deploy and interact with smart contracts on your Tanssi appchain.
 
 There are four tools that make up Foundry:  
 
@@ -23,7 +23,7 @@ This guide will cover how to use Foundry to compile, deploy, and debug Ethereum 
 To get started, you will need the following:
 
  - An account with funds
- - [Foundry installed](https://book.getfoundry.sh/getting-started/installation){target=\_blank}
+ - [Foundry installed](https://book.getfoundry.sh/getting-started/installation/){target=\_blank}
 
 ## Creating a Foundry Project {: #creating-a-foundry-project }
 
@@ -322,7 +322,7 @@ If you want to learn more about Chisel, download Foundry and refer to its [offic
 
 ## Foundry with Hardhat {: #foundry-with-hardhat }  
 
-Often, there will be the case where a project that you wish to integrate with has all of its setup within [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/){target=\_blank}, making it an arduous task to convert the entirety of the project into Foundry. This additional work is avoidable by creating a hybrid project that uses both Hardhat and Foundry features together. This is possible with Hardhat's [hardhat-foundry plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-foundry){target=\_blank}.  
+Often, there will be the case where a project that you wish to integrate with has all of its setup within [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/){target=\_blank}, making it an arduous task to convert the entirety of the project into Foundry. This additional work is avoidable by creating a hybrid project that uses both Hardhat and Foundry features together. This is possible with Hardhat's [hardhat-foundry plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-foundry/){target=\_blank}.  
 
 To convert your preexisting Foundry project to a hybrid project, you will essentially have to install a Hardhat project into the same folder:  
 
