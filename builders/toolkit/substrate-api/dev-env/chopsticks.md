@@ -79,13 +79,13 @@ The configuration file accepts all of the following parameters:
 |        `timestamp`         |                                     Timestamp of the block to fork from.                                     |
 |         `endpoint`         |                                    The endpoint of the parachain to fork.                                    |
 |          `block`           |                       Use to specify at which block hash or number to replay the fork.                       |
-|      `wasm-override`       |              Path of the WASM to use as the parachain runtime instead of an endpoint's runtime.              |
+|      `wasm-override`       |              Path of the Wasm to use as the parachain runtime instead of an endpoint's runtime.              |
 |            `db`            |               Path to the name of the file that stores or will store the parachain's database.               |
 |          `config`          |                                       Path or URL of the config file.                                        |
 |           `port`           |                                      The port to expose an endpoint on.                                      |
 |     `build-block-mode`     |                       How blocks should be built in the fork: batch, manual, instant.                        |
 |      `import-storage`      |              A pre-defined JSON/YAML storage file path to override in the parachain's storage.               |
-| `allow-unresolved-imports` |              Whether to allow WASM unresolved imports when using a WASM to build the parachain.              |
+| `allow-unresolved-imports` |              Whether to allow Wasm unresolved imports when using a Wasm to build the parachain.              |
 |           `html`           |                           Include to generate storage diff preview between blocks.                           |
 |   `mock-signature-host`    | Mock signature host so that any signature starts with `0xdeadbeef` and filled by `0xcd` is considered valid. |
 
@@ -141,7 +141,7 @@ If you would like to replay a block and retrieve its information to dissect the 
 |:--------------------------:|:--------------------------------------------------------------------------------------:|
 |         `endpoint`         |                         The endpoint of the parachain to fork.                         |
 |          `block`           |            Use to specify at which block hash or number to replay the fork.            |
-|      `wasm-override`       |   Path of the WASM to use as the parachain runtime instead of an endpoint's runtime.   |
+|      `wasm-override`       |   Path of the Wasm to use as the parachain runtime instead of an endpoint's runtime.   |
 |            `db`            |    Path to the name of the file that stores or will store the parachain's database.    |
 |          `config`          |                            Path or URL of the config file.                             |
 | `output-path=/[file_path]` |   Use to print out results to a JSON file instead of printing it out in the console.   |
