@@ -7,9 +7,9 @@ description: Learn how to use Sudo to temporarily pause hand-picked transactions
 
 ## Introduction {: #introduction }
 
-The [Tx-pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} is one of the [built-in modules](/learn/framework/modules/#built-in-modules){target=\_blank} included in the Polkadot SDK, and it is available in any Tanssi appchain based on the [official templates](/builders/build/templates/overview/){target=\_blank} version [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} or higher.
+The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} is one of the [built-in modules](/learn/framework/modules/#built-in-modules){target=\_blank} included in the Polkadot SDK, and it is available in any Tanssi appchain based on the [official templates](/builders/build/templates/overview/){target=\_blank} version [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} or higher.
 
-This module allows an appchain to avoid the execution of a set of hand-picked transactions momentarily while the rest of the transactions carry on as usual, accepting the calls. This feature is helpful in several scenarios, such as disabling functionality in which a security threat has been discovered, enabling seasonal functionality only when needed, enabling a set of transactions exactly on a launch date, and many others.
+This module allows an appchain to temporarily avoid executing a set of hand-picked transactions while the rest of the transactions carry on as usual. This feature is helpful in several scenarios, such as disabling functionality in which a security threat has been discovered, enabling seasonal functionality only when needed, and enabling a set of transactions exactly on a launch date.
 
 In an emergency scenario, when a critical exploit is discovered, this module allows the appchain to isolate and stop only the affected functionality, effectively minimizing the overall impact. 
 
@@ -72,8 +72,8 @@ As you know, the Sudo account can perform privileged functions, such as pausing 
 
 1. Select the **txPause** module
 2. Select the **pause** method
-3. Insert the **module** name that contains the transaction that will be paused.
-4. Insert the **transaction** name that will be paused.
+3. Insert the **module** name that contains the transaction that will be paused
+4. Insert the **transaction** name that will be paused
 5. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
 
 In this example, the transaction paused is `transfer_allow_death` from the `Balances` module:
@@ -93,15 +93,15 @@ To unpause a transaction and return it to normal operation, navigate to the **De
 
 1. Select the **txPause** module
 2. Select the **unpause** method
-3. Insert the **module** name that contains the transaction that will be unpaused.
-4. Insert the **transaction** name that will be unpaused.
+3. Insert the **module** name that contains the transaction that will be unpaused
+4. Insert the **transaction** name that will be unpaused
 5. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
 
 In this example, the transaction to unpause is `transfer_allow_death` from the `Balances` module:
 
 ![Unpause transaction](/images/builders/manage/sudo/pause-transactions/pause-transactions-4.webp)
 
-The `unpause` transaction executes successfully only if the module and transaction parameters have been previously paused; otherwise, It fails. After the successful unpausing, the transaction can be called and executed again.
+The `unpause` transaction executes successfully only if the module and transaction parameters have been previously paused; otherwise, it fails. After the successful unpausing, the transaction can be called and executed again.
 
 And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on using the Sudo account to manage your Tanssi appchain.
 
