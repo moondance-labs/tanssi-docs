@@ -20,7 +20,7 @@ In an emergency scenario, when a critical exploit is discovered, this module all
 
 For the examples in this guide, you will need to have the following:
 
- - A Tanssi appchain (Snap or Dedicated)
+ - A Tanssi appchain (Snap or Dedicated) featuring the Transaction Pause module. Any new appchain deployment based on one of the templates will do; otherwise, make sure to [include the module](/builders/build/customize/adding-built-in-module/){target=\_blank} in your custom-made appchain runtime
  - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
