@@ -32,7 +32,7 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 
 ## Module and Transaction Names {: #modules-transaction-names }
 
-The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} works by filtering the execution of certain transactions. To do so, it keeps an internal list of banned transactions identified by module and transaction name. This list is case-sensitive and works only when there is an exact match between one item in the paused transactions list and the transaction being processed. Therefore, using the exact names of the modules and the transactions is crucial.
+The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} works by filtering the execution of specific transactions contained in the modules included in the appchain runtime. To do so, it keeps an internal list of the banned transactions identified by module and transaction name. This list is case-sensitive and works only when there is an exact match between one item in the paused transactions list and the transaction being processed. Therefore, using the exact names of the modules and the transactions is crucial.
 
 To find out the names of the modules available in your runtime, you need to read the `construct_runtime!()` section in the `lib.rs` file of your appchain runtime in your project repository. If your appchain is based on one of the official templates, you'll find the file in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}:
 
