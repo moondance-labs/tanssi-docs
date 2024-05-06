@@ -9,7 +9,7 @@ description: Learn how to use Sudo to temporarily pause hand-picked transactions
 
 The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} is one of the [built-in modules](/learn/framework/modules/#built-in-modules){target=\_blank} included in the Polkadot SDK, and it is available in any Tanssi appchain based on the [official templates](/builders/build/templates/overview/){target=\_blank} version [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} or higher.
 
-This module allows an appchain to temporarily avoid executing a set of hand-picked transactions while the rest of the transactions carry on as usual. This feature is helpful in several scenarios, such as disabling functionality in which a security threat has been discovered, enabling seasonal functionality only when needed, and enabling a set of transactions exactly on a launch date.
+This module allows an appchain governor to temporarily avoid executing a set of hand-picked transactions while the rest of the transactions carry on as usual. This feature is helpful in several scenarios, such as disabling functionality in which a security threat has been discovered, enabling seasonal functionality only when needed, and enabling a set of transactions exactly on a launch date.
 
 In an emergency scenario, when a critical exploit is discovered, this module allows the appchain to isolate and stop only the affected functionality, effectively minimizing the overall impact. 
 
