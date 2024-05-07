@@ -7,11 +7,11 @@ description: Follow these step-by-step instructions to establish an identity, in
 
 ## Introduction {: #introduction }
 
-The [Substrate](/learn/platform/technology/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}. 
+The [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}.
 
 The identity you configure goes beyond a simple display name. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, and Riot (now known as Element) name. You can also use custom fields to include any other relevant information.
 
-This guide will demonstrate setting up an identity with a display name and additional parameters, enhancing your visibility and recognizability. 
+This guide will demonstrate setting up an identity with a display name and additional parameters, enhancing your visibility and recognizability.
 
 ## General Definitions {: #general-definitions }
 
@@ -29,7 +29,6 @@ To store your information on-chain, you must bond some funds, which will eventua
     |     Deposit per byte     | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.dancebox.identity.per_byte_deposit }} DANCE |
     | Max additional fields |     Maximum number of additional fields that may be stored in an ID     |   {{ networks.dancebox.identity.max_fields }}   |
     | Max Subaccounts |     Maximum number of subaccounts that can be defined under an account identity    |   {{ networks.dancebox.identity.max_subaccounts }}   |
-
 
 ## Checking Prerequisites { : #checking-prerequisites }
 
@@ -96,11 +95,11 @@ To register an identity using the extrinsics UI, navigate to the [**Extrinsics**
 2. Select identity from the **submit the following extrinsic** dropdown
 3. Then select the **setIdentity(info)** function
 4. Select **Raw** as the data format to enter your **Display Name**
-5. Enter the data for **Display** in the selected format 
+5. Enter the data for **Display** in the selected format
 6. Select **Raw** as the data format to enter your web address
-7. Enter your website URL in the selected format 
+7. Enter your website URL in the selected format
 8. Select **Raw** as the data format to enter your email
-9. Enter your email address in the selected format 
+9. Enter your email address in the selected format
 10. Select **Raw** as the data format to enter your Twitter handle
 11. Enter your Twitter in the selected format. Enter the username only, starting with the `@` symbol
 12. Review the prepared fields and press **Submit Transaction**
@@ -140,7 +139,7 @@ You can see now that you've successfully set an identity! Once you clear your id
 
 ## Clear an Identity {: #confirm-identity-extrinsics }
 
-To clear your identity, take the following steps from **Extrinsics** tab of the Polkadot.js Apps UI: 
+To clear your identity, take the following steps from **Extrinsics** tab of the Polkadot.js Apps UI:
 
 1. Select your account from the **using the selected account** dropdown
 2. Select **identity** from the **submit the following extrinsic** dropdown
