@@ -33,7 +33,7 @@ Their responsibility and how they interact with each other through the relay cha
 
 ### Block Producer Selection Process {: #block-producer-selection-process}
 
-At any given time, Tanssi and all Tanssi Appchains require a certain amount of block producers that depends on the number of Appchains and the current block production configuration set in Tanssi. The configuration sets the maximum nombre of total block producers, minimum and maximum numbers of block producers required for Tanssi itself, and the number of block producers each Appchain has assigned.
+At any given time, Tanssi and all Tanssi Appchains require a certain amount of block producers that depends on the number of Appchains and the current block production configuration set in Tanssi. The configuration sets the maximum number of total block producers, the minimum and maximum numbers of block producers required for Tanssi itself, and the number of block producers each Appchain has assigned.
 
 === "Dancebox"
     |              Variable              |                                         Value                                          |
@@ -51,7 +51,7 @@ The Tanssi staking module helps create a decentralized set of block producers fo
 
 Once the block production set is known, Tanssi assigns them to provide block production services to the active Tanssi Appchains and the Tanssi network itself.
 
-The assignment algorithm will start distributing the available block producers, serving first the Tanssi network and then the appchains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of block producers. In the provided [templates](/learn/tanssi/included-templates/){target=\_blank}, the default session duration is set to 1800 blocks, which, with an average block time of 12 seconds, translates to (roughly) six hours.
+The assignment algorithm will start distributing the available block producers, serving first the Tanssi network and then the appchains, ordered by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of block producers. In Dancebox, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of 6 seconds, translates to (roughly) {{ networks.dancebox.session.hours }} hour.
 
 Every new assignment works intentionally with a one-session delay, so the block producers may know in advance if they are assigned to serve the Tanssi network or which one of the appchains. Block producers will start syncing the new appchain they'll have to serve in the next session with a special type of syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the block producers to swiftly sync the new appchain without acting as an archive node.
 
