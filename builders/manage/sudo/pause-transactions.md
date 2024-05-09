@@ -114,7 +114,7 @@ When using any of the built-in Substrate modules, the name with which it's refer
     |:---------------------------:|:----------------------------------------------------------:|
     |          `create`           |       Issues a new collection of non-fungible items        |
     |          `destroy`          |        Destroys a collection of non-fungible items         |
-    |           `mint`            |            Mints an item in an NFT collection.             |
+    |           `mint`            |            Mints an item in an NFT collection              |
     |           `burn`            |          Destroys an item from an NFT collection           |
     |         `transfer`          |                      Transfers an NFT                      |
     |    `lock_item_transfer`     |              Disallow the transfer of an item              |
