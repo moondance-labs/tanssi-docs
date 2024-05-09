@@ -23,7 +23,7 @@ First, you'll start with a fresh and default [MetaMask](https://metamask.io/){ta
 
 ## Setup a Wallet {: #setup-a-wallet }
 
-After installing [MetaMask](https://metamask.io){target=\_blank}, the setup will automatically open a new task with a welcome screen. Here, you are offered two options:
+After installing [MetaMask](https://metamask.io/){target=\_blank}, the setup will automatically open a new task with a welcome screen. Here, you are offered two options:
 
 - **Create a new wallet** - you'll go through some steps to get a new seed phrase. Ensure you store this phrase securely and you don't share it publicly
 - **Import an existing wallet** - you already have a seed phrase stored, and you want to restore an account from that recovery phrase
@@ -76,7 +76,7 @@ Here, you can configure MetaMask for the following networks:
 |          RPC URL          | `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network` |
 |         Chain ID          |                           `5678`                           |
 |     Symbol (Optional)     |                          `TANGO`                           |
-| Block Explorer (Optional) |    `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`    |
+| Block Explorer (Optional) | `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`  |
 
 To do so, fill in the following information:
 

@@ -9,15 +9,15 @@ description: Learn how to manage and resolve double reference issues of dependen
 
 Developers building on top of the [Templates offered by Tanssi](/builders/build/templates/){target=\_blank} might want to add some external modules/dependencies into their runtime to expand certain functionality.
 
-The Tanssi repository and the templates take all the dependencies from [a fork](https://github.com/moondance-labs/polkadot-sdk){target=\_blank} of the official Polkadot SDK repository. This fork is maintained by the Tanssi engineering team, which usually contributes actively to Substrate development by fixing issues and enhancing functionalities, and, as a result, the fork repository frequently stays temporarily ahead of the official one.
+The Tanssi repository and the templates take all the dependencies from [a fork](https://github.com/moondance-labs/polkadot-sdk/){target=\_blank} of the official Polkadot SDK repository. This fork is maintained by the Tanssi engineering team, which usually contributes actively to Substrate development by fixing issues and enhancing functionalities, and, as a result, the fork repository frequently stays temporarily ahead of the official one.
 
 A double reference issue may arise when adding an external dependency, such as a pallet from a third party. This happens if a Tanssi module references a dependency from the Polkadot SDK fork repository, and the third party references the same dependency from the official Polkadot SDK repository. To solve this issue, the references to the dependencies must be unified.
 
 ## Solving Dependencies Conflicts with Diener {: #solving-dependencies-conflicts-diener }
 
-To efficiently handle the dependencies and their origins, you can check out the tool [diener](https://github.com/paritytech/diener){target=\_blank}. 
+To efficiently handle the dependencies and their origins, you can check out the tool [diener](https://github.com/paritytech/diener/){target=\_blank}.
 
-If the `diener` executable file, the cloned [Polkadot SDK repository](https://github.com/paritytech/polkadot-sdk){target=\_blank}, and your Tanssi fork are located in the same folder, step into the Tanssi fork folder and execute the following command:
+If the `diener` executable file, the cloned [Polkadot SDK repository](https://github.com/paritytech/polkadot-sdk/){target=\_blank}, and your Tanssi fork are located in the same folder, step into the Tanssi fork folder and execute the following command:
 
 ```bash
 ../diener patch --crates-to-patch ../polkadot-sdk \
@@ -28,11 +28,11 @@ If the `diener` executable file, the cloned [Polkadot SDK repository](https://gi
 
 This command applies the changes to the `Cargo.toml` file, patching the dependencies, and solving the double reference issues.
 
-You can visit the [diener documentation](https://docs.rs/crate/diener/latest){target=\_blank} to learn more about the tool and other extra functions it offers.
+You can visit the [diener documentation](https://docs.rs/crate/diener/latest/){target=\_blank} to learn more about the tool and other extra functions it offers.
 
 ## Example of the Double Reference Issue {: #double-reference-issue }
 
-To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} to a custom runtime based on the [baseline Tanssi appchain template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
+To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle.git/){target=\_blank} to a custom runtime based on the [baseline Tanssi appchain template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi/){target=\_blank}, which will act as the root repository of the project.
 
 This tutorial will generate a multiple reference compile-time error. Finally, the steps will show you how to fix the compile error by patching the dependencies with the tool `diener`, the runtime will compile successfully and work as intended.
 
@@ -44,7 +44,7 @@ Similarly to what is described in the [built-in module](/builders/build/customiz
 2. Make the standard features available to the compiler
 3. Configure and add the module to the runtime
 
-Should the third-party module reference any dependency already referenced from a distinct source or version, compilation will fail. 
+Should the third-party module reference any dependency already referenced from a distinct source or version, compilation will fail.
 
 The following diagram shows how two different references to the same dependency are being included in the runtime, causing the compilation to fail:
 
@@ -56,7 +56,7 @@ To resolve this issue, it will be necessary to apply a patch so that the referen
 
 ### Declaring the Dependency {: #declaring-dependency }
 
-The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} is used. 
+The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle.git/){target=\_blank} is used.
 
 This `toggle` module, built for testing and educational purposes, adds basic logic to the runtime, allowing users to switch a state between true and false.
 
@@ -128,7 +128,7 @@ construct_runtime!(
 
 ### Compile Runtime {: #compile-runtime }
 
-After completing the preceding steps, the module is declared a dependency in the project, configured, and added to the runtime. 
+After completing the preceding steps, the module is declared a dependency in the project, configured, and added to the runtime.
 
 Compile the template using the following command:
 

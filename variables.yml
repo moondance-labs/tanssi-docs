@@ -12,12 +12,12 @@ networks:
     dns_name: dancebox.tanssi-api.network
     gas_to_weight: 25000
     session:
-      blocks: 300
+      blocks: 600
       hours: 1
       display: 'one'
     block_producers:
       configuration:
-        max_block_producers: 70
+        max_block_producers: 200
         min_orchestrator_block_producers: 3
         max_orchestrator_block_producers: 5
         block_producer_per_container: 3
@@ -39,13 +39,13 @@ networks:
       joining_delay_sessions: 2
       joining_delay_sessions_text: 'two'
       joining_delay_blocks: 1200
-      joining_delay_hours: 1
-      joining_delay_hours_text: 'one'
+      joining_delay_hours: 2
+      joining_delay_hours_text: 'two'
       leaving_delay_sessions: 2
       leaving_delay_sessions_text: 'two'
       leaving_delay_blocks: 1200
-      leaving_delay_hours: 1
-      leaving_delay_hours_text: 'one'
+      leaving_delay_hours: 2
+      leaving_delay_hours_text: 'two'
     oracles:
       phala:
         aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'
@@ -67,6 +67,11 @@ networks:
       deposit_base: 10.08
       deposit_factor: 0.33
       max_proxies: 32
+    identity:
+      basic_deposit: 12.58
+      max_fields: 100
+      per_byte_deposit: 0.1
+      max_subaccounts: 100
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0

@@ -21,7 +21,7 @@ Every action that alters the state of a Tanssi appchain incurs a transaction fee
 
 Tanssi appchains [modular framework](/learn/framework/){target=\_blank} use a weight-based fee calculation mechanism to determine transaction fees. This approach considers various factors, including computational resources and storage operations (inputs/outputs), to reflect the true cost of transactions accurately. By accounting for these elements, the network ensures fair and efficient resource allocation.
 
-Furthermore, Tanssi appchains modularity ensures that EVM-compatible appchains support legacy and [EIP-1559 compatible](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} transaction pricing mechanisms, ensuring full compatibility with development environments commonly used in Ethereum.
+Furthermore, Tanssi appchains modularity ensures that EVM-compatible appchains support legacy and [EIP-1559 compatible](https://eips.ethereum.org/EIPS/eip-1559/){target=\_blank} transaction pricing mechanisms, ensuring full compatibility with development environments commonly used in Ethereum.
 
 This section outlines all the different concepts associated with transaction fees for Tanssi appchains.
 
@@ -77,7 +77,7 @@ All non-EVM function calls available to developers use these baseline calculatio
 
 Tanssi offers [templates for full Tanssi EVM-compatible appchains](/builders/build/templates/evm/){target=\_blank}. Such appchains provide an Ethereum-like environment for developers, where they can use Eth-specific libraries like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/){target=_blank}, and [Foundry](/builders/toolkit/ethereum-api/dev-env/foundry/){target=\_blank}.
 
-In addition, all Tanssi EVM-compatible appchains have an [EIP-1559 compatible](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} transaction pricing mechanism for EVM transactions. But they support both commonly used EVM transaction types:
+In addition, all Tanssi EVM-compatible appchains have an [EIP-1559 compatible](https://eips.ethereum.org/EIPS/eip-1559/){target=\_blank} transaction pricing mechanism for EVM transactions. But they support both commonly used EVM transaction types:
 
 - **Type 0 (Legacy)** - the transaction fee is calculated through a single gas price value that is included in the signed transaction blob. Because Tanssi EVM-compatible appchains have a dynamic pricing mechanism, gas price must be greater than the current block's `baseFee` for a transaction to be considered valid
 - **Type 2 (EIP-1559)** - the transaction fee is calculated with a combination of the `maxFeePerGas` and `maxPriorityFeePerGas` from the signed transaction blob, and the network's `baseFee` dynamically changes based on block congestion
@@ -87,8 +87,8 @@ Independently of the transaction type, the outcome of all EVM transactions is th
 By default, Tanssi EVM-compatible appchains are configured with the following parameters:
 
 - **Minimum BaseFee** - the minimum gas price of the network in case there are no transactions for long periods. The default value is set to 1 GWei
-- **Block Fulness Target (Elasticity)** - the target gas used in a block so that the `baseFee` remains the same. [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} defines this value as a constant set to 2, meaning that the target usage is 50% of the block gas limit. All Tanssi EVM-compatible appchains are set with the same target
-- **Maximum BaseFee Increase** - the maximum amount the `baseFee` can increase or decrease, in percent points, based on the previous block target usage. [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} defines this value as a constant set to 12.5%. Consequently, if the block is full/empty, the `baseFee` will increase/decrease by 12.5%, and any intermediate values are linearly adjusted. Developers can configure this value for Tanssi EVM-compatible appchains, but the default value is 12.5%
+- **Block Fulness Target (Elasticity)** - the target gas used in a block so that the `baseFee` remains the same. [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559/){target=\_blank} defines this value as a constant set to 2, meaning that the target usage is 50% of the block gas limit. All Tanssi EVM-compatible appchains are set with the same target
+- **Maximum BaseFee Increase** - the maximum amount the `baseFee` can increase or decrease, in percent points, based on the previous block target usage. [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559/){target=\_blank} defines this value as a constant set to 12.5%. Consequently, if the block is full/empty, the `baseFee` will increase/decrease by 12.5%, and any intermediate values are linearly adjusted. Developers can configure this value for Tanssi EVM-compatible appchains, but the default value is 12.5%
 
 !!! note
     One key difference in Tanssi EVM-compatible appchains EIP-1559 implementation is that the transaction fees are calculated using the previous block `baseFee`.

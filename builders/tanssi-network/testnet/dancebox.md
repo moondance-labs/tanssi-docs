@@ -15,7 +15,7 @@ This quick reference page offers all the essentials you need to get started on D
 
 DANCE tokens serve as the native currency within the Dancebox Network. To initiate the deployment of an appchain on Dancebox, you'll need to obtain DANCE tokens. Follow these steps:
 
-1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank} website
+1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens/){target=\_blank} website
 2. Complete the form by providing basic information and your Substrate-based address
 3. Within one business day of submitting the form, you'll receive DANCE tokens for testing
 

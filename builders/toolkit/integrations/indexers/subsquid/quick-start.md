@@ -7,7 +7,7 @@ description: Learn how to use Subsquid, a query node framework for Substrate-bas
 
 ## Introduction {: #introduction }
 
-[Subsquid](https://subsquid.io){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. Subsquid has native and full support for both EVM and Substrate data, even within the same project.
+[Subsquid](https://subsquid.io/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using Subsquid’s decentralized data lake and open-source SDK. In simple terms, Subsquid can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. Subsquid has native and full support for both EVM and Substrate data, even within the same project.
 
 This quick-start guide will show you how to create a Subsquid project and configure it to index data on a Tanssi appchain. There is one section catered towards [Substrate appchains](#index-substrate-appchains) and another towards [EVM appchains](#index-evm-appchains). However, if you're building on an EVM appchain, you may also reference the Substrate section, if you also need to index Substrate data.
 
@@ -82,7 +82,7 @@ And that's all you have to do to configure your Subsquid project to index Substr
 
 To get started indexing EVM data on a Tanssi EVM appchain, you'll need to create a Subsquid project and configure it for your Tanssi appchain by taking the following steps:
 
-1. You can create a Subsquid project for EVM data by using the generic [EVM template](https://github.com/subsquid-labs/squid-evm-template){target=\_blank} or you can use the [ABI template](https://github.com/subsquid-labs/squid-abi-template){target=\_blank} for indexing data related to a specific contract
+1. You can create a Subsquid project for EVM data by using the generic [EVM template](https://github.com/subsquid-labs/squid-evm-template/){target=\_blank} or you can use the [ABI template](https://github.com/subsquid-labs/squid-abi-template/){target=\_blank} for indexing data related to a specific contract
 
     === "EVM"
 
@@ -141,7 +141,7 @@ To get started indexing EVM data on a Tanssi EVM appchain, you'll need to create
     sqd serve
     ```
 
-7. You can now run queries, such as the sample query below, against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=\_blank}. If you've modified the template Substrate squid to index different data, you'll need to modify this query accordingly
+7. You can now run queries, such as the sample query below, against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql/){target=\_blank}. If you've modified the template Substrate squid to index different data, you'll need to modify this query accordingly
 
     ```graphql
     query MyQuery {

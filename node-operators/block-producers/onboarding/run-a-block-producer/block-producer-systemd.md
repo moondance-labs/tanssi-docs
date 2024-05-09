@@ -19,7 +19,7 @@ The article follows the good practice of running the service with its own non-ro
 
 To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
 
-- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}
+- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest/){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi/){target=\_blank}
 
 
 ## Download the Latest Release {: #download-latest-release }
