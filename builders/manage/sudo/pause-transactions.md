@@ -69,6 +69,74 @@ pub fn transfer_allow_death(
 }
 ```
 
+### Some Frequently Used Modules and Transactions {: #frequently-used-modules-transactions }
+
+When using any of the built-in Substrate modules, the name with which it's referenced within the runtime is entirely up to the developer, but the transaction names aren't customizable. Here is a list of some of the most commonly used modules with the most commonly used transactions they contain. Those are the transaction names to be used in this Transaction Pause module.
+
+???+ function "[**pallet-ethereum**](https://github.com/polkadot-evm/frontier/blob/master/frame/ethereum/src/lib.rs){target=\_blank} — This module, along with the EVM module, provides full Ethereum compatibility to the appchain"
+
+    | Transaction Name |        Description        |
+    |:----------------:|:-------------------------:|
+    |    `transact`    | Executes an Ethereum call |
+
+??? function "[**pallet_balances**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/balances/src/lib.rs){target=\_blank} — This module provides functionality for handling accounts and balances for the Tanssi appchain native currency"
+
+    |    Transaction Name    |                                                                 Description                                                                  |
+    |:----------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
+    | `transfer_allow_death` |      Executes a balance transfer, deleting the sender's account when its final balance goes below the minimal requirement for existence      |
+    | `transfer_keep_alive`  | Executes a balance transfer, keeping the sender's account alive even when its final balance goes below the minimal requirement for existence |
+    |     `transfer_all`     |                                              Transfer all non-locked balances to a destination                                               |
+    |         `burn`         |                                     Burns balance from the origin's account, reducing the total issuance                                     |
+
+??? function "[**pallet_assets**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/assets/src/lib.rs){target=\_blank} — This module provides functionality for handling fungible tokens"
+
+    |   Transaction Name    |                                                                Description                                                                 |
+    |:---------------------:|:------------------------------------------------------------------------------------------------------------------------------------------:|
+    |       `create`        |                                                   Issues a new class of fungible assets                                                    |
+    |    `start_destroy`    |                                          Starts the process of destroying a fungible asset class                                           |
+    |  `destroy_accounts`   |                       Destroys all accounts associated with a given asset for which the destroy process was started                        |
+    |  `destroy_approvals`  |                       Destroys all approvals associated with a given asset for which the destroy process was started                       |
+    |   `finish_destroy`    |                          Completes the destroy process of a given asset for which the destroy process was started                          |
+    |        `mint`         |                                                                Mints assets                                                                |
+    |        `burn`         |                                                                Burns assets                                                                |
+    |      `transfer`       |      Executes an asset transfer deleting the sender's account when its final balance goes below the minimal requirement for existence      |
+    | `transfer_keep_alive` | Executes an asset transfer keeping the sender's account alive even when its final balance goes below the minimal requirement for existence |
+    |       `freeze`        |                                          Disallows transfers of an asset from a specific account                                           |
+    |        `thaw`         |                                         Allows again transfers of an asset from a specific account                                         |
+    |    `freeze_asset`     |                                                      Disallows transfers of an asset                                                       |
+    |     `thaw_asset`      |                                                     Allows again transfers of an asset                                                     |
+    |    `set_metadata`     |                                                       Sets the metadata for an asset                                                       |
+    |   `clear_metadata`    |                                                      Clears the metadata for an asset                                                      |
+    
+??? function "[**pallet_nfts**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/nfts/src/lib.rs){target=\_blank} — This module provides functions for handling non-fungible tokens"
+
+    |      Transaction Name       |                        Description                         |
+    |:---------------------------:|:----------------------------------------------------------:|
+    |          `create`           |       Issues a new collection of non-fungible items        |
+    |          `destroy`          |        Destroys a collection of non-fungible items         |
+    |           `mint`            |            Mints an item in an NFT collection.             |
+    |           `burn`            |          Destroys an item from an NFT collection           |
+    |         `transfer`          |                      Transfers an NFT                      |
+    |    `lock_item_transfer`     |              Disallow the transfer of an item              |
+    |   `unlock_item_transfer`    |         Allows again the transfer of a locked item         |
+    |       `set_attribute`       |     Sets an attribute for an NFT collection or an item     |
+    |      `clear_attribute`      |    Clears an attribute for an NFT collection or an item    |
+    |       `set_metadata`        |               Sets the metadata for an item                |
+    |      `clear_metadata`       |              Clears the metadata for an item               |
+    |  `set_collection_metadata`  |  Sets the metadata for a collection of non-fungible items  |
+    | `clear_collection_metadata` | Clears the metadata for a collection of non-fungible items |
+    |         `set_price`         |                 Sets the price for an item                 |
+    |         `buy_item`          |        Buy an item, provided that it's up for sale         |
+
+??? function "[**pallet_multisig**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/multisig/src/lib.rs){target=\_blank} — This module provides functions for dealing with multi-signature schemas"
+
+    |    Transaction Name    |                                                                 Description                                                                  |
+    |:----------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
+    | `as_multi_threshold_1` |                                           Registers a multi-signature call with a single approval                                            |
+    |       `as_multi`       | Registers a multi-signature call to be made from a composite account if approved by the specified minimum threshold of the other signatories |
+    |   `approve_as_multi`   |              Registers approval for a multi-signature call and dispatches the call when the threshold of signatories is reached              |
+    |   `cancel_as_multi`    |                                         Cancels a pre-existing, ongoing multi-signature transaction                                          |
+
 ## Pausing Transactions {: #pausing-transactions }
 
 As you know, the Sudo account [can perform privileged actions](/builders/manage/sudo/){target=\_blank}, such as appchain upgrades, minting new tokens, and, in this case, pausing and unpausing transactions. 
