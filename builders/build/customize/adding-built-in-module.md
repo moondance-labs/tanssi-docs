@@ -9,7 +9,7 @@ description: Substrate is a modular blockchain framework that includes many read
 
 Substrate is a powerful and modular software development framework included in the Polkadot SDKs for building blockchains. It provides a comprehensive set of tools and libraries that abstract complex blockchain functionalities, allowing developers to focus on building innovative features and applications by focusing on the runtime, which contains the core logic and the rules of the state transition for the use case.
 
-What sets Substrate apart is its modular architecture, which enables the seamless integration of [built-in modules](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame/){target=\_blank} and the creation of custom ones, facilitating the development of blockchain protocols.
+What sets Substrate apart is its modular architecture, which enables the seamless integration of [built-in modules](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame){target=\_blank} and the creation of custom ones, facilitating the development of blockchain protocols.
 
 For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=\_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live Tanssi appchain.
 
@@ -20,9 +20,9 @@ This article focuses on the necessary steps for adding a built-in module to the 
 To follow the steps in this guide, you will need to have the following:
 
 - A healthy development environment with the Rust compiler and Cargo package manager
-- The [Tanssi repository](https://github.com/moondance-labs/tanssi/){target=\_blank}, cloned from GitHub
+- The [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}, cloned from GitHub
 
-You can read more about how to install the required components in the [prerequisites article](/builders/build/customize/prerequisites/){target=\_blank}.
+You can read more about how to install the required components in the [prerequisites article](/builders/build/customize/prerequisites){target=\_blank}.
 
 As this article is based on the EVM template, make sure that it compiles correctly before continuing by executing the following command:
 
@@ -32,19 +32,19 @@ cargo build -p container-chain-template-frontier-node --release
 
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module-to-runtime }
 
-As introduced in the [modularity](/learn/framework/modules/){target=\_blank} article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities, ready to be used in your runtime.
+As introduced in the [modularity](/learn/framework/modules){target=\_blank} article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities, ready to be used in your runtime.
 
 Modules are meant to provide the functionality needed in very different use cases such as DeFi, NFTs, or any other, and, therefore, they are basic building blocks that are inherently abstract and can be configured according to the specific needs of the Tanssi appchain.
 
 To add a module, the following steps are necessary:
 
-1. Make the dependency available within the project by declaring it in [Cargo](https://doc.rust-lang.org/cargo/){target=\_blank}, the Rust language package manager
+1. Make the dependency available within the project by declaring it in [Cargo](https://doc.rust-lang.org/cargo){target=\_blank}, the Rust language package manager
 2. Make the standard (`std`) features of the module available to the compiler
 3. Configure the module
 4. Add the module to the runtime
 5. Add the default configuration to the chain specification
 
-In the following example, the popular Substrate module `pallet-assets` is added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi/){target=\_blank}, specifically in the folder `container-chains/templates/frontier/`.
+In the following example, the popular Substrate module `pallet-assets` is added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}, specifically in the folder `container-chains/templates/frontier/`.
 
 ### Declare the Dependency {: #declare-dependency }
 
@@ -194,7 +194,7 @@ container-chains/templates/frontier/node/src/chain_spec.rs
 
 The function `testnet_genesis`, presented in the following code snippet, defines the initial state for the modules included in the runtime (such as initial funded accounts, for example). After adding the Assets module, it is necessary to initialize it as well, and in the following example, its default values are defined.
 
-More about the chain specification and how to configure it will be covered in the article [Customizing Chain Specifications](/builders/build/customize/customizing-chain-specs/){target=\_blank}.
+More about the chain specification and how to configure it will be covered in the article [Customizing Chain Specifications](/builders/build/customize/customizing-chain-specs){target=\_blank}.
 
 ```rust hl_lines="14"
 fn testnet_genesis(

@@ -25,7 +25,7 @@ There are three categories for the included modules in the development framework
 
 When designing and writing the rules of the Tanssi appchain, the available set of functional pallets bring a solution to many of the coding requirements that would otherwise need to be developed from scratch.
 
-Here is a list of some of the most used modules, but there are many more on the [Substrate Rustdocs website](https://paritytech.github.io/substrate/){target=\_blank}:
+Here is a list of some of the most used modules, but there are many more on the [Substrate Rustdocs website](https://paritytech.github.io/substrate){target=\_blank}:
 
 - **[pallet_balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - the Balances pallet provides functions for handling accounts and balances for the Tanssi appchain native currency
 - **[pallet_assets](https://paritytech.github.io/substrate/master/pallet_assets/index.html){target=\_blank}** - the Assets pallet provides functions for handling any type of fungible tokens
@@ -63,4 +63,4 @@ As an example of a custom module, the following code (not intended for productio
 --8<-- 'code/builders/build/customize/custom-made-module/lottery-example.rs'
 ```
 
-For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.
+For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module){target=\_blank} in the Builder's section.

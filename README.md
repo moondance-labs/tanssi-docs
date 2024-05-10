@@ -6,7 +6,7 @@ We welcome you to join the Tanssi community and contribute to this repository an
 
 ## About This Site 
 
-The content in this repository is displayed on the Tanssi documentation site, [docs.tanssi.network](https://docs.tanssi.network), and is generated using [mkdocs](https://www.mkdocs.org/). The theme used is [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+The content in this repository is displayed on the Tanssi documentation site, [docs.tanssi.network](https://docs.tanssi.network), and is generated using [mkdocs](https://www.mkdocs.org). The theme used is [Material for MkDocs](https://squidfunk.github.io/mkdocs-material).
 
 ## Contributing
 

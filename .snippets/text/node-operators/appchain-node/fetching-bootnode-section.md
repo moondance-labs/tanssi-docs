@@ -1,6 +1,6 @@
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [Polkadot.js explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancebox.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific appchain in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [Polkadot.js explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancebox.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific appchain in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox){target=\_blank}.
 
 To do so, take the following steps:
 

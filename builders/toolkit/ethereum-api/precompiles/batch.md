@@ -12,7 +12,7 @@ The Batch Precompile contract on Tanssi EVM appchains allows developers to combi
 
 Currently, having users interact with multiple contracts would require multiple transaction confirmations in the user's wallet. An example would be approving a smart contract's access to a token and then immediately transferring it. With the Batch Precompile, developers can enhance user experience with batched transactions as it minimizes the number of transactions a user is required to confirm. Additionally, the gas fees paid by a user can be reduced since batching avoids multiple base gas fees (the initial 21000 units of gas spent to begin a transaction).
 
-The precompile interacts directly with [Substrate's EVM pallet](https://polkadot-evm.github.io/frontier/){target=\_blank}. The caller of the batch function will have their address act as the `msg.sender` for all subtransactions, but unlike [delegate calls](https://docs.soliditylang.org/en/v0.8.15/introduction-to-smart-contracts.html#delegatecall-callcode-and-libraries){target=\_blank}, the target contract will still affect its own storage. It is effectively the same as if the user signed multiple transactions but with only one confirmation.
+The precompile interacts directly with [Substrate's EVM pallet](https://polkadot-evm.github.io/frontier){target=\_blank}. The caller of the batch function will have their address act as the `msg.sender` for all subtransactions, but unlike [delegate calls](https://docs.soliditylang.org/en/v0.8.15/introduction-to-smart-contracts.html#delegatecall-callcode-and-libraries){target=\_blank}, the target contract will still affect its own storage. It is effectively the same as if the user signed multiple transactions but with only one confirmation.
 
 The Batch Precompile is located at the following address:
 
@@ -21,7 +21,7 @@ The Batch Precompile is located at the following address:
 ```
 
 !!! note
-    There can be some unintended consequences when using precompiles. Tanssi's Batch Precompile is derived from Moonbeam's, and as such, please familiarize yourself with [Moonbeam's Precompile Security Considerations](https://docs.moonbeam.network/builders/get-started/eth-compare/security/){target=\_blank}. 
+    There can be some unintended consequences when using precompiles. Tanssi's Batch Precompile is derived from Moonbeam's, and as such, please familiarize yourself with [Moonbeam's Precompile Security Considerations](https://docs.moonbeam.network/builders/get-started/eth-compare/security){target=\_blank}. 
 
 ## The Batch Solidity Interface {: #the-batch-interface }
 
@@ -71,7 +71,7 @@ The interface also includes the following required events:
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask){target=\_blank}.
 
 ### Example Contract {: #example-contract}
 
@@ -83,7 +83,7 @@ The contract `SimpleContract.sol` will be used as an example of batching contrac
 
 ### Remix Set Up {: #remix-set-up }
 
-You can interact with the Batch Precompile using [Remix](https://remix.ethereum.org/){target=\_blank}. You'll need a copy of [`Batch.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Batch.sol){target=\_blank} and `SimpleContract.sol`. To add the precompile to Remix and follow along with the tutorial, you will need to:
+You can interact with the Batch Precompile using [Remix](https://remix.ethereum.org){target=\_blank}. You'll need a copy of [`Batch.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Batch.sol){target=\_blank} and `SimpleContract.sol`. To add the precompile to Remix and follow along with the tutorial, you will need to:
 
 1. Click on the **File explorer** tab
 2. Paste the `Batch.sol` contract into a Remix file named **Batch.sol**
@@ -149,14 +149,14 @@ Try transferring the native token of your appchain to two wallets of your choice
 
 ![Send Batch Transfer](/images/builders/toolkit/ethereum-api/precompiles/batch/batch-4.webp)
 
-Once the transaction is complete, you can check both of the accounts' balances, either in MetaMask or in your appchain's block explorer, a link to which can be found on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Congratulations! You've now sent a batched transfer via the Batch Precompile.
+Once the transaction is complete, you can check both of the accounts' balances, either in MetaMask or in your appchain's block explorer, a link to which can be found on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Congratulations! You've now sent a batched transfer via the Batch Precompile.
 
 !!! note
      Typically if you wanted to send the native currency to or through a contract, you would have to set the value within the overall transaction object and interact with a payable function. However, since the Batch Precompile interacts directly with Substrate code, this is not a typical Ethereum transaction and is thus not necessary.
 
 ### Find a Contract Interaction's Call Data {: #find-a-contract-interactions-call-data }
 
-Visual interfaces like [Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} and handy libraries like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} hide the way that Ethereum transactions interact with Solidity smart contracts. The name and input types of a function are hashed into a [function selector](https://docs.soliditylang.org/en/latest/abi-spec.html#function-selector-and-argument-encoding){target=\_blank} and the input data is encoded. These two pieces are then combined and sent as the transaction's call data. To send a subtransaction within a batch transaction, the sender needs to know its call data beforehand.
+Visual interfaces like [Remix](/builders/toolkit/ethereum-api/dev-env/remix){target=\_blank} and handy libraries like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs){target=\_blank} hide the way that Ethereum transactions interact with Solidity smart contracts. The name and input types of a function are hashed into a [function selector](https://docs.soliditylang.org/en/latest/abi-spec.html#function-selector-and-argument-encoding){target=\_blank} and the input data is encoded. These two pieces are then combined and sent as the transaction's call data. To send a subtransaction within a batch transaction, the sender needs to know its call data beforehand.
 
 Try finding a transaction's call data using Remix:
 
@@ -234,7 +234,7 @@ There are three subtransactions which correspond to three addresses in the `to` 
 ]
 ```
 
-There will also be three values for the `value` array. The first address in the `to` input array indicates `1000000000000000000` wei or `1` UNIT of the native token. Remember that the native tokens of Tanssi EVM appchains have [18 decimal points just like Ethereum](https://eth-converter.com/){target=\_blank}. The following two values are `0` because the function that their subtransactions are interacting with does not accept or require native currency.  
+There will also be three values for the `value` array. The first address in the `to` input array indicates `1000000000000000000` wei or `1` UNIT of the native token. Remember that the native tokens of Tanssi EVM appchains have [18 decimal points just like Ethereum](https://eth-converter.com){target=\_blank}. The following two values are `0` because the function that their subtransactions are interacting with does not accept or require native currency.  
 
 ```text
 ["1000000000000000000", "0", "0"]
@@ -262,7 +262,7 @@ And that's it! You've successfully interacted with the ERC-20 precompile using M
 
 ## Ethereum Development Libraries {: #ethereum-development-libraries }
 
-If you have followed the [Ethers.js tutorial](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, you may find it difficult to find the call data for a function. The answer is hidden within Ether's `Interface` object, where the [encodeFunctionData](https://docs.ethers.org/v6/api/abi/#Interface-encodeFunctionData){target=\_blank} function allows you to input your function name and inputs to receive the resultant call data. [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank} has a similar function, [encodeFunctionCall](https://web3js.readthedocs.io/en/v1.2.11/web3-eth-abi.html#encodefunctioncall){target=\_blank}.
+If you have followed the [Ethers.js tutorial](/builders/toolkit/ethereum-api/libraries/ethersjs){target=\_blank}, you may find it difficult to find the call data for a function. The answer is hidden within Ether's `Interface` object, where the [encodeFunctionData](https://docs.ethers.org/v6/api/abi/#Interface-encodeFunctionData){target=\_blank} function allows you to input your function name and inputs to receive the resultant call data. [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js){target=\_blank} has a similar function, [encodeFunctionCall](https://web3js.readthedocs.io/en/v1.2.11/web3-eth-abi.html#encodefunctioncall){target=\_blank}.
 
 !!! note
     The code snippets presented in the following sections are not meant for production environments. Please make sure you adapt it for each use case.
@@ -285,6 +285,6 @@ If you have followed the [Ethers.js tutorial](/builders/toolkit/ethereum-api/lib
      --8<-- 'code/builders/toolkit/ethereum-api/precompiles/batch/web3py-batch.py'
      ```
 
-Afterwards, you should be all set to interact with the Batch Precompile as one typically would with a contract in [Ethers](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}.
+Afterwards, you should be all set to interact with the Batch Precompile as one typically would with a contract in [Ethers](/builders/toolkit/ethereum-api/libraries/ethersjs){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

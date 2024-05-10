@@ -14,7 +14,7 @@ The specification contains two main sections:
 - **The client specification** - includes the network parameters, for example, the boot nodes the client connects with when joining the network
 - **The genesis state** - represents the initial state upon which all transactions and state transitions take place. It includes details like the initial registered accounts and their balances, as well as the account with administrator privileges (sudo, if applicable), among other relevant information
 
-This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates/overview/){target=\_blank} included in the Tanssi repository) or in a JSON file.
+This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates/overview){target=\_blank} included in the Tanssi repository) or in a JSON file.
 
 To deploy an appchain through Tanssi, uploading the JSON chain specification file is required. This article will cover the sections and attributes a chain specification contains and how to obtain the file.
 
@@ -34,10 +34,10 @@ The client specification contains the configuration of the network and other set
 - **Code Substitutes** - an emergency feature to replace the runtime when a Tanssi appchain is unable to perform a runtime upgrade
 - **Properties** - key-value properties that can be customized and are useful to improve the user experience
 
-In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
+In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api){target=\_blank}:
 
 - **Token Symbol** - a name for your Tanssi appchain's own token symbol
-- **SS58 Format** - a unique integer that uniquely identifies the accounts in your network with [SS58 encoding](https://docs.substrate.io/reference/address-formats/){target=\_blank}. All Substrated-based accounts have the same 32 bytes representation, that are base-58 encoded using this integer, which should be unique between networks
+- **SS58 Format** - a unique integer that uniquely identifies the accounts in your network with [SS58 encoding](https://docs.substrate.io/reference/address-formats){target=\_blank}. All Substrated-based accounts have the same 32 bytes representation, that are base-58 encoded using this integer, which should be unique between networks
 - **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token
 - **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 

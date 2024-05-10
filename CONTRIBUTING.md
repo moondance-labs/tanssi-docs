@@ -1,6 +1,6 @@
 # Contribution Guidelines
 
-The documentation source files are written in [Markdown](https://daringfireball.net/projects/markdown/) and generally follow the [Google developer documentation style guide](https://developers.google.com/style).
+The documentation source files are written in [Markdown](https://daringfireball.net/projects/markdown) and generally follow the [Google developer documentation style guide](https://developers.google.com/style).
 
 Please review the guidelines mentioned throughout this document, and when ready, you can open a PR against the `main` branch. Typically from there, someone from the Tanssi Developer Relations team will review the PR and request any changes as needed. Then the team will merge your PR into a local branch and make sure that all of the formatting changes look good on the local site. Once everything is all set and done the changes will be published to the live site.
 
@@ -16,7 +16,7 @@ However, if you're using Visual Studio Code, you can preview the changes you're 
 In the root directory and every subdirectory, in addition to the content directories and pages, you'll find the following files:
 
 - **`.pages`** - defines the structure of the documentation site
-- **`index.md`**- represents the [landing pages](https://docs.tanssi.network/builders/) you see throughout the docs site
+- **`index.md`**- represents the [landing pages](https://docs.tanssi.network/builders) you see throughout the docs site
 
 ### Example `.pages` file
 

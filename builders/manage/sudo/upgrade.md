@@ -19,7 +19,7 @@ For the example in this guide, you will need to have the following:
  - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
  - The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one
 
-If you're unsure what your Tanssi appchain's Sudo account or runtime version is, you can find them in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
+If you're unsure what your Tanssi appchain's Sudo account or runtime version is, you can find them in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address and runtime version on apps.tanssi.network](/images/builders/manage/sudo/upgrade/upgrade-1.webp)
 
@@ -40,7 +40,7 @@ If your chain is based on one of the official templates, you can download the of
 | [101](https://github.com/moondance-labs/tanssi/releases/tag/runtime-101-templates){target=\_blank} | [Download EVM V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/frontier-template-runtime-101.wasm){target=\_blank} | [Download Substrate V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/simple-template-runtime-101.wasm){target=\_blank} |
 | [100](https://github.com/moondance-labs/tanssi/releases/tag/runtime-100-templates){target=\_blank} | [Download EVM V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/frontier-template-runtime-100.wasm){target=\_blank} | [Download Substrate V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/simple-template-runtime-100.wasm){target=\_blank} |
 
-You should always upgrade the runtime following the releases in an orderly fashion, applying one release after another without skipping any of them. To do so, you need to know your appchain's current runtime version, which you'll find in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section. For example, if your runtime version is `300`, you should upgrade first to `400`, then `500`, then `600`, and so on until the latest available version.
+You should always upgrade the runtime following the releases in an orderly fashion, applying one release after another without skipping any of them. To do so, you need to know your appchain's current runtime version, which you'll find in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section. For example, if your runtime version is `300`, you should upgrade first to `400`, then `500`, then `600`, and so on until the latest available version.
 
 !!! warning
     Applying the upgrades in order ensures that the changes (migrations) in the internal data structures are applied, preserving data consistency. Doing otherwise might **stall** your appchain.
@@ -50,7 +50,7 @@ You should always upgrade the runtime following the releases in an orderly fashi
 
 ## Upgrading Your Runtime {: #upgrading-your-runtime }
 
-To get started, head to Polkadot.js Apps for your Tanssi appchain. The Polkadot.js Apps link for your Tanssi appchain can be found in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Tooling** section.
+To get started, head to Polkadot.js Apps for your Tanssi appchain. The Polkadot.js Apps link for your Tanssi appchain can be found in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Tooling** section.
 
 ![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/sudo/upgrade/upgrade-2.webp)
 
@@ -73,6 +73,6 @@ You can verify that your runtime upgrade was successful by checking the runtime 
 
 ![Check Runtime version on Polkadot.js Apps](/images/builders/manage/sudo/upgrade/upgrade-4.webp)
 
-And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tansi appchain.
+And that's it! The [Using Sudo](/builders/manage/sudo) section has plenty more guides on how you can use the Sudo account to manage your Tansi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

@@ -9,9 +9,9 @@ description: Learn the high-level definitions of how a Tanssi appchain works, it
 
 Appchains deployed through Tanssi have many [distinct features](/learn/tanssi/overview/#what-tanssi-provides){target=\_blank}, such as block production as a service.
 
-However, because Tanssi appchains are built with a [modular framework](/learn/framework/){target=\_blank}, they offer many other unique advantages at a runtime level that make them quite extensible. This [unique modularity](/learn/framework/modules/){target=\_blank} allows a developer to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
+However, because Tanssi appchains are built with a [modular framework](/learn/framework){target=\_blank}, they offer many other unique advantages at a runtime level that make them quite extensible. This [unique modularity](/learn/framework/modules){target=\_blank} allows a developer to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
-For example, by including modules from [Frontier](https://github.com/paritytech/frontier/){target=\_blank}, which is Substrate's Ethereum compatibility layer, a Tanssi appchain can be fully Ethereum-compatible, like [Moonbeam](https://moonbeam.network/){target=\_blank}.
+For example, by including modules from [Frontier](https://github.com/paritytech/frontier){target=\_blank}, which is Substrate's Ethereum compatibility layer, a Tanssi appchain can be fully Ethereum-compatible, like [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 Furthermore, the framework used at the heart of appchains deployed through Tanssi provides specific characteristics that developers should know and that they can leverage as well.
 
@@ -19,7 +19,7 @@ This section covers the fundamentals of a Tanssi appchain, from its architecture
 
 ## General Architecture {: #general-architecture}
 
-As previously discussed, appchains deployed through Tanssi are customizable blockchains that, among other features, have block production as a service and inherit block finality (consensus) from Polkadot. Consequently, they act as Layer 1 blockchains like Moonbeam, not Layer 2 solutions on top of another Layer 1. Moreover, they can use Polkadot's native interoperability language, called [XCM](https://wiki.polkadot.network/docs/learn-xcm/){target=\_blank}, to connect to other ecosystem blockchains (parachains), like [Moonbeam](https://moonbeam.network/){target=\_blank}.
+As previously discussed, appchains deployed through Tanssi are customizable blockchains that, among other features, have block production as a service and inherit block finality (consensus) from Polkadot. Consequently, they act as Layer 1 blockchains like Moonbeam, not Layer 2 solutions on top of another Layer 1. Moreover, they can use Polkadot's native interoperability language, called [XCM](https://wiki.polkadot.network/docs/learn-xcm){target=\_blank}, to connect to other ecosystem blockchains (parachains), like [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 In contrast, each Tanssi appchain will host its own Data-Preservers, which contain full archive nodes of the Tanssi appchain they are hosted in. Still, they will be incentivized through Tanssi's data retrieval as a service. These Data-Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi and its appchains.
 

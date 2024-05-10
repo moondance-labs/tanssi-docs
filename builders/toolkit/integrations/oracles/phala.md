@@ -7,19 +7,19 @@ description: Learn how to use Phala's off-chain computing network to get reliabl
 
 ## Introduction {: #introduction }
 
-[Phala Network](https://phala.network/){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/developers/advanced-topics/blockchain-infrastructure#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/introduction/readme/){target=\_blank}.
+[Phala Network](https://phala.network){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/developers/advanced-topics/blockchain-infrastructure#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/introduction/readme){target=\_blank}.
 
-Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network/){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch.
+Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch.
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo Tanssi EVM-compatible appchain. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible appchain](#launching-price-feeds-on-a-evm-appchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network/){target=\_blank} as they can assist you with launching price feeds on an appchain to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo Tanssi EVM-compatible appchain. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible appchain](#launching-price-feeds-on-a-evm-appchain). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network){target=\_blank} as they can assist you with launching price feeds on an appchain to ensure the integrity of the deployment process.
 
 ## How Phala Enables Price Feeds {: #how-phala-enables-price-feeds }
 
-Phala mirrors [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds/){target=\_blank} from Ethereum MainNet. Chainlink Price Feeds have stood the test of time and have wide industry adoption. As a reminder, Chainlink Price Feeds don't rely on any single source of truth, rather, their pricing data is collected and aggregated from a variety of data sources gathered by a decentralized set of independent node operators. This helps to prevent manipulation and erratic pricing data.
+Phala mirrors [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds){target=\_blank} from Ethereum MainNet. Chainlink Price Feeds have stood the test of time and have wide industry adoption. As a reminder, Chainlink Price Feeds don't rely on any single source of truth, rather, their pricing data is collected and aggregated from a variety of data sources gathered by a decentralized set of independent node operators. This helps to prevent manipulation and erratic pricing data.
 
 The core component of Phala's system design is the [Secure Enclave](https://docs.phala.network/developers/advanced-topics/blockchain-infrastructure#the-architecture){target=\_blank}, which processes the inputs it receives from the Phala blockchain, acting as an encrypted message queue, and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain requests a price feed update, which the Phala off-chain workers fetch from Ethereum MainNet, and return to the Phala blockchain.
 
-It's important to note that Phala isn't limited to replicating existing Oracles. You can create entirely new Oracles by sourcing off-chain data via Phat Contracts. In this [Phat-EVM Oracle example](https://github.com/Phala-Network/phat-offchain-rollup/blob/main/EvmRollup.md/){target=\_blank}, pricing data is sourced from the CoinGecko API. Price quote updates can then be constantly streamed from the Phat contract (push design), or the EVM smart contract can ask for a refreshed quote from the Phat contract (pull design).
+It's important to note that Phala isn't limited to replicating existing Oracles. You can create entirely new Oracles by sourcing off-chain data via Phat Contracts. In this [Phat-EVM Oracle example](https://github.com/Phala-Network/phat-offchain-rollup/blob/main/EvmRollup.md){target=\_blank}, pricing data is sourced from the CoinGecko API. Price quote updates can then be constantly streamed from the Phat contract (push design), or the EVM smart contract can ask for a refreshed quote from the Phat contract (pull design).
 
 ## Fetch Price Data {: #fetch-price-data }
 
@@ -31,39 +31,39 @@ There are several price feeds available on the demo EVM appchain that you can in
     --8<-- 'code/builders/toolkit/integrations/oracles/phala/AggregatorV3Interface.sol'
     ```
 
-As seen above in the interface, there are five functions for fetching data: `decimals`, `description`, `version`, `getRoundData`, and `latestRoundData`. For more information about the `AggregatorV3Interface.sol`, see the [Chainlink API Reference](https://docs.chain.link/data-feeds/api-reference/){target=\_blank}.
+As seen above in the interface, there are five functions for fetching data: `decimals`, `description`, `version`, `getRoundData`, and `latestRoundData`. For more information about the `AggregatorV3Interface.sol`, see the [Chainlink API Reference](https://docs.chain.link/data-feeds/api-reference){target=\_blank}.
 
 ### Supported Assets {: #supported-assets }
 
-Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum MainNet. Currently, there are data feed contracts for [the demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain/){target=\_blank} for the following asset pairs:
+Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum MainNet. Currently, there are data feed contracts for [the demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain){target=\_blank} for the following asset pairs:
 
 === "Tanssi Demo EVM Appchain"
     | Asset & Base Pair |                                                                             Aggregator Contract                                                                              |
     |:-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-    |    AAVE to USD    | [{{ networks.dancebox.oracles.phala.aave_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x2E1640853bB2dD9f47831582665477865F9240DB/){target=\_blank} |
-    |    BTC to USD     | [{{ networks.dancebox.oracles.phala.btc_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x89BC5048d634859aef743fF2152363c0e83a6a49/){target=\_blank}  |
-    |    CRV to USD     | [{{ networks.dancebox.oracles.phala.crv_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xf38b25b79A72393Fca2Af88cf948D98c64726273/){target=\_blank}  |
-    |    DAI to USD     | [{{ networks.dancebox.oracles.phala.dai_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B/){target=\_blank}  |
-    |    ETH to USD     | [{{ networks.dancebox.oracles.phala.eth_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x739d71fC66397a28B3A3b7d40eeB865CA05f0185/){target=\_blank}  |
-    |    USDC to USD    | [{{ networks.dancebox.oracles.phala.usdc_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252/){target=\_blank} |
-    |    USDT to USD    | [{{ networks.dancebox.oracles.phala.usdt_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x5018c16707500D2C89a0446C08f347A024f55AE3/){target=\_blank} |
+    |    AAVE to USD    | [{{ networks.dancebox.oracles.phala.aave_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x2E1640853bB2dD9f47831582665477865F9240DB){target=\_blank} |
+    |    BTC to USD     | [{{ networks.dancebox.oracles.phala.btc_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x89BC5048d634859aef743fF2152363c0e83a6a49){target=\_blank}  |
+    |    CRV to USD     | [{{ networks.dancebox.oracles.phala.crv_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xf38b25b79A72393Fca2Af88cf948D98c64726273){target=\_blank}  |
+    |    DAI to USD     | [{{ networks.dancebox.oracles.phala.dai_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B){target=\_blank}  |
+    |    ETH to USD     | [{{ networks.dancebox.oracles.phala.eth_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x739d71fC66397a28B3A3b7d40eeB865CA05f0185){target=\_blank}  |
+    |    USDC to USD    | [{{ networks.dancebox.oracles.phala.usdc_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252){target=\_blank} |
+    |    USDT to USD    | [{{ networks.dancebox.oracles.phala.usdt_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x5018c16707500D2C89a0446C08f347A024f55AE3){target=\_blank} |
 
 === "Ethereum MainNet"
     | Asset & Base Pair |                                                          Aggregator Contract                                                           |
     |:-----------------:|:--------------------------------------------------------------------------------------------------------------------------------------:|
-    |    AAVE to USD    | [0x547a514d5e3769680Ce22B2361c10Ea13619e8a9](https://etherscan.io/address/0x547a514d5e3769680Ce22B2361c10Ea13619e8a9/){target=\_blank} |
-    |    BTC to USD     | [0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c](https://etherscan.io/address/0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c/){target=\_blank} |
-    |    CRV to USD     | [0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f](https://etherscan.io/address/0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f/){target=\_blank} |
-    |    DAI to USD     | [0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9](https://etherscan.io/address/0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9/){target=\_blank} |
-    |    ETH to USD     | [0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419](https://etherscan.io/address/0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419/){target=\_blank} |
-    |    USDC to USD    | [0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6](https://etherscan.io/address/0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6/){target=\_blank} |
-    |    USDT to USD    | [0x3E7d1eAB13ad0104d2750B8863b489D65364e32D](https://etherscan.io/address/0x3E7d1eAB13ad0104d2750B8863b489D65364e32D/){target=\_blank} |
+    |    AAVE to USD    | [0x547a514d5e3769680Ce22B2361c10Ea13619e8a9](https://etherscan.io/address/0x547a514d5e3769680Ce22B2361c10Ea13619e8a9){target=\_blank} |
+    |    BTC to USD     | [0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c](https://etherscan.io/address/0xF4030086522a5bEEa4988F8cA5B36dbC97BeE88c){target=\_blank} |
+    |    CRV to USD     | [0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f](https://etherscan.io/address/0xCd627aA160A6fA45Eb793D19Ef54f5062F20f33f){target=\_blank} |
+    |    DAI to USD     | [0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9](https://etherscan.io/address/0xAed0c38402a5d19df6E4c03F4E2DceD6e29c1ee9){target=\_blank} |
+    |    ETH to USD     | [0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419](https://etherscan.io/address/0x5f4ec3df9cbd43714fe2740f5e3616155c5b8419){target=\_blank} |
+    |    USDC to USD    | [0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6](https://etherscan.io/address/0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6){target=\_blank} |
+    |    USDT to USD    | [0x3E7d1eAB13ad0104d2750B8863b489D65364e32D](https://etherscan.io/address/0x3E7d1eAB13ad0104d2750B8863b489D65364e32D){target=\_blank} |
 
 ### Interacting with Price Feeds on the Tanssi Demo EVM Appchain {: #interacting-with-price-feeds-demo-evm-appchain }
 
 Next, this tutorial will showcase interacting with the price feed contracts on the demo EVM appchain. These contracts are already deployed on the demo EVM appchain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
 
-For a refresher on setting up Remix to interface with the demo EVM appchain, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM appchain.
+For a refresher on setting up Remix to interface with the demo EVM appchain, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask){target=\_blank} to the demo EVM appchain.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
@@ -91,11 +91,11 @@ Note that to obtain a readable price, you must account for the decimals of the p
 
 ## Launching Price Feeds on an EVM Appchain {: #launching-price-feeds-on-an-evm-appchain }
 
-It's easy to launch price feeds on a Tanssi EVM appchain! The following sections will walk through the process of launching a variety of price feeds. This process can be followed for Snap appchains and dedicated appchains on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network/){target=\_blank} for assistance in any production scenarios.
+It's easy to launch price feeds on a Tanssi EVM appchain! The following sections will walk through the process of launching a variety of price feeds. This process can be followed for Snap appchains and dedicated appchains on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network){target=\_blank} for assistance in any production scenarios.
 
 ### Setup {: #setup }
 
-To get started, clone the [Phala Mirrored Price Feed repo](https://github.com/Phala-Network/mirrored-price-feed/){target=\_blank} to a local directory. Then, run the following command:
+To get started, clone the [Phala Mirrored Price Feed repo](https://github.com/Phala-Network/mirrored-price-feed){target=\_blank} to a local directory. Then, run the following command:
 
 ```bash
 cd mirrored-price-feed/ && yarn install
@@ -107,7 +107,7 @@ Then, you'll need to configure your `.env` file. There's a convenient sample fil
 cp env.example .env
 ```
 
-Next, edit your `.env` to insert the private key of an account funded on your appchain, and the RPC URL of your appchain. If building on your own appchain, you can fund a dummy account from the Sudo account of your appchain. Your appchain's Sudo address and RPC URL are both accessible from your dashboard on the [Tanssi DApp](https://apps.tanssi.network/){target=\_blank}. You can leave the other fields in the `.env` blank. Your `.env` should resemble the below:
+Next, edit your `.env` to insert the private key of an account funded on your appchain, and the RPC URL of your appchain. If building on your own appchain, you can fund a dummy account from the Sudo account of your appchain. Your appchain's Sudo address and RPC URL are both accessible from your dashboard on the [Tanssi DApp](https://apps.tanssi.network){target=\_blank}. You can leave the other fields in the `.env` blank. Your `.env` should resemble the below:
 
 ```bash
 --8<-- 'code/builders/toolkit/integrations/oracles/phala/env.txt'
@@ -172,7 +172,7 @@ You'll get a transaction status as well as a contract address. Copy this contrac
 
 ### Access Aggregator Contract {: #access-aggregator-contract }
 
-Next, this tutorial will demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM appchain. You can add your appchain to your MetaMask by pressing **Add to MetaMask** on your dashboard on the [Tanssi DApp](https://apps.tanssi.network/){target=\_blank}.
+Next, this tutorial will demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM appchain. You can add your appchain to your MetaMask by pressing **Add to MetaMask** on your dashboard on the [Tanssi DApp](https://apps.tanssi.network){target=\_blank}.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
@@ -211,6 +211,6 @@ Upon returning to Remix, click **latestRoundData** once more, and after waiting 
 
 ![Check price data](/images/builders/toolkit/integrations/oracles/phala/phala-6.webp)
 
-For more information about using Phala to access off-chain data, be sure to check out the [Phala docs site](https://docs.phala.network/introduction/readme/){target=\_blank}.
+For more information about using Phala to access off-chain data, be sure to check out the [Phala docs site](https://docs.phala.network/introduction/readme){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

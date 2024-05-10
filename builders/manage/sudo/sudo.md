@@ -11,7 +11,7 @@ description: Learn how to manage the Sudo account of your appchain, including vi
 
 All Tanssi appchains come with the Sudo pallet by default, and you're required to designate an account as the Sudo address when launching your appchain. This enables you to perform privileged actions to manage your chain, such as upgrading your runtime or minting new native tokens. While the Sudo pallet is required to launch your Tanssi appchain on the TestNet, you can decommission the Sudo pallet and transition to decentralized governance after the MainNet launch.
 
-In the following guide, you'll learn how to view the current Sudo account for your appchain and how to change it, alongside importing it into Polkadot.js Apps. There are similar guides in this section explaining how to use the Sudo account to perform privileged actions, such as [upgrading your runtime](/builders/manage/sudo/upgrade/){target=\_blank} and [minting native tokens](/builders/manage/sudo/minting/){target=\_blank}. 
+In the following guide, you'll learn how to view the current Sudo account for your appchain and how to change it, alongside importing it into Polkadot.js Apps. There are similar guides in this section explaining how to use the Sudo account to perform privileged actions, such as [upgrading your runtime](/builders/manage/sudo/upgrade){target=\_blank} and [minting native tokens](/builders/manage/sudo/minting){target=\_blank}. 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -20,7 +20,7 @@ For the examples in this guide, you will need to have the following:
  - A Tanssi appchain (Snap or Dedicated)
  - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps
 
-If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
+If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/sudo/sudo-1.webp)
 
@@ -61,6 +61,6 @@ Prior to getting started, make sure that you have your existing Sudo account acc
 !!! note
     Ensure that you have access to the new Sudo account. Once Sudo is transferred, it cannot be undone without access to the current Sudo key.
 
-And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tanssi appchain.
+And that's it! The [Using Sudo](/builders/manage/sudo) section has plenty more guides on how you can use the Sudo account to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
