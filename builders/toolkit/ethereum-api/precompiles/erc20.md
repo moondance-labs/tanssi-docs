@@ -23,7 +23,7 @@ The precompile is located at the following address:
 ```
 
 !!! note
-    There can be some unintended consequences when using precompiles. Tanssi's Native Token ERC-20 Precompile is derived from Moonbeam's, and as such, please familiarize yourself with [Moonbeam's Precompile Security Considerations](https://docs.moonbeam.network/builders/get-started/eth-compare/security/){target=\_blank}.
+    There can be some unintended consequences when using precompiles. Tanssi's Native Token ERC-20 Precompile is derived from Moonbeam's, and as such, please familiarize yourself with [Moonbeam's Precompile Security Considerations](https://docs.moonbeam.network/builders/get-started/eth-compare/security){target=\_blank}.
 
 ## The ERC-20 Solidity Interface {: #the-erc20-interface }
 
@@ -42,7 +42,7 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ### Add Token to MetaMask {: #add-token-to-metamask }
 
@@ -70,7 +70,7 @@ And that's it! You've successfully added the UNIT token as a custom ERC-20 token
 
 ### Remix Set Up {: #remix-set-up }
 
-You can interact with the ERC-20 precompile using [Remix](https://remix.ethereum.org/){target=\_blank}. To add the precompile to Remix, you will need to:
+You can interact with the ERC-20 precompile using [Remix](https://remix.ethereum.org){target=\_blank}. To add the precompile to Remix, you will need to:
 
 1. Get a copy of [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank}
 2. Paste the file contents into a Remix file named `IERC20.sol`

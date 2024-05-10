@@ -20,17 +20,17 @@ In this article, the required base setup and how to use the templates as a start
 
 The [Substrate framework](/learn/framework/overview/#substrate-framework){target=\_blank}, included in the Polkadot SDK, already provides out-of-the-box support for the basic functionalities every blockchain needs (such as networking, consensus, and so forth), allowing developers to build new solo chains while focusing on the runtime (state transition function) logic.
 
-To seamlessly integrate a new Tanssi appchain into the Polkadot ecosystem, converting a solo chain into a Tanssi appchain, the Polkadot SDK also includes [Cumulus](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/){target=\_blank}, an extension library to make it easy.
+To seamlessly integrate a new Tanssi appchain into the Polkadot ecosystem, converting a solo chain into a Tanssi appchain, the Polkadot SDK also includes [Cumulus](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus){target=\_blank}, an extension library to make it easy.
 
 Parachains are expected to handle their block production through their own set of block producers and expose interfaces to communicate with the relay chain. This allows their state transition to be validated, thus benefiting from the shared security model, to send and receive messages to and from other Parachains, and to manage other aspects, such as:
 
 - **Consensus** - Cumulus adds the necessary functionality to allow the block producers to produce blocks, gossip and validate them, and coordinate with the relay chain to get notified about the block's finality
-- **[XCM](https://wiki.polkadot.network/docs/learn-xcm/){target=\_blank}** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a Tanssi appchain to communicate and interoperate with the other sibling chains within the ecosystem
+- **[XCM](https://wiki.polkadot.network/docs/learn-xcm){target=\_blank}** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a Tanssi appchain to communicate and interoperate with the other sibling chains within the ecosystem
 - **Runtime Upgrades** - a runtime upgrade in a Tanssi appchain must be informed to the relay chain to allow its validators to check on the blocks produced by the block producers of the Tanssi appchains. Cumulus notifies the upgrade to the relay chain and waits the required amount of time (blocks) before enacting the change
 
 The provided templates already implement Cumulus, so they are ready to be customized and deployed through Tanssi to work and operate within the ecosystem without any issues.
 
-More information about how to configure the Cumulus SDK to integrate a Tanssi appchain into Polkadot's ecosystem can be found in the [official Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template/){target=\_blank}.
+More information about how to configure the Cumulus SDK to integrate a Tanssi appchain into Polkadot's ecosystem can be found in the [official Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template){target=\_blank}.
 
 ## Base Setup to Support the Tanssi Protocol {: #base-setup-supporting-tanssi }
 
@@ -58,7 +58,7 @@ These are some of the functional modules exposing a behavior to the users that a
 
 ## Start Building {: #getting-started }
 
-To start building on top of the provided templates, be it the [Baseline Tanssi appchain template](/builders/build/templates/substrate/){target=\_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm/){target=\_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi/){target=\_blank} and start adding [built-in modules](/builders/build/customize/adding-built-in-module/){target=\_blank} or [custom-made modules](/builders/build/customize/adding-custom-made-module/){target=\_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest/){target=\_blank} tag.
+To start building on top of the provided templates, be it the [Baseline Tanssi appchain template](/builders/build/templates/substrate/){target=\_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm/){target=\_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and start adding [built-in modules](/builders/build/customize/adding-built-in-module/){target=\_blank} or [custom-made modules](/builders/build/customize/adding-custom-made-module/){target=\_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} tag.
 
 This approach comes with some advantages, such as:
 
@@ -66,6 +66,6 @@ This approach comes with some advantages, such as:
 - Get the Tanssi protocol already configured and included in the template runtime
 - Keep your fork up-to-date by syncing with the Tanssi upstream repository
 - Run the included tests, ensuring that block production on your Tanssi appchain works as intended
-- Run a local environment, spinning up a relay chain, the Tanssi orchestrator, and your Tanssi appchain with the included [Zombienet](https://paritytech.github.io/zombienet/){target=\_blank} configuration
+- Run a local environment, spinning up a relay chain, the Tanssi orchestrator, and your Tanssi appchain with the included [Zombienet](https://paritytech.github.io/zombienet){target=\_blank} configuration
 
 If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy your Tanssi appchain via the Tanssi dApp](/builders/deploy/dapp/){target=\_blank} article to know how to use the Tanssi dApp to register and get your chain up and running.

@@ -11,9 +11,9 @@ This quick reference page offers all the essentials you need to interact with th
 
 ## Faucet for TestNet Tokens {: #faucet }
 
-You can access TANGO tokens, the native currency of the EVM demo appchain, at the faucet on the [Tanssi dApp](https://apps.tanssi.network/demo/){target=\_blank}. You can receive up to 100 TANGO tokens every 12 hours.
+You can access TANGO tokens, the native currency of the EVM demo appchain, at the faucet on the [Tanssi dApp](https://apps.tanssi.network/demo){target=\_blank}. You can receive up to 100 TANGO tokens every 12 hours.
 
-To request tokens from the faucet, head to the [Tanssi dApp](https://apps.tanssi.network/demo/){target=\_blank} and press **Add to MetaMask**.
+To request tokens from the faucet, head to the [Tanssi dApp](https://apps.tanssi.network/demo){target=\_blank} and press **Add to MetaMask**.
 
 ![Add to MetaMask](/images/builders/tanssi-network/testnet/demo-evm-appchain/demo-1.webp)
 
@@ -28,7 +28,7 @@ Then, take the following steps:
 !!! note
     TANGO tokens have no value. Please don't spam the faucet with unnecessary requests.
 
-Your tokens will be disbursed shortly, and you can verify your TANGO token balance by looking up your address on the [explorer](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank}.
+Your tokens will be disbursed shortly, and you can verify your TANGO token balance by looking up your address on the [explorer](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network){target=\_blank}.
 
 ## Network Endpoints {: #network-endpoints }
 
@@ -51,12 +51,12 @@ The demo EVM appchain HTTPS and WSS endpoints are as follows:
 For the demo EVM appchain, you can use any of the following explorers:
 
 - [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank} (Substrate API)
-- [Blockscout](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank} (Ethereum API)
-- [Expedition](https://tanssi-evmexplorer.netlify.app/){target=\_blank}{target=\_blank} (Ethereum API)
+- [Blockscout](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network){target=\_blank} (Ethereum API)
+- [Expedition](https://tanssi-evmexplorer.netlify.app){target=\_blank}{target=\_blank} (Ethereum API)
 
 ## Chain ID {: #chain-id }
 
-The demo EVM appchain has a [chain ID](https://chainlist.org/chain/5678/){target=\_blank} of: `5678`, which is `0x162E` in hex.
+The demo EVM appchain has a [chain ID](https://chainlist.org/chain/5678){target=\_blank} of: `5678`, which is `0x162E` in hex.
 
 ## Quick Start {: #quick-start }
 

@@ -9,7 +9,7 @@ description: Learn how to set up and run block producers (collators) for Tanssi 
 
 --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io/){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
@@ -19,7 +19,7 @@ The article follows the good practice of running the service with its own non-ro
 
 To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
 
-- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest/){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi/){target=\_blank}
+- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}
 
 
 ## Download the Latest Release {: #download-latest-release }
@@ -51,7 +51,7 @@ To get started, download and make executable the latest binary release by runnin
 
 ## Setup the Systemd Service {: #setup-systemd-service }
 
-[Systemd](https://systemd.io/){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
+[Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
 
 The following commands configure a new account, the directory, and move the previously downloaded files to the right location.
 

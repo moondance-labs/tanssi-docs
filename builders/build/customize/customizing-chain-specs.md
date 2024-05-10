@@ -37,7 +37,7 @@ The client specification contains the configuration of the network and other set
 In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
 
 - **Token Symbol** - a name for your Tanssi appchain's own token symbol
-- **SS58 Format** - a unique integer that uniquely identifies the accounts in your network with [SS58 encoding](https://docs.substrate.io/reference/address-formats/){target=\_blank}. All Substrated-based accounts have the same 32 bytes representation, that are base-58 encoded using this integer, which should be unique between networks
+- **SS58 Format** - a unique integer that uniquely identifies the accounts in your network with [SS58 encoding](https://docs.substrate.io/reference/address-formats){target=\_blank}. All Substrated-based accounts have the same 32 bytes representation, that are base-58 encoded using this integer, which should be unique between networks
 - **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token
 - **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 

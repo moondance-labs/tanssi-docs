@@ -7,7 +7,7 @@ description: Learn how to use Sudo to turn on and off maintenance mode, which ef
 
 ## Introduction {: #introduction }
 
-The [Maintenance pallet](https://moonbeam.network/blog/maintenance-mode/){target=\_blank} is a module that is designed for use only in emergencies that present existential threats to the network. Enabling maintenance mode on your appchain will suspend the processing of all regular transactions, including EVM interactions. Block production continues at a regular cadence and allows governance and staking functions to continue. 
+The [Maintenance pallet](https://moonbeam.network/blog/maintenance-mode){target=\_blank} is a module that is designed for use only in emergencies that present existential threats to the network. Enabling maintenance mode on your appchain will suspend the processing of all regular transactions, including EVM interactions. Block production continues at a regular cadence and allows governance and staking functions to continue. 
 
 Maintenance mode filters (ignores) all calls outside of governance and staking. Once maintenance mode is exited, your chain will process any pending transactions that queued up while your chain was in maintenance mode. Maintenance mode is intended to be used only as a temporary, emergency measure. 
 
@@ -23,7 +23,7 @@ For the examples in this guide, you will need to have the following:
  - A Tanssi appchain (Snap or Dedicated)
  - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
-If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
+If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/maintenance/maintenance-1.webp)
 

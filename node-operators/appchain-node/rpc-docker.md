@@ -9,7 +9,7 @@ description: Learn how to set up and run a Tanssi appchain node using Docker, wh
 
 --8<-- 'text/node-operators/appchain-node/intro.md'
 
-In this guide, you'll learn how to quickly spin up a Tanssi appchain node using [Docker](https://www.docker.com/){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
+In this guide, you'll learn how to quickly spin up a Tanssi appchain node using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
 !!! note
     It is not possible to run an RPC node for Snap appchains as they run on a private network, and their nodes are, therefore, unreachable for syncing.
@@ -24,7 +24,7 @@ A Docker image is built and published as part of the automated deployment proces
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
-The chain specification is generated when registering the appchain in the [dApp](https://apps.tanssi.network/){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
+The chain specification is generated when registering the appchain in the [dApp](https://apps.tanssi.network){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
 
 Luckily, running a node requires the right Docker image configured correctly!
 
@@ -54,7 +54,7 @@ The command will download and extract the image and show the status upon executi
 
 To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
 
-- `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network/){target=\_blank}. For example, `3001`
+- `Appchain ID` - replace `YOUR_APPCHAIN_ID` with your Tanssi appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network){target=\_blank}. For example, `3001`
 --8<-- 'text/node-operators/appchain-node/bootnode-item.md'
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'

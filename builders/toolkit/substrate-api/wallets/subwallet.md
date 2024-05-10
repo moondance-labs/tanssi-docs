@@ -9,7 +9,7 @@ description: This guide walks you through how to connect SubWallet, a comprehens
 
 Developers and users of Tanssi Substrate appchains have a variety of options when it comes to wallets. SubWallet is a comprehensive Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Substrate API, but you can check out a similar [tutorial for interacting with SubWallet using the Ethereum API](/builders/toolkit/ethereum-api/wallets/subwallet/){target=\_blank}.
 
-The SubWallet wallet browser extension [can be downloaded](https://www.subwallet.app/download.html){target=\_blank} for all supported browsers, including Chrome, Brave, Firefox, and MS Edge. SubWallet also has a mobile app for both iOS and Android, but that is beyond the scope of this guide. A complete online asset dashboard is accessible at [web.subwallet.app](https://web.subwallet.app/){target=\_blank}.
+The SubWallet wallet browser extension [can be downloaded](https://www.subwallet.app/download.html){target=\_blank} for all supported browsers, including Chrome, Brave, Firefox, and MS Edge. SubWallet also has a mobile app for both iOS and Android, but that is beyond the scope of this guide. A complete online asset dashboard is accessible at [web.subwallet.app](https://web.subwallet.app){target=\_blank}.
 
 This guide takes you through all the necessary steps, from installing SubWallet to setting up a wallet, connecting it to your Tanssi Substrate appchain, and sending funds.
 

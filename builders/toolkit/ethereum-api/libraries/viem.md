@@ -7,7 +7,7 @@ description: In this tutorial use the viem TypeScript interface for Ethereum to 
 
 ## Introduction {: #introduction }
 
-[viem](https://viem.sh/){target=\_blank} is a modular TypeScript library that allows developers to interact with abstractions over the JSON-RPC API, making it easy to interact with Ethereum nodes. Since Tanssi EVM appchains have an Ethereum API available that is fully compatible with Ethereum-style JSON-RPC invocations, developers can leverage this compatibility to interact with any Tanssi EVM appchain. For more information on viem, check out their [documentation site](https://viem.sh/docs/getting-started.html){target=\_blank}.
+[viem](https://viem.sh){target=\_blank} is a modular TypeScript library that allows developers to interact with abstractions over the JSON-RPC API, making it easy to interact with Ethereum nodes. Since Tanssi EVM appchains have an Ethereum API available that is fully compatible with Ethereum-style JSON-RPC invocations, developers can leverage this compatibility to interact with any Tanssi EVM appchain. For more information on viem, check out their [documentation site](https://viem.sh/docs/getting-started.html){target=\_blank}.
 
 In this guide, you'll learn how to use viem to send a transaction and deploy a contract on the demo EVM appchain. This guide can be adapted for use with any Tanssi EVM appchain.
 
@@ -52,7 +52,7 @@ npx tsc --init
 
 ## Set Up a viem Client (Provider) {: #setting-up-a-viem-provider }
 
-Throughout this guide, you'll be creating a bunch of scripts that provide different functionality, such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts, you'll need to create a [viem client](https://docs.ethers.org/v6/api/providers/){target=\_blank} to interact with the network.
+Throughout this guide, you'll be creating a bunch of scripts that provide different functionality, such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts, you'll need to create a [viem client](https://docs.ethers.org/v6/api/providers){target=\_blank} to interact with the network.
 
 You can create a viem client for reading chain data, like balances or contract data, using the `createPublicClient` function, or you can create a viem client for writing chain data, like sending transactions, using the `createWalletClient` function.
 
