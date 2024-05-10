@@ -11,7 +11,7 @@ As presented in the [Overview](/learn/tanssi/overview/){target=\_blank} article,
 
 Infrastructure poses a huge challenge for developers who would need to bootstrap block producers, data preservers, and RPC endpoints, and deal with integrations and interoperability, assigning precious effort and resources and losing focus on what is important: the appchain Runtime, the UX, and the value proposition to the users.
 
-In Tanssi terms, application chains are called appchains, allowing teams to focus on the product while alleviating deployment-related issues. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io/){target=\_blank}, in its role as orchestrator, managing resources to guarantee the liveness and performance of the appchains.
+In Tanssi terms, application chains are called appchains, allowing teams to focus on the product while alleviating deployment-related issues. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io){target=\_blank}, in its role as orchestrator, managing resources to guarantee the liveness and performance of the appchains.
 
 In this article, the necessary aspects to consider when building and deploying your own modular blockchain are covered, and also the following technical aspects of the Tanssi protocol:
 

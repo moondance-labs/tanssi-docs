@@ -7,14 +7,14 @@ description: Learn how to use Foundry, an Ethereum development environment, to c
 
 ## Introduction {: #introduction }
 
-[Foundry](https://github.com/foundry-rs/foundry/){target=\_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi EVM appchains, so it can be used to deploy and interact with smart contracts on your Tanssi appchain.
+[Foundry](https://github.com/foundry-rs/foundry){target=\_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi EVM appchains, so it can be used to deploy and interact with smart contracts on your Tanssi appchain.
 
 There are four tools that make up Foundry:  
 
-- **[Forge](https://book.getfoundry.sh/forge/){target=\_blank}** - compiles, tests, and deploys contracts
-- **[Cast](https://book.getfoundry.sh/cast/){target=\_blank}** - a command line interface for interacting with contracts
-- **[Anvil](https://book.getfoundry.sh/anvil/){target=\_blank}** - a local TestNet node for development purposes that can fork preexisting networks
-- **[Chisel](https://book.getfoundry.sh/chisel/){target=\_blank}** - a Solidity REPL for quickly testing Solidity snippets
+- **[Forge](https://book.getfoundry.sh/forge){target=\_blank}** - compiles, tests, and deploys contracts
+- **[Cast](https://book.getfoundry.sh/cast){target=\_blank}** - a command line interface for interacting with contracts
+- **[Anvil](https://book.getfoundry.sh/anvil){target=\_blank}** - a local TestNet node for development purposes that can fork preexisting networks
+- **[Chisel](https://book.getfoundry.sh/chisel){target=\_blank}** - a Solidity REPL for quickly testing Solidity snippets
 
 This guide will cover how to use Foundry to compile, deploy, and debug Ethereum smart contracts on the demo EVM appchain. You can follow the same steps to perform these actions on your Tanssi EVM appchain by replacing the RPC URL and Chain ID shown in the examples.
 
@@ -23,7 +23,7 @@ This guide will cover how to use Foundry to compile, deploy, and debug Ethereum 
 To get started, you will need the following:
 
  - An account with funds
- - [Foundry installed](https://book.getfoundry.sh/getting-started/installation/){target=\_blank}
+ - [Foundry installed](https://book.getfoundry.sh/getting-started/installation){target=\_blank}
 
 ## Creating a Foundry Project {: #creating-a-foundry-project }
 
@@ -127,7 +127,7 @@ Congratulations, your contract is live! Save the address, as you will use it to 
 
 ## Interacting with the Contract {: #interacting-with-the-contract }
 
-Foundry includes [Cast](https://book.getfoundry.sh/cast/){target=\_blank}, a CLI for performing Ethereum RPC calls.
+Foundry includes [Cast](https://book.getfoundry.sh/cast){target=\_blank}, a CLI for performing Ethereum RPC calls.
 
 Try to retrieve your token's name using Cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
 
@@ -167,7 +167,7 @@ Congratulations, you have successfully deployed and interacted with a contract u
 
 ## Forking with Anvil {: #forking-with-anvil }
 
-As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil/){target=\_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM appchain allows you to interact with live contracts deployed on the network.
+As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil){target=\_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM appchain allows you to interact with live contracts deployed on the network.
 
 To fork the demo EVM appchain from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your Tanssi EVM appchain.
 
@@ -179,7 +179,7 @@ Your forked instance will have 10 development accounts that are pre-funded with 
 
 ![Forking terminal screen](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-5.webp)
 
-To verify you have forked the network, you can query the latest block number and compare it to the current block number of the [demo EVM appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/){target=\_blank}.
+To verify you have forked the network, you can query the latest block number and compare it to the current block number of the [demo EVM appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network){target=\_blank}.
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
@@ -196,7 +196,7 @@ cast call INSERT_CONTRACT_ADDRESS  "balanceOf(address)(uint256)" \
 
 ## Using Chisel {: #using-chisel }
 
-[Chisel](https://book.getfoundry.sh/chisel/){target=\_blank} is a Solidity REPL or shell. It allows a developer to write Solidity directly in the console for testing small snippets of code, letting developers skip the project setup and contract deployment steps for what should be a quick process.  
+[Chisel](https://book.getfoundry.sh/chisel){target=\_blank} is a Solidity REPL or shell. It allows a developer to write Solidity directly in the console for testing small snippets of code, letting developers skip the project setup and contract deployment steps for what should be a quick process.  
 
 Since Chisel is mainly useful for quick testing, it can be used outside of a Foundry project. But, if executed within a Foundry project, it will keep the configurations within `foundry.toml` when running.  
 
@@ -318,11 +318,11 @@ Then, for example, you can query the balance of the Alice account on the demo EV
 
 ![Forking in Chisel](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-10.webp)
 
-If you want to learn more about Chisel, download Foundry and refer to its [official reference page](https://book.getfoundry.sh/reference/chisel/){target=\_blank}.
+If you want to learn more about Chisel, download Foundry and refer to its [official reference page](https://book.getfoundry.sh/reference/chisel){target=\_blank}.
 
 ## Foundry with Hardhat {: #foundry-with-hardhat }  
 
-Often, there will be the case where a project that you wish to integrate with has all of its setup within [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/){target=\_blank}, making it an arduous task to convert the entirety of the project into Foundry. This additional work is avoidable by creating a hybrid project that uses both Hardhat and Foundry features together. This is possible with Hardhat's [hardhat-foundry plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-foundry/){target=\_blank}.  
+Often, there will be the case where a project that you wish to integrate with has all of its setup within [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/){target=\_blank}, making it an arduous task to convert the entirety of the project into Foundry. This additional work is avoidable by creating a hybrid project that uses both Hardhat and Foundry features together. This is possible with Hardhat's [hardhat-foundry plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-foundry){target=\_blank}.  
 
 To convert your preexisting Foundry project to a hybrid project, you will essentially have to install a Hardhat project into the same folder:  
 
@@ -374,6 +374,6 @@ npm run test
 
 Finally, while not necessary, it could be worthwhile to move all JavaScript scripts from the `scripts` folder into Foundry's `script` folder and delete the `scripts` folder so that you don't have two folders that serve the same purpose.
 
-Congratulations, you have successfully deployed and interacted with smart contracts on your Tanssi EVM appchain using Foundry! For more information, be sure to check out the [Foundry Book](https://book.getfoundry.sh/){target=\_blank}.
+Congratulations, you have successfully deployed and interacted with smart contracts on your Tanssi EVM appchain using Foundry! For more information, be sure to check out the [Foundry Book](https://book.getfoundry.sh){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

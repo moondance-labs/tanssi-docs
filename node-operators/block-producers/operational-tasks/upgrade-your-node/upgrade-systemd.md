@@ -72,4 +72,4 @@ And that's it! You've successfully upgraded your Tanssi node.
 
 ## Subscribe to Release Notifications {: #subscribe }
 
-You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub repo](https://github.com/moondance-labs/tanssi/){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.
+You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.

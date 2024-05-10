@@ -10,7 +10,7 @@ description: Learn how to use one of the most popular Ethereum developer tools, 
 
 ## Introduction {: #introduction }
 
-Developers building dApps on top of Tanssi EVM appchains can use [Remix](https://remix.ethereum.org/){target=\_blank}, one of the most popular Ethereum development environments, to build, compile, and deploy their smart contracts. Remix can be used with any EVM appchain, thanks to the seamless compatibility of Tanssi EVM appchains.
+Developers building dApps on top of Tanssi EVM appchains can use [Remix](https://remix.ethereum.org){target=\_blank}, one of the most popular Ethereum development environments, to build, compile, and deploy their smart contracts. Remix can be used with any EVM appchain, thanks to the seamless compatibility of Tanssi EVM appchains.
 
 This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi Dancebox TestNet using the Remix IDE. This guide can be adapted for your own Tanssi EVM appchain by simply adding the RPC URL of your Tanssi appchain to your EVM Wallet and switching networks to it.
 
@@ -20,7 +20,7 @@ For this guide, you'll need to have MetaMask installed and configured to work wi
 
 ## Getting Started with Remix {: #getting-started-with-remix }
 
-Now, you can head to [Remix](https://remix.ethereum.org/){target=\_blank} to get started. On the main screen, navigate to the **File Explorer** tab.
+Now, you can head to [Remix](https://remix.ethereum.org){target=\_blank} to get started. On the main screen, navigate to the **File Explorer** tab.
 
 ![File explorer](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-1.webp)
 
@@ -119,7 +119,7 @@ Click **Confirm** and, after the transaction is complete, you will see a confirm
 
 ![Verify the reduction in account balance](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-14.webp)
 
-You can also look up the transaction on [your Tanssi appchain's explorer](https://tanssi-evmexplorer.netlify.app/){target=\_blank} to verify the transaction status.
+You can also look up the transaction on [your Tanssi appchain's explorer](https://tanssi-evmexplorer.netlify.app){target=\_blank} to verify the transaction status.
 
 ![Check transaction status on block explorer for your Tanssi appchain](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-15.webp)
 

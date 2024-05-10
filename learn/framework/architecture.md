@@ -42,7 +42,7 @@ The default configuration of a Substrate node and the built-in implementations o
 
 The runtime plays a crucial role in the operation of the Tanssi appchain. It contains the core logic and rules to meet the requirements of the use case the developers are building, and, therefore, it is responsible for validating the transactions and executing the state transitions.
 
-Being the core element in a Tanssi appchain, designing the Substrate architecture an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org/){target=\_blank} byte code.
+Being the core element in a Tanssi appchain, designing the Substrate architecture an important decision has been made regarding the format for the runtime: it is compiled to [WebAssembly (Wasm)](https://webassembly.org){target=\_blank} byte code.
 
 The Wasm format offers many advantages to a deployed Tanssi appchain, including:
 

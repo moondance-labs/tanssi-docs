@@ -20,7 +20,7 @@ For the examples in this guide, you will need to have the following:
  - A Tanssi appchain (Snap or Dedicated)
  - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps
 
-If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network/){target=\_blank} underneath the **Properties** section.
+If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/sudo/sudo-1.webp)
 

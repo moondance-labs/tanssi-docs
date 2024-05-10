@@ -29,7 +29,7 @@ In this article, the following steps, necessary to build and add the example mod
 
 To follow the steps in this guide, you will need to have the following:
 
-- Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi/){target=\_blank} from Github
+- Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} from Github
 - Rust compiler and Cargo package manager
 
 You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/customize/prerequisites/#installing-rust){target=\_blank}.
@@ -38,7 +38,7 @@ You can read more about how to install Rust and Cargo is in the [prerequisites a
 
 Before starting your coding process, it's essential to create the files containing your logic. Substrate modules are abstract and intended for reuse across different runtimes with various customizations. To achieve this, you'll use Cargo, Rust's package manager, to create the module as a new package.
 
-As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi/){target=\_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
+As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
 
 ```bash
 cd container-chains/pallets
@@ -113,7 +113,7 @@ The next step would be to add the third mandatory macro (`#[pallet::config]`) an
 
 To make the modules highly adaptable, their configuration is abstract enough to allow them to be adapted to the specific requirements of the use case the runtime implements.
 
-The implementation of the `#[pallet::config]` macro is mandatory and sets the module's dependency on other modules and the types and values specified by the runtime-specific settings. More about module dependencies is in the [Substrate documentation](https://docs.substrate.io/build/pallet-coupling/){target=\_blank}.
+The implementation of the `#[pallet::config]` macro is mandatory and sets the module's dependency on other modules and the types and values specified by the runtime-specific settings. More about module dependencies is in the [Substrate documentation](https://docs.substrate.io/build/pallet-coupling){target=\_blank}.
 
 In the custom `lottery-example` module you are building, the module depends on other modules to manage the currency and the random function to select the winner. The module also reads and uses the ticket price and the maximum number of participants directly from the runtime settings.  Consequently, the configuration needs to include these dependencies:
 
@@ -163,7 +163,7 @@ Calls represent the behavior a runtime exposes in the form of transactions that 
 Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees/){target=\_blank}
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an `Error` if anything goes wrong
 
@@ -265,7 +265,7 @@ pub enum Event<T: Config> {
 
 ### Implementing Storage for State Persistence {: #implementing-storage }
 
-The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of a Tanssi appchain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage/){target=\_blank}.
+The `#[pallet::storage]` macro initializes a runtime storage structure.  In the heavily constrained environment of a Tanssi appchain, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage){target=\_blank}.
 
 In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=\_blank}). This can be initialized as follows:
 
