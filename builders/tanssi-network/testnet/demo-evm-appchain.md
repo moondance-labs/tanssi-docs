@@ -60,7 +60,7 @@ The demo EVM appchain has a [chain ID](https://chainlist.org/chain/5678){target=
 
 ## Quick Start {: #quick-start }
 
-You can interact with a Tanssi EVM appchain using standard Ethereum libraries, like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs){target=\_blank}, [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js){target=\_blank}, and [Web3.py](/builders/toolkit/ethereum-api/libraries/web3py){target=\_blank}. To quickly get started, you'll need to create a provider connected to a Tanssi EVM appchain:
+You can interact with a Tanssi EVM appchain using standard Ethereum libraries, like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, and [Web3.py](/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}. To quickly get started, you'll need to create a provider connected to a Tanssi EVM appchain:
 
 === "Ethers.js"
 

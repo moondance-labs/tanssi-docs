@@ -33,7 +33,7 @@ When developing an appchain, Substrate represents a great head start by providin
 
 - **Consensus Algorithms** - there are multiple built-in consensus engines, such as Aura (Proof of Authority), Babe (Proof of Stake), and Grandpa (block finality), but due to the high degree of customization Substrate offers, teams can always choose to develop their specific consensus to adapt to the use case needs, as the Moonbeam team did with the [Nimbus Parachain Consensus Framework](https://docs.moonbeam.network/learn/features/consensus){target=\_blank}
 
-- **Runtime Modules** - many built-in modules (explained in detail in the [modules](/learn/framework/modules){target=\_blank} section) can be selected and configured into your appchain, such as accounts, balances, staking, governance, identity, and more
+- **Runtime Modules** - many built-in modules (explained in detail in the [modules](/learn/framework/modules/){target=\_blank} section) can be selected and configured into your appchain, such as accounts, balances, staking, governance, identity, and more
 
 - **Networking** - built-in protocols and libraries for establishing connections, propagating transactions and blocks, synchronizing the blockchain state, and managing network interactions
 

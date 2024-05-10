@@ -73,6 +73,6 @@ You can verify that your runtime upgrade was successful by checking the runtime 
 
 ![Check Runtime version on Polkadot.js Apps](/images/builders/manage/sudo/upgrade/upgrade-4.webp)
 
-And that's it! The [Using Sudo](/builders/manage/sudo) section has plenty more guides on how you can use the Sudo account to manage your Tansi appchain.
+And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tansi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

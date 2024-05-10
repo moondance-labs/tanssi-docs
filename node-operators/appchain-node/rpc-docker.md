@@ -22,9 +22,9 @@ In this guide, you'll learn how to quickly spin up a Tanssi appchain node using 
 
 A Docker image is built and published as part of the automated deployment process, either for a Tanssi EVM-compatible appchain or another for a Tanssi Substrate appchain.
 
-A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs){target=\_blank} file.
+A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
-The chain specification is generated when registering the appchain in the [dApp](https://apps.tanssi.network){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
+The chain specification is generated when registering the appchain in the [dApp](https://apps.tanssi.network){target=\_blank} using the provided parameters for the selected [template](/learn/tanssi/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
 
 Luckily, running a node requires the right Docker image configured correctly!
 
@@ -118,7 +118,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 ### Full Node Example for Demo EVM Appchain {: #example-demo-evm-appchain }
 
-The following example spins up a full archive RPC node for the [demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain){target=\_blank} deployed on Dancebox with an ID of `3001`.
+The following example spins up a full archive RPC node for the [demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain/){target=\_blank} deployed on Dancebox with an ID of `3001`.
 
 ```bash
 docker run -ti moondancelabs/dancebox-container-chain-evm-templates \

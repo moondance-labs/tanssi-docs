@@ -63,4 +63,4 @@ As an example of a custom module, the following code (not intended for productio
 --8<-- 'code/builders/build/customize/custom-made-module/lottery-example.rs'
 ```
 
-For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module){target=\_blank} in the Builder's section.
+For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.

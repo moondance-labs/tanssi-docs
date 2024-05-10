@@ -9,7 +9,7 @@ description: In these step-by-step instructions, learn how to properly offboard 
 
 As a block producer, there may come a time when you need to gracefully exit the network. Decommissioning your account involves a two-step process to ensure that your node is properly disassociated from your account and that you receive your bond back.
 
-This guide will show you how to wind down your operations as a Tanssi block producer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}.
+This guide will show you how to wind down your operations as a Tanssi block producer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}.
 
 ## Request Undelegation {: #request-undelegation }
 
@@ -122,4 +122,4 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 ![Verifying Unmapping was successful](/images/node-operators/block-producers/offboarding/account/account-8.webp)
 
-And that's it! You have successfully offboarded a Tanssi block producer. If you change your mind at any point and want to onboard back as a Tanssi block producer, you can follow the steps in the [onboarding guide](/node-operators/block-producers/onboarding/account-setup){target=\_blank}.
+And that's it! You have successfully offboarded a Tanssi block producer. If you change your mind at any point and want to onboard back as a Tanssi block producer, you can follow the steps in the [onboarding guide](/node-operators/block-producers/onboarding/account-setup/){target=\_blank}.

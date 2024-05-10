@@ -60,6 +60,6 @@ To verify that maintenance mode has been disabled, you can check in the **Explor
 
 Remember that using maintenance mode is an emergency action that should only be activated when your chain is at dire risk. It may be worthwhile to establish a policy for your appchain that sets specific circuit breaker triggers to determine when maintenance mode will be enabled. Establishing a policy in advance will also streamline decision-making during a potential emergency.  
 
-And that's it! The [Using Sudo](/builders/manage/sudo) section has plenty more guides on using the Sudo account to manage your Tanssi appchain.
+And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on using the Sudo account to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

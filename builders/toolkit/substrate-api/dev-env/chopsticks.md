@@ -7,7 +7,7 @@ description: Learn the basics of how to use Chopsticks to replay blocks, dissect
 
 ## Introduction {: #introduction }
 
-[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing [Substrate-based](/learn/framework/overview){target=\_blank} chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Tanssi appchains for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
+[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing [Substrate-based](/learn/framework/overview/){target=\_blank} chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Tanssi appchains for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
 
 Overall, Chopsticks aims to simplify the process of building blockchain applications on Substrate and make it accessible to a wider range of developers.
 
@@ -50,7 +50,7 @@ This command will start a local clone of the chain as it was in the latest block
 
 --8<-- 'code/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.md'
 
-Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
+Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
 
 ```yaml
 endpoint: wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network

@@ -59,6 +59,6 @@ To assign an account balance to an account, make sure to have your Sudo account 
 
 ![Force assign balances on Polkadot.js Apps](/images/builders/manage/sudo/minting/minting-3.webp)
 
-And that's it! The [Using Sudo](/builders/manage/sudo) section has plenty more guides on how you can use the Sudo account to manage your Tanssi appchain.
+And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

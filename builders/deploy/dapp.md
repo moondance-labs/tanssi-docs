@@ -29,7 +29,7 @@ The screenshots and content in this guide will showcase Snap appchains, but you 
 
 Deploying a Tanssi appchain via the Tanssi dApp is accomplished as a single, streamlined flow consisting of five distinct steps:
 
-1. Select a [template](/builders/build/templates/overview){target=\_blank} and configure it
+1. Select a [template](/builders/build/templates/overview/){target=\_blank} and configure it
 2. Satisfy the required minimum token balances
 3. Reserve your Tanssi appchain ID on the relay chain
 4. Generate your custom appchain files
@@ -37,7 +37,7 @@ Deploying a Tanssi appchain via the Tanssi dApp is accomplished as a single, str
 
 ![A diagram mapping out the steps for deploying a Tanssi appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-2.webp)
 
-For Snap appchains and Dedicated appchains on the [Tanssi Dancebox Testnet](/builders/tanssi-network/testnet/dancebox){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your Snap appchain to be ready and about two hours for a dedicated Tanssi appchain. For Tanssi MainNet, the process will be fully decentralized and permissionless.
+For Snap appchains and Dedicated appchains on the [Tanssi Dancebox Testnet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your Snap appchain to be ready and about two hours for a dedicated Tanssi appchain. For Tanssi MainNet, the process will be fully decentralized and permissionless.
 
 ## Prerequisites {: #prerequisites }
 
@@ -50,7 +50,7 @@ Since Tanssi is built with Substrate, you'll need to use a Substrate-supported w
 - [Talisman](https://www.talisman.xyz){target=\_blank}
 - [Enkrypt](https://www.enkrypt.com){target=\_blank}
 
-If you deploy a Tanssi EVM appchain, your users won't need a Substrate wallet. They can interact with your Tanssi appchain using Ethereum-compatible wallets like [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask){target=\_blank}.
+If you deploy a Tanssi EVM appchain, your users won't need a Substrate wallet. They can interact with your Tanssi appchain using Ethereum-compatible wallets like [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ![Connection screen for various Substrate wallets](/images/builders/deploy/dapp/dapp-3.webp)
 
@@ -71,11 +71,11 @@ From the [Dashboard](https://apps.tanssi.network){target=\_blank} or the [Deploy
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.webp)
 
-Next, select a template that best fits your use case and configure your Tanssi appchain's properties accordingly. You can choose from the EVM or Substrate template or upload a raw specification file. Please refer to the [Templates](/builders/build/templates/overview){target=\_blank} documentation to learn more about the available templates.
+Next, select a template that best fits your use case and configure your Tanssi appchain's properties accordingly. You can choose from the EVM or Substrate template or upload a raw specification file. Please refer to the [Templates](/builders/build/templates/overview/){target=\_blank} documentation to learn more about the available templates.
 
 ### EVM Template {: #evm-template }
 
-The [EVM template](/builders/build/templates/evm){target=\_blank} provides all the necessary components to add an Ethereum compatibility layer to your Tanssi appchain. 
+The [EVM template](/builders/build/templates/evm/){target=\_blank} provides all the necessary components to add an Ethereum compatibility layer to your Tanssi appchain. 
 
 As part of the setup process, you'll need a unique EVM chain ID ([EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md){target=\_blank}) that is distinct from all other EVM chains. You can verify that another chain does not already use your EVM chain ID on [Chainlist](https://chainid.network){target=\_blank}. When launching your Tanssi appchain in production, it's critical that you open a PR to reserve your chain ID on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=\_blank} immediately after your RPC endpoint spins up. This is part of the validation process and is required for the PR to be accepted and merged.
 
@@ -114,8 +114,8 @@ If you already have a Substrate runtime built and have chosen to upload your own
 
 Your runtime must implement the following:
 
-- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank} section of the [Templates](/builders/build/templates/overview){target=\_blank} page
-- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank} section of the [Templates](/builders/build/templates/overview){target=\_blank} page
+- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
+- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
 
 Other required changes in the runtime include:
 

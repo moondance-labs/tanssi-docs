@@ -20,7 +20,7 @@ The article follows the good practice of running the service with its own non-ro
 
 To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
 
-- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable node release. If you want to build and run your own file, make sure to follow the instructions for [building your appchain node](/builders/build/customize/prerequisites){target=\_blank}
+- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable node release. If you want to build and run your own file, make sure to follow the instructions for [building your appchain node](/builders/build/customize/prerequisites/){target=\_blank}
 
 - **Appchain specifications file** - the appchain specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network){target=\_blank} by clicking the **Appchain Data** link
 
@@ -191,7 +191,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
 
 ### Full Node Configuration Example for the Demo EVM Appchain {: #example-demo-evm-appchain}
 
-The following example deploys a fully functional full archive node for the [demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain){target=\_blank} deployed on Dancebox with an ID of `3001`.
+The following example deploys a fully functional full archive node for the [demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain/){target=\_blank} deployed on Dancebox with an ID of `3001`.
 
 The raw chain specification file for the demo appchain is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain){target=\_blank}. Download the file and place it in the `/var/lib/appchain-data/` directory.
 

@@ -7,7 +7,7 @@ description: Tanssi protocol provides useful templates to start building your ap
 
 ## Introduction {: #introduction }
 
-Building a new appchain from scratch can be a daunting prospect. Fortunately, thanks to the [appchain development framework](/learn/framework/overview){target=\_blank} used by Tanssi and its modular-oriented architecture, developers can leverage some pre-bundled appchain templates that help them jumpstart the process and benefit in some aspects, such as:
+Building a new appchain from scratch can be a daunting prospect. Fortunately, thanks to the [appchain development framework](/learn/framework/overview/){target=\_blank} used by Tanssi and its modular-oriented architecture, developers can leverage some pre-bundled appchain templates that help them jumpstart the process and benefit in some aspects, such as:
 
 - **Head Start** - Tanssi appchain templates provide a starting point for your project, saving significant time and effort by providing a basic structure and a set of tested and ready-to-use functionalities. It allows developers to accelerate the construction of prototypes or minimum viable products (MVPs) and reduce the time to market
 
@@ -35,7 +35,7 @@ The two included templates are *Baseline appchain template* and *Baseline EVM Te
 
 ### Baseline Appchain Template {: #baseline-appchain-template }
 
-As presented in the [Overview](/learn/tanssi/overview){target=\_blank} article, appchains deployed through Tanssi are fully sovereign, customizable Layer 1 solutions that leverage the benefits of becoming part of the wider Polkadot ecosystem.
+As presented in the [Overview](/learn/tanssi/overview/){target=\_blank} article, appchains deployed through Tanssi are fully sovereign, customizable Layer 1 solutions that leverage the benefits of becoming part of the wider Polkadot ecosystem.
 
 As a sibling chain of the other members of the ecosystem (like the Tanssi network itself), they must include the necessary behavior to implement their consensus mechanism and be able to interact and synchronize with Polkadot's relay chain.
 

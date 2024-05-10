@@ -7,7 +7,7 @@ description: Learn about the transaction fee mechanism in Tanssi appchains, how 
 
 ## Introduction {: #introduction}
 
-Tanssi appchains are built with a [modular framework](/learn/framework){target=\_blank} called [Substrate](https://substrate.io){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi EVM-compatible appchains can be charged at an EVM execution level, bypassing other fee-related modules.
+Tanssi appchains are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://substrate.io){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi EVM-compatible appchains can be charged at an EVM execution level, bypassing other fee-related modules.
 
 Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi appchains work with a [weight-based mechanism](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi appchains, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM appchains, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
 
@@ -19,7 +19,7 @@ This page covers the fundamentals of transaction fees for Tanssi appchains. It f
 
 Every action that alters the state of a Tanssi appchain incurs a transaction fee. This fee is essential for the network's operation, covering the computational resources required to process transactions, similar to the gas and gas price parameters in EVM-compatible chains like Ethereum
 
-Tanssi appchains [modular framework](/learn/framework){target=\_blank} use a weight-based fee calculation mechanism to determine transaction fees. This approach considers various factors, including computational resources and storage operations (inputs/outputs), to reflect the true cost of transactions accurately. By accounting for these elements, the network ensures fair and efficient resource allocation.
+Tanssi appchains [modular framework](/learn/framework/){target=\_blank} use a weight-based fee calculation mechanism to determine transaction fees. This approach considers various factors, including computational resources and storage operations (inputs/outputs), to reflect the true cost of transactions accurately. By accounting for these elements, the network ensures fair and efficient resource allocation.
 
 Furthermore, Tanssi appchains modularity ensures that EVM-compatible appchains support legacy and [EIP-1559 compatible](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} transaction pricing mechanisms, ensuring full compatibility with development environments commonly used in Ethereum.
 
@@ -75,7 +75,7 @@ All non-EVM function calls available to developers use these baseline calculatio
 
 <!-- https://github.com/polkadot-evm/frontier/blob/272fe8839f87161ed89350de166b379f1f4c6136/frame/base-fee/src/lib.rs#L126-L199 -->
 
-Tanssi offers [templates for full Tanssi EVM-compatible appchains](/builders/build/templates/evm){target=\_blank}. Such appchains provide an Ethereum-like environment for developers, where they can use Eth-specific libraries like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs){target=\_blank}, [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat){target=_blank}, and [Foundry](/builders/toolkit/ethereum-api/dev-env/foundry){target=\_blank}.
+Tanssi offers [templates for full Tanssi EVM-compatible appchains](/builders/build/templates/evm/){target=\_blank}. Such appchains provide an Ethereum-like environment for developers, where they can use Eth-specific libraries like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/){target=_blank}, and [Foundry](/builders/toolkit/ethereum-api/dev-env/foundry/){target=\_blank}.
 
 In addition, all Tanssi EVM-compatible appchains have an [EIP-1559 compatible](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} transaction pricing mechanism for EVM transactions. But they support both commonly used EVM transaction types:
 

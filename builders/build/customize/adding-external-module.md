@@ -7,7 +7,7 @@ description: Learn how to manage and resolve double reference issues of dependen
 
 ## Introduction {: #introduction }
 
-Developers building on top of the [Templates offered by Tanssi](/builders/build/templates){target=\_blank} might want to add some external modules/dependencies into their runtime to expand certain functionality.
+Developers building on top of the [Templates offered by Tanssi](/builders/build/templates/){target=\_blank} might want to add some external modules/dependencies into their runtime to expand certain functionality.
 
 The Tanssi repository and the templates take all the dependencies from [a fork](https://github.com/moondance-labs/polkadot-sdk){target=\_blank} of the official Polkadot SDK repository. This fork is maintained by the Tanssi engineering team, which usually contributes actively to Substrate development by fixing issues and enhancing functionalities, and, as a result, the fork repository frequently stays temporarily ahead of the official one.
 
@@ -32,7 +32,7 @@ You can visit the [diener documentation](https://docs.rs/crate/diener/latest){ta
 
 ## Example of the Double Reference Issue {: #double-reference-issue }
 
-To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} to a custom runtime based on the [baseline Tanssi appchain template](/builders/build/templates/substrate){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
+To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} to a custom runtime based on the [baseline Tanssi appchain template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
 
 This tutorial will generate a multiple reference compile-time error. Finally, the steps will show you how to fix the compile error by patching the dependencies with the tool `diener`, the runtime will compile successfully and work as intended.
 

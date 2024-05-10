@@ -11,7 +11,7 @@ description: Learn how to use Acurast's decentralized serverless cloud to get re
 
 One of Acurast's use cases is to enable developers to deploy their own push/pull oracles, interacting with off-chain APIs to bring price feeds on-chain. Pricing data is confidentially processed through Acurast Processors, pushing data to smart contracts of EVM-compatible chains like Tanssi EVM appchains via a [standard Chainlink Aggregator Interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}.
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Acurast on the [demo Tanssi EVM-compatible appchain](/builders/tanssi-network/testnet/demo-evm-appchain){target=\_blank}. You can also deploy your own price feeds to your Tanssi EVM-compatible appchain. Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you contact the [Acurast](https://acurast.com){target=\_blank} team directly as they can assist you with launching price feeds on your appchain to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Acurast on the [demo Tanssi EVM-compatible appchain](/builders/tanssi-network/testnet/demo-evm-appchain/){target=\_blank}. You can also deploy your own price feeds to your Tanssi EVM-compatible appchain. Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you contact the [Acurast](https://acurast.com){target=\_blank} team directly as they can assist you with launching price feeds on your appchain to ensure the integrity of the deployment process.
 
 ## What is Acurast? {: #what-is-acurast }
 
@@ -39,7 +39,7 @@ This tutorial will showcase interacting with a sample BTC/USDT price feed contra
 {{ networks.dancebox.oracles.acurast.btc_usd }}
 ```
 
-For a refresher on setting up Remix to interface with the demo EVM appchain, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask){target=\_blank} to the demo EVM appchain.
+For a refresher on setting up Remix to interface with the demo EVM appchain, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM appchain.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
@@ -109,7 +109,7 @@ The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price i
 !!! warning
     This demo contract has some security vulnerabilities and lacks access control mechanisms, making it unsuitable for any real use. It was developed by the Acurast team for demonstration purposes only.
 
-Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM appchain. Or, you can deploy it to the [demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain), and you can obtain TestNet TANGO tokens from the [Tanssi faucet](https://apps.tanssi.network/demo){target=\_blank}. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
+Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM appchain. Or, you can deploy it to the [demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain/), and you can obtain TestNet TANGO tokens from the [Tanssi faucet](https://apps.tanssi.network/demo){target=\_blank}. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
 
 ### Building the Acurast Script
 

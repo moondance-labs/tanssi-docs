@@ -22,7 +22,7 @@ To follow the steps in this guide, you will need to have the following:
 - A healthy development environment with the Rust compiler and Cargo package manager
 - The [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}, cloned from GitHub
 
-You can read more about how to install the required components in the [prerequisites article](/builders/build/customize/prerequisites){target=\_blank}.
+You can read more about how to install the required components in the [prerequisites article](/builders/build/customize/prerequisites/){target=\_blank}.
 
 As this article is based on the EVM template, make sure that it compiles correctly before continuing by executing the following command:
 
@@ -32,7 +32,7 @@ cargo build -p container-chain-template-frontier-node --release
 
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module-to-runtime }
 
-As introduced in the [modularity](/learn/framework/modules){target=\_blank} article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities, ready to be used in your runtime.
+As introduced in the [modularity](/learn/framework/modules/){target=\_blank} article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities, ready to be used in your runtime.
 
 Modules are meant to provide the functionality needed in very different use cases such as DeFi, NFTs, or any other, and, therefore, they are basic building blocks that are inherently abstract and can be configured according to the specific needs of the Tanssi appchain.
 
@@ -194,7 +194,7 @@ container-chains/templates/frontier/node/src/chain_spec.rs
 
 The function `testnet_genesis`, presented in the following code snippet, defines the initial state for the modules included in the runtime (such as initial funded accounts, for example). After adding the Assets module, it is necessary to initialize it as well, and in the following example, its default values are defined.
 
-More about the chain specification and how to configure it will be covered in the article [Customizing Chain Specifications](/builders/build/customize/customizing-chain-specs){target=\_blank}.
+More about the chain specification and how to configure it will be covered in the article [Customizing Chain Specifications](/builders/build/customize/customizing-chain-specs/){target=\_blank}.
 
 ```rust hl_lines="14"
 fn testnet_genesis(

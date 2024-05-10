@@ -35,7 +35,7 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ### Supported Assets {: #supported-assets }
 
-Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum MainNet. Currently, there are data feed contracts for [the demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain){target=\_blank} for the following asset pairs:
+Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum MainNet. Currently, there are data feed contracts for [the demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-appchain/){target=\_blank} for the following asset pairs:
 
 === "Tanssi Demo EVM Appchain"
     | Asset & Base Pair |                                                                             Aggregator Contract                                                                              |
@@ -63,7 +63,7 @@ Phala sources its price feed data by mirroring Chainlink's price feeds from Ethe
 
 Next, this tutorial will showcase interacting with the price feed contracts on the demo EVM appchain. These contracts are already deployed on the demo EVM appchain, so you can interact with them by accessing the aggregator contract corresponding to your desired asset.
 
-For a refresher on setting up Remix to interface with the demo EVM appchain, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask){target=\_blank} to the demo EVM appchain.
+For a refresher on setting up Remix to interface with the demo EVM appchain, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM appchain.
 
 Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 

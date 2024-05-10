@@ -58,7 +58,7 @@ These are some of the functional modules exposing a behavior to the users that a
 
 ## Start Building {: #getting-started }
 
-To start building on top of the provided templates, be it the [Baseline Tanssi appchain template](/builders/build/templates/substrate){target=\_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm){target=\_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and start adding [built-in modules](/builders/build/customize/adding-built-in-module){target=\_blank} or [custom-made modules](/builders/build/customize/adding-custom-made-module){target=\_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} tag.
+To start building on top of the provided templates, be it the [Baseline Tanssi appchain template](/builders/build/templates/substrate/){target=\_blank} or the [Baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm/){target=\_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and start adding [built-in modules](/builders/build/customize/adding-built-in-module/){target=\_blank} or [custom-made modules](/builders/build/customize/adding-custom-made-module/){target=\_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} tag.
 
 This approach comes with some advantages, such as:
 
@@ -68,4 +68,4 @@ This approach comes with some advantages, such as:
 - Run the included tests, ensuring that block production on your Tanssi appchain works as intended
 - Run a local environment, spinning up a relay chain, the Tanssi orchestrator, and your Tanssi appchain with the included [Zombienet](https://paritytech.github.io/zombienet){target=\_blank} configuration
 
-If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy your Tanssi appchain via the Tanssi dApp](/builders/deploy/dapp){target=\_blank} article to know how to use the Tanssi dApp to register and get your chain up and running.
+If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy your Tanssi appchain via the Tanssi dApp](/builders/deploy/dapp/){target=\_blank} article to know how to use the Tanssi dApp to register and get your chain up and running.

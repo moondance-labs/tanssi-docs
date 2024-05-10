@@ -7,7 +7,7 @@ description: Tanssi provides block production services assigning block producers
 
 ## Introduction {: #introduction }
 
-As presented in the [Overview](/learn/tanssi/overview){target=\_blank} article, Tanssi is an appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic specific to a wide range of use cases, including DeFi, NFTs, Gaming, and any other use case development teams may want to address.
+As presented in the [Overview](/learn/tanssi/overview/){target=\_blank} article, Tanssi is an appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic specific to a wide range of use cases, including DeFi, NFTs, Gaming, and any other use case development teams may want to address.
 
 Infrastructure poses a huge challenge for developers who would need to bootstrap block producers, data preservers, and RPC endpoints, and deal with integrations and interoperability, assigning precious effort and resources and losing focus on what is important: the appchain Runtime, the UX, and the value proposition to the users.
 
@@ -43,7 +43,7 @@ At any given time, Tanssi and all Tanssi Appchains require a certain amount of b
     | Max. # of Block Producers (Tanssi) | {{ networks.dancebox.block_producers.configuration.max_orchestrator_block_producers }} |
     |  # of Block Producers (Appchains)  |   {{ networks.dancebox.block_producers.configuration.block_producer_per_container }}   |
 
-Once the required number of block producers for a given session is known, Tanssi uses two mechanisms to decide the actual set of block producers that will be distributed among all chains (Tanssi and appchains). The first mechanism is through the Invunerables module, which sets a list of fixed block producers prioritized by the protocol and serves as a way to ensure block production stability in certain scenarios like TestNets. The second mechanism is through the [Tanssi staking module](/learn/tanssi/network-features/staking){target=\_blank}.
+Once the required number of block producers for a given session is known, Tanssi uses two mechanisms to decide the actual set of block producers that will be distributed among all chains (Tanssi and appchains). The first mechanism is through the Invunerables module, which sets a list of fixed block producers prioritized by the protocol and serves as a way to ensure block production stability in certain scenarios like TestNets. The second mechanism is through the [Tanssi staking module](/learn/tanssi/network-features/staking/){target=\_blank}.
 
 The Tanssi staking module helps create a decentralized set of block producers for Tanssi and all Tanssi appchains by providing the protocol a sorted list of block producers by staked amount. Then, Tanssi appends the sorted list to the invulnerable block producers (if exists) and starts the block producer assignation process.
 

@@ -73,6 +73,6 @@ The other account had a starting balance of `995` tokens prior to the call and d
 
 ![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/impersonate/impersonate-5.webp)
 
-And that's it! The [Using Sudo](/builders/manage/sudo) section has plenty more guides on using the Sudo account to manage your Tanssi appchain.
+And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on using the Sudo account to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
