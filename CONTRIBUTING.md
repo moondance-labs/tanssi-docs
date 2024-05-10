@@ -16,7 +16,7 @@ However, if you're using Visual Studio Code, you can preview the changes you're 
 In the root directory and every subdirectory, in addition to the content directories and pages, you'll find the following files:
 
 - **`.pages`** - defines the structure of the documentation site
-- **`index.md`**- represents the [landing pages](https://docs.tanssi.network/builders) you see throughout the docs site
+- **`index.md`**- represents the [landing pages](https://docs.tanssi.network/builders/) you see throughout the docs site
 
 ### Example `.pages` file
 
