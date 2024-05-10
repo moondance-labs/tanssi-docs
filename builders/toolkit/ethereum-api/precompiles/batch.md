@@ -71,11 +71,7 @@ The interface also includes the following required events:
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
-<<<<<<< HEAD
-To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you [configure MetaMask for Tanssi with the demo EVM appchain](/dapp-developers/developer-toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
-=======
 To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}. Or, you [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
->>>>>>> main
 
 ### Example Contract {: #example-contract}
 
