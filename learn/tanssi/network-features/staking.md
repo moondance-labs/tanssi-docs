@@ -11,8 +11,13 @@ One of Tanssi's core propositions is to simplify the infrastructure complexity f
 
 Tanssi staking mechanics guarantee that the block producers for Tanssi and Tanssi-powered appchains are selected through a trustless and decentralized mechanism. They also incentivize the community to delegate to top-performing or engaged block producers.
 
-This page covers the fundamental concepts of Tanssi's staking mechanics and how it secures a decentralized block production set that drives network liveness for Tanssi appchains.
+This page covers the fundamental concepts of Tanssi's staking mechanics and how it secures a decentralized block production set that drives network liveness for Tanssi appchains. For more information about Staking on Tanssi, check out the link below. 
 
+<div style="text-align: center;">
+  <a href="https://www.tanssi.network/post/dancebox-staking-guide" class="md-header__button md-typeset wrapper" aria-label="More About Staking">
+    <button class="md-button join-community">More About Staking</button>
+  </a>
+</div>
 ## Core Concepts {: #core-concepts }
 
 Tanssi's staking module mechanics were inspired by the concept of liquidity pool tokens (LP tokens) in traditional Automated-Market-Makers (AMMs) like Uniswap V2.
