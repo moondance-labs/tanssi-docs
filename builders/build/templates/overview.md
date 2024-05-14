@@ -30,7 +30,7 @@ Parachains are expected to handle their block production through their own set o
 
 The provided templates already implement Cumulus, so they are ready to be customized and deployed through Tanssi to work and operate within the ecosystem without any issues.
 
-More information about how to configure the Cumulus SDK to integrate a Tanssi appchain into Polkadot's ecosystem can be found in the [official Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template){target=\_blank}.
+More information about how to configure the Cumulus SDK to integrate a Tanssi appchain into Polkadot's ecosystem can be found in the [official Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/templates/parachain){target=\_blank}.
 
 ## Base Setup to Support the Tanssi Protocol {: #base-setup-supporting-tanssi }
 
