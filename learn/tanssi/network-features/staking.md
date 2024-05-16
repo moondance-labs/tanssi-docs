@@ -18,6 +18,7 @@ This page covers the fundamental concepts of Tanssi's staking mechanics and how 
     <button class="md-button join-community">More About Staking</button>
   </a>
 </div>
+
 ## Core Concepts {: #core-concepts }
 
 Tanssi's staking module mechanics were inspired by the concept of liquidity pool tokens (LP tokens) in traditional Automated-Market-Makers (AMMs) like Uniswap V2.
