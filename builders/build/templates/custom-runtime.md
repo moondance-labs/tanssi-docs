@@ -31,7 +31,7 @@ In any case, make sure to check your runtime and remove all the modules that mig
 
 ## Adding Cumulus Support {: #adding-cumulus-support }
 
-If the runtime is set up as a solo chain, check the official [Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus/parachain-template){target=\_blank} or any of the templates available in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} for a reference setup.
+If the runtime is set up as a solo chain, check the official [Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/templates/parachain){target=\_blank} or any of the templates available in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} for a reference setup.
 
 ## Adding Tanssi Protocol Support {: #adding-tanssi-support }
 
