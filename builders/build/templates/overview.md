@@ -34,7 +34,7 @@ More information about how to configure the Cumulus SDK to integrate a Tanssi ap
 
 ## Base Setup to Support the Tanssi Protocol {: #base-setup-supporting-tanssi }
 
-Besides Cumulus, a ContanerChain must implement the following Tanssi modules to support the protocol and benefit safely from Tanssi's block production as a service:
+Besides Cumulus, an appchain must implement the following Tanssi modules to support the protocol and benefit safely from Tanssi's block production as a service:
 
 - **Author Noting** - registers the set of block producers assigned to the appchain by Tanssi
 - **Author Inherent** - Allows the block producer authoring the block to include its identity to get validated and rewarded
