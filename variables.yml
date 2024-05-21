@@ -15,6 +15,10 @@ networks:
       blocks: 600
       hours: 1
       display: 'one'
+    costs:
+      registration_deposit: 100
+      cost_per_block: 1
+      cost_per_assignment: 100
     block_producers:
       configuration:
         max_block_producers: 200
