@@ -21,10 +21,10 @@ All this operation carries costs that must be covered by the appchains that want
 There are three main costs associated with block production as a service that any appchain must cover using Tanssi tokens to deploy successfully and get the block production services:
 
 - **Registration deposit** - is the initial deposit that is locked from the account that signs the appchain registration transaction
-- **Block producers assignment** - every time the Tanssi protocol assigns block producers, which happens once per session, a fixed fee is charged. This discourages a faulty appchain (one whose runtime logic fails to produce valid transitions and, therefore, a valid block) that cannot generate valid blocks from requesting node assignments 
+- **Block producers assignment** - every time the Tanssi protocol assigns block producers, which happens once per session, a fixed fee is charged. This discourages a faulty or malicious appchain (one whose runtime logic fails to produce valid transitions and, therefore, a valid block) that cannot generate valid blocks from requesting node assignments 
 - **Block production** - appchains need to pay for each block that is produced on their behalf. Since the protocol selects and assigns the block producers on a per-session basis, appchains must have enough funds to cover all the blocks to be produced in an entire session to be served
 
-On Dancebox, the Tanssi testnet, the current configuration is the following:
+The current configuration is set as follows:
 
 === "Dancebox"
     |         Variable          |                                   Value                                   |
