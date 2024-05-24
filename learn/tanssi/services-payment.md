@@ -10,7 +10,7 @@ description: Appchains deployed through Tanssi benefit from block production ser
 As presented in the [Overview](/learn/tanssi/overview/){target=\_blank} article, Tanssi is an infrastructure protocol that addresses the complexities and high costs associated with setting up and maintaining blockchain infrastructure, streamlining the deployment of appchains. This protocol brings benefits for both participants:
 
 - **Appchains** - teams can focus on the core logic of their product, the UX, and the UI without dealing with the challenges of infrastructure bootstrapping and its management
-- **Node operators** - bearing with the responsibility of keeping their hardware and software configuration in optimal conditions, they are rewarded with Tanssi tokens for executing transactions and producing blocks on behalf of Tanssi and Tanssi appchains
+- **Node operators** - bearing with the responsibility of keeping their hardware and software configuration in optimal conditions, they are incentivized to execute transactions and produce blocks on behalf of Tanssi and Tanssi appchains
 
 The [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank} mechanism randomly selects a subset of a decentralized set of nodes and assigns them to provide services to Tanssi and the Tanssi-powered appchains for a limited period, that is, the next session (a set number of blocks). Once an ongoing session ends, the Tanssi protocol rotates the set of block producers needed to serve Tanssi and all the active Tanssi appchains, and they automatically start serving the chain they were assigned to.
 
@@ -30,8 +30,8 @@ The current configuration is set as follows:
     |         Variable          |                                   Value                                   |
     |:-------------------------:|:-------------------------------------------------------------------------:|
     |   Registration deposit    |         {{ networks.dancebox.costs.registration_deposit }} DANCE          |
-    | Block producer assignment | {{ networks.dancebox.costs.cost_per_assignment }} microDANCE per session |
-    |     Block production      |    {{ networks.dancebox.costs.cost_per_block }} microDANCE per block     |
+    | Block producer assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
+    |     Block production      |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
 
 To ensure block production in the next session, the total balance must be at least enough to cover the block producer assignment cost plus the cost to produce the {{ networks.dancebox.session.blocks }} blocks that comprise an entire session.
 
