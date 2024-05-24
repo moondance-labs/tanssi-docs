@@ -1,6 +1,6 @@
 ---
-title: Services Payment
-description: Appchains deployed through Tanssi benefit from block production services provided by a set of node operators, which are compensated with Tanssi tokens.
+title: Block Production Services Payment
+description: Appchains deployed through Tanssi benefit from block production services provided by a set of node operators, who are compensated through staking rewards.
 ---
 
 # Services Payments {: #technical-features-of-tanssi }
@@ -12,7 +12,7 @@ As presented in the [Overview](/learn/tanssi/overview/){target=\_blank} article,
 - **Appchains** - teams can focus on the core logic of their product, the UX, and the UI without dealing with the challenges of infrastructure bootstrapping and its management
 - **Node operators** - bearing with the responsibility of keeping their hardware and software configuration in optimal conditions, they are rewarded with Tanssi tokens for executing transactions and producing blocks on behalf of Tanssi and Tanssi appchains
 
-The [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank} mechanism randomly selects a subset of a decentralized set of nodes and assigns them to provide services to Tanssi and the Tanssi-powered appchains for a limited period of time (session). Once the session ends, the Tanssi protocol will again select the set of block producers needed to serve Tanssi and all the active Tanssi appchains and re-assign them.
+The [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank} mechanism randomly selects a subset of a decentralized set of nodes and assigns them to provide services to Tanssi and the Tanssi-powered appchains for a limited period, that is, the next session (a set number of blocks). Once an ongoing session ends, the Tanssi protocol rotates the set of block producers needed to serve Tanssi and all the active Tanssi appchains, and they automatically start serving the chain they were assigned to.
 
 All this operation carries costs that must be covered by the appchains that want to obtain the services. This article covers the general aspects of those costs and associated service payments.
 
@@ -21,7 +21,7 @@ All this operation carries costs that must be covered by the appchains that want
 There are three main costs associated with block production as a service that any appchain must cover using Tanssi tokens to deploy successfully and get the block production services:
 
 - **Registration deposit** - is the initial deposit that is locked from the account that signs the appchain registration transaction
-- **Block producers assignment** - every time the Tanssi protocol assigns block producers, which happens once per session, a fixed fee is charged. This discourages a faulty appchain (whose runtime logic fails to produce valid transitions and, therefore, a valid block) from requesting being assigned nodes that will not be able to produce valid blocks
+- **Block producers assignment** - every time the Tanssi protocol assigns block producers, which happens once per session, a fixed fee is charged. This discourages a faulty appchain (one whose runtime logic fails to produce valid transitions and, therefore, a valid block) that cannot generate valid blocks from requesting node assignments 
 - **Block production** - appchains need to pay for each block that is produced on their behalf. Since the protocol selects and assigns the block producers on a per-session basis, appchains must have enough funds to cover all the blocks to be produced in an entire session to be served
 
 On Dancebox, the Tanssi testnet, the current configuration is the following:
