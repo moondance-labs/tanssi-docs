@@ -4,6 +4,5 @@ nav:
   - index.md
   - 'Overview': 'overview.md'
   - 'Block Production Services': 'technical-features.md'
-  - 'Services Payment': 'services-payment.md'
   - 'Included Templates': 'included-templates.md'
   - 'network-features'

@@ -96,7 +96,7 @@ Once the block is completed with the Tanssi appchain transactions, it will be pr
 
 ## Services Payments {: #services-payments }
 
-As presented in the [Introduction](#introduction) section, Tanssi is an infrastructure protocol that addresses the complexities and high costs associated with setting up and maintaining blockchain infrastructure, streamlining the deployment of appchains. This protocol brings benefits for both participants:
+As presented in the [Introduction](#introduction), Tanssi is an infrastructure protocol that addresses the complexities and high costs associated with setting up and maintaining blockchain infrastructure, streamlining the deployment of appchains. This protocol brings benefits for both participants:
 
 - **Appchains** - teams can focus on the core logic of their product, the UX, and the UI without dealing with the challenges of infrastructure bootstrapping and its management
 - **Node operators** - bearing with the responsibility of keeping their hardware and software configuration in optimal conditions, they are incentivized to execute transactions and produce blocks on behalf of Tanssi and Tanssi appchains
