@@ -21,7 +21,7 @@ To follow along with this tutorial, you will need to have:
 - Create or have two accounts accessible in Polkadot.js Apps
 - At least one of the accounts will need to be funded with `DANCE` tokens
 
-If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/interact/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
+If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
 ## General Definitions {: #general-definitions }
 
