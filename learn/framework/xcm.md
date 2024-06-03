@@ -50,11 +50,22 @@ Having appchain A express its intentions of opening an XCM channel with appchain
 
 Once the channel is established, cross-chain messages can be sent between appchains. For asset transfers, assets will also need to be registered before being transferred.
 
-## Destinations and Assets {: #destination-and-assets }
+## Message Destinations {: #message-destinations }
 
+Any given appchain contains modules exposing behavior through transactions or smart contracts that can be called, accounts with balances, and assets (fungibles or non-fungibles) that can be created, transferred, etc. Also, all the appchains within the ecosystem are L1 blockchains connected to an L0 blockchain, the relay chain, with the ability to relay messages from one appchain to another.
 
+In order to send -and receive- cross-chain messages referencing precisely the destination chain, its exposed behavior (smart contracts or transactions), and its available assets, there is a mechanism put in place called *Multilocation*. *Multilocations* are a way to describe an element from the sender's point of view, therefore, they aren't meant as a way to describe an element universally.
 
+Two components define a location: `parents` and `interior`. Parents is a value that indicates if the route must move up to the relay chain. Interior is a list of junctions, that define how to locate the destination. Let's list some examples:
 
+- **Appchain A references a smart contract in appchain B** - from the point of view of appchain A, to reach a smart contract in appchain B it is necessary to move up to the relay chain and then descend to appchain B and once there, reference the address of the smart contract. The *multilocation* is defined with a `parents` value set to 1, which moves up to the relay chain, and two junctions, one defining which appchain should receive the message, and the other defining the H160 address of the smart contract that will be called
+- **Appchain A references an account in the relay chain** - from the point of view of appchain A, to reference an account in the relay chain, it is necessary to move up and then reference the account. The *multilocation* is defined with a `parents` value set to 1, which moves up to the relay chain, and one junction that references the substrate type destination address 
 
 ## Fees {: #fees }
 
+A user executing a transaction on an appchain must pay the fees derived from computational effort associated with the task, and cross-chain execution is no exception to this rule. In cross-chain communication, a message requires execution on at least two different chains, and the user needs to pay for the fees associated with the computational effort made by every chain involved.
+
+For example, if a user in appchain A wants to call a smart contract in appchain B, an XCM message must provide a valid asset to cover the associated fees. With this valid asset provided (and reserved), now the execution can be bought on the destination chain. 
+
+!!! note
+    Since appchains are sovereign, they can define which tokens are valid to pay for their XCM execution fees. Therefore, if appchain B accepts fee payment in appchain A tokens, any appchain A user can pay for an XCM message with appchain B as destination using only appchain A tokens. 
