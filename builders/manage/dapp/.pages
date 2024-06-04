@@ -3,3 +3,4 @@ hide: false
 nav:
   - index.md
   - 'Services Payment': 'services-payment.md'
+  - 'Manage Tokens': 'manage-tokens.md'
