@@ -1,0 +1,5 @@
+title: Using the Tanssi dApp
+hide: false
+nav:
+  - index.md
+  - 'Services Payment': 'services-payment.md'
