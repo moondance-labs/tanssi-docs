@@ -9,8 +9,8 @@ description: Appchains deployed through Tanssi benefit from block production ser
 
 As presented in the [Block Production as a Service](/learn/tanssi/technical-features#services-payments){target=_\blank} article, there are two main costs associated that the appchain governor must cover: 
 
-- **Block producers assignment** - it is a fee that must be paid every time the Tanssi protocol assigns block producers, which happens once per session
-- **Block production** - is the cost to pay for each block that is produced on the appchain's behalf
+- **Block producers assignment** - for the assignment of block producers by the Tanssi protocol, which happens once per session
+- **Block production** - for each block that is produced on the appchain's behalf
 
 In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} to top-up your account and keep your appchain's liveness.
 
@@ -53,11 +53,11 @@ Clicking on the **Top Up** button displays a sidebar where the following informa
 To extend the appchain's projected runway, take the following actions:
 
 1. Insert the amount of tokens to buy block production services
-2. Top Up
+2. Click **Top Up**
 
 ![Top-up sidebar](/images/builders/manage/dapp/services-payment/services-payment-3.webp)
 
 You will be asked to sign the transaction, and after it's gone through, your appchain will benefit from an extended horizon of liveness.
 
 !!! warning
-    If your appchain doesn't have enough funds to cover the block producer's assignment and one session worth of blocks, it will stall.
+    If your appchain doesn't have enough funds to cover the block producer's assignment and one session's worth of blocks, it will stall.
