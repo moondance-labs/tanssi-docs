@@ -34,7 +34,7 @@ You'll see the registration account at the bottom.
 
 ## Topping-Up Your Appchain's Credits {: #topping-up }
 
-Following a pay-as-you-go model, the appchains must have funds allocated to pay for the services, which, in time, will be deducted by the Tanssi protocol upon every session change or every block produced.
+Following a pay-as-you-go model, the appchains must have funds allocated to pay for the services, which, in time, will be deducted by the Tanssi protocol upon every session change for the cost of block producer assignment and every block for the cost of producing the block.
 
 !!! note
     Tanssi reserves 20% of the payments received for the protocol's treasury, and the remainder is burnt.
