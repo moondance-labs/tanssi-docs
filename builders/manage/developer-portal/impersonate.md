@@ -23,7 +23,7 @@ For the examples in this guide, you will need to have the following:
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
-![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/impersonate/impersonate-1.webp)
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/developer-portal/impersonate/impersonate-1.webp)
 
 !!! warning
     It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
@@ -43,11 +43,11 @@ To make a `sudoAs` call to impersonate another account, navigate to the **Develo
 7. Specify the number of tokens to send
 8. Press **SubmitSudo** and confirm the resulting pop-up
 
-![Make a Sudo as call](/images/builders/manage/sudo/impersonate/impersonate-2.webp)
+![Make a Sudo as call](/images/builders/manage/developer-portal/impersonate/impersonate-2.webp)
 
 The other account had a starting balance of `1,000` tokens before the call, and subsequently dropped to `995` as expected.
 
-![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/impersonate/impersonate-3.webp)
+![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-3.webp)
 
 ## Using Sudo and the Dispatch As Utility {: #using-sudo-and-the-dispatch-as-utility }
 
@@ -67,11 +67,11 @@ To do so, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi 
 11. Specify the number of tokens to send
 12. Press **SubmitSudo** and confirm the resulting pop-up
 
-![Use Sudo Dispatch As on Polkadot.js Apps](/images/builders/manage/sudo/impersonate/impersonate-4.webp)
+![Use Sudo Dispatch As on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-4.webp)
 
 The other account had a starting balance of `995` tokens prior to the call and dropped to `990` as expected.
 
-![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/impersonate/impersonate-5.webp)
+![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-5.webp)
 
 And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on using the Sudo account to manage your Tanssi appchain.
 

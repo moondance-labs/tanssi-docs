@@ -21,7 +21,7 @@ For the example in this guide, you will need to have the following:
 
 If you're unsure what your Tanssi appchain's Sudo account or runtime version is, you can find them in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
-![Locating your Sudo address and runtime version on apps.tanssi.network](/images/builders/manage/sudo/upgrade/upgrade-1.webp)
+![Locating your Sudo address and runtime version on apps.tanssi.network](/images/builders/manage/developer-portal/upgrade/upgrade-1.webp)
 
 !!! warning
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
@@ -52,7 +52,7 @@ You should always upgrade the runtime following the releases in an orderly fashi
 
 To get started, head to Polkadot.js Apps for your Tanssi appchain. The Polkadot.js Apps link for your Tanssi appchain can be found in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Tooling** section.
 
-![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/sudo/upgrade/upgrade-2.webp)
+![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/developer-portal/upgrade/upgrade-2.webp)
 
 !!! warning
     If your appchain was deployed using an official template and the intended upgrade is a custom runtime, make sure to have changed the default spec name (*frontier-template* or *container-chain-template*) to a different one before building the Wasm file. You'll also need to execute the `setCodeWithoutChecks` extrinsic instead of `setCode`.
@@ -67,11 +67,11 @@ With your [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank}
 6. Upload your Wasm runtime
 7. Press **Submit Sudo** and confirm the transaction in your wallet
 
-![Upgrading your Runtime on Polkadot.js Apps](/images/builders/manage/sudo/upgrade/upgrade-3.webp)
+![Upgrading your Runtime on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-3.webp)
 
 You can verify that your runtime upgrade was successful by checking the runtime version in the upper left-hand corner. In this case, we can see that the Tanssi appchain's runtime was successfully upgraded to version `400`.
 
-![Check Runtime version on Polkadot.js Apps](/images/builders/manage/sudo/upgrade/upgrade-4.webp)
+![Check Runtime version on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-4.webp)
 
 And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tansi appchain.
 

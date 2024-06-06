@@ -22,7 +22,7 @@ For the examples in this guide, you will need to have the following:
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
-![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/sudo/sudo-1.webp)
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/developer-portal/sudo/sudo-1.webp)
 
 !!! warning
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
@@ -35,11 +35,11 @@ After navigating to Polkadot.js Apps for your Tanssi appchain, you'll need to ad
 2. Under **in-browser account creation** select **Allow local in-browser account creation**
 3. Press **Save**
 
-![Allowing creation of in-browser storage](/images/builders/manage/sudo/sudo/sudo-2.webp)
+![Allowing creation of in-browser storage](/images/builders/manage/developer-portal/sudo/sudo-2.webp)
 
 Then, head back to the accounts tab and press **Account**. You'll then be able to replace the pre-generated private key with that of your Sudo account.
 
-![Adding account on Polkadot.js Apps](/images/builders/manage/sudo/sudo/sudo-3.webp)
+![Adding account on Polkadot.js Apps](/images/builders/manage/developer-portal/sudo/sudo-3.webp)
 
 !!! warning
     In-browser key storage is not suitable for production environments. This example is provided for demonstration purposes only in a TestNet environment.
@@ -56,7 +56,7 @@ Prior to getting started, make sure that you have your existing Sudo account acc
 4. Select the new account you'll transfer Sudo privileges to
 5. Press **Reassign** and confirm the transaction in your wallet
 
-![Change Sudo account on Polkadot.js Apps](/images/builders/manage/sudo/sudo/sudo-4.webp)
+![Change Sudo account on Polkadot.js Apps](/images/builders/manage/developer-portal/sudo/sudo-4.webp)
 
 !!! note
     Ensure that you have access to the new Sudo account. Once Sudo is transferred, it cannot be undone without access to the current Sudo key.
