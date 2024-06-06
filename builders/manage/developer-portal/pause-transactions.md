@@ -25,7 +25,7 @@ For the examples in this guide, you will need to have the following:
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
-![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/pause-transactions/pause-transactions-1.webp)
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-1.webp)
 
 !!! warning
     It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
@@ -151,11 +151,11 @@ To pause a transaction, navigate to the **Developer** tab of Polkadot.js Apps fo
 
 In this example, the transaction paused is `transfer_allow_death` from the `Balances` module:
 
-![Pause transaction](/images/builders/manage/sudo/pause-transactions/pause-transactions-2.webp)
+![Pause transaction](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-2.webp)
 
 To verify that the transaction has been effectively paused, try executing it. You should get an error.
 
-![Check that the transaction is paused](/images/builders/manage/sudo/pause-transactions/pause-transactions-3.webp)
+![Check that the transaction is paused](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-3.webp)
 
 !!! warning
     The `pause` transaction doesn't verify the module or transaction names and is case-sensitive, so any misspelling will go unnoticed, and the transaction will execute successfully. You should always verify that the transaction has been effectively paused.
@@ -172,7 +172,7 @@ To unpause a transaction and return it to normal operation, navigate to the **De
 
 In this example, the transaction to unpause is `transfer_allow_death` from the `Balances` module:
 
-![Unpause transaction](/images/builders/manage/sudo/pause-transactions/pause-transactions-4.webp)
+![Unpause transaction](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-4.webp)
 
 The `unpause` transaction executes successfully only if the module and transaction parameters have been previously paused; otherwise, it fails. After the successful unpausing, the transaction can be called and executed again.
 
