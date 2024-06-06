@@ -72,6 +72,7 @@ networks:
       max_fields: 100
       per_byte_deposit: 0.1
       max_subaccounts: 100
+    treasury_allocation: 20%
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.3.0

@@ -36,8 +36,10 @@ You'll see the registration account at the bottom.
 
 Following a pay-as-you-go model, the appchains must have funds allocated to pay for the services, which, in time, will be deducted by the Tanssi protocol upon every session change for the cost of block producer assignment and every block for the cost of producing the block.
 
-!!! note
-    Tanssi reserves 20% of the payments received for the protocol's treasury, and the remainder is burnt.
+Tanssi reserves a fraction of the payments received for the protocol's treasury, and the remainder is burnt. This is the current configuration:
+
+=== "Dancebox"
+    {{ networks.dancebox.treasury_allocation }}
 
 You can check your appchain's current balance and top it up using the Tanssi dApp. To do so, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank} and connect the appchain's registration account to the dApp. The site will display a card showing your appchain status. This card includes the projected liveness forecast underneath the **Block Production** section and the **Top Up** button.
 
