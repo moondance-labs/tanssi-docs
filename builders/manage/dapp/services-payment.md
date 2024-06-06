@@ -1,9 +1,9 @@
 ---
-title: Services Payment
+title: Block Production Services Payment
 description: Appchains deployed through Tanssi benefit from block production services provided by a set of node operators, which are compensated with Tanssi tokens.
 ---
 
-# Services Payment
+# Block Production Services Payment
 
 ## Introduction {: #introduction }
 
