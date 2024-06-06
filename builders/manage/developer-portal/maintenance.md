@@ -25,7 +25,7 @@ For the examples in this guide, you will need to have the following:
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
-![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/maintenance/maintenance-1.webp)
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/developer-portal/maintenance/maintenance-1.webp)
 
 !!! warning
     It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
@@ -38,11 +38,11 @@ As you know, the Sudo account can perform privileged functions, such as enabling
 2. Select the **enterMaintenanceMode** method
 3. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
 
-![Enable maintenance mode](/images/builders/manage/sudo/maintenance/maintenance-2.webp)
+![Enable maintenance mode](/images/builders/manage/developer-portal/maintenance/maintenance-2.webp)
 
 To verify that maintenance mode has been enabled, you can check the **Explorer** section under the **Network** tab and review the recent events. 
 
-![Check maintenance mode is enabled](/images/builders/manage/sudo/maintenance/maintenance-3.webp)
+![Check maintenance mode is enabled](/images/builders/manage/developer-portal/maintenance/maintenance-3.webp)
 
 ## Exiting Maintenance Mode {: #exiting-maintenance-mode }
 
@@ -52,11 +52,11 @@ To exit maintenance mode and return your appchain to normal operation, navigate 
 2. Select the **resumeNormalOperation** method
 3. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
 
-![Exit maintenance mode](/images/builders/manage/sudo/maintenance/maintenance-4.webp)
+![Exit maintenance mode](/images/builders/manage/developer-portal/maintenance/maintenance-4.webp)
 
 To verify that maintenance mode has been disabled, you can check in the **Explorer** section under the **Network** tab and review the recent events. 
 
-![Check maintenance mode is disabled](/images/builders/manage/sudo/maintenance/maintenance-5.webp)
+![Check maintenance mode is disabled](/images/builders/manage/developer-portal/maintenance/maintenance-5.webp)
 
 Remember that using maintenance mode is an emergency action that should only be activated when your chain is at dire risk. It may be worthwhile to establish a policy for your appchain that sets specific circuit breaker triggers to determine when maintenance mode will be enabled. Establishing a policy in advance will also streamline decision-making during a potential emergency.  
 

@@ -20,7 +20,7 @@ For the examples in this guide, you will need to have the following:
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
-![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/sudo/minting/minting-1.webp)
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/developer-portal/minting/minting-1.webp)
 
 !!! warning
     You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
@@ -43,7 +43,7 @@ The next section will demonstrate how to assign arbitrary token balances to acco
 5. Press **+** icon
 6. You'll see the balance information returned at the bottom, including free, reserved, and frozen balances
 
-![Check balances on Polkadot.js Apps](/images/builders/manage/sudo/minting/minting-2.webp)
+![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/minting/minting-2.webp)
 
 ### Assigning Balances with Sudo {: #assigning-balances-with-sudo }  
 
@@ -57,7 +57,7 @@ To assign an account balance to an account, make sure to have your Sudo account 
 6. Enter the amount of tokens to endow the account with. In this example, we specify `9000000000000000000` for nine native tokens. Remember that Tanssi EVM appchains have 18 decimals, while Substrate or custom appchains configure the decimals when launching the chain. If you're unsure how many decimals your Tanssi appchain has, navigate to the **Settings** tab and click on **Metadata**
 7. Press **Submit Sudo** and confirm the transaction in your wallet
 
-![Force assign balances on Polkadot.js Apps](/images/builders/manage/sudo/minting/minting-3.webp)
+![Force assign balances on Polkadot.js Apps](/images/builders/manage/developer-portal/minting/minting-3.webp)
 
 And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tanssi appchain.
 
