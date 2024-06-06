@@ -11,7 +11,7 @@ Any appchain deployed through Tanssi is sovereign and free to define the governa
 
 There are some actions related to the native token management that are available to the appchain governor on the Tanssi dApp:
 
-- **Mint Tokens** - mints new tokens, increasing the total supply
+- **Mint tokens** - mints new tokens, increasing the total supply
 - **Update Balances** - increases or decreases the balance of an account, affecting the total supply
 - **Transfer Tokens** - executes a forced token transfer from one account to another
 - **Configure Gas Dynamics** - only available on EVM-compatible appchains, this action changes the [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank} configuration, affecting the transaction pricing mechanism
@@ -59,7 +59,7 @@ The Tanssi dApp implements a smooth interface, allowing the appchain governor to
 
 Now you have direct access to the actions presented in the introduction:
 
-1. **Mint Tokens**
+1. **Mint tokens**
 2. **Update Balances**
 3. **Transfer Tokens**
 4. Configure **Gas Dynamics** 
@@ -71,13 +71,13 @@ Now you have direct access to the actions presented in the introduction:
 
 ### Minting Tokens {: #minting-tokens }
 
-The appchain governor can mint new tokens, increasing its total supply. In the **Token Management** panel, click on the **Mint Tokens** button, and then:
+The appchain governor can mint new tokens, increasing its total supply. In the **Token Management** panel, click on the **Mint tokens** button, and then:
 
 1. Insert the address that will hold the newly minted tokens
 2. Insert the amount of tokens to mint
 3. Click on **Mint**
 
-![Mint Tokens](/images/builders/manage/dapp/token-management/token-management-5.webp)
+![Mint tokens](/images/builders/manage/dapp/token-management/token-management-5.webp)
 
 You'll be asked to sign the transaction with the appchain's governor account. Once the transaction has gone through, the destination account's balance will have been increased by the desired amount.
 
