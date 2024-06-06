@@ -71,7 +71,7 @@ Now you have direct access to the actions presented in the introduction:
 
 ### Minting Tokens {: #minting-tokens }
 
-In the **Token Management** panel, click on the **Mint Tokens** button, and then:
+The appchain governor can mint new tokens, increasing its total supply. In the **Token Management** panel, click on the **Mint Tokens** button, and then:
 
 1. Insert the address that will hold the newly minted tokens
 2. Insert the amount of tokens to mint
@@ -86,7 +86,7 @@ You'll be asked to sign the transaction with the appchain's governor account. On
 
 ### Updating Balances {: #updating-balances }
 
-In the **Token Management** panel, click on the **Update Balances** button, and then:
+The appchain governor can increase or decrease the balance of any account, thus affecting the total supply. In the **Token Management** panel, click on the **Update Balances** button, and then:
 
 1. Insert the address that will hold the newly minted tokens. Once you enter the address, its current balance will be displayed
 2. Insert the new balance the address will hold
@@ -101,7 +101,7 @@ You'll be asked to sign the transaction with the appchain's governor account. On
 
 ### Executing Forced Transfers {: #forced-transfers }
 
-In the **Token Management** panel, click on the **Transfer Tokens** button, and then:
+The appchain governor can reassign balances, forcing a token transfer from one account to another. In the **Token Management** panel, click on the **Transfer Tokens** button, and then:
 
 1. Insert the origin address that will transfer its tokens
 2. Insert the destination address that will receive the tokens
@@ -117,7 +117,7 @@ You'll be asked to sign the transaction with the appchain's governor account. On
 
 ### Setting Gas Dynamics {: #setting-gas }
 
-In the **Token Management** panel, click on the **Gas Dynamics** button, and then:
+The governor of an EVM-compatible appchain can change its [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank} configuration, affecting the transaction pricing mechanism. In the **Token Management** panel, click on the **Gas Dynamics** button, and then:
 
 1. Insert the new base fee, expressed in Wei units (10<sup>-18</sup>)
 2. Insert the elasticity value
