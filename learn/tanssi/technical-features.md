@@ -101,7 +101,7 @@ As presented in the [Introduction](#introduction), Tanssi is an infrastructure p
 - **Appchains** - teams can focus on the core logic of their product, the UX, and the UI without dealing with the challenges of infrastructure bootstrapping and its management
 - **Node operators** - bearing with the responsibility of keeping their hardware and software configuration in optimal conditions, they are incentivized to execute transactions and produce blocks on behalf of Tanssi and Tanssi appchains
 
-The [block production as a service](#block-production-as-a-service) carries costs that must be covered by the appchains that want to obtain the services. The following sections cover the general aspects of those costs and associated service payments.
+[Block production as a service](#block-production-as-a-service) carries an associated cost that must be covered by the appchains that want to leverage Tanssi for such a purpose. The following sections cover the general aspects of those costs and associated service payments.
 
 ### Costs to Cover  {: #costs-to-cover }
 
