@@ -94,7 +94,7 @@ Once the block is completed with the Tanssi appchain transactions, it will be pr
 
 ![Tanssi appchain block production](/images/learn/tanssi/technical/technical-6.webp)
 
-## Block Production Services Costs {: #block-production-costs }
+## Costs of Block Production Services {: #block-production-costs }
 
 As presented in the [Introduction](#introduction), Tanssi is an infrastructure protocol that addresses the complexities and high costs associated with setting up and maintaining blockchain infrastructure, streamlining the deployment of appchains. This protocol brings benefits for both participants:
 
@@ -107,7 +107,7 @@ As presented in the [Introduction](#introduction), Tanssi is an infrastructure p
 
 There are three main costs associated with block production as a service that any appchain must cover using Tanssi tokens to deploy successfully and get the block production services:
 
-- **Registration deposit** - is the initial deposit that is locked from the account that signs the appchain registration transaction
+- **Registration deposit** - the initial deposit that is locked from the account that signs the appchain registration transaction
 - **Block producers assignment** - every time the Tanssi protocol assigns block producers, which happens once per session, a fixed fee is charged. This fee gives appchains the right to be assigned block producers, and should discourage appchains whose runtime logic fails to produce valid transactions or blocks.
 - **Block production** - appchains need to pay for each block that is produced on their behalf. Since the protocol selects and assigns the block producers on a per-session basis, appchains must have enough funds to cover all the blocks to be produced in an entire session to be served
 
