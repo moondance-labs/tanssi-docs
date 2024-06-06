@@ -7,7 +7,7 @@ description: Learn how the appchain governor can manage the token of a Tanssi-po
 
 ## Introduction {: #introduction }
 
-Any appchain deployed through Tanssi is sovereign and free to define the governance model that best fits its use case. The appchain governor has superpowers over the chain administration, meaning privileged functions, such as updating the runtime, fall within his reach.
+Any appchain deployed through Tanssi is sovereign and free to define the governance model that best fits its use case. The appchain governor has superpowers over the chain administration, meaning privileged functions, such as updating the runtime, fall within their reach.
 
 There are some actions related to the native token management that are available to the appchain governor on the Tanssi dApp:
 
@@ -24,7 +24,7 @@ For the examples in this guide, you will need to have the following:
 
 - A Tanssi appchain (Snap or Dedicated)
 - The account you used when registering the appchain, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
-- Your appchain's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}. 
+- Your appchain's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
 !!! note
     The appchain's registration account is always a Substrate one, whereas the appchain's Sudo account depends on the chain type. If the chain is EVM-compatible, then the Sudo account will be an Ethereum type and, otherwise, a Substrate type.
@@ -35,7 +35,7 @@ If you're unsure what your registration account is, you can query it directly fr
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
-3. Insert your appchain id
+3. Insert your appchain ID
 4. Press **+** icon
 
 You'll see the registration account at the bottom.
@@ -62,7 +62,7 @@ Now you have direct access to the actions presented in the introduction:
 1. **Mint Tokens**
 2. **Update Balances**
 3. **Transfer Tokens**
-4. **Configure Gas Dynamics** 
+4. Configure **Gas Dynamics** 
 
 ![The token management panel](/images/builders/manage/dapp/token-management/token-management-4.webp)
 
