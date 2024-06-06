@@ -74,6 +74,10 @@ Now you have direct access to the actions presented in the introduction:
 The appchain governor can mint new tokens, increasing its total supply. In the **Token Management** panel, click on the **Mint tokens** button, and then:
 
 1. Insert the address that will hold the newly minted tokens
+
+    !!! note
+        The destination address must be Ethereum type if the chain is EVM-compatible and a Substrate type otherwise.
+
 2. Insert the amount of tokens to mint
 3. Click on **Mint**
 
@@ -81,14 +85,15 @@ The appchain governor can mint new tokens, increasing its total supply. In the *
 
 You'll be asked to sign the transaction with the appchain's governor account. Once the transaction has gone through, the destination account's balance will have been increased by the desired amount.
 
-!!! note
-    The destination address must be Ethereum type if the chain is EVM-compatible and a Substrate type otherwise.
-
 ### Updating Balances {: #updating-balances }
 
 The appchain governor can increase or decrease the balance of any account, thus affecting the total supply. In the **Token Management** panel, click on the **Update Balances** button, and then:
 
 1. Insert the address that will hold the newly minted tokens. Once you enter the address, its current balance will be displayed
+
+    !!! note
+        The destination address must be Ethereum type if the chain is EVM-compatible and a Substrate type otherwise.
+    
 2. Insert the new balance the address will hold
 3. Click on **Update**
 
@@ -96,24 +101,22 @@ The appchain governor can increase or decrease the balance of any account, thus 
 
 You'll be asked to sign the transaction with the appchain's governor account. Once the transaction has gone through, the destination account's balance will reflect exactly the desired amount, regardless of previous holdings.
 
-!!! note
-    The destination address must be Ethereum type if the chain is EVM-compatible and a Substrate type otherwise.
-
 ### Executing Forced Transfers {: #forced-transfers }
 
 The appchain governor can reassign balances, forcing a token transfer from one account to another. In the **Token Management** panel, click on the **Transfer Tokens** button, and then:
 
 1. Insert the origin address that will transfer its tokens
 2. Insert the destination address that will receive the tokens
+
+    !!! note
+        The origin and destination addresses must be Ethereum type if the chain is EVM-compatible and Substrate type otherwise.
+
 3. Insert the amount of tokens to transfer
 4. Click on **Transfer**
 
 ![Transfer Tokens](/images/builders/manage/dapp/token-management/token-management-7.webp)
 
 You'll be asked to sign the transaction with the appchain's governor account. Once the transaction has gone through, the destination account will have received the number of tokens from the origin address.
-
-!!! note
-    The origin and destination addresses must be Ethereum type if the chain is EVM-compatible and Substrate type otherwise.
 
 ### Setting Gas Dynamics {: #setting-gas }
 
