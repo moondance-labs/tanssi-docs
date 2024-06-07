@@ -59,7 +59,7 @@ The Tanssi dApp implements a smooth interface, allowing the appchain governor to
 
 Now you have direct access to the actions presented in the introduction:
 
-1. **Mint tokens**
+1. **Mint Tokens**
 2. **Update Balances**
 3. **Transfer Tokens**
 4. Configure **Gas Dynamics** 
