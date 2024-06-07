@@ -48,7 +48,10 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 
 ## Accessing the Channel Management Panel {: #accesing-channel-management-panel }
 
-The Tanssi dApp makes it easy for the appchain governor to manage cross-chain communication channels. It allows requesting new channels, accepting incoming channel opening requests, closing existing channels, and more. To access the channel management panel, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, click on the **Manage** button, and then, again click on the **XCM** button.
+The Tanssi dApp makes it easy for the appchain governor to manage cross-chain communication channels. It allows requesting new channels, accepting incoming channel opening requests, closing existing channels, and more. To access the channel management panel, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, and then: 
+
+1. Click on the **Manage** button
+2. Click on the **XCM** button.
 
 ![Accessing the channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-3.webp)
 
