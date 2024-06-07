@@ -53,7 +53,10 @@ If you're unsure what your Tanssi appchain's Sudo account is, you can find it in
 
 ## Accessing the Token Management Panel {: #accesing-token-management-panel }
 
-The Tanssi dApp implements a smooth interface, allowing the appchain governor to access and execute privileged functions. To do so, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, click on the **Manage** button, and then, again click on the **Token Management** button.
+The Tanssi dApp implements a smooth interface, allowing the appchain governor to access and execute privileged functions. To do so, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, and then:
+
+1. Click on the **Manage** button
+2. Click on the **Token Management** button.
 
 ![Accessing the token management panel](/images/builders/manage/dapp/token-management/token-management-3.webp)
 
@@ -122,7 +125,7 @@ You'll be asked to sign the transaction with the appchain's governor account. On
 
 !!! note
     This option only applies to EVM-compatible appchains.
-    
+
 The governor of an EVM-compatible appchain can change its [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank} configuration, affecting the transaction pricing mechanism. To do so, in the **Token Management** panel, click on the **Gas Dynamics** button, and then:
 
 1. Insert the new base fee, expressed in Wei units (10<sup>-18</sup>)
