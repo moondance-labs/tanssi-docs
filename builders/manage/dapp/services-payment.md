@@ -21,11 +21,11 @@ For the examples in this guide, you will need to have the following:
 - A Tanssi appchain (Snap or Dedicated)
 - The account you used when registering the appchain, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered appchain. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [snap appchains](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-2607-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered appchain. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [snap appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
-3. Insert you appchain id
+3. Insert your appchain ID
 4. Press **+** icon
 
 You'll see the registration account at the bottom.
@@ -39,7 +39,9 @@ Following a pay-as-you-go model, the appchains must have funds allocated to pay 
 Tanssi reserves a fraction of the payments received for the protocol's treasury, and the remainder is burnt. This is the current configuration:
 
 === "Dancebox"
+    ```text
     {{ networks.dancebox.treasury_allocation }}
+    ```
 
 You can check your appchain's current balance and top it up using the Tanssi dApp. To do so, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank} and connect the appchain's registration account to the dApp. The site will display a card showing your appchain status. This card includes the projected liveness forecast underneath the **Block Production** section and the **Top Up** button.
 
