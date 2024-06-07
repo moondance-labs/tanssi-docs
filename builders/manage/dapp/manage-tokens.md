@@ -12,9 +12,9 @@ Any appchain deployed through Tanssi is sovereign and free to define the governa
 There are some actions related to the native token management that are available to the appchain governor on the Tanssi dApp:
 
 - **Mint tokens** - mints new tokens, increasing the total supply
-- **Update Balances** - increases or decreases the balance of an account, affecting the total supply
-- **Transfer Tokens** - executes a forced token transfer from one account to another
-- **Configure Gas Dynamics** - only available on EVM-compatible appchains, this action changes the [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank} configuration, affecting the transaction pricing mechanism
+- **Update balances** - increases or decreases the balance of an account, affecting the total supply
+- **Transfer tokens** - executes a forced token transfer from one account to another
+- **Configure gas dynamics** - only available on EVM-compatible appchains, this action changes the [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank} configuration, affecting the transaction pricing mechanism
 
 In this guide, you'll learn how to execute the previously listed actions using the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}.
 
