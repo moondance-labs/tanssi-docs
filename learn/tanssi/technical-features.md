@@ -94,3 +94,39 @@ Once the block is completed with the Tanssi appchain transactions, it will be pr
 
 ![Tanssi appchain block production](/images/learn/tanssi/technical/technical-6.webp)
 
+## Costs of Block Production Services {: #block-production-costs }
+
+As presented in the [Introduction](#introduction), Tanssi is an infrastructure protocol that addresses the complexities and high costs associated with setting up and maintaining blockchain infrastructure, streamlining the deployment of appchains. This protocol brings benefits for both participants:
+
+- Appchains - teams can focus on the core logic of their product, the UX, and the UI without dealing with the challenges of infrastructure bootstrapping and its management
+- Node operators - bearing with the responsibility of keeping their hardware and software configuration in optimal conditions, they are incentivized to execute transactions and produce blocks on behalf of Tanssi and Tanssi appchains
+
+[Block production as a service](#block-production-as-a-service) carries an associated cost that must be covered by the appchains that want to leverage Tanssi for such a purpose. The following sections cover the general aspects of those costs and associated service payments.
+
+### Costs to Cover  {: #costs-to-cover }
+
+There are three main costs associated with block production as a service that any appchain must cover using Tanssi tokens to deploy successfully and get the block production services:
+
+- **Registration deposit** - the initial deposit that is locked from the account that signs the appchain registration transaction
+- **Block producers assignment** - every time the Tanssi protocol assigns block producers, which happens once per session, a fixed fee is charged. This fee gives appchains the right to be assigned block producers, and should discourage appchains whose runtime logic fails to produce valid transactions or blocks.
+- **Block production** - appchains need to pay for each block that is produced on their behalf. Since the protocol selects and assigns the block producers on a per-session basis, appchains must have enough funds to cover all the blocks to be produced in an entire session to be served
+
+The current configuration is set as follows:
+
+=== "Dancebox"
+    |         Variable          |                                   Value                                   |
+    |:-------------------------:|:-------------------------------------------------------------------------:|
+    |   Registration deposit    |         {{ networks.dancebox.costs.registration_deposit }} DANCE          |
+    | Block producer assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
+    |     Block production      |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
+
+To ensure block production in the next session, the total balance must be at least enough to cover the block producer assignment cost plus the cost to produce the {{ networks.dancebox.session.blocks }} blocks that comprise an entire session.
+
+!!! note
+    Although these costs are currently fixed, as protocol development progresses, they might become dynamic, varying in response to the network's workload.
+
+### Tipping {: #tipping }
+
+On some occasions, Tanssi might experience a high demand for its block production services that can not be met with the available resources. For example, if there are ten active appchains for the next session and Tanssi can only serve eight, two appchains will stall for the entire session duration.
+
+To deal with these high-workload periods, the Tanssi protocol implements a tipping mechanism that allows appchains to compete for a higher priority over the rest. Similar to Ethereum-compatible networks, where a priority fee can be set to outbid competing transactions and obtain preferential execution treatment, the Tanssi appchains will be served according to the priority given by the tips they offer. Following the previous example, if there are ten active appchains for the next session and Tanssi can only serve eight, then only the eight highest bidding appchains will get block producers assigned.
