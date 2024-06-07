@@ -60,37 +60,28 @@ The Tanssi dApp makes it easy for the appchain governor to manage cross-chain co
 
 The panel will show your appchain's communication channels status along with several available actions. The elements you are presented with are:
 
-1. Sovereign account
-2. Incoming/Outgoing channel requests
-3. Established channels
-4. Request to open new channels
+1. **Sovereign account** - is a keyless account that belongs to the appchain in a different consensus system, the relay chain in this case. It can only be used by the appchain's governor. 
+
+    Before opening a new channel, the appchain's sovereign account in the relay chain must be funded with enough tokens to be locked as a channel deposit.
+
+    In this section, you can see your appchain's sovereign account balance, copy its address, and deposit tokens
+
+    !!! note
+        Your appchain's sovereign account in the relay chain must be funded with relay chain tokens. On Dancebox, the relay chain uses UNIT tokens, and the required amount is currently configured to zero.
+
+2. **Incoming/Outgoing channel requests** - every channel request needs to be accepted by the counterpart before any message can be sent. 
+
+    In this section, you can see the list of pending outgoing requests and cancel them. You can also see any incoming channel requests your appchain might have received and accept the channel
+
+3. **Established channels** - Once the destination chain's governor has accepted the channel request, the channel becomes open and available for message transmission.
+
+    In this section, you can see the list of accepted channels your appchain has, the direction in which the messages flow through the channel, and cancel the channel
+
+4. **Request to open new channels** - this option allows you to select an existing appchain within the ecosystem and request a channel to be opened. The [next section](#request-new-channel) explains how to do it
 
 ![The channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-4.webp)
 
-### Sovereign Account {: #sovereign-account }
-
-Before opening a new channel, the appchain's sovereign account in the relay chain must be funded with enough tokens to be locked as a channel deposit.
-
-A sovereign account is a keyless account that belongs to the appchain in a different consensus system, the relay chain in this case. It can only be used by the appchain's governor.
-
-In this section, you can see your appchain's sovereign account balance, copy its address, and deposit tokens.
-
-!!! note
-    Your appchain's sovereign account in the relay chain must be funded with relay chain tokens. On Dancebox, the relay chain uses UNIT tokens, which the Tanssi team will help you obtain when needed.
-
-### Incoming and Outgoing Channel Requests {: #channel-requests }
-
-Every channel request needs to be accepted by the counterpart before any message can be sent. 
-
-In this section, you can see the list of pending outgoing requests and cancel them. You can also see any incoming channel requests your appchain might have received and accept the channel. 
-
-### Established Channels {: #established-channels }
-
-Once the destination chain's governor has accepted the channel request, the channel becomes open and available for message transmission.
-
-In this section, you can see the list of accepted channels your appchain has, the direction in which the messages flow through the channel, and cancel the channel.
-
-### Request to open new channel {: #request-new-channel }
+## Request to open new channel {: #request-new-channel }
 
 Provided that your appchain has enough funds for the deposit in its relay chain's sovereign account, the appchain governor can request to open a new channel with any other appchain. 
 
