@@ -53,7 +53,7 @@ The Tanssi dApp makes it easy for the appchain governor to manage cross-chain co
 ![Accessing the channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-3.webp)
 
 !!! note
-    If you don't see a card with your appchain's details on the dashboard, make sure to comply with the [prerequisites](#checking-prerequisites).
+    If you don't see your appchain's details on the dashboard, make sure to comply with the [prerequisites](#checking-prerequisites).
 
 The panel will show your appchain's communication channels status along with several available actions. The elements you are presented with are:
 
