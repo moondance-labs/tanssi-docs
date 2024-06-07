@@ -7,11 +7,11 @@ description: Tanssi appchains benefit from native cross-chain communication, whi
 
 ## Introduction {: #introduction }
 
-All the Tanssi appchains have an inherent capability to communicate and interoperate with any other appchain from the ecosystem. This native cross-chain communication feature is possible thanks to the unique infrastructure the appchains are built on top of, leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
+All Tanssi appchains have an inherent capability to communicate and interoperate with any other appchain in the ecosystem. This native cross-chain communication feature is possible thanks to the unique infrastructure the appchains are built on top of, leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
 
 The first step to enable communication between appchains is opening a channel. The process of opening a channel starts by sending a request to the appchain you want to establish communications with. Once the request has been accepted by the destination chain's governor, a channel will be opened. 
 
-In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} manage your appchain's cross-chain communication channels.
+In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} to manage your appchain's cross-chain communication channels.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -19,7 +19,7 @@ For the examples in this guide, you will need to have the following:
 
 - A Tanssi appchain (Snap or Dedicated)
 - The account you used when registering the appchain, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
-- Your appchain's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}. 
+- Your appchain's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
 !!! note
     The appchain's registration account is always a Substrate one, whereas the appchain's Sudo account depends on the chain type. If the chain is EVM-compatible, then the Sudo account will be an Ethereum type and, otherwise, a Substrate type.
@@ -30,7 +30,7 @@ If you're unsure what your registration account is, you can query it directly fr
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
-3. Insert your appchain id
+3. Insert your appchain ID
 4. Press **+** icon
 
 You'll see the registration account at the bottom.
@@ -81,7 +81,7 @@ The panel will show your appchain's communication channels status along with sev
 
 ![The channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-4.webp)
 
-## Request to open new channel {: #request-new-channel }
+## Request to Open New Channel {: #request-new-channel }
 
 Provided that your appchain has enough funds for the deposit in its relay chain's sovereign account, the appchain governor can request to open a new channel with any other appchain. 
 
