@@ -31,7 +31,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered appchain. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [snap appchains](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-2607-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered appchain. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [snap appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
