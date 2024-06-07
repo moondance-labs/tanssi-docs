@@ -60,10 +60,10 @@ The Tanssi dApp makes it easy for the appchain governor to manage cross-chain co
 
 The panel will show your appchain's communication channels status along with several available actions. The elements you are presented with are:
 
-- Sovereign account
-- Incoming/Outgoing channel requests
-- Established channels
-- Request to open new channels
+1. Sovereign account
+2. Incoming/Outgoing channel requests
+3. Established channels
+4. Request to open new channels
 
 ![The channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-4.webp)
 
