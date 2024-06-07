@@ -1,0 +1,101 @@
+---
+title: Manage Cross-Chain Communication Channels
+description: Tanssi appchains benefit from native cross-chain communication, which allows fast and secure bridging leveraging the architecture they are built on top of.
+---
+
+# Manage Cross-Chain Communication Channels
+
+## Introduction {: #introduction }
+
+All the Tanssi appchains have an inherent capability to communicate and interoperate with any other appchain from the ecosystem. This native cross-chain communication feature is possible thanks to the unique infrastructure the appchains are built on top of, leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
+
+The first step to enable communication between appchains is opening a channel. The process of opening a channel starts by sending a request to the appchain you want to establish communications with. Once the request has been accepted by the destination chain's governor, a channel will be opened. 
+
+In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} manage your appchain's cross-chain communication channels.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+- A Tanssi appchain (Snap or Dedicated)
+- The account you used when registering the appchain, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+- Your appchain's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}. 
+
+!!! note
+    The appchain's registration account is always a Substrate one, whereas the appchain's Sudo account depends on the chain type. If the chain is EVM-compatible, then the Sudo account will be an Ethereum type and, otherwise, a Substrate type.
+
+### Retrieving the Registration Account {: #retrieving-registration-account }
+
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered appchain. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [snap appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, and take the following steps:
+
+1. Select the **registrar** storage module
+2. Select **registrarDeposit**
+3. Insert your appchain id
+4. Press **+** icon
+
+You'll see the registration account at the bottom.
+
+![Locating your registration account](/images/builders/manage/dapp/xcm-channels/xcm-channels-1.webp)
+
+### Retrieving the Sudo Account {: #retrieving-sudo-account }
+
+If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/dapp/xcm-channels/xcm-channels-2.webp)
+
+!!! warning
+    You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
+
+## Accessing the Channel Management Panel {: #accesing-channel-management-panel }
+
+The Tanssi dApp makes it easy for the appchain governor to manage cross-chain communication channels. It allows requesting new channels, accepting incoming channel opening requests, closing existing channels, and more. To access the channel management panel, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, click on the **Manage** button, and then, again click on the **XCM** button.
+
+![Accessing the channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-3.webp)
+
+!!! note
+    If you don't see a card with your appchain's details on the dashboard, make sure to comply with the [prerequisites](#checking-prerequisites).
+
+The panel will show your appchain's communication channels status along with several available actions. The elements you are presented with are:
+
+- Sovereign account
+- Incoming/Outgoing channel requests - 
+- Established channels
+- Request to open new channels
+
+![The channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-4.webp)
+
+### Sovereign Account {: #sovereign-account }
+
+Before opening a new channel, the appchain's sovereign account in the relay chain must be funded with enough tokens to be locked as a channel deposit.
+
+A sovereign account is a keyless account that belongs to the appchain in a different consensus system, the relay chain in this case. It can only be used by the appchain's governor.
+
+In this section, you can see your appchain's sovereign account balance, copy its address, and deposit tokens.
+
+!!! note
+    Your appchain's sovereign account in the relay chain must be funded with relay chain tokens. On Dancebox, the relay chain uses UNIT tokens, which the Tanssi team will help you obtain when needed.
+
+### Incoming and Outgoing Channel Requests {: #channel-requests }
+
+Every channel request needs to be accepted by the counterpart before any message can be sent. 
+
+In this section, you can see the list of pending outgoing requests and cancel them. You can also see any incoming channel requests your appchain might have received and accept the channel. 
+
+### Established Channels {: #established-channels }
+
+Once the destination chain's governor has accepted the channel request, the channel becomes open and available for message transmission.
+
+In this section, you can see the list of accepted channels your appchain has, the direction in which the messages flow through the channel, and cancel the channel.
+
+### Request to open new channel {: #request-new-channel }
+
+Provided that your appchain has enough funds for the deposit in its relay chain's sovereign account, the appchain governor can request to open a new channel with any other appchain. 
+
+To do so, click on **HRMP Channels** and then:
+
+1. Select the appchain you want to establish a channel with
+2. Click on **Request Channel**
+
+You'll be asked to sign the transaction, and once it's gone through, the destination chain will receive the request. 
+
+![Channel opening request](/images/builders/manage/dapp/xcm-channels/xcm-channels-5.webp)

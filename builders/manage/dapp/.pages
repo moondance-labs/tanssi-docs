@@ -3,4 +3,4 @@ hide: false
 nav:
   - index.md
   - 'Block Production Services Payment': 'services-payment.md'
-  - 'Manage Native Cross-Communication': 'xcm-guide.md'
+  - 'Manage Cross-Chain Communication Channels': 'xcm-channels.md'
