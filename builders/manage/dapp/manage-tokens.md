@@ -7,7 +7,7 @@ description: Learn how the appchain governor can manage the token of a Tanssi-po
 
 ## Introduction {: #introduction }
 
-Any appchain deployed through Tanssi is sovereign and free to define the governance model that best fits its use case. The appchain governor has superpowers over the chain administration, meaning privileged functions, such as updating the runtime, fall within their reach.
+Any appchain deployed through Tanssi is sovereign and free to define the governance model that best fits its use case. The appchain governor has superpowers over the chain administration. Consequently, they can call privileged functions, such as updating the runtime and managing native token-related operations, among other actions.
 
 There are some actions related to the native token management that are available to the appchain governor on the Tanssi dApp:
 
