@@ -120,6 +120,9 @@ You'll be asked to sign the transaction with the appchain's governor account. On
 
 ### Setting Gas Dynamics {: #setting-gas }
 
+!!! note
+    This option only applies to EVM-compatible appchains.
+    
 The governor of an EVM-compatible appchain can change its [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank} configuration, affecting the transaction pricing mechanism. To do so, in the **Token Management** panel, click on the **Gas Dynamics** button, and then:
 
 1. Insert the new base fee, expressed in Wei units (10<sup>-18</sup>)
@@ -129,6 +132,3 @@ The governor of an EVM-compatible appchain can change its [EIP-1559](https://git
 ![Configure Gas Dynamics](/images/builders/manage/dapp/token-management/token-management-8.webp)
 
 You'll be asked to sign the transaction with the appchain's governor account. Once the transaction has gone through, the appchain's fee mechanism will run with the new transaction pricing parameters.
-
-!!! note
-    This option only applies to EVM-compatible appchains.
