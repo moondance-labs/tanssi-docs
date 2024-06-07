@@ -67,7 +67,7 @@ Now you have direct access to the actions presented in the introduction:
 ![The token management panel](/images/builders/manage/dapp/token-management/token-management-4.webp)
 
 !!! note
-    If you don't see a card with your appchain's details, make sure to comply with the [prerequisites](#checking-prerequisites).
+    If you don't see your appchain's details on the dashboard, make sure to comply with the [prerequisites](#checking-prerequisites).
 
 ### Minting Tokens {: #minting-tokens }
 
