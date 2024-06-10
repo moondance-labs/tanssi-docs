@@ -7,7 +7,7 @@ description: Tanssi appchains benefit from XCM, a native cross-chain communicati
 
 ## Introduction {: #introduction }
 
-All the Tanssi appchains have an inherent capability to communicate and interoperate with any other appchain from the Polkadot ecosystem (be it Tanssi-powered or not). This native cross-chain communication feature is possible thanks to the Polkadot relay chain, which guarantees message delivery, and the XCM (Cross-Consensus Message) format, which provides a lingua franca.
+All the Tanssi appchains have an inherent capability to communicate and interoperate with any other appchain in the ecosystem. This native cross-chain communication feature is possible thanks to the unique infrastructure the appchains are built on top of, leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
 
 XCM is a messaging language designed to be generic. It doesn't make any assumptions about the destination chain and can communicate different intentions between sovereign consensus systems.
 
