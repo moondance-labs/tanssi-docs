@@ -44,12 +44,7 @@ You'll see the registration account at the bottom.
 
 ### Retrieving the Sudo Account {: #retrieving-sudo-account }
 
-If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
-
-![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/dapp/token-management/token-management-2.webp)
-
-!!! warning
-    You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
+--8<-- 'text/builders/manage/locate-sudo-account.md'
 
 ## Accessing the Token Management Panel {: #accesing-token-management-panel }
 
