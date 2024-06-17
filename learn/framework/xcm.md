@@ -17,12 +17,12 @@ In this article, we cover the basic concepts of the native cross-chain communica
 
 ## Design Principles {: #design-principles }
 
-Conceived with an abstract mindset, XCM is not coupled with either a specific use case or a specific destination appchain setup, thus minimizing the coupling effect. Its core design principles are:
+Conceived with an abstract mindset, XCM is not designed to comply with a specific use case or specific destination appchain setup, thus minimizing the coupling effect. Its core design principles are:
 
 - **Asynchronous** - similar to sending a postcard -but way faster- the sender will keep performing its duties as usual, without blocking itself or awaiting a response from the destination
 - **Absolute** -  messages are guaranteed to be delivered to the intended destination, in order and in a timely fashion
 - **Asymmetric** -  messages sent have no response counterpart. Any return values, if required, must be sent back from the destination to the sender with another message
-- **Agnostic** -  there are no assumptions whatsoever about the configuration or properties of the appchains that are communicating. Two communicating appchains might differ in every aspect, except the ability to understand XCM. E.g., one chain could be EVM-compatible and the other not, one chain could be a DeFi appchain and the other a gaming appchain, etc
+- **Agnostic** -  there are no assumptions whatsoever about the configuration or properties of two communicating appchains. Appchains might differ in every aspect, except the ability to understand XCM. E.g., one chain could be EVM-compatible and the other not, one chain could be a DeFi appchain and the other a gaming appchain, etc
 
 ## Common Use Cases {: #common-use-cases }
 
@@ -33,7 +33,7 @@ Many use cases can be addressed by benefiting from the common ground and versati
 Moving digital assets from one appchain to another is essential for creating a more dynamic, efficient, and interconnected blockchain ecosystem. The native cross-chain capability allows two main strategies to transfer assets from one chain to another:
 
 - **Teleport** - teleporting an asset is a simple and efficient mechanism, but it has a major caveat: it requires trust between the parties. In essence, when appchain A wants to send X amount of assets to appchain B, it burns X amount of assets and sends a message to appchain B instructing them to mint exactly X amount of assets, preserving the overall asset balance and concluding the teleport action
-- **Reserve transfer** - a reserve transfer is executed on the reserve chain, which is the chain that holds and manages the asset to be transferred. When appchain A wants to send X amount of an asset to appchain B, it sends the instructions to the reserve chain, which transfers the assets from appchain A to appchain B's sovereign accounts. Sovereign accounts are keyless accounts belonging to an appchain and managed by its respective appchain governor. After appchain B receives X amount of assets in its sovereign account, it mints that amount in a derivative form. Note that regardless of appchain A not burning the assets or appchain B minting tokens in excess, since the wrongful tokens are not backed one-to-one by the reserve, they have no real value
+- **Reserve transfer** - a reserve transfer is executed on the reserve chain, which is the chain that holds and manages the asset to be transferred. When appchain A wants to send X amount of an asset to appchain B, it sends the instructions to the reserve chain, which transfers the assets from appchain A to appchain B's sovereign accounts. Sovereign accounts are keyless accounts belonging to an appchain and managed by its appchain governor. After appchain B receives X amount of assets in its sovereign account, it proceeds to mint that amount in a derivative form. Note that regardless of appchain A not burning the assets or appchain B minting tokens in excess, since the wrongful tokens are not backed one-to-one by the reserve, they have no real value
 
 ### Remote Execution {: #remote-execution }
 
