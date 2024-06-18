@@ -60,8 +60,8 @@ To send and receive cross-chain messages that accurately reference the destinati
 
 Two components define a location: `parents` and `interior`. Parents is a value that indicates if the route must move up to the relay chain. Interior is a list of junctions, that define how to locate the destination. Let's list some examples:
 
-- **Appchain A references a smart contract in appchain B** - from the point of view of appchain A, to reach a smart contract in appchain B it is necessary to move up to the relay chain and then descend to appchain B and, once there, reference the smart contract's address. The *multilocation* is defined with a `parents` value set to 1, which moves up to the relay chain, and two junctions, one defining which appchain should receive the message, and the other defining the H160 address of the smart contract that will be called
-- **Appchain A references an account in the relay chain** - from the point of view of appchain A, to reference an account in the relay chain, it is necessary to move up and then reference the account. The *multilocation* is defined with a `parents` value set to 1, which moves up to the relay chain, and one junction that references the substrate type destination address 
+- **Appchain A references a smart contract in appchain B** - from the point of view of appchain A, to reach a smart contract in appchain B it is necessary to move up to the relay chain and then descend to appchain B and, once there, reference the smart contract's address. The *multilocation* is defined with a `parents` value set to `1`, which moves up to the relay chain, and two junctions, one defining which appchain should receive the message, and the other defining the H160 address of the smart contract that will be called
+- **Appchain A references an account in the relay chain** - from the point of view of appchain A, to reference an account in the relay chain, it is necessary to move up and then reference the account. The *multilocation* is defined with a `parents` value set to `1`, which moves up to the relay chain, and one junction that references the substrate type destination address 
 
 ## Fees {: #fees }
 
