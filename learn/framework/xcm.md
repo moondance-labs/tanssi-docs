@@ -41,11 +41,11 @@ Another common use is remote execution, which sends a message to an appchain and
 
 ## Establishing Cross-Chain Communication {: #channel-registration }
 
-Before two chains can start communicating, a messaging channel must be opened. Channels are unidirectional, meaning a channel from chain A to chain B will only pass messages from A to B. Therefore, two channels must be opened to send messages back and forth.
+Before two chains can communicate, a messaging channel must be established. Channels are unidirectional, which means that separate channels are needed to send messages from chain A to chain B and B to A.
 
-A channel between the appchain and the relay chain is automatically opened upon appchain registration and onboarding. However, when appchain A wants to open a communication channel with appchain B, appchain A must send an open channel transaction to its network. This transaction is an XCM message as well!
+For chain A to communicate with chain B, chain A must send an open channel transaction, which is an XCM message, to the relay chain requesting a channel be opened through the relay chain. Chain B must then accept the request by sending a corresponding XCM message to the relay chain. Only when both chains agree is the channel opened in the next epoch. The same process is required to establish a channel from chain B to chain A.
 
-It's important to note that appchain A expressing its intentions of opening an XCM channel with appchain B is not sufficient. Appchain B must also accept the request by sending another XCM message. Only when both appchains have reached a mutual agreement, the channel is opened within the following epoch. The same process must be repeated to open a channel from appchain B to appchain A.
+It is important to note that a channel between an appchain and the relay chain is automatically opened upon appchain registration and onboarding.
 
 ![XCM Channel Registration Overview](/images/learn/framework/xcm/dark-xcm-1.webp#only-dark)
 ![XCM Channel Registration Overview](/images/learn/framework/xcm/light-xcm-1.webp#only-dark#only-light)
