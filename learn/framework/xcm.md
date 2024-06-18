@@ -54,7 +54,7 @@ Once the channel is established, cross-chain messages can be sent between appcha
 
 ## Message Destinations {: #message-destinations }
 
-Any given appchain contains modules exposing behavior through transactions or smart contracts that can be called, accounts with balances, and assets (fungibles or non-fungibles) that can be created, transferred, etc. Also, all the appchains within the ecosystem are L1 blockchains connected to an L0 blockchain, the relay chain, which plays a crucial role in the cross-chain messaging process, with the ability to relay messages from one appchain to another.
+Any given appchain contains modules exposing behavior (through transactions or smart contracts that can be called), accounts with balances, assets (fungibles or non-fungibles), and other resources. Also, all the appchains within the ecosystem are L1 blockchains connected to an L0 blockchain, the relay chain, which plays a crucial role in the cross-chain messaging process, with the ability to relay messages from one appchain to another.
 
 To send and receive cross-chain messages that accurately reference the destination chain, its exposed behavior (such as smart contracts or transactions), and its available assets, a mechanism called *Multilocation* is used. Multilocations describe an element from the sender's perspective, so they are not intended to provide a universal description of the element.
 
