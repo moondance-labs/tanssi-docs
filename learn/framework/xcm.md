@@ -67,7 +67,6 @@ Two components define a location: `parents` and `interior`. Parents is a value t
 
 A user executing a transaction on an appchain must pay the fees derived from computational effort associated with the task, and cross-chain execution is no exception to this rule. In cross-chain communication, a message requires execution on at least two different chains, and the user needs to pay for the fees associated with the computational effort made by every chain involved.
 
-For example, if a user in appchain A wants to call a smart contract in appchain B, the user must include in the XCM message the instructions to reserve a valid asset to cover the associated fees (being a valid asset, a token that is accepted by appchain B as payment for its services). With this valid asset provided, now the execution can be bought on the destination chain. 
 For example, if a user on appchain A wants to call a smart contract on appchain B, the user must include instructions in the XCM message to reserve a valid asset to cover the associated fees. A valid asset is a token that appchain B accepts as payment for its services. Once this valid asset is provided, the execution can now be bought on the destination chain.
 
 !!! note
