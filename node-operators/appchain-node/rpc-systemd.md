@@ -35,15 +35,15 @@ Every new release includes two node binaries, one for EVM-compatible appchains a
 === "EVM-Compatible Appchain"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-template-frontier-node && \
-    chmod +x ./container-chain-template-frontier-node
+    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-frontier-node && \
+    chmod +x ./container-chain-frontier-node
     ```
 
 === "Substrate Appchain"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-template-simple-node && \
-    chmod +x ./container-chain-template-simple-node
+    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-simple-node && \
+    chmod +x ./container-chain-simple-node
     ```
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
@@ -123,7 +123,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     SyslogIdentifier=appchain
     SyslogFacility=local7
     KillSignal=SIGHUP
-    ExecStart=/var/lib/appchain-data/container-chain-template-frontier-node \
+    ExecStart=/var/lib/appchain-data/container-chain-frontier-node \
     --chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
     --rpc-port=9944 \
     --name=para \
@@ -163,7 +163,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     SyslogIdentifier=appchain
     SyslogFacility=local7
     KillSignal=SIGHUP
-    ExecStart=/var/lib/appchain-data/container-chain-template-simple-node \
+    ExecStart=/var/lib/appchain-data/container-chain-simple-node \
     --chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
     --rpc-port=9944 \
     --name=para \
@@ -209,7 +209,7 @@ User=appchain_node_service
 SyslogIdentifier=appchain
 SyslogFacility=local7
 KillSignal=SIGHUP
-ExecStart=/var/lib/appchain-data/container-chain-template-frontier-node \
+ExecStart=/var/lib/appchain-data/container-chain-frontier-node \
 --chain=/var/lib/appchain-data/container-3001-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
@@ -244,13 +244,13 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 === "EVM-compatible Appchain"
 
     ```bash
-    /var/lib/appchain-data/container-chain-template-frontier-node --help
+    /var/lib/appchain-data/container-chain-frontier-node --help
     ```
 
 === "Simple Substrate Appchain"
 
     ```bash
-    /var/lib/appchain-data/container-chain-template-simple-node --help
+    /var/lib/appchain-data/container-chain-simple-node --help
     ```
 
 ## Run the Service {: #run-the-service }

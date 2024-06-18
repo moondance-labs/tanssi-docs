@@ -27,7 +27,7 @@ You can read more about how to install the required components in the [prerequis
 As this article is based on the EVM template, make sure that it compiles correctly before continuing by executing the following command:
 
 ```bash
-cargo build -p container-chain-template-frontier-node --release
+cargo build -p container-chain-frontier-node --release
 ```
 
 ## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module-to-runtime }

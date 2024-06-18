@@ -111,13 +111,13 @@ cd tanssi
 === "Baseline EVM"
 
     ```bash
-    cargo build -p container-chain-template-frontier-node --release
+    cargo build -p container-chain-frontier-node --release
     ```
 
 === "Baseline Substrate"
 
     ```bash
-    cargo build -p container-chain-template-simple-node --release
+    cargo build -p container-chain-simple-node --release
     ```
 
 Having a healthy development environment will be necessary to build a customized runtime and to finally generate the chain specification file that will be used to deploy your Tanssi appchain.
