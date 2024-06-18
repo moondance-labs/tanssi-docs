@@ -39,6 +39,18 @@ Moving digital assets from one appchain to another is essential for creating a m
 
 Another common use is remote execution, which sends a message to an appchain and triggers some action. If the destination chain is EVM-compatible, appchain A can call a smart contract deployed on appchain B, for example.
 
+## Fees {: #fees }
+
+A user executing a transaction on an appchain must pay the fees derived from computational effort associated with the task, and cross-chain execution is no exception to this rule. In cross-chain communication, a message requires execution on at least two different chains, and the user needs to pay for the fees associated with the computational effort made by every chain involved.
+
+For example, if a user on appchain A wants to call a smart contract on appchain B, the user must include instructions in the XCM message to provide an asset that appchain B accepts as payment for its services to cover the associated fees. Once this valid asset is provided, the execution can now be bought on the destination chain.
+
+Reserve a valid asset? I don't really like this phrasing. I think the right way would be to, user must include in the XCM message a way to provide a valid asset that can be used to pay for XCM execution in the destination chain, to cover the associated fees.
+
+!!! note
+    Since appchains are sovereign, they can decide which tokens are valid for paying their XCM execution fees.
+    Therefore, if appchain B accepts appchain A tokens for fee payments, any user on appchain A can pay for an XCM message destined for appchain B using only appchain A tokens.
+
 ## Establishing Cross-Chain Communication {: #channel-registration }
 
 Before two chains can communicate, a messaging channel must be established. Channels are unidirectional, which means that separate channels are needed to send messages from chain A to chain B and B to A.
@@ -62,15 +74,3 @@ Multilocations are not a universal resource locator. They refer to elements from
 
 - **Appchain A references a smart contract in appchain B** - from the point of view of appchain A, to reach a smart contract in appchain B it is necessary to move up in the hierarchy (to the relay chain) and then descend to appchain B to, once there, reference the smart contract's address. The *multilocation* is therefore defined with a `parents` value set to `1`, which moves up, and two junctions, one defining which appchain should receive the message, and the other defining the H160 address of the smart contract that will be called
 - **Appchain A references an account in the relay chain** - from the point of view of appchain A, to reference an account in the relay chain, it is necessary to move up and then reference the account. The *multilocation* is defined with a `parents` value set to `1`, which moves up to the relay chain, and one junction that references the substrate type destination address 
-
-## Fees {: #fees }
-
-A user executing a transaction on an appchain must pay the fees derived from computational effort associated with the task, and cross-chain execution is no exception to this rule. In cross-chain communication, a message requires execution on at least two different chains, and the user needs to pay for the fees associated with the computational effort made by every chain involved.
-
-For example, if a user on appchain A wants to call a smart contract on appchain B, the user must include instructions in the XCM message to provide an asset that appchain B accepts as payment for its services to cover the associated fees. Once this valid asset is provided, the execution can now be bought on the destination chain.
-
-Reserve a valid asset? I don't really like this phrasing. I think the right way would be to, user must include in the XCM message a way to provide a valid asset that can be used to pay for XCM execution in the destination chain, to cover the associated fees.
-
-!!! note
-    Since appchains are sovereign, they can decide which tokens are valid for paying their XCM execution fees.
-    Therefore, if appchain B accepts appchain A tokens for fee payments, any user on appchain A can pay for an XCM message destined for appchain B using only appchain A tokens.
