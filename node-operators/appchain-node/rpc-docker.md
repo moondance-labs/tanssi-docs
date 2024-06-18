@@ -65,7 +65,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-        /chain-network/container-chain-template-frontier-node \
+        /chain-network/container-chain-frontier-node \
         --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
@@ -73,7 +73,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-        /chain-network/container-chain-template-frontier-node-skylake \
+        /chain-network/container-chain-frontier-node-skylake \
         --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
@@ -81,7 +81,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-        /chain-network/container-chain-template-frontier-node-znver3 \
+        /chain-network/container-chain-frontier-node-znver3 \
         --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
@@ -91,7 +91,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
-        /chain-network/container-chain-template-simple-node \
+        /chain-network/container-chain-simple-node \
         --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
@@ -99,7 +99,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
-        /chain-network/container-chain-template-simple-node-skylake \
+        /chain-network/container-chain-simple-node-skylake \
         --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
     
@@ -107,7 +107,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
-        /chain-network/container-chain-template-simple-node-znver3 \
+        /chain-network/container-chain-simple-node-znver3 \
         --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
         ```
 
@@ -122,7 +122,7 @@ The following example spins up a full archive RPC node for the [demo EVM appchai
 
 ```bash
 docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-/chain-network/container-chain-template-frontier-node \
+/chain-network/container-chain-frontier-node \
 --chain=/chain-network/container-3001-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
@@ -153,7 +153,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 ```bash
 docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
-/chain-network/container-chain-template-frontier-node \
+/chain-network/container-chain-frontier-node \
 --help
 ```
 

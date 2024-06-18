@@ -70,7 +70,7 @@ To build and generate the chain specifications, take the following steps:
 3. Build the Tanssi EVM-compatible appchain template
 
     ```bash
-    cargo build -p container-chain-template-frontier-node --release
+    cargo build -p container-chain-frontier-node --release
     ```
 
     This step is quite verbose and might take a while to complete. The following screenshot shows the terminal after successfully finishing the building process (note that the completion time is above 35 minutes):
@@ -80,7 +80,7 @@ To build and generate the chain specifications, take the following steps:
 4. Generate the chain specification
 
     ```bash
-    ./target/release/container-chain-template-frontier-node \
+    ./target/release/container-chain-frontier-node \
         build-spec > chain_spec.json
     ```
 
@@ -206,7 +206,7 @@ One final step before deploying the Tanssi appchain is converting the JSON speci
 After going through the [steps to generate the JSON chain Specification File](#generating-json-chain-specs) and editing its values, the following command will convert the chain specs file into the required raw format:
 
 ```bash
-./target/release/container-chain-template-frontier-node \
+./target/release/container-chain-frontier-node \
     build-spec --chain=chain_spec.json --raw > raw_chain_spec.json
 ```
 

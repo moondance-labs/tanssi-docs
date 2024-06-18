@@ -133,7 +133,7 @@ After completing the preceding steps, the module is declared a dependency in the
 Compile the template using the following command:
 
 ```bash
-cargo build -p container-chain-template-simple-node --release
+cargo build -p container-chain-simple-node --release
 ```
 
 The terminal output will display an error, similar to the following, caused by different modules referencing different versions of the same dependency:
