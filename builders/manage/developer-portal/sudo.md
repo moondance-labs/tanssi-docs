@@ -61,6 +61,6 @@ Prior to getting started, make sure that you have your existing Sudo account acc
 !!! note
     Ensure that you have access to the new Sudo account. Once Sudo is transferred, it cannot be undone without access to the current Sudo key.
 
-And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how managing your Tanssi appchain.
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
