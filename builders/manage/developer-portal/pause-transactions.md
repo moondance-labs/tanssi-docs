@@ -176,6 +176,6 @@ In this example, the transaction to unpause is `transfer_allow_death` from the `
 
 The `unpause` transaction executes successfully only if the module and transaction parameters have been previously paused; otherwise, it fails. After the successful unpausing, the transaction can be called and executed again.
 
-And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how managing your Tanssi appchain.
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
