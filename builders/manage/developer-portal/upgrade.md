@@ -73,6 +73,6 @@ You can verify that your runtime upgrade was successful by checking the runtime 
 
 ![Check Runtime version on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-4.webp)
 
-And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how managing your Tanssi appchain.
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
