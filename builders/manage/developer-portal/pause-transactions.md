@@ -21,7 +21,7 @@ In an emergency scenario, when a critical exploit is discovered, this module all
 For the examples in this guide, you will need to have the following:
 
  - A Tanssi appchain (Snap or Dedicated) featuring the Transaction Pause module. Any new appchain deployment based on one of the templates will do; otherwise, make sure to [include the module](/builders/build/customize/adding-built-in-module/){target=\_blank} in your custom-made appchain runtime
- - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+ - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
@@ -141,7 +141,7 @@ When using any of the built-in Substrate modules, the name with which it's refer
 
 As you know, the Sudo account [can perform privileged actions](/builders/manage/sudo/){target=\_blank}, such as appchain upgrades, minting new tokens, and, in this case, pausing and unpausing transactions. 
 
-To pause a transaction, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+To pause a transaction, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **txPause** module
 2. Select the **pause** method
@@ -162,7 +162,7 @@ To verify that the transaction has been effectively paused, try executing it. Yo
 
 ## Unpausing Transactions {: #unpausing-transactions }
 
-To unpause a transaction and return it to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+To unpause a transaction and return it to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **txPause** module
 2. Select the **unpause** method
@@ -176,6 +176,6 @@ In this example, the transaction to unpause is `transfer_allow_death` from the `
 
 The `unpause` transaction executes successfully only if the module and transaction parameters have been previously paused; otherwise, it fails. After the successful unpausing, the transaction can be called and executed again.
 
-And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on using the Sudo account to manage your Tanssi appchain.
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

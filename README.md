@@ -10,7 +10,7 @@ The content in this repository is displayed on the Tanssi documentation site, [d
 
 ## Contributing
 
-If you're interested in contributing to this repository, please feel free to clone the repo, make changes, and open a PR ✨. Please review the guidelines in the [`.CONTRIBUTING.md` file](https://github.com/moondance-labs/tanssi-docs/blob/main/CONTRIBUTING.md) before making any changes.
+If you're interested in contributing to this repository, please feel free to clone the repo, make changes, and open a PR ✨. Please review the guidelines in the [`.CONTRIBUTING.md` file](https://github.com/moondance-labs/tanssi-docs/blob/main/.CONTRIBUTING.md) before making any changes.
 
 You can also [open an issue](https://github.com/moondance-labs/tanssi-docs/issues/new). Thank you for taking your time to contribute to this repository 💜.
 

@@ -16,7 +16,7 @@ In this guide, you'll learn how to use Sudo to upgrade your Tanssi appchain's ru
 For the example in this guide, you will need to have the following:
 
  - A Tanssi appchain (Snap or Dedicated)
- - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+ - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
  - The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one
 
 If you're unsure what your Tanssi appchain's Sudo account or runtime version is, you can find them in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
@@ -57,10 +57,10 @@ To get started, head to Polkadot.js Apps for your Tanssi appchain. The Polkadot.
 !!! warning
     If your appchain was deployed using an official template and the intended upgrade is a custom runtime, make sure to have changed the default spec name (*frontier-template* or *container-chain-template*) to a different one before building the Wasm file. You'll also need to execute the `setCodeWithoutChecks` extrinsic instead of `setCode`.
 
-With your [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload and your [Sudo account accessible in Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}, take the following steps:
+With your [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload and your [Sudo account accessible in Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}, take the following steps:
 
 1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi appchain
-2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}
+2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}
 3. Select the **system** pallet
 4. Select **setCode**
 5. Toggle the **fileUpload** switch to enable uploading your Wasm runtime file
@@ -73,6 +73,6 @@ You can verify that your runtime upgrade was successful by checking the runtime 
 
 ![Check Runtime version on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-4.webp)
 
-And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on how you can use the Sudo account to manage your Tansi appchain.
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

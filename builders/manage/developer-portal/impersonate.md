@@ -19,7 +19,7 @@ In this guide, you'll learn how to use Sudo to impersonate other accounts. For e
 For the examples in this guide, you will need to have the following:
 
  - A Tanssi appchain (Snap or Dedicated)
- - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+ - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
 If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
@@ -53,7 +53,7 @@ The other account had a starting balance of `1,000` tokens before the call, and 
 
 The following section will demonstrate using Sudo to dispatch calls from an arbitrary origin. When submitting a call in this manner, the runtime will first authenticate the Sudo key and then dispatch the call using the `utility` pallet and the `dispatchAs` function, allowing the transaction's origin to be exactly what you'd like.  
 
-To do so, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Ensure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/sudo/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+To do so, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Ensure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **Sudo** pallet
 2. Select the **Sudo** method
@@ -73,6 +73,6 @@ The other account had a starting balance of `995` tokens prior to the call and d
 
 ![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-5.webp)
 
-And that's it! The [Using Sudo](/builders/manage/sudo/) section has plenty more guides on using the Sudo account to manage your Tanssi appchain.
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi appchain.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
