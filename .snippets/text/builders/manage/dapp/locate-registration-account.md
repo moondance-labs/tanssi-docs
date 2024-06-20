@@ -8,3 +8,6 @@ If you're unsure what your registration account is, you can query it directly fr
 You'll see the registration account at the bottom.
 
 ![Locating your registration account](/images/builders/manage/dapp/locate-registration-account.webp)
+
+!!! note
+    The dApp will show your appchain in the dashboard only if you have the registration account properly set.
