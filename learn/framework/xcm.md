@@ -22,7 +22,7 @@ Conceived with an abstract mindset, XCM is not designed to comply with a specifi
 - **Asynchronous** - similar to sending a postcard -but way faster- the sender will keep performing its duties as usual, without blocking itself or awaiting a response from the destination
 - **Absolute** -  messages are guaranteed to be delivered to the intended destination, in order and in a timely fashion
 - **Asymmetric** -  messages sent have no response counterpart. Any return values, if required, must be sent back from the destination to the sender with another message
-- **Agnostic** -  there are no assumptions whatsoever about the configuration or properties of two communicating appchains. Appchains might differ in every aspect, except the ability to understand XCM. E.g., one chain could be EVM-compatible and the other not, one chain could be a DeFi appchain and the other a gaming appchain, etc
+- **Agnostic** -  there are no assumptions whatsoever about the configuration or properties of two communicating appchains. Appchains might differ in every aspect, except the ability to understand XCM. E.g., one chain could be EVM-compatible and the other not, one chain could be a DeFi appchain and the other a gaming appchain, and so on
 
 ## Common Use Cases {: #common-use-cases }
 
