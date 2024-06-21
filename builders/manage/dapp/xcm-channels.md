@@ -13,38 +13,7 @@ The first step to enable communication between appchains is opening a channel. T
 
 In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} to manage your appchain's cross-chain communication channels.
 
-## Checking Prerequisites {: #checking-prerequisites }
-
-For the examples in this guide, you will need to have the following:
-
-- A Tanssi appchain (Snap or Dedicated)
-- The account you used when registering the appchain, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
-- Your appchain's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
-
-!!! note
-    The appchain's registration account is always a Substrate one, whereas the appchain's Sudo account depends on the chain type. If the chain is EVM-compatible, then the Sudo account will be an Ethereum type and, otherwise, a Substrate type.
-
-### Retrieving the Registration Account {: #retrieving-registration-account }
-
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered appchain. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [snap appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated appchains](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, and take the following steps:
-
-1. Select the **registrar** storage module
-2. Select **registrarDeposit**
-3. Insert your appchain ID
-4. Press **+** icon
-
-You'll see the registration account at the bottom.
-
-![Locating your registration account](/images/builders/manage/dapp/xcm-channels/xcm-channels-1.webp)
-
-### Retrieving the Sudo Account {: #retrieving-sudo-account }
-
-If you're unsure what your Tanssi appchain's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
-
-![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/dapp/xcm-channels/xcm-channels-2.webp)
-
-!!! warning
-    You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
+--8<-- 'text/builders/manage/dapp/prerequisites.md'
 
 ## Accessing the Channel Management Panel {: #accesing-channel-management-panel }
 

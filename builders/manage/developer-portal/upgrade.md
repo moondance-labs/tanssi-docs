@@ -19,12 +19,7 @@ For the example in this guide, you will need to have the following:
  - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
  - The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one
 
-If you're unsure what your Tanssi appchain's Sudo account or runtime version is, you can find them in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
-
-![Locating your Sudo address and runtime version on apps.tanssi.network](/images/builders/manage/developer-portal/upgrade/upgrade-1.webp)
-
-!!! warning
-    You should always protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi appchain.
+--8<-- 'text/builders/manage/locate-sudo-account.md'
 
 ## Obtaining the Wasm Runtime {: #obtaining-wasm-runtime }
 
