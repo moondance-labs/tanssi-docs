@@ -37,15 +37,25 @@ Moving digital assets from one appchain to another is essential for creating a m
 
 ### Remote Execution {: #remote-execution }
 
-Another common use is remote execution, which sends a message to an appchain and triggers some action. If the destination chain is EVM-compatible, appchain A can call a smart contract deployed on appchain B, for example.
+Another common use is remote execution. The native interoperability XCM provides allows an appchain to send a message to another triggering some action. For example, If the destination chain is EVM-compatible, appchain A can call a smart contract deployed on appchain B.
+
+To get any on-chain request executed, it is necessary to cover the fees that are associated. On XCM, remote execution can be bought with two steps:
+
+1. Reserve some assets using the *WithdrawAsset* XCM instruction, which takes funds from the call origin
+2. Pay for the on-chain execution, using the *BuyExecution* XCM instruction, which uses the previously withdrawn assets
+
+!!! note
+    When an appchain receives a message initiated remotely, the message origin is the source chain's Sovereign account. There is a special XCM instruction called *DescendOrigin* to match the origin on the source chain, ensuring execution occurs on behalf of the same entity initiating the XCM message on the source chain.
+
+Finally, the execution takes place on the destination chain, calling a smart contract or any other transaction. 
+
+The general flow is represented in the following diagram:
 
 ## Fees {: #fees }
 
 A user executing a transaction on an appchain must pay the fees derived from computational effort associated with the task, and cross-chain execution is no exception to this rule. In cross-chain communication, a message requires execution on at least two different chains, and the user needs to pay for the fees associated with the computational effort made by every chain involved.
 
-For example, if a user on appchain A wants to call a smart contract on appchain B, the user must include instructions in the XCM message to provide an asset that appchain B accepts as payment for its services to cover the associated fees. Once this valid asset is provided, the execution can now be bought on the destination chain.
-
-Reserve a valid asset? I don't really like this phrasing. I think the right way would be to, user must include in the XCM message a way to provide a valid asset that can be used to pay for XCM execution in the destination chain, to cover the associated fees.
+For example, if a user on appchain A wants to call a smart contract on appchain B, the user must include instructions in the XCM message to provide an asset that appchain B accepts as payment for its services to cover the associated fees. Once such an asset is provided, the execution can now be bought on the destination chain.
 
 !!! note
     Since appchains are sovereign, they can decide which tokens are valid for paying their XCM execution fees.
