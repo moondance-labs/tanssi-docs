@@ -37,19 +37,22 @@ Moving digital assets from one appchain to another is essential for creating a m
 
 ### Remote Execution {: #remote-execution }
 
-Another common use is remote execution. The native interoperability XCM provides allows an appchain to send a message to another triggering some action. For example, If the destination chain is EVM-compatible, appchain A can call a smart contract deployed on appchain B.
+The native interoperability XCM provides allows an appchain to send a message to another triggering some action. For example, If the destination chain is EVM-compatible, appchain A can call a smart contract deployed on appchain B.
 
 To get any on-chain request executed, it is necessary to cover the fees that are associated. On XCM, remote execution can be bought with two steps:
 
-1. Reserve some assets using the *WithdrawAsset* XCM instruction, which takes funds from the call origin
+1. Reserve some assets using the *WithdrawAsset* XCM instruction, which takes funds from the call origin and puts them in a holding register
 2. Pay for the on-chain execution, using the *BuyExecution* XCM instruction, which uses the previously withdrawn assets
 
 !!! note
-    When an appchain receives a message initiated remotely, the message origin is the source chain's Sovereign account. There is a special XCM instruction called *DescendOrigin* to match the origin on the source chain, ensuring execution occurs on behalf of the same entity initiating the XCM message on the source chain.
+    When an appchain receives a message initiated remotely, the message origin is the source chain's Sovereign account. There is a special XCM instruction called *DescendOrigin* that changes the origin to match that of the source chain, ensuring execution occurs on behalf of the same entity initiating the XCM message on the source chain.
 
-Finally, the execution takes place on the destination chain, calling a smart contract or any other transaction. 
+Finally, the execution takes place on the destination chain, calling a smart contract or any other transaction using the XCM instruction called *Transact*.
 
-The general flow is represented in the following diagram:
+The general flow is for remote execution is represented in the following diagram:
+
+![Remote Execution Flow](/images/learn/framework/xcm/dark-xcm-2.webp#only-dark)
+![Remote Execution Flow](/images/learn/framework/xcm/light-xcm-2.webp#only-dark#only-light)
 
 ## Fees {: #fees }
 
