@@ -39,7 +39,7 @@ Moving digital assets from one appchain to another is essential for creating a m
 
 The native interoperability XCM provides allows an appchain to send a message to another triggering some action. For example, If the destination chain is EVM-compatible, appchain A can call a smart contract deployed on appchain B.
 
-To get any on-chain request executed, it is necessary to cover the fees that are associated. On XCM, remote execution can be bought with two steps:
+To get any on-chain request executed, it is necessary to cover its associated fees. On XCM, remote execution can be bought with two steps:
 
 1. Reserve some assets using the *WithdrawAsset* XCM instruction, which takes funds from the call origin and puts them in a holding register
 2. Pay for the on-chain execution, using the *BuyExecution* XCM instruction, which uses the previously withdrawn assets
