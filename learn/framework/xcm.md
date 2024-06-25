@@ -49,7 +49,7 @@ To get any on-chain request executed, it is necessary to cover the fees that are
 
 Finally, the execution takes place on the destination chain, calling a smart contract or any other transaction using the XCM instruction called *Transact*.
 
-The general flow is for remote execution is represented in the following diagram:
+The general flow for remote execution is represented in the following diagram:
 
 ![Remote Execution Flow](/images/learn/framework/xcm/dark-xcm-2.webp#only-dark)
 ![Remote Execution Flow](/images/learn/framework/xcm/light-xcm-2.webp#only-dark#only-light)
@@ -68,7 +68,7 @@ For example, if a user on appchain A wants to call a smart contract on appchain 
 
 Before two chains can communicate, a messaging channel must be established. Channels are unidirectional, which means that separate channels are needed to send messages from chain A to chain B and B to A.
 
-For chain A to communicate with chain B, chain A must send an open channel transaction, which is an XCM message, to the relay chain requesting a channel be opened through the relay chain. Chain B must then accept the request by sending a corresponding XCM message to the relay chain. Only when both chains agree is the channel opened in the next epoch. The same process is required to establish a channel from chain B to chain A.
+For chain A to communicate with chain B, chain A must send an open channel transaction to the relay chain requesting a channel be opened with chain B. Chain B must then accept the request by sending a corresponding XCM message to the relay chain. Only when both chains agree is the channel opened in the next epoch. The same process is required to establish a channel from chain B to chain A.
 
 It is important to note that a channel between an appchain and the relay chain is automatically opened upon appchain registration and onboarding.
 
