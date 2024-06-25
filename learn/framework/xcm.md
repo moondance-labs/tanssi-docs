@@ -89,4 +89,11 @@ XCM's destination elements are organized in a hierarchical architecture, where e
 Multilocations are not a universal resource locator. They refer to elements from the sender's perspective and are composed of two components: `parents` and `interior`. Parents is a property that indicates if the route must "move up" in the hierarchy, i.e., from an appchain to the relay chain. Interior is a list of junctions that define how to locate the destination. Here are some examples of multilocations:
 
 - **Appchain A references a smart contract in appchain B** - from the point of view of appchain A, to reach a smart contract in appchain B it is necessary to move up in the hierarchy (to the relay chain) and then descend to appchain B to, once there, reference the smart contract's address. The *multilocation* is therefore defined with a `parents` value set to `1`, which moves up, and two junctions, one defining which appchain should receive the message, and the other defining the H160 address of the smart contract that will be called
+
+![Smart Contract Multilocation Example](/images/learn/framework/xcm/dark-xcm-3.webp#only-dark)
+![Smart Contract Multilocation Example](/images/learn/framework/xcm/light-xcm-3.webp#only-light)
+
 - **Appchain A references an account in the relay chain** - from the point of view of appchain A, to reference an account in the relay chain, it is necessary to move up and then reference the account. The *multilocation* is defined with a `parents` value set to `1`, which moves up to the relay chain, and one junction that references the substrate type destination address 
+
+![Account Multilocation Example](/images/learn/framework/xcm/dark-xcm-4.webp#only-dark)
+![Account Multilocation Example](/images/learn/framework/xcm/light-xcm-4.webp#only-light)
