@@ -36,7 +36,7 @@ Tanssi reserves a fraction of the payments received for the protocol's treasury,
 
 You can check your appchain's current balance and top it up using the Tanssi dApp. To do so, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank} and connect the appchain's registration account to the dApp. The site will display a card showing your appchain status. This card includes the projected liveness forecast underneath the **Block Production** section and the **Top Up** button.
 
-![Top-up action button in the dApp](/images/builders/manage/dapp/services-payment/services-payment-2.webp)
+![Top-up action button in the dApp](/images/builders/manage/dapp/services-payment/services-payment-1.webp)
 
 Clicking on the **Top Up** button displays a sidebar where the following information can be seen:
 
@@ -50,7 +50,7 @@ To extend the appchain's projected runway, take the following actions:
 1. Insert the amount of tokens to buy block production services
 2. Click **Top Up**
 
-![Top-up sidebar](/images/builders/manage/dapp/services-payment/services-payment-3.webp)
+![Top-up sidebar](/images/builders/manage/dapp/services-payment/services-payment-2.webp)
 
 You will be asked to sign the transaction, and after it's gone through, your appchain will benefit from an extended horizon of liveness.
 
