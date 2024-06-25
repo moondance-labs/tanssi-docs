@@ -51,8 +51,8 @@ Finally, the execution takes place on the destination chain, calling a smart con
 
 The general flow for remote execution is represented in the following diagram:
 
-![Remote Execution Flow](/images/learn/framework/xcm/dark-xcm-2.webp#only-dark)
-![Remote Execution Flow](/images/learn/framework/xcm/light-xcm-2.webp#only-dark#only-light)
+![Remote Execution Flow](/images/learn/framework/xcm/dark-xcm-1.webp#only-dark)
+![Remote Execution Flow](/images/learn/framework/xcm/light-xcm-1.webp#only-dark#only-light)
 
 ## Fees {: #fees }
 
@@ -72,8 +72,8 @@ For chain A to communicate with chain B, chain A must send an open channel trans
 
 It is important to note that a channel between an appchain and the relay chain is automatically opened upon appchain registration and onboarding.
 
-![XCM Channel Registration Overview](/images/learn/framework/xcm/dark-xcm-1.webp#only-dark)
-![XCM Channel Registration Overview](/images/learn/framework/xcm/light-xcm-1.webp#only-dark#only-light)
+![XCM Channel Registration Overview](/images/learn/framework/xcm/dark-xcm-2.webp#only-dark)
+![XCM Channel Registration Overview](/images/learn/framework/xcm/light-xcm-2.webp#only-dark#only-light)
 
 Once the channel is established, cross-chain messages can be sent between appchains. For asset transfers, assets will also need to be registered before being transferred.
 
