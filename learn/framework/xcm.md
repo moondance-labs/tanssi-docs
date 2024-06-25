@@ -77,6 +77,9 @@ It is important to note that a channel between an appchain and the relay chain i
 
 Once the channel is established, cross-chain messages can be sent between appchains. For asset transfers, assets will also need to be registered before being transferred.
 
+!!! note
+    XCM is a versioned ever-evolving language. When two communicating appchains are using different XCM versions, they must use the latest version supported by the less upgraded side. To find out the latest XCM version an appchain can work with, other appchains can query it and subscribe for updates whenever this changes.
+
 ## Message Destinations {: #message-destinations }
 
 To compose meaningful messages in a multichain environment it is necessary to have a precise yet abstract way of referencing resources located in different consensus systems. A concept called *multilocation* is used to serve this purpose and target a specific chain or any of its inner elements, such as an account, an asset, or a smart contract.
