@@ -8,5 +8,5 @@ nav:
   - 'Pause Transactions': 'pause-transactions.md'
   - 'Impersonate Accounts': 'impersonate.md'
   - 'Mint Tokens': 'minting.md'
-  - 'Smart EVM - Whitelist Smart Contracts Deployment': 'smart-contracts-creation-filter.md'
+  - 'Smart EVM - Whitelist Smart Contract Deployments': 'smart-contracts-creation-filter.md'
 

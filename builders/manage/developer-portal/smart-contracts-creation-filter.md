@@ -1,9 +1,9 @@
 ---
-title: Smart EVM - Whitelist Smart Contracts Deployment
+title: Smart EVM - Whitelist Smart Contract Deployments
 description: Learn how to use Sudo to whitelist smart contracts deployers for your Smart EVM Tanssi appchain, increasing overall security.
 ---
 
-# Smart EVM - Whitelist Smart Contracts Deployment
+# Smart EVM - Whitelist Smart Contract Deployments
 
 ## Introduction {: #introduction }
 
