@@ -1,6 +1,6 @@
 ---
 title: Smart EVM - Whitelist Smart Contracts Deployment
-description: Learn how to use Sudo to whitelist smart contracts deployment for your Smart EVM Tanssi appchain, increasing overall security.
+description: Learn how to use Sudo to whitelist smart contracts deployers for your Smart EVM Tanssi appchain, increasing overall security.
 ---
 
 # Smart EVM - Whitelist Smart Contracts Deployment
@@ -16,7 +16,7 @@ This feature brings several key benefits that might be a great fit for different
 - **Regulatory Compliance** - uses cases that are highly regulated can limit deployment to ensure that smart contracts meet legal and compliance requirements
 - **Spam and Abuse Prevention** - prevent bad actors from deploying large numbers of unnecessary or harmful contracts
 
-In this guide, you'll learn how to use the Sudo account to manage the whitelisted accounts that will be able to deploy smart contracts on your appchain.
+In this guide, you'll learn how to use the Sudo account to manage the whitelisted accounts that can deploy smart contracts on your appchain.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -43,7 +43,7 @@ Once in Polkadot.js Apps, navigate to the **Developer** Tab and click on **Sudo*
 To define the accounts that will have authorization to deploy smart contracts, [get your Polkadot.js Apps started](#getting-started) and then take the following steps:
 
 1. Select the **parameters** pallet. **setParameter** will be automatically selected in the functions selector and **ContractDeployFilter** in the KeyValue parameter
-2. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to whitelist the accounts for smart contracts deployment and the later to whitelist the accounts for indirect  (via a smart contract call) smart contract deployment
+2. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to whitelist the accounts for smart contracts deployment and the latter to whitelist the accounts for indirect  (via a smart contract call) smart contract deployment
 3. Toggle the **Include option** switch
 4. Select the **Whitelisted** option
 5. Insert the whitelisted account
@@ -54,12 +54,12 @@ To define the accounts that will have authorization to deploy smart contracts, [
 
 These same steps can be repeated at any moment to remove an account from the whitelist or to add new ones.
 
-## Reestablishing Permission to Deploy Smart Contracts {: #reestablishing-permission}
+## Restoring Permissions to Deploy Smart Contracts {: #restoring-permission}
 
-If you previously authorized some accounts to deploy smart contracts and want to restore the permissions for any account (with enough balance to pay the fees) to deploy smart contracts, then [get your Polkadot.js Apps started](#getting-started) and take the following steps:
+If you previously authorized some accounts to deploy smart contracts and want to allow any account to deploy smart contracts (as long as they can cover regular transaction fees), then [get your Polkadot.js Apps started](#getting-started) and take the following steps:
 
 1. Select the **parameters** pallet. **setParameter** will be automatically selected in the functions selector and **ContractDeployFilter** in the KeyValue parameter
-2. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to clear the whitelist for smart contracts deployment and the later to clear the whitelist for indirect  (via a smart contract call) smart contract deployment
+2. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to clear the whitelist for smart contracts deployment and the latter to clear the whitelist for indirect  (via a smart contract call) smart contract deployment
 3. Toggle the **Include option** switch
 4. Select the **All** option
 5. Press **Submit Sudo** and confirm the transaction in your wallet
@@ -74,7 +74,7 @@ To get the current configuration containing the whitelisted accounts that can de
 2. Select the **parameters(ContainerChainTemplateFrontierRuntimeParametersKey)** option
 3. Make sure that the **Include option** switch is on
 4. Make sure that the **ContractDeployFilter** option is selected
-5. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to query the whitelist for smart contracts deployment and the later to query the whitelist for indirect (via a smart contract call) smart contract deployment
+5. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to query the whitelist for smart contracts deployment and the latter to query the whitelist for indirect (via a smart contract call) smart contract deployment
 6. Click the **+** button
 7. The current configuration will be displayed
 
