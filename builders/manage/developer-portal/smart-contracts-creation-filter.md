@@ -1,9 +1,9 @@
 ---
-title: Smart EVM - Whitelist Smart Contract Deployments
+title: Smart EVM - Whitelist Contract Deployments
 description: Learn how to use Sudo to whitelist smart contract deployers for your Smart EVM Tanssi appchain, increasing overall security.
 ---
 
-# Smart EVM - Whitelist Smart Contract Deployments
+# Smart EVM - Whitelist Contract Deployments
 
 ## Introduction {: #introduction }
 
@@ -66,7 +66,7 @@ If you previously authorized some accounts to deploy smart contracts and want to
 
 ![Clearing the Whitelisted Accounts](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-3.webp)
 
-## Query the Configuration {: #query-configuration }
+## Query the Whitelisted Accounts {: #query-whitelisted-accounts }
 
 To get the current configuration containing the whitelisted accounts that can deploy smart contracts, go to Polkadot.js Apps (as explained in the [Getting Started](#getting-started) section), navigate to the **Developer** tab, click on **Chain state**, and take the following steps:
 
