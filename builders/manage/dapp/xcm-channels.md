@@ -22,7 +22,7 @@ The Tanssi dApp makes it easy for the appchain governor to manage cross-chain co
 1. Click on the **Manage** button
 2. Click on the **XCM** button.
 
-![Accessing the channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-3.webp)
+![Accessing the channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-1.webp)
 
 !!! note
     If you don't see your appchain's details on the dashboard, make sure to comply with the [prerequisites](#checking-prerequisites).
@@ -48,7 +48,7 @@ The panel will show your appchain's communication channels status along with sev
 
 4. **Request to open new channels** - this option allows you to select an existing appchain within the ecosystem and request a channel to be opened. The [next section](#request-new-channel) explains how to do it
 
-![The channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-4.webp)
+![The channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-2.webp)
 
 ## Request to Open New Channel {: #request-new-channel }
 
@@ -61,4 +61,4 @@ To do so, click on **HRMP Channels** and then:
 
 You'll be asked to sign the transaction, and once it's gone through, the destination chain will receive the request. 
 
-![Channel opening request](/images/builders/manage/dapp/xcm-channels/xcm-channels-5.webp)
+![Channel opening request](/images/builders/manage/dapp/xcm-channels/xcm-channels-3.webp)

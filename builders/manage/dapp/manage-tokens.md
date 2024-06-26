@@ -27,7 +27,7 @@ The Tanssi dApp implements a smooth interface, allowing the appchain governor to
 1. Click on the **Manage** button
 2. Click on the **Token Management** button.
 
-![Accessing the token management panel](/images/builders/manage/dapp/token-management/token-management-3.webp)
+![Accessing the token management panel](/images/builders/manage/dapp/token-management/token-management-1.webp)
 
 Now you have direct access to the actions presented in the introduction:
 
@@ -36,7 +36,7 @@ Now you have direct access to the actions presented in the introduction:
 3. **Transfer Tokens**
 4. Configure **Gas Dynamics** 
 
-![The token management panel](/images/builders/manage/dapp/token-management/token-management-4.webp)
+![The token management panel](/images/builders/manage/dapp/token-management/token-management-2.webp)
 
 !!! note
     If you don't see your appchain's details on the dashboard, make sure to comply with the [prerequisites](#checking-prerequisites).
@@ -53,7 +53,7 @@ The appchain governor can mint new tokens, increasing its total supply. To do so
 2. Insert the amount of tokens to mint
 3. Click on **Mint**
 
-![Mint tokens](/images/builders/manage/dapp/token-management/token-management-5.webp)
+![Mint tokens](/images/builders/manage/dapp/token-management/token-management-3.webp)
 
 You'll be asked to sign the transaction with the appchain's governor account. Once the transaction has gone through, the destination account's balance will have been increased by the desired amount.
 
@@ -69,7 +69,7 @@ The appchain governor can increase or decrease the balance of any account, thus 
 2. Insert the new balance the address will hold
 3. Click on **Update**
 
-![Update Balances](/images/builders/manage/dapp/token-management/token-management-6.webp)
+![Update Balances](/images/builders/manage/dapp/token-management/token-management-4.webp)
 
 You'll be asked to sign the transaction with the appchain's governor account. Once the transaction has gone through, the destination account's balance will reflect exactly the desired amount, regardless of previous holdings.
 
@@ -86,7 +86,7 @@ The appchain governor can reassign balances, forcing a token transfer from one a
 3. Insert the amount of tokens to transfer
 4. Click on **Transfer**
 
-![Transfer Tokens](/images/builders/manage/dapp/token-management/token-management-7.webp)
+![Transfer Tokens](/images/builders/manage/dapp/token-management/token-management-5.webp)
 
 You'll be asked to sign the transaction with the appchain's governor account. Once the transaction has gone through, the destination account will have received the number of tokens from the origin address.
 
@@ -101,6 +101,6 @@ The governor of an EVM-compatible appchain can change its [EIP-1559](https://git
 2. Insert the elasticity value
 3. Click on **Update Dynamics**
 
-![Configure Gas Dynamics](/images/builders/manage/dapp/token-management/token-management-8.webp)
+![Configure Gas Dynamics](/images/builders/manage/dapp/token-management/token-management-6.webp)
 
 You'll be asked to sign the transaction with the appchain's governor account. Once the transaction has gone through, the appchain's fee mechanism will run with the new transaction pricing parameters.
