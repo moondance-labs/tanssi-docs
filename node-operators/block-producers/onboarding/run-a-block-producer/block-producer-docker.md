@@ -58,6 +58,18 @@ sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
 
+### Generate the Node Key {: #generate-node-key }
+
+--8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-intro.md'
+
+```bash
+docker run --network="host" -v "/var/lib/dancebox:/data" \
+-u $(id -u ${USER}):$(id -g ${USER}) \
+moondancelabs/tanssi key generate-node-key --file /data/node-key
+```
+
+--8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-unsafe-note.md'
+
 ## Start-Up Command {: #start-up-command }
 
 To spin up your node, you must run the Docker image with the `docker run` command. 

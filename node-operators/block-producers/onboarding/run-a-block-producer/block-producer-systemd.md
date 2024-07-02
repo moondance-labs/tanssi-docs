@@ -21,7 +21,6 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 - **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}
 
-
 ## Download the Latest Release {: #download-latest-release }
 
 To get started, download and make executable the latest binary release by running the following command:
@@ -79,6 +78,16 @@ And finally, move the binary to the folder:
 mv ./tanssi-node /var/lib/tanssi-data
 ```
 
+### Generate the Node Key {: #generate-node-key }
+
+--8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-intro.md'
+
+```bash
+/var/lib/tanssi-data key generate-node-key --file /var/lib/tanssi-data/node-key
+```
+
+--8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-unsafe-note.md'
+
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
 The next step is to create the Systemd configuration file.
@@ -114,7 +123,8 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --blocks-pruning=2000 \
 --collator \
 --database paritydb \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--node-key-file /var/lib/tanssi-data/node-key \
 -- \
 --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \

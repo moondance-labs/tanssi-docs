@@ -7,6 +7,7 @@
 --collator \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --database paritydb \
+--node-key-file /data/node-key \
 -- \
 --name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
 --base-path=/data/container \
