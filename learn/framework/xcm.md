@@ -45,7 +45,7 @@ To get any on-chain request executed, it is necessary to cover its associated fe
 2. Pay for the on-chain execution, using the *BuyExecution* XCM instruction, which uses the previously withdrawn assets
 
 !!! note
-    When an appchain receives a message initiated remotely, the message origin is the source chain's Sovereign account. There is a special XCM instruction called *DescendOrigin* that changes the origin to match that of the source chain, ensuring execution occurs on behalf of the same entity initiating the XCM message on the source chain.
+    When an appchain sends an XCM message, its default source on the receiving end is the origin appchain's Sovereign account. The sender appchain can add an XCM instruction called *DescendOrigin* to the message, changing the origin account to match the signing user's account, ensuring execution occurs on behalf of the same entity initiating the XCM message on the source chain, and avoiding a potentially unsafe scenario.
 
 Finally, the execution takes place on the destination chain, calling a smart contract or any other transaction using the XCM instruction called *Transact*.
 
@@ -61,8 +61,8 @@ A user executing a transaction on an appchain must pay the fees derived from com
 For example, if a user on appchain A wants to call a smart contract on appchain B, the user must include instructions in the XCM message to provide an asset that appchain B accepts as payment for its services to cover the associated fees. Once such an asset is provided, the execution can now be bought on the destination chain.
 
 !!! note
-    Since appchains are sovereign, they can decide which tokens are valid for paying their XCM execution fees.
-    Therefore, if appchain B accepts appchain A tokens for fee payments, any user on appchain A can pay for an XCM message destined for appchain B using only appchain A tokens.
+    Since appchains are sovereign, they get to decide which tokens are valid for paying their XCM execution fees.
+    E.g., if appchain B accepts appchain A tokens for fee payments, any user on appchain A can pay for an XCM message destined for appchain B using only appchain A tokens.
 
 ## Establishing Cross-Chain Communication {: #channel-registration }
 
