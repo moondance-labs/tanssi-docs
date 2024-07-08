@@ -24,6 +24,16 @@ Conceived with an abstract mindset, XCM is not designed to comply with a specifi
 - **Asymmetric** -  messages sent have no response counterpart. Any return values, if required, must be sent back from the destination to the sender with another message
 - **Agnostic** -  there are no assumptions whatsoever about the configuration or properties of two communicating appchains. Appchains might differ in every aspect, except the ability to understand XCM. E.g., one chain could be EVM-compatible and not the other, one chain could be a DeFi appchain and the other a gaming appchain, and so on
 
+## Fees {: #fees }
+
+A user executing a transaction on an appchain must pay the fees derived from computational effort associated with the task, and cross-chain execution is no exception to this rule. In cross-chain communication, a message requires execution on at least two different chains, and the user needs to pay for the fees associated with the computational effort made by every chain involved.
+
+For example, if a user on appchain A wants to call a smart contract on appchain B, the user must include instructions in the XCM message to provide an asset that appchain B accepts as payment for its services to cover the associated fees. Once such an asset is provided, the execution can now be bought on the destination chain.
+
+!!! note
+    Since appchains are sovereign, they get to decide which tokens are valid for paying their XCM execution fees.
+    E.g., if appchain B accepts appchain A tokens for fee payments, any user on appchain A can pay for an XCM message destined for appchain B using only appchain A tokens.
+
 ## Common Use Cases {: #common-use-cases }
 
 Many use cases can be addressed by benefiting from the common ground and versatility XCM provides. Two of the most recurrent ones are asset transfers and remote execution.
@@ -33,7 +43,7 @@ Many use cases can be addressed by benefiting from the common ground and versati
 Moving digital assets from one appchain to another is essential for creating a more dynamic, efficient, and interconnected blockchain ecosystem. The native cross-chain capability allows two main strategies to transfer assets from one chain to another:
 
 - **Teleport** - teleporting an asset is a simple and efficient mechanism, but it has a major caveat: it requires trust between the parties. In essence, when appchain A wants to send X amount of assets to appchain B, it burns X amount of assets and sends a message to appchain B instructing them to mint exactly X amount of assets, preserving the overall asset balance and concluding the teleport action. In this process, appchain A trusts appchain B not to mint more tokens than what was transferred, and appchain B trusts appchain A to burn the tokens that were transferred
-- **Reserve transfer** - A reserve transfer involves the **reserve chain** of an asset, which is the chain where the asset is native (e.g., [Moonbeam](https://moonbeam.network/){target=\_blank} is the reserve chain for the GLMR token). Also, non-reserve appchains hold a **sovereign account** on the reserve chain, a keyless account managed by the respective appchain governor. Thus, when reserve appchain A wants to send X amount of an asset to non-reserve appchain B, it locally transfers the assets to appchain's B sovereign account and, in the same atomic action, it sends an XCM message to appchain B with instructions to mint X amount of a derivative form of the transferred asset. On the other way around, if non-reserve appchain B wants to send X amount of an asset to reserve appchain A, then the steps are: appchain B burns the derived form of the asset locally and sends an XCM message to reserve chain appchain A, with instructions to transfer the assets from its sovereign account to appchain's A destination account. Even if the non-reserve appchain mints derived tokens in excess (or doesn't burn tokens when transferring), these tokens will have no real value because they are not backed one-to-one in the reserve chain. 
+- **Reserve transfer** - A reserve transfer involves the **reserve chain** of an asset, which is the chain where the asset is native (e.g., [Moonbeam](https://moonbeam.network/){target=\_blank} is the reserve chain for the GLMR token). Also, non-reserve appchains hold a **sovereign account** on the reserve chain, a keyless account managed by the respective appchain governor. Thus, when reserve appchain A wants to send X amount of an asset to non-reserve appchain B, it locally transfers the assets to appchain's B sovereign account and, in the same atomic action, it sends an XCM message to appchain B with instructions to mint X amount of a derivative form of the transferred asset. On the other way around, if non-reserve appchain B wants to send X amount of an asset to reserve appchain A, then the steps are: appchain B burns the derived form of the asset locally and sends an XCM message to appchain A, with instructions to transfer the assets from appchain B's sovereign account to appchain's A destination account. Even if the non-reserve appchain mints derived tokens in excess (or doesn't burn tokens when transferring), these tokens will have no real value because they are not backed one-to-one in the reserve chain. 
 
 ### Remote Execution {: #remote-execution }
 
@@ -53,16 +63,6 @@ The general flow for remote execution is represented in the following diagram:
 
 ![Remote Execution Flow](/images/learn/framework/xcm/dark-xcm-1.webp#only-dark)
 ![Remote Execution Flow](/images/learn/framework/xcm/light-xcm-1.webp#only-dark#only-light)
-
-## Fees {: #fees }
-
-A user executing a transaction on an appchain must pay the fees derived from computational effort associated with the task, and cross-chain execution is no exception to this rule. In cross-chain communication, a message requires execution on at least two different chains, and the user needs to pay for the fees associated with the computational effort made by every chain involved.
-
-For example, if a user on appchain A wants to call a smart contract on appchain B, the user must include instructions in the XCM message to provide an asset that appchain B accepts as payment for its services to cover the associated fees. Once such an asset is provided, the execution can now be bought on the destination chain.
-
-!!! note
-    Since appchains are sovereign, they get to decide which tokens are valid for paying their XCM execution fees.
-    E.g., if appchain B accepts appchain A tokens for fee payments, any user on appchain A can pay for an XCM message destined for appchain B using only appchain A tokens.
 
 ## Establishing Cross-Chain Communication {: #channel-registration }
 
