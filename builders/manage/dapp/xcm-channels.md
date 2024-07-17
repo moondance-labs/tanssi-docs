@@ -7,9 +7,9 @@ description: Tanssi appchains benefit from native cross-chain communication, whi
 
 ## Introduction {: #introduction }
 
-All Tanssi appchains have an inherent capability to communicate and interoperate with any other appchain in the ecosystem. This native cross-chain communication feature is possible thanks to the unique infrastructure the appchains are built on top of, leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
+As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){target=\_blank} article from the Learn section, all Tanssi appchains have an inherent capability to communicate and interoperate with any other appchain in the ecosystem. This native cross-chain communication feature is possible thanks to the unique infrastructure the appchains are built on top of, leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
 
-The first step to enable communication between appchains is opening a channel. The process of opening a channel starts by sending a request to the appchain you want to establish communications with. Once the request has been accepted by the destination chain's governor, a channel will be opened. 
+The first step to enable communication between appchains is [opening a channel](/learn/framework/xcm/#channel-registration){target=\_blank}. The process of opening a channel starts by sending a request to the appchain you want to establish communications with. Once the request has been accepted by the destination chain's governor, a channel will be opened. 
 
 In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} to manage your appchain's cross-chain communication channels.
 
