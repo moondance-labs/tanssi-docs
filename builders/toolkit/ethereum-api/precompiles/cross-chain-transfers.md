@@ -1,14 +1,13 @@
 ---
-title:  Native Token ERC-20 Precompile
-description:  Learn how to access and interact with an ERC-20 representation of the native token on Tanssi EVM appchains through the precompiled ERC-20 Interface.
-keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts
+title: Native Cross-Chain Token Transfers
+description: Learn how to use the XCM interface Precompile to transfer tokens from any Tanssi EVM appchain, leveraging their inherent native cross-chain capabilities.
 ---
 
-# Cross Chain Token Transfers
+# Native Cross-Chain Token Transfers
 
 ## Introduction {: #introduction }
 
-The native token ERC-20 precompiled contract on Tanssi EVM appchains allows developers to interact with the native protocol token through an ERC-20 interface. Although your appchain's native token is not an ERC-20 token, now you can interact with it as if it was a vanilla ERC-20.
+The native XCM ERC-20 precompiled contract on Tanssi EVM appchains allows developers to interact with the native protocol token through an ERC-20 interface. Although your appchain's native token is not an ERC-20 token, now you can interact with it as if it was a vanilla ERC-20.
 
 One of the main benefits of this precompile is that it removes the necessity of having a wrapped representation of the protocol token as an ERC-20 smart contract, such as WETH on Ethereum. Furthermore, it minimizes the need for multiple wrapped representations of the same protocol token. Consequently, dApps that need to interact with the protocol token via an ERC-20 interface can do so without needing a separate smart contract.
 
