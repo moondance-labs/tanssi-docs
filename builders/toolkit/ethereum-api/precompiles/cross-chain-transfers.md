@@ -83,6 +83,8 @@ The interface includes the necessary data structures along with the following fu
 
 To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
+You will also need to have an open communication channel with the destination chain and, if the token being transferred is native to your appchain, the destination chain will need to have registered the foreign asset.
+
 ### Remix Set Up {: #remix-set-up }
 
 You can interact with the XCM interface precompile using [Remix](https://remix.ethereum.org){target=\_blank}. To add the precompile to Remix, you will need to:
@@ -115,95 +117,22 @@ Instead of deploying the precompile, you will access the interface given the add
 
 The **XCM Interface** precompile will appear in the list of **Deployed Contracts**.
 
-### Get Basic Token Information {: #get-basic-token-information }
+### Send Tokens Over to Another EVM-compatible Appchain {: #sent-to-evm-chains }
 
-The ERC-20 interface lets you quickly obtain token information, including the token's total supply, name, symbol, and decimal places. You can retrieve this information by following these steps:
+To send tokens over to an account in another EVM-compatible appchain, please follow these steps:
 
-1. Expand the **IERC20** contract under **Deployed Contracts**
-2. Click **decimals** to get the decimal places of your appchain's native protocol token
-3. Click **name** to get the name of the token
-4. Click **symbol** to get the symbol of the token
-5. Click **totalSupply** to obtain the total supply of native tokens on your appchain
-
-![Total Supply](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-6.webp)
-
-The results of each function call are displayed under the respective functions.
-
-### Get Account Balance {: #get-account-balance }
-
-You can check the balance of any address on your appchain by calling the `balanceOf` function and passing in an address:
-
-1. Expand the **balanceOf** function
-2. Enter an address you would like to check the balance of for the **owner**
-2. Click **call**
-
-![Get Balance of an Account](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-7.webp)
-
-Your balance will be displayed under the `balanceOf` function.
-
-### Approve a Spend {: #approve-a-spend }
-
-To approve a token spend allowance, you'll need to provide an address for the spender and the number of tokens the spender is allowed to spend. The spender can be an externally owned account (EOA) or a smart contract. For this example, you can approve the spender with an allowance of 1 UNIT token. To get started, please follow these steps:
-
-1. Expand the **approve** function
-2. Enter the address of the spender. You should have created two accounts before starting, so you can use the second account as the spender
-3. Enter the amount of tokens the spender can spend for the **value**. For this example, you can allow the spender to spend 1 UNIT token in Wei units (`1000000000000000000`)
+1. Expand the **transferAssetsToPara20** function
+2. Enter the appchain ID (paraId)
+3. Enter the ECDSA destination account (beneficiary)
+4. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset. Each asset is specified by its address and the total amount to transfer
+5. Enter the index of the asset that will be used to pay the fees. This index is zero-based, so the first element defined in the fourth step is `0`, the second is `1`, and so on 
+2. Enter the maximum gas to pay for the transaction. This gas is derived from two parameters, the processing time (refTime) and the proof size (proofSize). In practice, setting refTime to `uint64::MAX` is equal to *unlimited weight*
 4. Click **transact**
 5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
-![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-8.webp)
+![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-3.webp)
 
-After the transaction is confirmed, you'll notice that the balance of your account has stayed the same. This is because you have only approved the allowance for the given amount, and the spender hasn't spent the funds. In the next section, you will use the `allowance` function to verify that the spender can spend 1 UNIT token on your behalf.
+After the transaction is confirmed, wait for a few blocks for the transfer to reach the destination chain and reflect the new balance.
 
-### Get Allowance of Spender {: #get-allowance-of-spender }
-
-To check that the spender received the allowance approved in the [Approve a Spend](#approve-a-spend) section, you can:
-
-1. Expand the **allowance** function
-2. Enter your address for the **owner**
-3. Enter the address of the **spender** that you used in the previous section
-4. Click **call**
-
-![Get Allowance of Spender](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-9.webp)
-
-Once the call is complete, the allowance of the spender will be displayed, which should be equivalent to 1 UNIT token (`1000000000000000000`).
-
-### Send Transfer {: #send-transfer }
-
-To send tokens from your account directly to another account, you can call the `transfer` function by following these steps:
-
-1. Expand the **transfer** function
-2. Enter the address to send UNIT tokens to
-3. Enter the amount of UNIT tokens to send. For this example, you can send 1 UNIT token (`1000000000000000000`)
-4. Click **transact**
-5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
-
-![Send Standard Transfer](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-10.webp)
-
-Once the transaction is complete, you can [check your balance](#get-account-balance) using the `balanceOf` function or by looking at MetaMask. You'll notice that your balance has decreased by 1 UNIT token. You can also use the `balanceOf` function to ensure that the recipients balance has increased by 1 UNIT token as expected.
-
-### Send Transfer From Specific Account {: #send-transferfrom }
-
-So far, you have approved an allowance of 1 UNIT token for the spender and sent 1 UNIT token via the standard `transfer` function. The `transferFrom` function varies from the standard `transfer` function as it allows you to define the address to which you want to send the tokens. So you can specify an address with an allowance or your address as long as you have funds. For this example, you will use the spender's account to initiate a transfer of the allowed funds from the owner to the spender. The spender can send the funds to any account, but you can send the funds from the owner to the spender for this example.
-
-First, you need to switch to the spender's account in MetaMask. Once you switch to the spender's account, you'll notice that the selected address in Remix under the **Accounts** tab is now the spender's.
-
-![Switch accounts Remix](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-11.webp)
-
-Next, you can initiate and send the transfer. To do so, take the following steps:
-
-1. Expand the **transferFrom** function
-2. Enter your address as the owner in the **from** field
-3. Enter the recipient address, which should be the spender's address, in the **to** field
-4. Enter the amount of UNIT tokens to send. Again, the spender is currently only allowed to send 1 UNIT token, so enter `1000000000000000000`
-5. Click **transact**
-
-![Send Standard Transfer](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-12.webp)
-
-Once the transaction is complete, you can [check the balance](#get-account-balance) of the owner and spender using the `balanceOf` function. The spender's balance should have increased by 1 UNIT token, and their allowance should now be depleted. To verify that the spender no longer has an allowance, you can call the `allowance` function by passing in the owner and spender's addresses. You should receive a result of 0.
-
-![Zero Allowance](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-13.webp)
-
-And that's it! You've successfully interacted with the ERC-20 precompile using MetaMask and Remix!
 
 --8<-- 'text/_disclaimers/third-party-content.md'
