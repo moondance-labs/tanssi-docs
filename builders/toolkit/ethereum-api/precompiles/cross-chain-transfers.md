@@ -7,22 +7,21 @@ description: Learn how to use the XCM interface Precompile to transfer tokens fr
 
 ## Introduction {: #introduction }
 
-The native XCM ERC-20 precompiled contract on Tanssi EVM appchains allows developers to interact with the native protocol token through an ERC-20 interface. Although your appchain's native token is not an ERC-20 token, now you can interact with it as if it was a vanilla ERC-20.
+As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){target=\_blank} article from the Learn section, Tanssi appchains benefit from an inherent capability to communicate and interoperate with any other appchain in the ecosystem. This native cross-chain communication allows safe and fast token transfers leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
 
-One of the main benefits of this precompile is that it removes the necessity of having a wrapped representation of the protocol token as an ERC-20 smart contract, such as WETH on Ethereum. Furthermore, it minimizes the need for multiple wrapped representations of the same protocol token. Consequently, dApps that need to interact with the protocol token via an ERC-20 interface can do so without needing a separate smart contract.
+The communication protocol enabling token transfers is built on [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank}, and runs on a level that is lower than the EVM's, making it harder for EVM developers.
 
-Under the hood, the [ERC-20 precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} executes specific Substrate actions related to the Substrate balances module, which is coded in Rust. The balances module provides functionality for handling the various types of balances.
+This precompile fills the gap between execution layers, exposing a smart contract that abstracts away the underlying complexities, making the execution of cross-chain token transfers as easy as any other smart contract call.
 
-This guide will show you how to interact with UNIT tokens, the native protocol tokens for Snap appchains on the Tanssi Dancebox TestNet, via the ERC-20 precompile. You can follow along and adapt this guide to interacting with your own appchain.
+This guide will show you how to interact with the [XCM interface](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank} precompile to execute cross-chain token transfers.
 
 The precompile is located at the following address:
 
 ```text
-{{networks.dancebox.precompiles.erc20 }}
+{{networks.dancebox.precompiles.xcmInterface }}
 ```
 
-!!! note
-    There can be some unintended consequences when using precompiles. Tanssi's Native Token ERC-20 Precompile is derived from Moonbeam's, and as such, please familiarize yourself with [Moonbeam's Precompile Security Considerations](https://docs.moonbeam.network/builders/get-started/eth-compare/security){target=\_blank}.
+--8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## The ERC-20 Solidity Interface {: #the-erc20-interface }
 
