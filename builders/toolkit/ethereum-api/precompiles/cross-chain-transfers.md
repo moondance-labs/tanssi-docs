@@ -9,7 +9,7 @@ description: Learn how to use the XCM interface Precompile to transfer tokens fr
 
 As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){target=\_blank} article from the Learn section, Tanssi appchains benefit from an inherent capability to communicate and interoperate with any other appchain in the ecosystem. This native cross-chain communication allows safe and fast token transfers leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
 
-The communication protocol enabling token transfers is built on [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank}, and runs on a level that is lower than the EVM's, making it harder for EVM developers.
+The communication protocol enabling token transfers is built on [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} and runs on a lower level than the EVM, making it harder to access for EVM developers.
 
 This precompile fills the gap between execution layers, exposing a smart contract that abstracts away the underlying complexities, making the execution of cross-chain token transfers as easy as any other smart contract call.
 
@@ -21,20 +21,61 @@ The precompile is located at the following address:
 {{networks.dancebox.precompiles.xcmInterface }}
 ```
 
+Keep in mind that it is still necessary to have previously established communication channels with the destination chain before starting to use this precompile's functionality. To do so, refer to the 
+[Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} guide.
+
 --8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
-## The ERC-20 Solidity Interface {: #the-erc20-interface }
+## The XCM Solidity Interface {: #the-xcm-solidity-interface }
 
-The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM appchains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events a token contract must implement to be interoperable with different applications.
+The [`XCMInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank} interface on Tanssi EVM appchains is a Solidity interface that allows developers to interact with the precompile's functions.
 
-??? code "ERC20.sol"
+??? code "XcmInterface.sol"
 
     ```solidity
-    --8<-- 'code/builders/toolkit/ethereum-api/precompiles/erc20/erc20.sol'
+    --8<-- 'code/builders/toolkit/ethereum-api/precompiles/xcm-interface/XcmInterface.sol'
     ```
 
-!!! note
-    The ERC-20 precompile does not include `deposit` and `withdraw` functions and subsequent events expected from a wrapped token contract, such as WETH.
+The interface includes the necessary data structures along with the following functions:
+
+???+ function "**transferAssetsLocation**(*Location memory* dest, *Location memory* beneficiary, *AssetLocationInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets using the underlying transfer_assets() transaction included in the module called pallet-xcm"
+
+    === "Parameters"
+
+        - `dest` - the destination chain
+        - `beneficiary` - the account in the destination chain that will receive the tokens
+        - `assets` - an array of assets to send
+        - `feeAssetItem` - the index of the asset that will be used to pay fees
+        - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+
+??? function "**transferAssetsToPara20**(*uint32* paraId, *address* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to another EVM-compatible appchain using the underlying transfer_assets() transaction included in the module called pallet-xcm"
+
+    === "Parameters"
+
+        - `paraId` - the destination's appchain ID
+        - `beneficiary` - the ECDSA-type account in the destination chain that will receive the tokens
+        - `assets` - an array of assets to send
+        - `feeAssetItem` - the index of the asset that will be used to pay fees
+        - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+
+??? function "**transferAssetsToPara32**(*uint32* paraId, *bytes32* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to a Substrate appchain using the underlying transfer_assets() transaction included in the module called pallet-xcm"
+
+    === "Parameters"
+
+        - `paraId` - the destination's appchain ID
+        - `beneficiary` - the Substrate's sr25519-type account in the destination chain that will receive the tokens
+        - `assets` - an array of assets to send
+        - `feeAssetItem` - the index of the asset that will be used to pay fees
+        - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+
+??? function "**transferAssetsToRelay**(*bytes32* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to the relay chain using the underlying transfer_assets() transaction included in the module called pallet-xcm"
+
+    === "Parameters"
+
+        - `beneficiary` - the Substrate's sr25519-type account in the relay chain that will receive the tokens
+        - `assets` - an array of assets to send
+        - `feeAssetItem` - the index of the asset that will be used to pay fees
+        - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
 ## Interact with the Solidity Interface {: #interact-with-the-solidity-interface }
 
