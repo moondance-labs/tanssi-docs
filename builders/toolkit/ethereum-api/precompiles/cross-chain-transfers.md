@@ -83,61 +83,37 @@ The interface includes the necessary data structures along with the following fu
 
 To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
-### Add Token to MetaMask {: #add-token-to-metamask }
-
-If you want to interact with your appchain's native token like you would with an ERC-20 in MetaMask, you can add a custom token to your wallet using the precompile address.
-
-To get started, open up MetaMask and make sure you are [connected to your appchain](/builders/toolkit/ethereum-api/wallets/metamask/) and:
-
-1. Switch to the **Assets** tab
-2. Click on **Import tokens**
-
-![Import Tokens from Assets Tab in MetaMask](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-1.webp)
-
-Now, you can create a custom token:
-
-1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM appchains is `18`, the same as Ethereum's token decimals
-2. Click **Next**
-
-![Add Custom Token](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-2.webp)
-
-MetaMask will prompt you to confirm the import. You can review the token details and click **Import Tokens** to import UNIT tokens into your wallet.
-
-![Confirm and Import Tokens](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-3.webp)
-
-And that's it! You've successfully added the UNIT token as a custom ERC-20 token on your Tanssi EVM appchain.
-
 ### Remix Set Up {: #remix-set-up }
 
-You can interact with the ERC-20 precompile using [Remix](https://remix.ethereum.org){target=\_blank}. To add the precompile to Remix, you will need to:
+You can interact with the XCM interface precompile using [Remix](https://remix.ethereum.org){target=\_blank}. To add the precompile to Remix, you will need to:
 
-1. Get a copy of [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank}
-2. Paste the file contents into a Remix file named `IERC20.sol`
+1. Get a copy of [`XcmInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank}
+2. Paste the file contents into a Remix file named `XcmInterface.sol`
 
 ### Compile the Contract {: #compile-the-contract }
 
 Next, you will need to compile the interface in Remix:
 
 1. Click on the **Compile** tab, second from top
-2. Compile the interface by clicking on **Compile IERC20.sol**
+2. Compile the interface by clicking on **Compile XcmInterface.sol**
 
-![Compiling IERC20.sol](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-4.webp)
+![Compiling XcmInterface.sol](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-1.webp)
 
-When compilation is completed, you will see a green checkmark next to the **Compile** tab.
+When the compilation is completed, you will see a green checkmark next to the **Compile** tab.
 
 ### Access the Contract {: #access-the-contract }
 
-Instead of deploying the ERC-20 precompile, you will access the interface given the address of the precompiled contract:
+Instead of deploying the precompile, you will access the interface given the address of the precompiled contract:
 
 1. Click on the **Deploy and Run** tab directly below the **Compile** tab in Remix. Please note that the precompiled contracts are already accessible at their respective addresses. Therefore, there is no deployment step
-2. Make sure **Injected Web3** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Web3**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
+2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Provider - Metamask**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
-4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the ERC-20 precompile: `{{networks.dancebox.precompiles.erc20}}` and click **At Address**
+4. Ensure **XCM - XcmInterface.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
+5. Provide the address of the precompile: `{{networks.dancebox.precompiles.xcmInterface}}` and click **At Address**
 
-![Access the address](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-5.webp)
+![Access the address](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-2.webp)
 
-The **IERC20** precompile will appear in the list of **Deployed Contracts**.
+The **XCM Interface** precompile will appear in the list of **Deployed Contracts**.
 
 ### Get Basic Token Information {: #get-basic-token-information }
 
