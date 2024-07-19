@@ -21,9 +21,6 @@ The precompile is located at the following address:
 {{networks.dancebox.precompiles.xcmInterface }}
 ```
 
-Keep in mind that it is still necessary to have previously established communication channels with the destination chain before starting to use this precompile's functionality. To do so, refer to the 
-[Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} guide.
-
 --8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## The XCM Solidity Interface {: #the-xcm-solidity-interface }
@@ -41,12 +38,18 @@ The interface includes the necessary data structures along with the following fu
 ???+ function "**transferAssetsLocation**(*Location memory* dest, *Location memory* beneficiary, *AssetLocationInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets using the underlying transfer_assets() transaction included in the module called pallet-xcm"
 
     === "Parameters"
-
         - `dest` - the destination chain
         - `beneficiary` - the account in the destination chain that will receive the tokens
         - `assets` - an array of assets to send
         - `feeAssetItem` - the index of the asset that will be used to pay fees
         - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+
+    === "Example"
+        - `dest` - ["1",[]]
+        - `beneficiary` - [0, ["0x01f831d83025f527daeed39a644d64d335a4e627b5f4becc78fb67f05976889a0600"]]
+        - `assets` - [[[1, ["0x010000000000000000000000000000000000000800"]], 1000000000000000000]]
+        - `feeAssetItem` - 0
+        - `weight` - [9223372036854775807, 9223372036854775807]
 
 ??? function "**transferAssetsToPara20**(*uint32* paraId, *address* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to another EVM-compatible appchain using the underlying transfer_assets() transaction included in the module called pallet-xcm"
 
@@ -58,6 +61,14 @@ The interface includes the necessary data structures along with the following fu
         - `feeAssetItem` - the index of the asset that will be used to pay fees
         - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
+    === "Example"
+
+        - `paraId` - 888
+        - `beneficiary` - 0x3f0Aef9Bd799F1291b80376aD57530D353ab0217
+        - `assets` - [["0x0000000000000000000000000000000000000800", 1000000000000000000]]
+        - `feeAssetItem` - 0
+        - `weight` - [9223372036854775807, 9223372036854775807]
+
 ??? function "**transferAssetsToPara32**(*uint32* paraId, *bytes32* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to a Substrate appchain using the underlying transfer_assets() transaction included in the module called pallet-xcm"
 
     === "Parameters"
@@ -68,6 +79,14 @@ The interface includes the necessary data structures along with the following fu
         - `feeAssetItem` - the index of the asset that will be used to pay fees
         - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
+    === "Example"
+
+        - `paraId` - 888
+        - `beneficiary` - 0xf831d83025f527daeed39a644d64d335a4e627b5f4becc78fb67f05976889a06
+        - `assets` - [["0x0000000000000000000000000000000000000800", 1000000000000000000]]
+        - `feeAssetItem` - 0
+        - `weight` - [9223372036854775807, 9223372036854775807]
+
 ??? function "**transferAssetsToRelay**(*bytes32* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to the relay chain using the underlying transfer_assets() transaction included in the module called pallet-xcm"
 
     === "Parameters"
@@ -77,13 +96,22 @@ The interface includes the necessary data structures along with the following fu
         - `feeAssetItem` - the index of the asset that will be used to pay fees
         - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
+    === "Example"
+
+        - `beneficiary` - 0xf831d83025f527daeed39a644d64d335a4e627b5f4becc78fb67f05976889a06
+        - `assets` - [["0x0000000000000000000000000000000000000800", 1000000000000000000]]
+        - `feeAssetItem` - 0
+        - `weight` - [9223372036854775807, 9223372036854775807]
+    
 ## Interact with the Solidity Interface {: #interact-with-the-solidity-interface }
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
 To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
-You will also need to have an open communication channel with the destination chain and, if the token being transferred is native to your appchain, the destination chain will need to have registered the foreign asset.
+!!! note
+    It is necessary to have previously established communication channels with the destination chain before starting to use this precompile's functionality. To do so, refer to the [Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} guide.
+    Also, if the token being transferred is native to your appchain, the destination chain will need to have the foreign asset registered.
 
 ### Remix Set Up {: #remix-set-up }
 
@@ -117,7 +145,7 @@ Instead of deploying the precompile, you will access the interface given the add
 
 The **XCM Interface** precompile will appear in the list of **Deployed Contracts**.
 
-### Send Tokens Over to Another EVM-compatible Appchain {: #sent-to-evm-chains }
+### Send Tokens Over to Another EVM-compatible Appchain {: #transfer-to-evm-chains }
 
 To send tokens over to an account in another EVM-compatible appchain, please follow these steps:
 
@@ -125,12 +153,79 @@ To send tokens over to an account in another EVM-compatible appchain, please fol
 2. Enter the appchain ID (paraId)
 3. Enter the ECDSA destination account (beneficiary)
 4. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset. Each asset is specified by its address and the total amount to transfer
+
+    !!! note
+        Tokens are specified by their ERC-20 address. In case the token you want to transfer is the appchain's native one, the [Native Token ERC-20 Precompile](/builders/toolkit/ethereum-api/precompiles/erc20/){target=\_blank} will be helpful to reference it through an ERC-20 interface.
+
 5. Enter the index of the asset that will be used to pay the fees. This index is zero-based, so the first element defined in the fourth step is `0`, the second is `1`, and so on 
-2. Enter the maximum gas to pay for the transaction. This gas is derived from two parameters, the processing time (refTime) and the proof size (proofSize). In practice, setting refTime to `uint64::MAX` is equal to *unlimited weight*
-4. Click **transact**
-5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
+6. Enter the maximum gas to pay for the transaction. This gas is derived from two parameters, the processing time (refTime) and the proof size (proofSize). In practice, setting refTime to `uint64::MAX` is equal to *unlimited weight*
+7. Click **transact**
+8. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
 ![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-3.webp)
+
+After the transaction is confirmed, wait for a few blocks for the transfer to reach the destination chain and reflect the new balance.
+
+### Send Tokens Over to a Substrate Appchain {: #transfer-to-substrate-chains }
+
+To send tokens over to an account in a Substrate appchain, please follow these steps:
+
+1. Expand the **transferAssetsToPara32** function
+2. Enter the appchain ID (paraId)
+3. Enter the sr25519-type destination account (beneficiary)
+4. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset. Each asset is specified by its address and the total amount to transfer
+    
+    !!! note
+        Tokens are specified by their ERC-20 address. In case the token you want to transfer is the appchain's native one, the [Native Token ERC-20 Precompile](/builders/toolkit/ethereum-api/precompiles/erc20/){target=\_blank} will be helpful to reference it through an ERC-20 interface.
+
+5. Enter the index of the asset that will be used to pay the fees. This index is zero-based, so the first element defined in the fourth step is `0`, the second is `1`, and so on 
+6. Enter the maximum gas to pay for the transaction. This gas is derived from two parameters, the processing time (refTime) and the proof size (proofSize). In practice, setting refTime to `uint64::MAX` is equal to *unlimited weight*
+7. Click **transact**
+8. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
+
+![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-4.webp)
+
+After the transaction is confirmed, wait for a few blocks for the transfer to reach the destination chain and reflect the new balance.
+
+### Send Tokens Over to the Relay Chain {: #transfer-to-relay-chain }
+
+To send tokens over to an account in the relay chain, please follow these steps:
+
+1. Expand the **transferAssetsToRelay** function
+2. Enter the sr25519-type destination account (beneficiary)
+3. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset. Each asset is specified by its address and the total amount to transfer
+    
+    !!! note
+        Tokens are specified by their ERC-20 address. In case the token you want to transfer is the appchain's native one, the [Native Token ERC-20 Precompile](/builders/toolkit/ethereum-api/precompiles/erc20/){target=\_blank} will be helpful to reference it through an ERC-20 interface.
+
+4. Enter the index of the asset that will be used to pay the fees. This index is zero-based, so the first element defined in the fourth step is `0`, the second is `1`, and so on 
+5. Enter the maximum gas to pay for the transaction. This gas is derived from two parameters, the processing time (refTime) and the proof size (proofSize). In practice, setting refTime to `uint64::MAX` is equal to *unlimited weight*
+6. Click **transact**
+7. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
+
+![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-5.webp)
+
+After the transaction is confirmed, wait for a few blocks for the transfer to reach the destination chain and reflect the new balance.
+
+### Send Tokens Over Specifying Locations {: #transfer-locations }
+
+This function is more general than the others, allowing the destination chain, destination account, and assets to be specified using [XCM Multilocations](/learn/framework/xcm/#message-destinations){target=\_blank}.
+To send tokens specifying locations, please follow these steps:
+
+1. Expand the **transferAssetsLocation** function
+2. Enter the Multilocation that specifies the destination chain. Note that any chain can be specified, regardless of its configuration or type
+3. Enter the Multilocation that specifies the destination account. Note that any account can be specified, regardless of its type (ECDSA, sr25519, or any other)
+4. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset and each asset is specified by its Multilocation and the total amount to transfer
+    
+    !!! note
+        Tokens are specified by their ERC-20 address. In case the token you want to transfer is the appchain's native one, the [Native Token ERC-20 Precompile](/builders/toolkit/ethereum-api/precompiles/erc20/){target=\_blank} will be helpful to reference it through an ERC-20 interface.
+
+5. Enter the index of the asset that will be used to pay the fees. This index is zero-based, so the first element defined in the fourth step is `0`, the second is `1`, and so on 
+6. Enter the maximum gas to pay for the transaction. This gas is derived from two parameters, the processing time (refTime) and the proof size (proofSize). In practice, setting refTime to `uint64::MAX` is equal to *unlimited weight*
+7. Click **transact**
+8. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
+
+![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-6.webp)
 
 After the transaction is confirmed, wait for a few blocks for the transfer to reach the destination chain and reflect the new balance.
 
