@@ -7,7 +7,7 @@ description: Learn about the supported JSON-RPC API methods for querying your Ta
 
 ## Custom JSON-RPC Methods {: #custom-json-rpc-methods }
 
-Tanssi nodes include support for two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and `frnt_isTxFinalized`. Tanssi features deterministic finality (as opposed to probalistic like Bitcoin's finality), which means that at any point of time, the answer to whether a block or transaction is finalized or not can be answered with a definitive `yes` or `no`. Tanssi has built these two custom endpoints to provide valuable functionality for checking the finality of on-chain events.
+Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and `frnt_isTxFinalized`. Tanssi features deterministic finality (as opposed to probabilisticlike Bitcoin's finality), which means that at any point of time, the answer to whether a block or transaction is finalized or not can be answered with a definitive `yes` or `no`. Tanssi has built these two custom endpoints to provide valuable functionality for checking the finality of on-chain events.
 
 ???+ function "frnt_isBlockFinalized"
 
