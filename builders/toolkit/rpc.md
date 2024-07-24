@@ -57,7 +57,7 @@ Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and 
 
 ## Standard Ethereum JSON-RPC Methods {: #standard-rpc-methods }
 
-As Tanssi's EVM Compatibility is derived from Frontier and closely modeled after Moonbeam's Ethereum compatibility, Tanssi nodes support a wide variety of standard supported Ethereum JSON-RPC methods.
+As Tanssi's EVM Compatibility is derived from [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} and closely modeled after Moonbeam's Ethereum compatibility, Tanssi nodes support a wide variety of standard supported Ethereum JSON-RPC methods.
 
 Nevertheless, not all Ethereum JSON-RPC methods are supported; some of those supported return default values (those related to Ethereum's PoW consensus mechanism in particular). This guide provides a comprehensive list of supported Ethereum JSON-RPC methods on Tanssi. Developers can quickly reference this list to understand the available functionality for interfacing with Tanssi EVM Appchains.
 
