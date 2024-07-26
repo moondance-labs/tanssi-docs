@@ -1,6 +1,6 @@
 ---
 title: Native Cross-Chain Token Transfers
-description: Learn how to use the XCM interface Precompile to transfer tokens from any Tanssi EVM appchain, leveraging their inherent native cross-chain capabilities.
+description: Learn how to use the XCM interface precompile to transfer tokens from any Tanssi EVM appchain, leveraging their inherent native cross-chain capabilities.
 ---
 
 # Native Cross-Chain Token Transfers
@@ -11,11 +11,11 @@ As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){ta
 
 The communication protocol enabling token transfers is built on [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} and runs on a lower level than the EVM, making it harder for EVM developers to access.
 
-This precompile fills the gap between execution layers, exposing a smart contract that abstracts away the underlying complexities, making the execution of cross-chain token transfers as easy as any other smart contract call.
+Nevertheless, EVM Appchains have an XCM precompile that fills the gap between execution layers, exposing a smart contract interface that abstracts away the underlying complexities, making the execution of cross-chain token transfers as easy as any other smart contract call.
 
-This guide will show you how to interact with the [XCM interface](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank} precompile to execute cross-chain token transfers.
+This guide will show you how to interact with the [XCM interface](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank} precompile to execute cross-chain token transfers through the Ethereum API.
 
-The precompile is located at the following address:
+The XCM precompile is located at the following address:
 
 ```text
 {{networks.dancebox.precompiles.xcmInterface }}
@@ -35,7 +35,7 @@ The [`XCMInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/te
 
 The interface includes the necessary data structures along with the following functions:
 
-???+ function "**transferAssetsToPara20**(*uint32* paraId, *address* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to another EVM-compatible appchain using the underlying transfer_assets() transaction included in the module called pallet-xcm"
+???+ function "**transferAssetsToPara20**(*uint32* paraId, *address* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to another EVM-compatible appchain using the underlying transfer_assets() transaction included in the pallet-xcm module"
 
     === "Parameters"
 
@@ -58,7 +58,7 @@ The interface includes the necessary data structures along with the following fu
     === "Parameters"
 
         - `paraId` - the destination's appchain ID
-        - `beneficiary` - the Substrate's sr25519-type account in the destination chain that will receive the tokens
+        - `beneficiary` - the Substrate's SR25519-type account in the destination chain that will receive the tokens
         - `assets` - an array of assets to send
         - `feeAssetItem` - the index of the asset that will be used to pay fees
         - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
@@ -145,19 +145,19 @@ Instead of deploying the precompile, you will access the interface given the add
 
 The **XCM Interface** precompile will appear in the list of **Deployed Contracts**.
 
-### Send Tokens Over to Another EVM-compatible Appchain {: #transfer-to-evm-chains }
+### Send Tokens Over to Another EVM-Compatible Appchain {: #transfer-to-evm-chains }
 
 To send tokens over to an account in another EVM-compatible appchain, please follow these steps:
 
 1. Expand the **transferAssetsToPara20** function
 2. Enter the appchain ID (paraId)
-3. Enter the ECDSA destination account (beneficiary)
+3. Enter the 20-bytes (Ethereum-like) destination account (beneficiary)
 4. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset. Each asset is specified by its address and the total amount to transfer
 
 --8<-- 'text/builders/toolkit/ethereum-api/precompiles/xcm-interface/erc-20-note.md'
 
 5. Enter the index of the asset that will be used to pay the fees. This index is zero-based, so the first element is `0`, the second is `1`, and so on 
-6. Enter the maximum gas to pay for the transaction. This gas is derived from two parameters, the processing time (refTime) and the proof size (proofSize). In practice, setting refTime to `uint64::MAX` is equal to *unlimited weight*
+6. Enter the maximum gas to pay for the transaction. This gas is derived from two parameters, the processing time (`refTime`) and the proof size (`proofSize`). In practice, setting refTime to `uint64::MAX` is equal to *unlimited weight*
 7. Click **transact**
 8. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
@@ -170,7 +170,7 @@ After the transaction is confirmed, wait for a few blocks for the transfer to re
 To send tokens over to an account in a Substrate appchain, please follow these steps:
 
 1. Expand the **transferAssetsToPara32** function
-2. Enter the appchain ID (paraId)
+2. Enter the appchain ID (`paraId`)
 3. Enter the sr25519-type destination account (beneficiary)
 4. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset. Each asset is specified by its address and the total amount to transfer
     
@@ -204,7 +204,7 @@ To send tokens over to an account in the relay chain, please follow these steps:
 
 After the transaction is confirmed, wait for a few blocks for the transfer to reach the destination chain and reflect the new balance.
 
-### Send Tokens Over Specifying Locations {: #transfer-locations }
+### Send Tokens Over Specific Locations {: #transfer-locations }
 
 This function is more general than the others, allowing the destination chain, destination account, and assets to be specified using [XCM Multilocations](/learn/framework/xcm/#message-destinations){target=\_blank}.
 To send tokens specifying locations, please follow these steps:
@@ -224,6 +224,5 @@ To send tokens specifying locations, please follow these steps:
 ![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-6.webp)
 
 After the transaction is confirmed, wait for a few blocks for the transfer to reach the destination chain and reflect the new balance.
-
 
 --8<-- 'text/_disclaimers/third-party-content.md'
