@@ -206,11 +206,11 @@ After the transaction is confirmed, wait for a few blocks for the transfer to re
 
 ### Send Tokens Over Specifying Locations {: #transfer-locations }
 
-This function is more general than the others, allowing the destination chain, destination account, and assets to be specified using [XCM Multilocations](/learn/framework/xcm/#message-destinations){target=\_blank}.
-To send tokens specifying locations, please follow these steps:
+This function is more generic than the others, allowing the destination chain, destination account, and assets to be specified using [XCM Multilocations](/learn/framework/xcm/#message-destinations){target=\_blank}.
+To send tokens to specific locations, please follow these steps:
 
 1. Expand the **transferAssetsLocation** function
-2. Enter the Multilocation that specifies the destination chain. Note that any chain can be specified, regardless of its configuration or type
+2. Enter the multilocation that specifies the destination chain. Note that any chain can be specified, regardless of its configuration or type
 3. Enter the Multilocation that specifies the destination account. Note that any account can be specified, regardless of its type (ECDSA, sr25519, or any other)
 4. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset and each asset is specified by its Multilocation and the total amount to transfer
     
@@ -224,6 +224,5 @@ To send tokens specifying locations, please follow these steps:
 ![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-6.webp)
 
 After the transaction is confirmed, wait for a few blocks for the transfer to reach the destination chain and reflect the new balance.
-
 
 --8<-- 'text/_disclaimers/third-party-content.md'
