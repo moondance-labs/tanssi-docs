@@ -35,15 +35,15 @@ The [`XCMInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/te
 
 The interface includes the necessary data structures along with the following functions:
 
-???+ function "**transferAssetsToPara20**(*uint32* paraId, *address* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to another EVM-compatible appchain using the underlying transfer_assets() transaction included in the pallet-xcm module"
+???+ function "**transferAssetsToPara20**(_paraId, beneficiary, assets, feeAssetItem, weight_) — sends assets to another EVM-compatible appchain using the underlying `transfer_assets()` transaction included in the XCM pallet module"
 
     === "Parameters"
 
-        - `paraId` - the destination's appchain ID
-        - `beneficiary` - the ECDSA-type account in the destination chain that will receive the tokens
-        - `assets` - an array of assets to send
-        - `feeAssetItem` - the index of the asset that will be used to pay fees
-        - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+        - `paraId` (uint32) - the destination's appchain ID
+        - `beneficiary` (address) - the ECDSA-type account in the destination chain that will receive the tokens
+        - `assets` (`AssetAddressInfo[]` memory) - an array of assets to send
+        - `feeAssetItem` (uint32) - the index of the asset that will be used to pay fees
+        - `weight` (Weight memory)- the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
     === "Example"
 
@@ -53,15 +53,15 @@ The interface includes the necessary data structures along with the following fu
         - `feeAssetItem` - 0
         - `weight` - [9223372036854775807, 9223372036854775807]
 
-??? function "**transferAssetsToPara32**(*uint32* paraId, *bytes32* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to a Substrate appchain using the underlying transfer_assets() transaction included in the module called pallet-xcm"
+??? function "**transferAssetsToPara32**(_paraId, beneficiary, assets,feeAssetItem, weight_) — sends assets to a Substrate appchain using the underlying `transfer_assets()` transaction included in the XCM pallet module"
 
     === "Parameters"
 
-        - `paraId` - the destination's appchain ID
-        - `beneficiary` - the Substrate's SR25519-type account in the destination chain that will receive the tokens
-        - `assets` - an array of assets to send
-        - `feeAssetItem` - the index of the asset that will be used to pay fees
-        - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+        - `paraId` (uint32) - the destination's appchain ID
+        - `beneficiary` (bytes32) - the Substrate's SR25519-type account in the destination chain that will receive the tokens
+        - `assets` (`AssetAddressInfo[]` memory) - an array of assets to send
+        - `feeAssetItem` (uint32) - the index of the asset that will be used to pay fees
+        - `weight` (Weight memory) - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
     === "Example"
 
@@ -71,14 +71,14 @@ The interface includes the necessary data structures along with the following fu
         - `feeAssetItem` - 0
         - `weight` - [9223372036854775807, 9223372036854775807]
 
-??? function "**transferAssetsToRelay**(*bytes32* beneficiary, *AssetAddressInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets to the relay chain using the underlying transfer_assets() transaction included in the module called pallet-xcm"
+??? function "**transferAssetsToRelay**(_beneficiary, assets, feeAssetItem, weight_) — sends assets to the relay chain using the underlying `transfer_assets()` transaction included in the XCM pallet module"
 
     === "Parameters"
 
-        - `beneficiary` - the Substrate's sr25519-type account in the relay chain that will receive the tokens
-        - `assets` - an array of assets to send
-        - `feeAssetItem` - the index of the asset that will be used to pay fees
-        - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+        - `beneficiary` (bytes32) - the Substrate's sr25519-type account in the relay chain that will receive the tokens
+        - `assets` (`AssetAddressInfo[]` memory) - an array of assets to send
+        - `feeAssetItem` (uint32) - the index of the asset that will be used to pay fees
+        - `weight` (Weight memory) - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
     === "Example"
 
@@ -87,14 +87,14 @@ The interface includes the necessary data structures along with the following fu
         - `feeAssetItem` - 0
         - `weight` - [9223372036854775807, 9223372036854775807]
 
-??? function "**transferAssetsLocation**(*Location memory* dest, *Location memory* beneficiary, *AssetLocationInfo[] memory* assets, *uint32* feeAssetItem, *Weight memory* weight) — sends assets using the underlying transfer_assets() transaction included in the module called pallet-xcm"
+??? function "**transferAssetsLocation**(_dest, beneficiary, assets, feeAssetItem, weight_) — sends assets using the underlying `transfer_assets()` transaction included in the XCM pallet module"
 
     === "Parameters"
-        - `dest` - the destination chain
-        - `beneficiary` - the account in the destination chain that will receive the tokens
-        - `assets` - an array of assets to send
-        - `feeAssetItem` - the index of the asset that will be used to pay fees
-        - `weight` - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+        - `dest` (Location memory) - the destination chain
+        - `beneficiary` (Location memory) - the account in the destination chain that will receive the tokens
+        - `assets` (`AssetLocationInfo[]` memory) - an array of assets to send
+        - `feeAssetItem` (uint32) - the index of the asset that will be used to pay fees
+        - `weight` (Weight memory) - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
     === "Example"
         - `dest` - ["1",[]]
