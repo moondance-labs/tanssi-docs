@@ -5,3 +5,4 @@ nav:
   - ethereum-api
   - substrate-api
   - integrations
+  - rpc.md
