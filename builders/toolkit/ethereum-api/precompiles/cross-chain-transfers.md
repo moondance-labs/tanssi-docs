@@ -18,7 +18,7 @@ This guide will show you how to interact with the [XCM Interface](https://github
 The XCM precompile is located at the following address:
 
 ```text
-{{networks.dancebox.precompiles.xcmInterface }}
+{{networks.dancebox.precompiles.xcm_interface }}
 ```
 
 --8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
