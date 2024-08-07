@@ -22,8 +22,7 @@ The precompile is located at the following address:
 {{networks.dancebox.precompiles.erc20 }}
 ```
 
-!!! note
-    There can be some unintended consequences when using precompiles. Tanssi's Native Token ERC-20 Precompile is derived from Moonbeam's, and as such, please familiarize yourself with [Moonbeam's Precompile Security Considerations](https://docs.moonbeam.network/builders/get-started/eth-compare/security){target=\_blank}.
+--8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## The ERC-20 Solidity Interface {: #the-erc20-interface }
 

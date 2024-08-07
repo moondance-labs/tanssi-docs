@@ -20,8 +20,7 @@ The Call Permit Precompile is located at the following address:
 {{ networks.dancebox.precompiles.call_permit }}
 ```
 
-!!! note
-    There can be some unintended consequences when using precompiles. Tanssi's Call Permit Precompile is derived from Moonbeam's, and as such, please familiarize yourself with [Moonbeam's Precompile Security Considerations](https://docs.moonbeam.network/builders/get-started/eth-compare/security/){target=\_blank}. 
+--8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## The Call Permit Solidity Interface {: #the-call-permit-interface }
 
