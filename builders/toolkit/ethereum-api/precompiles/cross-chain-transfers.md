@@ -27,7 +27,7 @@ The XCM precompile is located at the following address:
 
 The [`XCMInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank} interface on Tanssi EVM appchains is a Solidity interface that allows developers to interact with the precompile's functions.
 
-??? code "XcmInterface.sol"
+??? code "XCMInterface.sol"
 
     ```solidity
     --8<-- 'code/builders/toolkit/ethereum-api/precompiles/xcm-interface/XcmInterface.sol'
