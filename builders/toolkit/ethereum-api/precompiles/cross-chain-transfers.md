@@ -117,7 +117,7 @@ To follow along with this tutorial, you will need to have your wallet configured
 
 You can interact with the XCM Interface precompile using [Remix](https://remix.ethereum.org){target=\_blank}. To add the precompile to Remix, you will need to:
 
-1. Get a copy of [`XcmInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank}
+1. Get a copy of [`XCMInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank}
 2. Paste the file contents into a Remix file named `XcmInterface.sol`
 
 ### Compile the Contract {: #compile-the-contract }
@@ -125,7 +125,7 @@ You can interact with the XCM Interface precompile using [Remix](https://remix.e
 Next, you will need to compile the interface in Remix:
 
 1. Click on the **Compile** tab, second from top
-2. Compile the interface by clicking on **Compile XcmInterface.sol**
+2. Compile the interface by clicking on **Compile XCMInterface.sol**
 
 ![Compiling XcmInterface.sol](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-1.webp)
 
@@ -138,7 +138,7 @@ Instead of deploying the precompile, you will access the interface given the add
 1. Click on the **Deploy and Run** tab directly below the **Compile** tab in Remix. Please note that the precompiled contracts are already accessible at their respective addresses. Therefore, there is no deployment step
 2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Provider - Metamask**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
-4. Ensure **XCM - XcmInterface.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
+4. Ensure **XCM - XCMInterface.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
 5. Provide the address of the precompile: `{{networks.dancebox.precompiles.xcm_interface}}` and click **At Address**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-2.webp)
