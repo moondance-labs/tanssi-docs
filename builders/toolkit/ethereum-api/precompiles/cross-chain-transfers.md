@@ -39,11 +39,11 @@ The interface includes the necessary data structures along with the following fu
 
     === "Parameters"
 
-        - `paraId` (uint32) - the destination's appchain ID
-        - `beneficiary` (address) - the ECDSA-type account in the destination chain that will receive the tokens
-        - `assets` (`AssetAddressInfo[]` memory) - an array of assets to send
-        - `feeAssetItem` (uint32) - the index of the asset that will be used to pay fees
-        - `weight` (Weight memory)- the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+        - `paraId` ++"uint32"++ - the destination's appchain ID
+        - `beneficiary` ++"address"++ - the ECDSA-type account in the destination chain that will receive the tokens
+        - `assets` ++"AssetAddressInfo[] memory"++ - an array of assets to send
+        - `feeAssetItem` ++"uint32"++ - the index of the asset that will be used to pay fees
+        - `weight` ++"Weight memory"++- the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
     === "Example"
 
@@ -57,11 +57,11 @@ The interface includes the necessary data structures along with the following fu
 
     === "Parameters"
 
-        - `paraId` (uint32) - the destination's appchain ID
-        - `beneficiary` (bytes32) - the Substrate's SR25519-type account in the destination chain that will receive the tokens
-        - `assets` (`AssetAddressInfo[]` memory) - an array of assets to send
-        - `feeAssetItem` (uint32) - the index of the asset that will be used to pay fees
-        - `weight` (Weight memory) - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+        - `paraId` ++"uint32"++ - the destination's appchain ID
+        - `beneficiary` ++"bytes32"++ - the Substrate's SR25519-type account in the destination chain that will receive the tokens
+        - `assets` ++"AssetAddressInfo[] memory"++ - an array of assets to send
+        - `feeAssetItem` ++"uint32"++ - the index of the asset that will be used to pay fees
+        - `weight` ++"Weight memory"++ - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
     === "Example"
 
@@ -75,10 +75,10 @@ The interface includes the necessary data structures along with the following fu
 
     === "Parameters"
 
-        - `beneficiary` (bytes32) - the Substrate's sr25519-type account in the relay chain that will receive the tokens
-        - `assets` (`AssetAddressInfo[]` memory) - an array of assets to send
-        - `feeAssetItem` (uint32) - the index of the asset that will be used to pay fees
-        - `weight` (Weight memory) - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+        - `beneficiary` ++"bytes32"++ - the Substrate's sr25519-type account in the relay chain that will receive the tokens
+        - `assets` ++"AssetAddressInfo[] memory"++ - an array of assets to send
+        - `feeAssetItem` ++"uint32"++ - the index of the asset that will be used to pay fees
+        - `weight` ++"Weight memory"++ - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
     === "Example"
 
@@ -90,11 +90,11 @@ The interface includes the necessary data structures along with the following fu
 ??? function "**transferAssetsLocation**(_dest, beneficiary, assets, feeAssetItem, weight_) — sends assets using the underlying `transfer_assets()` transaction included in the XCM pallet module"
 
     === "Parameters"
-        - `dest` (Location memory) - the destination chain
-        - `beneficiary` (Location memory) - the account in the destination chain that will receive the tokens
-        - `assets` (`AssetLocationInfo[]` memory) - an array of assets to send
-        - `feeAssetItem` (uint32) - the index of the asset that will be used to pay fees
-        - `weight` (Weight memory) - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
+        - `dest` ++"Location memory"++ - the destination chain
+        - `beneficiary` ++"Location memory"++ - the account in the destination chain that will receive the tokens
+        - `assets` ++"AssetLocationInfo[] memory"++ - an array of assets to send
+        - `feeAssetItem` ++"uint32"++ - the index of the asset that will be used to pay fees
+        - `weight` ++"Weight memory"++ - the maximum gas to use in the whole operation. Setting uint64::MAX to `refTime` acts in practice as *unlimited weight*
 
     === "Example"
         - `dest` - ["1",[]]
