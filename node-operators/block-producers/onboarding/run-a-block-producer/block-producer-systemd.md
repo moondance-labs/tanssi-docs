@@ -83,7 +83,7 @@ mv ./tanssi-node /var/lib/tanssi-data
 --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-intro.md'
 
 ```bash
-/var/lib/tanssi-data key generate-node-key --file /var/lib/tanssi-data/node-key
+/var/lib/tanssi-data/tanssi-node key generate-node-key --file /var/lib/tanssi-data/node-key
 ```
 
 --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-unsafe-note.md'
