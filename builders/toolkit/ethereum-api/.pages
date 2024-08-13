@@ -6,3 +6,4 @@ nav:
   - libraries
   - dev-env
   - precompiles
+  - 'JSON-RPC Methods' : 'rpc.md'
