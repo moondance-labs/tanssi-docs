@@ -78,17 +78,15 @@ Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and 
         }' {{ networks.dancebox.rpc_url }}
         ```
 
-???+ function "frnt_isTxFinalized"
-
-    Checks for the finality of a transaction given its EVM transaction hash.
+???+ function "frnt_isTxFinalized - checks for the finality of a transaction given its EVM transaction hash"
 
     === "Parameters"
 
-        - `tx_hash` *string* - the EVM transaction hash of the transaction 
+        - `tx_hash` ++"string"++ - the EVM transaction hash of the transaction 
 
     === "Returns"
 
-        Returns a boolean: `true` if the transaction is finalized, `false` if the transaction is not finalized or not found.
+        ++"boolean"++ - `true` if the transaction is finalized, `false` if the transaction is not finalized or not found
 
     === "Example"
 
