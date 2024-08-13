@@ -1,6 +1,6 @@
 ---
 title: JSON-RPC API Methods
-description: Learn about the supported JSON-RPC API methods for querying your Tanssi EVM appchain, including standard Ethereum methods and Custom methods unique to Tanssi.
+description: Learn about the supported JSON-RPC API methods for querying your Tanssi EVM appchain, including standard Ethereum methods and custom methods unique to Tanssi.
 ---
 
 # JSON-RPC API Methods
