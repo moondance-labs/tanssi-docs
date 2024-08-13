@@ -55,17 +55,15 @@ The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 
 Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and `frnt_isTxFinalized`. Tanssi features deterministic finality (as opposed to probabilistic like Bitcoin's finality), which means that at any point of time, the answer to whether a block or transaction is finalized or not can be answered with a definitive yes or no. Tanssi has built these two custom endpoints to provide valuable functionality for checking the finality of on-chain events.
 
-???+ function "frnt_isBlockFinalized"
-
-    Checks for the finality of the block given by its block hash.
+???+ function "frnt_isBlockFinalized - checks for the finality of the block given by its block hash"
 
     === "Parameters"
 
-        - `block_hash` *string* - the hash of the block, accepts either Substrate-style or Ethereum-style block hash as its input
+        - `block_hash` ++"string"++ - the hash of the block, accepts either Substrate-style or Ethereum-style block hash as its input
 
     === "Returns"
 
-        Returns a boolean: `true` if the block is finalized, `false` if the block is not finalized or not found.
+        ++"boolean"++ - `true` if the block is finalized, `false` if the block is not finalized or not found
 
     === "Example"
 
