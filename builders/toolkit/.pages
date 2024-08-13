@@ -5,4 +5,4 @@ nav:
   - ethereum-api
   - substrate-api
   - integrations
-  - rpc.md
+  - 'JSON-RPC Methods' : 'rpc.md'
