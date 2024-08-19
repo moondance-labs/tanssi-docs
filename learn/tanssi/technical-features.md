@@ -22,7 +22,7 @@ In this article, the necessary aspects to consider when building and deploying y
 
 Polkadot is a heterogeneous multi-chain ecosystem, where multiple parallel blockchains connect to a central blockchain called the relay chain. To provide block production as a service, the Tanssi protocol masterfully orchestrates and designs the interaction between the Tanssi network, the appchains, and Polkadot's relay chain.
 
-In the Polkadot ecosystem, the Tanssi appchains connected to the relay chain are fully sovereign blockchains, having their own rules, consensus mechanisms, and so forth, and this is the case for the Tanssi network and the appchains deployed through Tanssi as well.
+In the Polkadot ecosystem, the parachains connected to the relay chain are fully sovereign blockchains, having their own rules, consensus mechanisms, and so forth, and this is the case for the Tanssi network and the appchains deployed through Tanssi as well.
 
 The Tanssi network and the appchains can be considered sibling chains, meaning that there is no hierarchical dependency whatsoever. Nevertheless, the Tanssi network and its appchains share the relay chain as a common point.
 
@@ -70,7 +70,7 @@ Among many other responsibilities, the relay chain validates and finalizes the b
 
 ![Relay chain](/images/learn/tanssi/technical/technical-4.webp)
 
-As mentioned, the Tanssi network and the appchains are sibling chains with no hierarchical dependency. They are communicated via the relay chain, and therefore, the relay chain plays a key role in the protocol.
+As mentioned, the Tanssi network and the appchains are sibling chains with no hierarchical dependency. They communicate via the relay chain, and therefore, the relay chain plays a key role in the protocol.
 
 The block producers that Tanssi assigns to serve the different appchains also run a Tanssi node, hence, by accessing the data stored in the finalized blocks of the relay chain and cross-referencing headers, they can learn their assignation for the session, the Tanssi appchains can confirm that a certain group of block producers from Tanssi has been assigned to them, and Tanssi can verify that the author of an appchain block was the expected one and reward accordingly.
 
