@@ -80,4 +80,4 @@ networks:
     treasury_allocation: 20%
 repository:
   tanssi:
-    release_branch: tanssi-polkadot-v1.3.0
+    release_branch: tanssi-polkadot-v1.11.0
