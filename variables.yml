@@ -1,6 +1,6 @@
 networks:
   dancebox:
-    client_version: v0.7.0
+    client_version: v0.8.1
     substrate_api_sidecar:
       stable_version: 17.1.2
     chain_id: 5678
@@ -80,4 +80,4 @@ networks:
     treasury_allocation: 20%
 repository:
   tanssi:
-    release_branch: tanssi-polkadot-v1.3.0
+    release_branch: tanssi-polkadot-v1.11.0
