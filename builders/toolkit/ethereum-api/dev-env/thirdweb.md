@@ -249,7 +249,7 @@ const transaction = prepareTransaction({
   // The value is the amount of ether you want to send with the transaction
   value: toWei('1'),
   // The chain to execute the transaction on. This assumes you already set up
-  // the Tanssi Demo EVM Appchain as a custom chain as shown in the configure chain section
+  // the Tanssi demo EVM appchain as a custom chain, as shown in the configure chain section
   chain: tanssi,
   // Your thirdweb client
   client,
