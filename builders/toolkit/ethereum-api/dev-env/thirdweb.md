@@ -282,7 +282,7 @@ const number = await readContract({
 });
 ```
 
-Did you know? With the [thirdweb CLI](https://portal.thirdweb.com/cli){target=\_blank}, you can easily and generate functions for all of the possible calls to a contract. To do so, run the following command in the command line: 
+Did you know? With the [thirdweb CLI](https://portal.thirdweb.com/cli){target=\_blank}, you can easily generate functions for all of the possible calls to a contract. To do so, run the following command in the command line: 
 
 ```bash
 npx thirdweb generate INSERT_CHAIN_ID/INSERT_CONTRACT_ADDRESS
