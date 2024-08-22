@@ -191,7 +191,7 @@ The below code snippet demonstrates how to initialize and connect a MetaMask wal
 
 ### Get Contract {: #get-contract }
 
-To connect to your contract, use the SDK’s [`getContract`](https://portal.thirdweb.com/references/typescript/v5/getContract){target=\_blank} method. As an example, you could fetch data from an [incrementer contract on the Tanssi Demo EVM Appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}.
+To connect to your contract, use the SDK’s [`getContract`](https://portal.thirdweb.com/references/typescript/v5/getContract){target=\_blank} method. As an example, you could fetch data from an [incrementer contract on the Tanssi demo EVM appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}.
 
 ```typescript
 import { getContract } from 'thirdweb';
