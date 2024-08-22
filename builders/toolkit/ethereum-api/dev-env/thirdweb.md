@@ -288,7 +288,7 @@ Did you know? With the [thirdweb CLI](https://portal.thirdweb.com/cli){target=\_
 npx thirdweb generate INSERT_CHAIN_ID/INSERT_CONTRACT_ADDRESS
 ```
 
-Both the chain ID and the contract address are required. As an example, if you wanted to generate the functions for the [incrementer contract on the Tanssi Demo EVM Appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank} , you would use the following command:
+Both the chain ID and the contract address are required. As an example, if you wanted to generate the functions for the [incrementer contract on the Tanssi demo EVM appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank} , you would use the following command:
 
 ```bash
 npx thirdweb generate 5678/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D
