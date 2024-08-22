@@ -200,7 +200,7 @@ import { client } from './client';
 const myContract = getContract({
   client,
   chain: tanssi,
-  address: 0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D, // Incrementer contract address on Demo EVM Appchain
+  address: 0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D, // Incrementer contract address on demo EVM appchain
   abi: '[{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"timestamp","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]';
 });
 ```
