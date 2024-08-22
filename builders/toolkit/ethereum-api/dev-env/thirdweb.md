@@ -56,7 +56,7 @@ To create a new smart contract using the [thirdweb CLI](https://portal.thirdweb.
     - Inheriting the contract by declaring that your contract is an `ERC721Base` contract
     - Implementing any required methods, such as the constructor
 
-5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM Appchain using [Deploy](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank}. That will be covered in the next section!
+5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM appchain using [Deploy](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank}. That will be covered in the next section!
 
 Alternatively, you can deploy a prebuilt contract for NFTs, tokens, or marketplace directly from the thirdweb Explore page:
 
