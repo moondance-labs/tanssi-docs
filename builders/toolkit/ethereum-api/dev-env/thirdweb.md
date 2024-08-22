@@ -92,7 +92,7 @@ For more information on different contracts available on Explore, check out [thi
     - `_royaltyRecipient` - wallet address to receive royalties from secondary sales
     - `_royaltyBps` - basis points (bps) that will be given to the royalty recipient for each secondary sale, e.g. 500 = 5%
 
-3. Select the desired network, e.g., the Tanssi Demo EVM Appchain or your own Appchain
+3. Select the desired network, e.g., the Tanssi demo EVM appchain or your own appchain
 4. Manage additional settings on your contract’s dashboard as needed such as uploading NFTs, configuring permissions, and more
 
     ![thirdweb deploy](/images/builders/toolkit/ethereum-api/dev-environments/thirdweb/thirdweb-2.webp)
