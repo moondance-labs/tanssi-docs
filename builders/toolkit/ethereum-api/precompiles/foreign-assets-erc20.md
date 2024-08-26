@@ -14,7 +14,7 @@ Foreign assets are tokens native to another blockchain, or, in other words, asse
 
 The [ERC-20 assets precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20Instance.sol){target=\_blank} allows appchains based on the Tanssi EVM template to access any registered foreign asset through the standard ERC-20 interface.
 
-The address representing the ERC-20 contract is formed with the first thirty-six positions (eighteen bytes) set to the maximum value and the the last four positions (two bytes) replaced with the hexadecimal representation of the registered asset identifier:
+The address representing the ERC-20 contract is formed with the first thirty-six positions (eighteen bytes) set to the maximum value and the last four positions (two bytes) replaced with the hexadecimal representation of the registered asset identifier:
 
 ```text
 {{networks.dancebox.precompiles.foreign_assets_erc20}}
@@ -22,16 +22,18 @@ The address representing the ERC-20 contract is formed with the first thirty-six
 
 For example, for the asset whose ID is `1`, the last four positions must be replaced with `0001`, and for an asset with an ID of `10`, those four positions must be replaced with `000A`.
 
+--8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
+
 ## Prerequisites {: #prerequisites }
 
  Tto follow along with the contents in this guide, you'll need:
  
 - Access to a Tanssi EVM appchain running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
 - An established bidirectional XCM channel to another chain. To manage your appchain's channels, refer to the [Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} article
-- A registered foreign asset. Once the communication channels are open, asset registration can be easily done using the [dApp](https://apps.tanssi.network/){target=\_blank}, by entering the `Asset Registration` entry from the `XCM` management section
+- A registered foreign asset. Once the XCM channels are open, asset registration can be easily done using the [dApp](https://apps.tanssi.network/){target=\_blank}, in the `Asset Registration` menu entry from the `XCM` management section
 - Finally, you'll need MetaMask configured to work with your EVM appchain. You can also [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
-The examples in this guide are based on the Tanssi demo EVM appchain, which already has open channels to other appchains and registered foreign assets. The following picture shows:
+The examples in this guide are based on the Tanssi demo EVM appchain, which already has open channels to other appchains and registered foreign assets, as the following picture shows:
 
 1. The registered foreign asset (UNIT) which will be used in the following sections
 2. Other available foreign assets not yet registered
@@ -42,7 +44,7 @@ The examples in this guide are based on the Tanssi demo EVM appchain, which alre
 
 The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM appchains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events a token contract must implement to be interoperable with different applications.
 
-??? code "ERC20Instance.sol"
+??? code "ERC20.sol"
 
     ```solidity
     --8<-- 'code/builders/toolkit/ethereum-api/precompiles/erc20/erc20.sol'
@@ -64,7 +66,7 @@ To get started, open up MetaMask and make sure you are [connected to your appcha
 
     ![Import Tokens from Tokens Tab in MetaMask](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-2.webp)
 
-Before continuuing, you'll need the token's address, which, considering that in this example the foreign asset has an ID of `1`, will be:
+Before continuing, you'll need the token's address, which, considering that in this example the foreign asset has an ID of `1`, will be:
 
 ```text
 {{networks.dancebox.precompiles.foreign_assets_erc20_example}}
@@ -79,7 +81,7 @@ MetaMask will prompt you to confirm the import. You can review the token details
 
 ![Confirm and Import Tokens](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-4.webp)
 
-And that's it! You've successfully added the UNIT token foreign asset as a custom ERC-20 token on your Tanssi EVM appchain.
+And that's it! You've successfully added the UNIT token foreign asset as a custom ERC-20 token on the Tanssi demo EVM appchain.
 
 ### Remix Set Up {: #remix-set-up }
 
