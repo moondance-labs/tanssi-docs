@@ -5,3 +5,4 @@ nav:
   - 'Remix': remix.md
   - 'Hardhat': hardhat.md
   - 'Foundry': foundry.md
+  - 'thirdweb' : thirdweb.md
