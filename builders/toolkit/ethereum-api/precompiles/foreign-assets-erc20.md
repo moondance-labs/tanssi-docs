@@ -10,17 +10,17 @@ keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts, a
 
 As presented in the [Native Cross-Chain Communication](/learn/framework/xcm){target=\_blank} article, appchains deployed through Tanssi can communicate and interoperate with any other appchain in the ecosystem. This multi-chain environment leads to a multi-asset world, where seamless transfer of assets, data, and value across different networks widens the possibilities to build use cases across diverse industries such as finance (DeFi), real-world assets (RWAs), and others.
 
-Foreign assets are tokens native to another blockchain, or, in other words, assets whose reserve chain is a different consensus system. Tanssi appchains can register foreign assets to enable their inflow. To do so, it is necessary to [establish an XCM channel](/learn/framework/xcm/#channel-registration){target=\_blank} with the other chain and then register one of its assets as a foreign asset. Registered foreign assets behave in the same way as local ones.
+Foreign assets are tokens native to another blockchain, or, in other words, assets whose reserve chain is a different consensus system. Tanssi appchains can register foreign assets to enable their inflow. To do so, it is necessary to [establish an XCM channel](/learn/framework/xcm/#channel-registration){target=\_blank} with the other chain and then register one of its native assets as a foreign asset. Registered foreign assets behave in the same way as local ones.
 
 The [ERC-20 assets precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20Instance.sol){target=\_blank} allows appchains based on the Tanssi EVM template to access any registered foreign asset through the standard ERC-20 interface.
 
-The address representing the ERC-20 contract is the following:
+The address representing the ERC-20 contract is formed with the first thirty-six positions (eighteen bytes) set to the maximum value and the the last four positions (two bytes) replaced with the hexadecimal representation of the registered asset identifier:
 
 ```text
 {{networks.dancebox.precompiles.foreign_assets_erc20}}
 ```
 
-Note that the last four positions (two bytes) must be replaced with the hexadecimal representation of the registered asset identifier. For example, for the asset whose ID is `1`, those four positions are `0001`, and for the asset with an ID of `10`, those four positions are `000A`.
+For example, for the asset whose ID is `1`, the last four positions must be replaced with `0001`, and for an asset with an ID of `10`, those four positions must be replaced with `000A`.
 
 ## Prerequisites {: #prerequisites }
 
@@ -29,6 +29,7 @@ Note that the last four positions (two bytes) must be replaced with the hexadeci
 - Access to a Tanssi EVM appchain running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
 - An established bidirectional XCM channel to another chain. To manage your appchain's channels, refer to the [Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} article
 - A registered foreign asset. Once the communication channels are open, asset registration can be easily done using the [dApp](https://apps.tanssi.network/){target=\_blank}, by entering the `Asset Registration` entry from the `XCM` management section
+- Finally, you'll need MetaMask configured to work with your EVM appchain. You can also [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 The examples in this guide are based on the Tanssi demo EVM appchain, which already has open channels to other appchains and registered foreign assets. The following picture shows:
 
@@ -37,16 +38,14 @@ The examples in this guide are based on the Tanssi demo EVM appchain, which alre
 
 ![Tanssi EVM demo appchain registered Foreign Assets](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-1.webp)
 
-- Finally, you'll need MetaMask configured to work with your EVM appchain. You can also [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
-
 ## The ERC-20 Solidity Interface {: #the-erc20-interface }
 
-The [`ERC20Instance.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20Instance.sol){target=\_blank} interface on Tanssi EVM appchains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events a token contract must implement to be interoperable with different applications.
+The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM appchains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events a token contract must implement to be interoperable with different applications.
 
 ??? code "ERC20Instance.sol"
 
     ```solidity
-    --8<-- 'code/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/ERC20Instance.sol'
+    --8<-- 'code/builders/toolkit/ethereum-api/precompiles/erc20/erc20.sol'
     ```
 
 !!! note
@@ -56,31 +55,35 @@ The [`ERC20Instance.sol`](https://github.com/moondance-labs/tanssi/blob/master/t
 
 ### Add Token to MetaMask {: #add-token-to-metamask }
 
-If you want to interact with your appchain's native token like you would with an ERC-20 in MetaMask, you can add a custom token to your wallet using the precompile address.
+If you want to interact with your appchain's registered foreign assets like you would with an ERC-20 in MetaMask, you can add them to your wallet using the precompile address prefix and the asset ID.
 
 To get started, open up MetaMask and make sure you are [connected to your appchain](/builders/toolkit/ethereum-api/wallets/metamask/) and:
 
-1. Switch to the **Assets** tab
+1. Switch to the **Tokens** tab
 2. Click on **Import tokens**
 
-![Import Tokens from Assets Tab in MetaMask](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-1.webp)
+    ![Import Tokens from Tokens Tab in MetaMask](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-2.webp)
 
-Now, you can create a custom token:
+Before continuuing, you'll need the token's address, which, considering that in this example the foreign asset has an ID of `1`, will be:
 
-1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM appchains is `18`, the same as Ethereum's token decimals
+```text
+{{networks.dancebox.precompiles.foreign_assets_erc20_example}}
+```
+
+1. Enter the precompile address for the token contract address. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `12` for the decimal places.
 2. Click **Next**
 
-![Add Custom Token](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-2.webp)
+![Add Foreign Asset](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-3.webp)
 
 MetaMask will prompt you to confirm the import. You can review the token details and click **Import Tokens** to import UNIT tokens into your wallet.
 
-![Confirm and Import Tokens](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-3.webp)
+![Confirm and Import Tokens](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-4.webp)
 
-And that's it! You've successfully added the UNIT token as a custom ERC-20 token on your Tanssi EVM appchain.
+And that's it! You've successfully added the UNIT token foreign asset as a custom ERC-20 token on your Tanssi EVM appchain.
 
 ### Remix Set Up {: #remix-set-up }
 
-You can interact with the ERC-20 precompile using [Remix](https://remix.ethereum.org){target=\_blank}. To add the precompile to Remix, you will need to:
+You can interact with the foreign assets ERC-20 precompile using [Remix](https://remix.ethereum.org){target=\_blank}. To add the precompile to Remix, you will need to:
 
 1. Get a copy of [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank}
 2. Paste the file contents into a Remix file named `IERC20.sol`
@@ -92,23 +95,22 @@ Next, you will need to compile the interface in Remix:
 1. Click on the **Compile** tab, second from top
 2. Compile the interface by clicking on **Compile IERC20.sol**
 
-![Compiling IERC20.sol](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-4.webp)
+![Compiling IERC20.sol](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-5.webp)
 
 When compilation is completed, you will see a green checkmark next to the **Compile** tab.
 
 ### Access the Contract {: #access-the-contract }
 
-Instead of deploying the ERC-20 precompile, you will access the interface given the address of the precompiled contract:
+Instead of deploying the smart contract, you will access the interface through the address of foreign asset precompile:
 
 1. Click on the **Deploy and Run** tab directly below the **Compile** tab in Remix. Please note that the precompiled contracts are already accessible at their respective addresses. Therefore, there is no deployment step
 2. Make sure **Injected Web3** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Web3**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the ERC-20 precompile: `{{networks.dancebox.precompiles.erc20}}` and click **At Address**
+5. Provide the address of the ERC-20 precompile (which is `{{networks.dancebox.precompiles.foreign_assets_erc20_example}}` in this example) and click **At Address**
+6. The **IERC20** precompile will appear in the list of **Deployed Contracts**.
 
-![Access the address](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-5.webp)
-
-The **IERC20** precompile will appear in the list of **Deployed Contracts**.
+![Access the address](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-6.webp)
 
 ### Get Basic Token Information {: #get-basic-token-information }
 
@@ -120,7 +122,7 @@ The ERC-20 interface lets you quickly obtain token information, including the to
 4. Click **symbol** to get the symbol of the token
 5. Click **totalSupply** to obtain the total supply of native tokens on your appchain
 
-![Total Supply](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-6.webp)
+![Get basic token information](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-7.webp)
 
 The results of each function call are displayed under the respective functions.
 
@@ -132,7 +134,7 @@ You can check the balance of any address on your appchain by calling the `balanc
 2. Enter an address you would like to check the balance of for the **owner**
 2. Click **call**
 
-![Get Balance of an Account](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-7.webp)
+![Get Balance of an Account](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-8.webp)
 
 Your balance will be displayed under the `balanceOf` function.
 
@@ -142,11 +144,11 @@ To approve a token spend allowance, you'll need to provide an address for the sp
 
 1. Expand the **approve** function
 2. Enter the address of the spender. You should have created two accounts before starting, so you can use the second account as the spender
-3. Enter the amount of tokens the spender can spend for the **value**. For this example, you can allow the spender to spend 1 UNIT token in Wei units (`1000000000000000000`)
+3. Enter the amount of tokens the spender can spend for the **value**. For this example, you can allow the spender to spend 1 UNIT token (`1000000000000`)
 4. Click **transact**
 5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
-![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-8.webp)
+![Confirm Approve Transaction](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-9.webp)
 
 After the transaction is confirmed, you'll notice that the balance of your account has stayed the same. This is because you have only approved the allowance for the given amount, and the spender hasn't spent the funds. In the next section, you will use the `allowance` function to verify that the spender can spend 1 UNIT token on your behalf.
 
@@ -159,9 +161,9 @@ To check that the spender received the allowance approved in the [Approve a Spen
 3. Enter the address of the **spender** that you used in the previous section
 4. Click **call**
 
-![Get Allowance of Spender](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-9.webp)
+![Get Allowance of Spender](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-10.webp)
 
-Once the call is complete, the allowance of the spender will be displayed, which should be equivalent to 1 UNIT token (`1000000000000000000`).
+Once the call is complete, the allowance of the spender will be displayed, which should be equivalent to 1 UNIT token (`1000000000000`).
 
 ### Send Transfer {: #send-transfer }
 
@@ -169,11 +171,11 @@ To send tokens from your account directly to another account, you can call the `
 
 1. Expand the **transfer** function
 2. Enter the address to send UNIT tokens to
-3. Enter the amount of UNIT tokens to send. For this example, you can send 1 UNIT token (`1000000000000000000`)
+3. Enter the amount of UNIT tokens to send. For this example, you can send 1 UNIT token (`1000000000000`)
 4. Click **transact**
 5. MetaMask will pop up, and you will be prompted to review the transaction details. Click **Confirm** to send the transaction
 
-![Send Standard Transfer](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-10.webp)
+![Send Standard Transfer](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-11.webp)
 
 Once the transaction is complete, you can [check your balance](#get-account-balance) using the `balanceOf` function or by looking at MetaMask. You'll notice that your balance has decreased by 1 UNIT token. You can also use the `balanceOf` function to ensure that the recipients balance has increased by 1 UNIT token as expected.
 
@@ -183,23 +185,20 @@ So far, you have approved an allowance of 1 UNIT token for the spender and sent 
 
 First, you need to switch to the spender's account in MetaMask. Once you switch to the spender's account, you'll notice that the selected address in Remix under the **Accounts** tab is now the spender's.
 
-![Switch accounts Remix](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-11.webp)
+![Switch accounts Remix](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-12.webp)
 
 Next, you can initiate and send the transfer. To do so, take the following steps:
 
 1. Expand the **transferFrom** function
 2. Enter your address as the owner in the **from** field
 3. Enter the recipient address, which should be the spender's address, in the **to** field
-4. Enter the amount of UNIT tokens to send. Again, the spender is currently only allowed to send 1 UNIT token, so enter `1000000000000000000`
+4. Enter the amount of UNIT tokens to send. Again, the spender is currently only allowed to send 1 UNIT token, so enter `1000000000000`
 5. Click **transact**
 
-![Send Standard Transfer](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-12.webp)
+![Send Standard Transfer](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-13.webp)
 
 Once the transaction is complete, you can [check the balance](#get-account-balance) of the owner and spender using the `balanceOf` function. The spender's balance should have increased by 1 UNIT token, and their allowance should now be depleted. To verify that the spender no longer has an allowance, you can call the `allowance` function by passing in the owner and spender's addresses. You should receive a result of 0.
 
-![Zero Allowance](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-13.webp)
-
-And that's it! You've successfully interacted with the ERC-20 precompile using MetaMask and Remix!
-
+And that's it! You've successfully interacted with the foreign assets ERC-20 precompile using MetaMask and Remix!
 
 --8<-- 'text/_disclaimers/third-party-content.md'

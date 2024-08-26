@@ -11,6 +11,7 @@ networks:
       call_permit: '0x0000000000000000000000000000000000000802'
       xcm_interface: '0x0000000000000000000000000000000000000804'
       foreign_assets_erc20: '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF____'
+      foreign_assets_erc20_example: '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0001'
     dns_name: dancebox.tanssi-api.network
     gas_to_weight: 25000
     session:
