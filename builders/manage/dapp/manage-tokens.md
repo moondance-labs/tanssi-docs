@@ -18,6 +18,11 @@ There are some actions related to the native token management that are available
 
 In this guide, you'll learn how to execute the previously listed actions using the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}.
 
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+- A Tanssi appchain (Snap or Dedicated)
 --8<-- 'text/builders/manage/dapp/prerequisites.md'
 
 ## Accessing the Token Management Panel {: #accesing-token-management-panel }

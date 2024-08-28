@@ -13,6 +13,11 @@ The first step to enable communication between appchains is [opening a channel](
 
 In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} to manage your appchain's cross-chain communication channels.
 
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+- A Tanssi appchain (Dedicated) running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
 --8<-- 'text/builders/manage/dapp/prerequisites.md'
 
 ## Accessing the Channel Management Panel {: #accesing-channel-management-panel }

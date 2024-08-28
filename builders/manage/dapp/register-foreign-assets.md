@@ -14,6 +14,11 @@ Cross-chain asset transfer is crucial because it enables the seamless movement o
 
 Once your appchain's communication channels are established, you can register other chain's assets (foreign assets) to start operating. This guide will walk you through the process of registering foreign assets using the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}.
 
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+- A Tanssi appchain (Dedicated) running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
 --8<-- 'text/builders/manage/dapp/prerequisites.md'
 
 ## Accessing the Foreign Assets Registration Panel {: #accesing-foreign-assets-management-panel }
