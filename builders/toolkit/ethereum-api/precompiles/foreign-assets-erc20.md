@@ -53,13 +53,11 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 !!! note
     The foreign assets ERC-20 precompile does not include `deposit` and `withdraw` functions and subsequent events expected from a wrapped token contract, such as WETH.
 
-## Interact with the Solidity Interface {: #interact-with-the-solidity-interface }
+## Add Token to an EVM Wallet {: #add-token-to-evm-wallet }
 
-### Add Token to MetaMask {: #add-token-to-metamask }
+If you want to interact with your appchain's registered foreign assets like you would with an ERC-20, you can add them to your wallet using the precompile address prefix and the asset ID. This section will walk you through adding a foreign asset to [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
-If you want to interact with your appchain's registered foreign assets like you would with an ERC-20 in MetaMask, you can add them to your wallet using the precompile address prefix and the asset ID.
-
-To get started, open up MetaMask and make sure you are [connected to your appchain](/builders/toolkit/ethereum-api/wallets/metamask/) and:
+To get started, open up MetaMask and make sure you are connected to your appchain and:
 
 1. Switch to the **Tokens** tab
 2. Click on **Import tokens**
@@ -82,6 +80,8 @@ MetaMask will prompt you to confirm the import. You can review the token details
 ![Confirm and Import Tokens](/images/builders/toolkit/ethereum-api/precompiles/foreign-assets-erc20/foreign-assets-erc20-4.webp)
 
 And that's it! You've successfully added the UNIT token foreign asset as a custom ERC-20 token on the Tanssi demo EVM appchain.
+
+## Interact with the Solidity Interface via Remix {: #interact-with-the-solidity-interface-via-remix }
 
 ### Remix Set Up {: #remix-set-up }
 
