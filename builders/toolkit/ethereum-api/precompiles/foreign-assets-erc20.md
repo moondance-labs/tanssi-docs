@@ -31,7 +31,7 @@ For example, for the asset whose ID is `1`, the last four positions must be repl
 - Access to a Tanssi EVM appchain running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
 - An established bidirectional XCM channel to another chain. To manage your appchain's channels, refer to the [Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} article
 - A registered foreign asset. Once the XCM channels are open, asset registration can be easily done using the [dApp](https://apps.tanssi.network/){target=\_blank}, in the `Asset Registration` menu entry from the `XCM` management section
-- Finally, you'll need MetaMask configured to work with your EVM appchain. You can also [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+- Finally, you'll need an [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} configured to work with your appchain. You can also connect your wallet to the [demo EVM appchain](https://apps.tanssi.network/demo){target=\_blank}.
 
 The examples in this guide are based on the Tanssi demo EVM appchain, which already has open channels to other appchains and registered foreign assets, as the following picture shows:
 
