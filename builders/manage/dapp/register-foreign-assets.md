@@ -23,7 +23,7 @@ Once your appchain's communication channels are established, you can register ot
 The panel will show your appchain's cross-chain configuration along with several available actions. Regarding foreign assets, the relevant elements you are presented with are:
 
 1. **Registered Assets panel** - this section will group and present to you all registered assets your appchain already has available
-2. **Assets List** - already registered foreign assets will be displayed in this section, along with their associated information such as asset name, symbol, ID, total supply, and appchain ID where it is native
+2. **Registered Assets List** - already registered foreign assets will be displayed in this section, along with their associated information such as asset name, symbol, ID, total supply, and appchain ID where it is native
 3. **Asset Registration** - this option allows you to select other available foreign assets and register them. The [following section](#register-foreign-asset) explains how to do it
 
 ![The cross-chain management panel](/images/builders/manage/dapp/register-foreign-assets/register-foreign-assets-1.webp)
