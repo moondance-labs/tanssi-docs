@@ -10,7 +10,7 @@ keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts, a
 
 As presented in the [Native Cross-Chain Communication](/learn/framework/xcm){target=\_blank} article, appchains deployed through Tanssi can communicate and interoperate with any other appchain in the ecosystem. This multi-chain environment leads to a multi-asset world, where seamless transfer of assets, data, and value across different networks widens the possibilities to build use cases across diverse industries such as finance (DeFi), real-world assets (RWAs), and others.
 
-External assets are tokens native to another blockchain, or, in other words, assets whose reserve chain is not the chain you are interacting with. Tanssi appchains can register external assets to enable their inflow. To do so, it is necessary to [establish an XCM channel](/learn/framework/xcm/#channel-registration){target=\_blank} with the other chain and then register one of its native assets as a external asset. Registered external assets behave, to some extent, the same way as local ones.
+External assets are tokens native to another blockchain, or, in other words, assets whose reserve chain is not the chain you are interacting with. Tanssi appchains can register external assets to enable their inflow. To do so, it is necessary to [establish an XCM channel](/learn/framework/xcm/#channel-registration){target=\_blank} with the other chain and then register one of its native assets as an external asset. Registered external assets behave, to some extent, the same way as local ones.
 
 The [ERC-20 assets precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20Instance.sol){target=\_blank} allows appchains based on the [Tanssi EVM template](/builders/build/templates/evm/){target=\_blank} to access any registered external asset through the standard ERC-20 interface. Consequently, smart contracts deployed to the appchain can interact with such assets as they would with any other regular ERC-20.
 
@@ -55,7 +55,7 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 
 ## Add Token to an EVM Wallet {: #add-token-to-evm-wallet }
 
-If you want to interact with your appchain's registered external assets like you would with an ERC-20, you can add them to your wallet using the precompile address prefix and the asset ID. This section will walk you through adding a external asset to [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+If you want to interact with your appchain's registered external assets like you would with an ERC-20, you can add them to your wallet using the precompile address prefix and the asset ID. This section will walk you through adding an external asset to [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 To get started, open up MetaMask and make sure you are connected to your appchain and:
 
