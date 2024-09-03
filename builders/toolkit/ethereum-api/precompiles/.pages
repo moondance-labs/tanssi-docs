@@ -6,4 +6,4 @@ nav:
   - 'Call Permit': call-permit.md
   - 'Native Token ERC-20': erc20.md
   - 'Cross Chain Transfers': cross-chain-transfers.md
-  - 'Foreign Assets as ERC-20': foreign-assets-erc20.md
+  - 'External Assets as ERC-20': external-assets-erc20.md
