@@ -3,43 +3,69 @@ title: Using Band Protocol for Price Feed Oracles
 description: Learn how to use the Band Protocol's descentralized oracle network to get reliable token prices enabling secure data access for your Tanssi EVM appchain.
 ---
 
-# Launching Price Feeds with the Band Protocol
+# Accesing Price Feeds with the Band Protocol
 
 ## Introduction {: #introduction }
 
-Band Protocol is a decentralized oracle network that provides reliable, secure, and real-time data to smart contracts on various blockchain networks. 
+[Band Protocol](https://www.bandprotocol.com/){target=\_blank} is a decentralized oracle network that provides reliable, secure, real-time data to smart contracts on various blockchain networks.
 
+The protocol is built on top of BandChain, an appchain designed to be compatible with most EVM-compatible chains, such as Tanssi EVM appchains, and blockchain development frameworks. The protocol aims to provide a solution that is:
 
+- Decentralized, leveraging the computational power of a network of validators
+- Flexible, supporting a wide range of data sources and formats, making integrations easy
+- Scalable, designed to handle high volumes of data requests
+- Affordable, allowing users to request data only when they need to and pay the associated fees
 
-## How the Band Protocol Enables Price Feeds {: #how-band-enables-price-feeds }
+Band protocol is currently deployed on many blockchains ([Moonbeam](https://docs.moonbeam.network/builders/integrations/oracles/band-protocol/){target=\_blank}, for example) across different ecosystems. To deploy the oracle onto your appchain, reach out to the [Band Protocol](https://www.bandprotocol.com/){target=\_blank} team directly.
 
+This tutorial will walk through the steps to interact with price feeds using the Band protocol's oracle on the [Tanssi demo EVM-compatible appchain](https://apps.tanssi.network/demo){target=\_blank}. 
 
-## Fetch Price Data {: #fetch-price-data }
+## Setup on the Tanssi Demo EVM Appchain {: #setup-on-demo-evm-appchain }
 
+The Band Protocol oracle is already deployed on the Tanssi demo EVM appchain and configured to provide prices for the `ETH` and `DOT` tokens.
 
-### Supported Assets {: #supported-assets }
+The price feeds are pushed regularly to a smart contract that is accessible at the following address:
 
+```text
+{{ networks.dancebox.oracles.band.smart_contract }}
+```
 
-### Interacting with Price Feeds on the Tanssi Demo EVM Appchain {: #interacting-with-price-feeds-demo-evm-appchain }
+The smart can be interacted with using the interface:
 
+???+ code "IStdReference.sol"
 
-## Launching Price Feeds on an EVM Appchain {: #launching-price-feeds-on-an-evm-appchain }
+    ```solidity
+    --8<-- 'code/builders/toolkit/integrations/oracles/band/IStdReference.sol'
+    ```
 
+As seen above in the interface, there are two functions for fetching data: `getReferenceData` to fetch the for a given base/quote pair, and `getReferenceDataBulk` to fetch multiple prices simultaneously.
 
-### Setup {: #setup }
+### Fetching Price Feeds Using Remix {: #fetching-price-feeds-remix }
 
+In this section, we'll use remix to fetch the price of the pair `ETH/USD`. 
 
-### Configure Deployment Script {: #configure-deployment-script }
+First, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the [demo EVM appchain](https://apps.tanssi.network/demo){target=\_blank}. Now, head to [remix](https://remix.ethereum.org/){target=\_blank}, paste the [`IStdReference`](#setup-on-demo-evm-appchain) interface into a new file, and compile it.
 
-### Build and Test {: #build-and-test }
+![Compile interface contract](/images/builders/toolkit/integrations/oracles/band/band-1.webp)
 
-### Deploy {: #deploy }
+Then, take the following steps:
 
+1. Head to the **Deploy & Run Transactions** tab
+2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
+3. Select the `IStdReference.sol` contract from the **CONTRACT** dropdown
+4. Enter the data feed contract address, which is `{{ networks.dancebox.oracles.band.smart_contract }}` on the demo EVM appchain in the At Address field and click the At Address button
 
-### Access Aggregator Contract {: #access-aggregator-contract }
+![Access Interface contract](/images/builders/toolkit/integrations/oracles/band/band-2.webp)
 
+The contract should now be accessible. To interact with it, take the following steps:
 
-### Trigger Price Feed Update {: #Trigger Price Feed Update }
+1. Expand the **IStdReference** contract to reveal the available functions
+2. Expand **getReferenceData**, and set the `_base` and `_quote` input parameters to `ETH` and `USD`, respectively
+3. Click **Call**
+4. The result will show three values: the price, update time for the `_base` parameter, and update time for the `_quote` parameter
 
+![Check price data](/images/builders/toolkit/integrations/oracles/band/band-3.webp)
+
+Note that to obtain a readable price from the price feed, it's essential to adjust for the feed's decimal places, which are eighteen. For instance, the example above shows a value of `2361167929271984201806`, corresponding to an `ETH` price of `$2,361.167929271984201806` expressed in `USD`. Also, note that the update timestamp values are expressed in UNIX epoch time, expressed as the number of seconds that have passed since `01-01-1970 00:00:00 UT`. 
 
 --8<-- 'text/_disclaimers/third-party-content.md'
