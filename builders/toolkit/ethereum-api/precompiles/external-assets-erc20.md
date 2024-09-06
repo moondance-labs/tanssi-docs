@@ -70,7 +70,7 @@ Before continuing, you'll need the token's address, which, considering that in t
 {{networks.dancebox.precompiles.external_assets_erc20_example}}
 ```
 
-1. Enter the precompile address for the token contract address. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `12` for the decimal places.
+1. Enter the precompile address for the token contract address. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `12` for the decimal places
 2. Click **Next**
 
 ![Add External Asset](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-3.webp)
@@ -110,7 +110,7 @@ Instead of deploying the smart contract, you will access the interface through t
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
 5. Provide the address of the ERC-20 precompile (which is `{{networks.dancebox.precompiles.external_assets_erc20_example}}` in this example) and click **At Address**
-6. The **IERC20** precompile will appear in the list of **Deployed Contracts**.
+6. The **IERC20** precompile will appear in the list of **Deployed Contracts**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-6.webp)
 
