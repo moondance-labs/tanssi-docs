@@ -38,7 +38,37 @@ The smart can be interacted with using the interface:
     --8<-- 'code/builders/toolkit/integrations/oracles/band/IStdReference.sol'
     ```
 
-As seen above in the interface, there are two functions for fetching data: `getReferenceData` to fetch the for a given base/quote pair, and `getReferenceDataBulk` to fetch multiple prices simultaneously.
+As seen above in the interface, there are two functions for fetching data:
+
+???+ function "**getReferenceData**(_base, _quote) — fetches the price for a given base/quote pair"
+
+    === "Parameters"
+
+        - `_base` ++"string memory"++ - the token you want to get the price for
+        - `_quote` ++"string memory"++ - the token (or `USD`) in which the price is expressed
+        
+    === "Example"
+
+        - `_base` - ETH
+        - `_quote` - USD
+        
+??? function "**getReferenceDataBulk**(_bases, _quotes) — fetches prices for the given base/quote pairs simultaneously"
+
+    === "Parameters"
+
+        - `_bases` ++"string[] memory"++ - the list of base tokens you want to get the prices for
+        - `_quotes` ++"string[] memory"++ - the list of tokens (or `USD`) in which the prices are expressed
+
+    === "Example"
+
+        - `_bases` - ["ETH", "DOT"]
+        - `_quotes` - ["USD", "USD"]
+
+The response for both functions consists of the following data, grouped in one tuple in the case of `getReferenceData` and one list of tuples (one tuple per pair) in the case of `getReferenceDataBulk`:
+
+- `rate` ++"uint256"++ - price for the given base/quote pair. Note that the result must be adjusted to consider eighteen decimal places
+- `lastUpdatedBase` ++"uint256"++ - update timestamp for the `_base` parameter, expressed in UNIX epochs, which is the number of seconds that have passed since `01-01-1970 00:00:00 UT`
+- `lastUpdatedQuote` ++"uint256"++ - update timestamp for the `_quote` parameter, expressed in UNIX epochs, which is the number of seconds that have passed since `01-01-1970 00:00:00 UT`
 
 ### Fetching Price Feeds Using Remix {: #fetching-price-feeds-remix }
 
