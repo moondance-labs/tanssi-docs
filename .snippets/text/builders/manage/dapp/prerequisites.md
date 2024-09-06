@@ -1,8 +1,3 @@
-## Checking Prerequisites {: #checking-prerequisites }
-
-For the examples in this guide, you will need to have the following:
-
-- A Tanssi appchain (Snap or Dedicated)
 - The account you used when registering the appchain, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 - Your appchain's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 

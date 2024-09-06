@@ -5,3 +5,4 @@ nav:
   - 'Block Production Services Payment': 'services-payment.md'
   - 'Manage Tokens': 'manage-tokens.md'
   - 'Manage Cross-Chain Communication Channels': 'xcm-channels.md'
+  - 'Register External Assets': 'register-external-assets.md'

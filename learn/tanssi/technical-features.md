@@ -70,7 +70,7 @@ Among many other responsibilities, the relay chain validates and finalizes the b
 
 ![Relay chain](/images/learn/tanssi/technical/technical-4.webp)
 
-As mentioned, the Tanssi network and the appchains are sibling chains with no hierarchical dependency. They are communicated via the relay chain, and therefore, the relay chain plays a key role in the protocol.
+As mentioned, the Tanssi network and the appchains are sibling chains with no hierarchical dependency. They communicate via the relay chain, and therefore, the relay chain plays a key role in the protocol.
 
 The block producers that Tanssi assigns to serve the different appchains also run a Tanssi node, hence, by accessing the data stored in the finalized blocks of the relay chain and cross-referencing headers, they can learn their assignation for the session, the Tanssi appchains can confirm that a certain group of block producers from Tanssi has been assigned to them, and Tanssi can verify that the author of an appchain block was the expected one and reward accordingly.
 
