@@ -74,7 +74,7 @@ The response for both functions consists of the following data, grouped in one t
 
 In this section, we'll use remix to fetch the price of the pair `ETH/USD`. 
 
-First, make sure you have an [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} connected to the [demo EVM appchain](https://apps.tanssi.network/demo){target=\_blank}. We use [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} as an example in this guide. Now, head to [Remix](https://remix.ethereum.org/){target=\_blank}, paste the [`IStdReference`](#setup-on-demo-evm-appchain) interface into a new file, and compile it.
+First, make sure you have an [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} connected to the [demo EVM appchain](https://apps.tanssi.network/demo){target=\_blank}. [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} is used as an example in this guide. Now, head to [Remix](https://remix.ethereum.org/){target=\_blank}, paste the [`IStdReference`](#setup-on-demo-evm-appchain) interface into a new file, and compile it.
 
 ![Compile interface contract](/images/builders/toolkit/integrations/oracles/band/band-1.webp)
 
