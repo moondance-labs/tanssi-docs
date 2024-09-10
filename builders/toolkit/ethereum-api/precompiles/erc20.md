@@ -43,11 +43,11 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 
 To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
-### Add Token to MetaMask {: #add-token-to-metamask }
+### Add Token to an EVM Wallet {: #add-token-to-evm-wallet }
 
-If you want to interact with your appchain's native token like you would with an ERC-20 in MetaMask, you can add a custom token to your wallet using the precompile address.
+If you want to interact with your appchain's native token like you would with an ERC-20, you can add a custom token to your EVM-compatible wallet using the precompile address. This section will walk you through adding an external asset to [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
-To get started, open up MetaMask and make sure you are [connected to your appchain](/builders/toolkit/ethereum-api/wallets/metamask/) and:
+To get started, open up MetaMask and make sure you are connected to your appchain and:
 
 1. Switch to the **Assets** tab
 2. Click on **Import tokens**
