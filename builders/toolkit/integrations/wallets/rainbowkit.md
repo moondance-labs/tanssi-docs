@@ -79,7 +79,7 @@ Here is the configuration for the Dancebox demo appchain on Tanssi:
 
 === "Dancebox Demo Appchain"
 ```js title="src/wagmi.ts"
---8<-- 'code/builders/toolkit/integrations/wallets/rainbowkit/wagmi.ts'
+--8<-- 'code/builders/toolkit/wallets/rainbowkit/wagmi.ts'
 ```
 To add support for the Dancebox appchain on Tanssi, update `wagmi.ts` as shown above. You will learn how to generate the `projectId` value for WalletConnect in the next section.
 
@@ -206,12 +206,12 @@ touch wagmi.ts
 In `wagmi.ts`, import the necessary libraries and define Dancebox as the supported chain:
 
 ```ts title="wagmi.ts"
---8<-- 'code/builders/toolkit/integrations/wallets/rainbowkit/wagmi2.ts'
+--8<-- 'code/builders/toolkit/wallets/rainbowkit/wagmi2.ts'
 ```
 
 ### Wrap Your Application with Providers
 
-Next, create a file named providers.tsx to wrap your application with the necessary providers: WagmiProvider, and QueryClientProvider.
+Next, create a file named `providers.tsx` to wrap your application with the necessary providers: `WagmiProvider`, and `QueryClientProvider`.
 
 ```bash
 cd app &&
@@ -221,13 +221,13 @@ touch providers.tsx
 Open `providers.tsx` add the following code to manage the providers
 
 ```ts title="providers.tsx"
---8<-- 'code/builders/toolkit/integrations/wallets/rainbowkit/providers.tsx'
+--8<-- 'code/builders/toolkit/wallets/rainbowkit/providers0.tsx'
 ```
 
 Now locate the `layout.tsx` file inside the `app` directory and modify the code to import `Providers` and wrap the application:
 
 ```ts title="layout.tsx"
---8<-- 'code/builders/toolkit/integrations/wallets/rainbowkit/layout.tsx'
+--8<-- 'code/builders/toolkit/wallets/rainbowkit/layout.tsx'
 ```
 This ensures that your app is wrapped with all necessary providers, including wagmi, and TanStack Query for state management.
 
@@ -236,7 +236,7 @@ This ensures that your app is wrapped with all necessary providers, including wa
 RainbowKit offers a `ConnectButton` component, which renders the **Connect** and **Disconnect** buttons and UI elements for switching chains. This example imports the `ConnectButton` into the existing `page.tsx` file for simplicity, but you may want to add it to an element like a **Header** or **Navbar** so it appears at the top of each page. Update the code in `page.tsx` as follows:
 
 ```ts title="page.tsx"
---8<-- 'code/builders/toolkit/integrations/wallets/rainbowkit/pages.tsx'
+--8<-- 'code/builders/toolkit/wallets/rainbowkit/pages.tsx'
 ```
 
 If you haven't already, start the development server and spin up a local version of your dApp. Your home page should now include a visible **Connect Wallet** button. Click the button to test the connection. You should now see the RainbowKit modal with options to get or connect a wallet. Select **MetaMask** and follow the prompts to connect your wallet.
@@ -256,7 +256,7 @@ RainbowKit will connect by default to the first chain supplied to Wagmi in the c
 Instead, you can use the `initialChain` prop that is part of the `RainbowKitProvider` element to define which chain the wallet should initially connect to when the user selects **Connect Wallet**. Open your `providers.tsx` file and update the code to configure the `initialChain` prop. For the custom Dancebox appchain, you'll pass the chain object you defined earlier:
 
 ```Ts title="providers.tsx"
---8<-- 'code/builders/toolkit/integrations/wallets/rainbowkit/providers.tsx'
+--8<-- 'code/builders/toolkit/wallets/rainbowkit/providers.tsx'
 ```
 
 By setting `initialChain={danceboxChain}`, you ensure that RainbowKit will attempt to connect to the Dancebox appchain first when a user clicks the Connect Wallet button.
@@ -268,7 +268,7 @@ RainbowKit offers three built-in theme functions: `lightTheme`, `darkTheme`, and
 RainbowKit offers three built-in theme functions: `lightTheme`, `darkTheme`, and `midnightTheme`. These theme functions return a theme object, which you can pass into the `RainbowKitProvider` prop `theme` to set custom colors, border radius, font stack, and overlay blur. 
 
 ```js title="providers.tsx"
---8<-- 'code/builders/toolkit/integrations/wallets/rainbowkit/providers2.tsx'
+--8<-- 'code/builders/toolkit/wallets/rainbowkit/providers2.tsx'
 ```
 This configuration sets a dark theme with custom properties:
 
