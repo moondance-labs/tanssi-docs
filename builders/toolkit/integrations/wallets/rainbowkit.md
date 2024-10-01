@@ -7,7 +7,7 @@ description: Learn how to integrate RainbowKit into your appchain created with T
 
 ## Introduction 
 
-[RainbowKit](https://www.rainbowkit.com/docs/introduction){target=\_blank} RainbowKit is a React library that adds wallet connection capabilities to a dApp. It supports numerous wallets and enables features such as switching connection chains, ENS address resolution, and balance display out-of-the-box. RainbowKit offers customization options for all EVM-compatible chains, making it possible to easily connect wallets to your appchain.
+[RainbowKit](https://www.rainbowkit.com/docs/introduction){target=\_blank} is a React library that adds wallet connection capabilities to a dApp. It supports numerous wallets and enables features such as switching connection chains, ENS address resolution, and balance display out-of-the-box. RainbowKit offers customization options for all EVM-compatible chains, making it possible to connect wallets to your appchain easily.
 
 
 RainbowKit bundles together mulitple tools to simplify adding wallet connection to your dApp: 
@@ -73,19 +73,19 @@ Your starting screen should look like this:
 
 Open the project in your code editor and take a look at the directory and file structure, paying particular attention to the `wagmi.ts` file. This file is where you can configure which chains are included in the list of networks that users can connect to through your dApp.
 
-Since Dancebox is a custom appchain on Tanssi, it cannot be imported directly from `wagmi/chains`. Instead, you need to manually define the chain in the `wagmi.ts` file. For example, if your appchain uses the Tanssi demo appchain (Dancebox) or another EVM-compatible chain, you can add the necessary configurations manually.
+Since the Dancebox EVM demo appchain is a custom appchain on Tanssi, it cannot be imported directly from `wagmi/chains`. Instead, you must manually define the chain in the `wagmi.ts` file. For example, if your appchain uses the Tanssi demo appchain (Dancebox) or another EVM-compatible chain, you can add the necessary configurations manually.
 
 Here is the configuration for the Dancebox demo appchain on Tanssi:
 
-=== "Dancebox Demo Appchain"
+=== "Dancebox Demo EVM Appchain"
 ```js title="src/wagmi.ts"
 --8<-- 'code/builders/toolkit/wallets/rainbowkit/wagmi.ts'
 ```
-To add support for the Dancebox appchain on Tanssi, update `wagmi.ts` as shown above. You will learn how to generate the `projectId` value for WalletConnect in the next section.
+To add support for the Dancebox demo EVM appchain on Tanssi, update `wagmi.ts` as shown above. You will learn how to generate the `projectId` value for WalletConnect in the next section.
 
 ## Manual Setup 
 
-If you want to add RainbowKit to an existing React application, you can complete a manual setup. The following sections will guide you through using the manual setup to install and import needed dependencies, configure chain connections to support the Dancebox appchain on Tanssi, and make RainbowKit functionality available to users of your dApp. You will also learn how to specify which chain the **Connect Wallet** button should connect to by default and how to customize the RainbowKit theme to fit your project.
+If you want to add RainbowKit to an existing React application, you can complete a manual setup. The following sections will guide you through using the manual setup to install and import needed dependencies, configure chain connections to support the Dancebox demo EVM appchain on Tanssi, and make RainbowKit functionality available to users of your dApp. You will also learn how to specify which chain the **Connect Wallet** button should connect to by default and how to customize the RainbowKit theme to fit your project.
 
 ### Checking Prerequisites {: #checking-prerequisites }
 

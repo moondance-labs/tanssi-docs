@@ -2,6 +2,6 @@ title: Wallets
 hide: false
 nav:
   - 'index.md'
-  - 'rainbowkit.md'
+  - 'Rainbowkit': 'rainbowkit.md'
   
   
