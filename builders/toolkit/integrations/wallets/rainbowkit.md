@@ -3,7 +3,7 @@ title: Add RainbowKit to a Tanssi demo appchain
 description: Learn how to integrate RainbowKit into your appchain created with Tanssi. In this example, we will use the Tanssi demo appchain to guide you through the process.
 ---
 
-# Integrate RainbowKit into a Tanssi demo apchain 
+# Integrate RainbowKit into a Tanssi demo appchain 
 
 ## Introduction 
 
