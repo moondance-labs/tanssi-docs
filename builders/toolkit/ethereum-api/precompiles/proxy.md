@@ -8,9 +8,9 @@ keywords: solidity, ethereum, proxy, moonbeam, precompiled, contracts, substrate
 
 ## Introduction {: #introduction }
 
-The Proxy Precompile allows accounts to set proxy accounts that can perform specific limited actions on their behalf, such as governance, balance transfers, management or privileged transactions, and others.
+The Proxy Precompile allows accounts to set proxy accounts via the Ethereum API. Proxy accounts can perform limited actions on behalf of the proxied account, such as governance, balance transfers, management or privileged transactions, and others.
 
-If a user wanted to provide a second user access to a limited number of actions on their behalf, traditionally, the only method to do so would be by providing the first account's private key to the second. However, Tanssi EVM appchains include the proxy module, which enables proxy accounts. Proxy accounts ought to be used due to the additional layer of security they provide, where many accounts can perform actions for a primary account. This is best if, for example, a user wants to keep their wallet safe in cold storage but still wants to access parts of the wallet's functionality, like governance or staking.  
+If a user wanted to provide another user access to a limited number of actions on their behalf, traditionally, the only method to do so would be to share that account's private key. However, Tanssi EVM appchains include the proxy module, providing an additional layer of security. With proxies, many accounts can perform actions for a primary account, and such permissions can be revoked at any time. This is best if, for example, a user wants to keep their wallet safe in cold storage but still wants to access parts of the wallet's functionality, like governance or staking.  
 
 !!! note
     The Proxy Precompile can only be called from an Externally Owned Account (EOA) or by the [Batch Precompile](/builders/ethereum/precompiles/ux/batch/){target=\_blank}.
