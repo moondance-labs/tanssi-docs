@@ -122,6 +122,8 @@ There are multiple types of proxy roles that can be delegated to accounts, repre
 
 ## Interact with the Solidity Interface via Remix {: #interact-with-the-solidity-interface-via-remix }
 
+This section will walk you through the steps to create a proxy, verify its creation, and revoke the proxy privileges. These examples are based on the [Tanssi demo EVM Appchain](https://apps.tanssi.network/demo){target=\_blank} and use [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}. This guide can be adapted for your own Tanssi EVM appchain by adding the RPC URL of your Tanssi appchain to the EVM Wallet of your choosing.
+
 ### Remix Set Up {: #remix-set-up }
 
 You can interact with the Proxy precompile using [Remix](https://remix.ethereum.org){target=\_blank}. To add the precompile to Remix, you will need to:
