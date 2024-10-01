@@ -92,7 +92,7 @@ The interface includes the necessary data structures along with the following fu
         - `proxyType` - "Any"
         - `delay` - 0
 
-The `proxyType` parameter is defined by the following `ProxyType` enum, where the values start at `0` with the most permissive proxy type and are represented as `uint8` values:
+[The `proxyType` parameter](#proxy-types) is defined by the following `ProxyType` enum, where the values start at `0` with the most permissive proxy type and are represented as `uint8` values:
 
 ```solidity
 enum ProxyType {
