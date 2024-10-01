@@ -312,5 +312,5 @@ This guide includes only a few of the customization options available through Ra
 
 You can view the complete example code in the [rainbow-manual-build-demo repository](https://github.com/papermoonio/rainbowkit-manual-build-demo){target=\_blank}
 
-
+--8<-- 'text/_disclaimers/third-party-content.md'
 
