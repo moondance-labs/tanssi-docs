@@ -10,43 +10,87 @@ keywords: solidity, ethereum, proxy, moonbeam, precompiled, contracts, substrate
 
 The Proxy Precompile allows accounts to set proxy accounts that can perform specific limited actions on their behalf, such as governance, balance transfers, management or privileged transactions, and others.
 
-If a user wanted to provide a second user access to a limited number of actions on their behalf, traditionally the only method to do so would be by providing the first account's private key to the second. However, Tanssi EVM appchains include the proxy module, which enables proxy accounts. Proxy accounts ought to be used due to the additional layer of security that they provide, where many accounts can perform actions for a main account. This is best if, for example, a user wants to keep their wallet safe in cold storage but still wants to access parts of the wallet's functionality like governance or staking.  
+If a user wanted to provide a second user access to a limited number of actions on their behalf, traditionally, the only method to do so would be by providing the first account's private key to the second. However, Tanssi EVM appchains include the proxy module, which enables proxy accounts. Proxy accounts ought to be used due to the additional layer of security they provide, where many accounts can perform actions for a primary account. This is best if, for example, a user wants to keep their wallet safe in cold storage but still wants to access parts of the wallet's functionality, like governance or staking.  
 
-!! note
-    The Proxy Precompile can only be called from an Externally Owned Account (EOA) or by the [Batch Precompile](/builders/ethereum/precompiles/ux/batch/){target=\_blank}.**
+!!! note
+    The Proxy Precompile can only be called from an Externally Owned Account (EOA) or by the [Batch Precompile](/builders/ethereum/precompiles/ux/batch/){target=\_blank}.
 
-To learn more about proxy accounts and how to set them up for your own purposes without use of the Proxy Precompile, view the [Setting up a Proxy Account](/tokens/manage/proxy-accounts/){target=\_blank} page.
+To learn more about proxy accounts and how to set them up for your own purposes without use of the Proxy Precompile, visit the [Proxy Accounts](/builders/account-management/proxy-accounts/){target=\_blank} page.
 
 The Proxy Precompile is located at the following address:
 
-=== "Moonbeam"
+```text
+{{networks.dancebox.precompiles.proxy}}
+```
 
-     ```text
-     {{networks.moonbeam.precompiles.proxy}}
-     ```
-=== "Moonriver"
+--8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
-     ```text
-     {{networks.moonriver.precompiles.proxy}}
-     ```
-=== "Moonbase Alpha"
+## Prerequisites {: #prerequisites }
 
-     ```text
-     {{networks.moonbase.precompiles.proxy}}
-     ```
-
---8<-- 'text/builders/ethereum/precompiles/security.md'
+ Tto follow along with the contents in this guide, you'll need:
+ 
+- Access to a Tanssi EVM appchain running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above
+- An [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} configured to work with your appchain. You can also connect your wallet to the [demo EVM appchain](https://apps.tanssi.network/demo){target=\_blank}
+- An account with enough funds to pay the required fees and deposits
+- A second account that you control to use as a proxy
 
 ## The Proxy Solidity Interface {: #the-proxy-solidity-interface }
 
-[`Proxy.sol`](https://github.com/moonbeam-foundation/moonbeam/blob/master/precompiles/proxy/Proxy.sol){target=\_blank} is an interface through which Solidity contracts can interact with the Proxy Pallet. You do not have to be familiar with the Substrate API since you can interact with it using the Ethereum interface you're familiar with.
+[`Proxy.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Proxy.sol){target=\_blank} is an interface that allows developers to interact with the precompile's functions.
 
-The interface includes the following functions:
+??? code "Proxy.sol"
 
- - **addProxy**(*address* delegate, *ProxyType* proxyType, *uint32* delay) — registers a proxy account for the sender after a specified number of `delay` blocks (generally zero). Will fail if a proxy for the caller already exists
- - **removeProxy**(*address* delegate, *ProxyType* proxyType, *uint32* delay) — removes a registered proxy for the sender
- - **removeProxies**() — removes all of the proxy accounts delegated to the sender
- - **isProxy**(*address* real, *address* delegate, *ProxyType* proxyType, *uint32* delay) — returns a boolean, `true` if the delegate address is a proxy of type `proxyType`, for address `real`, with the specified `delay`
+    ```solidity
+    --8<-- 'code/builders/toolkit/ethereum-api/precompiles/proxy/proxy.sol'
+    ```
+
+The interface includes the necessary data structures along with the following functions:
+
+???+ function "**addProxy**(delegate, proxyType, delay) — registers a proxy account for the sender after a specified number of `delay` blocks (generally zero). Will fail if a proxy for the caller already exists"
+
+    === "Parameters"
+
+        - `delegate` ++"address"++ - the proxy address
+        - `proxyType` ++"ProxyType"++ - the delegation type that defines the specific functions the proxy will be granted permission to execute
+        - `delay` ++"uint32"++ - number of blocks to wait until the proxy is enabled
+
+    === "Example"
+
+        - `delegate` - 0x3f0Aef9Bd799F1291b80376aD57530D353ab0217
+        - `proxyType` - "Any"
+        - `delay` - 0
+
+??? function "**removeProxy**(delegate, proxyType, delay) — removes a registered proxy for the sender"
+
+    === "Parameters"
+
+        - `delegate` ++"address"++ - the proxy address to remove
+        - `proxyType` ++"ProxyType"++ - the delegation type to remove
+        - `delay` ++"uint32"++ - number of blocks to wait until the removal is in effect
+
+    === "Example"
+
+        - `delegate` - 0x3f0Aef9Bd799F1291b80376aD57530D353ab0217
+        - `proxyType` - "Any"
+        - `delay` - 0
+
+??? function "**removeProxies**() — removes all of the proxy accounts delegated to the sender"
+
+??? function "**isProxy**(real, delegate, proxyType, delay) — returns `true` if the delegate address is a proxy of type `proxyType`, for address `real`, with the specified `delay`"
+
+    === "Parameters"
+
+        - `real` ++"address"++ - the account granting permissions to the proxy
+        - `delegate` ++"address"++ - the proxy address
+        - `proxyType` ++"ProxyType"++ - the delegation type
+        - `delay` ++"uint32"++ - number of blocks to wait
+
+    === "Example"
+
+        - `delegate` - 0xbB8919d5DDfc85F4D15820a9e58018f1cfB39a2F
+        - `delegate` - 0x3f0Aef9Bd799F1291b80376aD57530D353ab0217
+        - `proxyType` - "Any"
+        - `delay` - 0
 
 The `proxyType` parameter is defined by the following `ProxyType` enum, where the values start at `0` with the most permissive proxy type and are represented as `uint8` values:
 
@@ -63,97 +107,91 @@ enum ProxyType {
 }
 ```
 
-## Proxy Types {: #proxy-types }
+### Proxy Types {: #proxy-types }
 
-There are multiple types of proxy roles that can be delegated to accounts, where are represented in `Proxy.sol` through the `ProxyType` enum. The following list includes all of the possible proxies and the type of transactions they can make on behalf of the primary account:
+There are multiple types of proxy roles that can be delegated to accounts, represented in `Proxy.sol` through the `ProxyType` enum. The following list includes all of the possible proxies and the type of transactions they can make on behalf of the primary account:
 
- - **Any** — the any proxy will allow the proxy account to make any type of transaction that the `Governance`, `Staking`, `Balances`, and `AuthorMapping` proxy types can perform. Note that balance transfers are only allowed to EOAs, not contracts or Precompiles
- - **NonTransfer** — the non-transfer proxy will allow the proxy account to make any type of transaction through the `Governance`, `Staking` and `AuthorMapping` Precompiles, where the `msg.value` is checked to be zero
- - **Governance** - the governance proxy will allow the proxy account to make any type of governance related transaction (includes both democracy or council pallets)
- - **Staking** - the staking proxy will allow the proxy account to make staking related transactions through the `Staking` Precompile, including calls to the `AuthorMapping` Precompile
- - **CancelProxy** - the cancel proxy will allow the proxy account to reject and remove delayed proxy announcements (of the primary account). Currently, this is not an action supported by the Proxy Precompile
- - **Balances** - the balances proxy will allow the proxy account to only make balance transfers to EOAs
- - **AuthorMapping** - this type of proxy account is used by collators to migrate services from one server to another
- - **IdentityJudgement** - the identity judgement proxy will allow the proxy account to judge and certify the personal information associated with accounts on Polkadot. Currently, this is not an action supported by the Proxy Precompile
+- **Any** — the any proxy will allow the proxy account to make any type of transaction. Note that balance transfers are only allowed to EOAs, not contracts or Precompiles
+- **NonTransfer** — the non-transfer proxy allows the proxy account to make any type of transaction where the `msg.value` is checked to be zero
+- **Governance** - the governance proxy will allow the proxy account to make any type of governance related transaction
+- **CancelProxy** - the cancel proxy will allow the proxy account to reject and remove delayed proxy announcements (of the primary account). Currently, this is not an action supported by the Proxy Precompile
+- **Balances** - the balances proxy will allow the proxy account to only make balance transfers to EOAs
+ 
+!!! note
+    The Solidity interface contains more proxy types than those listed above. The previous list includes only those proxy types implemented in the [baseline EVM Template](/builders/build/templates/evm/){target=\_blank}.
 
-## Interact with the Solidity Interface {: #interact-with-the-solidity-interface }
-
-The following section will cover how to interact with the Proxy Precompile from Remix. Please note that **the Proxy Precompile can only be called from an EOA or by the [Batch Precompile](/builders/ethereum/precompiles/ux/batch/){target=\_blank}**.
-
-### Checking Prerequisites {: #checking-prerequisites }
-
-The below example is demonstrated on Moonbase Alpha, however, similar steps can be taken for Moonbeam and Moonriver. You should:  
-
- - Have MetaMask installed and [connected to Moonbase Alpha](/tokens/connect/metamask/){target=\_blank}
- - Have an account with some DEV tokens.
-  --8<-- 'text/_common/faucet/faucet-list-item.md'
- - Have a second account that you control to use as a proxy account (funding optional)
+## Interact with the Solidity Interface via Remix {: #interact-with-the-solidity-interface-via-remix }
 
 ### Remix Set Up {: #remix-set-up }
 
-To get started, get a copy of [`Proxy.sol`](https://github.com/moonbeam-foundation/moonbeam/blob/master/precompiles/proxy/Proxy.sol){target=\_blank} and take the following steps:
+You can interact with the Proxy precompile using [Remix](https://remix.ethereum.org){target=\_blank}. To add the precompile to Remix, you will need to:
 
-1. Click on the **File explorer** tab
-2. Copy and paste the file contents into a [Remix file](https://remix.ethereum.org){target=\_blank} named `Proxy.sol`
-
-![Copying and Pasting the Proxy Interface into Remix](/images/builders/ethereum/precompiles/account/proxy/proxy-1.webp)
+1. Get a copy of [`Proxy.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Proxy.sol){target=\_blank}
+2. Paste the file contents into a Remix file named `Proxy.sol`
 
 ### Compile the Contract {: #compile-the-contract }
+
+Next, you will need to compile the interface in Remix:
 
 1. Click on the **Compile** tab, second from top
 2. Then to compile the interface, click on **Compile Proxy.sol**
 
-![Compiling Proxy.sol](/images/builders/ethereum/precompiles/account/proxy/proxy-2.webp)
+![Compiling Proxy.sol](/images/builders/toolkit/ethereum-api/precompiles/proxy/proxy-1.webp)
+
+When compilation is completed, you will see a green checkmark next to the **Compile** tab.
 
 ### Access the Contract {: #access-the-contract }
 
-1. Click on the **Deploy and Run** tab, directly below the **Compile** tab in Remix. Note: you are not deploying a contract here, instead you are accessing a precompiled contract that is already deployed
-2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** drop down
-3. Ensure **Proxy.sol** is selected in the **CONTRACT** dropdown. Since this is a precompiled contract there is no need to deploy, instead you are going to provide the address of the Precompile in the **At Address** field
-4. Provide the address of the Proxy Precompile for Moonbase Alpha: `{{networks.moonbase.precompiles.proxy}}` and click **At Address**
-5. The Proxy Precompile will appear in the list of **Deployed Contracts**
+Instead of deploying the smart contract, you will access the interface through its address:
 
-![Provide the address](/images/builders/ethereum/precompiles/account/proxy/proxy-3.webp)
+1. Click on the **Deploy and Run** tab directly below the **Compile** tab in Remix
+2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** dropdown. You may be prompted by MetaMask to connect your account to Remix if it's not already connected
+3. Make sure the priimary account is displayed under **ACCOUNT**
+4. Ensure **Proxy - Proxy.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
+5. Provide the address of the Proxy precompile (which is `{{networks.dancebox.precompiles.proxy}}` in this example) and click **At Address**
+6. The **Proxy** precompile will appear in the list of **Deployed Contracts**
+
+![Access the address](/images/builders/toolkit/ethereum-api/precompiles/proxy/proxy-2.webp)
 
 ### Add a Proxy {: #add-proxy }
 
-You can add a proxy for your account via the Proxy Precompile if your account doesn't already have a proxy. In this example, you will add a [balances](#:~:text=Balances) proxy to an account by taking the following steps:
+You can add a proxies for your account calling the precompile functions. In the following example, you will add a proxy allowed to execute any transaction on your behalf:
 
 1. Expand the Proxy Precompile contract to see the available functions
 2. Find the **addProxy** function and press the button to expand the section
-3. Insert your second account's address as the **delegate**, `5` as **proxyType**, `0` and as **delay**
-4. Press **transact** and confirm the transaction in MetaMask
+3. Insert your second account's address as the **delegate**, `0` as **proxyType**, meaning `any`, and `0` as **delay**
+4. Click **transact**
+5. MetaMask will pop up, and you will be prompted to review the transaction details. Click Confirm to execute the transaction
 
 !!! note
-     When constructing the transaction in Remix, the **proxyType** is represented as a `uint8`, instead of the expected enum `ProxyType`. In Solidity, enums are compiled as `uint8`, so when you pass in `5` for **proxyType**, you indicate the sixth element in the `ProxyType` enum, which is the balances proxy.
+     When constructing the transaction in Remix, the **proxyType** is represented as a `uint8`, instead of the expected enum `ProxyType`. In Solidity, enums are compiled as `uint8`, so when you pass in `0` for **proxyType**, you indicate the first element in the `ProxyType` enum, which is the `any` proxy.
 
-![Call the addProxy function](/images/builders/ethereum/precompiles/account/proxy/proxy-4.webp)
+![Call the addProxy function](/images/builders/toolkit/ethereum-api/precompiles/proxy/proxy-3.webp)
 
-### Check a Proxy's Existence {: #check-proxy }
+### Check a Proxy Existence {: #check-proxy }
 
-You can determine whether or not an account is a proxy account for a primary account. In this example, you will insert the parameters of the [previously added proxy](#add-proxy) to determine if the proxy account was successfully added:
+The function `isProxy` checks if a proxy account exists. After creating a proxy in the [previous step](#add-proxy), use the same parameters to verify that the proxy was successfully added:
 
-1. Find the **isProxy** function and press the button to expand the section
-2. Insert your primary account's address as **real**, your second account's address as **delegate**, `5` as **proxyType**, and `0` as **delay**
-3. Press **call**
+1. Expand the **isProxy** function
+2. Insert your primary account as **real**, your second account (proxy) as **delegate**, `0` as **proxyType**, and `0` as **delay**
+3. Click **call**
+4. The functions returns whether there is a proxy or not. In this example, the proxy exists, hence the function returns `true`
 
-If everything went correctly, the output should be `true`.
-
-![Call the isProxy function](/images/builders/ethereum/precompiles/account/proxy/proxy-5.webp)
+![Call the isProxy function](/images/builders/toolkit/ethereum-api/precompiles/proxy/proxy-4.webp)
 
 ### Remove a Proxy {: #remove-proxy }
 
-You can remove a proxy from your account via the Proxy Precompile. In this example, you will remove the balances proxy [previously added](#add-proxy) to your delegate account by taking the following steps:
+You can revoke a proxy permission when it's no longer needed. After creating a proxy in the [Add Proxy](#add-proxy), step, it can be removed following these steps:
 
-1. Expand the Proxy Precompile contract to see the available functions
-2. Find the **removeProxy** function and press the button to expand the section
-3. Insert your second account's address as the **delegate**, `5` as **proxyType**, `0` and as **delay**
-4. Press **transact** and confirm the transaction in MetaMask
+1. Expand the **removeProxy** function
+2. Insert the proxy account as the **delegate**, `0` as **proxyType**, `0` and as **delay**
+3. Click **transact** 
+4. MetaMask will pop up, and you will be prompted to review the transaction details. Click Confirm to execute the transaction
 
-After the transaction is confirmed, if you repeat the steps to [check for a proxy's existence](#check-proxy), the result should be `false`.
+After the transaction is confirmed, if you repeat the steps to [check for a proxy existence](#check-proxy), the result should be `false`.
 
-![Call the removeProxy function](/images/builders/ethereum/precompiles/account/proxy/proxy-6.webp)
+![Call the removeProxy function](/images/builders/toolkit/ethereum-api/precompiles/proxy/proxy-5.webp)
 
-And that's it! You've completed your introduction to the Proxy Precompile. Additional information on setting up proxies is available on the [Setting up a Proxy Account](/tokens/manage/proxy-accounts/){target=\_blank} page and the [Proxy Accounts](https://wiki.polkadot.network/docs/learn-proxies){target=\_blank} page on Polkadot's documentation. Feel free to reach out on [Discord](https://discord.com/invite/PfpUATX){target=\_blank} if you have any questions about any aspect of the Proxy Precompile.
+And that's it! You've successfully interacted with the Proxy precompile using MetaMask and Remix!
 
 --8<-- 'text/_disclaimers/third-party-content.md'
