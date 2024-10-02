@@ -23,7 +23,7 @@ To follow along with this tutorial, you will need to have:
 - Create or have two accounts accessible in Polkadot.js Apps
 - Both accounts will need to be funded with `DANCE` tokens, and the block producer account will need at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` `DANCE`
 
-If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman#connecting-to-polkadotjs){target=\_blank} guide.
+If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
 ## Creating a Staking Proxy Account {: #creating-a-staking-proxy-account }
 

@@ -7,7 +7,7 @@ description: Appchains deployed through Tanssi benefit from block production ser
 
 ## Introduction {: #introduction }
 
-As presented in the [Block Production as a Service](/learn/tanssi/technical-features#services-payments){target=_\blank} article, there are two main costs associated that the appchain governor must cover: 
+As presented in the [Block Production as a Service](/learn/tanssi/technical-features/#services-payments){target=_\blank} article, there are two main costs associated that the appchain governor must cover: 
 
 - **Block producers assignment** - for the assignment of block producers by the Tanssi protocol, which happens once per session
 - **Block production** - for each block that is produced on the appchain's behalf
