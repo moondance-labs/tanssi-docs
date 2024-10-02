@@ -10,14 +10,14 @@ description: Learn how to integrate RainbowKit into an appchain created with Tan
 [RainbowKit](https://www.rainbowkit.com/docs/introduction){target=\_blank} is a React library that adds wallet connection capabilities to a dApp. It supports numerous wallets and enables features such as switching connection chains, ENS address resolution, and balance display out-of-the-box. RainbowKit offers customization options for all EVM-compatible chains, making it possible to connect wallets to an appchain easily.
 
 
-RainbowKit bundles together mulitple tools to simplify adding wallet connection to your dApp: 
+RainbowKit bundles together multiple tools to simplify adding wallet connections to a dApp:
 
 - [Wagmi](https://wagmi.sh/){target=\_blank} - a React Hooks library for interacting with Ethereum accounts, wallets, contracts, transactions, signing, ENS, and more
 - [viem](https://viem.sh/){target=\_blank} - TypeScript interface which provides low-level stateless primitives for interacting with Ethereum
 - [WalletConnect](https://walletconnect.com/){target=\_blank} - adds encrypted connections and enhanced UX experiences like connecting a mobile wallet by scanning a QR code
 - [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview){target=\_blank} - helps manage and update server state within the application
 
-This guide explains how to add RainbowKit to a dApp using the CLI, supporting Tanssi appchains,and some options for further customizing your integration. 
+This guide explains how to add RainbowKit to a dApp using the CLI, supporting Tanssi appchains,and some options for further customizing the integration. 
 
 ## Quick Start {: #quick-start }
 
@@ -171,7 +171,7 @@ For detailed instructions on connecting MetaMask to the Dancebox appchain, refer
 
 After connecting, `the projectId` can be safely added to the application:
 
-1. Create a `.env.local` file in the root directory of your project
+1. Create a `.env.local` file in the root directory of the project
 
     ```bash
     touch .env.local
@@ -193,7 +193,7 @@ With the development environment set up and MetaMask configured for the Dancebox
 
 1. Import RainbowKit, Wagmi, and TanStack Query
 2. Setup configuration for Wagmi
-3. Wrap your application with providers
+3. Wrap the application with providers
 4. Add the connect button
 
 ### Import RainbowKit, Wagmi, and TanStack Query
@@ -209,7 +209,7 @@ In `wagmi.ts`, import the necessary libraries and define Dancebox as the support
 --8<-- 'code/builders/toolkit/wallets/rainbowkit/wagmi2.ts'
 ```
 
-### Wrap Your Application with Providers
+### Wrap the Application with Providers
 
 Next, create a file named `providers.tsx` to wrap the application with the necessary providers: `WagmiProvider`, and `QueryClientProvider`.
 
@@ -233,7 +233,7 @@ This ensures that the app is wrapped with all necessary providers, including wag
 
 ### Add the Connect Button
 
-RainbowKit offers a `ConnectButton` component, which renders the **Connect** and **Disconnect** buttons and UI elements for switching chains. This example imports the `ConnectButton` into the existing `page.tsx` file for simplicity, but you may want to add it to an element like a **Header** or **Navbar** so it appears at the top of each page. Update the code in `page.tsx` as follows:
+RainbowKit offers a `ConnectButton` component, which renders the **Connect** and **Disconnect** buttons and UI elements for switching chains. This example imports the `ConnectButton` into the existing `page.tsx` file for simplicity, though it can also be added to an element like a **Header** or **Navbar** to appear at the top of every page. Update the code in `page.tsx` as follows:
 
 ```ts title="page.tsx"
 --8<-- 'code/builders/toolkit/wallets/rainbowkit/pages.tsx'
@@ -241,7 +241,7 @@ RainbowKit offers a `ConnectButton` component, which renders the **Connect** and
 
 Once the development server is running, the home page will display a **Connect Wallet** button. Clicking this button will open the RainbowKit modal, providing options to either connect an existing wallet or get a new one. Select **MetaMask** and follow the on-screen instructions to complete the connection process.
 
-The current configuration defaults to connecting to Dancebox and displays the current network, the native token balance, and the connected wallet address. If multiple networks are supported, you can select the arrow next to Dancebox to open the Switch Networks modal. This allows users to select another network and authorize the change.
+The current configuration defaults to connecting to Dancebox and displays the current network, the native token balance, and the connected wallet address. If multiple networks are supported, selecting the arrow next to Dancebox will open the Switch Networks modal. This allows users to select another network and authorize the change.
 
 Once connected, users will see their TANGO token balance and wallet address.
 
@@ -296,8 +296,8 @@ Some users prefer to disconnect from their wallet rather than use a button withi
 1. Select the MetaMask extension in the browser to open the modal
 2. Select the three dots in the upper right corner of the MetaMask modal
 3. Select **Connected sites**
-4. Review the list of sites connected to your wallet
-5. Select **Disconnect** for each site you want to disconnect
+4. Review the list of sites connected to the wallet
+5. Select **Disconnect** for each site that should be disconnect
 
 ## Final Result {: #final-result }
 
