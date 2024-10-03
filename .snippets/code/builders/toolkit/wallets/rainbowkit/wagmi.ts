@@ -8,7 +8,7 @@ import { type Chain } from 'viem'
 
 export const danceboxChain = {
   id: 5678,
-  name: "Dancebox",
+  name: "demoAppchain",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
     default: { http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'] }

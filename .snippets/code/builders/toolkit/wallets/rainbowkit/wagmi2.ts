@@ -5,9 +5,9 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 import { type Chain } from 'viem'
 
-export const danceboxEVMChain = {
+export const demoEVMChain = {
   id: 5678,
-  name: "Dancebox EVM Appchain",
+  name: "Tanssi demo EVM Appchain",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
     default: { http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'] }
@@ -21,6 +21,6 @@ export const danceboxEVMChain = {
 export const config = getDefaultConfig({
   appName: 'My Tanssi Appchain',
   projectId: 'process.env.NEXT_PUBLIC_PROJECT_ID',
-  chains: [danceboxEVMChain ], 
+  chains: [demoEVMChain ], 
   ssr: true,
 });
