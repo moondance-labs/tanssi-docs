@@ -97,7 +97,7 @@ Before proceeding, ensure the following prerequisites are met:
     
  - To follow this guide, visit [Next.js](https://nextjs.org/docs){target=\_blank} and follow the **Automatic Installation** instructions, selecting Typescript and the App Router options during setup 
 
-- The wallet being used must support custom networks, as the Dancebox appchain will be added manually.
+- The wallet being used must support custom networks, as the Tanssi demo EVM appchain will be added manually.
 
 - A WalletConnect `projectId` - every dApp relying on WalletConnect is required to have an associated `projectId`. It is free to create an account,  and an ID can be generated instantly.
 
@@ -155,9 +155,9 @@ Next, start the development server to create a local dApp instance:
 
 After starting the server, open [http://localhost:3000](http://localhost:3000){target=\_blank},  to view the Next.js application in the browser.
 
-To test the RainbowKit connection, the MetaMask app can be used. Ensure that the Dancebox appchain is connected in the MetaMask wallet.
+To test the RainbowKit connection, the MetaMask app can be used. Ensure that the Tanssi demo EVM appchain is connected in the MetaMask wallet.
 
-To add the Dancebox appchain to MetaMask:
+To add the Tanssi demo EVM appchain to MetaMask:
 
 1. Open MetaMask and go to Settings > Networks > Add Network.
 2. Input the following information:
@@ -167,7 +167,7 @@ To add the Dancebox appchain to MetaMask:
    - Currency Symbol: TANGO
    - Block Explorer URL: `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`
 
-For detailed instructions on connecting MetaMask to the Dancebox appchain, refer to the [Tanssi Documentation](https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/metamask/#connect-metamask-to-evm-appchain){target=\_blank}.
+For detailed instructions on connecting MetaMask to the Tanssi demo EVM appchain, refer to the guide [Connect MetaMask to your Tanssi EVM Appchain](https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/metamask/#connect-metamask-to-evm-appchain){target=\_blank}.
 
 After connecting, `the projectId` can be safely added to the application:
 
@@ -189,7 +189,7 @@ The stored `projectId` will be required for configuring the `wagmi` settings in 
 
 ### Connect DApp to MetaMask 
 
-With the development environment set up and MetaMask configured for the Dancebox appchain, the next step is to configure the dApp to connect with MetaMask's wallet using RainbowKit. This process involves the following key steps:
+With the development environment set up and MetaMask configured for the Tanssi demo EVM appchain, the next step is to configure the dApp to connect with MetaMask's wallet using RainbowKit. This process involves the following key steps:
 
 1. Import RainbowKit, Wagmi, and TanStack Query
 2. Setup configuration for Wagmi
@@ -221,7 +221,7 @@ touch providers.tsx
 Open `providers.tsx` add the following code to manage the providers
 
 ```ts title="providers.tsx"
---8<-- 'code/builders/toolkit/wallets/rainbowkit/providers0.tsx'
+--8<-- 'code/builders/toolkit/wallets/rainbowkit/providers1.tsx'
 ```
 
 Now locate the `layout.tsx` file inside the `app` directory and modify the code to import `Providers` and wrap the application:
@@ -251,15 +251,15 @@ RainbowKit simplifies the complexities of managing wallet connections while offe
 
 ### Set Custom Initial Chain
 
-By default, RainbowKit connects to the first chain supplied to Wagmi in the config. The order of chains listed in `wagmi.ts` will match the order displayed in the **Switch Networks** modal. To ensure that the Dancebox appchain is always the default connection, simply move it to the top of the chain list. However, relying solely on this default behavior might not be the most reliable option.
+By default, RainbowKit connects to the first chain supplied to Wagmi in the config. The order of chains listed in `wagmi.ts` will match the order displayed in the **Switch Networks** modal. To ensure that the Tanssi demo EVM appchain is always the default connection, simply move it to the top of the chain list. However, relying solely on this default behavior might not be the most reliable option.
 
-A better approach is to use the `initialChain` prop in the `RainbowKitProvider` component. This prop defines which chain the wallet will connect to initially when **Connect Wallet** is selected. To configure this, open the `providers.tsx` file and update the code by passing the `initialChain` prop with the custom Dancebox appchain object defined earlier:
+A better approach is to use the `initialChain` prop in the `RainbowKitProvider` component. This prop defines which chain the wallet will connect to initially when **Connect Wallet** is selected. To configure this, open the `providers.tsx` file and update the code by passing the `initialChain` prop with the custom Tanssi demo EVM appchain object defined earlier:
 
 ```Ts title="providers.tsx"
 --8<-- 'code/builders/toolkit/wallets/rainbowkit/providers.tsx'
 ```
 
-By setting `initialChain={danceboxChain}`, RainbowKit will attempt to connect to the Dancebox appchain first whenever the **Connect Wallet** button is clicked.
+By setting `initialChain={danceboxChain}`, RainbowKit will attempt to connect to the Tanssi demo EVM appchain first whenever the **Connect Wallet** button is clicked.
 
 ### Define Custom Theme Colors
 
@@ -277,7 +277,7 @@ This configuration sets a dark theme with custom properties:
 - `overlayBlur`: The blur effect applied to the background when modals are open.
 
 !!! tip
-Experiment with different theme functions (lightTheme, darkTheme, midnightTheme) and color combinations to find the best match for the visual style of the dApp.
+    Experiment with different theme functions (`lightTheme`, `darkTheme`, `midnightTheme`) and color combinations to find the best match for the visual style of the dApp.
 
 ## Handle Disconnections
 
@@ -301,7 +301,7 @@ Some users prefer to disconnect from their wallet rather than use a button withi
 
 ## Final Result {: #final-result }
 
-The **Connect Wallet** button on the home page should now render in the color specified for `accentColor` during theme customization. After selecting **Connect Wallet**, the same accent color will be displayed in the modal. MetaMask can be chosen, and signing the transaction will authorize the connection. The Dancebox appchain will appear as the connected network, along with the TANGO token balance, without the need for manual network switching.
+The **Connect Wallet** button on the home page should now render in the color specified for `accentColor` during theme customization. After selecting **Connect Wallet**, the same accent color will be displayed in the modal. MetaMask can be chosen, and signing the transaction will authorize the connection. The Tanssi demo EVM appchain will appear as the connected network, along with the TANGO token balance, without the need for manual network switching.
 
 
 ![Theme customization on the user modal](/images/builders/toolkit/integrations/wallets/rainbowkit/rainbowkit-3.webp)
