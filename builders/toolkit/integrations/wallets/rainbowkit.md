@@ -73,7 +73,7 @@ The starting screen should look like this:
 
 Open the project in a code editor and examine the directory and file structure, paying particular attention to the `wagmi.ts` file. This file allows configuration of the chains included in the list of networks that users can connect to via the dApp.
 
-Since the Dancebox EVM demo appchain is a custom appchain on Tanssi, it cannot be imported directly from `wagmi/chains`. Instead, define the chain manually in the `wagmi.ts` file. For example, if the appchain uses the Tanssi demo appchain (Dancebox) or another EVM-compatible chain, the necessary configurations must be added manually.
+Since the [demo EVM appchain](https://apps.tanssi.network/demo/){target=\_blank} is a custom appchain on Tanssi, it cannot be imported directly from `wagmi/chains`. Instead, define the chain manually in the `wagmi.ts` file. For example, if the appchain uses the Tanssi demo appchain or another EVM-compatible chain, the necessary configurations must be added manually.
 
 Here is the configuration for the Dancebox demo appchain on Tanssi:
 
