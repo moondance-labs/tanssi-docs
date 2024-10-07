@@ -17,7 +17,7 @@ Already existing Substrate runtimes need to at least have both [Cumulus](#adding
 
 Nevertheless, teams might have already implemented certain modules that can collide with some functionalities related to Tanssi, for example, block production, block authority assignment, and consensus.
 
-If the starting point for your project was the [parachain template](https://github.com/substrate-developer-hub/substrate-parachain-template){target=\_blank}, the following modules are included by default and must be removed along with their corresponding configuration:
+If the starting point for your project was the [parachain template](https://github.com/paritytech/polkadot-sdk-parachain-template){target=\_blank}, the following modules are included by default and must be removed along with their corresponding configuration:
 
 ```rust
 Authorship: pallet_authorship = 20,

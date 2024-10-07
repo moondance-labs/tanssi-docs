@@ -8,7 +8,7 @@ keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts, a
 
 ## Introduction {: #introduction }
 
-As presented in the [Native Cross-Chain Communication](/learn/framework/xcm){target=\_blank} article, appchains deployed through Tanssi can communicate and interoperate with any other appchain in the ecosystem. This multi-chain environment leads to a multi-asset world, where seamless transfer of assets, data, and value across different networks widens the possibilities to build use cases across diverse industries such as finance (DeFi), real-world assets (RWAs), and others.
+As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){target=\_blank} article, appchains deployed through Tanssi can communicate and interoperate with any other appchain in the ecosystem. This multi-chain environment leads to a multi-asset world, where seamless transfer of assets, data, and value across different networks widens the possibilities to build use cases across diverse industries such as finance (DeFi), real-world assets (RWAs), and others.
 
 External assets are tokens native to another blockchain, or, in other words, assets whose reserve chain is not the chain you are interacting with. Tanssi appchains can register external assets to enable their inflow. To do so, it is necessary to [establish an XCM channel](/learn/framework/xcm/#channel-registration){target=\_blank} with the other chain and then register one of its native assets as an external asset. Registered external assets behave, to some extent, the same way as local ones.
 
