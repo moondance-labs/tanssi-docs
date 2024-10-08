@@ -21,7 +21,7 @@ This guide explains how to add RainbowKit to a dApp running on top of a Tanssi-p
 
 ## Quick Start {: #quick-start }
 
-To start a new project, RainbowKit can scaffold a project using the CLI, combining RainbowKit and Wagmi in a [Next.js](https://nextjs.org/docs){target=\_blank} application. Use the preferred package manager to run the CLI command and start the project:
+To start a new project, RainbowKit can scaffold a project using the CLI, combining RainbowKit and Wagmi in a [Next.js](https://nextjs.org/docs){target=\_blank} application. Use your preferred package manager to run the CLI command and start the project:
 
 === "npm"
 
@@ -91,13 +91,13 @@ The following sections will walk you through the steps to integrate RainbowKit i
 
 Before proceeding, ensure the following prerequisites are met:
 
-- An existing dApp built with [React](https://react.dev/){target=\_blank} and manual setup will be used to connect to a wallet via RainbowKit.
+- An existing dApp built with [React](https://react.dev/){target=\_blank} and manual setup will be used to connect to a wallet via RainbowKit
 
 - The [RainbowKit examples repository](https://github.com/rainbow-me/rainbowkit/tree/main/examples){target=\_blank} includes templates for multiple React frameworks
     
  - To follow this guide, visit [Next.js](https://nextjs.org/docs){target=\_blank} and follow the **Automatic Installation** instructions, selecting Typescript and the App Router options during setup 
 
-- The wallet being used must support custom networks, as the Tanssi demo EVM appchain will be added manually.
+- The wallet must support custom networks, as the Tanssi demo EVM appchain will be added manually
 
 - A WalletConnect `projectId` - every dApp relying on WalletConnect is required to have an associated `projectId`. It is free to create an account,  and an ID can be generated instantly.
 
@@ -108,7 +108,7 @@ Before proceeding, ensure the following prerequisites are met:
     3. Add the project information (leaving the **Homepage URL** blank if the dApp is not deployed)
     4. Select the **AppKit** SDK
     5. Select a coding environment or platform (React is used in this guide)
-    6. Locate the `projectId` in the left menu. or find it in the **Get started** code snippet of WalletConnect Quickstart.
+    6. Locate the `projectId` in the left menu. or find it in the **Get started** code snippet of WalletConnect Quickstart
  
 ### Getting Started {: #getting-started }
 
@@ -247,7 +247,7 @@ Once connected, users will see their TANGO token balance and wallet address.
 
 ## Customize RainbowKit
 
-RainbowKit simplifies the complexities of managing wallet connections while offering various options for customizing UI and functionality to fit the needs of a dApp. A full list of customization options can be found in the RainbowKit [documentation](https://www.rainbowkit.com/docs/introduction){target=\_blank}. This section covers customizing the **Connect Wallet** button to connect initially to Demo EVM Chain and render it in a custom color. 
+RainbowKit simplifies the complexities of managing wallet connections while offering various options for customizing UI and functionality to fit the needs of a dApp. A full list of customization options can be found in the RainbowKit [documentation](https://www.rainbowkit.com/docs/introduction){target=\_blank}. This section covers customizing the **Connect Wallet** button to connect initially to the Demo EVM Chain and render it in a custom color. 
 
 ### Set Custom Initial Chain
 
@@ -297,7 +297,7 @@ Some users prefer to disconnect from their wallet rather than use a button withi
 2. Select the three dots in the upper right corner of the MetaMask modal
 3. Select **Connected sites**
 4. Review the list of sites connected to the wallet
-5. Select **Disconnect** for each site that should be disconnect
+5. Select **Disconnect** for each site that should be disconnected
 
 ## Final Result {: #final-result }
 
