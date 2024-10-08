@@ -6,15 +6,15 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 
 import { type Chain } from 'viem'
 
-export const danceboxChain = {
+export const demoEVMChain = {
   id: 5678,
-  name: "demoAppchain",
+  name: "Tanssi demo EVM Appchain",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
     default: { http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'] }
   },
   blockExplorers: {
-    default: { name: 'Dancebox Explorer', url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/' }
+    default: { name: 'Demo EVM Explorer', url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/' }
   },
 } as const satisfies Chain
 
@@ -22,7 +22,7 @@ export const danceboxChain = {
 export const config = getDefaultConfig({
   appName: 'My Tanssi Appchain',
   projectId: 'TODO: get project id from...',
-  chains: [danceboxChain], 
+  chains: [demoEVMChain], 
   ssr: true,
 });
 

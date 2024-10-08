@@ -13,7 +13,7 @@ export const demoEVMChain = {
     default: { http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'] }
   },
   blockExplorers: {
-    default: { name: 'Dancebox Explorer', url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/' }
+    default: { name: 'Demo EVM Explorer', url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/' }
   },
 } as const satisfies Chain
 
