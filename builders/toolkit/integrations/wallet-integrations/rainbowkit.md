@@ -42,7 +42,7 @@ To start a new project, RainbowKit can scaffold a project using the CLI, combini
 
 The script will prompt for a project name, generate a new directory with the boilerplate starter code, and install all required dependencies. 
 
---8<-- 'code/builders/toolkit/integrations/wallets/rainbowkit/cli-quickstart.md'
+--8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/cli-quickstart.md'
 
 Navigate to the project directory, start the development server, and open [http://localhost:3000](http://localhost:3000){target=\_blank} to view the project locally:
 
@@ -69,7 +69,7 @@ Navigate to the project directory, start the development server, and open [http:
 
 The starting screen should look like this:
 
-![Scaffolded RainbowKit project landing page](/images/builders/toolkit/integrations/wallets/rainbowkit/rainbowkit-1.webp)
+![Scaffolded RainbowKit project landing page](/images/builders/toolkit/integrations/wallet-integrations/rainbowkit/rainbowkit-1.webp)
 
 Open the project in a code editor and examine the directory and file structure, paying particular attention to the `wagmi.ts` file. This file allows configuration of the chains included in the list of networks that users can connect to via the dApp.
 
@@ -79,7 +79,7 @@ Here is the configuration for the demo EVM appchain on Tanssi:
 
 === "Demo EVM Appchain"
     ```js title="src/wagmi.ts"
-    --8<-- 'code/builders/toolkit/wallets/rainbowkit/wagmi.ts'
+    --8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/wagmi.ts'
     ```
 
 To add support for the demo EVM appchain on Tanssi, update `wagmi.ts` as shown above. The following section explains how to generate the `projectId` value for WalletConnect.
@@ -94,7 +94,7 @@ Before proceeding, ensure the following prerequisites are met:
 
 - A Tanssi EVM-compatible appchain
 
-- An existing dApp built with [React](https://react.dev/){target=\_blank} and manual setup will be used to connect to a wallet via RainbowKit
+- An existing dApp built with [React](https://react.dev/){target=\_blank}
 
 - The [RainbowKit examples repository](https://github.com/rainbow-me/rainbowkit/tree/main/examples){target=\_blank} includes templates for multiple React frameworks
     
@@ -209,7 +209,7 @@ touch wagmi.ts
 In `wagmi.ts`, import the necessary libraries and define Demo EVM Chain as the supported chain:
 
 ```ts title="wagmi.ts"
---8<-- 'code/builders/toolkit/wallets/rainbowkit/wagmi2.ts'
+--8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/wagmi2.ts'
 ```
 
 ### Wrap the Application with Providers
@@ -224,13 +224,13 @@ touch providers.tsx
 Open `providers.tsx` add the following code to manage the providers
 
 ```ts title="providers.tsx"
---8<-- 'code/builders/toolkit/wallets/rainbowkit/providers1.tsx'
+--8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/providers1.tsx'
 ```
 
 Now locate the `layout.tsx` file inside the `app` directory and modify the code to import `Providers` and wrap the application:
 
 ```ts title="layout.tsx"
---8<-- 'code/builders/toolkit/wallets/rainbowkit/layout.tsx'
+--8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/layout.tsx'
 ```
 This ensures that the app is wrapped with all necessary providers, including wagmi, and TanStack Query for state management.
 
@@ -239,7 +239,7 @@ This ensures that the app is wrapped with all necessary providers, including wag
 RainbowKit offers a `ConnectButton` component, which renders the **Connect** and **Disconnect** buttons and UI elements for switching chains. This example imports the `ConnectButton` into the existing `page.tsx` file for simplicity, though it can also be added to an element like a **Header** or **Navbar** to appear at the top of every page. Update the code in `page.tsx` as follows:
 
 ```ts title="page.tsx"
---8<-- 'code/builders/toolkit/wallets/rainbowkit/pages.tsx'
+--8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/pages.tsx'
 ```
 
 Once the development server is running, the home page will display a **Connect Wallet** button. Clicking this button will open the RainbowKit modal, providing options to either connect an existing wallet or get a new one. Select **MetaMask** and follow the on-screen instructions to complete the connection process.
@@ -259,7 +259,7 @@ By default, RainbowKit connects to the first chain supplied to Wagmi in the conf
 A better approach is to use the `initialChain` prop in the `RainbowKitProvider` component. This prop defines which chain the wallet will connect to initially when **Connect Wallet** is selected. To configure this, open the `providers.tsx` file and update the code by passing the `initialChain` prop with the custom Tanssi demo EVM appchain object defined earlier:
 
 ```Ts title="providers.tsx"
---8<-- 'code/builders/toolkit/wallets/rainbowkit/providers.tsx'
+--8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/providers.tsx'
 ```
 
 By setting `initialChain={demoEVMChain}`, RainbowKit will attempt to connect to the Tanssi demo EVM appchain first whenever the **Connect Wallet** button is clicked.
@@ -269,7 +269,7 @@ By setting `initialChain={demoEVMChain}`, RainbowKit will attempt to connect to 
 RainbowKit provides three built-in theme functions: `lightTheme`, `darkTheme`, and `midnightTheme`. These functions return a theme object that can be passed to the `RainbowKitProvider` prop `theme` to customize colors, border radius, font stack, and overlay blur. Update `providers.tsx` with the following code and ensure that `darkTheme` is added to the `@rainbow-me/rainbowkit` import statement for the changes to apply correctly. After customizing the initial chain and theme, the `providers.tsx` file will look like this:
 
 ```js title="providers.tsx"
---8<-- 'code/builders/toolkit/wallets/rainbowkit/providers2.tsx'
+--8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/providers2.tsx'
 ```
 This configuration sets a dark theme with custom properties:
 
@@ -290,7 +290,7 @@ To disconnect MetaMask from the dApp and reconnect for testing purposes, two met
 
 RainbowKit includes a **Disconnect** button out of the box. To open the modal, select the arrow next to the account number. Click the **Disconnect** button. At this point, the **Connect Wallet** option will reappear, and the account information will no longer be visible.
 
-![Built in Disconnect button](/images/builders/toolkit/integrations/wallets/rainbowkit/rainbowkit-2.webp)
+![Built in Disconnect button](/images/builders/toolkit/integrations/wallet-integrations/rainbowkit/rainbowkit-2.webp)
 
 ### Disconnect from MetaMask  {: #disconnect-from-metamask }
 
@@ -307,7 +307,7 @@ Some users prefer to disconnect from their wallet rather than use a button withi
 The **Connect Wallet** button on the home page should now render in the color specified for `accentColor` during theme customization. After selecting **Connect Wallet**, the same accent color will be displayed in the modal. MetaMask can be chosen, and signing the transaction will authorize the connection. The Tanssi demo EVM appchain will appear as the connected network, along with the {{ networks.dancebox.token_symbol }} token balance, without the need for manual network switching.
 
 
-![Theme customization on the user modal](/images/builders/toolkit/integrations/wallets/rainbowkit/rainbowkit-3.webp)
+![Theme customization on the user modal](/images/builders/toolkit/integrations/wallet-integrations/rainbowkit/rainbowkit-3.webp)
 
 This guide includes only a few of the customization options available through RainbowKit. More information about the library's capabilities and options can be found in the [RainbowKit Docs](https://www.rainbowkit.com/docs/introduction){target=\_blank}.
 
