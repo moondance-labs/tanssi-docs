@@ -78,9 +78,10 @@ Since the [demo EVM appchain](https://apps.tanssi.network/demo/){target=\_blank}
 Here is the configuration for the demo EVM appchain on Tanssi:
 
 === "Demo EVM Appchain"
-```js title="src/wagmi.ts"
---8<-- 'code/builders/toolkit/wallets/rainbowkit/wagmi.ts'
-```
+    ```js title="src/wagmi.ts"
+    --8<-- 'code/builders/toolkit/wallets/rainbowkit/wagmi.ts'
+    ```
+
 To add support for the demo EVM appchain on Tanssi, update `wagmi.ts` as shown above. The following section explains how to generate the `projectId` value for WalletConnect.
 
 ## Manual Setup 
@@ -272,11 +273,11 @@ RainbowKit provides three built-in theme functions: `lightTheme`, `darkTheme`, a
 ```
 This configuration sets a dark theme with custom properties:
 
-- `accentColor`: The primary highlight color. In this example, Tanssi's accent color (#189B9B) is used, but it can be adjusted to match the branding of the dApp
-- `accentColorForeground`: The text color used on top of the accent color
-- `borderRadius`: Controls the roundness of UI elements. Options are 'none', 'small', 'medium', or 'large'
-- `fontStack`: Defines the fonts used. 'system' uses the default system fonts
-- `overlayBlur`: The blur effect applied to the background when modals are open
+- `accentColor` - the primary highlight color. In this example, Tanssi's accent color (#189B9B) is used, but it can be adjusted to match the branding of the dApp
+- `accentColorForeground` - the text color used on top of the accent color
+- `borderRadius` - controls the roundness of UI elements. Options are 'none', 'small', 'medium', or 'large'
+- `fontStack` - defines the fonts used. 'system' uses the default system fonts
+- `overlayBlur` - the blur effect applied to the background when modals are open
 
 !!! tip
     Experiment with different theme functions (`lightTheme`, `darkTheme`, `midnightTheme`) and color combinations to find the best match for the visual style of the dApp.
@@ -310,7 +311,7 @@ The **Connect Wallet** button on the home page should now render in the color sp
 
 This guide includes only a few of the customization options available through RainbowKit. More information about the library's capabilities and options can be found in the [RainbowKit Docs](https://www.rainbowkit.com/docs/introduction){target=\_blank}.
 
-The complete example code is available in the [rainbow-manual-build-demo repository](https://github.com/papermoonio/rainbowkit-manual-build-demo){target=\_blank}
+The complete example code is available in the [rainbow-manual-build-demo repository](https://github.com/papermoonio/rainbowkit-manual-build-demo){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
 
