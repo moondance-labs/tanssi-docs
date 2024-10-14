@@ -49,7 +49,7 @@ With all function calls benchmarked, the transaction fee for each specific call 
     - **`WeightToFee`** - a polynomial function that converts weight to fee
 - **`WeightFee`** - fee defined by two separate parameters:
     - **`BenchmarkedWeight`** - weight that accounts for the complexity (execution time) of a specific call
-    - **`CongestionMultiplier`** - a function that converts weight to fee and can be adjusted to account for the congestion of the network (weight consumed in the previous block). For Tanssi appchains, this is a constant value
+    - **`CongestionMultiplier`** - a function that converts weight to fee and can be adjusted to account for the congestion of the network (weight consumed in the previous block). The default strategy for Tanssi appchains is [`SlowAdjustingFeeUpdate`](https://research.web3.foundation/Polkadot/overview/token-economics#2-slow-adjusting-mechanism){target=\_blank}, which adjusts this multiplier slowly over time following the network load
 - **`LengthFee`** - a fee correlated to the length in bytes of the function call. The fee is defined by two separate parameters:
     - **`ByteLengthFunctionCall`** - length in bytes of the call being executed
     - **`LengthToFee`** - a function that defines the per-byte fee algorithm. For Tanssi appchains, this is a constant value
