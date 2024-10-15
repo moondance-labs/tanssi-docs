@@ -26,9 +26,9 @@ Conceived with an abstract mindset, XCM is not designed to comply with a specifi
 
 ## Fees {: #fees }
 
-A user executing a transaction on an appchain must pay the fees derived from computational effort associated with the task, and cross-chain execution is no exception to this rule. In cross-chain communication, a message requires execution on at least two different chains, and the user needs to pay for the fees associated with the computational effort made by every chain involved.
+A user executing a transaction on an appchain must pay the fees derived from computational effort associated with the task, and cross-chain execution is no exception to this rule. In cross-chain communication, a message requires execution on at least two different chains, and the user needs to pay for the fees associated with the computational effort made by every chain involved. Besides the execution-related costs, Tanssi appchains include a default [delivery fee](https://paritytech.github.io/polkadot-sdk/master/polkadot_runtime_common/xcm_sender/struct.ExponentialPrice.html){target=\_blank} to prevent XCM spamming.
 
-For example, if a user on appchain A wants to call a smart contract on appchain B, the user must include instructions in the XCM message to provide an asset that appchain B accepts as payment for its services to cover the associated fees. Once such an asset is provided, the execution can now be bought on the destination chain.
+For example, if a user on appchain A wants to call a smart contract on appchain B, the user must have enough funds to pay for the message delivery and include instructions in the XCM message to provide an asset that appchain B accepts as payment for its services to cover the associated fees. Once such an asset is provided, the execution can now be bought on the destination chain.
 
 !!! note
     Since appchains are sovereign, they get to decide which tokens are valid for paying their XCM execution fees.
