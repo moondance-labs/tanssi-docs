@@ -1,58 +1,48 @@
 ---
 title: Templates
-description: Tanssi includes templates to kick-start the development of an appchain, one for a Substrate-oriented runtime and another featuring full EVM (Ethereum) support.
+description: Tanssi includes templates to kick-start the development of an appchain offering options such as a basic one and another featuring full EVM (Ethereum) support.
 ---
 
 # Templates Overview {: #templates-overview }
 
 ## Introduction {: #introduction }
 
-Appchains deployed through Tanssi are essentially parachains within the Polkadot ecosystem that are capable of interacting with the relay chain and other parachains. They also contain the necessary functionalities to support the Tanssi protocol.
+Appchains deployed through Tanssi are fully customizable blockchains benefiting from a shared set of sequencers and the security of a provider of their choice ([Symbiotic](https://symbiotic.fi/){target=\_blank}, for example). They also need to implement the necessary functionalities and configurations to support the Tanssi protocol, which the templates presented in this article already do, making it easier for developers.
 
 As presented in the [Included Templates](/learn/tanssi/included-templates/#baseline-appchain-template){target=\_blank} from the Learn section, Tanssi already provides two templates to jumpstart the development process:
 
-- **[Baseline Tanssi appchain template](/learn/tanssi/included-templates/#baseline-appchain-template){target=\_blank}** - a template that provides the basic platform to start adding custom logic in a Substrate-based Tanssi appchain
+- **[Baseline Tanssi appchain template](/learn/tanssi/included-templates/#baseline-appchain-template){target=\_blank}** - a template that provides the basic platform to start adding custom logic 
 - **[Baseline Tanssi EVM (Ethereum Virtual Machine) appchain template](/learn/tanssi/included-templates/#baseline-evm-template){target=\_blank}** - a template that provides full Ethereum compatibility
 
 In this article, the required base setup and how to use the templates as a starting point to start building your Tanssi appchain are presented.
 
-## Base Setup to Connect to Polkadot {: #base-setup-to-polkadot }
-
-The [Substrate framework](/learn/framework/overview/#substrate-framework){target=\_blank}, included in the Polkadot SDK, already provides out-of-the-box support for the basic functionalities every blockchain needs (such as networking, consensus, and so forth), allowing developers to build new solo chains while focusing on the runtime (state transition function) logic.
-
-To seamlessly integrate a new Tanssi appchain into the Polkadot ecosystem, converting a solo chain into a Tanssi appchain, the Polkadot SDK also includes [Cumulus](https://github.com/paritytech/polkadot-sdk/tree/master/cumulus){target=\_blank}, an extension library to make it easy.
-
-Parachains are expected to handle their block production through their own set of block producers and expose interfaces to communicate with the relay chain. This allows their state transition to be validated, thus benefiting from the shared security model, to send and receive messages to and from other Parachains, and to manage other aspects, such as:
-
-- **Consensus** - Cumulus adds the necessary functionality to allow the block producers to produce blocks, gossip and validate them, and coordinate with the relay chain to get notified about the block's finality
-- **[XCM](https://wiki.polkadot.network/docs/learn-xcm){target=\_blank}** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a Tanssi appchain to communicate and interoperate with the other sibling chains within the ecosystem
-- **Runtime Upgrades** - a runtime upgrade in a Tanssi appchain must be informed to the relay chain to allow its validators to check on the blocks produced by the block producers of the Tanssi appchains. Cumulus notifies the upgrade to the relay chain and waits the required amount of time (blocks) before enacting the change
-
-The provided templates already implement Cumulus, so they are ready to be customized and deployed through Tanssi to work and operate within the ecosystem without any issues.
-
-More information about how to configure the Cumulus SDK to integrate a Tanssi appchain into Polkadot's ecosystem can be found in the [official Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/templates/parachain){target=\_blank}.
-
 ## Base Setup to Support the Tanssi Protocol {: #base-setup-supporting-tanssi }
 
-Besides Cumulus, an appchain must implement the following Tanssi modules to support the protocol and benefit safely from Tanssi's block production as a service:
+Tanssi appchains must implement the following modules to support the protocol and benefit safely from Tanssi's block production as a service:
 
-- **Author Noting** - registers the set of block producers assigned to the appchain by Tanssi
-- **Author Inherent** - Allows the block producer authoring the block to include its identity to get validated and rewarded
+- **Author Noting** - registers the set of sequencers assigned to the appchain by Tanssi
+- **Author Inherent** - Allows the sequencer authoring the block to include its identity to get validated and rewarded
 
-If you don't include these modules in the Tanssi appchain's runtime, there won't be a method to confirm that the blocks are being generated by trustworthy block producers designated by the Tanssi orchestrator. This could create a vulnerability for malicious actors to exploit and compromise the appchain.
+If you don't include these modules in the Tanssi appchain's runtime, there won't be a method to confirm that the blocks are being generated by trustworthy sequencers designated by the Tanssi orchestrator. This could create a vulnerability for malicious actors to exploit and compromise the appchain.
 
-More information about Tanssi's block production as a service and the interaction between Tanssi, the relay chain, and your Tanssi appchain can be found in the [Technical Features](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank} article.
+More information about Tanssi's block production as a service and the interaction between Tanssi, the security provider, and your Tanssi appchain can be found in the [Technical Features](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank} article.
+
+Besides block production, there are other essential aspects for any appchain covered in the templates, such as:
+
+- **Consensus** - appchains have the necessary functionality to allow the sequencers to produce blocks, gossip and validate them, and coordinate with the security provider to get notified about the block's finality
+- **Appchains Interoperability** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a Tanssi appchain to communicate and interoperate with the other chains within the ecosystem
+- **Runtime Upgrades** - a runtime upgrade in a Tanssi appchain must be informed to the security provider's operators to allow them to check on the blocks produced by the sequencers of the Tanssi appchains
 
 ## Included Modules {: #included-modules }
 
-Besides the necessary modules to support the operation of the Tanssi appchain as part of the broader Polkadot ecosystem and the modules that enable the Tanssi protocol and its block production mechanism, many other modules provide functional behavior that the users can interact with. 
+Besides the necessary modules to support the operation of a Tanssi appchain, many other modules provide functional behavior that the users can interact with. 
 
 These are some of the functional modules exposing a behavior to the users that are included in the templates and ready to use:
 
 - **[pallet_balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - the Balances pallet provides functions for handling accounts and balances for the Tanssi appchain native currency
 - **[pallet_utility](https://paritytech.github.io/polkadot-sdk/master/pallet_utility/index.html){target=\_blank}** - the Utility pallet provides functions to execute multiple calls in a single dispatch. Besides batching transactions, this module also allows the execution of a call from an alternative signed origin
 - **[pallet_proxy](https://paritytech.github.io/polkadot-sdk/master/pallet_proxy/index.html){target=\_blank}** - the Proxy pallet provides functions to delegate to other accounts (proxies) the permission to dispatch calls from a proxied origin
-- **[pallet_maintenance_mode](https://github.com/moondance-labs/moonkit/blob/tanssi-polkadot-v1.3.0/pallets/maintenance-mode/src/lib.rs){target=\_blank}** - the Maintenance Mode pallet allows the Tanssi appchain to be set to a mode where it doesn't execute balance/asset transfers or other transactions, such as XCM calls. This could be useful when upgrading the runtime in an emergency, when executing large storage migrations, or when a security vulnerability is discovered
+- **[pallet_maintenance_mode](https://github.com/moondance-labs/moonkit/blob/tanssi-polkadot-v1.3.0/pallets/maintenance-mode/src/lib.rs){target=\_blank}** - the Maintenance Mode pallet allows the Tanssi appchain to be set to a mode where it doesn't execute balance/asset transfers or other transactions. This could be useful when upgrading the runtime in an emergency, when executing large storage migrations, or when a security vulnerability is discovered
 - **[pallet_tx_pause](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank}** - the Tx Pause pallet allows a valid origin (typically Root) to pause (and unpause) an entire module or a single transaction. A paused transaction (or all the transactions included in a paused pallet) will fail when called until it is unpaused. This module provides a higher degree of granularity compared to maintenance mode, making it particularly useful when a faulty or vulnerable transaction is identified in the runtime
 - **[pallet_multisig](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/multisig/src/lib.rs){target=\_blank}** - the Multisig pallet enables transaction dispatches that require -typically- more than one signature. A multisig transaction defines a set of authorized accounts and a threshold for its approval, requiring consensus among multiple parties
 
@@ -66,6 +56,6 @@ This approach comes with some advantages, such as:
 - Get the Tanssi protocol already configured and included in the template runtime
 - Keep your fork up-to-date by syncing with the Tanssi upstream repository
 - Run the included tests, ensuring that block production on your Tanssi appchain works as intended
-- Run a local environment, spinning up a relay chain, the Tanssi orchestrator, and your Tanssi appchain with the included [Zombienet](https://paritytech.github.io/zombienet){target=\_blank} configuration
+- Run a complete local environment with the included [Zombienet](https://paritytech.github.io/zombienet){target=\_blank} configuration
 
 If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy your Tanssi appchain via the Tanssi dApp](/builders/deploy/dapp/){target=\_blank} article to know how to use the Tanssi dApp to register and get your chain up and running.
