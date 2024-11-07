@@ -25,7 +25,7 @@ Fortunately, there’s no need to build these blockchain components from scratch
 
 ## Substrate Framework {: #substrate-framework}
 
-Substrate is an extremely performant, flexible, modular, and highly customizable framework for building blockchains. It's extensively been battle-tested, providing the foundations for the Polkadot and Kusama ecosystems along with their associated rollups, Cardano's partner chains, and many other stand-alone blockchain projects.
+Substrate is an extremely performant, flexible, modular, and highly customizable framework for building blockchains. This framework is the foundation and engine powering many projects across the Web3 ecosystem, including the Tanssi network itself and the appchains deployed through Tanssi.
 
 Many of its great features, such as performance, ease of use, and modularity, result from the programming language chosen for its development. This is where the [Rust Programming Language](#rust-programming-language) shines: It is fast, portable, and provides a wonderful model to handle memory, among other reasons detailed in the [next section](#rust-programming-language).
 
