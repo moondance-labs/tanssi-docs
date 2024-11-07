@@ -37,7 +37,7 @@ The two included templates are *Baseline appchain template* and *Baseline EVM Te
 
 As presented in the [Overview](/learn/tanssi/overview/){target=\_blank} article, appchains deployed through Tanssi are fully sovereign and customizable blockchains.
 
-As part of the Tanssi ecosystem, appchains must include the essential components to implement the consensus mechanism and be able to interact and synchronize with the security provider. The Baseline Tanssi appchain Template includes all the necessary functionality for the block producers logic, p2p, database, and synchronization layers between the appchain and the security provider, allowing developers to focus solely on customizing their product.
+As part of the Tanssi ecosystem, appchains must include the essential components to implement the consensus mechanism and be able to interact and synchronize with the security provider of their choice (for example, Symbiotic on Ethereum). The baseline Tanssi appchain Template includes all the necessary functionality for the block producers logic, p2p, database, and synchronization layers between the appchain and the security provider, allowing developers to focus solely on customizing their product.
 
 This template also includes Tanssi's [Author Noting](https://github.com/moondance-labs/tanssi/blob/master/pallets/author-noting/src/lib.rs){target=\_blank} module, which implements the logic for retrieving and validating the set of sequencers assigned to provide block production services to the appchain. It also includes logic that allows a sequencer to sign the block when the consensus mechanism determines that it is the sequencer's turn to produce the block (and thus be rewarded accordingly).
 
@@ -45,9 +45,9 @@ The source code for this template is public and accessible on the [Tanssi GitHub
 
 ### Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
 
-Extending the [Baseline Tanssi appchain template](#baseline-appchain-template), this template provides not only Tanssi protocol support but also an EVM and full Ethereum compatibility.
+Extending the [baseline Tanssi appchain template](#baseline-appchain-template), this template provides not only Tanssi protocol support but also an EVM and full Ethereum compatibility.
 
-Leveraging the [Frontier project](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for appchains to allow running unmodified Ethereum dApps.
+Leveraging a set [EVM-specific modules](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for appchains to allow running unmodified Ethereum dApps.
 
 Using this template, appchains support the deployment and running of any existing Smart Contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Remix](https://remix.ethereum.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, and many more out of the box, with no extra adapters.
 
