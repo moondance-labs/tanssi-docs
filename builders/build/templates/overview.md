@@ -7,7 +7,7 @@ description: Tanssi includes templates to kick-start the development of an appch
 
 ## Introduction {: #introduction }
 
-Appchains deployed through Tanssi are fully customizable blockchains benefiting from a shared set of sequencers and the security of a provider of their choice ([Symbiotic](https://symbiotic.fi/){target=\_blank}, for example). They also need to implement the necessary functionalities and configurations to support the Tanssi protocol, which the templates presented in this article already do, making it easier for developers.
+Appchains deployed through Tanssi are fully customizable blockchains benefiting from a shared set of sequencers and the security of a provider of their choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). They also need to implement the necessary functionalities and configurations to support the Tanssi protocol, which the templates presented in this article already do, making it easier for developers.
 
 As presented in the [Included Templates](/learn/tanssi/included-templates/#baseline-appchain-template){target=\_blank} from the Learn section, Tanssi already provides two templates to jumpstart the development process:
 
