@@ -21,7 +21,7 @@ When designing and writing the rules of a Tanssi appchain, the available set of 
 
 Here is a list of some of the most popular modules:
 
-- **[pallet_balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - the Balances modules provides functions for handling accounts and balances for the Tanssi appchain native currency
+- **[Balances module](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - it provides functions for handling accounts and balances for the Tanssi appchain native currency
 - **[pallet_assets](https://paritytech.github.io/substrate/master/pallet_assets/index.html){target=\_blank}** - the Assets module provides functions for handling any type of fungible tokens
 - **[pallet_nfts](https://paritytech.github.io/substrate/master/pallet_nfts/index.html){target=\_blank}** - the NFTs module provides functions for dealing with non-fungible tokens
 - **[pallet_democracy](https://paritytech.github.io/substrate/master/pallet_democracy/index.html){target=\_blank}** - the Democracy module provides functions to manage and administer general stakeholder voting
