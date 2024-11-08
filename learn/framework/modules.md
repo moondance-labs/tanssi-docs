@@ -9,7 +9,7 @@ description: Substrate is a modular blockchain development framework with an ext
 
 The Substrate framework provides complete and ready-to-use implementations of the main functions a Tanssi appchain needs to work properly, including cryptography, consensus, governance, and so on. These implementations are fully customizable and could be replaced with custom logic if needed.
 
-When it comes to building the Runtime, which is essentially the heart of a Tanssi appchain, the desired state transition rules must be defined, reflecting the intended behavior and features of the blockchain.
+When building the Runtime, which defines the state transition rules between two blocks applied to a set of transactions, the intended behavior and features of the blockchain need to be set by determining the rules of the state transition.
 
 To build the Runtime, Substrate provides many built-in modules (also known as pallets) that can be freely used as building blocks to compose and interact with any other custom-made modules, allowing teams to create unique behaviors according to the specific requirements of their Tanssi appchain.
 
