@@ -21,7 +21,7 @@ This means that this template is ready to be deployed as-is through Tanssi, unlo
 
 - Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank}
 - Get deterministic transaction finality in seconds
-- Leverage Ethereum-grade security from [Symbiotic](https://symbiotic.fi/){target=\_blank}
+- Choose the security provider that best fits your needs. For example, leverage Ethereum-grade security from [Symbiotic](https://symbiotic.fi/){target=\_blank}
 - Build dApps interacting with your appchain through an [API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}
 - Connect any Ethereum wallet, such as [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} and Ledger
 - Use well-known Ethereum libraries like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, [Web3.py](/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, and more
