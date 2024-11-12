@@ -21,13 +21,13 @@ When designing and writing the rules of a Tanssi appchain, the available set of 
 
 Here is a list of some of the most popular modules:
 
-- **[Balances module](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - it provides functions for handling accounts and balances for the Tanssi appchain native currency
-- **[Assets module](https://paritytech.github.io/substrate/master/pallet_assets/index.html){target=\_blank}** - it provides functions for handling any type of fungible tokens
-- **[NFTs module](https://paritytech.github.io/substrate/master/pallet_nfts/index.html){target=\_blank}** - it provides functions for dealing with non-fungible tokens
-- **[Democracy module](https://paritytech.github.io/substrate/master/pallet_democracy/index.html){target=\_blank}** - it provides functions to manage and administer general stakeholder voting
-- **[Multisig module](https://paritytech.github.io/substrate/master/pallet_multisig/index.html){target=\_blank}** - it provides functions for multi-signature dispatch
-- **[Recovery module](https://paritytech.github.io/substrate/master/pallet_recovery/index.html){target=\_blank}** - it provides functions to allow users to regain access to their accounts when the private key is lost. This works by granting other accounts the right to sign transactions on behalf of the lost account (note that it is necessary to have previously chosen the authorized accounts)
-- **[Staking module](https://paritytech.github.io/substrate/master/pallet_staking/index.html){target=\_blank}** - it provides functions to administer staked tokens, support rewarding, slashing, depositing, withdrawing, and so on
+- **[Balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - it provides functions for handling accounts and balances for the Tanssi appchain native currency
+- **[Assets](https://paritytech.github.io/substrate/master/pallet_assets/index.html){target=\_blank}** - it provides functions for handling any type of fungible tokens
+- **[NFTs](https://paritytech.github.io/substrate/master/pallet_nfts/index.html){target=\_blank}** - it provides functions for dealing with non-fungible tokens
+- **[Democracy](https://paritytech.github.io/substrate/master/pallet_democracy/index.html){target=\_blank}** - it provides functions to manage and administer general stakeholder voting
+- **[Multisig](https://paritytech.github.io/substrate/master/pallet_multisig/index.html){target=\_blank}** - it provides functions for multi-signature dispatch
+- **[Recovery](https://paritytech.github.io/substrate/master/pallet_recovery/index.html){target=\_blank}** - it provides functions to allow users to regain access to their accounts when the private key is lost. This works by granting other accounts the right to sign transactions on behalf of the lost account (note that it is necessary to have previously chosen the authorized accounts)
+- **[Staking](https://paritytech.github.io/substrate/master/pallet_staking/index.html){target=\_blank}** - it provides functions to administer staked tokens, support rewarding, slashing, depositing, withdrawing, and so on
 
 In addition to those previously listed, other modules like [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=\_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=\_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=\_blank}, and many others that are freely available can speed up the development of the Tanssi appchain and, consequently, the time to market.
 
