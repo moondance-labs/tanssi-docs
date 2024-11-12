@@ -7,7 +7,7 @@ description: The Tanssi repository includes an EVM template that provides all th
 
 ## Introduction {: #introduction }
 
-Tanssi's EVM (Ethereum Virtual Machine) appchain template is specifically designed for teams developing their applications on top of an EVM (Ethereum Virtual Machine). It includes all the essential components needed to add an additional layer for full Ethereum compatibility:
+Tanssi's EVM (Ethereum Virtual Machine) appchain template is designed for teams developing their applications on top of EVM smart contracts. It includes all the essential components needed for a full Ethereum-compatible appchain:
 
 - **EVM** - adds an Ethereum Virtual Machine execution layer for EVM-based smart contract applications
 - **Etherum JSON RPC Support** - Tanssi EVM appchains are fully [Ethereum JSON RPC](https://ethereum.org/en/developers/docs/apis/json-rpc){target=\_blank} compliant. Consequently, all Ethereum-based tools like [MetaMask](https://metamask.io){target=\_blank}, [Ethers.js](https://docs.ethers.org){target=\_blank}, [Viem](https://viem.sh){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Foundry](https://book.getfoundry.sh){target=\_blank} and more, work seamlessly out of the box
@@ -15,7 +15,7 @@ Tanssi's EVM (Ethereum Virtual Machine) appchain template is specifically design
 
 ## EVM Appchain Template {: #evm-appchain-template }
 
-Since the template already includes the necessary configuration for seamless integration with the Tanssi protocol and the security provider, if the use case is entirely developed on top of the EVM, then this template requires no additional changes in the runtime.
+The template already includes the necessary configuration for seamless integration with the Tanssi protocol and the security provider of choice, for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} on Ethereum. Therefore, this template requires no additional changes in the runtime if the application is built on top of the EVM.
 
 This means that this template is ready to be deployed as-is through Tanssi, unlocking many features, such as:
 
