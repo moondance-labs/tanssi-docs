@@ -9,7 +9,7 @@ Tanssi is an appchain infrastructure protocol that makes deploying blockchains w
 
 Appchains provide the ultimate control over the logic that powers the runtime of the blockchain. Consequently, they offer an excellent way for projects to scale and build optimized solutions for their products, resulting in a superior user experience.
 
-Securing a new network is a major feat, but Tanssi allows you to connect with external security providers like [Symbiotic](https://symbiotic.fi/){target=\_blank}, ensuring Ethereum-grade security right from the start.
+Securing a new network is a major feat, but Tanssi allows your Appchain to connect with external security providers like [Symbiotic](https://symbiotic.fi/){target=\_blank}, ensuring Ethereum-grade security right from the start.
 
 ## The Problem with Appchains {: #the-problem-with-appchains}
 
