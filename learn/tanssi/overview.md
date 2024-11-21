@@ -9,6 +9,8 @@ Tanssi is an appchain infrastructure protocol that makes deploying blockchains w
 
 Appchains provide the ultimate control over the logic that powers the runtime of the blockchain. Consequently, they offer an excellent way for projects to scale and build optimized solutions for their products, resulting in a superior user experience.
 
+Securing a new network is a major feat, but Tanssi allows you to connect with external security providers like [Symbiotic](https://symbiotic.fi/){target=\_blank}, ensuring Ethereum-grade security right from the start.
+
 ## The Problem with Appchains {: #the-problem-with-appchains}
 
 Developers looking to build appchains typically have to deal with the following problems:
@@ -27,7 +29,7 @@ Tanssi addresses the most common appchain problems by:
 
 - **Block Production as a Service** - appchains built with Tanssi have their blocks produced by Tanssi's incentivized workers. Tanssi guarantees the liveness of the appchain and a decentralized set of sequencers
 
-- **Economic security** -  appchains deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of validators
+- **External Security Providers** -  appchains deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of validators
 
 - **Modular Blockchain Framework** - appchains built with Tanssi can use a modular blockchain framework called [Substrate](https://substrate.io){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their appchain's custom logic
 
