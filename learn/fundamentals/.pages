@@ -1,0 +1,8 @@
+title: Fundamentals
+hide: false
+nav:
+  - index.md
+  - 'Quick Start': https://www.youtube.com/live/ORbjflgnQ3Q?si=5okX5-d-JrGqhSek&t=242k'
+  - 'What is Tanssi?': 'overview.md'
+  - 'Technical Features of Tanssi': 'technical-features.md'
+  - 'Staking': 'staking.md'

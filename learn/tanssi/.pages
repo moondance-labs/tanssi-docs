@@ -1,8 +1,0 @@
-title: Tanssi
-hide: false
-nav:
-  - index.md
-  - 'Overview': 'overview.md'
-  - 'Block Production Services': 'technical-features.md'
-  - 'Included Templates': 'included-templates.md'
-  - 'network-features'

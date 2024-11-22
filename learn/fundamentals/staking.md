@@ -1,9 +1,9 @@
 ---
-title: Staking
+title: Staking and Network Participation
 description: Learn how Tanssi implements a novel Staking mechanism to provide a decentralized and trustless set of block producers to all Tanssi-powered appchains
 ---
 
-# Tanssi Staking {: #tanssi-staking }
+# Staking and Network Participation {: #tanssi-staking }
 
 ## Introduction {: #introduction }
 

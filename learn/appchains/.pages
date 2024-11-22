@@ -1,7 +1,7 @@
-title: Appchains in Tanssi
+title: Network Features and Interoperability
 hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
-  - runtime-features.md
-  - tx-fees.md
+  - 'Runtime Management': runtime-features.md
+  - 'Transaction and Fee Management': tx-fees.md
