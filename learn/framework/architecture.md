@@ -7,7 +7,7 @@ description: In a Substrate node, two main components are the runtime, which con
 
 ## Introduction {: #introduction }
 
-Substrate is a software development kit (SDK) for building blockchains. This framework is the foundation and engine powering Polkadot's relay chain, the parachains (such as the Tanssi network itself), and the appchains deployed through Tanssi.
+Substrate is a software development kit (SDK) for building blockchains. This framework is the foundation and engine powering many projects across the Web3 ecosystem, including the Tanssi network itself and the appchains deployed through Tanssi.
 
 Written in the Rust language and designed with a modular architecture, Substrate is extremely performant, flexible, and highly customizable, making it the best choice for developing blockchains.
 

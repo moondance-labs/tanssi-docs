@@ -17,7 +17,7 @@ This page covers the fundamentals of transaction fees for Tanssi appchains. It f
 
 ## Baseline Fees Calculation {: #baseline-fees }
 
-Every action that alters the state of a Tanssi appchain incurs a transaction fee. This fee is essential for the network's operation, covering the computational resources required to process transactions, similar to the gas and gas price parameters in EVM-compatible chains like Ethereum
+Every action that alters the state of a Tanssi appchain incurs a transaction fee. This fee is essential for the network's operation, covering the computational resources required to process transactions, similar to the gas and gas price parameters in EVM-compatible chains like Ethereum.
 
 Tanssi appchains [modular framework](/learn/framework/){target=\_blank} use a weight-based fee calculation mechanism to determine transaction fees. This approach considers various factors, including computational resources and storage operations (inputs/outputs), to reflect the true cost of transactions accurately. By accounting for these elements, the network ensures fair and efficient resource allocation.
 
@@ -30,7 +30,7 @@ This section outlines all the different concepts associated with transaction fee
 Broadly speaking, weight refers to the execution time it takes to validate a block, measured in picoseconds. Weight is divided into two separate variables:
 
 - **`refTime`** - corresponds to the weight associated with computation time and database reads/writes
-- **`proofSize`** - corresponds to the weight associated with the size of the Proof-Of-Validity (or PoV for short). The PoV is associated with the relevant state of a transaction, and it is what the Tanssi appchain block producer shares with the relay chain validator to get its block finalized as part of the [appchain transaction flow](/learn/appchains/overview/#appchain-transaction){target=\_blank}
+- **`proofSize`** - corresponds to the weight associated with the size of the Proof-Of-Validity (or PoV for short). The PoV is associated with the relevant state of a transaction, and it is what the Tanssi appchain sequencer shares with the security provider operators to get a block validated and finalized as part of the [appchain transaction flow](/learn/appchains/overview/#appchain-transaction){target=\_blank}
 
 To find the weights for all function calls, they are benchmarked in a system with reference hardware, and the approximate values of `refTime` and `proofSize` are set. This process is repeated for all function calls that consume blockspace and affect the PoV.
 

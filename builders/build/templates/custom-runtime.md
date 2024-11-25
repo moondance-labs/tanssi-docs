@@ -1,23 +1,23 @@
 ---
 title: Custom Runtime
-description: Any custom runtime can be adapted to be deployed through Tanssi, provided that specific modules are implemented, and the required configurations are set.
+description: Any custom runtime can be adapted to be deployed through Tanssi, provided that specific modules are implemented and the required configurations are set.
 ---
 
 # Custom Runtime
 
 ## Introduction {: #introduction }
 
-For teams that already have been working on a Substrate runtime, it will be necessary to implement the required modules and configurations into the runtime. This will ensure that the runtime can evolve into a Tanssi appchain successfully [deployed through Tanssi](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank} and [run properly within Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank}.
+For teams working on an existing Substrate framework project, it will be necessary to include some required modules and configurations into the runtime. This will ensure that the existing runtime can gracefully become a Tanssi appchain runtime, aligning with the [protocol rules](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank}.
 
-Failing to do so might lead to reduced interoperability within the ecosystem and unnecessary exposure to vulnerabilities.
+Failing to do so might lead to reduced interoperability and unnecessary exposure to vulnerabilities.
 
 ## Minimum Requirements
 
-Already existing Substrate runtimes need to at least have both [Cumulus](#adding-cumulus-support) and [Tanssi-specific modules](#adding-tanssi-support).
+Already existing Substrate runtimes need to implement at least the [framework](#adding-cumulus-support) for communicating within the Tanssi ecosystem, along with [Tanssi-specific modules](#adding-tanssi-support).
 
 Nevertheless, teams might have already implemented certain modules that can collide with some functionalities related to Tanssi, for example, block production, block authority assignment, and consensus.
 
-If the starting point for your project was the [parachain template](https://github.com/paritytech/polkadot-sdk-parachain-template){target=\_blank}, the following modules are included by default and must be removed along with their corresponding configuration:
+The following modules are included by default in many popular templates and must be removed along with their configuration:
 
 ```rust
 Authorship: pallet_authorship = 20,
@@ -27,11 +27,11 @@ Aura: pallet_aura = 23,
 AuraExt: cumulus_pallet_aura_ext = 24,
 ```
 
-In any case, make sure to check your runtime and remove all the modules that might interfere with the block production as a service before starting the registration process.
+In any case, make sure to check your runtime and remove all the modules that might interfere with the block production as a service feature before starting the registration process.
 
-## Adding Cumulus Support {: #adding-cumulus-support }
+## Integrating Your Stand-Alone Chain {: #adding-cumulus-support }
 
-If the runtime is set up as a solo chain, check the official [Cumulus template](https://github.com/paritytech/polkadot-sdk/tree/master/templates/parachain){target=\_blank} or any of the templates available in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} for a reference setup.
+If your existing runtime is set up as a stand-alone chain, you'll need to add a consensus mechanism to integrate into the Tanssi ecosystem. Check any of the available templates in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} for a reference setup or the [framework documentation](https://paritytech.github.io/polkadot-sdk/master/polkadot_sdk_docs/polkadot_sdk/cumulus/index.html){target=\_blank}.
 
 ## Adding Tanssi Protocol Support {: #adding-tanssi-support }
 
