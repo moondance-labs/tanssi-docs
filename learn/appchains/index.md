@@ -1,9 +1,9 @@
 ---
-title: Network Features and Interoperability
+title: Appchain
 description: Discover the features in EVM and Substrate appchains deployed through Tanssi, leveraging user-friendly and easy-to-deploy templates for enhanced capabilities.
 ---
 
-# Network Features and Interoperability
+# Appchains
 Discover the features in EVM and Substrate appchains deployed through Tanssi, leveraging user-friendly and easy-to-deploy templates for enhanced capabilities.
 
 <div class="grid cards" markdown>

@@ -1,9 +1,9 @@
 ---
-title: Core Features
+title: Appchain Development Framework
 description: Learn about the appchain Development Framework, Rust Programming Language, Substrate and its features, including XCM and ready-to-use pallets for your Runtime.
 ---
 
-# Core Features 
+# Appchain Development Framework 
 
 Discover the structural and modular elements of Tanssi that enable flexible and adaptable appchain customization.
 

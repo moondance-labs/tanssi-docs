@@ -3,7 +3,7 @@ title: Learn About Tanssi
 description: Learn about Tanssi protocol and how it handles infrastructure complexities, making it easy for new appchains to be deployed in the Polkadot Web3 ecosystem.
 ---
 
-# Fundamentals
+# Learn About Tanssi
 A comprehensive introduction for new users, covering essential knowledge about Tanssi and its primary components.
 
 <div class="grid cards" markdown>

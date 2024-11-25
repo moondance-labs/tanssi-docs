@@ -1,8 +1,8 @@
-title: Core Features
+title: Appchain Development Framework
 hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
   - 'Framework Architecture': 'architecture.md'
   - 'Modularity': 'modules.md'
-  - 'Appchain Templates': 'included-templates.md'
+  - 'Native Cross-Chain Communication': 'xcm.md'
