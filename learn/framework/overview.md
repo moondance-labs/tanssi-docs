@@ -21,13 +21,13 @@ Building an appchain from scratch is a very complex task that requires deep know
 
 - **Upgradeability** - it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
-Fortunately, there is no need to write implementations of these blockchain components, for there is an awesome open-source framework called [Substrate](https://substrate.io){target=\_blank}, which is the same one Tanssi is built on, leveraging all the base implementations it includes and its modularity and flexibility to reach a high degree of customization.
+Fortunately, there’s no need to build these blockchain components from scratch, thanks to an excellent open-source framework called [Substrate](https://substrate.io){target=\_blank}. Tanssi itself is built with this framework, leveraging its comprehensive base implementations, modularity, and flexibility to achieve a high level of customization.
 
 ## Substrate Framework {: #substrate-framework}
 
-Substrate is an extremely performant, flexible, modular, and highly customizable framework to build blockchains. It is the base upon which the Polkadot relay chain itself is built and also the many parachains in the ecosystem, such as [Moonbeam](https://moonbeam.network){target=blank} and Tanssi.
+Substrate is an extremely performant, flexible, modular, and highly customizable framework for building blockchains. This framework is the foundation and engine powering many projects across the Web3 ecosystem, including the Tanssi network itself and the appchains deployed through Tanssi.
 
-Many of its great features, such as performance, ease of use, and modularity, are owed to the decision made on which programming language to build on, and this is where [Rust Programming Language](#rust-programming-language) was the first choice, being fast, portable, and providing a wonderful model to handle memory, amongst other reasons detailed in the next section.
+Many of its great features, such as performance, ease of use, and modularity, result from the programming language chosen for its development. This is where the [Rust Programming Language](#rust-programming-language) shines: It is fast, portable, and provides a wonderful model to handle memory, among other reasons detailed in the [next section](#rust-programming-language).
 
 When developing an appchain, Substrate represents a great head start by providing a ready-to-use set of implementations of the main building blocks a project needs:
 
