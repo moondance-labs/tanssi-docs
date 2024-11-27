@@ -2,8 +2,8 @@ title: Ethereum Tools
 hide: false
 nav:
   - index.md
-  - wallets
-  - libraries
   - dev-env
   - precompiles
-  - 'JSON-RPC Methods' : 'rpc.md'
+  - libraries
+  - wallets
+  - 'Aditional Resources' : 'rpc.md'
