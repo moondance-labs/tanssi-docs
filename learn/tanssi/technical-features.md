@@ -93,9 +93,9 @@ There are three main costs associated with block production as a service that an
 The current configuration is set as follows:
 
 === "Dancelight"
-    |         Variable          |                                   Value                                   |
-    |:-------------------------:|:-------------------------------------------------------------------------:|
-    |   Registration deposit    |         {{ networks.dancebox.costs.registration_deposit }} DANCE          |
+    |         Variable          |                                         Value                                         |
+    |:-------------------------:|:-------------------------------------------------------------------------------------:|
+    |   Registration deposit    |               {{ networks.dancebox.costs.registration_deposit }} DANCE                |
     | Block producer assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
     |     Block production      |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
 
@@ -112,52 +112,49 @@ To deal with these high-workload periods, the Tanssi protocol implements a tippi
 
 ## External Security Providers {: #external-security-providers }
 
-The Tanssi protocol takes care of key infrastructural components making it easy for developers to launch their networks in a couple minutes. Besides block production, data retrievability, and integrations to essential tools such as wallets, RPC endpoints, block explorers, and others, the other major task to tackle is providing security to the network.
+The Tanssi protocol takes care of key infrastructural components making it easy for developers to launch their networks in a couple minutes. Besides block production, data retrievability, and integrations to essential tools such as wallets, RPC endpoints, block explorers, and more, another major task to tackle is providing security to the network.
 
-Tanssi is designed to offer developers with a shared security model, alleviating them from having to source enough economic security or convincing operators to run nodes for their appchains. By deploying appchains through Tanssi, and by choosing [Symbiotic](https://symbiotic.fi/){target=\_blank} as a the security provider, developers benefit from Ethereum-grade security, tapping into billions of dollars in shared security from staked ETH.
+Tanssi is designed to offer developers with a shared security model, alleviating them from having to source enough economic security or negotiating with operators to run nodes opting-in for their appchains. By deploying appchains through Tanssi, and by choosing [Symbiotic](https://symbiotic.fi/){target=\_blank} as a the security provider, developers benefit from Ethereum-grade security, tapping into billions of dollars in shared security from staked ETH.
 
 The following sections describe how the Symbiotic protocol works.
 
 ### Ethereum-Grade Security with Symbiotic {: #symbiotic }
 
-[Symbiotic](https://symbiotic.fi/){target=\_blank} is a restaking protocol designed to be permissionless, multi-asset, and network-agnostic. It fosters capital efficiency by allowing users to 
+[Symbiotic](https://symbiotic.fi/){target=\_blank} is a restaking protocol designed to be permissionless, multi-asset, and network-agnostic. It fosters capital efficiency by allowing users to extend the functionality of their staked assets to secure other networks while providing additional utility.
 
+There are three main components of the protocol:
 
+- **Vaults** - are the economic backbone of the protocol, receiving the liquidity from restakers, connecting operators and networks, and distributing rewards to restakers and operators
+- **Operators** - are the computational component validating the transactions of the networks
+- **Networks** - are the actively validated services or appchains. These application specific blockchains can be a use case from a wide range of industries, such as Gaming, Defi, RWAs, and others, and are the platforms that through dApps the end users interact with
 
-Collateral (aka stake, commitments,…)
+Around these components, different actors participate:
 
-The security layer of Symbiotic. Collateral is an abstraction used to represent underlying on-chain assets, which are chain- and asset-agnostic. Collateral in Symbiotic can encompass ERC20 tokens, withdrawal credentials of Ethereum validators, or other on-chain assets, such as LP positions, without limitations regarding which blockchains the positions are held on.
+- **Restakers** - are the ones providing liquidity to the vaults obtaining rewards. Restakers choose which vaults they restake to, provided that the vault accepts their assets and they agree with the networks the vault works with and the general setup
+- **Vault Curators** - are the responsibles for the vault administration. Curators decide which networks the vault works with, which operators are whitelisted to participate securing the networks, which assets are accepted as collaterals, and the slashing and rewarding mechanisms
+- **Resolvers** - are the responsibles for resolving veto slashing events the vault. Veto slashing events are a special type of event that requires the participation of resolvers, which have the authority to revoke the slashing request
+- **Node Operators** - are the ones running the actual operators, which validate the transactions in the networks. Node operators are responsible for the configuration and hardware of the nodes. The apply to offer their services in both, vaults and networks, and have to be accepted and whitelisted by both, before starting to validate networks and get rewards
+- **Developers** - are the ones building appchains
 
-Vaults (aka operator staking pools, liquid (re)staking protocols,…)
+#### Tanssi with Symbiotic {: #tanssi-symbiotic }
 
-The (re)staking layer of Symbiotic. Delegation of collateral to operators across networks is handled by vaults that can be curated in a custom manner (e.g., by liquid (re)staking providers, such as Lido or institutional holders) or through delegations to operator-specific vaults.
+Developers launching appchains through Tanssi benefit not only from receiving block production services, but also from the shared security model derived from every vault opting-in to support the Tanssi protocol. This eliminates the hurdle of dealing with infrastructural components developers would need to take on otherwise.
 
-Operators (aka validators, sequencers, guardians, keepers,…)
+Curators running vaults can apply to offer the restaked collaterals as economic security for the Tanssi network, regardless of how many appchains are running through the Tanssi protocol.
 
-Operators in Symbiotic are defined as entities running infrastructure for networks. In Proof-of-Stake, successful staking providers have established a brand identity and operate across networks. The Symbiotic protocol creates a registry of operators, as well as enabling them to opt-in to networks and receive economic backing from restakers through vaults.
+Operators in the vault run the same setup to provide block production to the Tanssi network, and validation services to every appchain deployed thoough Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators, since there is only one common setup for all.
 
-Resolvers (aka slashing committees, proofs, dispute resolution frameworks,…)
+All things combined shape a functional and elegant ecosystem, where developers can focus on creating and innovating, Tanssi handles the infrastructural components guaranteeing liveness and performance, and Symbiotic provides the economic safeguards to ensure the validity of the operations.
 
-Resolvers are entities or contracts tasked to pass or veto slashing penalties incurred by operators on networks to which they provide services. They are agreed upon by vaults - representing providers of economic security - and the networks they provide security for.
+#### Slashing and Rewards {: #slashing-rewards }
 
-Resolvers can be fully automated (in the case of objectively provable slashing infractions) or take the form of entities such as slashing committees and external dispute resolution frameworks. Resolvers enable networks and restakers to share collateral amongst each other by providing a - ideally neutral - third party to arbitrate penalties.
+Well-behaved operators and restakers receive rewards for their participation in TANSSI tokens. Reward payments is managed through the vault.
 
-Networks (aka appchains, rollups, AVSs,…)
+The Tanssi protocol also penalizes bad actors misbehaving. These are the actions that causes slashing events:
 
-Networks in Symbiotic are defined as protocols that require a distributed set of node operators to provide trust-minimized services, such as - among others - decentralized sequencing of transactions, coming to consensus about off-chain data and bringing it on-chain (oracles), automating specific protocol functions (keepers), etc.
+1. Producing Invalid Blocks (as blocks including invalid transactions)
+2. Invalid validation (double-signing) , submitting invalid blocks, or breaking protocol rules.
+3. Downtime or Unavailability
+4. Consensus Violations
 
-Symbiotic enables network builders to define, control, and adapt their methodology for onboarding, incentivizing, and penalizing operators and their delegators (providers of economic collateral).
-
-
-
-Describe how it works
-restaking
-The Symbiotic protocol is built around vaults, operators, and networks, with restakers providing security. The interactions between these actors determine the flow of assets and rewards. Below is a  breakdown of how these components interact within the Symbiotic protocol.
-
-#### Tanssi and symbiotic
-
-Describe how are the mechanism and the paying methods
-
-#### Slashing and rewards
-
-
+In those cases, a veto slashing event is triggered. This kind of slashing event needs can be reverted by the authorities designated as resolvers.
