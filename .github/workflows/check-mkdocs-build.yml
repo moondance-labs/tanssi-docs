@@ -27,7 +27,7 @@ jobs:
       - name: Move tanssi-docs contents to mkdocs repository
         run: |
           mkdir tanssi-mkdocs/tanssi-docs
-          mv * tanssi-mkdocs/tanssi-docs &> /dev/null || echo "Error with mv expected due to recursively moving all contents into subfolder"
+          find . -mindepth 1 -maxdepth 1 ! -name 'tanssi-mkdocs' -exec mv {} tanssi-mkdocs/tanssi-docs/ \;
 
       - name: Install pip requirements
         run: |
