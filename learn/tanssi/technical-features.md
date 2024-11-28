@@ -1,6 +1,6 @@
 ---
 title: Block Production Services
-description: Tanssi provides block production services assigning block producers to the appchains, requiring minimal changes to the code for appchains to be deployed.
+description: Tanssi provides block production services allowing developers to deploy decentralized networks (appchains) with Ethereum-grade security through Symbiotic
 ---
 
 # Technical Features of Tanssi {: #technical-features-of-tanssi }
@@ -9,13 +9,13 @@ description: Tanssi provides block production services assigning block producers
 
 As presented in the [Overview](/learn/tanssi/overview/){target=\_blank} article, Tanssi is an appchain infrastructure protocol that streamlines the deployment of blockchains with custom logic fitting a wide range of use cases, including DeFi, NFTs, Gaming, and any other use case development teams may want to address.
 
-Infrastructure poses a huge challenge for developers, requiring them to bootstrap block producers, data preservers, and RPC endpoints, while also managing integrations, interoperability, and security. This demands valuable time and resources, diverting focus from what truly matters: delivering value to their users.
+Infrastructure poses a huge challenge for developers, requiring them to bootstrap sequencers, data preservers, and RPC endpoints, while also managing integrations, interoperability, and security. This demands valuable time and resources, diverting focus from what truly matters: delivering value to their users.
 
-Tanssi orchestrates resources allowing developers to deploy decentralised networks (also known as actively validated services or AVSs) that are fully adaptable to any specific application or use case. In Tanssi terms, these application specific blockchains are referred to as appchains. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io){target=\_blank}, in its role as orchestrator, managing resources to guarantee the liveness and performance of the appchains.
+Tanssi orchestrates resources, allowing developers to deploy decentralized networks (also known as actively validated services or AVSs) that are fully adaptable to any specific application or use case. In Tanssi terms, these application-specific blockchains are referred to as appchains. In this analogy, the Tanssi network resembles [Kubernetes](https://kubernetes.io){target=\_blank} in its role as an orchestrator, managing resources to guarantee the liveness and performance of the appchains.
 
-The protocol also tackles the security front by allowing appchains to select and connect to an external security provider (like [Symbiotic](https://symbiotic.fi/){target=\_blank}), ensuring Ethereum-grade security right from the start.
+The protocol also tackles the security front by allowing appchains to select and connect to external security providers (like [Symbiotic](https://symbiotic.fi/){target=\_blank}), ensuring Ethereum-grade security right from the start.
 
-In this article, the necessary aspects to consider when building and deploying your own modular blockchain are covered, along with the most relevant technical aspects of the Tanssi protocol.
+This article covers the necessary aspects to consider when building and deploying your own modular blockchain, along with the most relevant technical aspects of the Tanssi protocol.
 
 ## Block Production as a Service {: #block-production-as-a-service }
 
@@ -44,24 +44,24 @@ The Tanssi staking module helps create a decentralized set of sequencers for all
 
 Once the sequencer set that will participate in the next session is known, Tanssi shuffles the list and assigns them to provide block production services to the active Tanssi Appchains.
 
-The assignment algorithm will start distributing the sequencers serving the appchains by the registration date, on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, which represents a period measured in blocks that has a constant set of block producers. In Dancelight, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
+The assignment algorithm will start distributing the sequencers serving the appchains by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of block producers. In Dancelight, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
 
-Every new assignment works intentionally with a one-session delay, so the sequencers know in advance which one of the appchains they are assigned to. Sequencers will start syncing the new appchain they'll have to serve in the next session with a special type of syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the block producers to swiftly sync the new appchain without acting as an archive node.
+Every new assignment works intentionally with a one-session delay, so the sequencers know in advance which one of the appchains they are assigned to. Sequencers will start syncing the new appchain they'll have to serve in the next session with a special syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the block producers to swiftly sync the new appchain without acting as an archive node.
 
-When a new session starts, the Tanssi protocol will put the queued assignment into effect. Sequencers will automatically change and start producing blocks in the new Tanssi appchain they've been assigned to while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in Tanssi appchains that might have been activated or deactivated and block producers that might have been added or removed from the pool, or changed the total staked value. This new assignment will be queued for the next session.
+When a new session starts, the Tanssi protocol will put the queued assignment into effect. Sequencers will automatically change and start producing blocks in the new Tanssi appchain they've been assigned to while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in Tanssi appchains that might have been activated or deactivated and block producers that might have been added or removed from the pool or changed the total staked value. This new assignment will be queued for the next session.
 
 ![Sessions](/images/learn/tanssi/technical/technical-2.webp)
 
-The following picture shows an example of how the algorithm distributes ten available block producers, with a minimum threshold of three block producers for the Tanssi network and two block producers for each of the appchains.
+The following picture shows an example of how the algorithm distributes ten available block producers, with a minimum threshold of three block producers for the Tanssi network and two block producers for each active appchain.
 
 ![Block Producers Assignment Algorithm](/images/learn/tanssi/technical/light-technical-3.webp#only-light)
 ![Block Producers Assignment Algorithm](/images/learn/tanssi/technical/dark-technical-3.webp#only-dark)
 
 ### The Role of the Tanssi Network {: #tanssi-newtwork }
 
-As previously discussed, the Tanssi protocol assigns sequencers to the Tanssi appchains, and the result of this assignment is stored within the chain state. The sequencers, besides running the appchain node, also run the Tanssi one, hence, by accessing the data stored in the finalized blocks of the Tanssi network they can learn their assignation for the session, and the Tanssi appchains can confirm that a certain group of sequencers have been assigned to them. 
+As previously discussed, the Tanssi protocol assigns sequencers to the Tanssi appchains, and the result of this assignment is stored within the chain state.  Besides running the appchain node, the sequencers also run the Tanssi one. Hence, by accessing the data stored in the finalized blocks of the Tanssi network, they can learn their assignation for the session, and the Tanssi appchains can confirm that a certain group of sequencers have been assigned to them. 
 
-As the Tanssi appchains produce blocks, those blocks need to be validated and finalized by the external security provider. Once a block gets verified by an operator a small proof of validity is produced and stored in Tanssi, keeping track of the the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
+As the Tanssi appchains produce blocks, those blocks need to be validated and finalized by the external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
 
 Finally, Tanssi can verify that the author of an appchain block was the expected one and reward accordingly.
 
@@ -71,7 +71,7 @@ As a sequencer assigned to a Tanssi appchain includes built-in Tanssi node funct
 
 Leveraging this ability to access the states, the current sequencer with the authority to produce a block will read the state of the latest block produced in the Tanssi chain. It will proceed to include this state in the block of the appchain, the current set of sequencers assigned to the appchain, and its public signature, allowing Tanssi to know who produced the block and reward the node operator.
 
-Once the block is filled with appchain transactions, it will be proposed as a candidate and handed over to the Tanssi chain, where the security provider's operators will ensure that the included state proofs match the state proofs from the latest state of Tanssi (preventing unauthorized block production) and that the transactions produced valid state transitions. Having verified the work of the sequencer, the operators will finalize the proposed block including its candidate receipt in a Tanssi network block.
+Once the block is filled with appchain transactions, it will be proposed as a candidate and handed over to the Tanssi chain, where the security provider's operators will ensure that the included state proofs match the state proofs from the latest state of Tanssi (preventing unauthorized block production) and that the transactions produced valid state transitions. Having verified the work of the sequencer, the operators will finalize the proposed block, including its candidate receipt in a Tanssi network block.
 
 ### Costs to Cover  {: #costs-to-cover }
 
@@ -87,8 +87,8 @@ As presented in the [Introduction](#introduction), Tanssi is an infrastructure p
 There are three main costs associated with block production as a service that any appchain must cover using Tanssi tokens to deploy successfully and get the block production services:
 
 - **Registration deposit** - the initial deposit that is locked from the account that signs the appchain registration transaction
-- **Sequencers assignment** - every time the Tanssi protocol assigns sequencers, which happens once per session, a fixed fee is charged. This fee gives appchains the right to be assigned sequencers, and discourages appchains whose runtime logic fails to produce valid transactions or blocks
-- **Block production** - appchains need to pay for each block that is produced on their behalf. Since the protocol selects and assigns the sequencers on a per-session basis, appchains must have enough funds to cover all the blocks to be produced in an entire session to be served
+- **Sequencers assignment** - every time the Tanssi protocol assigns sequencers, which happens once per session, a fixed fee is charged. This fee gives appchains the right to be assigned sequencers and discourages appchains whose runtime logic fails to produce valid transactions or blocks
+- **Block production** - appchains must pay for each block produced on their behalf. Since the protocol selects and assigns the sequencers on a per-session basis, appchains must have enough funds to cover all the blocks to be produced in an entire session to be served
 
 The current configuration is set as follows:
 
@@ -133,7 +133,7 @@ Around these components, different actors participate:
 - **Restakers** - are the ones providing liquidity to the vaults, obtaining rewards. Restakers choose which vaults they restake to, provided that the vault accepts their assets and they agree with the networks the vault works with and the general setup
 - **Vault Curators** - are responsible for the vault administration. Curators decide which networks the vault works with, which operators are whitelisted to participate in securing the networks, which assets are accepted as collaterals and the slashing and rewarding mechanisms
 - **Resolvers** - are responsible for resolving veto-slashing events in the vault. Veto slashing events are a particular type of event that requires the participation of resolvers, who have the authority to revoke the slashing request
-- **Node Operators** - are the ones running the actual operators, which validate the networks transactions. Node operators are responsible for the configuration and hardware of the nodes. They apply to offer their services in both vaults and networks and have to be accepted and whitelisted by both before starting to validate networks and get rewards
+- **Node Operators** - are the ones running the actual operators, which validate the networks' transactions. Node operators are responsible for the configuration and hardware of the nodes. They apply to offer their services in both vaults and networks and have to be accepted and whitelisted by both before starting to validate networks and get rewards
 - **Developers** - are the ones building appchains
 
 #### Tanssi with Symbiotic {: #tanssi-symbiotic }
