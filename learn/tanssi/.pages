@@ -3,6 +3,7 @@ hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
-  - 'Technical Features of Tanssi': 'technical-features.md'
+  - 'appchain-services'
+  - 'external-security-providers'
   - 'Included Templates': 'included-templates.md'
   - 'network-features'
