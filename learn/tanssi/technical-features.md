@@ -26,6 +26,35 @@ The Tanssi protocol provides block production as a service, orchestrating a dece
 
 The protocol assigns a subset of sequencers to provide services to each appchain, rotating them after a period of time. The sequencers can serve any appchain, regardless of the custom logic they implement. On the other hand, appchains deployed through Tanssi can customize their runtime as much as they need to fit their use case and upgrade the logic at any moment in a forkless fashion without worrying about the sequencer's setup.
 
+The following diagram illustrates how Tanssi assigns two sequencers to each active appchains, selecting them from a decentralized set of sequencers.
+
+```mermaid
+flowchart LR
+    subgraph appchain1 [Appchain 1]
+    s1bis[Sequencer 1]
+    s2bis[Sequencer 2]
+    end
+    subgraph appchain2 [Appchain 2]
+    s3bis[Sequencer 3]
+    s4bis[Sequencer 4]
+    end
+    Tanssi[
+        Tanssi Network
+        Orchestrator
+    ]
+    subgraph sequencers [Sequencers Pool]
+    direction RL
+    s1[Sequencer 1]
+    s2[Sequencer 2]
+    s3[Sequencer 3]
+    s4[Sequencer 4]
+    sn[Sequencer N]
+    end
+    sequencers-- Managed by -->Tanssi
+    Tanssi-- Assigns Sequencers -->appchain1
+    Tanssi-- Assigns Sequencers -->appchain2
+```
+
 ### Block Producer Selection Process {: #block-producer-selection-process}
 
 At any given time, all Tanssi appchains require a certain number of sequencers, depending on the number of active appchains and the current block production configuration set in Tanssi. The configuration sets the maximum number of total sequencers in the set and the number of sequencers each Appchain has to have assigned.
