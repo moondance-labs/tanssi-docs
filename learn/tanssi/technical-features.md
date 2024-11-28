@@ -125,6 +125,19 @@ Leveraging this ability to access the states, the current sequencer with the aut
 
 Once the block is filled with appchain transactions, it will be proposed as a candidate and handed over to the Tanssi chain, where the security provider's operators will ensure that the included state proofs match the state proofs from the latest state of Tanssi (preventing unauthorized block production) and that the transactions produced valid state transitions. Having verified the work of the sequencer, the operators will finalize the proposed block, including its candidate receipt in a Tanssi network block.
 
+```mermaid
+classDiagram
+
+    note for tanssi "The sequencer reads the Tanssi State"
+
+    class tanssi["Appchain Block"] {
+        Appchain's Current Sequencers Assignment
+        Tanssi's State Root
+        Sequencer operator's signature
+        Appchain Transactions()
+    }
+```
+
 ## External Security Providers {: #external-security-providers }
 
 The Tanssi protocol takes care of critical infrastructural components, making it easy for developers to launch their networks in a few minutes. In addition to block production, data retrievability, and integrations with essential tools such as wallets, RPC endpoints, block explorers, and more, another major task to tackle is providing security to the network.
