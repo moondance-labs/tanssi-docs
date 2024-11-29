@@ -18,7 +18,7 @@ Before customizing your appchain, ensure your development environment is properl
 
 Tip: Follow our step-by-step guide to set up your environment efficiently.
 
-[Configure Your Environment](*)
+[Configure Your Environment](prerequisites.md)
 
 <div class="grid cards" markdown>
 
@@ -28,7 +28,7 @@ Tip: Follow our step-by-step guide to set up your environment efficiently.
 
     Extend the capabilities of your appchain by integrating pre-built modules from Substrate's extensive library. 
 
-    [Add a Built-in Module](#)
+    [Add a Built-in Module](adding-built-in-module.md)
 
 -   :fontawesome-brands-markdown:{ .lg .middle } __Adding an External Module__
 
@@ -36,7 +36,7 @@ Tip: Follow our step-by-step guide to set up your environment efficiently.
 
     Incorporate third-party modules to expand your appchain's capabilities and ensure compatibility with external tools and services.
 
-    [Add an External Module](#)
+    [Add an External Module](adding-external-module.md)
 
 -   :material-format-font:{ .lg .middle } __Adding a Custom-Made Module__
 
@@ -44,7 +44,7 @@ Tip: Follow our step-by-step guide to set up your environment efficiently.
 
     This guide offers a step-by-step approach to creating custom modules, using a real-world example to illustrate the process.
 
-    [Add a Custom-Made Module](#)
+    [Add a Custom-Made Module](adding-custom-made-module.md)
 
 -   :material-scale-balance:{ .lg .middle } __Chain Specifications__
 
@@ -52,7 +52,7 @@ Tip: Follow our step-by-step guide to set up your environment efficiently.
 
     The chain specification contains the initial parameters required for launching a new Tanssi appchain, including genesis state, token configuration, and more.
 
-    [Chain Specifications](#)
+    [Chain Specifications](customizing-chain-specs.md)
 
 </div>
 
@@ -66,6 +66,6 @@ Tip: Follow our step-by-step guide to set up your environment efficiently.
 
     Explore predefined templates that enable you to quickly start developing your appchain. These templates offer basic configurations that you can customize later to meet your project's specific needs.
 
-    [View Appchain Templates](#)
+    [View Appchain Templates](../../build/templates/index.md)
 
 </div>

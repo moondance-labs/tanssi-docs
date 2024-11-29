@@ -17,7 +17,7 @@ Ready to launch your appchain? In this section, you'll find everything you need 
 
     Start with prebuilt configurations designed for efficiency. Templates get you operational quickly, with room for later customizations.
 
-    [Explore Templates](#)
+    [Explore Templates](templates/index.md)
 
 -   :fontawesome-brands-markdown:{ .lg .middle } __Custom Appchain__
 
@@ -25,7 +25,7 @@ Ready to launch your appchain? In this section, you'll find everything you need 
 
     Learn how to adapt and modify your appchain to meet the specific needs of your application.
 
-    [Start Customizing](#)
+    [Start Customizing](customize/index.md)
 
 </div>
 
@@ -39,7 +39,7 @@ Ready to launch your appchain? In this section, you'll find everything you need 
 
     Follow detailed instructions to deploy your appchain using the Tanssi dApp. This resource guides you through the implementation process, ensuring a smooth transition from development to production.
 
-    [Deploy in only 5 steeps](#)
+    [Deploy in only 5 steeps](../../builders/deploy/index.md)
 
 </div>
 
@@ -53,6 +53,6 @@ Ready to launch your appchain? In this section, you'll find everything you need 
 
     Once deployed, ensure your appchain runs smoothly. This guide covers key areas like updates, monitoring, and optimizations
 
-    [Manage Your Appchain](#)
+    [Manage Your Appchain](../../builders/manage/index.md)
 
 </div>

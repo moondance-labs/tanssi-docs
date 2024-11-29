@@ -16,7 +16,7 @@ Explore everything you need to build, deploy, and manage appchains within the Ta
 
     Learn how to design and customize your appchain with ready-to-use templates and tools tailored to your technical needs.
 
-    [Explore Build Options](#)
+    [Explore Build Options](build/index.md)
 
 -   :fontawesome-brands-markdown:{ .lg .middle } __Deploy Your Appchain__
 
@@ -24,7 +24,7 @@ Explore everything you need to build, deploy, and manage appchains within the Ta
 
     Get ready to deploy your appchain using the Tanssi dApp. Follow simple steps for efficient setup and configuration.
 
-    [Start Deployment](#)
+    [Start Deployment](deploy/index.md)
 
 -   :material-format-font:{ .lg .middle } __Manage Your Appchain__
 
@@ -32,7 +32,7 @@ Explore everything you need to build, deploy, and manage appchains within the Ta
 
     Take control of your appchain with the Developer Portal or Tanssi dApp. Manage everything securely and efficiently.
 
-    [Manage Now](#)
+    [Manage Now](manage/index.md)
 
 -   :material-scale-balance:{ .lg .middle } __Appchain Toolkit__
 
@@ -40,7 +40,7 @@ Explore everything you need to build, deploy, and manage appchains within the Ta
 
     Access essential tools like APIs, libraries, and integrated solutions to streamline your development processes.
 
-    [Explore the Toolkit](#)
+    [Explore the Toolkit](toolkit/index.md)
 
 -   :material-scale-balance:{ .lg .middle } __Account Management__
 
@@ -48,7 +48,7 @@ Explore everything you need to build, deploy, and manage appchains within the Ta
 
     Manage on-chain identities and set up proxy accounts to enhance your appchain’s security and flexibility.
 
-    [Manage Accounts](#)
+    [Manage Accounts](account-management/index.md)
 
 -   :material-scale-balance:{ .lg .middle } __Tanssi Networks__
 
@@ -56,7 +56,7 @@ Explore everything you need to build, deploy, and manage appchains within the Ta
 
     Connect to Tanssi networks and utilize dedicated endpoints to test and interact with your appchain seamlessly.
 
-    [Explore Networks](#)
+    [Explore Networks](tanssi-network/index.md)
 
 </div>
 

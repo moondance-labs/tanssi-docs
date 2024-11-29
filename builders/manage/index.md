@@ -17,7 +17,7 @@ Learn how to effectively manage your appchain using the Developer Portal and the
 
     Ensure continuous and efficient block production by compensating node operators with Tanssi tokens.
 
-    [Explore Templates](#)
+    [Block Production Services Payment](dapp/services-payment.md)
 
 -   :fontawesome-brands-markdown:{ .lg .middle } __Manage Tokens__
 
@@ -25,7 +25,7 @@ Learn how to effectively manage your appchain using the Developer Portal and the
 
     Oversee minting, EIP-1559 configuration, and other essential token-related tasks.
 
-    [Start Customizing](#)
+    [Manage Tokens](dapp/manage-tokens.md)
 
 </div>
 
@@ -39,7 +39,7 @@ Learn how to effectively manage your appchain using the Developer Portal and the
 
     Oversee the Sudo account, the superuser role that allows privileged operations on your appchain.
 
-    [Manage The Sudo Account](#)
+    [Manage The Sudo Account](developer-portal/sudo.md)
 
 -   :fontawesome-brands-markdown:{ .lg .middle } __General Appchain Administration__
 
@@ -50,8 +50,8 @@ Learn how to effectively manage your appchain using the Developer Portal and the
     - **Dispatch Runtime Upgrades:** Keep your appchain secure and up-to-date by implementing runtime upgrades.
     - **Mint Tokens:** Manage your appchain’s token supply by minting additional tokens securely and efficiently.
 
-    [Dispatch Runtime Upgrades](#)  
-    [Mint Tokens](#)
+    [Dispatch Runtime Upgrades](developer-portal/upgrade.md)  
+    [Mint Tokens](developer-portal/minting.md)
 
 </div>
 
@@ -68,7 +68,7 @@ Learn how to effectively manage your appchain using the Developer Portal and the
     - **Impersonate Accounts:** Simulate transactions for testing and administrative tasks.
     - **Enable Maintenance Mode:** Simulate transactions for testing and administrative tasks.
 
-    [Explore Security Management](#)
+    [Explore Security Management](developer-portal/index.md)
 
 </div>
 
@@ -82,7 +82,7 @@ Learn how to effectively manage your appchain using the Developer Portal and the
 
     Explore a suite of tools designed to enhance your interaction with Tanssi's EVM-compliant appchains. Use platforms such as Remix, Hardhat and Foundry to streamline the development, deployment and management of smart contracts, leveraging the Ethereum API for seamless integration.
 
-    [Go to Ethereum Tools](#)
+    [Go to Ethereum Tools](../../builders/toolkit/ethereum-api/index.md)
 
 -   :fontawesome-brands-markdown:{ .lg .middle } __Non-EVM Tools__
 
@@ -90,7 +90,7 @@ Learn how to effectively manage your appchain using the Developer Portal and the
 
     Enhance your interaction with Tanssi appchains using a variety of Substrate-based tools. Leverage the Polkadot.js API, Sidecar API, and Chopsticks to efficiently develop, deploy, and manage your appchain, ensuring seamless integration and optimal performance.
 
-    [Explore Non-EVM Tools](#)
+    [Explore Non-EVM Tools](../../builders/toolkit/substrate-api/index.md)
 
 </div>
 
@@ -104,6 +104,6 @@ Learn how to effectively manage your appchain using the Developer Portal and the
     
     Your all-in-one resource hub for appchain development and management, integrating tools, libraries, networks, and account features to power your Tanssi appchain.
 
-    [Toolkit](#)
+    [Toolkit](../../builders/toolkit/index.md)
 
 </div>

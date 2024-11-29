@@ -15,7 +15,7 @@ Tanssi appchain templates provide foundational configurations to accelerate deve
 
 Tip: To start building on our templates, the best approach is to fork the Tanssi repository and begin adding built-in or custom modules based on your specific requirements.
 
-[More about our templates](*)  
+[More about our templates](overview.md)  
   
 <div class="grid cards" markdown>
 
@@ -25,7 +25,7 @@ Tip: To start building on our templates, the best approach is to fork the Tanssi
 
     Designed for full Ethereum compatibility, this template allows developers to deploy Ethereum-based smart contracts using familiar tools and libraries.
 
-    [Learn About the EVM Template](#)
+    [Learn About the EVM Template](evm.md)
 
 -   :fontawesome-brands-markdown:{ .lg .middle } __Non-EVM Template__
 
@@ -33,7 +33,7 @@ Tip: To start building on our templates, the best approach is to fork the Tanssi
 
     A Substrate-based template designed for integrating custom logic into a Substrate-oriented runtime, offering flexibility and modularity for tailored appchains.
 
-    [Discover the Substrate Template](#)
+    [Discover the Substrate Template](substrate.md)
 
 </div>
 
@@ -47,6 +47,6 @@ Tip: To start building on our templates, the best approach is to fork the Tanssi
 
     Follow detailed instructions to deploy your appchain using the Tanssi dApp. This resource guides you through the implementation process, ensuring a smooth transition from development to production.
 
-    [Deploy in only 5 steeps](#)
+    [Deploy in only 5 steeps](../../deploy/index.md)
 
 </div>
