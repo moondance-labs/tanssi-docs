@@ -107,7 +107,7 @@ Wallets are essential tools for managing and interacting with your Tanssi appcha
     
     Connect MetaMask, the most widely used Ethereum wallet, to your Tanssi EVM appchain. This guide shows you how to set it up and transfer funds seamlessly.
       
-    [Get Started with MetaMask](wallets/metamask.md)  
+    [Get Started With Metamask](wallets/metamask.md)  
 
 -   :material-clock-fast:{ .lg .middle } __Expand Your Wallet Options__
 
