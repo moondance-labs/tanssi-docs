@@ -19,8 +19,8 @@ Whether you’re starting from scratch or enhancing an existing appchain, this t
     - **Dancebox:** Experiment with your EVM-compatible or Non-EVM appchain on Tanssi’s TestNet.
     - **Demo EVM Appchain:** Test our demo EVM Tanssi appchain 
 
-    [Dancebox](#)
-    [Test our demo EVM Appchain](#)
+    [Dancebox](../../builders/tanssi-network/testnet/dancebox.md)
+    [Test our demo EVM Appchain](../../builders/tanssi-network/testnet/demo-evm-appchain.md)
 
 </div>
 
@@ -34,7 +34,7 @@ Whether you’re starting from scratch or enhancing an existing appchain, this t
 
     Explore a suite of tools designed to enhance your interaction with Tanssi's EVM-compliant appchains. Use platforms such as Remix, Hardhat and Foundry to streamline the development, deployment and management of smart contracts, leveraging the Ethereum API for seamless integration.
 
-    [Go to Ethereum Tools](#)
+    [Go to Ethereum Tools](ethereum-api/index.md)
 
 -   :fontawesome-brands-markdown:{ .lg .middle } __Non-EVM Tools__
 
@@ -42,7 +42,7 @@ Whether you’re starting from scratch or enhancing an existing appchain, this t
 
     Enhance your interaction with Tanssi appchains using a variety of Substrate-based tools. Leverage the Polkadot.js API, Sidecar API, and Chopsticks to efficiently develop, deploy, and manage your appchain, ensuring seamless integration and optimal performance.
 
-    [Explore Non-EVM Tools](#)
+    [Explore Non-EVM Tools](substrate-api/index.md)
 
 </div>
 
@@ -56,7 +56,7 @@ Whether you’re starting from scratch or enhancing an existing appchain, this t
     
     Learn how proxies work and how to create them.
 
-    [Proxy Accounts](#) 
+    [Proxy Accounts](../../builders/account-management/proxy-accounts.md) 
     
 </div>
 
@@ -69,6 +69,6 @@ Whether you’re starting from scratch or enhancing an existing appchain, this t
     
     Explore integrations that can easily extend the functionality of your Tanssi EVM or non-EVM appchains.
 
-    [Integrations Hub](#) 
+    [Integrations Hub](integrations/index.md) 
     
 </div>

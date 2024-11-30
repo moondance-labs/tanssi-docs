@@ -19,7 +19,7 @@ Optimize your workspace with Substrate-based tools for development on Tansi Appc
     
     Master the basics of Chopsticks to replay blocks, explore state changes, and set up a local fork of your Tanssi appchain.
     
-    [Explore Chopsticks](#)  
+    [Explore Chopsticks](dev-env/chopsticks.md)  
  
 </div>
 
@@ -35,7 +35,7 @@ Utilize libraries such as Polkadot.js API and Sidecar API to query on-chain data
     
     Interact with your Tanssi appchain using the Polkadot.js API. Learn how to query on-chain data and send extrinsics effortlessly with the Substrate API.
     
-    [Explore Polkadot.js API](#)  
+    [Explore Polkadot.js API](libraries/polkadot-js-api.md)  
 
 -   :material-clock-fast:{ .lg .middle } __Sidecar API__
 
@@ -43,7 +43,7 @@ Utilize libraries such as Polkadot.js API and Sidecar API to query on-chain data
     
     Easily query blocks, account balances, gas usage, and more on your Tanssi appchain using the Substrate API Sidecar, a streamlined RESTful service for on-chain data access.
     
-    [Explore Sidecar API](#)  
+    [Explore Sidecar API](libraries/sidecar-api.md)  
  
 </div>
 
@@ -59,7 +59,7 @@ Explore wallets built for Substrate-based networks. Securely manage assets and e
     
     Discover how to connect Talisman, a versatile wallet for Polkadot, Substrate, and Ethereum, to your Tanssi Substrate appchain.
     
-    [Use Talisman](#)
+    [Use Talisman](wallets/talisman.md)
     
 -   :material-clock-fast:{ .lg .middle } __SubWallet__
 
@@ -67,6 +67,6 @@ Explore wallets built for Substrate-based networks. Securely manage assets and e
     
     Learn how to connect SubWallet, an all-in-one wallet for Polkadot, Substrate, and Ethereum networks, to your Tanssi Substrate appchain.
     
-    [Connect SubWallet](#)  
+    [Connect SubWallet](wallets/subwallet.md)  
  
 </div>

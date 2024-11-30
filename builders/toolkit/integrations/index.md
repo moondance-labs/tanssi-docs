@@ -20,11 +20,11 @@ Decentralized oracles provide a critical bridge between off-chain data and your 
     Integrate decentralized oracles for accurate and secure token price data on your Tanssi appchain:
 
     - **Acurast:** Retrieve precise token price feeds using a decentralized serverless cloud.
-    [Implement Acurast](#)
+    [Implement Acurast](oracles/acurast.md)
     - **Band Protocol:** Access reliable token price data through a decentralized oracle network.
-    [Integrate Band Protocol](#)
+    [Integrate Band Protocol](oracles/band.md)
     - **Phala:** Fetch secure and efficient price feeds with off-chain computing solutions.
-    [Set Up Phala](#)
+    [Set Up Phala](oracles/phala.md)
     
 </div>
 
@@ -41,9 +41,9 @@ Leverage blockchain indexers to efficiently ingest, process, and query Ethereum 
     A versatile framework for organizing and accessing blockchain data on Tanssi EVM and Non-EVM appchains.
 
     - **Quickstart:** Learn how to set up and use SubSquid to index and process blockchain data.
-    [Quickstart](#)
+    [Quickstart](indexers/subsquid/quick-start.md)
     - **Index ERC-20:** Access reliable token price data through a decentralized oracle network.
-    [Integrate Band Protocol](#)
+    [Index ERC-20](indexers/subsquid/erc20-transfers.md)
     
 </div>
 
@@ -58,7 +58,7 @@ Leverage blockchain indexers to efficiently ingest, process, and query Ethereum 
     Learn how to integrate RainbowKit with an EVM-compatible appchain deployed through Tanssi, making adding a great wallet experience to your dApp easy.
 
     
-    [Integrate Rainbowkit](#)
+    [Integrate Rainbowkit](wallet-integrations/rainbowkit.md)
    
     
 </div>

@@ -19,7 +19,7 @@ Using these essential tools. For enterprise and professional use, we recommend F
     
     A lightweight and efficient framework designed for compiling, testing, and deploying Solidity contracts.
 
-    [Deploy With Foundry](#) 
+    [Deploy With Foundry](dev-env/foundry.md) 
 
 -   :material-clock-fast:{ .lg .middle } __Hardhat__
 
@@ -27,7 +27,7 @@ Using these essential tools. For enterprise and professional use, we recommend F
     
     A robust Ethereum development environment for managing and deploying smart contracts with advanced features.
 
-    [Deploy With Hardhat](#) 
+    [Deploy With Hardhat](dev-env/hardhat.md) 
 
 </div>
 
@@ -41,11 +41,11 @@ Using these essential tools. For enterprise and professional use, we recommend F
     
     - **Remix:** Use Remix IDE, a popular Ethereum development tool, to build, compile, and deploy smart contracts
       
-    [Try Remix](#)  
+    [Try Remix](dev-env/remix.md)  
   
     - **Thirdweb:** A versatile platform to build, test, and deploy dApps using ready-made smart contract templates.
       
-    [Try Thirdweb](#) 
+    [Try Thirdweb](dev-env/thirdweb.md) 
     
 </div>
 
@@ -61,7 +61,7 @@ Precompiles are specialized smart contracts embedded in the blockchain, designed
     
     Handle and integrate your appchain’s native token using the ERC-20 interface, ensuring compatibility with Ethereum tools and wallets.
       
-    [Manage ERC-20 tokens](#)  
+    [Manage ERC-20 tokens](precompiles/erc20.md)  
 
 -   :material-clock-fast:{ .lg .middle } __Advanced Operations And Functionality__
 
@@ -71,7 +71,7 @@ Precompiles are specialized smart contracts embedded in the blockchain, designed
     - **Call Permit:** Enable gasless transactions via signed EVM calls for an improved user experience.
     - **Proxy:** Securely delegate transactions through managed proxy accounts.
       
-    [Explore Advanced Operations](#)
+    [Explore Advanced Operations](precompiles/index.md)
 </div>
 
 # Libraries
@@ -91,7 +91,7 @@ In the world of programming, a library is a collection of pre-written code that 
     - **Web3.js** Leverage robust tools to interact seamlessly with your Tanssi appchain.
     - **Web3.py** Simplify Ethereum API interactions with this Python-based library for efficient development.
  
-    [Explore Libraries](#) 
+    [Explore Libraries](libraries/index.md) 
 
 </div>
 
@@ -107,7 +107,7 @@ Wallets are essential tools for managing and interacting with your Tanssi appcha
     
     Connect MetaMask, the most widely used Ethereum wallet, to your Tanssi EVM appchain. This guide shows you how to set it up and transfer funds seamlessly.
       
-    [Get Started with MetaMask](#)  
+    [Get Started with MetaMask](wallets/metamask.md)  
 
 -   :material-clock-fast:{ .lg .middle } __Expand Your Wallet Options__
 
@@ -115,7 +115,7 @@ Wallets are essential tools for managing and interacting with your Tanssi appcha
     Explore additional wallet options that integrate with Tanssi EVM appchains. These wallets offer unique features to meet your specific needs:
     
     
-    [Discover Other Wallets](#)
+    [Discover Other Wallets](wallets/index.md)
     
 </div>
 
@@ -129,6 +129,6 @@ Wallets are essential tools for managing and interacting with your Tanssi appcha
     
     Explore the supported JSON-RPC methods for interacting with your Tanssi EVM appchain. This guide covers standard Ethereum API methods as well as custom methods designed specifically for Tanssi.
       
-    [View JSON-RPC Methods](#)  
+    [View JSON-RPC Methods](rpc.md)  
 
 </div>
