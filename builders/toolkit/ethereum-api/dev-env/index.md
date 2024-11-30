@@ -7,7 +7,7 @@ description: Learn how to interact with your Tanssi EVM-compatible appchain thro
 
 Establishing an effective development environment is crucial for building, testing, and deploying smart contracts efficiently. A development environment provides the necessary tools and frameworks to:
 
-- Write and compile smart contracts using standardized languages like Solidity.
+- Write and compile smart contracts using standardized languages.
 - Simulate blockchain interactions locally for testing and debugging.
 - Manage dependencies and automate workflows for faster deployments.
 

@@ -12,6 +12,7 @@ With Tanssi, launching your appchain is straightforward and efficient. Our platf
 The Tanssi dApp is an intuitive tool that guides you through every stage of appchain deployment. From selecting templates to finalizing configurations, the Tanssi dApp makes it easy.
 
 **Just follow these simple steps:**
+
 1. Select and Configure Your Template
 2. Meet Minimum Balance Requirements
 3. Reserve Your Appchain ID
