@@ -72,7 +72,7 @@ Once the required number of block producers for a given session is known, Tanssi
 
 The first mechanism is through the *Invunerables* module, which sets a list of fixed sequencers prioritized by the protocol and ensures block production stability in certain scenarios, such as TestNets. 
 
-The Tanssi staking module helps create a decentralized set of sequencers for all Tanssi appchains by providing the protocol with a sorted list of sequencers by staked amount. Tanssi appends the sorted list by stake of sequencers to the invulnerable ones (if any), then takes from the list only the exact amount of sequencers needed, starting from the top, leaving out of the next session those sequencers that have less staked value, to finally begin the sequencer assignation process.
+The second mechanism is through the [Tanssi staking module](/learn/tanssi/network-features/staking/){target=\_blank}. The module helps create a decentralized set of sequencers for all Tanssi appchains by providing the protocol with a sorted list of sequencers by staked amount. Tanssi appends the sorted list by stake of sequencers to the invulnerable ones (if any), then takes from the list only the exact amount of sequencers needed, starting from the top, leaving out of the next session those sequencers that have less staked value, to finally begin the sequencer assignation process.
 
 ### Sequencers Assignment {: #block_producers-assignment }
 
