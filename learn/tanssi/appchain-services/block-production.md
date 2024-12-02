@@ -22,7 +22,7 @@ This article covers the necessary aspects to consider when building and deployin
 The Tanssi protocol provides block production as a service, orchestrating a decentralized and trustless set of sequencers, ensuring the appchains' liveness. To do so, the protocol bridges both ends:
 
 - **Node operators** - who run sequencers, offering their block production services to get rewards
-- **Appchains** - which require transactions to be executed and included in blocks, keeping the network's liveness
+- **Developers** - who launch appchains, which require sequencers
 
 The protocol assigns a subset of sequencers to provide services to each appchain, rotating them after a period of time. The sequencers can serve any appchain, regardless of the custom logic they implement. On the other hand, appchains deployed through Tanssi can customize their runtime as much as they need to fit their use case and upgrade the logic at any moment in a forkless fashion without worrying about the sequencer's setup.
 
