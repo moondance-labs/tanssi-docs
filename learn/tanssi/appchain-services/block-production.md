@@ -143,7 +143,7 @@ classDiagram
     }
 ```
 
-## Costs to Cover  {: #costs-to-cover }
+## Block Production Fees  {: #block-production-fees }
 
 As presented in the [Introduction](#introduction), Tanssi is an infrastructure protocol that addresses the complexities and high costs associated with setting up and maintaining blockchain infrastructure, streamlining the deployment of appchains. This protocol brings benefits for both participants:
 
