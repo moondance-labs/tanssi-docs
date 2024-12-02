@@ -2,6 +2,6 @@ title: Substrate Tools
 hide: false
 nav:
   - index.md
-  - wallets
-  - libraries
   - dev-env
+  - libraries
+  - wallets

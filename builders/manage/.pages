@@ -2,5 +2,5 @@ title: Manage Your Appchain
 hide: false
 nav:
   - index.md
-  - developer-portal
   - dapp
+  - developer-portal
