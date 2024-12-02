@@ -68,7 +68,9 @@ At any given time, all Tanssi appchains require a certain number of sequencers, 
     |    Max. # of Sequencers     |     {{ networks.dancebox.block_producers.configuration.max_block_producers }}      |
     | # of Sequencers (Appchains) | {{ networks.dancebox.block_producers.configuration.block_producer_per_container }} |
 
-Once the required number of block producers for a given session is known, Tanssi uses two mechanisms to decide the actual set of sequencers that will be distributed among all networks. The first mechanism is through the *Invunerables* module, which sets a list of fixed sequencers prioritized by the protocol and serves as a way to ensure block production stability in certain scenarios like TestNets. The second mechanism is through the [Tanssi staking module](/learn/tanssi/network-features/staking/){target=\_blank}.
+Once the required number of block producers for a given session is known, Tanssi uses two mechanisms to decide the set of sequencers distributed among all networks. 
+
+The first mechanism is through the *Invunerables* module, which sets a list of fixed sequencers prioritized by the protocol and ensures block production stability in certain scenarios, such as TestNets. 
 
 The Tanssi staking module helps create a decentralized set of sequencers for all Tanssi appchains by providing the protocol with a sorted list of sequencers by staked amount. Tanssi appends the sorted list by stake of sequencers to the invulnerable ones (if any), then takes from the list only the exact amount of sequencers needed, starting from the top, leaving out of the next session those sequencers that have less staked value, to finally begin the sequencer assignation process.
 
