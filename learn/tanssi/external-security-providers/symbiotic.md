@@ -20,8 +20,45 @@ The following sections describe how the Symbiotic protocol works.
 There are three main components of the protocol:
 
 - **Vaults** - are the economic backbone of the protocol, receiving the liquidity from restakers, connecting operators and networks, and distributing rewards to restakers and operators
+
+    ```mermaid
+    flowchart TD
+
+        subgraph Vaults
+            vaults["Vaults"] 
+            restakers["Restakers"]
+            curators["Vault Curators"]
+            resolvers["Resolvers"]
+            restakers -- Deposit Assets --> vaults
+            curators -- Manage --> vaults
+            slash["Slashing Event"]
+            resolvers -- Decide On --> slash
+            slash -- Executes On --> vaults
+        end
+    ```
+
 - **Operators** - are the computational component validating the transactions of the networks
+
+    ```mermaid 
+    flowchart TD
+        subgraph Validators
+            validators["Operators/Validators"]
+            operators["Node Operators"]
+            operators -- Run --> validators
+        end
+    ```
+
 - **Networks** - are the actively validated services or appchains. These application-specific blockchains can be a use case from a wide range of industries, such as Gaming, Defi, RWAs, and others, and are the platforms that, through dApps, the end users interact with
+
+
+```mermaid 
+    flowchart TD
+    subgraph Networks
+        networks["Networks/Appchains"]
+        developers["Developers"]
+        developers-- Launch --> networks
+    end
+```
 
 Around these components, different actors participate:
 
@@ -37,9 +74,18 @@ Developers launching appchains through Tanssi benefit from [block production ser
 
 Curators running vaults can apply to offer the restaked collaterals as economic security for the Tanssi network, regardless of how many appchains are running through the Tanssi protocol.
 
-Operators in the vault run the same setup to provide block production to the Tanssi network and validation services to every appchain deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there is only one setup.
+Operators in the vault run the same setup to provide block production and validation services to the Tanssi network and, consequently, to every appchain deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there is only one setup.
 
  All things combined shape a functional and elegant ecosystem where developers can focus on creating and innovating. Tanssi handles the infrastructural components, guaranteeing liveness and performance, and Symbiotic provides the economic safeguards to ensure the validity of the operations.
+
+
+```mermaid
+flowchart LR
+
+Symbiotic  -- Secures --> tanssi["Tanssi Network"]
+tanssi -- Provides Services and
+     Security --> Appchains
+```
 
 ### Slashing and Rewards {: #slashing-rewards }
 
