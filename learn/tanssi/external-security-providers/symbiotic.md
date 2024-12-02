@@ -31,8 +31,8 @@ There are three main components of the protocol:
             resolvers["Resolvers"]
             restakers -- Deposit Assets --> vaults
             curators -- Manage --> vaults
-            slash["Slashing Event"]
-            resolvers -- Decide On --> slash
+            slash@{ shape: bolt, label: "Communication link" }
+            resolvers -- Decide On Slashing Events --> slash
             slash -- Executes On --> vaults
         end
     ```
