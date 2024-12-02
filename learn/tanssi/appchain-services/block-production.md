@@ -29,30 +29,33 @@ The protocol assigns a subset of sequencers to provide services to each appchain
 The following diagram illustrates how Tanssi assigns two sequencers to each active appchains, selecting them from a decentralized set of sequencers.
 
 ```mermaid
-flowchart LR
+flowchart TB
     subgraph appchain1 [Appchain 1]
-    s1bis[Sequencer 1]
-    s2bis[Sequencer 2]
+        s1bis[Sequencer 1]
+        s2bis[Sequencer 2]
     end
+
     subgraph appchain2 [Appchain 2]
-    s3bis[Sequencer 3]
-    s4bis[Sequencer 4]
+        s3bis[Sequencer 3]
+        s4bis[Sequencer 4]
     end
-    Tanssi[
-        Tanssi Network
-        Orchestrator
-    ]
+
+    Tanssi[Tanssi Network<br/>Orchestrator]
+
     subgraph sequencers [Sequencers Pool]
-    direction RL
-    s1[Sequencer 1]
-    s2[Sequencer 2]
-    s3[Sequencer 3]
-    s4[Sequencer 4]
-    sn[Sequencer N]
+        direction LR
+        s1[Sequencer 1]
+        s2[Sequencer 2]
+        s3[Sequencer 3]
+        s4[Sequencer 4]
+        sn[Sequencer N]
+
+        s1 --- s2 --- s3 --- s4 --- sn
     end
-    sequencers-- Managed by -->Tanssi
-    Tanssi-- Assigns Sequencers -->appchain1
-    Tanssi-- Assigns Sequencers -->appchain2
+
+    sequencers -- Managed by --> Tanssi
+    Tanssi -- Assigns Sequencers --> appchain1
+    Tanssi -- Assigns Sequencers --> appchain2
 ```
 
 ### Block Producer Selection Process {: #block-producer-selection-process}
