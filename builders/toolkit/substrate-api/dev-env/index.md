@@ -8,10 +8,10 @@ hide:
 
 # Set Up Your Workspace
 
-Establishing an effective development environment is crucial for building, testing, and deploying smart contracts efficiently. A development environment provides the necessary tools and frameworks to:
+Establishing an effective development environment is essential for building, testing, and deploying custom blockchains with Substrate. A development environment provides the necessary tools and frameworks to:
 
-- Write and compile smart contracts using standardized languages.
-- Simulate blockchain interactions locally for testing and debugging.
+- Develop runtime logic with Substrate’s modular framework.
+- Test and debug locally using tools like Chopsticks.
 - Manage dependencies and automate workflows for faster deployments.
 
 ### **Using Chopsticks**

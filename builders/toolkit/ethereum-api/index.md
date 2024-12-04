@@ -8,11 +8,11 @@ hide:
 
 # Ethereum Tools
 
-Simplify the development and management of your Ethereum-compatible appchain with Tanssi's powerful tools. Whether you’re using Remix for coding, Hardhat for testing, or Foundry for advanced deployments, this section provides everything you need to integrate with the Ethereum ecosystem. Access step-by-step guides and resources to optimize your appchain's performance and functionality.
+Simplify the development and management of your Ethereum-compatible appchain with Tanssi's powerful tools. This section equips you with the capabilities needed for coding, testing, and deploying smart contracts efficiently. Explore resources and step-by-step guides to easily integrate with the Ethereum ecosystem and optimize your appchain's performance and functionality.
 
 # Set Up Your Workspace
 
-Using these essential tools. For enterprise and professional use, we recommend Foundry and Hardhat. You can also explore other options like Remix for a more accessible approach.
+Pick the tools that work best for you. In this section, you’ll find a variety of development environments designed to support coding, testing, and deploying smart contracts. Regardless of your level of expertise, you can choose the environment that suits your workflow and needs.
 
 <div class="grid cards" markdown>
 
@@ -36,17 +36,18 @@ Using these essential tools. For enterprise and professional use, we recommend F
 
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Others Dev Evironments__
+-   :material-clock-fast:{ .lg .middle } __Remix__
 
     ---
     
-    You can also use other dev enviroments for lighter work and testing.
-    
-    - **Remix:** Use Remix IDE, a popular Ethereum development tool, to build, compile, and deploy smart contracts
+    Use Remix IDE, a popular Ethereum development tool, to build, compile, and deploy smart contracts
       
     [Try Remix](dev-env/remix.md)  
-  
-    - **Thirdweb:** A versatile platform to build, test, and deploy dApps using ready-made smart contract templates.
+    
+-    :material-clock-fast:{ .lg .middle } __Thirdweb__
+
+    ---
+    A versatile platform to build, test, and deploy dApps using ready-made smart contract templates.
       
     [Try Thirdweb](dev-env/thirdweb.md) 
     
@@ -58,23 +59,23 @@ Precompiles are specialized smart contracts embedded in the blockchain, designed
 
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Native Token ERC-20__
+-   :material-clock-fast:{ .lg .middle } __Token and Permission Management__
 
     ---
     
-    Handle and integrate your appchain’s native token using the ERC-20 interface, ensuring compatibility with Ethereum tools and wallets.
+    - **Native Token ERC-20:** Handle and integrate your appchain’s native token using the ERC-20 interface, ensuring compatibility with Ethereum tools and wallets.
+    - **Call Permit:** Enable gasless transactions via signed EVM calls for an improved user experience.
+    - **Proxy:** Securely delegate transactions through managed proxy accounts.
       
-    [Manage ERC-20 tokens](precompiles/erc20.md)  
+    [Explore Token and Permission Management](precompiles/index.md)
 
--   :material-clock-fast:{ .lg .middle } __Advanced Operations And Functionality__
+-   :material-clock-fast:{ .lg .middle } __Transaction Optimization__
 
     ---
     
     - **Batch:** Combine multiple transfers and contract interactions into a single, efficient transaction.
-    - **Call Permit:** Enable gasless transactions via signed EVM calls for an improved user experience.
-    - **Proxy:** Securely delegate transactions through managed proxy accounts.
       
-    [Explore Advanced Operations](precompiles/index.md)
+    [Explore Transaction Optimization](precompiles/index.md)
 </div>
 
 # Libraries

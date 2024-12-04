@@ -13,7 +13,7 @@ The Developer Portal empowers you to efficiently manage your appchain's operatio
 
 ## General Appchain Administration
 
-Take control of your appchain with these essential tools:
+Perform these core actions to efficiently manage your appchain operations
 
 <div class="grid cards" markdown>
 
@@ -23,7 +23,7 @@ Take control of your appchain with these essential tools:
     
     Oversee the Sudo account, the superuser role that allows privileged operations on your appchain.
 
-    [Manage The Sudo Account](sudo.md)
+    [View and Change Sudo Access](sudo.md)
 
 -   :material-clock-fast:{ .lg .middle } __Dispatch Runtime Upgrades__
 
@@ -31,7 +31,7 @@ Take control of your appchain with these essential tools:
     
     Keep your appchain secure and up-to-date by implementing runtime upgrades.
 
-    [Dispatch Runtime Upgrades](upgrade.md)    
+    [Upgrade Your Runtime](upgrade.md)    
 
 -   :material-clock-fast:{ .lg .middle } __Mint Tokens__
 
@@ -39,7 +39,7 @@ Take control of your appchain with these essential tools:
     
     Manage your appchain’s token supply by minting additional tokens securely and efficiently.
 
-    [Mint Tokens](minting.md)
+    [Mint New Native Tokens](minting.md)
 
 </div>
 
@@ -55,7 +55,7 @@ Easily manage your appchain’s security with tools designed to provide full con
     
     Control which deployers can operate on your EVM appchain.
 
-    [Smart EVM - Whitelist Contract Deployments](smart-contracts-creation-filter.md)
+    [Manage Contract Deployment Permissions](smart-contracts-creation-filter.md)
 
 -   :material-clock-fast:{ .lg .middle } __Pause Transactions__
 
@@ -63,7 +63,7 @@ Easily manage your appchain’s security with tools designed to provide full con
     
     Temporarily halt transactions during emergencies.
 
-    [Pause Transactions](pause-transactions.md)    
+    [Temporarily Halt Transactions](pause-transactions.md)    
 
 -   :material-clock-fast:{ .lg .middle } __Impersonate Accounts__
 
@@ -71,7 +71,7 @@ Easily manage your appchain’s security with tools designed to provide full con
     
     Simulate transactions for testing and administrative tasks.
 
-    [Impersonate Accounts](impersonate.md)
+    [Simulate Account Actions](impersonate.md)
 
 -   :material-clock-fast:{ .lg .middle } __Enable Maintenance Mode__
 
@@ -79,6 +79,6 @@ Easily manage your appchain’s security with tools designed to provide full con
     
     Pause regular operations while keeping critical functions active during maintenance.
 
-    [Enable Maintenance Mode](maintenance.md)
+    [Activate Maintenance Mode](maintenance.md)
 
 </div>

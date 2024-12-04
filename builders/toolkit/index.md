@@ -8,8 +8,7 @@ hide:
 
 # Toolkit
 
-The Toolkit section is your all-in-one resource hub for building, deploying, and managing Tanssi appchains. It brings together Ethereum and Substrate tools, wallets, libraries, development environments, precompiles, JSON-RPC methods, and integrations. Beyond appchain development, it also includes features for account management, proxy accounts, on-chain identities, and network endpoints.
-Whether you’re starting from scratch or enhancing an existing appchain, this toolkit equips you with everything you need to succeed.
+The Toolkit section is your all-in-one resource hub for building, deploying, and managing Tanssi appchains. It brings together Ethereum and Substrate tools, wallets, libraries, development environments, precompiles, JSON-RPC methods, and integrations. Whether you're enhancing an existing appchain or implementing new features, this toolkit gives you everything you need to simplify the development and operation of your appchain.
 
 <div class="grid cards" markdown>
 

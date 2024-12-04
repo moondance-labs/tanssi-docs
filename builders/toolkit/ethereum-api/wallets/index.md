@@ -17,27 +17,19 @@ Main Benefits of Cryptocurrency Wallets:
 - **Convenience:** Facilitates easy sending and receiving of cryptocurrencies.
 - **Control:** Empowers users with full ownership and management of their digital assets.
 
-### MetaMask
+### Available Wallet Options
 
-A widely-used browser extension and mobile wallet that enables interaction with Ethereum-based applications. MetaMask allows users to manage multiple accounts, securely store private keys, and seamlessly interact with decentralized applications (DApps)
-
+Explore a variety of wallets that enable you to interact with Tanssi appchains. Each wallet offers unique capabilities to meet specific requirements, ensuring secure management of your assets and smooth interactions with dApps.
 <div class="grid cards" markdown>
 
 -   :material-clock-fast:{ .lg .middle } __Metamask__
 
     ---
     
-    Manage your digital assets and interact with dApps using this popular browser extension and mobile wallet.
+    A widely-used browser extension and mobile wallet for managing digital assets and interacting with Ethereum-based dApps.
     
     [Get Started With Metamask](metamask.md)  
 
-</div>
-
-### Expand Your Wallet Options
-
-Explore additional wallet options that integrate with Tanssi EVM appchains. These wallets offer unique features to meet your specific needs:
-
-<div class="grid cards" markdown>
 
 -   :material-clock-fast:{ .lg .middle } __Talisman__
 

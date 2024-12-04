@@ -19,7 +19,8 @@ Before customizing your appchain, ensure your development environment is properl
 - Set up the Rust toolchain to work with Substrate-based runtimes.
 - Build the Tanssi template to establish a solid development foundation.
 
-Tip: Follow our step-by-step guide to set up your environment efficiently.
+!!! tip
+    Follow the steps in the [Prerequisites for Building an Appchain](prerequisites.md){: target="_blank"} guide to set up your environment.
 
 [Configure Your Environment](prerequisites.md)
 
