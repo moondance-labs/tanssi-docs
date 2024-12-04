@@ -75,7 +75,10 @@ Learn how to effectively manage your appchain using the Developer Portal and the
 
 </div>
 
-## Now that your appchain is configured and running smoothly, it’s time to explore the tools that adapt to the needs of the ecosystem you’re building.
+## Explore Our Tools
+
+Now that your appchain is running, it's time to find the tools that fit your ecosystem. Choose from EVM and Substrate-based solutions to optimize development and operations.
+
 
 <div class="grid cards" markdown>
 

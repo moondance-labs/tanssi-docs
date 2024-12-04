@@ -10,6 +10,9 @@ hide:
 
 Explore everything you need to build, deploy, and manage appchains within the Tanssi ecosystem. From development tools to account management and network connectivity, this complete guide allows you to move confidently from concept to implementation.
 
+# Create and Operate Your Appchain
+
+Ready to create your new appchain? Or maybe you’ve already built it and want to deploy it? Perhaps you’re looking to fine-tune and manage it for your specific needs? Don’t worry—this section has everything you need, with manuals and step-by-step guides to walk you through the entire process.
 
 <div class="grid cards" markdown>
 
@@ -36,6 +39,14 @@ Explore everything you need to build, deploy, and manage appchains within the Ta
     Take control of your appchain with the Developer Portal or Tanssi dApp. Manage everything securely and efficiently.
 
     [Manage Now](manage/index.md)
+
+</div>
+
+# Tools and Connectivity for Appchains
+
+Looking for tools to enhance your appchain or connect it to the Tanssi ecosystem? From essential APIs and libraries to account management and network endpoints, this section has everything you need to streamline development and optimize connectivity.
+
+<div class="grid cards" markdown>
 
 -   :material-scale-balance:{ .lg .middle } __Appchain Toolkit__
 

@@ -22,7 +22,6 @@ Before customizing your appchain, ensure your development environment is properl
 !!! tip
     Follow the steps in the [Prerequisites for Building an Appchain](prerequisites.md){: target="_blank"} guide to set up your environment.
 
-[Configure Your Environment](prerequisites.md)
 
 <div class="grid cards" markdown>
 
@@ -60,16 +59,3 @@ Before customizing your appchain, ensure your development environment is properl
 
 </div>
 
-# Want to use a EVM template instead?
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Template Appchain__
-
-    ---
-
-    Explore predefined templates that enable you to quickly start developing your appchain. These templates offer basic configurations that you can customize later to meet your project's specific needs.
-
-    [View Appchain Templates](../../build/templates/index.md)
-
-</div>
