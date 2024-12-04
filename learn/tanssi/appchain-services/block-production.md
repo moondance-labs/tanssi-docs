@@ -62,7 +62,7 @@ flowchart TB
 
 At any given time, all Tanssi appchains require a certain number of sequencers, depending on the number of active appchains and the current block production configuration set in Tanssi. The configuration sets the maximum number of total sequencers in the set and the number of sequencers each Appchain has to have assigned.
 
-=== "Dancelight"
+=== "Dancebox"
     |          Variable           |                                       Value                                        |
     |:---------------------------:|:----------------------------------------------------------------------------------:|
     |    Max. # of Sequencers     |     {{ networks.dancebox.block_producers.configuration.max_block_producers }}      |
@@ -78,7 +78,7 @@ The second mechanism is through the [Tanssi staking module](/learn/tanssi/networ
 
 Once the sequencer set that will participate in the next session is known, Tanssi shuffles the list and assigns them to provide block production services to the active Tanssi Appchains.
 
-The assignment algorithm will start distributing the sequencers serving the appchains by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of block producers. In Dancelight, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
+The assignment algorithm will start distributing the sequencers serving the appchains by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of block producers. In Dancebox, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
 
 Every new assignment works intentionally with a one-session delay, so the sequencers know in advance which one of the appchains they are assigned to. Sequencers will start syncing the new appchain they'll have to serve in the next session with a special syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the block producers to swiftly sync the new appchain without acting as an archive node.
 
@@ -162,7 +162,7 @@ There are three main costs associated with block production as a service that an
 
 The current configuration is set as follows:
 
-=== "Dancelight"
+=== "Dancebox"
     |         Variable          |                                         Value                                         |
     |:-------------------------:|:-------------------------------------------------------------------------------------:|
     |   Registration deposit    |               {{ networks.dancebox.costs.registration_deposit }} DANCE                |
