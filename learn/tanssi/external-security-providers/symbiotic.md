@@ -11,7 +11,7 @@ The Tanssi protocol takes care of critical infrastructural components, making it
 
 Tanssi is designed to offer developers a shared security model, alleviating them from having to source enough economic security or negotiating with operators to run nodes opting-in for their appchains. By deploying appchains through Tanssi, and by choosing [Symbiotic](https://symbiotic.fi/){target=\_blank} as a security provider, developers benefit from Ethereum-grade security, tapping into billions of dollars in shared security from staked ETH.
 
-The following sections describe how the Symbiotic protocol works.
+The following sections describe how the Symbiotic protocol works and how Tanssi appchains can leverage it as their consensus mechanism.
 
 ## Ethereum-Grade Security with Symbiotic {: #symbiotic }
 
@@ -23,18 +23,11 @@ There are three main components of the protocol:
 
     ```mermaid
     flowchart TD
-
-        subgraph Vaults
-            vaults["Vaults"] 
-            restakers["Restakers"]
-            curators["Vault Curators"]
-            resolvers["Resolvers"]
-            restakers -- Deposit Assets --> vaults
-            curators -- Manage --> vaults
-            slash@{ shape: bolt, label: "Communication link" }
-            resolvers -- Decide On Slashing Events --> slash
-            slash -- Executes On --> vaults
-        end
+        slash[/Slash/]
+        Restakers -- Deposit Assets --> Vaults
+        Curators -- Manage --> Vaults
+        Resolvers -- Decide On Slashing Events --> slash
+        slash -- Executes On --> Vaults
     ```
 
 - **Operators** - are the computational component validating the transactions of the networks
