@@ -8,7 +8,13 @@ hide:
 
 # Managing Your Appchain
 
-Learn how to effectively manage your appchain using the Developer Portal and the Tanssi dApp. This section covers essential tasks such as minting tokens, paying for block production services, implementing runtime upgrades, and maintaining your appchain's performance and security. Jump into the guides below to take full control of your appchain's operations.
+The Tanssi dApp and the Developer Portal serve different purposes when managing your appchain, offering unique benefits tailored to your needs:
+
+- **Tanssi dApp:** Designed as an intuitive graphical interface, the Tanssi dApp simplifies the entire appchain lifecycle, from deployment to basic management. By removing technical complexities, it enables a faster and more streamlined experience for creating and managing appchains.
+
+- **Developer Portal:** Built on Polkadot.js Apps, the Developer Portal provides advanced tools for appchain management, including runtime upgrades, token minting, and more. It is ideal for tasks requiring precise control and customization. For every action available in the Developer Portal, we offer detailed step-by-step guides to assist you throughout the process.
+
+Jump into the sections below to explore how each tool helps you manage your Tanssi appchain efficiently.
 
 # Using the The Tanssi dApp
 
@@ -36,29 +42,19 @@ Learn how to effectively manage your appchain using the Developer Portal and the
 
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Manage The Sudo Account__
-
-    ---
-
-    Oversee the Sudo account, the superuser role that allows privileged operations on your appchain.
-
-    [Manage The Sudo Account](developer-portal/sudo.md)
-
 -   :fontawesome-brands-markdown:{ .lg .middle } __General Appchain Administration__
 
     ---
 
     The Developer Portal provides essential tools for managing your Tanssi appchain effectively:
-
+    
+    - **Manage The Sudo Account:** Oversee the Sudo account, the superuser role that allows privileged operations on your appchain.
     - **Dispatch Runtime Upgrades:** Keep your appchain secure and up-to-date by implementing runtime upgrades.
     - **Mint Tokens:** Manage your appchain’s token supply by minting additional tokens securely and efficiently.
-
+    
+    [Manage The Sudo Account](developer-portal/sudo.md)
     [Dispatch Runtime Upgrades](developer-portal/upgrade.md)  
     [Mint Tokens](developer-portal/minting.md)
-
-</div>
-
-<div class="grid cards" markdown>
 
 -   :material-clock-fast:{ .lg .middle } __Security__
 
@@ -71,7 +67,10 @@ Learn how to effectively manage your appchain using the Developer Portal and the
     - **Impersonate Accounts:** Simulate transactions for testing and administrative tasks.
     - **Enable Maintenance Mode:** Simulate transactions for testing and administrative tasks.
 
-    [Explore Security Management](developer-portal/index.md)
+    [Manage Contract Deployment Permissions](developer-portal/smart-contracts-creation-filter.md)
+    [Temporarily Halt Transactions](developer-portal/pause-transactions.md)
+    [Simulate Account Actions](developer-portal/impersonate.md)
+    [Activate Maintenance Mode](developer-portal/maintenance.md)
 
 </div>
 
