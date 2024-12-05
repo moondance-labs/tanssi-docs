@@ -21,37 +21,9 @@ There are three main components of the protocol:
 
 - **Vaults** - are the economic backbone of the protocol, receiving the liquidity from restakers, connecting operators and networks, and distributing rewards to restakers and operators
 
-    ```mermaid
-    flowchart TD
-        slash[/Slash/]
-        Restakers -- Deposit Assets --> Vaults
-        Curators -- Manage --> Vaults
-        Resolvers -- Decide On Slashing Events --> slash
-        slash -- Executes On --> Vaults
-    ```
-
 - **Operators** - are the computational component validating the transactions of the networks
 
-    ```mermaid 
-    flowchart TD
-        subgraph Validators
-            validators["Operators/Validators"]
-            operators["Node Operators"]
-            operators -- Run --> validators
-        end
-    ```
-
 - **Networks** - are the actively validated services or appchains. These application-specific blockchains can be a use case from a wide range of industries, such as Gaming, Defi, RWAs, and others, and are the platforms that, through dApps, the end users interact with
-
-
-```mermaid 
-    flowchart TD
-    subgraph Networks
-        networks["Networks/Appchains"]
-        developers["Developers"]
-        developers-- Launch --> networks
-    end
-```
 
 Around these components, different actors participate:
 
@@ -60,6 +32,43 @@ Around these components, different actors participate:
 - **Resolvers** - are responsible for resolving veto-slashing events in the vault. Veto slashing events are a particular type of event that requires the participation of resolvers, who have the authority to revoke the slashing request
 - **Node Operators** - are the ones running the actual operators, which validate the networks' transactions. Node operators are responsible for the configuration and hardware of the nodes. They apply to offer their services in both vaults and networks and have to be accepted and whitelisted by both before starting to validate networks and get rewards
 - **Developers** - are the ones building appchains
+
+The following diagram resumes all the components and actors participating in the protocol:
+
+```mermaid
+flowchart TD
+    %% Vaults subgraph
+    subgraph vaults
+        slash[/Slashing Events/]
+        Restakers -- Deposit Assets --> Vaults
+        Curators -- Manage --> Vaults
+        Resolvers -- Decide On --> slash
+        slash -- Executes On --> Vaults
+    end
+
+    %% Validators subgraph
+    subgraph Validators
+        validators["Operators/Validators"]
+        operators["Node Operators"]
+        operators -- Run --> validators
+    end
+
+    %% Networks subgraph
+    subgraph Networks
+        networks["Networks/Appchains"]
+        developers["Developers"]
+        developers -- Launch --> networks
+    end
+
+    %% Dummy node for alignment
+    vaults <--> dummy1(( )):::invisible
+    dummy1 <--> Validators
+    dummy1 <--> Networks
+
+    %% Style for invisible node
+    classDef invisible fill:none,stroke:none;
+
+```
 
 ### Tanssi with Symbiotic {: #tanssi-symbiotic }
 
