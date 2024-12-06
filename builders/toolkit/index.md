@@ -10,22 +10,29 @@ hide:
 
 The Toolkit section is your all-in-one resource hub for building, deploying, and managing Tanssi appchains. It brings together Ethereum and Substrate tools, wallets, libraries, development environments, precompiles, JSON-RPC methods, and integrations. Whether you're enhancing an existing appchain or implementing new features, this toolkit gives you everything you need to simplify the development and operation of your appchain.
 
+# Find the Right Network
+Tanssi provides two distinct environments to match where you are in your appchain development journey. Explore a live demo or test your custom appchain configuration.
+
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Tannsi Networks__
+-   :material-clock-fast:{ .lg .middle } __Explore a Live Demo__
 
     ---
     
-    Discover all the networks supported by our constantly growing ecosystem and start developing and interacting with each of them.
-
-    - **Dancebox:** Experiment with your EVM-compatible or Non-EVM appchain on Tanssi’s TestNet.
-    - **Demo EVM Appchain:** Test our demo EVM Tanssi appchain 
-
-    [Dancebox](../../builders/tanssi-network/testnet/dancebox.md)
+    Interact with a fully functional appchain built on Tanssi. The Demo EVM Appchain offers a hands-on experience of how an appchain operates, showcasing its features and functionality. Perfect for exploring without technical setup.
+    
     [Test our demo EVM Appchain](../../builders/tanssi-network/testnet/demo-evm-appchain.md)
 
-</div>
+-   :material-clock-fast:{ .lg .middle } __Build & Test Your Appchain__
 
+    ---
+    
+    For developers ready to build and refine their appchain, Dancebox offers a safe, controlled environment. Experiment with configurations, deploy your appchain, and test all functionalities on our dedicated testnet.
+    
+    [Dancebox](../../builders/tanssi-network/testnet/dancebox.md)
+
+</div>
+[Dancebox](../../builders/tanssi-network/testnet/dancebox.md)
 # Ecosystem Tools and resources
 
 <div class="grid cards" markdown>
