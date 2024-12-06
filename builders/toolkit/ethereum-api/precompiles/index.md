@@ -16,7 +16,31 @@ They simplify development by offering advanced blockchain functionality through 
  
  The flow below illustrates how user requests pass through the Ethereum interface, interact with precompiles, and ultimately access Substrate functionality, simplifying complex operations for seamless integration.
 
-[![](https://mermaid.ink/img/pako:eNqtUj1vwjAQ_SuWEVuQmoqqqodKJelQqUNV2qVJh6t9IRGOHflDgAj_vcYEBOpYPNh3707v2ee3pVwLpIwuDHQ1eX0vFQnrsD8VnxbN9yGZFc-uRoO-JS_KoamA41DKijeDXLddI49QXsz9j3UGHF60X9CTyeSxj1XgzhJXG-0XdU9mg2KsZyBlT7JBKUIfmgDnaG1P8iPleEyICk8h1m0kHrAYBpmqkZKN0rv0Pn1IwqX0Etloilzw6ZBOVo1wNbvt1olZs_Rmf27iec40uxpTdjWm_J9Mp-mBMXp1Pj3ZqOU8agiswEtH_rBdqpWKJrRF00IjgqO2e5qSBtO0WFIWQgFmWdJS7UIfeKfnG8Upc8ZjQuPXU1aBtCHznQjOyRsItmxPaAfqS-tjvvsF3YHjXQ?type=png)](https://mermaid.live/edit#pako:eNqtUj1vwjAQ_SuWEVuQmoqqqodKJelQqUNV2qVJh6t9IRGOHflDgAj_vcYEBOpYPNh3707v2ee3pVwLpIwuDHQ1eX0vFQnrsD8VnxbN9yGZFc-uRoO-JS_KoamA41DKijeDXLddI49QXsz9j3UGHF60X9CTyeSxj1XgzhJXG-0XdU9mg2KsZyBlT7JBKUIfmgDnaG1P8iPleEyICk8h1m0kHrAYBpmqkZKN0rv0Pn1IwqX0Etloilzw6ZBOVo1wNbvt1olZs_Rmf27iec40uxpTdjWm_J9Mp-mBMXp1Pj3ZqOU8agiswEtH_rBdqpWKJrRF00IjgqO2e5qSBtO0WFIWQgFmWdJS7UIfeKfnG8Upc8ZjQuPXU1aBtCHznQjOyRsItmxPaAfqS-tjvvsF3YHjXQ)
+
+```mermaid
+graph LR
+    
+    A[User]
+    B[Ethereum Interface]
+    C[Precompile]
+    D[Substrate Interface]
+
+    
+    A -->|Interacts 
+    through| B
+    B -->|Call| C
+    C -->|To 
+    access| D
+
+    %%  node style
+    style A fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+    style B fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+    style C fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+    style D fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+
+    %% arrow style
+    linkStyle default stroke-width:2px,stroke:#4ecdc4
+```
 
 
 ## Quick Reference
