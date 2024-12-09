@@ -103,6 +103,19 @@ Operators opting-in to provide services to the Tanssi protocol (provided that th
 
 All things combined shape a functional and elegant ecosystem where developers can focus on creating and innovating. Tanssi handles the infrastructural components, guaranteeing liveness and performance, and Symbiotic provides the economic safeguards to ensure the validity of the operations.
 
+```mermaid
+flowchart LR
+    subgraph Symbiotic
+        direction LR
+        Operator
+        Vault
+    end
+    Symbiotic  -- Validates/Secures --> tanssi["Tanssi Network"]
+    tanssi -- Block Production Services--> Appchains
+    tanssi -- Security--> Appchains
+    tanssi -- Data Retrievability--> Appchains
+```
+
 ### Slashing and Rewards {: #slashing-rewards }
 
 Well-behaved operators and restakers receive rewards for their participation in TANSSI tokens. Reward payments are managed through the vault.
