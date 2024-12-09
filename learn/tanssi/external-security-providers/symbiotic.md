@@ -98,8 +98,11 @@ Curators running vaults can apply to offer the restaked collaterals as economic 
 
 Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi network and, consequently, to every appchain deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi appchain is launched or decommissioned.
 
+!!! note
+    The Tanssi protocol effectively abstracts the details of the active set of appchains away from vault managers and operators. Appchains particularities don't require any additional setup from operators nor pose risks to vault assets.
+
 All things combined shape a functional and elegant ecosystem where developers can focus on creating and innovating. Tanssi handles the infrastructural components, guaranteeing liveness and performance, and Symbiotic provides the economic safeguards to ensure the validity of the operations.
- 
+
 ### Slashing and Rewards {: #slashing-rewards }
 
 Well-behaved operators and restakers receive rewards for their participation in TANSSI tokens. Reward payments are managed through the vault.
