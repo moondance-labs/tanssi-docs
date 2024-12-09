@@ -7,7 +7,7 @@ description: Learn the high-level definitions of how a Tanssi appchain works, it
 
 ## Introduction {: #introduction }
 
-Appchains deployed through Tanssi receive many [benefits](/learn/tanssi/overview/#what-tanssi-provides){target=\_blank}, like block production as a service, data retrievability as a service, and security through external security providers such as [Symbiotic](https://symbiotic.fi/){target=\_blank} on Ethereum.
+Appchains deployed through Tanssi receive many [benefits](/learn/tanssi/overview/#what-tanssi-provides){target=\_blank}, like block production as a service, data retrievability as a service, and security through [external security providers](/learn/tanssi/external-security-providers/){target=\_blank} such as [Symbiotic](https://symbiotic.fi/){target=\_blank} on Ethereum.
 
 Also, because Tanssi appchains are based on a [modular tech stack](/learn/framework/){target=\_blank}, they profit from unique advantages when customizations are required at a runtime level. This [modularity](/learn/framework/modules/){target=\_blank} allows developers to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
@@ -28,7 +28,7 @@ Tanssi appchains also benefit from a set of Data-Preservers, with full archive n
 
 ## Appchain Transaction Flow {: #appchain-transaction}
 
-A transaction submitted to a Tanssi appchain follows a complex yet seamless path from submission to block inclusion and finalization. The appchain infrastructure, Tanssi, and the [security provider](/){target=\_blank} all work together at different levels to ensure that the process happens as quickly as possible, which normally takes around 30 seconds. Remember that a transaction in a Tanssi appchain reaches deterministic finality. Consequently, once the transaction is final, it becomes irreversible and unchangeable, and the state transition that resulted when executing that transaction is final.
+A transaction submitted to a Tanssi appchain follows a complex yet seamless path from submission to block inclusion and finalization. The appchain infrastructure, Tanssi, and the chosen [security provider](/learn/tanssi/external-security-providers/){target=\_blank} all work together at different levels to ensure that the process happens as quickly as possible, which normally takes around 30 seconds. Remember that a transaction in a Tanssi appchain reaches deterministic finality. Consequently, once the transaction is final, it becomes irreversible and unchangeable, and the state transition that resulted when executing that transaction is final.
 
 For example, a user initiates a transaction when interacting via an application deployed to a Tanssi appchain. The RPC provider will share the transaction, which sits in the chain's transaction pool, with all network participants. A sequencer assigned by Tanssi to that appchain will eventually pick up the transaction and include it in the next appchain block.
 
