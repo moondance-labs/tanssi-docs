@@ -17,9 +17,9 @@ This section covers the fundamentals of a Tanssi appchain, its architecture, its
 
 ## General Architecture {: #general-architecture}
 
-As previously discussed, appchains deployed through Tanssi are customizable blockchains that, among other features, have block production as a service and inherit security with deterministic block finality within seconds from an external security provider. 
+As previously discussed, appchains deployed through Tanssi are customizable blockchains that, among other features, receive block production as a service and inherit security with deterministic block finality within seconds from an external security provider. 
 
-Tanssi appchains are fully decentralized networks. The decentralized nature of the networks increases considerably their resilience and fault tolerance since they don't rely on a single authority or entity to ensure their liveness. Instead, they rely on decentralized protocols, providing services in a trustless way. For example, they receive block production services from a decentralized and incentivized set of sequencers and security via a set of validators that operate with delegated assets at stake.
+Tanssi appchains are fully decentralized networks. The decentralized nature of the networks considerably increases their resilience and fault tolerance since they don't rely on a single authority or entity to ensure their liveness, security, and performance but on trustless, decentralized protocols. For example, they receive block production services from a decentralized and incentivized set of sequencers and security services via a set of validators that operate with assets at stake.
 
 Tanssi appchains also benefit from a set of Data-Preservers, with full archive nodes, ensuring the data availability layer availability. These data-preservers are incentivized through Tanssi's data retrieval services and also provide the RPC infrastructure for apps and users interacting with Tanssi appchains.
 
@@ -28,11 +28,11 @@ Tanssi appchains also benefit from a set of Data-Preservers, with full archive n
 
 ## Appchain Transaction Flow {: #appchain-transaction}
 
-A transaction submitted to a Tanssi appchain follows a complex yet seamless path from submission to block inclusion and finalization. The appchain infrastructure, Tanssi, and the Polkadot relay chain all work together at different levels to ensure that the process happens as quickly as possible, which normally takes under 20 seconds. Remember that a transaction in a Tanssi appchain reaches deterministic finality. Consequently, once the transaction is final, it becomes irreversible and unchangeable, and the state transition that resulted when executing that transaction is final.
+A transaction submitted to a Tanssi appchain follows a complex yet seamless path from submission to block inclusion and finalization. The appchain infrastructure, Tanssi, and the [security provider](/){target=\_blank} all work together at different levels to ensure that the process happens as quickly as possible, which normally takes around 30 seconds. Remember that a transaction in a Tanssi appchain reaches deterministic finality. Consequently, once the transaction is final, it becomes irreversible and unchangeable, and the state transition that resulted when executing that transaction is final.
 
-For example, a user initiates a transaction when interacting via an application deployed to a Tanssi appchain. The RPC provider will share the transaction, which sits in the chain's transaction pool, with all network participants. A block producer assigned by Tanssi to that appchain will eventually pick up the transaction and include it in the next appchain block.
+For example, a user initiates a transaction when interacting via an application deployed to a Tanssi appchain. The RPC provider will share the transaction, which sits in the chain's transaction pool, with all network participants. A sequencer assigned by Tanssi to that appchain will eventually pick up the transaction and include it in the next appchain block.
 
-Then, the block producer will share with a Polkadot validator:
+Then, the sequencer will share with the security provider's validators:
 
 - The block itself with the state transitions
 - The storage components in the Tanssi appchain database that the block is modifying
@@ -40,10 +40,10 @@ Then, the block producer will share with a Polkadot validator:
 
 These components constitute the proof of validity (PoV).
 
-Next, the PoV is verified by Polkadot validators. Note that Polkadot does not check that the Tanssi appchain storage is valid but that the state transitions that affect it are. A summary of that verification is then gossiped to other validators for them to verify it and included in the next Polkadot block. Lastly, that Polkadot block is finalized.
+Next, the PoV is verified by the security provider's validators. Note that the validators do not check that the Tanssi appchain storage is valid but that the state transitions that affect it are. A summary of that verification is then gossiped to other validators for them to verify it and included in the next Tanssi block. Lastly, that Tanssi block with all the appchain's verifications is finalized.
 
 The transaction flow process is summarized in the following diagram:
 
-![Path of a Tanssi Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/dark-overview-2.webp#only-dark)
-![Path of a Tanssi Appchain Block in Tanssi & Polkadot](/images/learn/appchains/overview/light-overview-2.webp#only-light)
+![Path of a Tanssi Appchain Block in Tanssi](/images/learn/appchains/overview/dark-overview-2.webp#only-dark)
+![Path of a Tanssi Appchain Block in Tanssi](/images/learn/appchains/overview/light-overview-2.webp#only-light)
 
