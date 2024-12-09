@@ -66,8 +66,8 @@ The following sections describe the protocol's main components.
 
 Vaults are programmable and many vaults with different setups can coexist, each one serving a different purpose. Vaults are managed by curators, who have the responsibility of deciding on critical matters such as:
 
-- **Accounting** - curators configure deposits and withdrawals, which [assets](https://app.symbiotic.fi/restake){target=\_blank} the vault accepts as valid collaterals, and the slashings mechanism for penalizing bad actors
-- **Delegation Strategies** - curators define how stakes are delegated accross the vault's operators and networks
+- **Accounting** - curators configure deposits and withdrawals, which [assets](https://app.symbiotic.fi/restake){target=\_blank} the vault accepts as valid collaterals
+- **Delegation Strategies** - curators define how the stake in the vault is delegated accross operators and networks
 
 Vaults managers also whitelist the operators and networks to work with. Since the operators get delegated stake, and could potentially get slashed, they have to be accepted by the vault managers before starting to provide validation services to the networks. In a similar note, vault managers analyze and authorize each network the vault will secure, taking into consideration, for example, the rewards the netwok offers, and other characteristics.
 
