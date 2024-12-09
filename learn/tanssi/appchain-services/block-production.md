@@ -97,29 +97,30 @@ Finally, Tanssi can verify that the author of an appchain block was the expected
 The following diagram shows a simplified model of the data Tanssi stores in its internal state. For every active appchain (in this example, two), Tanssi stores the assigned sequencers, which are the only ones authorized to produce blocks on the appchain's behalf, proof of validity (candidate receipts) extended by the security provider's operators, the latest state root, and the latest block producer. 
 
 ```mermaid
-classDiagram
+flowchart TB
 
-    class tanssi["Tanssi State"] {
-        Appchains Current Sequencer Assignment
-        Appchains Next Session's Sequencer Assignment
-    }
+    subgraph general["Orchestration Info"]
+        direction TB
+        assignment1["Appchains Current Sequencer Assignment"]
+        assignment2["Appchains Next Session's Sequencer Assignment"] 
+    end
+    subgraph appchain1["Appchain 1"]
+        direction LR
+        appchain11["Current Sequencers assigned"]
+        appchain12["Last Block's Proof of Validity"]
+        appchain13["Latest State Root"]
+        appchain14["Latest Block Producer"]
+    end
+    subgraph appchain2["Appchain 2"]
+        appchain21["Current Sequencers assigned"]
+        appchain22["Last Block's Proof of Validity"]
+        appchain23["Latest State Root"]
+        appchain24["Latest Block Producer"]
+    end
 
-    class appchain1["Appchain 1"] {
-        Current Sequencers assigned
-        Last Block's Proof of Validity
-        Latest State Root
-        Latest Block Producer
-    }
+    general --> appchain1
+    general --> appchain2
 
-    class appchain2["Appchain 2"] {
-        Current Sequencers assigned
-        Last Block's Proof of Validity
-        Latest State Root
-        Latest Block Producer
-    }
-
-    tanssi-->appchain1
-    tanssi-->appchain2
 ```
 
 ### The Role of the Appchain {: #appchain }
