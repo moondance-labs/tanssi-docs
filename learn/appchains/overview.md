@@ -7,7 +7,7 @@ description: Learn the high-level definitions of how a Tanssi appchain works, it
 
 ## Introduction {: #introduction }
 
-Appchains deployed through Tanssi receive many [benefits](/learn/tanssi/overview/#what-tanssi-provides){target=\_blank}, like block production as a service, data retrievability as a service, and security through [external security providers](/learn/tanssi/external-security-providers/){target=\_blank} such as [Symbiotic](https://symbiotic.fi/){target=\_blank} on Ethereum.
+Appchains deployed through Tanssi receive many [benefits](/learn/tanssi/overview/#what-tanssi-provides){target=\_blank}, like block production as a service, data retrievability as a service, and security through an [external security providers](/learn/tanssi/external-security-providers/){target=\_blank} such as [Symbiotic](https://symbiotic.fi/){target=\_blank} on Ethereum.
 
 Also, because Tanssi appchains are based on a [modular tech stack](/learn/framework/){target=\_blank}, they profit from unique advantages when customizations are required at a runtime level. This [modularity](/learn/framework/modules/){target=\_blank} allows developers to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
@@ -19,12 +19,29 @@ This section covers the fundamentals of a Tanssi appchain, its architecture, its
 
 As previously discussed, appchains deployed through Tanssi are customizable blockchains that, among other features, receive block production as a service and inherit security with deterministic block finality within seconds from an external security provider. 
 
-Tanssi appchains are fully decentralized networks. The decentralized nature of the networks considerably increases their resilience and fault tolerance since they don't rely on a single authority or entity to ensure their liveness, security, and performance but on trustless, decentralized protocols. For example, they receive block production services from a decentralized and incentivized set of sequencers and security services via a set of validators that operate with assets at stake.
+Tanssi appchains are fully decentralized networks. The decentralized nature of the networks considerably increases their resilience and fault tolerance since they don't rely on a single authority or entity to ensure their liveness, security, and performance but on trustless, decentralized protocols. For example, they receive block production services from a decentralized and incentivized set of sequencers managed by Tanssi.
+
+The Tanssi protocol runs with an external security provider, which has a set of validators with assets at stake, validating the transactions from the Tanssi network itself and all of the networks deployed through Tanssi. This way, all Tanssi appchains inherit the economic security derived from the Tanssi protocol and, indirectly, from the validators, which verify every transaction from every network. Tanssi appchains don't need to run their own validator set nor bootstrap liquidity to secure their protocol.
 
 Tanssi appchains also benefit from a set of Data-Preservers, with full archive nodes, ensuring the data availability layer availability. These data-preservers are incentivized through Tanssi's data retrieval services and also provide the RPC infrastructure for apps and users interacting with Tanssi appchains.
 
-![Appchain Architecture Overview](/images/learn/appchains/overview/dark-overview-1.webp#only-dark)
-![Appchain Architecture Overview](/images/learn/appchains/overview/light-overview-1.webp#only-light)
+```mermaid
+flowchart TB
+    appchains["Decentralized Networks<br/>Tanssi Appchains"]
+
+    subgraph tanssi["Tanssi Protocol"]
+        direction TB
+        sequencers["Decentralized Sequencers Set"]
+        node["Full Archive Nodes with<br/>RPC services"]
+    end
+
+    security["External Security Provider<br/>Validators"]
+    
+    appchains<--block production-->tanssi
+    appchains<--Shared Security Model-->tanssi
+    appchains<--Data Availability<br/>RPC endpoints-->tanssi
+    tanssi<--Transactions<br/>Validation and Finality-->security
+```
 
 ## Appchain Transaction Flow {: #appchain-transaction}
 
