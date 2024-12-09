@@ -45,7 +45,7 @@ flowchart TB
 
 ## Appchain Transaction Flow {: #appchain-transaction}
 
-A transaction submitted to a Tanssi appchain follows a complex yet seamless path from submission to block inclusion and finalization. The appchain infrastructure, Tanssi, and the chosen [security provider](/learn/tanssi/external-security-providers/){target=\_blank} all work together at different levels to ensure that the process happens as quickly as possible, which normally takes around 30 seconds. Remember that a transaction in a Tanssi appchain reaches deterministic finality. Consequently, once the transaction is final, it becomes irreversible and unchangeable, and the state transition that resulted when executing that transaction is final.
+A transaction submitted to a Tanssi appchain follows a complex yet seamless path from submission to block inclusion and finalization. The appchain infrastructure, Tanssi, and the chosen [security provider](/learn/tanssi/external-security-providers/){target=\_blank} work together at different levels to ensure the process happens as quickly as possible, usually taking around 30 seconds. Remember that a transaction in a Tanssi appchain reaches deterministic finality. Consequently, once the transaction is final, it becomes irreversible and unchangeable, and the state transition resulting from executing that transaction is final.
 
 For example, a user initiates a transaction when interacting via an application deployed to a Tanssi appchain. The RPC provider will share the transaction, which sits in the chain's transaction pool, with all network participants. A sequencer assigned by Tanssi to that appchain will eventually pick up the transaction and include it in the next appchain block.
 
@@ -57,7 +57,7 @@ Then, the sequencer will share with the security provider's validators:
 
 These components constitute the proof of validity (PoV).
 
-Next, the PoV is verified by the security provider's validators. Note that the validators do not check that the Tanssi appchain storage is valid but that the state transitions that affect it are. A summary of that verification is then gossiped to other validators for them to verify it and included in the next Tanssi block. Lastly, that Tanssi block with all the appchain's verifications is finalized.
+Next, the PoV is verified by the security provider's validators. Note that the validators do not check that the Tanssi appchain storage is valid but that the state transitions that affect it are. A summary of that verification is then gossiped to other validators so they can verify it and include it in the next Tanssi block. Lastly, that Tanssi block with all the appchain's verifications is finalized.
 
 The transaction flow process is summarized in the following diagram:
 
