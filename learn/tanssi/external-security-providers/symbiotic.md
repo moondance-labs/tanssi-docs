@@ -22,7 +22,7 @@ The protocol provides a coordination layer for its main components and participa
 ```mermaid
 flowchart TD
     %% Vaults subgraph
-    subgraph vaults
+    subgraph Ethereum["Ethereum/Symbiotic"]
         slash[/Slashing Events/]
         Restakers -- Deposit Assets --> Vaults
         Curators -- Manage --> Vaults
@@ -46,15 +46,10 @@ flowchart TD
         developers -- Launch --> networks
     end
 
-    %% Dummy node for alignment
-    vaults <--> dummy1(( )):::invisible
-    dummy1 <--> Validators
-    dummy1 <--> Networks
+    Ethereum  <--> Tanssi
+    Tanssi <--> Validators
+    Tanssi <--> Networks
 
-    %% Style for invisible node
-    classDef invisible fill:none,stroke:none;
-
-```
 
 Symbiotic's flexible design allows every party to decide on setups that best fit their use cases. For example, vaults can choose what forms of collateral they accept, operators can determine which networks they want to provide services to, and decentralized networks can customize their use case and define the level of security (which collaterals are accepted, for example) they need.
 
@@ -62,7 +57,7 @@ The following sections describe the protocol's main components.
 
 ### Vaults {: #vaults }
 
-[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){targte=\_blank} are protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, distribute rewards to restakers and operators, and penalize bad actors.
+[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, distribute rewards to restakers and operators, and penalize bad actors.
 
 Vaults are programmable, and many vaults with different setups can coexist, each serving a different purpose. Vaults are managed by curators, who have the responsibility of deciding on critical matters such as:
 
@@ -107,8 +102,8 @@ All things combined shape a functional and elegant ecosystem where developers ca
 flowchart LR
     subgraph Symbiotic
         direction LR
-        Operator
-        Vault
+        Operators
+        Vaults
     end
     Symbiotic  -- Validates/Secures --> tanssi["Tanssi Network"]
     tanssi -- Block Production Services--> Appchains
