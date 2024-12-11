@@ -1,9 +1,7 @@
 ---
 title: Appchain
 description: Discover the features in EVM and Substrate appchains deployed through Tanssi, leveraging user-friendly and easy-to-deploy templates for enhanced capabilities.
-hide: 
- - toc
- - feedback
+template: index-page.html
 ---
 
 # Appchains In Tanssi
@@ -15,3 +13,7 @@ Key Features of Appchains In Tanssi:
 - **Runtime Customization:** Adapt transaction types, execution logic, and state transitions to fit your appchain’s specific requirements
 - **Transaction Efficiency:** Optimize transaction fees for scalability and economic sustainability
 - **Scalability at its Core:** Build appchains that are prepared to grow alongside your ecosystem
+
+# Explore What This Section Covers
+
+:::INSERT_GENERATED_CARDS:::
