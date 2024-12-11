@@ -7,7 +7,7 @@ template: index-page.html
 
 # Learn About Tanssi
 
-Here, you’ll find everything that sets Tanssi apart as a leading solution for appchain development. From block production as a service to flexible security providers and essential integrations, this section highlights the core features that make Tanssi a robust and adaptable protocol for building scalable, secure, and innovative appchains.
+Here, you'll find an overview of Tanssi’s core capabilities that support appchain development, covering everything from infrastructure and security to essential integrations.
 
 Key Features That Set Tanssi Apart:
 
