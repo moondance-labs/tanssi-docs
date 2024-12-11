@@ -84,7 +84,7 @@ Every new assignment works intentionally with a one-session delay, so the sequen
 
 When a new session starts, the Tanssi protocol will put the queued assignment into effect. Sequencers will automatically change and start producing blocks in the new Tanssi appchain they've been assigned to while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in Tanssi appchains that might have been activated or deactivated and block producers that might have been added or removed from the pool or changed the total staked value. This new assignment will be queued for the next session.
 
-![Sessions](/images/learn/tanssi/technical/technical-2.webp)
+![Sessions](/images/learn/tanssi/appchain-services/block-production/block-production-1.webp)
 
 ### The Role of the Tanssi Network {: #tanssi-newtwork }
 
@@ -96,32 +96,7 @@ Finally, Tanssi can verify that the author of an appchain block was the expected
 
 The following diagram shows a simplified model of the data Tanssi stores in its internal state. For every active appchain (in this example, two), Tanssi stores the assigned sequencers, which are the only ones authorized to produce blocks on the appchain's behalf, proof of validity (candidate receipts) extended by the security provider's operators, the latest state root, and the latest block producer. 
 
-```mermaid
-flowchart TB
-
-    subgraph general["Orchestration Info"]
-        direction TB
-        assignment1["Appchains Current Sequencer Assignment"]
-        assignment2["Appchains Next Session's Sequencer Assignment"] 
-    end
-    subgraph appchain1["Appchain 1"]
-        direction LR
-        appchain11["Current Sequencers assigned"]
-        appchain12["Last Block's Proof of Validity"]
-        appchain13["Latest State Root"]
-        appchain14["Latest Block Producer"]
-    end
-    subgraph appchain2["Appchain 2"]
-        appchain21["Current Sequencers assigned"]
-        appchain22["Last Block's Proof of Validity"]
-        appchain23["Latest State Root"]
-        appchain24["Latest Block Producer"]
-    end
-
-    general --> appchain1
-    general --> appchain2
-
-```
+![Tanssi's internal state](/images/learn/tanssi/appchain-services/block-production/block-production-2.webp)
 
 ### The Role of the Appchain {: #appchain }
 
@@ -131,18 +106,7 @@ Leveraging this ability to access the states, the current sequencer with the aut
 
 Once the block is filled with appchain transactions, it will be proposed as a candidate and handed over to the Tanssi chain, where the security provider's operators will ensure that the included state proofs match the state proofs from the latest state of Tanssi (preventing unauthorized block production) and that the transactions produced valid state transitions. Having verified the work of the sequencer, the operators will finalize the proposed block, including its candidate receipt in a Tanssi network block.
 
-```mermaid
-classDiagram
-
-    note for tanssi "The sequencer reads the Tanssi State"
-
-    class tanssi["Appchain Block"] {
-        Appchain's Current Sequencers Assignment
-        Tanssi's State Root
-        Sequencer operator's signature
-        Appchain Transactions()
-    }
-```
+![Tanssi-powered network block](/images/learn/tanssi/appchain-services/block-production/block-production-3.webp)
 
 ## Block Production Fees  {: #block-production-fees }
 
