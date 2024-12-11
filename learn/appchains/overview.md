@@ -11,7 +11,7 @@ Appchains deployed through Tanssi receive many [benefits](/learn/tanssi/overview
 
 Also, because Tanssi appchains are based on a [modular tech stack](/learn/framework/){target=\_blank}, they profit from unique advantages when customizations are required at a runtime level. This [modularity](/learn/framework/modules/){target=\_blank} allows developers to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
-For example, by including modules from [Frontier](https://github.com/paritytech/frontier){target=\_blank}, a Tanssi appchain can become fully Ethereum-compatible, just like [Moonbeam](https://moonbeam.network){target=\_blank}.
+For example, Tanssi provides a ready-to-use [template](/learn/tanssi/included-templates/#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/paritytech/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible appchain, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 This section covers the fundamentals of a Tanssi appchain, its architecture, its core modules and functionalities, and the transaction fee mechanism.
 
