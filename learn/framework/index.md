@@ -1,9 +1,7 @@
 ---
 title: Appchain Development Framework
 description: Learn about the appchain Development Framework, Rust Programming Language, Substrate and its features, including XCM and ready-to-use pallets for your Runtime.
-hide: 
- - toc
- - feedback
+template: index-page.html
 ---
 
 # Appchain Development Framework
@@ -18,3 +16,7 @@ Key Features of the Framework:
 - **End-User Simplicity:** The internal workings of the framework are abstracted for end-users, ensuring seamless interaction through dApps or RPC endpoints, such as wallets.
 - **Modular System Design:** Incorporate pre-built modules or create custom ones to meet specific needs
 - **Developer-Centric Flexibility:** Focus on runtime characteristics and use case specifics, allowing you to create a blockchain tailored to your vision without unnecessary complexity.
+
+# Explore What This Section Covers
+
+:::INSERT_GENERATED_CARDS:::
