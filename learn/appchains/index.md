@@ -1,6 +1,7 @@
 ---
 title: Appchain
 description: Discover the features in EVM and Substrate appchains deployed through Tanssi, leveraging user-friendly and easy-to-deploy templates for enhanced capabilities.
+icon: simple-flathub
 template: index-page.html
 ---
 

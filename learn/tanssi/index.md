@@ -1,7 +1,7 @@
 ---
 title: Learn About Tanssi
 description: Learn about Tanssi protocol and how it handles infrastructure complexities, making it easy for new appchains to be deployed in the Polkadot Web3 ecosystem.
-icon: octicons-code-16
+icon: octicons-star-24
 template: index-page.html
 ---
 

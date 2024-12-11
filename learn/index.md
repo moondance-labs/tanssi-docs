@@ -1,93 +1,33 @@
 ---
 title: Learn About Tanssi Infrastructure Protocol
 description: Learn about Tanssi protocol and how it helps developers to build and deploy appchains by handling infrastructure complexities and providing key integrations.
-hide:
- - toc
- - feedback
+template: index-page.html
 ---
 
 # Learn
 
-Explore the tools, frameworks, and methodologies that Tanssi offers to simplify appchain deployment, from understanding what it is and how it works to leveraging its security providers. This section provides a comprehensive guide to mastering Tanssi's capabilities—start your learning journey here.
+Launching an appchain has traditionally been a challenging and time-consuming process, requiring expertise in infrastructure, security, and operational setup. Tanssi simplifies this journey by removing the complexities and making appchain deployment fast and accessible. With Tanssi, developers can rely on seamless block production, integration with essential tools, and the flexibility to choose security providers that best fit their blockchain environment, empowering them to focus on innovation rather than technical hurdles.
 
-# Tanssi
-Here, you’ll find everything that sets Tanssi apart as a leading solution for appchain development. From its innovative architecture to tools designed for scalability and security, this section highlights the core features that define Tanssi.
+This section dives into the core elements that define Tanssi as a leading solution for appchain development. From its modular framework and runtime customization to transaction management and interoperability, explore how Tanssi transforms appchain development into an accessible and efficient process, drastically reducing time-to-market while ensuring high performance and scalability.
 
-Key Features That Set Tanssi Apart:  
-
-- **Built for Scalability:** Discover how Tanssi’s modular framework enables customized appchains that grow with your needs  
-- **Simplified Deployment:** Learn how Tanssi eliminates infrastructure complexity, letting you focus on innovation  
-- **Seamless Interoperability:** Understand how Tanssi supports interconnected ecosystems for a unified blockchain experience  
-- **Enhanced Security:** Explore the future of appchain security with providers like Symbiotic  
+Whether you’re starting your journey into appchains or deepening your understanding of Tanssi’s unique capabilities, these documents provide everything you need to understand how Tanssi sets a new standard for appchain infrastructure.
 
 
-<div class="grid cards" markdown>
+# Explore What This Section Covers
 
--   :material-clock-fast:{ .lg .middle } __Tanssi__
+:::INSERT_GENERATED_CARDS:::
 
-    ---
-    
-    Learn about Tanssi protocol and how it handles infrastructure complexities, making it easy for new appchains to be deployed.
-
-    [Tanssi](tanssi/index.md) 
-    
-</div>
-
-
-# Appchain Development Framework
-
-The Tanssi framework is designed to give developers the tools and flexibility they need to build tailored appchains. From its modular architecture to features that streamline customization, this framework provides a foundation for innovation.
-
-Key Features in Appchain Development Framework:
-
-- **Modular Architecture:** Adapt and optimize components to fit your appchain’s specific requirements
-- **Customization at Its Core:** Create appchains that align perfectly with your use case, without unnecessary complexity
-- **Streamlined Interoperability:** Build appchains that seamlessly connect with other networks for a cohesive ecosystem
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Appchain Development Framework__
-
-    ---
-    
-    Learn about the appchain Development Framework, Rust Programming Language, Substrate and its features, and ready-to-use pallets for your Runtime.
-   
-    [Appchain Development Framework](appchains/index.md) 
-    
-</div>
-
-# Apchains In Tanssi
-
-Here, you’ll gain a deeper understanding of how Tanssi’s appchain infrastructure works. From runtime customization to transaction management, discover the tools and features that make appchains scalable, efficient, and user-friendly.
-
-Key Features in Appchains In Tanssi:
-
-- **Customizable Runtime Features:** Adapt transaction types, execution logic, and runtime updates to suit your appchain’s needs
-- **Data Preservers for Infrastructure:** Host full archival nodes and provide seamless RPC infrastructure for apps and users
-- **Block Production as a Service:** Ensure secure and efficient block production tailored for appchain
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Appchain In Tanssi__
-
-    ---
-    
-    Discover the features in EVM and Non-EVM appchains deployed through Tanssi, leveraging user-friendly and easy-to-deploy templates for enhanced capabilities.
-
-    [Appchain Development Framework](framework/index.md) 
-
-</div>
 
 # Want to jump right into the action? 
 
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Build Your Appchain__
-
-    ---
-
-    Learn how to design and customize your appchain with ready-to-use templates and tools tailored to your technical needs.
-
-    [Explore Build Options](../builders/build/index.md)
-
+<div class="subsection-wrapper">
+  <div class="card">
+    <a href="/builders/build/">
+      <div class="card-header">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path d="M11.03 2.59a1.501 1.501 0 0 1 1.94 0l7.5 6.363a1.5 1.5 0 0 1 .53 1.144V19.5a1.5 1.5 0 0 1-1.5 1.5h-5.75a.75.75 0 0 1-.75-.75V14h-2v6.25a.75.75 0 0 1-.75.75H4.5A1.5 1.5 0 0 1 3 19.5v-9.403c0-.44.194-.859.53-1.144ZM12 3.734l-7.5 6.363V19.5h5v-6.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v6.25h5v-9.403Z"></path></svg>
+        <h2 class="title">Build Your Appchain</h2>
+      </div>
+      <p class="description">Learn how to design and customize your appchain with ready-to-use templates and tools tailored to your technical needs.</p>
+    </a>
+  </div>
 </div>
