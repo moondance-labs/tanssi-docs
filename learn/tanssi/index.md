@@ -1,9 +1,8 @@
 ---
 title: Learn About Tanssi
 description: Learn about Tanssi protocol and how it handles infrastructure complexities, making it easy for new appchains to be deployed in the Polkadot Web3 ecosystem.
-hide: 
- - toc
- - feedback
+icon: octicons-code-16
+template: index-page.html
 ---
 
 # Learn About Tanssi
@@ -16,3 +15,7 @@ Key Features That Set Tanssi Apart:
 - **Flexible Security Providers:** Choose security solutions tailored to your appchain’s environment, such as Symbiotic for Ethereum-based chains, enabling shared security without sourcing economic guarantees
 - **Time-to-Market Efficiency:** Launch appchains in minutes with Tanssi’s comprehensive approach to infrastructure and security, significantly reducing development time
 - **Seamless Integrations:** Tanssi provides out-of-the-box infrastructure, including wallets, RPC endpoints, and block explorers, streamlining appchain deployment
+
+# Explore What This Section Covers
+
+:::INSERT_GENERATED_CARDS::: 
