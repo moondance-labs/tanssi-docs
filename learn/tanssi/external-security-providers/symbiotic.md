@@ -49,7 +49,7 @@ flowchart TD
     Ethereum  <--> Tanssi
     Tanssi <--> Validators
     Tanssi <--> Networks
-
+```
 
 Symbiotic's flexible design allows every party to decide on setups that best fit their use cases. For example, vaults can choose what forms of collateral they accept, operators can determine which networks they want to provide services to, and decentralized networks can customize their use case and define the level of security (which collaterals are accepted, for example) they need.
 
@@ -57,7 +57,7 @@ The following sections describe the protocol's main components.
 
 ### Vaults {: #vaults }
 
-[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, distribute rewards to restakers and operators, and penalize bad actors.
+[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, distribute rewards to restakers and operators, and penalize bad actors.
 
 Vaults are programmable, and many vaults with different setups can coexist, each serving a different purpose. Vaults are managed by curators, who have the responsibility of deciding on critical matters such as:
 
