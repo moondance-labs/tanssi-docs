@@ -27,17 +27,17 @@ Tanssi appchains also benefit from a set of Data-Preservers, with full archive n
 
 ```mermaid
 flowchart TB
-    appchains["Decentralized Networks<br/>Tanssi Appchains"]
+    appchains["Tanssi Appchains<br/>(Decentralized Networks)"]
 
     subgraph tanssi["Tanssi Protocol"]
         direction TB
         sequencers["Decentralized Sequencers Set"]
-        node["Full Archive Nodes with<br/>RPC services"]
+        node["Full Archive Nodes with<br/>RPC Services"]
     end
 
     security["External Security Provider<br/>Validators"]
     
-    appchains<--block production-->tanssi
+    appchains<--Block Production-->tanssi
     appchains<--Shared Security Model-->tanssi
     appchains<--Data Availability<br/>RPC endpoints-->tanssi
     tanssi<--Transactions<br/>Validation and Finality-->security
