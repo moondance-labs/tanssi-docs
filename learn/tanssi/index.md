@@ -11,11 +11,11 @@ Here, you'll find an overview of Tanssi’s core capabilities that support appch
 
 Key Features That Set Tanssi Apart:
 
-- **Block Production as a Service:** Tanssi’s incentivized block producers ensure reliable block creation and network liveness, removing the operational burden from developers
-- **Flexible Security Providers:** Choose security solutions tailored to your appchain’s environment, such as Symbiotic for Ethereum-based chains, enabling shared security without sourcing economic guarantees
-- **Time-to-Market Efficiency:** Launch appchains in minutes with Tanssi’s comprehensive approach to infrastructure and security, significantly reducing development time
-- **Seamless Integrations:** Tanssi provides out-of-the-box infrastructure, including wallets, RPC endpoints, and block explorers, streamlining appchain deployment
+- **Block production as a service** - tanssi’s incentivized block producers ensure reliable block creation and network liveness, removing the operational burden from developers
+- **Flexible security providers** - choose security solutions tailored to your appchain’s environment, such as Symbiotic for Ethereum-based chains, enabling shared security without sourcing economic guarantees
+- **Time-to-market efficiency** - launch appchains in minutes with Tanssi’s comprehensive approach to infrastructure and security, significantly reducing development time
+- **Seamless integrations** - Tanssi provides out-of-the-box infrastructure, including wallets, RPC endpoints, and block explorers, streamlining appchain deployment
 
-# Explore What This Section Covers
+## Explore What This Section Covers
 
 :::INSERT_GENERATED_CARDS::: 

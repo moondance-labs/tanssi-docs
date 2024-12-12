@@ -13,12 +13,12 @@ This section dives into the core elements that define Tanssi as a leading soluti
 Whether you’re starting your journey into appchains or deepening your understanding of Tanssi’s unique capabilities, these documents provide everything you need to understand how Tanssi sets a new standard for appchain infrastructure.
 
 
-# Explore What This Section Covers
+## Explore What This Section Covers
 
 :::INSERT_GENERATED_CARDS:::
 
 
-# Want to jump right into the action? 
+## Want to jump right into the action? 
 
 <div class="subsection-wrapper">
   <div class="card">

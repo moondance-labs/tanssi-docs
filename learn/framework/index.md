@@ -13,11 +13,11 @@ With Substrate’s modular architecture, you can modify runtime characteristics,
 
 Key Features of the Framework:
 
-- **Substrate Core Architecture:** Divided into the **Core Client**, which manages external communications and internal responsibilities like storage, and the **Runtime**, which executes transactions and manages state transitions with customizable logic
-- **End-User Simplicity:** The internal workings of the framework are abstracted for end-users, ensuring seamless interaction through dApps or via RPC endpoints, such as those used by wallets
-- **Modular System Design:** Incorporate pre-built modules or create custom ones to meet specific needs
-- **Developer-Centric Flexibility:** Focus on runtime characteristics and use case specifics, allowing you to create a blockchain tailored to your vision without unnecessary complexity.
+- **Substrate core architecture** - divided into the *Core Client*, which manages external communications and internal responsibilities like storage, and the *Runtime*, which executes transactions and manages state transitions with customizable logic
+- **End-User simplicity** - the internal workings of the framework are abstracted for end-users, ensuring seamless interaction through dApps or via RPC endpoints, such as those used by wallets
+- **Modular system design** - incorporate pre-built modules or create custom ones to meet specific needs
+- **Developer-centric flexibility** - focus on runtime characteristics and use case specifics, allowing you to create a blockchain tailored to your vision without unnecessary complexity.
 
-# Explore What This Section Covers
+## Explore What This Section Covers
 
 :::INSERT_GENERATED_CARDS:::

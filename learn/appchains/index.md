@@ -15,6 +15,6 @@ Key features of appchains in Tanssi:
 - **Transaction efficiency** - optimize transaction fees for scalability and economic sustainability
 - **Scalability at its core** - build appchains that are prepared to grow alongside your ecosystem
 
-# Explore What This Section Covers
+## Explore What This Section Covers
 
 :::INSERT_GENERATED_CARDS:::
