@@ -1,6 +1,7 @@
 ---
 title: Overview
 description: Tanssi is an appchain protocol that eases the process of deploying appchains so that developers can focus on their custom application logic.
+icon: octicons-home-24
 ---
 
 # What is Tanssi? {: #what-is-tanssi }

@@ -1,6 +1,7 @@
 ---
 title: Framework Architecture
 description: In a Substrate node, two main components are the runtime, which controls the blockchain's state transition, and the client, which manages everything else.
+icon: octicons-stack-16
 ---
 
 # Framework Architecture {: #framework-architecture }
