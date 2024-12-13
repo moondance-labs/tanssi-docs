@@ -1,6 +1,7 @@
 ---
 title: Dev Environments
 description: Learn how to interact with your Tanssi EVM-compatible appchain through the Ethereum API with different Ethereum tools like Remix, Hardhat, Foundry, and more.
+icon: octicons-device-desktop-24
 template: index-page.html
 ---
 

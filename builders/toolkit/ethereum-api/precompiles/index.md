@@ -1,6 +1,7 @@
 ---
 title: Solidity Precompiles
 description: These guides showcase interacting with precompiles, which expose Substrate features via the easy-to-access Ethereum API of Tanssi EVM ContainerChains.
+icon: material-text-long
 template: index-page.html
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: Guides for Developing DApps
 description: Dive into tools and resources designed to streamline the development process when building dApps on Tanssi and Tanssi appchains.
+icon: material-pencil-ruler
 template: index-page.html
 ---
 
