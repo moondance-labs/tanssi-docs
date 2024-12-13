@@ -1,6 +1,6 @@
 ---
-title: Deploy Your Appchain
-description: Learn how to deploy your appchain to Tanssi as a snap appchain for short-term testing or as a dedicated Tanssi appchain for long-term testing.
+title: Deploy Your Network
+description: Learn how to deploy your network to Tanssi as a snap network for short-term testing or as a dedicated network for long-term testing using the Tanssi dApp.
 template: subsection-index-page.html
 hide:
  - toc

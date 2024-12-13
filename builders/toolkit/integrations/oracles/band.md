@@ -1,6 +1,6 @@
 ---
 title: Using Band Protocol for Price Feed Oracles
-description: Learn how to use the Band Protocol's descentralized oracle network to get reliable token prices enabling secure data access for your Tanssi EVM appchain.
+description: Learn how to use the Band Protocol's descentralized oracle network to get reliable token prices enabling secure data access for your Tanssi EVM network.
 ---
 
 # Accesing Price Feeds with the Band Protocol
@@ -9,20 +9,20 @@ description: Learn how to use the Band Protocol's descentralized oracle network 
 
 [Band Protocol](https://www.bandprotocol.com/){target=\_blank} is a decentralized oracle network that provides reliable, secure, real-time data to smart contracts on various blockchain networks.
 
-The protocol is built on top of BandChain, an appchain designed to be compatible with most EVM-compatible chains, such as Tanssi EVM appchains, and blockchain development frameworks. The protocol aims to provide a solution that is:
+The protocol is built on top of BandChain, a network designed to be compatible with most EVM-compatible chains, such as Tanssi-powered EVM networks, and blockchain development frameworks. The protocol aims to provide a solution that is:
 
 - Decentralized, leveraging the computational power of a network of validators
 - Flexible, supporting a wide range of data sources and formats, making integrations easy
 - Scalable, designed to handle high volumes of data requests
 - Affordable, allowing users to request data only when they need to and pay the associated fees
 
-Band protocol is currently deployed on many blockchains ([Moonbeam](https://docs.moonbeam.network/builders/integrations/oracles/band-protocol/){target=\_blank}, for example) across different ecosystems. To deploy the oracle onto your appchain, reach out to the [Band Protocol](https://www.bandprotocol.com/){target=\_blank} team directly.
+Band protocol is currently deployed on many blockchains ([Moonbeam](https://docs.moonbeam.network/builders/integrations/oracles/band-protocol/){target=\_blank}, for example) across different ecosystems. To deploy the oracle onto your network, reach out to the [Band Protocol](https://www.bandprotocol.com/){target=\_blank} team directly.
 
-This tutorial will walk through the steps to interact with price feeds using the Band protocol's oracle on the [Tanssi demo EVM-compatible appchain](https://apps.tanssi.network/demo){target=\_blank}. 
+This tutorial will walk through the steps to interact with price feeds using the Band protocol's oracle on the [Tanssi demo EVM-compatible network](https://apps.tanssi.network/demo){target=\_blank}. 
 
-## Setup on the Tanssi Demo EVM Appchain {: #setup-on-demo-evm-appchain }
+## Setup on the Tanssi Demo EVM Network {: #setup-on-demo-evm-network }
 
-The Band Protocol oracle is already deployed on the Tanssi demo EVM appchain and configured to provide prices for the `ETH` and `DOT` tokens.
+The Band Protocol oracle is already deployed on the Tanssi demo EVM network and configured to provide prices for the `ETH` and `DOT` tokens.
 
 The price feeds are pushed regularly to a smart contract that is accessible at the following address:
 
@@ -74,7 +74,7 @@ The response for both functions consists of the following data, grouped in one t
 
 In this section, we'll use remix to fetch the price of the pair `ETH/USD`. 
 
-First, make sure you have an [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} connected to the [demo EVM appchain](https://apps.tanssi.network/demo){target=\_blank}. [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} is used as an example in this guide. Now, head to [Remix](https://remix.ethereum.org/){target=\_blank}, paste the [`IStdReference`](#setup-on-demo-evm-appchain) interface into a new file, and compile it.
+First, make sure you have an [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} connected to the [demo EVM network](https://apps.tanssi.network/demo){target=\_blank}. [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} is used as an example in this guide. Now, head to [Remix](https://remix.ethereum.org/){target=\_blank}, paste the [`IStdReference`](#setup-on-demo-evm-network) interface into a new file, and compile it.
 
 ![Compile interface contract](/images/builders/toolkit/integrations/oracles/band/band-1.webp)
 
@@ -83,7 +83,7 @@ Then, take the following steps:
 1. Head to the **Deploy & Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
 3. Select the `IStdReference.sol` contract from the **CONTRACT** dropdown
-4. Enter the data feed contract address, which is `{{ networks.dancebox.oracles.band.smart_contract }}` on the demo EVM appchain in the **At Address** field and click the **At Address** button
+4. Enter the data feed contract address, which is `{{ networks.dancebox.oracles.band.smart_contract }}` on the demo EVM network in the **At Address** field and click the **At Address** button
 
 ![Access Interface contract](/images/builders/toolkit/integrations/oracles/band/band-2.webp)
 

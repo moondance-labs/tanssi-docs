@@ -3,4 +3,4 @@ hide: false
 nav:
   - index.md
   - 'Dancebox': 'dancebox.md'
-  - 'Demo EVM Appchain': 'demo-evm-appchain.md'
+  - 'Demo EVM Network': 'demo-evm-appchain.md'

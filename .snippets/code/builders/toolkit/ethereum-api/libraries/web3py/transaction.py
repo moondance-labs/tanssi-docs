@@ -5,9 +5,9 @@ from web3.gas_strategies.rpc import rpc_gas_price_strategy
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_appchain": "https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network",
+    "evm_network": "https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network",
 }
-web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_appchain"]))
+web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
 # 3. Create address variables
 account_from = {

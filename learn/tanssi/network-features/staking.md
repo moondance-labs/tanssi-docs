@@ -1,17 +1,17 @@
 ---
 title: Staking
-description: Learn how Tanssi implements a novel Staking mechanism to provide a decentralized and trustless set of block producers to all Tanssi-powered appchains
+description: Learn how Tanssi implements a novel Staking mechanism to provide liveness via a decentralized and trustless set of sequencers to all Tanssi-powered networks.
 ---
 
 # Tanssi Staking {: #tanssi-staking }
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions is to simplify the infrastructure complexity for appchains. A significant component is bootstrapping a decentralized set of block producers, which Tanssi offers through its unique architecture and staking mechanics.
+One of Tanssi's core propositions is to simplify the infrastructure complexity for networks. A significant component is bootstrapping a decentralized set of block producers, which Tanssi offers through its unique architecture and staking mechanics.
 
-Tanssi staking mechanics guarantee that the block producers for Tanssi and Tanssi-powered appchains are selected through a trustless and decentralized mechanism. They also incentivize the community to delegate to top-performing or engaged block producers.
+Tanssi staking mechanics guarantee that the block producers for Tanssi-powered networks are selected through a trustless and decentralized mechanism. They also incentivize the community to delegate to top-performing or engaged block producers.
 
-This page covers the fundamental concepts of Tanssi's staking mechanics and how it secures a decentralized block production set that drives network liveness for Tanssi appchains.
+This page covers the fundamental concepts of Tanssi's staking mechanics and how it secures a decentralized block production set that drives network liveness for Tanssi networks.
 
 <div style="text-align: center; justify-content:center;" class="row hero-buttons">
   <a href="https://www.tanssi.network/post/dancebox-staking-guide" aria-label="Learn How to Stake on Tanssi Apps" style="margin: .5em;">
@@ -31,7 +31,7 @@ Liquidity pools have a set of shares that can be considered LP tokens in traditi
 
 Rewards are assigned to a block's producer Manual or Auto-Compound Reward Pools when Tanssi attests that the specific block production slot that block producer was assigned to has been fulfilled, and the block was produced successfully.
 
-All rewards (for all pools) are stored in a protocol-owned account. Nevertheless, the protocol internally keeps track of the actual native tokens held by each pool. The core difference between staking through the Manual or Auto-Compound Rewards Pools is how rewards are distributed. In the Manual Rewards Pool, users have to claim any staking rewards they've accumulated manually. In contrast, in the Auto-Compound Rewards Pool, the rewards are automatically re-staked at each Tanssi block, where the protocol announces the block producer for each block production assignment, either in Tanssi or an appchain.
+All rewards (for all pools) are stored in a protocol-owned account. Nevertheless, the protocol internally keeps track of the actual native tokens held by each pool. The core difference between staking through the Manual or Auto-Compound Rewards Pools is how rewards are distributed. In the Manual Rewards Pool, users have to claim any staking rewards they've accumulated manually. In contrast, in the Auto-Compound Rewards Pool, the rewards are automatically re-staked at each Tanssi block, where the protocol announces the block producer for each block production assignment.
 
 The delegate and undelegate operations need to be sent by the delegator itself. They signal the intent of the action to be taken and ask the protocol to perform the necessary checks to allow the delegator to delegate or undelegate. Consequently, these actions can be executed only after a certain number of sessions, but anyone in the network can perform this second operation through the execute pending operation transaction.
 
@@ -92,7 +92,7 @@ SharePrice [Tokens/Shares] = NumberOfTokensInPool / NumberOfSharesInPool
 
 Shares don't have decimals. Consequently, any remaining native tokens when acquiring the pool's shares are refunded to the user. The share price is not impacted by users joining the pool, as the ratio is maintained. Once the user has Auto-Compound Rewards Pool shares, they earn staking rewards (that is, in the same session).
 
-In contrast to the Manual Rewards Pool, native token rewards in the Auto-Compound Rewards Pool are automatically assigned to the pool at each Tanssi block where the protocol attests the block producer for each block production assignment, either in Tanssi or an Appchain. Consequently, as the number of native tokens held in the pool increases but the number of shares stays constant, the share price increases (according to the formula). Therefore, if the users redeem their shares for native tokens, they will receive more native tokens per share than when they joined the pool.
+In contrast to the Manual Rewards Pool, native token rewards in the Auto-Compound Rewards Pool are automatically assigned to the pool at each Tanssi block where the protocol attests the block producer for each block production assignment in any Tanssi-powered network. Consequently, as the number of native tokens held in the pool increases but the number of shares stays constant, the share price increases (according to the formula). Therefore, if the users redeem their shares for native tokens, they will receive more native tokens per share than when they joined the pool.
 
 ![High-level overview of the Auto-Compound Rewards Pool when Staking](/images/learn/tanssi/staking/staking-4.webp)
 

@@ -7,7 +7,7 @@ import { type Chain } from 'viem'
 
 export const demoEVMChain = {
   id: 5678,
-  name: "Tanssi demo EVM Appchain",
+  name: "Tanssi demo EVM Network",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
     default: { http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'] }
@@ -19,7 +19,7 @@ export const demoEVMChain = {
 
 
 export const config = getDefaultConfig({
-  appName: 'My Tanssi Appchain',
+  appName: 'My Tanssi Network',
   projectId: 'process.env.NEXT_PUBLIC_PROJECT_ID',
   chains: [demoEVMChain ], 
   ssr: true,

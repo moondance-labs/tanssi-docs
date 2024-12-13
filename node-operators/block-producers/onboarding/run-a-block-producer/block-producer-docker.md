@@ -1,6 +1,6 @@
 ---
 title: Run a Block Producer Using Docker
-description: Learn how to set up and run a block producer (aka collator or sequencer) for Tanssi appchains using Docker to participate in the protocol and earn rewards.
+description: Learn how to set up and run a block producer (aka collator or sequencer) for Tanssi networks using Docker to participate in the protocol and earn rewards.
 ---
 
 # Run a Block Producer in Tanssi Using Docker
@@ -35,7 +35,7 @@ The command will download and extract the image and show the status upon executi
 
 ### Setup the Data Directory {: #setup-data-directory }
 
-Running a block producer requires syncing with three chains: the relay chain, the Tanssi chain, and the appchain it has been assigned to.
+Running a block producer requires syncing with three chains: the relay chain, the Tanssi chain, and the network it has been assigned to.
 
 Run the following command to create the directory where your block producer will store the databases containing blocks and chain states:
 
@@ -116,7 +116,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
---8<-- 'text/node-operators/appchain-node/run-flags.md'
+--8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
 docker run -ti moondancelabs/tanssi --help
@@ -128,4 +128,4 @@ The first time your node spins up, the syncing process displays lots of log info
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
-When the syncing with the relay chain and the Tanssi orchestrator is finished, the node will still need to sync with the appchain it has been assigned to. The syncing with the chain served by the block producer node will happen every time the block producer is rotated.
+When the syncing with the relay chain and the Tanssi orchestrator is finished, the node will still need to sync with the network it has been assigned to. The syncing with the chain served by the block producer node will happen every time the block producer is rotated.

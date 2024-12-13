@@ -1,13 +1,13 @@
 ---
 title: Deploy Contracts with Foundry
-description: Learn how to use Foundry, an Ethereum development environment, to compile, deploy, and interact with Solidity smart contracts on your Tanssi EVM appchain.
+description: Learn how to use Foundry, an Ethereum development environment, to compile, deploy, and interact with Solidity smart contracts on your Tanssi EVM network.
 ---
 
-# Using Foundry to Deploy to Your EVM Appchain
+# Using Foundry to Deploy to Your EVM Network
 
 ## Introduction {: #introduction }
 
-[Foundry](https://github.com/foundry-rs/foundry){target=\_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi EVM appchains, so it can be used to deploy and interact with smart contracts on your Tanssi appchain.
+[Foundry](https://github.com/foundry-rs/foundry){target=\_blank} is an Ethereum development environment written in Rust that helps developers manage dependencies, compile projects, run tests, deploy contracts, and interact with blockchains from the command line. Foundry can directly interact with the Ethereum API of Tanssi-powered EVM networks, so it can be used to deploy and interact with smart contracts on your Tanssi network.
 
 There are four tools that make up Foundry:  
 
@@ -16,7 +16,7 @@ There are four tools that make up Foundry:
 - **[Anvil](https://book.getfoundry.sh/anvil){target=\_blank}** - a local TestNet node for development purposes that can fork preexisting networks
 - **[Chisel](https://book.getfoundry.sh/chisel){target=\_blank}** - a Solidity REPL for quickly testing Solidity snippets
 
-This guide will cover how to use Foundry to compile, deploy, and debug Ethereum smart contracts on the demo EVM appchain. You can follow the same steps to perform these actions on your Tanssi EVM appchain by replacing the RPC URL and Chain ID shown in the examples.
+This guide will cover how to use Foundry to compile, deploy, and debug Ethereum smart contracts on the demo EVM network. You can follow the same steps to perform these actions on your Tanssi EVM network by replacing the RPC URL and Chain ID shown in the examples.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -167,9 +167,9 @@ Congratulations, you have successfully deployed and interacted with a contract u
 
 ## Forking with Anvil {: #forking-with-anvil }
 
-As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil){target=\_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM appchain allows you to interact with live contracts deployed on the network.
+As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil){target=\_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM network allows you to interact with live contracts deployed on the network.
 
-To fork the demo EVM appchain from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your Tanssi EVM appchain.
+To fork the demo EVM network from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your Tanssi EVM network.
 
 ```bash
 anvil --fork-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
@@ -179,7 +179,7 @@ Your forked instance will have 10 development accounts that are pre-funded with 
 
 ![Forking terminal screen](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-5.webp)
 
-To verify you have forked the network, you can query the latest block number and compare it to the current block number of the [demo EVM appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network){target=\_blank}.
+To verify you have forked the network, you can query the latest block number and compare it to the current block number of the [demo EVM network](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network){target=\_blank}.
 
 ```bash
 curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H "Content-Type: application/json" -X POST localhost:8545 
@@ -187,7 +187,7 @@ curl --data '{"method":"eth_blockNumber","params":[],"id":1,"jsonrpc":"2.0"}' -H
 
 If you convert the `result` from [hex to decimal](https://www.rapidtables.com/convert/number/hex-to-decimal.html){target=\_blank}, you should get the latest block number from the time you forked the network.
 
-From here, you can deploy new contracts to your forked instance of the demo EVM appchain (or any other Tanssi EVM appchain) or interact with contracts already deployed. Building off of the previous example in this guide, you can make a call using Cast to check the balance of the minted MYTOK tokens in the account you deployed the contract with:
+From here, you can deploy new contracts to your forked instance of the demo EVM network (or any other Tanssi-powered EVM network) or interact with contracts already deployed. Building off of the previous example in this guide, you can make a call using Cast to check the balance of the minted MYTOK tokens in the account you deployed the contract with:
 
 ```bash
 cast call INSERT_CONTRACT_ADDRESS  "balanceOf(address)(uint256)" \
@@ -310,7 +310,7 @@ You can even fork networks while using Chisel:
 !fork https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
 ```
 
-Then, for example, you can query the balance of the Alice account on the demo EVM appchain:  
+Then, for example, you can query the balance of the Alice account on the demo EVM network:  
 
 ```text
 0x44236223aB4291b93EEd10E4B511B37a398DEE55.balance
@@ -374,6 +374,6 @@ npm run test
 
 Finally, while not necessary, it could be worthwhile to move all JavaScript scripts from the `scripts` folder into Foundry's `script` folder and delete the `scripts` folder so that you don't have two folders that serve the same purpose.
 
-Congratulations, you have successfully deployed and interacted with smart contracts on your Tanssi EVM appchain using Foundry! For more information, be sure to check out the [Foundry Book](https://book.getfoundry.sh){target=\_blank}.
+Congratulations, you have successfully deployed and interacted with smart contracts on your Tanssi EVM network using Foundry! For more information, be sure to check out the [Foundry Book](https://book.getfoundry.sh){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
