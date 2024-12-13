@@ -1,6 +1,7 @@
 ---
 title: Substrate Wallets
 description: Learn how to interact with your Tanssi Substrate appchain through the Substrate API, including configuring wallets, adding RPC Urls, and sending funds.
+icon: material-wallet-outline
 template: index-page.html
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: How to use Chopsticks to Fork Your Appchain
 description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi appchain.
+icon: material-dev-to
 ---
 
 # How to Use Chopsticks to Fork Your Appchain
