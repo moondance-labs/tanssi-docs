@@ -2,5 +2,5 @@ title: Onboarding
 hide: false
 nav:
   - index.md
-  - run-a-block-producer
+  - run-a-sequencers
   - 'Set Up Your Account': 'account-setup.md'
