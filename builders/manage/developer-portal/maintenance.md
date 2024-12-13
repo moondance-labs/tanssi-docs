@@ -1,6 +1,7 @@
 ---
 title: Enabling Maintenance Mode 
 description: Learn how to use Sudo to turn on and off maintenance mode, which effectively pauses your appchain while still producing blocks and allowing select calls.
+icon: material-pause
 ---
 
 # Enabling Maintenance Mode
