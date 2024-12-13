@@ -1,6 +1,7 @@
 ---
 title: Oracles
 description: Learn how to integrate specialized tools like decentralized price feed Oracles to provide asset price feeds to builders and users of your Tanssi appchain.
+icon: material-eye-outline
 template: index-page.html
 ---
 
