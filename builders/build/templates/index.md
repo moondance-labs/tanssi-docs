@@ -1,6 +1,7 @@
 ---
 title: Appchain Templates
 description: Learn more about the baseline appchain Templates (EVM and non-EVM) that support Tanssi out of the box to help you kickstart your network development.
+icon: material-card-plus
 template: index-page.html
 ---
 

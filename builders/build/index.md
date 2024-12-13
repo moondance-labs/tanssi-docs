@@ -1,6 +1,7 @@
 ---
 title: Build Your Network
 description: Install the software to compile your Tanssi-powered network, configure genesis state and core functions, test locally, and prepare for deployment.
+icon: material-widgets-outline
 template: index-page.html
 ---
 

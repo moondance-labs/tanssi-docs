@@ -1,6 +1,7 @@
 ---
 title: Templates
 description: Tanssi includes templates to kick-start the development of an appchain offering options such as a basic one and another featuring full EVM (Ethereum) support.
+icon: octicons-home-24
 ---
 
 # Templates Overview {: #templates-overview }
