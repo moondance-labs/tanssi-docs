@@ -1,6 +1,7 @@
 ---
 title: Network Essentials
 description: Discover everything you need to know about the different networks in the Tanssi ecosystem and get started developing and interacting with each of them.
+icon: octicons-star-24
 template: index-page.html
 ---
 
