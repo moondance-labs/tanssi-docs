@@ -1,6 +1,7 @@
 ---
 title: Customizing Chain Specifications
 description: Review the sections and attributes of a chain specification file and how to obtain it for launching your Tanssi-powered network with a customized specification.
+icon: material-dots-horizontal
 ---
 
 # Customizing Chain Specifications {: #customizing-chain-specifications }

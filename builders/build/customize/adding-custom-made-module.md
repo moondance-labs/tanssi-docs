@@ -1,6 +1,7 @@
 ---
 title: Adding a Custom-Made Module
 description: Discover how to incorporate custom-made modules to add unique or specialized features to your network that go beyond the capabilities of the built-in modules.
+icon: material-puzzle-plus
 ---
 
 # Adding a Custom-Made Module {: #adding-custom-made-module }

@@ -1,6 +1,7 @@
 ---
 title: Customize Your Tanssi-Powered Network
 description: Set up your local environment and start using the templates to build your network with Substrate, a powerful and modular blockchain framework based in Rust.
+icon: octicons-code-24
 template: index-page.html
 ---
 
