@@ -6,77 +6,29 @@ template: index-page.html
 
 # Using the Developer Portal
 
-The Developer Portal empowers you to efficiently manage your appchain's operations, security, and customization. With intuitive tools at your disposal, you can ensure smooth management and tailor your appchain to meet your project's unique requirements.
+The developer portal empowers you to efficiently manage your appchain's operations, security, and customization. With intuitive tools at your disposal, you can ensure smooth management and tailor your appchain to meet your project's unique requirements.
 
+## How to Connect to the Developer Portal
 
-## General Appchain Administration
+Before getting started, you need to retrieve your network's WS URL. This information is available on your network's **Dashboard** in the Tanssi dApp underneath the **Properties** section.
 
-Perform these core actions to efficiently manage your appchain operations
+![Retrieve your WS URL from the Tanssi dashboard](/images/builders/manage/developer-portal/index-1.webp)
 
-<div class="grid cards" markdown>
+Now you're ready to connect your appchain to the developer portal. Navigate to [Polkadot.js Apps](https://polkadot.js.org/apps/){target=\_blank} and click on the chain information in the top left corner to switch to your network.
 
--   :material-clock-fast:{ .lg .middle } __Manage The Sudo Account__
+![Retrieve your WS URL from the Tanssi dashboard](/images/builders/manage/developer-portal/index-2.webp)
 
-    ---
-    
-    Oversee the Sudo account, the superuser role that allows privileged operations on your appchain.
+To configure your network, take these steps:
 
-    [View and Change Sudo Access](sudo.md)
+1. Scroll down the left-side menu til you see **Development**. Click on that to expand the options
+2. Click on **Local Node**
+3. Enter in your RPC URL in the **custom endpoint** input field
+4. Click the save button. The portal will reload and you should be connected to your network
 
--   :material-clock-fast:{ .lg .middle } __Dispatch Runtime Upgrades__
+![](/images/builders/manage/developer-portal/index-3.webp)
 
-    ---
-    
-    Keep your appchain secure and up-to-date by implementing runtime upgrades.
+Now that you have your network loaded on the developer portal, you can dive into the following guides to start managing your network.
 
-    [Upgrade Your Runtime](upgrade.md)    
+## Explore What This Section Covers
 
--   :material-clock-fast:{ .lg .middle } __Mint Tokens__
-
-    ---
-    
-    Manage your appchain’s token supply by minting additional tokens securely and efficiently.
-
-    [Mint New Native Tokens](minting.md)
-
-</div>
-
-## Security
-
-Easily manage your appchain’s security with tools designed to provide full control and protect critical operations
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Smart EVM - Whitelist Contract Deployments__
-
-    ---
-    
-    Control which deployers can operate on your EVM appchain.
-
-    [Manage Contract Deployment Permissions](smart-contracts-creation-filter.md)
-
--   :material-clock-fast:{ .lg .middle } __Pause Transactions__
-
-    ---
-    
-    Temporarily halt transactions during emergencies.
-
-    [Temporarily Halt Transactions](pause-transactions.md)    
-
--   :material-clock-fast:{ .lg .middle } __Impersonate Accounts__
-
-    ---
-    
-    Simulate transactions for testing and administrative tasks.
-
-    [Simulate Account Actions](impersonate.md)
-
--   :material-clock-fast:{ .lg .middle } __Enable Maintenance Mode__
-
-    ---
-    
-    Pause regular operations while keeping critical functions active during maintenance.
-
-    [Activate Maintenance Mode](maintenance.md)
-
-</div>
+:::INSERT_GENERATED_CARDS:::

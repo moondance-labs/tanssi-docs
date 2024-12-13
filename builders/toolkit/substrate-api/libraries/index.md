@@ -4,33 +4,18 @@ description: Learn how to use Substrate libraries such as the Polkadot.js API to
 template: index-page.html
 ---
 
-
 # Libraries
 
-Libraries are reusable pieces of code designed to simplify complex programming tasks. In blockchain development, libraries enable developers to interact with networks more efficiently, reducing development time and increasing reliability.
+As Tanssi and Tanssi-powered networks are built on Substrate, developers can utilize libraries tailored to the Substrate API to tap into the network’s distinctive features.
 
-Main Benefits of Development Libraries:
+These libraries streamline the interaction with Substrate’s modular architecture, helping you navigate the complexities of custom modules with ease and accelerate your development process.
 
-- **Efficiency:** Accelerate development by utilizing pre-built functions and modules.
-- **Reliability:** Leverage well-tested code to minimize errors and enhance security.
-- **Interoperability:** Ensure seamless integration with tools and platforms in Substrate-based environments
+Some key capabilities of working with libraries include:
 
-<div class="grid cards" markdown>
+- **Transaction management** - build and sign transactions for submitting extrinsics (state changes) to the blockchain
+- **Interaction with custom modules** - invoke a module's exposed functions, to query chain data or trigger state changes
+- **Account management** - create cryptographic key pairs for signing transactions and manage on-chain account information such as balances
 
--   :material-clock-fast:{ .lg .middle } __Polkadot.js API__
+## Explore What This Section Covers
 
-    ---
-    
-    Interact with your Tanssi appchain using the Polkadot.js API. Learn how to query on-chain data and send extrinsics effortlessly with the Substrate API.
-    
-    [Explore Polkadot.js API](polkadot-js-api.md)  
-
--   :material-clock-fast:{ .lg .middle } __Sidecar API__
-
-    ---
-    
-    Easily query blocks, account balances, gas usage, and more on your Tanssi appchain using the Substrate API Sidecar, a streamlined RESTful service for on-chain data access.
-    
-    [Explore Sidecar API](sidecar-api.md)  
- 
-</div>
+:::INSERT_GENERATED_CARDS:::

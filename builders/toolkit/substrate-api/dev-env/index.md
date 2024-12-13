@@ -6,24 +6,15 @@ template: index-page.html
 
 # Set Up Your Workspace
 
-Establishing an effective development environment is essential for building, testing, and deploying custom blockchains with Substrate. A development environment provides the necessary tools and frameworks to:
+Building on Substrate involves working with a flexible, modular blockchain framework. Unlike traditional blockchains, Substrate’s pallet-based architecture allows developers to create custom blockchains and integrate specialized features, which requires a development environment tailored to its complexities.
 
-- Develop runtime logic with Substrate’s modular framework.
-- Test and debug locally using tools like Chopsticks.
-- Manage dependencies and automate workflows for faster deployments.
+In this section, you'll explore tools and techniques that can help you achieve the following with a Substrate development environment:
 
-### **Using Chopsticks**
+**Local environment setup** - spin up a test environment without dealing with the complexity of configuring a Substrate node manually
+**Network interaction** - connect to and interact with Tanssi and Tanssi-powered networks
+**Transaction simulation** - test and simulate transactions on forked networks to evaluate changes before deploying
+**Debugging** - use debugging tools to troubleshoot and analyze transaction flow, state transitions, and more in a controlled environment
 
-Chopsticks is a developer-friendly tool designed to enhance the development process for Substrate-based blockchains. It allows developers to locally fork existing chains, replay blocks to examine how transactions affect the state, and test custom blockchain configurations in a local environment without deploying a live network
+## Explore What This Section Covers
 
-<div class="grid cards" markdown>
-
- -   :material-clock-fast:{ .lg .middle } __Chopsticks__
-
-    ---
-    
-     Learn how to use Chopsticks with this guide.
-    
-    [Explore Chopsticks](chopsticks.md)
-
-</div>
+:::INSERT_GENERATED_CARDS:::

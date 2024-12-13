@@ -4,58 +4,16 @@ description: Learn how to interact with your Tanssi EVM-compatible appchain thro
 template: index-page.html
 ---
 
-# Set Up Your Workspace
+# Development Environments
 
-Establishing an effective development environment is crucial for building, testing, and deploying smart contracts efficiently. A development environment provides the necessary tools and frameworks to:
+Establishing an effective development environment is crucial for building, testing, and deploying smart contracts efficiently. Development environments simplify the process of building blockchain applications by abstracting away many of the underlying complexities involved in interacting with blockchain networks. They provide the necessary tools and frameworks to:
 
-- Write and compile smart contracts using standardized languages.
-- Simulate blockchain interactions locally for testing and debugging.
-- Manage dependencies and automate workflows for faster deployments.
+- Write, compile, test, and deploy Solidity smart contracts
+- Simulate blockchain interactions locally for testing and debugging
+- Automate workflows for faster deployments
 
-### Advanced Development Environments
+Each development environment helps you achieve the same goal—building and deploying blockchain applications—but they do so in unique ways. For instance, browser-based IDEs like Remix provide a fast and accessible way to start coding, while tools like Foundry and Hardhat cater to developers who prefer specific workflows, such as a Solidity-first or JavaScript-integrated approach. Choose the one that aligns best with your needs and development style.
 
-These tools offer powerful capabilities for developers who need advanced features and greater control over their appchain development processes.
+## Explore What This Section Covers
 
-<div class="grid cards" markdown>
-
- -   :material-clock-fast:{ .lg .middle } __Foundry__
-
-    ---
-    
-    A lightweight and efficient framework designed for compiling, testing, and deploying Solidity contracts.
-    
-    [Deploy With Foundry](foundry.md)  
-
- -   :material-clock-fast:{ .lg .middle } __Hardhat__
-
-    ---
-    
-    A robust Ethereum development environment for managing and deploying smart contracts with advanced features.
-    
-    [Deploy With Hardhat](hardhat.md)  
-
-</div>
-
-### Beginner-Friendly Development Environments
-
-Designed for ease of use, these tools simplify the process of building, testing, and deploying smart contracts, making them great for developers of all experience levels.
-
-<div class="grid cards" markdown>
-
- -   :material-clock-fast:{ .lg .middle } __Remix__
-
-    ---
-    
-    Use Remix IDE, a popular Ethereum development tool, to build, compile, and deploy smart contracts
-    
-    [Try Remix](remix.md)  
-
- -   :material-clock-fast:{ .lg .middle } __Thirdweb__
-
-    ---
-    
-    A versatile platform to build, test, and deploy dApps using ready-made smart contract templates.
-    
-    [Try Thirdweb](thirdweb.md)  
-
-</div>
+:::INSERT_GENERATED_CARDS:::

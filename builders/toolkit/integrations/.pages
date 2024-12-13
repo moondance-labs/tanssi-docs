@@ -2,7 +2,7 @@ title: Integrations
 hide: false
 nav:
   - index.md
-  - oracles
   - indexers
+  - oracles
   - wallet-integrations
   

@@ -6,24 +6,15 @@ template: index-page.html
 
 # Wallets Integrations
 
-Explore integrations that can easily extend the functionality of your Tanssi EVM or non-EVM appchains.
+Wallet integrations are essential for enabling user interactions with decentralized applications (dApps) by allowing users to securely manage their digital assets, sign transactions, and authenticate their identity. These integrations provide developers with the tools to build applications that can interact with users’ wallets, facilitating blockchain transactions and interactions in a user-friendly manner.
 
-### **RainbowKit**
+Main features of wallet integraions include:
 
-RainbowKit is a React library that makes it easy to add wallet connections to your dApp. It provides an intuitive, responsive, and customizable interface that supports several Ethereum wallets.
+- **Multi-wallet support** - out-of-the-box support for multiple wallet providers, reducing the need for custom integration
+- **Improved user experience** - users can easily connect using their preferred wallet via an intuitive user interface
+- **Pre-built UI components** - ready-to-use UI components for  wallet connection, account display, and balance management, streamlining development
+- **Customization** - customize the wallet modal's appearance and behavior to match your branding and user interface design
 
-- **User-friendly UI/UX:** RainbowKit offers a simple and intuitive user interface, making it easy for users to connect their Ethereum wallets to dApps.
-- **Multi-Wallet Support:** It supports a wide range of Ethereum wallets, including MetaMask and others.
-- **Customization:** Developers can customize the appearance and behavior of the wallet modal to match the branding and design of the dApp.
+## Explore What This Section Covers
 
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Integrate RainbowKit__
-
-    ---
-    
-    Follow this simple step-by-step guide to integrate RainbowKit into your wallet and customize the experience to your liking.
-    
-    [Integrate RainbowKit](rainbowkit.md)  
-
-</div>
+:::INSERT_GENERATED_CARDS:::

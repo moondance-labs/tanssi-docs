@@ -4,70 +4,18 @@ description: Learn how to interact with your Tanssi appchain through the Substra
 template: index-page.html
 ---
 
-# Non-EVM Tools
+# Substrate Tools
 
-Unlock the full potential of your Tanssi appchain with Substrate-specific tools. From development to deployment, leverage resources like Polkadot.js API, Sidecar API, and Chopsticks to build and interact with your appchain efficiently.
+When developing on Tanssi or any Tanssi-powered network, it's important to understand the underlying infrastructure that drives these chains. Built on top of the Substrate framework, these networks offer a robust and flexible foundation for building decentralized applications and services. Interacting with the Substrate API is key to engaging with the blockchain's core functionalities.
 
-# Set Up Your Workspace
+Whether you're building decentralized applications (dApps), deploying smart contracts, or querying blockchain data, having the right tools and workflows to interact with this API will help you streamline development and ensure seamless integration with the network.
 
-Optimize your workspace with Substrate-based tools for development on Tansi Appchains.
+Ready to dive in? Check out some of the following tools:
 
-<div class="grid cards" markdown>
+- **Development environments** - [Chopsticks](/builders/toolkit/substrate-api/dev-env/chopsticks/)
+- **Libraries** - [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/) and [Sidecar REST API](/builders/toolkit/substrate-api/libraries/sidecar-api/)
+- **Wallets** - [SubWallet](/builders/toolkit/ethereum-api/wallets/subwallet/), and [Talisman](/builders/toolkit/ethereum-api/wallets/talisman/)
 
--   :material-clock-fast:{ .lg .middle } __Chopsticks__
+## Explore What This Section Covers
 
-    ---
-    
-    Master the basics of Chopsticks to replay blocks, explore state changes, and set up a local fork of your Tanssi appchain.
-    
-    [Explore Chopsticks](dev-env/chopsticks.md)  
- 
-</div>
-
-# Libraries
-
-Utilize libraries such as Polkadot.js API and Sidecar API to query on-chain data, send extrinsics, and interact with your Tanssi appchain. These tools provide the foundation for seamless integration and enhanced functionality.
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Polkadot.js API__
-
-    ---
-    
-    Interact with your Tanssi appchain using the Polkadot.js API. Learn how to query on-chain data and send extrinsics effortlessly with the Substrate API.
-    
-    [Explore Polkadot.js API](libraries/polkadot-js-api.md)  
-
--   :material-clock-fast:{ .lg .middle } __Sidecar API__
-
-    ---
-    
-    Easily query blocks, account balances, gas usage, and more on your Tanssi appchain using the Substrate API Sidecar, a streamlined RESTful service for on-chain data access.
-    
-    [Explore Sidecar API](libraries/sidecar-api.md)  
- 
-</div>
-
-# Wallets
-
-Explore wallets built for Substrate-based networks. Securely manage assets and easily connect to your Tanssi appchain for smooth ecosystem interaction.
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Talisman__
-
-    ---
-    
-    Discover how to connect Talisman, a versatile wallet for Polkadot, Substrate, and Ethereum, to your Tanssi Substrate appchain.
-    
-    [Use Talisman](wallets/talisman.md)
-    
--   :material-clock-fast:{ .lg .middle } __SubWallet__
-
-    ---
-    
-    Learn how to connect SubWallet, an all-in-one wallet for Polkadot, Substrate, and Ethereum networks, to your Tanssi Substrate appchain.
-    
-    [Connect SubWallet](wallets/subwallet.md)  
- 
-</div>
+:::INSERT_GENERATED_CARDS:::

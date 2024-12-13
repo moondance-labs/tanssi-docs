@@ -8,12 +8,11 @@ template: index-page.html
 
 Precompiles are built-in blockchain modules designed to handle specific tasks more efficiently than standard smart contracts. These modules are pre-deployed at fixed addresses and provide optimized solutions for operations like cryptographic functions, transaction batching, and token management.
 
-They simplify development by offering advanced blockchain functionality through familiar Ethereum interfaces. This approach allows developers to perform complex operations without needing deep knowledge of the underlying blockchain mechanics, making precompiles a powerful tool for improving efficiency and enhancing performance.
+Since Tanssi-powered networks are Substrate-based, precompiled contracts can support both Ethereum-compatible functions and operations specific to the underlying Substrate chain. This dual approach ensures that developers can interact with familiar Ethereum tools while also taking advantage of the unique performance and flexibility offered by Substrate.
 
-## Flow Of Interacting With The Precompiles
- 
- The flow below illustrates how user requests pass through the Ethereum interface, interact with precompiles, and ultimately access Substrate functionality, simplifying complex operations for seamless integration.
+## Flow of Interacting with Precompiles
 
+The flow below illustrates how user requests pass through the Ethereum interface, interact with precompiles, and ultimately access Substrate functionality, simplifying complex operations for seamless integration.
 
 ```mermaid
 graph LR
@@ -23,71 +22,35 @@ graph LR
     C[Precompile]
     D[Substrate Interface]
 
-    
-    A -->|Interacts 
-    through| B
-    B -->|Call| C
-    C -->|To 
-    access| D
+    A -->|Interacts through| B
+    B -->|Calls| C
+    C -->|Accesses| D
 
-    %%  node style
-    style A fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-    style B fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-    style C fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-    style D fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+    %% Node styling
+    style A fill:#1e1e1e,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+    style B fill:#2a2a2a,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+    style C fill:#3a3a3a,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+    style D fill:#4a4a4a,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
 
-    %% arrow style
-    linkStyle default stroke-width:2px,stroke:#4ecdc4
+    %% Arrow styling
+    linkStyle default stroke-width:2px,stroke:#4ecdc4,stroke-dasharray: 5, 5
+
+    %% Optional: Add a note or description
+    classDef note fill:#1a1a1a,stroke:#4ecdc4,stroke-width:1px;
+    class A,B,C,D note
 ```
 
+## Precompile Addresses Quick Reference
 
-## Quick Reference
+| Precompile          | Address                                                      |
+|---------------------|--------------------------------------------------------------|
+| Native Token ERC-20 | <pre>```0x0000000000000000000000000000000000000800```</pre>  |
+| Call Permit         | <pre>````0x0000000000000000000000000000000000000802```</pre> |
+| Proxy               | <pre>```0x0000000000000000000000000000000000000805```</pre>  |
+| Batch Transactions  | <pre>```0x0000000000000000000000000000000000000801```</pre>  |
 
-If you already know the precompile you need, just copy it from this box. But if you need more information about them and a step-by-step guide below you will find our documents with detailed information about them and how to use them.
+To find out more about each precompile, check out the guides listed in the following section.
 
-| Precompile               | Address                              |
-|--------------------------|--------------------------------------|
-| Native Token ERC-20      | `0x0000000000000000000000000000000000000800` |
-| Call Permit              | `0x0000000000000000000000000000000000000802` |
-| Proxy                    | `0x0000000000000000000000000000000000000805` |
-| Batch Transactions       | `0x0000000000000000000000000000000000000801` |
+## Explore What This Section Covers
 
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Native Token ERC-20 Precompile__
-
-    ---
-    
-    Handle and integrate your appchain’s native token using the ERC-20 interface, ensuring compatibility with Ethereum tools and wallets.
-    
-    [Manage ERC-20 Tokens](external-assets-erc20.md)
-
-
- -  :material-clock-fast:{ .lg .middle } __Call Permit__
-
-    ---
-    
-    Enable gasless transactions via signed EVM calls for an improved user experience.
-    
-    [Call Permit](call-permit.md)      
-
-
- -   :material-clock-fast:{ .lg .middle } __Proxy__
-
-    ---
-    
-    Securely delegate transactions through managed proxy accounts.
-
-    
-    [Proxy](proxy.md)      
-
--   :material-clock-fast:{ .lg .middle } __Batch Transactions__
-
-    ---
-    
-    Combine multiple transfers and contract interactions into a single, efficient transaction.
-    
-    [Use Batch Transactions](batch.md)  
-
-</div>
+:::INSERT_GENERATED_CARDS:::

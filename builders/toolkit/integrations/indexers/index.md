@@ -6,34 +6,15 @@ template: index-page.html
 
 # Indexers 
 
-Indexers enable efficient ingestion, processing, and querying of blockchain data, providing developers with powerful tools to create responsive and data-rich applications on Tanssi EVM and Non-EVM appchains.
+Indexers enable efficient ingestion, processing, and querying of blockchain data, providing developers with powerful tools to create responsive and data-rich applications on Tanssi-powered networks.
 
-### Main Features:
+Main features of indexers include:
 
-- Efficiently ingest and process on-chain data for your appchain.
-- Transform raw blockchain data into developer-friendly formats.
-- Query data seamlessly using powerful APIs.
+- **Improved data acess speed** - faster querying of on-chain data by organizing and indexing it, enabling quicker retrieval times
+- **Data aggregation** - ingest and transform data that is easier to query and work with large amounts of data
+- **Enhanced querying capabilities** - use sophisticatd querying methods, such as filtering, sorting, and pagination
+- **Real-time data updates** - synchronization with the blockchain enables applications to access the latest information as soon as its available
 
-## Subsquid
+## Explore What This Section Covers
 
-Subsquid is a flexible framework for indexing and querying blockchain data. It simplifies the process of extracting, transforming, and delivering data, making it easier to build responsive applications.
-
-<div class="grid cards" markdown>
-
--   :material-clock-fast:{ .lg .middle } __Quickstart__
-
-    ---
-    
-    Learn how to set up and use SubSquid to index and process blockchain data.
-    
-    [Quickstart](subsquid/quick-start.md)  
-
--   :material-clock-fast:{ .lg .middle } __Index ERC-20__
-
-    ---
-    
-    Access reliable token price data through a decentralized oracle network.
-    
-    [Index ERC-20](subsquid/erc20-transfers.md) 
-
-</div>
+:::INSERT_GENERATED_CARDS:::

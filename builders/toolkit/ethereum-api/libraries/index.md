@@ -6,48 +6,16 @@ template: index-page.html
 
 # Libraries
 
-Libraries are reusable pieces of code designed to simplify complex programming tasks. In blockchain development, they are particularly useful for abstracting away the difficulties of working with decentralized networks. By leveraging libraries, developers can interact with the Ethereum network more efficiently, focusing on business logic rather than low-level implementation details.
+Libraries are essential tools for interacting with blockchain networks. They provide pre-built functions and abstractions that simplify tasks like reading and writing chain data. These libraries eliminate the need to handle raw blockchain requests, making it easier for developers to build and deploy decentralized applications while ensuring compatibility with Ethereum and other EVM-compatible networks.
 
-What You Can Achieve with Libraries
+Some key capabilities of working with libraries include:
 
-- **Interact with Smart Contracts:** Simplify calling contract functions, handling responses, and managing events.
-- **Connect User Wallets:** Facilitate secure wallet integrations for user authentication and transaction signing.
-- **Decode Blockchain Data:** Easily parse and interpret complex data structures returned by smart contracts.
-- **Manage Transactions:** Create, sign, and broadcast transactions while abstracting network-level details.
-- **Monitor Blockchain Events:** Listen to events emitted by contracts and trigger specific application actions.
+- **Transaction management** - create, sign, and broadcast transactions
+- **Smart contract interactions** - simplify calling contract functions, decoding responses, and handling contract events
+- **Wallet integration** - facilitate secure wallet integrations for transacting with the network
+- **Blockchain data parsing** - decode and interpret complex data structures returned by smart contracts
+- **Event monitoring** - listen to events emitted by contracts and trigger specific application actions
 
-<div class="grid cards" markdown>
+## Explore What This Section Covers
 
--   :material-clock-fast:{ .lg .middle } __Ether.js__
-
-    ---
-    
-    Send transactions and deploy Solidity contracts effortlessly using this widely-used JavaScript library.
-    
-    [Ether.js](ethersjs.md)
-
--   :material-clock-fast:{ .lg .middle } __Viem__
-
-    ---
-    
-    Manage smart contracts with ease using this modern TypeScript interface.
-    
-    [Viem](viem.md)
-
--   :material-clock-fast:{ .lg .middle } __Web3.js__
-
-    ---
-    
-    Leverage robust tools to interact seamlessly with your Tanssi appchain.
-    
-    [Web3.js](web3js.md)
-
--   :material-clock-fast:{ .lg .middle } __Web3.py__
-
-    ---
-    
-    Simplify Ethereum API interactions with this Python-based library for efficient development.
-    
-    [Web3.py](web3py.md)
-
-</div>
+:::INSERT_GENERATED_CARDS:::
