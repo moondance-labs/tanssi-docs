@@ -105,7 +105,7 @@ Now, you can open the file using your favorite text editor (vim, emacs, nano, et
 Note that the `ExecStart` command  has some parameters that need to be changed to match your specific network:
 
 - `Specification file` - replace `YOUR_NETWORK_SPECS_FILE_LOCATION` with your network's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/network-data/YOUR_FILENAME.json`, e.g., `/var/lib/network-data/spec-raw.json`
---8<-- 'text/node-operators/network-node/bootnode-item.md'
+--8<-- 'text/node-operators/appchain-node/bootnode-item.md'
 
 === "EVM-Compatible Network"
 
@@ -268,7 +268,7 @@ You can verify that the service is up and running correctly running:
 systemctl status network.service
 ```
 
---8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
+--8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/check-status.md'
 
 And check the logs, if needed, with the following command:
 

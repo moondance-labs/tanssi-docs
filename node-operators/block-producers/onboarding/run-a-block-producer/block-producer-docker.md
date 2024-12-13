@@ -116,7 +116,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
---8<-- 'text/node-operators/network-node/run-flags.md'
+--8<-- 'text/node-operators/appchain-node/run-flags.md'
 
 ```bash
 docker run -ti moondancelabs/tanssi --help
