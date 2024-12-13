@@ -72,7 +72,7 @@ Among many other responsibilities, the relay chain validates and finalizes the b
 
 As mentioned, the Tanssi network and the networks are sibling chains with no hierarchical dependency. They communicate via the relay chain, and therefore, the relay chain plays a key role in the protocol.
 
-The block producers that Tanssi assigns to serve the different networks also run a Tanssi node, hence, by accessing the data stored in the finalized blocks of the relay chain and cross-referencing headers, they can learn their assignation for the session, the Tanssi networks can confirm that a certain group of block producers from Tanssi has been assigned to them, and Tanssi can verify that the author of an network block was the expected one and reward accordingly.
+The block producers that Tanssi assigns to serve the different networks also run a Tanssi node, hence, by accessing the data stored in the finalized blocks of the relay chain and cross-referencing headers, they can learn their assignation for the session, the Tanssi networks can confirm that a certain group of block producers from Tanssi has been assigned to them, and Tanssi can verify that the author of a network block was the expected one and reward accordingly.
 
 The Tanssi protocol relies on the relay chain as a means to provide the necessary data to both, Tanssi and its networks, allowing them to collaborate and validate the correctness of the block production service.
 

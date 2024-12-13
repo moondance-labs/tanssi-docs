@@ -1,6 +1,6 @@
 ---
 title: Baseline Network Template
-description: The Tanssi repository includes a basic template that provides the necessary configuration to support the protocol and kick-start the development of an network.
+description: The Tanssi repository includes a basic template that provides the necessary configuration to support the protocol and kick-start the development of a network.
 ---
 
 # Baseline Network Template {: #baseline-network-template }

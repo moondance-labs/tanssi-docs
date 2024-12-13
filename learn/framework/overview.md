@@ -7,7 +7,7 @@ description: Substrate is a blockchain development framework built in Rust Progr
 
 ## Introduction {: #introduction }
 
-Building an network from scratch is a very complex task that requires deep knowledge in a wide range of areas, including (but not limited to):
+Building a network from scratch is a very complex task that requires deep knowledge in a wide range of areas, including (but not limited to):
 
 - **Consensus Algorithms** - consensus ensures that all participants in the blockchain network agree on the validity of transactions. Some popular consensus mechanisms include Proof of Work (PoW) and Proof of Stake (PoS)
 

@@ -41,14 +41,14 @@ In summary, networks deployed through Tanssi are Layer 1 solutions designed to b
 
 As previously discussed, networks deployed through Tanssi are customizable blockchains which, among other features, have block production as a service and inherit block finality from the chosen security provider.
 
-A high-level overview of what an network looks like in the ecosystem is presented below, featuring [Symbiotic](https://symbiotic.fi/){target=\_blank} as the security provider.
+A high-level overview of what a network looks like in the ecosystem is presented below, featuring [Symbiotic](https://symbiotic.fi/){target=\_blank} as the security provider.
 
-![High-level overview of an network & Tanssi](/images/learn/tanssi/overview/dark-overview-1.webp#only-dark)
-![High-level overview of an network & Tanssi](/images/learn/tanssi/overview/light-overview-1.webp#only-light)
+![High-level overview of a network & Tanssi](/images/learn/tanssi/overview/dark-overview-1.webp#only-dark)
+![High-level overview of a network & Tanssi](/images/learn/tanssi/overview/light-overview-1.webp#only-light)
 
 The Tanssi protocol manages and orchestrates a decentralized set of sequencers assigned to provide block production services to Tanssi-powered networks. The sequencers execute transactions and include them in blocks, which the security provider's operators then proceed to validate. Symbiotic operators offer Ethereum-grade economic security through its restaking protocol. The mechanism of how this works is explained in a separate [technical overview of Tanssi](/learn/tanssi/technical-features/){target=\_blank}.
 
 While the sequencers providing block production services are rotated and reassigned to a different network upon every session change, each network will have its own set of Data Preservers running full archive nodes, ensuring data availability. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi networks.
 
-![Data Preservers of an network & Tanssi](/images/learn/tanssi/overview/dark-overview-2.webp#only-dark)
-![Data Preservers of an network & Tanssi](/images/learn/tanssi/overview/light-overview-2.webp#only-light)
+![Data Preservers of a network & Tanssi](/images/learn/tanssi/overview/dark-overview-2.webp#only-dark)
+![Data Preservers of a network & Tanssi](/images/learn/tanssi/overview/light-overview-2.webp#only-light)

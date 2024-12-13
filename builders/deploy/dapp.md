@@ -1,6 +1,6 @@
 ---
 title: Deploy Your Network via the DApp
-description: Learn how to spin up and deploy an network on Tanssi in minutes using the Tanssi dApp, a no-code solution for onboarding and launching decentralized networks.
+description: Learn how to spin up and deploy a network on Tanssi in minutes using the Tanssi dApp, a no-code solution for onboarding and launching decentralized networks.
 ---
 
 # Deploy your Network via the Tanssi DApp
