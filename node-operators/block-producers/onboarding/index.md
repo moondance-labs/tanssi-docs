@@ -1,6 +1,6 @@
 ---
-title: Onboard to Run a Block Producer Node
-description: Learn how to get started to run appchain block producer nodes (also known as sequencers or collators) using Docker or Systemd to participate in the protocol.
+title: Onboard to Run a Sequencer Node
+description: Learn how to get started to run appchain Sequencer (also known as producer nodes or collators) using Docker or Systemd to participate in the protocol.
 icon: simple-codeblocks
 template: index-page.html
 ---
