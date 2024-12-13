@@ -1,9 +1,7 @@
 ---
 title: Substrate Libraries
 description: Learn how to use Substrate libraries such as the Polkadot.js API to send transactions (extrinsics) and interact with an appchain's Substrate-layer.
-hide:
- - toc
- - feedback
+template: index-page.html
 ---
 
 

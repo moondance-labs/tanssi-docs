@@ -1,6 +1,6 @@
 ---
 title: Adding a Custom-Made Module
-description: Substrate is a modular blockchain framework that makes it easy to build unique and innovative appchains composing built-in modules with custom-made ones.
+description: Discover how to incorporate custom-made modules to add unique or specialized features to your network that go beyond the capabilities of the built-in modules.
 ---
 
 # Adding a Custom-Made Module {: #adding-custom-made-module }

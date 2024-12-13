@@ -1,6 +1,6 @@
 ---
 title: Adding Built-in Substrate Modules
-description: Substrate is a modular blockchain framework that includes many ready-to-use modules covering a wide range of common functionalities to include in your runtime.
+description: Learn how to leverage Substrate's pre-built, ready-to-use modules to efficiently add new features to your network without building from scratch.
 ---
 
 # Adding a Built-in Module {: #adding-builtin-module }

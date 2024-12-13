@@ -1,9 +1,7 @@
 ---
 title: Using the Developer Portal to Manage Your Appchain
 description: Learn how to use the developer portal to administer and manage your Appchain, including upgrading your chain's runtime, rotating the Sudo keys, and more.
-hide:
- - toc
- - feedback
+template: index-page.html
 ---
 
 # Using the Developer Portal

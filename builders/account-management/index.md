@@ -1,9 +1,7 @@
 ---
 title: Account Management
 description: Learn how to manage all account related activities such as the creation, maintenance, and removal of proxies and identities.
-hide:
- - toc
- - feedback
+template: index-page.html
 ---
 
 # Account Management

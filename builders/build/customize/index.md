@@ -1,61 +1,36 @@
 ---
-title: Customize Your Appchain
-description: Set up your local environment and start using the templates to build your appchain with Substrate, a powerful and modular blockchain framework based in Rust.
-hide:
- - toc
- - feedback
+title: Customize Your Tanssi-Powered Network
+description: Set up your local environment and start using the templates to build your network with Substrate, a powerful and modular blockchain framework based in Rust.
+template: index-page.html
 ---
 
-# Custom Appchain
+# Customize Your Tanssi-Powered Network
 
-Tailor your appchain to meet your application's unique requirements. This section offers comprehensive guidance on modifying and extending your appchain's functionality, ensuring it aligns perfectly with your project's goals. Explore detailed instructions and best practices to customize every aspect of your appchain effectively.
+Tailor your network to meet your application's unique requirements. This section provides guidance on modifying and extending your appchain's functionality, offering instructions and best practices to help align it with your project's goals.
 
-## Set Up Your Environment
+## Process for Customizing Your Network
 
-Before customizing your appchain, ensure your development environment is properly configured. This involves setting up essential tools and building the Tanssi template to ensure a smooth development process.
+The diagram below provides a simplified outline of the essential steps to get started with building and customizing your Tanssi-powered appchain.
 
-- Install Rust for compiling your appchain's code.
-- Use Git to clone and manage the Tanssi repository.
-- Set up the Rust toolchain to work with Substrate-based runtimes.
-- Build the Tanssi template to establish a solid development foundation.
+```mermaid
+flowchart LR
+    A[Install software prerequisites] --> B[Create and add modules]
+    B --> C[Customize and generate chain specs]
 
-!!! tip
-    Follow the steps in the [Prerequisites for Building an Appchain](prerequisites.md){: target="_blank"} guide to set up your environment.
+    style A fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+    style B fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
+    style C fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
 
+    %% arrow style
+    linkStyle default stroke-width:2px,stroke:#ccc
 
-<div class="grid cards" markdown>
+    %% add padding
+    class A,B,C node-padding;
+    classDef node-padding padding:10px;
+```
 
--   :material-clock-fast:{ .lg .middle } __Customize Your Appchain Modules__
+To proceed, check out the following section where you can find detailed, step-by-step guides for each of these stages.
 
-    ---
+## Explore What This Section Covers
 
-    Extend the capabilities of your appchain by integrating pre-built modules from Substrate's extensive library. 
-
-    [Add a Built-in Module](adding-built-in-module.md)
-
--   :fontawesome-brands-markdown:{ .lg .middle } __Adding an External Module__
-
-    ---
-
-    Incorporate third-party modules to expand your appchain's capabilities and ensure compatibility with external tools and services.
-
-    [Add an External Module](adding-external-module.md)
-
--   :material-format-font:{ .lg .middle } __Adding a Custom-Made Module__
-
-    ---
-
-    This guide offers a step-by-step approach to creating custom modules, using a real-world example to illustrate the process.
-
-    [Add a Custom-Made Module](adding-custom-made-module.md)
-
--   :material-scale-balance:{ .lg .middle } __Chain Specifications__
-
-    ---
-
-    The chain specification contains the initial parameters required for launching a new Tanssi appchain, including genesis state, token configuration, and more.
-
-    [Chain Specifications](customizing-chain-specs.md)
-
-</div>
-
+:::INSERT_GENERATED_CARDS:::

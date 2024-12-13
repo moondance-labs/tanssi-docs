@@ -1,9 +1,7 @@
 ---
 title: Using the Tanssi DApp to Manage Your Appchain
 description: Learn how to use the Tanssi dApp to manage your appchain, including paying for block production services, managing tokens, opening XCM channels, and more.
-hide:
- - toc
- - feedback
+template: index-page.html
 ---
 
 # Using the Tanssi dApp To Manage Your Appchain
