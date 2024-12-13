@@ -1,6 +1,7 @@
 ---
 title: Run an RPC Node Using Systemd
 description: Learn how to set up and run a Tanssi appchain node using Systemd, which allows you to have your own RPC endpoint to interact with your appchain.
+icon: simple-linux
 ---
 
 # Run an Appchain Node Using Systemd

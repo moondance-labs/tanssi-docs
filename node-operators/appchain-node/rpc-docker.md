@@ -1,6 +1,7 @@
 ---
 title: Run an RPC Node Using Docker
 description: Learn how to set up and run a Tanssi appchain node using Docker, which allows you to have your own RPC endpoint to interact with your appchain.
+icon: material-docker
 ---
 
 # Run an Appchain Node Using Docker

@@ -1,6 +1,7 @@
 ---
 title: Set Up a Block Producer Proxy Account
 description: Follow these step-by-step instructions to configure a proxy account to manage block producer activities on behalf of your primary block producer account.
+icon: material-human-greeting-proximity
 ---
 
 # Set Up a Proxy Account

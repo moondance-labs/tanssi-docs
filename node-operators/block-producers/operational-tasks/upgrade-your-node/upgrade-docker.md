@@ -1,6 +1,7 @@
 ---
 title: Upgrade Your Block Producer Docker Node
 description: Follow these instructions to update your Tanssi block producer node running via Systemd to the latest version of the Tanssi client software.
+icon: simple-docker
 ---
 
 # Upgrade Your Node Running via Docker
