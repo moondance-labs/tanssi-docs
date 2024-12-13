@@ -2,6 +2,7 @@
 title: Deploy Your Appchain
 description: Learn how to deploy your appchain to Tanssi as a snap appchain for short-term testing or as a dedicated Tanssi appchain for long-term testing.
 template: index-page.html
+icon: octicons-rocket-24
 ---
 
 # Deploy Your Appchain in Minutes
