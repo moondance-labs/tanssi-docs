@@ -9,7 +9,7 @@
  */
 
 const DESTINATION_CONTRACT = 'INSERT_CONTRACT_ADDRESS';
-const EVM_RPC_NODE = 'INSERT_APPCHAIN_RPC_URL';
+const EVM_RPC_NODE = 'INSERT_NETWORK_RPC_URL';
 
 httpGET(
   'https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT',

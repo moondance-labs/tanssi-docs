@@ -1,7 +1,7 @@
---chain=/chain-network/container-YOUR_APPCHAIN_ID-raw-specs.json \
+--chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
---bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
+--bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
 -- \
 --name=relay \
 --chain=/chain-network/relay-raw-no-bootnodes-specs.json \

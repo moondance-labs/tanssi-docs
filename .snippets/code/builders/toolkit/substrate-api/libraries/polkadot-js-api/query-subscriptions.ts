@@ -3,7 +3,7 @@ import { ApiPromise, WsProvider } from '@polkadot/api';
 
 const main = async () => {
   // Construct API provider
-  const wsProvider = new WsProvider('INSERT_APPCHAIN_WSS_ENDPOINT');
+  const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
   const api = await ApiPromise.create({ provider: wsProvider });
 
   // Retrieve the chain name

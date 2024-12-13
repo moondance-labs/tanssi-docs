@@ -51,7 +51,7 @@ In the terminal that Sidecar will run, export the environmental variable for the
 === "Your Network"
 
     ```bash
-    export SAS_SUBSTRATE_URL=INSERT_APPCHAIN_WSS_ENDPOINT
+    export SAS_SUBSTRATE_URL=INSERT_NETWORK_WSS_ENDPOINT
     ```
 
 After setting the environmental variable, you can use the `echo` command to check that the environmental variable has been set correctly, by typing:

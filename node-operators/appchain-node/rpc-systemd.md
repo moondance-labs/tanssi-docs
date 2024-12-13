@@ -104,7 +104,7 @@ Now, you can open the file using your favorite text editor (vim, emacs, nano, et
 
 Note that the `ExecStart` command  has some parameters that need to be changed to match your specific network:
 
-- `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your network's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/network-data/YOUR_FILENAME.json`, e.g., `/var/lib/network-data/spec-raw.json`
+- `Specification file` - replace `YOUR_NETWORK_SPECS_FILE_LOCATION` with your network's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/network-data/YOUR_FILENAME.json`, e.g., `/var/lib/network-data/spec-raw.json`
 --8<-- 'text/node-operators/network-node/bootnode-item.md'
 
 === "EVM-Compatible Network"
@@ -124,11 +124,11 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     SyslogFacility=local7
     KillSignal=SIGHUP
     ExecStart=/var/lib/network-data/container-chain-frontier-node \
-    --chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
+    --chain=YOUR_NETWORK_SPECS_FILE_LOCATION \
     --rpc-port=9944 \
     --name=para \
     --base-path=/var/lib/network-data \
-    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
+    --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
     -- \
     --chain=/var/lib/network-data/westend-alphanet-raw-specs.json \
     --rpc-port=9945 \
@@ -164,11 +164,11 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     SyslogFacility=local7
     KillSignal=SIGHUP
     ExecStart=/var/lib/network-data/container-chain-simple-node \
-    --chain=YOUR_APPCHAIN_SPECS_FILE_LOCATION \
+    --chain=YOUR_NETWORK_SPECS_FILE_LOCATION \
     --rpc-port=9944 \
     --name=para \
     --base-path=/var/lib/network-data \
-    --bootnodes=INSERT_YOUR_APPCHAIN_BOOTNODE \
+    --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
     -- \
     --chain=/var/lib/network-data/westend-alphanet-raw-specs.json \
     --rpc-port=9945 \
