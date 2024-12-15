@@ -3,6 +3,7 @@ hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
-  - 'Block Production Services': 'technical-features.md'
+  - 'appchain-services'
+  - 'external-security-providers'
   - 'Included Templates': 'included-templates.md'
   - 'network-features'
