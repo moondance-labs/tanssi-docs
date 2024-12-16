@@ -221,11 +221,11 @@ To reserve your Tanssi network ID, you'll need to submit a transaction. Please m
 1. To initiate the transaction, click on **Reserve Appchain ID**
 2. Your wallet will pop up, and you'll need to submit the transaction
 
-![Reserve your Tanssi Network ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-9.webp)
+![Reserve your Tanssi-powered Network ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-9.webp)
 
 Once the transaction has successfully gone through, your Tanssi network ID will be displayed on the dApp, and you'll be able to click **Continue** to proceed to the next step. You'll notice that on your Alphanet relay chain account, 20 TANGO tokens have been removed from your transferrable balance and are now reserved.
 
-![Successfully reserved your Tanssi Network ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-10.webp)
+![Successfully reserved your Tanssi-powered Network ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-10.webp)
 
 ## Generate Your Network Files {: #generate-network-files }
 
@@ -237,7 +237,7 @@ Before you can deploy your Tanssi network, you'll need to generate four configur
 
 These files will automatically be generated for you based on your Tanssi network ID and your customized template configurations. All you need to do is click **Generate**, and the dApp will generate the required files for you.
 
-![Generate your Tanssi network files with the click of a button on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-11.webp)
+![Generate your Tanssi-powered network files with the click of a button on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-11.webp)
 
 Once the files have been generated, please click **Continue** to go on to the final step.
 
@@ -250,7 +250,7 @@ To register your Tanssi network on the relay chain, take the following steps:
 1. Click **Register** under the **Register Appchain in Relay** section
 2. Confirm the transaction in your wallet
 
-![Register your Tanssi network on the relay chain.](/images/builders/deploy/dapp/dapp-12.webp)
+![Register your Tanssi-powered network on the relay chain.](/images/builders/deploy/dapp/dapp-12.webp)
 
 Once the transaction has gone through successfully, the dApp will update to show that you have successfully registered your Tanssi network under the **Register Appchain in Relay** section.
 
@@ -265,4 +265,4 @@ Once the transaction has gone through successfully, the dApp will update to show
 
 ![The network dashboard on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-14.webp)
 
-And that's it! You've successfully registered your Tanssi network! The launch process will automatically begin once the Tanssi team has verified your Tanssi network. Once your Tanssi network is live, you can return to the **Dashboard** to view the RPC URL and other pertinent chain information.
+And that's it! You've successfully registered your Tanssi network! The launch process will automatically begin once the Tanssi team has verified your network. Once your Tanssi network is live, you can return to the **Dashboard** to view the RPC URL and other pertinent chain information.

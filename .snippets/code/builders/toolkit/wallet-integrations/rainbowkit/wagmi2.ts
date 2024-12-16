@@ -19,7 +19,7 @@ export const demoEVMChain = {
 
 
 export const config = getDefaultConfig({
-  appName: 'My Tanssi Network',
+  appName: 'My Tanssi-powered Network',
   projectId: 'process.env.NEXT_PUBLIC_PROJECT_ID',
   chains: [demoEVMChain ], 
   ssr: true,

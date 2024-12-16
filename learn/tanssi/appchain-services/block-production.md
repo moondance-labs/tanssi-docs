@@ -88,7 +88,7 @@ When a new session starts, the Tanssi protocol will put the queued assignment in
 
 ### The Role of the Tanssi Network {: #tanssi-newtwork }
 
-As previously discussed, the Tanssi protocol assigns sequencers to the Tanssi appchains, and the result of this assignment is stored within the chain state.  Besides running the appchain node, the sequencers also run the Tanssi one. Hence, by accessing the data stored in the finalized blocks of the Tanssi network, they can learn their assignation for the session, and the Tanssi appchains can confirm that a certain group of sequencers have been assigned to them. 
+As previously discussed, the Tanssi protocol assigns sequencers to the Tanssi appchains, and the result of this assignment is stored within the chain state.  Besides running the appchain node, the sequencers also run the Tanssi one. Hence, by accessing the data stored in the finalized blocks of the Tanssi Network, they can learn their assignation for the session, and the Tanssi appchains can confirm that a certain group of sequencers have been assigned to them. 
 
 As the Tanssi appchains produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
 
@@ -100,11 +100,11 @@ The following diagram shows a simplified model of the data Tanssi stores in its 
 
 ### The Role of the Appchain {: #appchain }
 
-As a sequencer assigned to a Tanssi appchain includes built-in Tanssi node functionality, it is technically feasible to read the state from the Tanssi network.
+As a sequencer assigned to a Tanssi appchain includes built-in Tanssi node functionality, it is technically feasible to read the state from the Tanssi Network.
 
 Leveraging this ability to access the states, the current sequencer with the authority to produce a block will read the state of the latest block produced in the Tanssi chain. It will proceed to include this state in the block of the appchain, the current set of sequencers assigned to the appchain, and its public signature, allowing Tanssi to know who produced the block and reward the node operator.
 
-Once the block is filled with appchain transactions, it will be proposed as a candidate and handed over to the Tanssi chain, where the security provider's operators will ensure that the included state proofs match the state proofs from the latest state of Tanssi (preventing unauthorized block production) and that the transactions produced valid state transitions. Having verified the work of the sequencer, the operators will finalize the proposed block, including its candidate receipt in a Tanssi network block.
+Once the block is filled with appchain transactions, it will be proposed as a candidate and handed over to the Tanssi chain, where the security provider's operators will ensure that the included state proofs match the state proofs from the latest state of Tanssi (preventing unauthorized block production) and that the transactions produced valid state transitions. Having verified the work of the sequencer, the operators will finalize the proposed block, including its candidate receipt in a Tanssi Network block.
 
 ![Tanssi-powered network block](/images/learn/tanssi/appchain-services/block-production/block-production-3.webp)
 

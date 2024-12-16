@@ -65,7 +65,7 @@ With your [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank}
 
 ![Upgrading your Runtime on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-3.webp)
 
-You can verify that your runtime upgrade was successful by checking the runtime version in the upper left-hand corner. In this case, we can see that the Tanssi network's runtime was successfully upgraded to version `400`.
+You can verify that your runtime upgrade was successful by checking the runtime version in the upper left-hand corner. In this case, we can see that the Tanssi-powered network's runtime was successfully upgraded to version `400`.
 
 ![Check Runtime version on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-4.webp)
 

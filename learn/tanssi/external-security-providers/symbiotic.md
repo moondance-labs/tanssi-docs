@@ -89,9 +89,9 @@ Since operators opt-in to provide services to networks and the vault managers mu
 
 Developers launching appchains through Tanssi benefit from [block production services](/learn/tanssi/appchain-services/block-production/){target=\_blank}, data retrievability as a service, and the shared security model derived from every vault opting-in to support the Tanssi protocol. This eliminates the hurdle of dealing with infrastructural and security components developers would need to take on otherwise.
 
-Curators running vaults can apply to offer the restaked collaterals as economic security for the Tanssi network. Since Tanssi appchains run in a sandbox-like environment, and the Tanssi protocol manages all the appchains-related responsibilities, vault curators only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of appchains that are running through the Tanssi protocol at any given moment. 
+Curators running vaults can apply to offer the restaked collaterals as economic security for the Tanssi Network. Since Tanssi appchains run in a sandbox-like environment, and the Tanssi protocol manages all the appchains-related responsibilities, vault curators only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of appchains that are running through the Tanssi protocol at any given moment. 
 
-Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi network and, consequently, to every appchain deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi appchain is launched or decommissioned.
+Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi Network and, consequently, to every appchain deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi appchain is launched or decommissioned.
 
 !!! note
     The Tanssi protocol effectively abstracts the details of the active set of appchains away from vault managers and operators. Appchains particularities don't require any additional setup from operators nor pose risks to vault assets.
@@ -125,4 +125,4 @@ The Tanssi protocol also implements veto-slashing to penalize bad actors' misbeh
 When a veto-slashing event is triggered, the authorities designated as resolvers by the vault managers can accept or revert this action.
 
 !!! note
-    Slashing events can only be triggered by operators' misbehavings in the Tanssi network itself. Tanssi appchains, even if faulty or malicious, run in a sandboxed environment and can not cause slashing.
+    Slashing events can only be triggered by operators' misbehavings in the Tanssi Network itself. Tanssi appchains, even if faulty or malicious, run in a sandboxed environment and can not cause slashing.
