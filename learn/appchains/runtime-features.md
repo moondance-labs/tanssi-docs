@@ -1,7 +1,7 @@
 ---
 title: Core Runtime Features
 description: Learn about the core features of a Tanssi appchain, the transactions types, how they are executed and included in a block, and the forkless runtime upgrades
-icon: material-cube-outline
+icon: octicons-package-24
 ---
 
 # Core Runtime Features {: #core-runtime-features }

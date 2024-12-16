@@ -9,7 +9,7 @@ template: index-page.html
 
 Here, you'll find an overview of Tanssi’s core capabilities that support appchain development, covering everything from infrastructure and security to essential integrations.
 
-Key Features That Set Tanssi Apart:
+Key features that set Tanssi apart:
 
 - **Block production as a service** - tanssi’s incentivized block producers ensure reliable block creation and network liveness, removing the operational burden from developers
 - **Flexible security providers** - choose security solutions tailored to your appchain’s environment, such as Symbiotic for Ethereum-based chains, enabling shared security without sourcing economic guarantees

@@ -11,9 +11,9 @@ Building a blockchain from scratch is an intricate process that demands deep kno
 
 With Substrate’s modular architecture, you can modify runtime characteristics, integrate pre-built modules, or develop new ones based on your appchain’s specific needs. Tanssi provides the foundation you need to bring your blockchain vision to life.
 
-Key Features of the Framework:
+Key Features of the framework:
 
-- **Substrate core architecture** - divided into the *Core Client*, which manages external communications and internal responsibilities like storage, and the *Runtime*, which executes transactions and manages state transitions with customizable logic
+- **Substrate core architecture** - divided into the _core client_, which manages external communications and internal responsibilities like storage, and the _Runtime_, which executes transactions and manages state transitions with customizable logic
 - **End-User simplicity** - the internal workings of the framework are abstracted for end-users, ensuring seamless interaction through dApps or via RPC endpoints, such as those used by wallets
 - **Modular system design** - incorporate pre-built modules or create custom ones to meet specific needs
 - **Developer-centric flexibility** - focus on runtime characteristics and use case specifics, allowing you to create a blockchain tailored to your vision without unnecessary complexity.

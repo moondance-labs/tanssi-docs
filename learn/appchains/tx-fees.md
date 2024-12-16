@@ -1,7 +1,7 @@
 ---
 title: Transaction Fees
 description: Learn about the transaction fee mechanism in Tanssi appchains, how it works from a Substrate perspective, and in the Ethereum EVM emulation layer with EIP-1559.
-icon: material-bank-transfer
+icon: material-piggy-bank-outline 
 ---
 
 # Transaction Fees {: #transaction-fees }
