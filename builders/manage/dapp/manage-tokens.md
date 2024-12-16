@@ -1,7 +1,7 @@
 ---
 title: Manage Tokens
 description: Learn how the appchain governor can manage the token of a Tanssi-powered appchain using the dApp to mint them, configure the EIP-1559 fee market, and more.
-icon: material-sign-language
+icon: octicons-database-24
 ---
 
 # Manage Tokens

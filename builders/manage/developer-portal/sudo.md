@@ -1,7 +1,7 @@
 ---
 title: Managing the Sudo Account
 description: Learn how to manage the Sudo account of your appchain, including viewing and importing the Sudo key into Polkadot.js Apps and changing the current Sudo key.
-icon: material-key
+icon: octicons-key-24
 ---
 
 # Managing Your Appchain's Sudo Account

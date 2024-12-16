@@ -1,7 +1,7 @@
 ---
 title: Adding External Modules
 description: Use external modules that comes from third-party libraries or other sources outside the Substrate framework to expand your network's functionality.
-icon: material-wrench
+icon: octicons-plug-24
 ---
 
 # Adding an External Module {: #adding-external-module }

@@ -1,7 +1,7 @@
 ---
 title: Deploy Your Appchain via the DApp
 description: Learn how to spin up and deploy an appchain on Tanssi in minutes using the Tanssi dApp, a no-code solution for onboarding into the Polkadot ecosystem.
-icon: material-view-dashboard-outline
+icon: octicons-browser-24
 ---
 
 # Deploy your Appchain via the Tanssi DApp

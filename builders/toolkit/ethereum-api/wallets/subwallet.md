@@ -1,7 +1,7 @@
 ---
 title: How to Connect SubWallet to Tanssi
 description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi EVM appchain. 
-icon: material-wallet-bifold
+icon: material-wallet-plus-outline
 ---
 
 # Interacting with Your Tanssi EVM Appchain Using SubWallet
