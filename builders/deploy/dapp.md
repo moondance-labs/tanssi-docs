@@ -12,16 +12,16 @@ description: Learn how to spin up and deploy a network on Tanssi in minutes usin
 
 Tanssi aims to lower the barrier to entry for building decentralized networks by streamlining the onboarding process and abstracting away the technical details of launching a Tanssi network. The [Tanssi dApp](https://apps.tanssi.network){target=\_blank} allows you to spin up a network in just minutes. This guide will walk you through the steps required to launch a network on Tanssi's TestNet, Dancebox, via the Tanssi dApp.
 
-## Snap vs. Dedicated Networks {: #snap-vs-dedicated-networks }
+## Quick Trials vs. Dedicated Networks {: #quick-trial-vs-dedicated-networks }
  
 [The Tanssi dApp](https://apps.tanssi.network){target=\_blank} supports the creation of two different types of networks, namely:
 
-- Snap network - a temporary network that self-destructs after 48 hours
+- Quick trial network - a temporary network that self-destructs after 48 hours
 - Dedicated network - a long-lasting network for Tanssi ecosystem builders
 
-Both types of Tanssi networks behave identically, with the only difference being the ephemeral nature of the Snap networks. Generally speaking, Snap networks are best for most builders who want to test the power of a Tanssi-powered network. However, if you require a long-lasting test environment, the Tanssi team will happily assist you with setting up a dedicated network. 
+Both types of Tanssi networks behave identically, with the only difference being the ephemeral nature of the quick trial networks. Generally speaking, quick trial networks are best for most builders who want to test the power of a Tanssi-powered network. However, if you require a long-lasting test environment, the Tanssi team will happily assist you with setting up a dedicated network. 
 
-The screenshots and content in this guide will showcase Snap networks, but you can follow the same process to configure a dedicated Tanssi network. 
+The screenshots and content in this guide will showcase quick trial networks, but you can follow the same process to configure a dedicated Tanssi network. 
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.webp)
 
@@ -37,7 +37,7 @@ Deploying a Tanssi network via the Tanssi dApp is accomplished as a single, stre
 
 ![A diagram mapping out the steps for deploying a Tanssi network with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-2.webp)
 
-For Snap networks and Dedicated networks on the [Tanssi Dancebox Testnet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your Snap network to be ready and about two hours for a dedicated Tanssi network. For Tanssi MainNet, the process will be fully decentralized and permissionless.
+For quick trial networks and Dedicated networks on the [Tanssi Dancebox Testnet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your quick trial network to be ready and about two hours for a dedicated Tanssi network. For Tanssi MainNet, the process will be fully decentralized and permissionless.
 
 ## Prerequisites {: #prerequisites }
 
@@ -67,7 +67,7 @@ Once connected, you'll see your address in the top-right corner. If you've conne
 
 ## Configure Your Network {: #configure-your-network }
 
-From the [Dashboard](https://apps.tanssi.network){target=\_blank} or the [Deploy network tab](https://apps.tanssi.network/create){target=\_blank}, you can immediately start configuring your Tanssi network. To start, choose **Deploy a Snap Appchain** or **Deploy a Dedicated Appchain**. You can read more about [the differences between the two types of networks on the Tanssi Testnet](#snap-vs-dedicated-networks).
+From the [Dashboard](https://apps.tanssi.network){target=\_blank} or the [Deploy network tab](https://apps.tanssi.network/create){target=\_blank}, you can immediately start configuring your Tanssi network. To start, choose **Deploy a Quick Trial Network** or **Deploy a Dedicated Network**. You can read more about [the differences between the two types of networks on the Tanssi Testnet](#quick-trial-vs-dedicated-networks).
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.webp)
 
@@ -143,9 +143,9 @@ Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#
 - `para_id` - within this custom flow, a pre-registered parachain id is required
 - `is_ethereum` - to `true` if exposing Ethereum compatible RPC endpoints is needed
 
-And, depending on whether you are deploying a Snap network or a dedicated one, also adjust these attributes:
+And, depending on whether you are deploying a quick trial network or a dedicated one, also adjust these attributes:
 
-=== "Snap Appchain"
+=== "Quick Trial Network"
 
     ```json
     {
@@ -165,7 +165,7 @@ And, depending on whether you are deploying a Snap network or a dedicated one, a
     }
     ```
 
-=== "Dedicated Appchain"
+=== "Dedicated Network"
 
     ```json
     {
@@ -200,13 +200,13 @@ Next, you'll need to verify that you have sufficient balances of DANCE and TANGO
 
 If you're setting up a dedicated Tanssi network, you'll need to manually request the necessary tokens via a [form on the Tanssi network website](https://www.tanssi.network/claim-dance-tokens){target=\_blank}, and you'll receive the necessary tokens within one business day. The required minimum balances to launch a Tanssi network are as follows:
 
-=== "Snap Appchain"
+=== "Quick Trial Network"
     |            Chain             | Balance Required |
     |:----------------------------:|:----------------:|
     | Flashbox Relay Chain Balance |     70 TANGO     |
     |  Flashbox Balance (Tanssi)   |    100 DANCE     |
 
-=== "Dedicated Appchain"
+=== "Dedicated Network"
     |            Chain             | Balance Required |
     |:----------------------------:|:----------------:|
     | Moonbase Relay Chain Balance |    110 TANGO     |

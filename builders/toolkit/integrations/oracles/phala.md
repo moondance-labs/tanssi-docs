@@ -91,7 +91,7 @@ Note that to obtain a readable price, you must account for the decimals of the p
 
 ## Launching Price Feeds on an EVM Network {: #launching-price-feeds-on-an-evm-network }
 
-It's easy to launch price feeds on a Tanssi-powered EVM network! The following sections will walk through the process of launching a variety of price feeds. This process can be followed for Snap networks and dedicated networks on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network){target=\_blank} for assistance in any production scenarios.
+It's easy to launch price feeds on a Tanssi-powered EVM network! The following sections will walk through the process of launching a variety of price feeds. This process can be followed for quick Trial networks and dedicated networks on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network){target=\_blank} for assistance in any production scenarios.
 
 ### Setup {: #setup }
 

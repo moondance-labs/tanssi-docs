@@ -22,7 +22,7 @@ In this guide, you'll learn how to execute the previously listed actions using t
 
 For the examples in this guide, you will need to have the following:
 
-- A Tanssi-powered network (Snap or Dedicated)
+- A Tanssi-powered network (Quick Trial or Dedicated)
 --8<-- 'text/builders/manage/dapp/prerequisites.md'
 
 ## Accessing the Token Management Panel {: #accesing-token-management-panel }

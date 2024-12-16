@@ -14,7 +14,7 @@ In this guide, you'll learn how to spin up a Tanssi network node using a binary 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
 !!! note
-    It is not possible to run an RPC node for Snap networks as they run on a private network, and their nodes are, therefore, unreachable for syncing.
+    It is not possible to run an RPC node for quick Trial networks as they run on a private network, and their nodes are, therefore, unreachable for syncing.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 

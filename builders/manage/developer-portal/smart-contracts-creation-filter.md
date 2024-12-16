@@ -22,7 +22,7 @@ In this guide, you'll learn how to use the Sudo account to manage the whiteliste
 
 For the examples in this guide, you will need to have the following:
 
- - An EVM-compatible Tanssi-powered network (Snap or Dedicated) running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above. Any new network deployment based on the [EVM template](/builders/build/templates/evm/){target=\_blank} will do
+ - An EVM-compatible Tanssi-powered network (Quick Trial or Dedicated) running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above. Any new network deployment based on the [EVM template](/builders/build/templates/evm/){target=\_blank} will do
  - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
 --8<-- 'text/builders/manage/locate-sudo-account.md'

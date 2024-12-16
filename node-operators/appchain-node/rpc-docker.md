@@ -12,7 +12,7 @@ description: Learn how to set up and run a Tanssi network node using Docker, whi
 In this guide, you'll learn how to quickly spin up a Tanssi network node using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
 !!! note
-    It is not possible to run an RPC node for Snap networks as they run on a private network, and their nodes are, therefore, unreachable for syncing.
+    It is not possible to run an RPC node for quick Trial networks as they run on a private network, and their nodes are, therefore, unreachable for syncing.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 

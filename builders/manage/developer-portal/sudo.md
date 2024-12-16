@@ -17,7 +17,7 @@ In the following guide, you'll learn how to view the current Sudo account for yo
 
 For the examples in this guide, you will need to have the following:
 
- - A Tanssi-powered network (Snap or Dedicated)
+ - A Tanssi-powered network (Quick Trial or Dedicated)
  - Your network's Sudo account connected to your network's Polkadot.js Apps
 
 --8<-- 'text/builders/manage/locate-sudo-account.md'

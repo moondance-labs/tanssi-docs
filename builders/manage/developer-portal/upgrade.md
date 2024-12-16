@@ -15,7 +15,7 @@ In this guide, you'll learn how to use Sudo to upgrade your network's runtime. W
 
 For the example in this guide, you will need to have the following:
 
- - A Tanssi-powered network (Snap or Dedicated)
+ - A Tanssi-powered network (Quick Trial or Dedicated)
  - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
  - The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one
 

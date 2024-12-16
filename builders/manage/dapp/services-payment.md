@@ -18,7 +18,7 @@ In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.net
 
 For the examples in this guide, you will need to have the following:
 
-- A Tanssi-powered network (Snap or Dedicated)
+- A Tanssi-powered network (Quick Trial or Dedicated)
 - The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
 --8<-- 'text/builders/manage/dapp/locate-registration-account.md'
