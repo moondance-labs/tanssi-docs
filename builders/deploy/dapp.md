@@ -218,7 +218,7 @@ If you haven't already done so, you'll need to reserve your Tanssi network ID, w
 
 To reserve your Tanssi network ID, you'll need to submit a transaction. Please make sure to use the account you plan to launch your Tanssi network with when submitting the transaction.
 
-1. To initiate the transaction, click on **Reserve Appchain ID**
+1. To initiate the transaction, click on **Reserve Network ID**
 2. Your wallet will pop up, and you'll need to submit the transaction
 
 ![Reserve your Tanssi-powered Network ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-9.webp)
@@ -247,16 +247,16 @@ You're finally ready to take your last step towards preparing your network as it
 
 To register your Tanssi network on the relay chain, take the following steps:
 
-1. Click **Register** under the **Register Appchain in Relay** section
+1. Click **Register** under the **Register Network in Relay** section
 2. Confirm the transaction in your wallet
 
 ![Register your Tanssi-powered network on the relay chain.](/images/builders/deploy/dapp/dapp-12.webp)
 
-Once the transaction has gone through successfully, the dApp will update to show that you have successfully registered your Tanssi network under the **Register Appchain in Relay** section.
+Once the transaction has gone through successfully, the dApp will update to show that you have successfully registered your Tanssi network under the **Register Network in Relay** section.
 
 Lastly, to register your network on Tanssi, take the following steps:
 
-1. Click **Register** under the **Register Appchain in Tanssi** section
+1. Click **Register** under the **Register Network in Tanssi** section
 2. Confirm the transaction in your wallet
 
 ![Register your network on Tanssi.](/images/builders/deploy/dapp/dapp-13.webp)

@@ -22,7 +22,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 - **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable node release. If you want to build and run your own file, make sure to follow the instructions for [building your network node](/builders/build/customize/prerequisites/){target=\_blank}
 
-- **Network specifications file** - the network specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network){target=\_blank} by clicking the **Appchain Data** link
+- **Network specifications file** - the network specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network){target=\_blank} by clicking the **Network Data** link
 
     ![Getting the chain specs](/images/node-operators/appchain-node/rpc-systemd/rpc-systemd-1.webp)
 
