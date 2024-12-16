@@ -17,7 +17,6 @@ Whether you’re starting your journey into appchains or deepening your understa
 
 :::INSERT_GENERATED_CARDS:::
 
-
 ## Want to jump right into the action? 
 
 <div class="subsection-wrapper">
