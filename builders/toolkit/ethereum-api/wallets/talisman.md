@@ -77,7 +77,7 @@ On the following page, you'll then be prompted to enter the network details for 
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
 
-![Add your Tanssi Network Network Details](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-7.webp)
+![Add your Tanssi-Powered Network Details](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-7.webp)
 
 If you hold a balance of tokens in your newly created account for your network, you'll see the balance in the Talisman dashboard.
 

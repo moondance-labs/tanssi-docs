@@ -53,7 +53,7 @@ To configure SubWallet for your Tanssi-powered EVM network, press the **More Opt
 2. Paste in the block explorer URL of your Tanssi network. The demo EVM network's block explorer URL is `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`
 3. Press **Save**
 
-![Add your Tanssi Network Network Details in SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-6.webp)
+![Add your Tanssi-Powered Network Details in SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-6.webp)
 
 By default, all balances are hidden in SubWallet, but if you press the eye icon, you can toggle balance visibility.
 

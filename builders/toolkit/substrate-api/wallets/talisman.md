@@ -91,7 +91,7 @@ On the following page, you'll then be prompted to enter the network details for 
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
 
-![Add your Tanssi Network Network Details](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-8.webp)
+![Add your Tanssi-Powered Network Details](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-8.webp)
 
 ## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
 
