@@ -21,5 +21,5 @@ As mentioned in the [Introduction](#introduction), block producer nodes will be 
 |:--------------------:|:-----------:|
 |   **Tanssi Chain**   | 30333 (TCP) |
 |   **Relay Chain**    | 30334 (TCP) |
-| **Assigned network** | 30335 (TCP) |
+| **Assigned Network** | 30335 (TCP) |
 
