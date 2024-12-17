@@ -1,6 +1,6 @@
 ---
 title: Tanssi Sequencers
-description: Learn how to set up, run, and manage Sequencers (aka Block producer or collators) to participate in the Tanssi infrastructure protocol and earn rewards.
+description: Learn how to set up, run, and manage Sequencers (block producers) to participate in the Tanssi infrastructure protocol and earn rewards.
 icon: simple-codeblocks
 template: index-page.html
 ---
