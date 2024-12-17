@@ -84,7 +84,7 @@ Every new assignment works intentionally with a one-session delay, so the sequen
 
 When a new session starts, the Tanssi protocol will put the queued assignment into effect. Sequencers will automatically change and start producing blocks in the new Tanssi network they've been assigned to while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in Tanssi networks that might have been activated or deactivated and block producers that might have been added or removed from the pool or changed the total staked value. This new assignment will be queued for the next session.
 
-![Sessions](/images/learn/tanssi/appchain-services/block-production/block-production-1.webp)
+![Sessions](/images/learn/tanssi/network-services/block-production/block-production-1.webp)
 
 ### The Role of the Tanssi Network {: #tanssi-newtwork }
 
@@ -96,7 +96,7 @@ Finally, Tanssi can verify that the author of a network block was the expected o
 
 The following diagram shows a simplified model of the data Tanssi stores in its internal state. For every active network (in this example, two), Tanssi stores the assigned sequencers, which are the only ones authorized to produce blocks on the network's behalf, proof of validity (candidate receipts) extended by the security provider's operators, the latest state root, and the latest block producer. 
 
-![Tanssi's internal state](/images/learn/tanssi/appchain-services/block-production/block-production-2.webp)
+![Tanssi's internal state](/images/learn/tanssi/network-services/block-production/block-production-2.webp)
 
 ### The Role of the Tanssi-Powered Network {: #network }
 
@@ -106,7 +106,7 @@ Leveraging this ability to access the states, the current sequencer with the aut
 
 Once the block is filled with network transactions, it will be proposed as a candidate and handed over to the Tanssi chain, where the security provider's operators will ensure that the included state proofs match the state proofs from the latest state of Tanssi (preventing unauthorized block production) and that the transactions produced valid state transitions. Having verified the work of the sequencer, the operators will finalize the proposed block, including its candidate receipt in a Tanssi Network block.
 
-![Tanssi-powered network block](/images/learn/tanssi/appchain-services/block-production/block-production-3.webp)
+![Tanssi-powered network block](/images/learn/tanssi/network-services/block-production/block-production-3.webp)
 
 ## Block Production Fees  {: #block-production-fees }
 
