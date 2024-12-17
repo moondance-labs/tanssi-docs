@@ -1,7 +1,7 @@
 ---
 title: Upgrade Sequencers Node
 description: Follow these instructions to update your node to the latest version of the Tanssi client software you use to produce blocks on the Tanssi Appchain protocol.
-icon: material-arrow-up-bold-hexagon-outline
+icon: octicons-rocket-24
 template: index-page.html
 ---
 

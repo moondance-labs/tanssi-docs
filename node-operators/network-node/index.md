@@ -1,13 +1,13 @@
 ---
 title: Network Node
-description: Learn how to set up and run a Tanssi appchain node using Docker or Systemd, which allows you to have your own RPC endpoint to interact with your appchain.
-icon: simple-materialdesignicons
+description: Learn how to set up and run a Tanssi-powered network using Docker or Systemd, which allows you to have your own RPC endpoint to interact with your appchain.
+icon: octicons-globe-24
 template: index-page.html
 ---
 
 # Run a Network Node
 
-Setting up a network node is essential for interacting with your appchain, providing a secure and dedicated RPC endpoint. This section offers step-by-step guides to help you deploy and manage your node effectively.
+Setting up a network node is essential for interacting with your Tanssi-powered network, providing a secure and dedicated RPC endpoint. This section offers step-by-step guides to help you deploy and manage your node effectively.
 
 - **Using Docker** - instructions to set up your node in a containerized environment for easy deployment and isolation
 - **Using Systemd** - guidance for configuring your node as a service, enabling automated management and system integration

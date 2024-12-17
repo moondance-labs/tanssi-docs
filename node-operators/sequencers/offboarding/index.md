@@ -1,7 +1,7 @@
 ---
 title: Offboard Your Sequencer Node
 description: Learn how to properly offboard your Appchain Sequencer node (also known as block producers or collators) including clearing session keys and undelegating funds.
-icon: material-airplane-landing
+icon: octicons-arrow-down-right-24
 template: index-page.html
 ---
 

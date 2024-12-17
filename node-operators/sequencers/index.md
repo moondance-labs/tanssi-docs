@@ -1,7 +1,7 @@
 ---
 title: Tanssi Sequencers
 description: Learn how to set up, run, and manage Sequencers (block producers) to participate in the Tanssi infrastructure protocol and earn rewards.
-icon: simple-codeblocks
+icon: octicons-server-24
 template: index-page.html
 ---
 

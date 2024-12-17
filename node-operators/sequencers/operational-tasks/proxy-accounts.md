@@ -1,7 +1,7 @@
 ---
 title: Set Up a Sequencer Proxy Account
 description: Follow these step-by-step instructions to configure a proxy account to manage Sequencer activities on behalf of your primary block producer account.
-icon: material-human-greeting-proximity
+icon: octicons-shield-lock-24
 ---
 
 # Set Up a Proxy Account

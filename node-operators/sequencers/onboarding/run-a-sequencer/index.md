@@ -1,7 +1,7 @@
 ---
 title: Run a Sequencer
 description: Learn how to set up and run appchain Sequencer node (also known as block producers or collators) using Docker or Systemd to participate in the protocol.
-icon: simple-codeblocks
+icon: octicons-server-24
 template: index-page.html
 ---
 

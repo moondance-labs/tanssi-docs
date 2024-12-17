@@ -1,7 +1,7 @@
 ---
 title: Onboard to Run a Sequencer Node
 description: Learn how to get started to run appchain Sequencer (also known as producer nodes or collators) using Docker or Systemd to participate in the protocol.
-icon: simple-codeblocks
+icon: octicons-arrow-up-right-24
 template: index-page.html
 ---
 

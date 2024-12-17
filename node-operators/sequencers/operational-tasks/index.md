@@ -1,7 +1,7 @@
 ---
 title: Sequencers Operational Tasks
 description: Learn how to manage your activities as a sequencer in the Tanssi appchain protocol, including managing your account, upgrading your node, and more.
-icon: material-check-outline
+icon: octicons-arrow-switch-24
 template: index-page.html
 ---
 
