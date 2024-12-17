@@ -61,6 +61,6 @@ Next, the PoV is verified by the security provider's validators. Note that the v
 
 The transaction flow process is summarized in the following diagram:
 
-![Path of a Tanssi Network Block in Tanssi](/images/learn/appchains/overview/dark-overview-2.webp#only-dark)
-![Path of a Tanssi Network Block in Tanssi](/images/learn/appchains/overview/light-overview-2.webp#only-light)
+![Path of a Tanssi Network Block in Tanssi](/images/learn/decentralized-networks/overview/dark-overview-2.webp#only-dark)
+![Path of a Tanssi Network Block in Tanssi](/images/learn/decentralized-networks/overview/light-overview-2.webp#only-light)
 
