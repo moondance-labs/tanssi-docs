@@ -7,7 +7,7 @@ description: Learn how to set up and run a Tanssi network node using Docker, whi
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/appchain-node/intro.md'
+--8<-- 'text/node-operators/network-node/intro.md'
 
 In this guide, you'll learn how to quickly spin up a Tanssi network node using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
@@ -38,7 +38,7 @@ docker pull moondancelabs/dancebox-container-chain-evm-templates
 
 The command will download and extract the image and show the status upon execution:
 
---8<-- 'code/node-operators/appchain-node/rpc-docker/terminal/pulling-docker-image.md'
+--8<-- 'code/node-operators/network-node/rpc-docker/terminal/pulling-docker-image.md'
 
 ### Simple Substrate Networks {: #pulling-substrate-docker-image }
 
@@ -55,7 +55,7 @@ The command will download and extract the image and show the status upon executi
 To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
 
 - `Network ID` - replace `YOUR_NETWORK_ID` with your Tanssi network ID within the `--chain` command. This ID was obtained during the [third step of the network deployment process](/builders/deploy/dapp/#reserve-network-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network){target=\_blank}. For example, `3001`
---8<-- 'text/node-operators/appchain-node/bootnode-item.md'
+--8<-- 'text/node-operators/network-node/bootnode-item.md'
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
@@ -66,7 +66,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
         /chain-network/container-chain-frontier-node \
-        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
 
     === "Intel Skylake"
@@ -74,7 +74,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
         /chain-network/container-chain-frontier-node-skylake \
-        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
 
     === "AMD Zen3"
@@ -82,7 +82,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
         /chain-network/container-chain-frontier-node-znver3 \
-        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
 
 === "Simple Substrate Network"
@@ -92,7 +92,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
         /chain-network/container-chain-simple-node \
-        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
 
     === "Intel Skylake"
@@ -100,7 +100,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
         /chain-network/container-chain-simple-node-skylake \
-        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
     
     === "AMD Zen3"
@@ -108,13 +108,13 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         ```bash
         docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
         /chain-network/container-chain-simple-node-znver3 \
-        --8<-- 'code/node-operators/appchain-node/rpc-docker/docker-command.md'
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
 
 !!! note
     Only the historical state of the last 256 finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
 
---8<-- 'text/node-operators/appchain-node/fetching-bootnode-section.md'
+--8<-- 'text/node-operators/network-node/fetching-bootnode-section.md'
 
 ### Full Node Example for Demo EVM Network {: #example-demo-evm-network }
 
@@ -149,7 +149,7 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
---8<-- 'text/node-operators/appchain-node/run-flags.md'
+--8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
 docker run -ti moondancelabs/dancebox-container-chain-evm-templates \

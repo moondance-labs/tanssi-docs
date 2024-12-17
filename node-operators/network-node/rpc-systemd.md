@@ -7,7 +7,7 @@ description: Learn how to set up and run a Tanssi network node using Systemd, wh
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/appchain-node/intro.md'
+--8<-- 'text/node-operators/network-node/intro.md'
 
 In this guide, you'll learn how to spin up a Tanssi network node using a binary executable file and manage the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
@@ -105,7 +105,7 @@ Now, you can open the file using your favorite text editor (vim, emacs, nano, et
 Note that the `ExecStart` command  has some parameters that need to be changed to match your specific network:
 
 - `Specification file` - replace `YOUR_NETWORK_SPECS_FILE_LOCATION` with your network's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/network-data/YOUR_FILENAME.json`, e.g., `/var/lib/network-data/spec-raw.json`
---8<-- 'text/node-operators/appchain-node/bootnode-item.md'
+--8<-- 'text/node-operators/network-node/bootnode-item.md'
 
 === "EVM-Compatible Network"
 
@@ -187,7 +187,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     WantedBy=multi-user.target
     ```
 
---8<-- 'text/node-operators/appchain-node/fetching-bootnode-section.md'
+--8<-- 'text/node-operators/network-node/fetching-bootnode-section.md'
 
 ### Full Node Configuration Example for the Demo EVM Network {: #example-demo-evm-network}
 
@@ -239,7 +239,7 @@ WantedBy=multi-user.target
 
 The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
---8<-- 'text/node-operators/appchain-node/run-flags.md'
+--8<-- 'text/node-operators/network-node/run-flags.md'
 
 === "EVM-compatible Network"
 
@@ -268,7 +268,7 @@ You can verify that the service is up and running correctly running:
 systemctl status network.service
 ```
 
---8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/check-status.md'
+--8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
 And check the logs, if needed, with the following command:
 
@@ -276,4 +276,4 @@ And check the logs, if needed, with the following command:
 journalctl -f -u network.service
 ```
 
---8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/journalctl-logs.md'
+--8<-- 'code/node-operators/network-node/rpc-systemd/terminal/journalctl-logs.md'
