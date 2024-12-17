@@ -1,7 +1,7 @@
 ---
 title: How to Connect Talisman to Tanssi
 description: This guide walks you through how to connect Talisman, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi EVM appchain. 
-icon: material-wallet-plus-outline
+icon: material-wallet-outline
 ---
 
 # Interacting with Your Tanssi EVM Appchain Using Talisman

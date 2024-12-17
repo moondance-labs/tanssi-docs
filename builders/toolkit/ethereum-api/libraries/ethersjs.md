@@ -1,7 +1,7 @@
 ---
 title: EVM Transactions & Contracts with Ethers.js
 description: Learn how to use the Ethereum EtherJS Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM appchain.
-icon: material-library-shelves
+icon: octicons-code-24
 ---
 
 # Ethers.js JavaScript Library

@@ -2,7 +2,7 @@
 title: The Proxy Precompile
 description: Learn how to interact with the Proxy precompile to add and remove proxy accounts that can execute specific transactions on behalf of other account.
 keywords: solidity, ethereum, proxy, moonbeam, precompiled, contracts, substrate
-icon: material-human-greeting-proximity
+icon: octicons-shield-lock-24
 ---
 
 # Interacting with the Proxy Precompile

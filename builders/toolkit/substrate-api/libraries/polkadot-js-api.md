@@ -1,7 +1,7 @@
 ---
 title: How to use the Polkadot.js API
 description: Learn how to use the Polkadot.js API to interact with a Tanssi appchain to get chain data and send transactions (extrinsics) via the Substrate API.
-icon: material-library-shelves
+icon: octicons-code-24
 ---
 
 # Polkadot.js API Library

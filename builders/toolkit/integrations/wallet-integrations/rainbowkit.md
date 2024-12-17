@@ -1,7 +1,7 @@
 ---
 title: How to Add RainbowKit to a Tanssi EVM Appchain 
 description: Learn how to integrate RainbowKit with an EVM-compatible appchain deployed through Tanssi, making adding a great wallet experience to your dApp easy. 
-icon: material-wallet-bifold
+icon: material-wallet-outline
 ---
 
 # Integrate RainbowKit with a Tanssi Appchain 
