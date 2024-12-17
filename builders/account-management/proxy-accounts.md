@@ -1,7 +1,7 @@
 ---
 title: Set Up and Manage Proxy Accounts
 description: Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
-icon: material-human-greeting-proximity
+icon: octicons-shield-lock-24
 ---
 
 # Proxy Accounts

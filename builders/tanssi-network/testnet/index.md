@@ -1,7 +1,7 @@
 ---
 title: Test Networks
 description: Learn about Tanssi's TestNet, Dancebox, and the demo EVM appchain deployed on Dancebox and how to get started developing and interacting with each network.
-icon: material-transit-connection-variant
+icon: octicons-telescope-24
 template: index-page.html
 ---
 

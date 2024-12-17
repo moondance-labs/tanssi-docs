@@ -1,7 +1,7 @@
 ---
 title: Set an Account Identity
 description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
-icon: material-account-eye
+icon: octicons-person-24
 ---
 
 # Set Up an Identity
