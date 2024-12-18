@@ -1,11 +1,11 @@
 ---
-title: Appchain
+title: Learn about Tanssi-Powered Networks
 description: Discover the features in EVM and Substrate appchains deployed through Tanssi, leveraging user-friendly and easy-to-deploy templates for enhanced capabilities.
 icon: octicons-workflow-24
 template: index-page.html
 ---
 
-# Appchains In Tanssi
+# Tanssi-Powered Networks
 
 Developing a blockchain that balances scalability, efficiency, and customization is a complex task. Tanssi appchains address these challenges through their integration into Tanssi's modular infrastructure. This section explains the structure, functionality, and unique characteristics of appchains in the Tanssi ecosystem.
 
