@@ -1,6 +1,6 @@
 ---
-title: Validators, Sequencers & Network node
-description: Learn how to run a Tanssi network RPC node or a Network node to participate in the block production mechanism for chains within the Tanssi ecosystem.
+title: Run Infrastructure on Tanssi
+description: This section offers guides on setting up infrastructure and nodes for RPC services, block production, and validation within the Tanssi ecosystem.
 template: index-page.html
 ---
 

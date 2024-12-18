@@ -1,6 +1,6 @@
 ---
 title: Run a Tanssi Sequencer
-description: Learn how to set up and run Sequencer (Block producer) for Tanssi appchains using Systemd, allowing you to participate in the protocol and earn rewards.
+description: Learn how to set up and run a sequencer (block producer) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 icon: simple-linux
 ---
 

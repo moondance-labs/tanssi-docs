@@ -11,7 +11,7 @@ Stepping down as a sequencer requires following the proper procedures to ensure 
 
 What you’ll learn:
 
-- **Undelegating your self-delegation** - steps to remove your self-bonded stake and ensure your sequencer is no longer listed as an eligible participant
+- **Removing your self-delegation** - steps to remove your self-bonded stake and ensure your sequencer is no longer listed as an eligible participant
 - **Unmapping session keys** - how to unmap your session keys, properly severing the connection between your node and your account
 
 ## Explore What This Section Covers

@@ -1,6 +1,6 @@
 ---
-title: Network Node
-description: Learn how to set up and run a Tanssi-powered network using Docker or Systemd, which allows you to have your own RPC endpoint to interact with your appchain.
+title: Run a Node on a Tanssi-Powered Network
+description: Learn how to set up and run a node on a Tanssi-powered network using Docker or Systemd, which allows you to host your own RPC endpoint for chain interaction.
 icon: octicons-globe-24
 template: index-page.html
 ---
