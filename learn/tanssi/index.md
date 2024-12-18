@@ -12,9 +12,9 @@ Here, you'll find an overview of Tanssi’s core capabilities that support netwo
 Key features that set Tanssi apart:
 
 - **Block production as a service** - Tanssi’s incentivized block producers ensure reliable block creation and network liveness, removing the operational burden from developers
-- **Flexible security providers** - choose security solutions tailored to your appchain’s environment, such as Symbiotic for Ethereum-based chains, enabling shared security without sourcing economic guarantees
-- **Time-to-market efficiency** - launch appchains in minutes with Tanssi’s comprehensive approach to infrastructure and security, significantly reducing development time
-- **Seamless integrations** - Tanssi provides out-of-the-box infrastructure, including wallets, RPC endpoints, and block explorers, streamlining appchain deployment
+- **Flexible security providers** - choose security solutions tailored to your Tanssi-powered network environment, such as Symbiotic for Ethereum-based chains, enabling shared security without sourcing economic guarantees
+- **Time-to-market efficiency** - launch networks in minutes with Tanssi’s comprehensive approach to infrastructure and security, significantly reducing development time
+- **Seamless integrations** - Tanssi provides out-of-the-box infrastructure, including wallets, RPC endpoints, and block explorers, streamlining network deployment
 
 ## Explore What This Section Covers
 
