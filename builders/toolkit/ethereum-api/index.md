@@ -1,6 +1,6 @@
 ---
 title: Ethereum API
-description: Learn how to interact with your Tanssi EVM-compatible appchain through the Ethereum API with different Ethereum tools like Remix, Hardhat, Foundry, and more.
+description: Learn how to interact with your Tanssi EVM-compatible network through the Ethereum API with different Ethereum tools like Remix, Hardhat, Foundry, and more.
 icon: material-ethereum
 template: index-page.html
 ---

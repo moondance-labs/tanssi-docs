@@ -1,6 +1,6 @@
 ---
 title: Subsquid
-description: Explore comprehensive tutorials covering the fundamentals and advanced techniques for indexing data on your Tanssi Substrate or EVM Appchain with Subsquid.
+description: Explore comprehensive tutorials covering the fundamentals and advanced techniques for indexing data on your Tanssi Substrate or EVM network with Subsquid.
 icon: octicons-codescan-24
 template: index-page.html
 ---

@@ -1,15 +1,15 @@
 ---
 title: Test Networks
-description: Learn about Tanssi's TestNet, Dancebox, and the demo EVM appchain deployed on Dancebox and how to get started developing and interacting with each network.
+description: Learn about Tanssi's TestNet, Dancebox, and the demo EVM network deployed on Dancebox and how to get started developing and interacting with each network.
 icon: octicons-telescope-24
 template: index-page.html
 ---
 
 ## TestNet
 
-The official Tanssi TestNet, Dancebox, allows developers to experiment with blockchain applications in a controlled environment before going live. It provides the tools to configure networks, interact with test versions of protocols, and troubleshoot issues, ensuring smoother appchain deployments to production.
+The official Tanssi TestNet, Dancebox, allows developers to experiment with blockchain applications in a controlled environment before going live. It provides the tools to configure networks, interact with test versions of protocols, and troubleshoot issues to ensure a smoother transition to production.
 
-Once you're ready to see how your appchain could perform in a real-world scenario, explore the demo EVM network. This Ethereum-compatible network lets you experience a fully operational Tanssi-powered appchain, showcasing key features and offering a glimpse into the potential of your own blockchain project.
+When you're ready to see how your project could thrive in a real-world setting, try out the demo EVM environment. Fully compatible with Ethereum, this Tanssi-powered setup showcases key features and offers an immersive experience, giving you a glimpse into the full potential of your customized solution.
 
 ## Explore What This Section Covers
 
