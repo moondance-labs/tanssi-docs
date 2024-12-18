@@ -1,11 +1,11 @@
 ---
-title: Appchain Templates
-description: Learn more about the baseline appchain Templates (EVM and non-EVM) that support Tanssi out of the box to help you kickstart your network development.
+title: Network Templates
+description: Learn more about the baseline network Templates (EVM and non-EVM) that support Tanssi out of the box to help you kickstart your network development.
 icon: octicons-copy-24
 template: index-page.html
 ---
 
-# Template Appchains
+# Network Templates 
 
 Kickstart your network development with our comprehensive templates. Designed for rapid deployment, these templates provide a strong foundation for both EVM and non-EVM solutions, accelerating your production journey.
 

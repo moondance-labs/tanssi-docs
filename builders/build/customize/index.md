@@ -7,11 +7,11 @@ template: index-page.html
 
 # Customize Your Tanssi-Powered Network
 
-Tailor your network to meet your application's unique requirements. This section provides guidance on modifying and extending your appchain's functionality, offering instructions and best practices to help align it with your project's goals.
+Tailor your network to meet your application's unique requirements. This section provides guidance on modifying and extending your network's functionality, offering instructions and best practices to help align it with your project's goals.
 
 ## Process for Customizing Your Network
 
-The diagram below provides a simplified outline of the essential steps to get started with building and customizing your Tanssi-powered appchain.
+The diagram below provides a simplified outline of the essential steps to get started with building and customizing your Tanssi-powered network.
 
 ```mermaid
 flowchart LR

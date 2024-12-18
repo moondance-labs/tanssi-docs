@@ -5,9 +5,9 @@ icon: material-widgets-outline
 template: index-page.html
 ---
 
-# Build Your Appchain 
+# Build Your Network
 
-Launching your appchain with Tanssi gives you the flexibility to choose between pre-configured templates or fully customized solutions. Whether you're aiming for simplicity or fine-tuned control, Tanssi provides the tools and guidance to bring your vision to life. This section covers everything from selecting a template to customizing modules, testing, and deploying your network.
+Launching your Tanssi-powered network gives you the flexibility to choose between pre-configured templates or fully customized solutions. Whether you're aiming for simplicity or fine-tuned control, Tanssi provides the tools and guidance to bring your vision to life. This section covers everything from selecting a template to customizing modules, testing, and deploying your network.
 
 ## The Path to Deployment
 

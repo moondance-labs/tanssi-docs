@@ -1,12 +1,12 @@
 ---
 title: Guides for Developing Tanssi-Powered Networks
-description: Start building your appchain, set your development environment up, test and deploy your runtime, and choose the integrations that suit your use case.
+description: Start building your network, set your development environment up, test and deploy your runtime, and choose the integrations that suit your use case.
 template: index-page.html
 ---
 
 # Builders
 
-Explore everything you need to build, deploy, and manage appchains within the Tanssi ecosystem. From development tools to account management and network connectivity, the content in this section enables you to move confidently from concept to implementation.
+Explore everything you need to build, deploy, and manage networks within the Tanssi ecosystem. From development tools to account management and network connectivity, the content in this section enables you to move confidently from concept to implementation.
 
 ## Build and Manage a Tanssi-Powered Network
 
@@ -38,7 +38,7 @@ Explore everything you need to build, deploy, and manage appchains within the Ta
 
 -   Steps to Take After Deployment
 
-    Once your appchain is live, follow these steps to ensure smooth and ongoing operations:
+    Once your tanssi-powered network is live, follow these steps to ensure smooth and ongoing operations:
 
     [:octicons-arrow-right-24: Pay for block production services](/builders/manage/dapp/services-payment/)
 
