@@ -1,6 +1,6 @@
 ---
 title: Run a Sequencer Using Docker
-description: Learn how to set up and run a Sequencer (aka collator or block producer) for Tanssi appchains using Docker to participate in the protocol and earn rewards.
+description: Learn how to set up and run a Sequencer (aka block producer) for Tanssi-powered networks using Docker to participate in the protocol and earn rewards.
 icon: simple-docker
 ---
 
