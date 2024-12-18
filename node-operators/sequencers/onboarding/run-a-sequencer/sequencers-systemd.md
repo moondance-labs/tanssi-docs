@@ -14,8 +14,6 @@ In this guide, you'll learn how to spin up a Tanssi block producer to be part of
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
---8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/hardware-requirements.md'
-
 ## Checking Prerequisites {: #checking-prerequisites }
 
 To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
