@@ -5,5 +5,4 @@ nav:
   - 'Overview': 'overview.md'
   - 'network-services'
   - 'external-security-providers'
-  - 'Included Templates': 'included-templates.md'
   - 'network-features'

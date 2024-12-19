@@ -29,7 +29,7 @@ The process is as simple as:
 2. Add the specific logic to adapt the runtime to the requirements of the use case
 3. Deploy in Tanssi
 
-![Using Templates to Speed Up the Developmet Process](/images/learn/tanssi/templates/templates-1.webp)
+![Using Templates to Speed Up the Developmet Process](/images/learn/decentralized-networks/templates/templates-1.webp)
 
 The two included templates are *Baseline network template* and *Baseline EVM Template*, which are presented in the following sections.
 
