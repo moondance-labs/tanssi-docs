@@ -1,6 +1,7 @@
 ---
-title: Run a Block Producer Using Docker
-description: Learn how to set up and run a block producer (aka collator or sequencer) for Tanssi appchains using Docker to participate in the protocol and earn rewards.
+title: Run a Sequencer Using Docker
+description: Learn how to set up and run a Sequencer (aka block producer) for Tanssi-powered networks using Docker to participate in the protocol and earn rewards.
+icon: simple-docker
 ---
 
 # Run a Block Producer in Tanssi Using Docker
@@ -10,8 +11,6 @@ description: Learn how to set up and run a block producer (aka collator or seque
 --8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/intro.md'
 
 In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
-
---8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/hardware-requirements.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 

@@ -1,6 +1,7 @@
 ---
-title: Decommission Block Producer
+title: Decommissioning Your Sequencer
 description: In these step-by-step instructions, learn how to properly offboard as a Tanssi block producer, including unmapping your session keys and unstaking your bond.
+icon: octicons-arrow-down-right-24
 ---
 
 # Offboard as a Tanssi Block Producer
