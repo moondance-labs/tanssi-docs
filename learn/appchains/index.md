@@ -9,7 +9,7 @@ template: index-page.html
 
 Developing a blockchain that balances scalability, efficiency, and customization is a complex task. Tanssi-Powered Networks address these challenges through their integration into Tanssi's modular infrastructure. This section explains the networks' structure, functionality, and unique characteristics in the Tanssi ecosystem.
 
-Key features of Tanssi-Powered Networks:
+Key features of Tanssi-powered networks:
 
 - **Runtime customization** - adapt transaction types, execution logic, and state transitions to fit your network's specific requirements
 - **Transaction efficiency** - optimize transaction fees for scalability and economic sustainability

@@ -1,6 +1,6 @@
 ---
 title: Network Features
-description: Learn about Tanssi general network features such as staking, governance, and treasury, and how each help Tanssi becoming a fully decentralized network orchestrator for the Web3 ecosystem.
+description: Explore Tanssi's network features like staking, governance, and treasury, supporting its role as a decentralized network orchestrator for the Web3 ecosystem.
 icon: octicons-cpu-24
 template: index-page.html
 ---

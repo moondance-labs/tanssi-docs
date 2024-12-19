@@ -1,6 +1,6 @@
 ---
 title: Appchain Development Framework
-description: Learn about the network Development Framework, Rust Programming Language, Substrate and its features, including XCM and ready-to-use pallets for your Runtime.
+description: Learn about the network development framework, Rust programming language, Substrate and its features, including XCM and ready-to-use pallets for your runtime.
 icon: octicons-code-24
 template: index-page.html
 ---
@@ -11,7 +11,7 @@ Building a blockchain from scratch is an intricate process that demands deep kno
 
 With Substrate’s modular architecture, you can modify runtime characteristics, integrate pre-built modules, or develop new ones based on your network’s specific needs. Tanssi provides the foundation you need to bring your blockchain vision to life.
 
-Key Features of the framework:
+Key features of the framework:
 
 - **Substrate core architecture** - divided into the _core client_, which manages external communications and internal responsibilities like storage, and the _runtime_, which executes transactions and manages state transitions with customizable logic
 - **End-user simplicity** - the internal workings of the framework are abstracted for end-users, ensuring seamless interaction through dApps or via RPC endpoints, such as those used by wallets
