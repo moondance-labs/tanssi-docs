@@ -8,7 +8,7 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/appchain-node/intro.md'
+--8<-- 'text/node-operators/network-node/intro.md'
 
 In this guide, you'll learn how to spin up a Tanssi appchain node using a binary executable file and manage the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
@@ -25,7 +25,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 - **Appchain specifications file** - the appchain specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network){target=\_blank} by clicking the **Appchain Data** link
 
-    ![Getting the chain specs](/images/node-operators/appchain-node/rpc-systemd/rpc-systemd-1.webp)
+    ![Getting the chain specs](/images/node-operators/network-node/rpc-systemd/rpc-systemd-1.webp)
 
 - **Relay chain specifications file** - the relay chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha){target=\_blank}
 
@@ -106,7 +106,7 @@ Now, you can open the file using your favorite text editor (vim, emacs, nano, et
 Note that the `ExecStart` command  has some parameters that need to be changed to match your specific appchain:
 
 - `Specification file` - replace `YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your appchain's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/appchain-data/YOUR_FILENAME.json`, e.g., `/var/lib/appchain-data/spec-raw.json`
---8<-- 'text/node-operators/appchain-node/bootnode-item.md'
+--8<-- 'text/node-operators/network-node/bootnode-item.md'
 
 === "EVM-Compatible Appchain"
 
@@ -188,7 +188,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     WantedBy=multi-user.target
     ```
 
---8<-- 'text/node-operators/appchain-node/fetching-bootnode-section.md'
+--8<-- 'text/node-operators/network-node/fetching-bootnode-section.md'
 
 ### Full Node Configuration Example for the Demo EVM Appchain {: #example-demo-evm-appchain}
 
@@ -240,7 +240,7 @@ WantedBy=multi-user.target
 
 The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
---8<-- 'text/node-operators/appchain-node/run-flags.md'
+--8<-- 'text/node-operators/network-node/run-flags.md'
 
 === "EVM-compatible Appchain"
 
@@ -269,7 +269,7 @@ You can verify that the service is up and running correctly running:
 systemctl status appchain.service
 ```
 
---8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/check-status.md'
+--8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
 And check the logs, if needed, with the following command:
 
@@ -277,4 +277,4 @@ And check the logs, if needed, with the following command:
 journalctl -f -u appchain.service
 ```
 
---8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/journalctl-logs.md'
+--8<-- 'code/node-operators/network-node/rpc-systemd/terminal/journalctl-logs.md'
