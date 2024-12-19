@@ -9,4 +9,4 @@ To do so, take the following steps:
 3. Provide your Tanssi appchain ID
 4. Click on the **+** sign
 
-![Getting the bootnode](/images/node-operators/appchain-node/rpc-docker-systemd-1.webp)
+![Getting the bootnode](/images/node-operators/network-node/rpc-docker-systemd-1.webp)
