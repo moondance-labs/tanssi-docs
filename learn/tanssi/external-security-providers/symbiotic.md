@@ -9,9 +9,9 @@ description: Tanssi's design allows developers to choose and connect to the Symb
 
 The Tanssi protocol takes care of critical infrastructural components, making it easy for developers to launch their networks in a few minutes. In addition to block production, data retrievability, and integrations with essential tools such as wallets, RPC endpoints, block explorers, and others, another major task to tackle is providing security to the network.
 
-Tanssi is designed to offer developers a shared security model, alleviating them from having to source enough economic security or negotiating with operators to run nodes opting-in for their appchains. By deploying appchains through Tanssi, and by choosing [Symbiotic](https://symbiotic.fi/){target=\_blank} as a security provider, developers benefit from Ethereum-grade security, tapping into billions of dollars in shared security from staked ETH.
+Tanssi is designed to offer developers a shared security model, alleviating them from having to source enough economic security or negotiating with operators to run nodes opting-in for their networks. By deploying networks through Tanssi, and by choosing [Symbiotic](https://symbiotic.fi/){target=\_blank} as a security provider, developers benefit from Ethereum-grade security, tapping into billions of dollars in shared security from staked ETH.
 
-The following sections describe how the Symbiotic protocol works and how Tanssi appchains can leverage it as their consensus mechanism.
+The following sections describe how the Symbiotic protocol works and how Tanssi networks can leverage it as their consensus mechanism.
 
 ## Ethereum-Grade Security with Symbiotic {: #symbiotic }
 
@@ -42,7 +42,7 @@ flowchart TD
     subgraph Networks
         direction BT
         developers["Developers"]
-        networks["Networks/Appchains"]
+        networks["Decentralized Networks"]
         developers -- Launch --> networks
     end
 
@@ -78,23 +78,23 @@ Once an operator has been accepted by a vault and a network connected to that va
 
 ### Networks {: #networks }
 
-[Networks](https://docs.symbiotic.fi/modules/counterparties/networks){target=\_blank} are the actively validated services or appchains. These application-specific blockchains can be a use case from a wide range of industries, such as Gaming, Defi, RWAs, and others, and are the platforms that, through dApps, the end users interact with.
+[Networks](https://docs.symbiotic.fi/modules/counterparties/networks){target=\_blank} are the actively validated services or networks. These application-specific blockchains can be a use case from a wide range of industries, such as Gaming, Defi, RWAs, and others, and are the platforms that, through dApps, the end users interact with.
 
 Since operators opt-in to provide services to networks and the vault managers must accept the networks, the developers are responsible for defining, controlling, and adapting their methodology for onboarding, rewarding, and slashing operators. 
 
 !!! note
-    Appchains deployed through Tanssi don't need to work on the relation with vaults and operators since the Tanssi protocol deals with those complexities.
+    Networks deployed through Tanssi don't need to work on the relation with vaults and operators since the Tanssi protocol deals with those complexities.
 
 ## Tanssi with Symbiotic {: #tanssi-symbiotic }
 
-Developers launching appchains through Tanssi benefit from [block production services](/learn/tanssi/appchain-services/block-production/){target=\_blank}, data retrievability as a service, and the shared security model derived from every vault opting-in to support the Tanssi protocol. This eliminates the hurdle of dealing with infrastructural and security components developers would need to take on otherwise.
+Developers launching networks through Tanssi benefit from [block production services](/learn/tanssi/network-services/block-production/){target=\_blank}, data retrievability as a service, and the shared security model derived from every vault opting-in to support the Tanssi protocol. This eliminates the hurdle of dealing with infrastructural and security components developers would need to take on otherwise.
 
-Curators running vaults can apply to offer the restaked collaterals as economic security for the Tanssi network. Since Tanssi appchains run in a sandbox-like environment, and the Tanssi protocol manages all the appchains-related responsibilities, vault curators only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of appchains that are running through the Tanssi protocol at any given moment. 
+Curators running vaults can apply to offer the restaked collaterals as economic security for the Tanssi Network. Since Tanssi networks run in a sandbox-like environment, and the Tanssi protocol manages all the networks-related responsibilities, vault curators only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of networks that are running through the Tanssi protocol at any given moment. 
 
-Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi network and, consequently, to every appchain deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi appchain is launched or decommissioned.
+Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi Network and, consequently, to every network deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi network is launched or decommissioned.
 
 !!! note
-    The Tanssi protocol effectively abstracts the details of the active set of appchains away from vault managers and operators. Appchains particularities don't require any additional setup from operators nor pose risks to vault assets.
+    The Tanssi protocol effectively abstracts the details of the active set of networks away from vault managers and operators. Networks particularities don't require any additional setup from operators nor pose risks to vault assets.
 
 All things combined shape a functional and elegant ecosystem where developers can focus on creating and innovating. Tanssi handles the infrastructural components, guaranteeing liveness and performance, and Symbiotic provides the economic safeguards to ensure the validity of the operations.
 
@@ -106,9 +106,9 @@ flowchart LR
         Vaults
     end
     Symbiotic  -- Validates/Secures --> tanssi["Tanssi Network"]
-    tanssi -- Block Production Services--> Appchains
-    tanssi -- Security--> Appchains
-    tanssi -- Data Retrievability--> Appchains
+    tanssi -- Block Production Services--> Networks
+    tanssi -- Security--> Networks
+    tanssi -- Data Retrievability--> Networks
 ```
 
 ### Slashing and Rewards {: #slashing-rewards }
@@ -125,4 +125,4 @@ The Tanssi protocol also implements veto-slashing to penalize bad actors' misbeh
 When a veto-slashing event is triggered, the authorities designated as resolvers by the vault managers can accept or revert this action.
 
 !!! note
-    Slashing events can only be triggered by operators' misbehavings in the Tanssi network itself. Tanssi appchains, even if faulty or malicious, run in a sandboxed environment and can not cause slashing.
+    Slashing events can only be triggered by operators' misbehavings in the Tanssi Network itself. Tanssi networks, even if faulty or malicious, run in a sandboxed environment and can not cause slashing.

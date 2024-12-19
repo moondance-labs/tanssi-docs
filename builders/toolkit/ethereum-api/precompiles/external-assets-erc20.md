@@ -1,6 +1,6 @@
 ---
 title: External Assets as ERC-20
-description: Learn how to access and interact with an ERC-20 representation of any external assets on Tanssi EVM appchains through the precompiled ERC-20 Interface.
+description: Learn how to access and interact with an ERC-20 representation of any external assets on Tanssi EVM networks through the precompiled ERC-20 Interface.
 keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts, assets, erc20
 ---
 
@@ -8,11 +8,11 @@ keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts, a
 
 ## Introduction {: #introduction }
 
-As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){target=\_blank} article, appchains deployed through Tanssi can communicate and interoperate with any other appchain in the ecosystem. This multi-chain environment leads to a multi-asset world, where seamless transfer of assets, data, and value across different networks widens the possibilities to build use cases across diverse industries such as finance (DeFi), real-world assets (RWAs), and others.
+As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){target=\_blank} article, networks deployed through Tanssi can communicate and interoperate with any other network in the ecosystem. This multi-chain environment leads to a multi-asset world, where seamless transfer of assets, data, and value across different networks widens the possibilities to build use cases across diverse industries such as finance (DeFi), real-world assets (RWAs), and others.
 
-External assets are tokens native to another blockchain, or, in other words, assets whose reserve chain is not the chain you are interacting with. Tanssi appchains can register external assets to enable their inflow. To do so, it is necessary to [establish an XCM channel](/learn/framework/xcm/#channel-registration){target=\_blank} with the other chain and then register one of its native assets as an external asset. Registered external assets behave, to some extent, the same way as local ones.
+External assets are tokens native to another blockchain, or, in other words, assets whose reserve chain is not the chain you are interacting with. Tanssi networks can register external assets to enable their inflow. To do so, it is necessary to [establish an XCM channel](/learn/framework/xcm/#channel-registration){target=\_blank} with the other chain and then register one of its native assets as an external asset. Registered external assets behave, to some extent, the same way as local ones.
 
-The [ERC-20 assets precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20Instance.sol){target=\_blank} allows appchains based on the [Tanssi EVM template](/builders/build/templates/evm/){target=\_blank} to access any registered external asset through the standard ERC-20 interface. Consequently, smart contracts deployed to the appchain can interact with such assets as they would with any other regular ERC-20.
+The [ERC-20 assets precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20Instance.sol){target=\_blank} allows networks based on the [Tanssi EVM template](/builders/build/templates/evm/){target=\_blank} to access any registered external asset through the standard ERC-20 interface. Consequently, smart contracts deployed to the network can interact with such assets as they would with any other regular ERC-20.
 
 The address representing the ERC-20 contract is formed with the first thirty-six positions (eighteen bytes) set to the maximum value and the last four positions (two bytes) replaced with the hexadecimal representation of the registered asset identifier:
 
@@ -28,21 +28,21 @@ For example, for the asset whose ID is `1`, the last four positions must be repl
 
  Tto follow along with the contents in this guide, you'll need:
  
-- Access to a Tanssi EVM appchain running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
-- An established bidirectional XCM channel to another chain. To manage your appchain's channels, refer to the [Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} article
+- Access to a Tanssi EVM network running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
+- An established bidirectional XCM channel to another chain. To manage your network's channels, refer to the [Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} article
 - A registered external asset. Once the XCM channels are open, asset registration can be easily done using the [dApp](https://apps.tanssi.network/){target=\_blank} as explained in the [Register External Assets](/builders/manage/dapp/register-external-assets/){target=\_blank} guide
-- Finally, you'll need an [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} configured to work with your appchain. You can also connect your wallet to the [demo EVM appchain](https://apps.tanssi.network/demo){target=\_blank}.
+- Finally, you'll need an [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} configured to work with your network. You can also connect your wallet to the [demo EVM network](https://apps.tanssi.network/demo){target=\_blank}.
 
-The examples in this guide are based on the Tanssi demo EVM appchain, which already has open channels to other appchains and registered external assets, as the following picture shows:
+The examples in this guide are based on the Tanssi demo EVM network, which already has open channels to other networks and registered external assets, as the following picture shows:
 
 1. The registered external asset (UNIT) which will be used in the following sections
 2. Other available external assets not yet registered
 
-![Tanssi EVM demo appchain registered external Assets](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-1.webp)
+![Tanssi EVM demo network registered external Assets](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-1.webp)
 
 ## The ERC-20 Solidity Interface {: #the-erc20-interface }
 
-The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM appchains follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events a token contract must implement to be interoperable with different applications.
+The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} interface on Tanssi EVM networks follows the [EIP-20 Token Standard](https://eips.ethereum.org/EIPS/eip-20){target=\_blank}, which is the standard API interface for tokens within smart contracts. The standard defines the required functions and events a token contract must implement to be interoperable with different applications.
 
 ??? code "ERC20.sol"
 
@@ -55,9 +55,9 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 
 ## Add Token to an EVM Wallet {: #add-token-to-evm-wallet }
 
-If you want to interact with your appchain's registered external assets like you would with an ERC-20, you can add them to your wallet using the precompile address prefix and the asset ID. This section will walk you through adding an external asset to [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+If you want to interact with your network's registered external assets like you would with an ERC-20, you can add them to your wallet using the precompile address prefix and the asset ID. This section will walk you through adding an external asset to [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
-To get started, open up MetaMask and make sure you are connected to your appchain and:
+To get started, open up MetaMask and make sure you are connected to your network and:
 
 1. Switch to the **Tokens** tab
 2. Click on **Import tokens**
@@ -79,7 +79,7 @@ MetaMask will prompt you to confirm the import. You can review the token details
 
 ![Confirm and Import Tokens](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-4.webp)
 
-And that's it! You've successfully added the UNIT token external asset as a custom ERC-20 token on the Tanssi demo EVM appchain.
+And that's it! You've successfully added the UNIT token external asset as a custom ERC-20 token on the Tanssi demo EVM network.
 
 ## Interact with the Solidity Interface via Remix {: #interact-with-the-solidity-interface-via-remix }
 
@@ -119,10 +119,10 @@ Instead of deploying the smart contract, you will access the interface through t
 The ERC-20 interface lets you quickly obtain token information, including the token's total supply, name, symbol, and decimal places. You can retrieve this information by following these steps:
 
 1. Expand the **IERC20** contract under **Deployed Contracts**
-2. Click **decimals** to get the decimal places of your appchain's native protocol token
+2. Click **decimals** to get the decimal places of your network's native protocol token
 3. Click **name** to get the name of the token
 4. Click **symbol** to get the symbol of the token
-5. Click **totalSupply** to obtain the total supply of native tokens on your appchain
+5. Click **totalSupply** to obtain the total supply of native tokens on your network
 
 ![Get basic token information](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-7.webp)
 
@@ -130,7 +130,7 @@ The results of each function call are displayed under the respective functions.
 
 ### Get Account Balance {: #get-account-balance }
 
-You can check the balance of any address on your appchain by calling the `balanceOf` function and passing in an address:
+You can check the balance of any address on your network by calling the `balanceOf` function and passing in an address:
 
 1. Expand the **balanceOf** function
 2. Enter an address you would like to check the balance of for the **owner**

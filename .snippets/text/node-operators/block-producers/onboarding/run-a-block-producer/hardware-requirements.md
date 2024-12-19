@@ -15,11 +15,11 @@ The following are some hardware recommendations that have performed well:
 
 ### Running Ports {: #running-ports }
 
-As mentioned in the [Introduction](#introduction), block producer nodes will be assigned to produce blocks for any active appchain in the Tanssi ecosystem or the Tanssi protocol itself. To accomplish a successful block production, the node must be able to sync and participate in three different peer-to-peer (P2P) networks. This requires the following three ports to be open to incoming communications from **any** origin:
+As mentioned in the [Introduction](#introduction), block producer nodes will be assigned to produce blocks for any active network in the Tanssi ecosystem or the Tanssi protocol itself. To accomplish a successful block production, the node must be able to sync and participate in three different peer-to-peer (P2P) networks. This requires the following three ports to be open to incoming communications from **any** origin:
 
-|        Network        |    Port     |
-|:---------------------:|:-----------:|
-|   **Tanssi Chain**    | 30333 (TCP) |
-|    **Relay Chain**    | 30334 (TCP) |
-| **Assigned Appchain** | 30335 (TCP) |
+|       Network        |    Port     |
+|:--------------------:|:-----------:|
+|   **Tanssi Chain**   | 30333 (TCP) |
+|   **Relay Chain**    | 30334 (TCP) |
+| **Assigned Network** | 30335 (TCP) |
 

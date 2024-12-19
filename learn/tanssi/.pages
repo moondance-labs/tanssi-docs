@@ -3,7 +3,6 @@ hide: false
 nav:
   - index.md
   - 'Overview': 'overview.md'
-  - 'appchain-services'
+  - 'network-services'
   - 'external-security-providers'
-  - 'Included Templates': 'included-templates.md'
   - 'network-features'

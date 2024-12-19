@@ -1,2 +1,2 @@
 !!! note
-    Tokens are specified by their ERC-20 address. If the token you want to transfer is the appchain's native one, the [Native Token ERC-20 Precompile](/builders/toolkit/ethereum-api/precompiles/erc20/){target=\_blank} will help you reference it through an ERC-20 interface.
+    Tokens are specified by their ERC-20 address. If the token you want to transfer is the network's native one, the [Native Token ERC-20 Precompile](/builders/toolkit/ethereum-api/precompiles/erc20/){target=\_blank} will help you reference it through an ERC-20 interface.

@@ -1,13 +1,13 @@
 ---
 title: Smart EVM - Whitelist Contract Deployments
-description: Learn how to use Sudo to whitelist smart contract deployers for your Smart EVM Tanssi appchain, increasing overall security.
+description: Learn how to use Sudo to whitelist smart contract deployers for your Smart EVM Tanssi-powered network, increasing overall security.
 ---
 
 # Smart EVM - Whitelist Contract Deployments
 
 ## Introduction {: #introduction }
 
-EVM-compatible Tanssi appchains benefit from a unique feature: the appchain governor can define which accounts are authorized to deploy smart contracts, forbidding the action for any other non-whitelisted account.
+EVM-compatible Tanssi-powered networks benefit from a unique feature: the network governor can define which accounts are authorized to deploy smart contracts, forbidding the action for any other non-whitelisted account.
 
 This feature brings several key benefits that might be a great fit for different use cases or contexts. Some of those benefits are:
 
@@ -16,20 +16,20 @@ This feature brings several key benefits that might be a great fit for different
 - **Regulatory Compliance** - uses cases that are highly regulated can limit deployment to ensure that smart contracts meet legal and compliance requirements
 - **Spam and Abuse Prevention** - prevent bad actors from deploying large numbers of unnecessary or harmful contracts
 
-In this guide, you'll learn how to use the Sudo account to manage the whitelisted accounts that can deploy smart contracts on your appchain.
+In this guide, you'll learn how to use the Sudo account to manage the whitelisted accounts that can deploy smart contracts on your network.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 For the examples in this guide, you will need to have the following:
 
- - An EVM-compatible Tanssi appchain (Snap or Dedicated) running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above. Any new appchain deployment based on the [EVM template](/builders/build/templates/evm/){target=\_blank} will do
- - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+ - An EVM-compatible Tanssi-powered network (Quick Trial or Dedicated) running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above. Any new network deployment based on the [EVM template](/builders/build/templates/evm/){target=\_blank} will do
+ - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
 --8<-- 'text/builders/manage/locate-sudo-account.md'
 
 ## Getting Started {: #getting-started }
 
-To follow the next sections of this guide, head to Polkadot.js Apps for your Tanssi appchain. The Polkadot.js Apps link for your Tanssi appchain can be found in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Tooling** section.
+To follow the next sections of this guide, head to Polkadot.js Apps for your Tanssi network. The Polkadot.js Apps link for your Tanssi network can be found in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Tooling** section.
 
 ![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-1.webp)
 

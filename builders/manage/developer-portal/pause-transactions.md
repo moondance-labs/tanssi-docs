@@ -7,11 +7,11 @@ description: Learn how to use Sudo to temporarily pause hand-picked transactions
 
 ## Introduction {: #introduction }
 
-The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} is one of the [built-in modules](/learn/framework/modules/#built-in-modules){target=\_blank} included in the Polkadot SDK, and it is available in any Tanssi appchain based on the [official templates](/builders/build/templates/overview/){target=\_blank} version [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} or higher.
+The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} is one of the [built-in modules](/learn/framework/modules/#built-in-modules){target=\_blank} included in the Polkadot SDK, and it is available in any Tanssi-powered network based on the [official templates](/builders/build/templates/overview/){target=\_blank} version [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} or higher.
 
-This module allows an appchain governor to temporarily avoid executing a set of hand-picked transactions while the rest of the transactions carry on as usual. This feature is helpful in several scenarios, such as disabling functionality in which a security threat has been discovered, enabling seasonal functionality only when needed, and enabling a set of transactions exactly on a launch date.
+This module allows a network governor to temporarily avoid executing a set of hand-picked transactions while the rest of the transactions carry on as usual. This feature is helpful in several scenarios, such as disabling functionality in which a security threat has been discovered, enabling seasonal functionality only when needed, and enabling a set of transactions exactly on a launch date.
 
-In an emergency scenario, when a critical exploit is discovered, this module allows the appchain to isolate and stop only the affected functionality, effectively minimizing the overall impact. 
+In an emergency scenario, when a critical exploit is discovered, this module allows the network to isolate and stop only the affected functionality, effectively minimizing the overall impact. 
 
 !!! warning
     At the time of this writing, this module hasn't yet been audited; therefore, it is not recommended for production use. 
@@ -20,19 +20,19 @@ In an emergency scenario, when a critical exploit is discovered, this module all
 
 For the examples in this guide, you will need to have the following:
 
- - A Tanssi appchain (Snap or Dedicated) featuring the Transaction Pause module. Any new appchain deployment based on one of the templates will do; otherwise, make sure to [include the module](/builders/build/customize/adding-built-in-module/){target=\_blank} in your custom-made appchain runtime
- - Your appchain's Sudo account connected to your appchain's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+ - A Tanssi-powered network (Quick Trial or Dedicated) featuring the Transaction Pause module. Any new network deployment based on one of the templates will do; otherwise, make sure to [include the module](/builders/build/customize/adding-built-in-module/){target=\_blank} in your custom-made network runtime
+ - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
 --8<-- 'text/builders/manage/locate-sudo-account.md'
 
 ## Module and Transaction Names {: #modules-transaction-names }
 
-The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} works by filtering the execution of specific transactions contained in the modules included in the appchain runtime. To do so, it keeps an internal list of the banned transactions identified by module and transaction name. This list is case-sensitive and works only when there is an exact match between one item in the paused transactions list and the transaction being processed. Therefore, using the exact names of the modules and the transactions is crucial.
+The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} works by filtering the execution of specific transactions contained in the modules included in the network runtime. To do so, it keeps an internal list of the banned transactions identified by module and transaction name. This list is case-sensitive and works only when there is an exact match between one item in the paused transactions list and the transaction being processed. Therefore, using the exact names of the modules and the transactions is crucial.
 
-To find out the names of the modules available in your runtime, you need to read the `construct_runtime!()` section in the `lib.rs` file of your appchain runtime in your project repository. If your appchain is based on one of the official templates, you'll find the file in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}:
+To find out the names of the modules available in your runtime, you need to read the `construct_runtime!()` section in the `lib.rs` file of your network runtime in your project repository. If your network is based on one of the official templates, you'll find the file in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}:
 
-- For appchains based on the EVM template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}
-- For appchains based on the Substrate template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}
+- For networks based on the EVM template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}
+- For networks based on the Substrate template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}
 
 The following snippet is an example of how the `construct_runtime!()` section looks like. The module names are those located to the left of the colon.
 
@@ -68,13 +68,13 @@ pub fn transfer_allow_death(
 
 When using any of the built-in Substrate modules, the name with which it's referenced within the runtime is entirely up to the developer, but the transaction names aren't customizable. Here is a list of some of the most commonly used modules with the most commonly used transactions they contain. Those are the transaction names to be used in this Transaction Pause module.
 
-???+ function "[**pallet-ethereum**](https://github.com/polkadot-evm/frontier/blob/master/frame/ethereum/src/lib.rs){target=\_blank} — This module, along with the EVM module, provides full Ethereum compatibility to the appchain"
+???+ function "[**pallet-ethereum**](https://github.com/polkadot-evm/frontier/blob/master/frame/ethereum/src/lib.rs){target=\_blank} — This module, along with the EVM module, provides full Ethereum compatibility to the network"
 
     | Transaction Name |        Description        |
     |:----------------:|:-------------------------:|
     |    `transact`    | Executes an Ethereum call |
 
-??? function "[**pallet_balances**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/balances/src/lib.rs){target=\_blank} — This module provides functionality for handling accounts and balances for the Tanssi appchain native currency"
+??? function "[**pallet_balances**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/balances/src/lib.rs){target=\_blank} — This module provides functionality for handling accounts and balances for the network native currency"
 
     |    Transaction Name    |                                                                 Description                                                                  |
     |:----------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
@@ -134,9 +134,9 @@ When using any of the built-in Substrate modules, the name with which it's refer
 
 ## Pausing Transactions {: #pausing-transactions }
 
-As you know, the Sudo account [can perform privileged actions](/builders/manage/developer-portal/sudo/){target=\_blank}, such as appchain upgrades, minting new tokens, and, in this case, pausing and unpausing transactions.
+As you know, the Sudo account [can perform privileged actions](/builders/manage/developer-portal/sudo/){target=\_blank}, such as network upgrades, minting new tokens, and, in this case, pausing and unpausing transactions.
 
-To pause a transaction, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+To pause a transaction, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi-powered network and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **txPause** module
 2. Select the **pause** method
@@ -157,7 +157,7 @@ To verify that the transaction has been effectively paused, try executing it. Yo
 
 ## Unpausing Transactions {: #unpausing-transactions }
 
-To unpause a transaction and return it to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi appchain and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+To unpause a transaction and return it to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi-powered network and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
 
 1. Select the **txPause** module
 2. Select the **unpause** method
@@ -171,6 +171,6 @@ In this example, the transaction to unpause is `transfer_allow_death` from the `
 
 The `unpause` transaction executes successfully only if the module and transaction parameters have been previously paused; otherwise, it fails. After the successful unpausing, the transaction can be called and executed again.
 
-And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi appchain.
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

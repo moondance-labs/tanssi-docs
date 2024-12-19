@@ -1,6 +1,6 @@
 ---
 title: Run a Tanssi Block Producer
-description: Learn how to set up and run block producers (collators) for Tanssi appchains using Systemd, allowing you to participate in the protocol and earn rewards.
+description: Learn how to set up and run block producers (collators) for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 ---
 
 # Run a Block Producer Node Using Systemd
@@ -147,7 +147,7 @@ WantedBy=multi-user.target
 
 The flags used in the ExecStart command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
---8<-- 'text/node-operators/appchain-node/run-flags.md'
+--8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
 /var/lib/tanssi-data/tanssi-node  --help
@@ -168,7 +168,7 @@ You can verify that the service is up and running correctly running:
 systemctl status tanssi.service
 ```
 
---8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/check-status.md'
+--8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
 And check the logs, if needed, with the following command:
 

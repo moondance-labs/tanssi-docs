@@ -7,7 +7,7 @@ description: Any custom runtime can be adapted to be deployed through Tanssi, pr
 
 ## Introduction {: #introduction }
 
-For teams working on an existing Substrate framework project, it will be necessary to include some required modules and configurations into the runtime. This will ensure that the existing runtime can gracefully become a Tanssi appchain runtime, aligning with the [protocol rules](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank}.
+For teams working on an existing Substrate framework project, it will be necessary to include some required modules and configurations into the runtime. This will ensure that the existing runtime can gracefully become a Tanssi network runtime, aligning with the [protocol rules](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank}.
 
 Failing to do so might lead to reduced interoperability and unnecessary exposure to vulnerabilities.
 
@@ -88,7 +88,7 @@ To support the Tanssi protocol, it will be necessary to add [the modules](#base-
         UncheckedExtrinsic = UncheckedExtrinsic,
     {
         ...
-        // Tanssi appchain
+        // Tanssi network
         AuthoritiesNoting: pallet_cc_authorities_noting = 50,
         AuthorInherent: pallet_author_inherent = 51,
         ...

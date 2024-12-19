@@ -23,9 +23,9 @@ The Dancebox TestNet HTTPS and WSS endpoints are as follows:
     wss://{{ networks.dancebox.dns_name }}
     ```
 
-### Demo EVM Appchain
+### Demo EVM Network
 
-The demo EVM appchain HTTPS and WSS endpoints are as follows:
+The demo EVM network HTTPS and WSS endpoints are as follows:
 
 === "HTTPS"
 

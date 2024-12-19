@@ -4,17 +4,17 @@ import contractFile from './compile.js';
 
 // Define network configurations
 const providerRPC = {
-  evmAppchain: {
-    name: 'dancebox-evm-appchain',
+  evmNetwork: {
+    name: 'dancebox-evm-network',
     rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
 
 // Create ethers provider
-const provider = new ethers.JsonRpcProvider(providerRPC.evmAppchain.rpc, {
-  chainId: providerRPC.evmAppchain.chainId,
-  name: providerRPC.evmAppchain.name,
+const provider = new ethers.JsonRpcProvider(providerRPC.evmNetwork.rpc, {
+  chainId: providerRPC.evmNetwork.chainId,
+  name: providerRPC.evmNetwork.name,
 });
 
 // Define accounts and wallet
