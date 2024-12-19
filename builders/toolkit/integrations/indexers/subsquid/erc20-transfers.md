@@ -1,6 +1,7 @@
 ---
 title: Index ERC-20 Transfers on an EVM Appchain
 description: Learn how to use Subsquid, a query node framework that can index both Substrate and EVM data, to process blockchain data for your Tanssi appchain.
+icon: octicons-arrow-switch-24
 ---
 
 # Indexing ERC-20 Transfers on a Tanssi EVM Appchain

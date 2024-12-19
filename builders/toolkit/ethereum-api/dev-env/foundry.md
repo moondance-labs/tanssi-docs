@@ -1,6 +1,7 @@
 ---
 title: Deploy Contracts with Foundry
 description: Learn how to use Foundry, an Ethereum development environment, to compile, deploy, and interact with Solidity smart contracts on your Tanssi EVM appchain.
+icon: octicons-code-square-24
 ---
 
 # Using Foundry to Deploy to Your EVM Appchain

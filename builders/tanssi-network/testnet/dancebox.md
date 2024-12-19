@@ -1,6 +1,7 @@
 ---
 title: Get Started with Dancebox
 description: Dancebox is the Tanssi TestNet, and it is the easiest way to get started with the Tanssi Network to deploy your Substrate or EVM-compatible appchain.
+icon: octicons-star-24
 ---
 
 # Get Started with Dancebox

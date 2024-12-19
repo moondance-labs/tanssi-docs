@@ -1,6 +1,6 @@
-title: Manage Your Appchain
+title: Manage Your Network
 hide: false
 nav:
   - index.md
-  - developer-portal
   - dapp
+  - developer-portal

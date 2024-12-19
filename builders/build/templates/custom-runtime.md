@@ -1,6 +1,7 @@
 ---
 title: Custom Runtime
 description: Any custom runtime can be adapted to be deployed through Tanssi, provided that specific modules are implemented and the required configurations are set.
+icon: octicons-file-binary-24
 ---
 
 # Custom Runtime

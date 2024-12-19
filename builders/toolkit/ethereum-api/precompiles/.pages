@@ -5,6 +5,6 @@ nav:
   - 'Batch': batch.md
   - 'Call Permit': call-permit.md
   - 'Native Token ERC-20': erc20.md
-  - 'Cross Chain Transfers': cross-chain-transfers.md
-  - 'External Assets as ERC-20': external-assets-erc20.md
+  # - 'Cross Chain Transfers': cross-chain-transfers.md
+  # - 'External Assets as ERC-20': external-assets-erc20.md
   - 'Proxy': proxy.md

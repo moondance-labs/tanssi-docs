@@ -1,6 +1,7 @@
 ---
 title: Customizing Chain Specifications
-description: The chain specification contains the initial parameters required for launching a new Tanssi appchain, including genesis state, token configuration, and more.
+description: Review the sections and attributes of a chain specification file and how to obtain it for launching your Tanssi-powered network with a customized specification.
+icon: octicons-link-24
 ---
 
 # Customizing Chain Specifications {: #customizing-chain-specifications }
