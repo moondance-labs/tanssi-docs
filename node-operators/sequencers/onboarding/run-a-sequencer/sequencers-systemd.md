@@ -1,6 +1,7 @@
 ---
-title: Run a Tanssi Block Producer
-description: Learn how to set up and run block producers (collators) for Tanssi appchains using Systemd, allowing you to participate in the protocol and earn rewards.
+title: Run a Tanssi Sequencer
+description: Learn how to set up and run a sequencer (block producer) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
+icon: simple-linux
 ---
 
 # Run a Block Producer Node Using Systemd
@@ -12,8 +13,6 @@ description: Learn how to set up and run block producers (collators) for Tanssi 
 In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
-
---8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/hardware-requirements.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
