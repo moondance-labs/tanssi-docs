@@ -1,6 +1,6 @@
 ---
 title: Solidity Precompiles
-description: These guides showcase interacting with precompiles, which expose Substrate features via the easy-to-access Ethereum API of Tanssi EVM ContainerChains.
+description: These guides demonstrate how to interact with precompiles to access Substrate features through the familiar Ethereum API on Tanssi's EVM-compatible networks.
 icon: octicons-file-code-24
 template: index-page.html
 ---
@@ -46,7 +46,7 @@ graph LR
 | Precompile          | Address                                                      |
 |---------------------|--------------------------------------------------------------|
 | Native Token ERC-20 | <pre>```0x0000000000000000000000000000000000000800```</pre>  |
-| Call Permit         | <pre>````0x0000000000000000000000000000000000000802```</pre> |
+| Call Permit         | <pre>```0x0000000000000000000000000000000000000802```</pre>  |
 | Proxy               | <pre>```0x0000000000000000000000000000000000000805```</pre>  |
 | Batch Transactions  | <pre>```0x0000000000000000000000000000000000000801```</pre>  |
 

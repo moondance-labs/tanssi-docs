@@ -1,6 +1,6 @@
 ---
 title: Network Templates
-description: Learn more about the baseline network Templates (EVM and non-EVM) that support Tanssi out of the box to help you kickstart your network development.
+description: Learn more about the baseline network templates (EVM and non-EVM) that support Tanssi out of the box to help you kickstart your network development.
 icon: octicons-copy-24
 template: index-page.html
 ---

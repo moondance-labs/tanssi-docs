@@ -1,6 +1,6 @@
 ---
 title: Substrate API
-description: Learn how to interact with your Tanssi-powered network through the Substrate API, including how to use the Polkadot.js API, the Sidecar API, Chopsticks, and more.
+description: Learn how to interact with your Tanssi-powered network using the Substrate API, leveraging tools like the Polkadot.js API, Sidecar API, Chopsticks, and others.
 icon: simple-paritysubstrate
 template: index-page.html
 ---

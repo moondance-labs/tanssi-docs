@@ -5,7 +5,7 @@ icon: octicons-gear-24
 template: index-page.html
 ---
 
-# Managing Your Tanssi-Powered Networks
+# Managing Your Tanssi-Powered Network
 
 The Tanssi dApp and the Developer Portal serve different purposes when managing your , offering unique benefits tailored to your needs:
 

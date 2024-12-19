@@ -38,7 +38,7 @@ Explore everything you need to build, deploy, and manage networks within the Tan
 
 -   Steps to Take After Deployment
 
-    Once your tanssi-powered network is live, follow these steps to ensure smooth and ongoing operations:
+    Once your Tanssi-powered network is live, follow these steps to ensure smooth and ongoing operations:
 
     [:octicons-arrow-right-24: Pay for block production services](/builders/manage/dapp/services-payment/)
 

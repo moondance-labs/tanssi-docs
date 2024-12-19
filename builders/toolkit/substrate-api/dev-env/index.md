@@ -1,6 +1,6 @@
 ---
 title: Substrate Development Environments
-description: Check out the Substrate development environments, which can be used to develop, test, and debug a tanssi-powered network in a local development environment.
+description: Check out the Substrate development environments, which can be used to develop, test, and debug a Tanssi-powered network in a local development environment.
 icon: octicons-code-square-24
 template: index-page.html
 ---
