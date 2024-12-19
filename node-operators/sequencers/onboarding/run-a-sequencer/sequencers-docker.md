@@ -8,7 +8,7 @@ icon: simple-docker
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/intro.md'
+--8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
 
 In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
@@ -30,7 +30,7 @@ docker pull moondancelabs/tanssi
 
 The command will download and extract the image and show the status upon execution:
 
---8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/terminal/pulling-docker-image.md'
+--8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/terminal/pulling-docker-image.md'
 
 ### Setup the Data Directory {: #setup-data-directory }
 
@@ -59,7 +59,7 @@ sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
 
 ### Generate the Node Key {: #generate-node-key }
 
---8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-intro.md'
+--8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-intro.md'
 
 ```bash
 docker run --network="host" -v "/var/lib/dancebox:/data" \
@@ -67,7 +67,7 @@ docker run --network="host" -v "/var/lib/dancebox:/data" \
 moondancelabs/tanssi key generate-node-key --file /data/node-key
 ```
 
---8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-unsafe-note.md'
+--8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
 ## Start-Up Command {: #start-up-command }
 
@@ -89,7 +89,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     moondancelabs/tanssi \
-    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 
 === "Intel Skylake"
@@ -99,7 +99,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi \
-    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 === "AMD Zen3"
 
@@ -108,14 +108,14 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi \
-    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 
 ### Run Flags {: #run-flags }
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
---8<-- 'text/node-operators/appchain-node/run-flags.md'
+--8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
 docker run -ti moondancelabs/tanssi --help

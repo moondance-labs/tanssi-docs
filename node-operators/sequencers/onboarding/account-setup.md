@@ -10,9 +10,9 @@ icon: octicons-person-add-24
 
 Before you can start producing blocks on Tanssi and Tanssi appchains, you'll need to set up your account and establish your eligibility.
 
-You must have spun up a [block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer/){target=\_blank} to tackle the account setup steps in this guide.
+You must have spun up a [block-producing node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} to tackle the account setup steps in this guide.
 
-You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/block-producers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
+You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
 
 To establish eligibility, you must delegate yourself as a block producer and meet the minimum bond requirements.
 
@@ -42,7 +42,7 @@ You will need to create session keys for your primary and backup servers. Each o
 
 ### Generate Session Keys {: #generate-session-keys }
 
-Before generating session keys, you must be [running a block-producing node](/node-operators/block-producers/onboarding/run-a-block-producer/){target=\_blank}.
+Before generating session keys, you must be [running a block-producing node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank}.
 
 To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your block producer's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
 
@@ -59,7 +59,7 @@ curl http://127.0.0.1:9944 -H \
 
 Your hex-encoded session keys will be printed to the terminal in the `"result"` field.
 
---8<-- 'code/node-operators/block-producers/onboarding/account-setup/terminal/generate-session-keys.md'
+--8<-- 'code/node-operators/sequencers/onboarding/account-setup/terminal/generate-session-keys.md'
 
 Make sure you write down your session keys; you'll need to map your session keys to your account in the next section.
 
@@ -73,7 +73,7 @@ To perform the next step and map your session keys to your account, head to [Pol
 4. For **proof**, enter `0x`
 5. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit an extrinsic to set session keys on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-1.webp)
+![Create and submit an extrinsic to set session keys on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-1.webp)
 
 Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
@@ -83,7 +83,7 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 4. Click the **+** button next to the extrinsic field
 5. The account associated with the session keys, which should be your account, will be displayed at the bottom of the page
 
-![Create and submit query to verify session keys on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-2.webp)
+![Create and submit query to verify session keys on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-2.webp)
 
 ## Submit Self-Delegation {: #submit-self-delegation }
 
@@ -104,7 +104,7 @@ Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.d
 5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit an extrinsic to self-delegate on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-3.webp)
+![Create and submit an extrinsic to self-delegate on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-3.webp)
 
 ### Execute the Pending Request {: #execute-pending-request }
 
@@ -116,7 +116,7 @@ Before executing the pending request, you'll need to retrieve the session at whi
 4. Click the **+** button next to the extrinsic field
 5. The pending request will be displayed at the bottom of the page
 
-![Query the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-4.webp)
+![Query the pending self-delegation request on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-4.webp)
 
 In the example in the above image, the delegate request to join the auto-compounding pool was submitted during session 4,829. So, the request can be executed starting at session 4,831.
 
@@ -128,7 +128,7 @@ You can run another query from the **Chain state** page to check the current ses
 2. Click the **+** button next to the extrinsic field
 3. The current session will be displayed at the bottom of the page
 
-![Query the current session index on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-5.webp)
+![Query the current session index on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-5.webp)
 
 If the request can be executed, select **Extrinsics** from the **Developer** dropdown and take the following steps:
 
@@ -140,7 +140,7 @@ If the request can be executed, select **Extrinsics** from the **Developer** dro
 6. For **at**, enter the session id at which you submitted the delegate request
 7. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-6.webp)
+![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-6.webp)
 
 Now, you have completed all of the necessary account setup to be eligible to produce blocks!
 
@@ -152,6 +152,6 @@ If you've followed all of the steps in this guide and have fully synced your blo
 2. Click the **+** button next to the extrinsic field
 3. A list of the eligible candidates and their stake will be displayed at the bottom of the page. You can search for your address to ensure you are eligible to produce blocks
 
-![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/block-producers/onboarding/account-setup/setup-7.webp)
+![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-7.webp)
 
 Remember that you'll need to be in the top candidates by total stake to produce blocks, and this is based on the number of [block producers required for each appchain and Tanssi](#important-variables).

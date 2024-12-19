@@ -8,7 +8,7 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/intro.md'
+--8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
 
 In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
@@ -79,13 +79,13 @@ mv ./tanssi-node /var/lib/tanssi-data
 
 ### Generate the Node Key {: #generate-node-key }
 
---8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-intro.md'
+--8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-intro.md'
 
 ```bash
 /var/lib/tanssi-data/tanssi-node key generate-node-key --file /var/lib/tanssi-data/node-key
 ```
 
---8<-- 'text/node-operators/block-producers/onboarding/run-a-block-producer/generate-node-key-unsafe-note.md'
+--8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
@@ -146,7 +146,7 @@ WantedBy=multi-user.target
 
 The flags used in the ExecStart command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
---8<-- 'text/node-operators/appchain-node/run-flags.md'
+--8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
 /var/lib/tanssi-data/tanssi-node  --help
@@ -167,7 +167,7 @@ You can verify that the service is up and running correctly running:
 systemctl status tanssi.service
 ```
 
---8<-- 'code/node-operators/appchain-node/rpc-systemd/terminal/check-status.md'
+--8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
 And check the logs, if needed, with the following command:
 

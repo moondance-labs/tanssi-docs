@@ -10,7 +10,7 @@ icon: simple-docker
 
 Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi network running smoothly. Tanssi block producers can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
 
-This tutorial covers upgrading your Tanssi block producer node that was configured using Docker. It assumes you have already set up your account and launched a [block producer node using Docker](/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/){target=\_blank}.
+This tutorial covers upgrading your Tanssi block producer node that was configured using Docker. It assumes you have already set up your account and launched a [block producer node using Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
 
 ## Upgrading Docker Nodes {: #upgrading-docker-nodes }
 
@@ -30,7 +30,7 @@ docker stop INSERT_YOUR_CONTAINER_ID
 
 Your terminal interaction will resemble the following:
 
---8<-- 'code/node-operators/block-producers/operational-tasks/upgrade-your-node/upgrade-docker/terminal/docker-stop.md'
+--8<-- 'code/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/terminal/docker-stop.md'
 
 To restart the node, you can use the command you used when launching your block producer node. The Docker command is configured to automatically retrieve the latest version. The node will resume syncing blocks from where it left off when the Docker process was stopped.  
 
@@ -40,7 +40,7 @@ To restart the node, you can use the command you used when launching your block 
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     moondancelabs/tanssi \
-    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 
 === "Intel Skylake"
@@ -50,7 +50,7 @@ To restart the node, you can use the command you used when launching your block 
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi \
-    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 === "AMD Zen3"
 
@@ -59,7 +59,7 @@ To restart the node, you can use the command you used when launching your block 
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi \
-    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 
 ### Specifying a Version Tag {: #specifying-a-version-tag }
@@ -74,7 +74,7 @@ The complete commands with specific version tags are thus as follows:
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     moondancelabs/tanssi:{{ networks.dancebox.client_version }} \
-    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 
 === "Intel Skylake"
@@ -84,7 +84,7 @@ The complete commands with specific version tags are thus as follows:
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi:{{ networks.dancebox.client_version }} \
-    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 
 === "AMD Zen3"
@@ -94,7 +94,7 @@ The complete commands with specific version tags are thus as follows:
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi:{{ networks.dancebox.client_version }} \
-    --8<-- 'code/node-operators/block-producers/onboarding/run-a-block-producer/block-producer-docker/docker-command.md'
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 And that's it! You've successfully upgraded your Tanssi node.
 
