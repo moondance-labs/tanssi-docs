@@ -7,7 +7,7 @@ template: index-page.html
 
 # Managing Your Tanssi-Powered Network
 
-The Tanssi dApp and the Developer Portal serve different purposes when managing your , offering unique benefits tailored to your needs:
+The Tanssi dApp and the developer portal serve different purposes when managing your network, offering unique benefits tailored to your needs:
 
 - **[Tanssi dApp](https://apps.tanssi.network){target=\_blank}** - simplifies the entire network lifecycle, from deployment to basic management. By removing technical complexities, it enables a faster and more streamlined experience for creating and managing networks. Some actions that can be performed via the dApp include:
 
