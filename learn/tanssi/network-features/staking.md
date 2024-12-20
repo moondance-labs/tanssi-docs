@@ -1,6 +1,7 @@
 ---
 title: Staking
 description: Learn how Tanssi implements a novel Staking mechanism to provide a decentralized and trustless set of block producers to all Tanssi-powered appchains
+icon: material-hand-coin-outline
 ---
 
 # Tanssi Staking {: #tanssi-staking }

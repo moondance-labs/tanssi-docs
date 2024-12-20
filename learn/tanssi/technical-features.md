@@ -1,6 +1,7 @@
 ---
 title: Block Production Services
 description: Tanssi provides block production services assigning block producers to the appchains, requiring minimal changes to the code for appchains to be deployed.
+icon: octicons-gear-24
 ---
 
 # Technical Features of Tanssi {: #technical-features-of-tanssi }
