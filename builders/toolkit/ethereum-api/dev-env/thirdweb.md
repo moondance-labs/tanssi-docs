@@ -12,7 +12,7 @@ icon: octicons-code-square-24
 
 With thirdweb, you can access tools to help you through every phase of the dApp development cycle. You can create your own custom smart contracts or use any of thirdweb's prebuilt contracts to get started quickly. From there, you can use thirdweb's CLI to deploy your smart contracts. Then you can interact with your smart contracts by creating a Web3 application using the language of your choice, including but not limited to React and TypeScript. 
 
-This guide will show you some of the thirdweb features you can use to develop smart contracts and dApps on Tanssi EVM appchains. To check out all of the features thirdweb has to offer, please refer to the [thirdweb documentation site](https://portal.thirdweb.com){target=\_blank}. 
+This guide will show you some of the thirdweb features you can use to develop smart contracts and dApps on Tanssi EVM networks. To check out all of the features thirdweb has to offer, please refer to the [thirdweb documentation site](https://portal.thirdweb.com){target=\_blank}. 
 
 ## Create Contract {: #create-contract }
 
@@ -57,7 +57,7 @@ To create a new smart contract using the [thirdweb CLI](https://portal.thirdweb.
     - Inheriting the contract by declaring that your contract is an `ERC721Base` contract
     - Implementing any required methods, such as the constructor
 
-5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM appchain using [Deploy](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank}. That will be covered in the next section!
+5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM network using [Deploy](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank}. That will be covered in the next section!
 
 Alternatively, you can deploy a prebuilt contract for NFTs, tokens, or marketplace directly from the thirdweb Explore page:
 
@@ -93,7 +93,7 @@ For more information on different contracts available on Explore, check out [thi
     - `_royaltyRecipient` - wallet address to receive royalties from secondary sales
     - `_royaltyBps` - basis points (bps) that will be given to the royalty recipient for each secondary sale, e.g. 500 = 5%
 
-3. Select the desired network, e.g., the Tanssi demo EVM appchain or your own appchain
+3. Select the desired network, e.g., the Tanssi demo EVM network or your own network
 4. Manage additional settings on your contract’s dashboard as needed such as uploading NFTs, configuring permissions, and more
 
     ![thirdweb deploy](/images/builders/toolkit/ethereum-api/dev-environments/thirdweb/thirdweb-2.webp)
@@ -192,7 +192,7 @@ The below code snippet demonstrates how to initialize and connect a MetaMask wal
 
 ### Get Contract {: #get-contract }
 
-To connect to your contract, use the SDK’s [`getContract`](https://portal.thirdweb.com/references/typescript/v5/getContract){target=\_blank} method. As an example, you could fetch data from an [incrementer contract on the Tanssi demo EVM appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}.
+To connect to your contract, use the SDK’s [`getContract`](https://portal.thirdweb.com/references/typescript/v5/getContract){target=\_blank} method. As an example, you could fetch data from an [incrementer contract on the Tanssi demo EVM network](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}.
 
 ```typescript
 import { getContract } from 'thirdweb';
@@ -201,7 +201,7 @@ import { client } from './client';
 const myContract = getContract({
   client,
   chain: tanssi,
-  address: 0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D, // Incrementer contract address on demo EVM appchain
+  address: 0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D, // Incrementer contract address on demo EVM network
   abi: '[{"inputs":[],"name":"increment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"timestamp","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]';
 });
 ```
@@ -250,7 +250,7 @@ const transaction = prepareTransaction({
   // The value is the amount of ether you want to send with the transaction
   value: toWei('1'),
   // The chain to execute the transaction on. This assumes you already set up
-  // the Tanssi demo EVM appchain as a custom chain, as shown in the configure chain section
+  // the Tanssi demo EVM network as a custom chain, as shown in the configure chain section
   chain: tanssi,
   // Your thirdweb client
   client,
@@ -289,7 +289,7 @@ Did you know? With the [thirdweb CLI](https://portal.thirdweb.com/cli){target=\_
 npx thirdweb generate INSERT_CHAIN_ID/INSERT_CONTRACT_ADDRESS
 ```
 
-Both the chain ID and the contract address are required. As an example, if you wanted to generate the functions for the [incrementer contract on the Tanssi demo EVM appchain](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank} , you would use the following command:
+Both the chain ID and the contract address are required. As an example, if you wanted to generate the functions for the [incrementer contract on the Tanssi demo EVM network](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank} , you would use the following command:
 
 ```bash
 npx thirdweb generate 5678/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D

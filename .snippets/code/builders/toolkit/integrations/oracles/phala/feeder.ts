@@ -29,10 +29,10 @@ const abi = parseAbi([
   'function getRoundData(uint80 _roundId) public view returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound)',
 ]);
 
-// Insert your appchain details here
+// Insert your network details here
 const chain = defineChain({
   id: INSERT_EVM_CHAIN_ID,
-  name: 'dancebox-evm-appchain',
+  name: 'dancebox-evm-network',
   rpcUrls: {
     default: {
       http: ['INSERT_RPC_URL'],

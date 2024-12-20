@@ -1,6 +1,6 @@
 ---
 title: Learn About Tanssi
-description: Learn about Tanssi protocol and how it handles infrastructure complexities, making it easy for new networks to be deployed in the Polkadot Web3 ecosystem.
+description: Learn about Tanssi protocol and how it handles infrastructure complexities, making it easy for developers to deploy decentralized networks in minutes.
 icon: octicons-star-24
 template: index-page.html
 ---

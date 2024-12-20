@@ -1,0 +1,8 @@
+title: Tanssi-Powered Networks
+hide: false
+nav:
+  - index.md
+  - 'Overview': 'overview.md'
+  - 'Included Templates': 'included-templates.md'
+  - runtime-features.md
+  - tx-fees.md

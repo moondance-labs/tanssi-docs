@@ -1,6 +1,6 @@
 ---
 title: EVM Transactions & Contracts with Web3.js
-description: Learn how to use the Ethereum Web3 JavaScript Library to send transactions and deploy Solidity smart contracts to your Tanssi EVM appchain.
+description: Learn how to use the Ethereum Web3 JavaScript Library to send transactions and deploy Solidity smart contracts to your Tanssi-powered EVM-compatible network.
 icon: octicons-code-24
 ---
 
@@ -8,9 +8,9 @@ icon: octicons-code-24
 
 ## Introduction {: #introduction }
 
-[Web3.js](https://web3js.readthedocs.io){target=\_blank} is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with JavaScript. Tanssi EVM appchains have an Ethereum-like API that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Web3.js library to interact with a Tanssi EVM appchain node as if they were doing so on Ethereum. For more information on Web3.js, check out their [documentation site](https://web3js.readthedocs.io/en/v1.10.0){target=\_blank}.
+[Web3.js](https://web3js.readthedocs.io){target=\_blank} is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with JavaScript. Tanssi-powered EVM networks have an Ethereum-like API that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Web3.js library to interact with a Tanssi EVM network node as if they were doing so on Ethereum. For more information on Web3.js, check out their [documentation site](https://web3js.readthedocs.io/en/v1.10.0){target=\_blank}.
 
-In this guide, you'll learn how to set up the Web3.js library for your Tanssi EVM appchain. Next, to showcase the library in action, you'll use the Web3.js library to send a transaction and deploy a contract on a Tanssi EVM appchain running in Tanssi's [Dancebox](/builders/tanssi-network/testnet/dancebox/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM appchain by simply changing the endpoint.
+In this guide, you'll learn how to set up the Web3.js library for your Tanssi EVM network. Next, to showcase the library in action, you'll use the Web3.js library to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancebox](/builders/tanssi-network/testnet/dancebox/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint.
 
 --8<-- 'text/_common/general-js-tutorial-check.md'
 
@@ -18,7 +18,7 @@ In this guide, you'll learn how to set up the Web3.js library for your Tanssi EV
 
 For the examples in this guide, you will need to have the following:
 
-- An account with funds in the Tanssi EVM appchain you are testing with
+- An account with funds in the Tanssi EVM network you are testing with
 
 ## Installing Web3Js {: #installing-web3js }
 
@@ -43,7 +43,7 @@ Throughout this guide, you'll be creating a bunch of scripts that provide differ
 To set up a Web3 provider, you can take the following steps:
 
 1. Import the `Web3` library.
-2. Create the Web3 provider and specify the RPC url. You can configure Web3.js to work with a Tanssi EVM appchain running in Tanssi's Dancebox TestNet, or your own Tanssi EVM appchain by simply changing the endpoint.
+2. Create the Web3 provider and specify the RPC url. You can configure Web3.js to work with a Tanssi EVM network running in Tanssi's Dancebox TestNet, or your own Tanssi EVM network by simply changing the endpoint.
 
 ```js
 // 1. Import Web3

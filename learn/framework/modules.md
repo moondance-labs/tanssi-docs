@@ -1,28 +1,28 @@
 ---
-title: Appchain Modules for your Runtime
-description: Substrate is a modular blockchain development framework with an extensive set of ready-to-use components to bundle with custom logic into the appchain Runtime.
+title: Network Modules for your Runtime
+description: Substrate is a modular blockchain development framework with an extensive set of ready-to-use components to bundle with custom logic into the network Runtime.
 icon: material-puzzle-outline
 ---
 
-# Appchain Framework Modules {: #appchain-framework-modules }
+# Network Framework Modules {: #network-framework-modules }
 
 ## Introduction {: #introduction }
 
-The Substrate framework provides complete and ready-to-use implementations of the main functions a Tanssi appchain needs to work properly, including cryptography, consensus, governance, and so on. These implementations are fully customizable and could be replaced with custom logic if needed.
+The Substrate framework provides complete and ready-to-use implementations of the main functions a Tanssi network needs to work properly, including cryptography, consensus, governance, and so on. These implementations are fully customizable and could be replaced with custom logic if needed.
 
 When building the Runtime, which defines the state transition rules between two blocks applied to a set of transactions, the intended behavior and features of the blockchain need to be set by determining the rules of the state transition.
 
-To build the Runtime, Substrate provides many built-in modules (also known as pallets) that can be freely used as building blocks to compose and interact with any other custom-made modules, allowing teams to create unique behaviors according to the specific requirements of their Tanssi appchain.
+To build the Runtime, Substrate provides many built-in modules (also known as pallets) that can be freely used as building blocks to compose and interact with any other custom-made modules, allowing teams to create unique behaviors according to the specific requirements of their Tanssi network.
 
 ![Built-in modules](/images/learn/framework/modules/modules-1.webp)
 
 ## Built-in Modules {: #built-in-modules }
 
-When designing and writing the rules of a Tanssi appchain, the available set of functional modules brings a solution to many of the coding requirements that would otherwise need to be built from scratch.
+When designing and writing the rules of a Tanssi network, the available set of functional modules brings a solution to many of the coding requirements that would otherwise need to be built from scratch.
 
 Here is a list of some of the most popular modules:
 
-- **[Balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - it provides functions for handling accounts and balances for the Tanssi appchain native currency
+- **[Balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - it provides functions for handling accounts and balances for the Tanssi network native currency
 - **[Assets](https://paritytech.github.io/substrate/master/pallet_assets/index.html){target=\_blank}** - it provides functions for handling any type of fungible tokens
 - **[NFTs](https://paritytech.github.io/substrate/master/pallet_nfts/index.html){target=\_blank}** - it provides functions for dealing with non-fungible tokens
 - **[Democracy](https://paritytech.github.io/substrate/master/pallet_democracy/index.html){target=\_blank}** - it provides functions to manage and administer general stakeholder voting
@@ -30,7 +30,7 @@ Here is a list of some of the most popular modules:
 - **[Recovery](https://paritytech.github.io/substrate/master/pallet_recovery/index.html){target=\_blank}** - it provides functions to allow users to regain access to their accounts when the private key is lost. This works by granting other accounts the right to sign transactions on behalf of the lost account (note that it is necessary to have previously chosen the authorized accounts)
 - **[Staking](https://paritytech.github.io/substrate/master/pallet_staking/index.html){target=\_blank}** - it provides functions to administer staked tokens, support rewarding, slashing, depositing, withdrawing, and so on
 
-In addition to those previously listed, other modules like [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=\_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=\_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=\_blank}, and many others that are freely available can speed up the development of the Tanssi appchain and, consequently, the time to market.
+In addition to those previously listed, other modules like [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=\_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=\_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=\_blank}, and many others that are freely available can speed up the development of the Tanssi network and, consequently, the time to market.
 
 !!! note
     The framework also includes other modules that provide core protocol functionality, such as consensus and low-level data encoding.

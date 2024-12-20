@@ -1,23 +1,23 @@
 ---
 title: Deploy Smart Contracts with Remix
-description: Learn how to use one of the most popular Ethereum developer tools, the Remix IDE, to interact with your Tanssi EVM appchain.
+description: Learn how to use one of the most popular Ethereum developer tools, the Remix IDE, to interact with your Tanssi-powered EVM network.
 icon: octicons-code-square-24
 ---
 
-# Using Remix to Deploy to Your Tanssi EVM Appchain
+# Using Remix to Deploy to Your Tanssi EVM Network
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/vSc80mg_L9E?si=qnIXJ6wL0iKU3mU1' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
 
 ## Introduction {: #introduction }
 
-Developers building dApps on top of Tanssi EVM appchains can use [Remix](https://remix.ethereum.org){target=\_blank}, one of the most popular Ethereum development environments, to build, compile, and deploy their smart contracts. Remix can be used with any EVM appchain, thanks to the seamless compatibility of Tanssi EVM appchains.
+Developers building dApps on top of Tanssi-powered EVM networks can use [Remix](https://remix.ethereum.org){target=\_blank}, one of the most popular Ethereum development environments, to build, compile, and deploy their smart contracts. Remix can be used with any EVM network, thanks to the seamless compatibility of Tanssi-powered EVM networks.
 
-This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi Dancebox TestNet using the Remix IDE. This guide can be adapted for your own Tanssi EVM appchain by simply adding the RPC URL of your Tanssi appchain to your EVM Wallet and switching networks to it.
+This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi Dancebox TestNet using the Remix IDE. This guide can be adapted for your own Tanssi EVM network by simply adding the RPC URL of your network to your EVM Wallet and switching networks to it.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-For this guide, you'll need to have MetaMask installed and configured to work with your Tanssi EVM appchain. You can follow [this guide to configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+For this guide, you'll need to have MetaMask installed and configured to work with your Tanssi EVM network. You can follow [this guide to configure MetaMask for Tanssi with the demo EVM network](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ## Getting Started with Remix {: #getting-started-with-remix }
 
@@ -49,11 +49,11 @@ To compile your smart contract, take the following steps:
 
 ![Compile MyToken.sol](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-4.webp)
 
-Your contract is now compiled and ready to be deployed to your Tanssi appchain.
+Your contract is now compiled and ready to be deployed to your Tanssi network.
 
-## Deploying a Contract to Your Appchain Using Remix {: #deploying-a-contract-to-your-Appchain-using-remix }
+## Deploying a Contract to Your Network Using Remix {: #deploying-a-contract-to-your-network-using-remix }
 
-Now you can deploy the contract by navigating to the **Deployment** sidebar option. You need to change the topmost **ENVIRONMENT** dropdown from **JavaScript VM** to **Injected Web3**. This tells Remix to use the MetaMask injected provider, which will point it to your Tanssi EVM appchain, so long as the selected network in your MetaMask is your Tanssi EVM appchain. If you need to change your network in MetaMask, you can easily do so, and Remix will update your account balances to reflect the network change.
+Now you can deploy the contract by navigating to the **Deployment** sidebar option. You need to change the topmost **ENVIRONMENT** dropdown from **JavaScript VM** to **Injected Web3**. This tells Remix to use the MetaMask injected provider, which will point it to your Tanssi-powered EVM network, so long as the selected network in your MetaMask is your Tanssi EVM network. If you need to change your network in MetaMask, you can easily do so, and Remix will update your account balances to reflect the network change.
 
 ![Change environment to injected Web3](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-5.webp)
 
@@ -88,7 +88,7 @@ Once the contract is deployed, you can interact with it from within Remix. To fa
 
 ![Interact with the contract from Remix](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-9.webp)
 
-## Interacting with an ERC-20 on Your Appchain from MetaMask {: #interacting-with-an-erc-20-on-your-appchain-from-metamask }
+## Interacting with an ERC-20 on Your Network from MetaMask {: #interacting-with-an-erc-20-on-your-network-from-metamask }
 
 Now, open MetaMask to add the newly deployed ERC-20 tokens. Make sure you are connected to the account that deployed the token contract. Additionally, make sure you have copied the contract's address from Remix.
 
@@ -120,8 +120,8 @@ Click **Confirm** and, after the transaction is complete, you will see a confirm
 
 ![Verify the reduction in account balance](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-14.webp)
 
-You can also look up the transaction on [your Tanssi appchain's explorer](https://tanssi-evmexplorer.netlify.app){target=\_blank} to verify the transaction status.
+You can also look up the transaction on [your Tanssi network's explorer](https://tanssi-evmexplorer.netlify.app){target=\_blank} to verify the transaction status.
 
-![Check transaction status on block explorer for your Tanssi appchain](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-15.webp)
+![Check transaction status on block explorer for your Tanssi network](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-15.webp)
 
 --8<-- 'text/_disclaimers/third-party-content.md'

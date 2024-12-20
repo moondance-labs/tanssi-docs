@@ -11,7 +11,7 @@ icon: octicons-shield-lock-24
 
 The Proxy Precompile allows accounts to set proxy accounts via the Ethereum API. Proxy accounts can perform limited actions on behalf of the proxied account, such as governance, balance transfers, management or privileged transactions, and others.
 
-If a user wanted to provide another user access to a limited number of actions on their behalf, traditionally, the only method to do so would be to share that account's private key. However, Tanssi EVM appchains include the proxy module, providing an additional layer of security. With proxies, many accounts can perform actions for a primary account, and such permissions can be revoked at any time. This is best if, for example, a user wants to keep their wallet safe in cold storage but still wants to access parts of the wallet's functionality, like governance or staking.  
+If a user wanted to provide another user access to a limited number of actions on their behalf, traditionally, the only method to do so would be to share that account's private key. However, Tanssi-powered EVM networks include the proxy module, providing an additional layer of security. With proxies, many accounts can perform actions for a primary account, and such permissions can be revoked at any time. This is best if, for example, a user wants to keep their wallet safe in cold storage but still wants to access parts of the wallet's functionality, like governance or staking.  
 
 !!! note
     The Proxy Precompile can only be called from an Externally Owned Account (EOA) or by the [Batch Precompile](/builders/ethereum/precompiles/ux/batch/){target=\_blank}.
@@ -30,8 +30,8 @@ The Proxy Precompile is located at the following address:
 
  Tto follow along with the contents in this guide, you'll need:
  
-- Access to a Tanssi EVM appchain running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above
-- An [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} configured to work with your appchain. You can also connect your wallet to the [demo EVM appchain](https://apps.tanssi.network/demo){target=\_blank}
+- Access to a Tanssi-powered EVM network running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above
+- An [EVM-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank} configured to work with your network. You can also connect your wallet to the [demo EVM network](https://apps.tanssi.network/demo){target=\_blank}
 - An account with enough funds to pay the required fees and deposits
 - A second account that you control to use as a proxy
 
@@ -123,7 +123,7 @@ There are multiple types of proxy roles that can be delegated to accounts, repre
 
 ## Interact with the Solidity Interface via Remix {: #interact-with-the-solidity-interface-via-remix }
 
-This section will walk you through the steps to create a proxy, verify its creation, and revoke the proxy privileges. These examples are based on the [Tanssi demo EVM Appchain](https://apps.tanssi.network/demo){target=\_blank} and use [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}. This guide can be adapted for your own Tanssi EVM appchain by adding the RPC URL of your Tanssi appchain to the EVM Wallet of your choosing.
+This section will walk you through the steps to create a proxy, verify its creation, and revoke the proxy privileges. These examples are based on the [Tanssi demo EVM Network](https://apps.tanssi.network/demo){target=\_blank} and use [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}. This guide can be adapted for your own Tanssi-powered EVM network by adding the RPC URL of your network to the EVM Wallet of your choosing.
 
 ### Remix Set Up {: #remix-set-up }
 

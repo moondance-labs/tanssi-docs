@@ -1,6 +1,6 @@
 ---
 title: Batch Precompile
-description: Learn how to combine multiple transfers and contract interactions together via a Solidity interface with Tanssi's Batch Precompile for your EVM appchain.
+description: Learn how to combine multiple transfers and contract interactions together via a Solidity interface with Tanssi's Batch Precompile for your EVM network.
 keywords: solidity, ethereum, batch, transaction, moonbeam, precompiled, contracts
 icon: octicons-stack-24
 ---
@@ -9,7 +9,7 @@ icon: octicons-stack-24
 
 ## Introduction {: #introduction }
 
-The Batch Precompile contract on Tanssi EVM appchains allows developers to combine multiple EVM calls into one.
+The Batch Precompile contract on Tanssi-powered EVM networks allows developers to combine multiple EVM calls into one.
 
 Currently, having users interact with multiple contracts would require multiple transaction confirmations in the user's wallet. An example would be approving a smart contract's access to a token and then immediately transferring it. With the Batch Precompile, developers can enhance user experience with batched transactions as it minimizes the number of transactions a user is required to confirm. Additionally, the gas fees paid by a user can be reduced since batching avoids multiple base gas fees (the initial 21000 units of gas spent to begin a transaction).
 
@@ -71,7 +71,7 @@ The interface also includes the following required events:
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+To follow along with this tutorial, you will need to have your wallet configured to work with your EVM network and an account funded with native tokens. You can add your EVM network to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you [configure MetaMask for Tanssi with the demo EVM network](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 ### Example Contract {: #example-contract}
 
@@ -136,7 +136,7 @@ Sending native currency with the Batch Precompile involves more than pressing a 
 
 Transactions have a value field to specify the amount of native currency sent. In Remix, this is determined by the **VALUE** input in the **DEPLOY & RUN TRANSACTIONS** tab. However, for the Batch Precompile, this data is provided within the **value** array input of the batch functions.
 
-Try transferring the native token of your appchain to two wallets of your choice via the Batch Precompile:
+Try transferring the native token of your network to two wallets of your choice via the Batch Precompile:
 
 1. Expand the batch contract under **Deployed Contracts**
 2. Expand the **batchAll** function
@@ -149,7 +149,7 @@ Try transferring the native token of your appchain to two wallets of your choice
 
 ![Send Batch Transfer](/images/builders/toolkit/ethereum-api/precompiles/batch/batch-4.webp)
 
-Once the transaction is complete, you can check both of the accounts' balances, either in MetaMask or in your appchain's block explorer, a link to which can be found on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Congratulations! You've now sent a batched transfer via the Batch Precompile.
+Once the transaction is complete, you can check both of the accounts' balances, either in MetaMask or in your network's block explorer, a link to which can be found on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Congratulations! You've now sent a batched transfer via the Batch Precompile.
 
 !!! note
      Typically if you wanted to send the native currency to or through a contract, you would have to set the value within the overall transaction object and interact with a payable function. However, since the Batch Precompile interacts directly with Substrate code, this is not a typical Ethereum transaction and is thus not necessary.
@@ -234,7 +234,7 @@ There are three subtransactions which correspond to three addresses in the `to` 
 ]
 ```
 
-There will also be three values for the `value` array. The first address in the `to` input array indicates `1000000000000000000` wei or `1` UNIT of the native token. Remember that the native tokens of Tanssi EVM appchains have [18 decimal points just like Ethereum](https://eth-converter.com){target=\_blank}. The following two values are `0` because the function that their subtransactions are interacting with does not accept or require native currency.  
+There will also be three values for the `value` array. The first address in the `to` input array indicates `1000000000000000000` wei or `1` UNIT of the native token. Remember that the native tokens of Tanssi-powered EVM networks have [18 decimal points just like Ethereum](https://eth-converter.com){target=\_blank}. The following two values are `0` because the function that their subtransactions are interacting with does not accept or require native currency.  
 
 ```text
 ["1000000000000000000", "0", "0"]

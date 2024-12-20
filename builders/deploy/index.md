@@ -1,6 +1,6 @@
 ---
 title: Deploy Your Network
-description: Learn how to deploy your network to Tanssi as a snap network for short-term testing or as a dedicated Tanssi network for long-term testing.
+description: Learn how to deploy your network to Tanssi as a quick trial for short-term testing or as a dedicated network for long-term testing using the Tanssi dApp.
 template: index-page.html
 icon: octicons-rocket-24
 ---

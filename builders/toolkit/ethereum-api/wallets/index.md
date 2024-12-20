@@ -1,6 +1,6 @@
 ---
 title: Ethereum API Wallets
-description: Learn how to interact with your Tanssi EVM network through the Ethereum API including configuring wallets, adding RPC URLs, and sending funds.
+description: Learn how to interact with your Tanssi-powered EVM network through the Ethereum API including configuring wallets, adding RPC Urls, and sending funds.
 icon: material-wallet-outline
 template: index-page.html
 ---

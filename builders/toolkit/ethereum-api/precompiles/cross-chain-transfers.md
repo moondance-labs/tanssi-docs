@@ -1,17 +1,17 @@
 ---
 title: Native Cross-Chain Token Transfers
-description: Learn how to use the XCM interface precompile to transfer tokens from any Tanssi EVM appchain, leveraging their inherent native cross-chain capabilities.
+description: Learn how to use the XCM interface precompile to transfer tokens from any Tanssi-powered EVM network, leveraging their inherent native cross-chain capabilities.
 ---
 
 # Native Cross-Chain Token Transfers
 
 ## Introduction {: #introduction }
 
-As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){target=\_blank} article from the Learn section, Tanssi appchains benefit from an inherent capability to communicate and interoperate with any other appchain in the ecosystem. This native cross-chain communication allows safe and fast token transfers leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
+As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){target=\_blank} article from the Learn section, Tanssi-powered networks benefit from an inherent capability to communicate and interoperate with any other network in the ecosystem. This native cross-chain communication allows safe and fast token transfers leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
 
 The communication protocol enabling token transfers is built on [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} and runs on a lower level than the EVM, making it harder for EVM developers to access.
 
-Nevertheless, EVM appchains have an XCM precompile that fills the gap between execution layers, exposing a smart contract interface that abstracts away the underlying complexities, making the execution of cross-chain token transfers as easy as any other smart contract call.
+Nevertheless, EVM networks have an XCM precompile that fills the gap between execution layers, exposing a smart contract interface that abstracts away the underlying complexities, making the execution of cross-chain token transfers as easy as any other smart contract call.
 
 This guide will show you how to interact with the [XCM Interface](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank} precompile to execute cross-chain token transfers through the Ethereum API.
 
@@ -25,7 +25,7 @@ The XCM precompile is located at the following address:
 
 ## The XCM Solidity Interface {: #the-xcm-solidity-interface }
 
-The [`XCMInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank} interface on Tanssi EVM appchains is a Solidity interface that allows developers to interact with the precompile's functions.
+The [`XCMInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/XcmInterface.sol){target=\_blank} interface on Tanssi EVM networks is a Solidity interface that allows developers to interact with the precompile's functions.
 
 ??? code "XCMInterface.sol"
 
@@ -35,11 +35,11 @@ The [`XCMInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/te
 
 The interface includes the necessary data structures along with the following functions:
 
-???+ function "**transferAssetsToPara20**(_paraId, beneficiary, assets, feeAssetItem, weight_) — sends assets to another EVM-compatible appchain using the underlying `transfer_assets()` transaction included in the XCM pallet module"
+???+ function "**transferAssetsToPara20**(_paraId, beneficiary, assets, feeAssetItem, weight_) — sends assets to another EVM-compatible network using the underlying `transfer_assets()` transaction included in the XCM pallet module"
 
     === "Parameters"
 
-        - `paraId` ++"uint32"++ - the destination's appchain ID
+        - `paraId` ++"uint32"++ - the destination's network ID
         - `beneficiary` ++"address"++ - the ECDSA-type account in the destination chain that will receive the tokens
         - `assets` ++"AssetAddressInfo[] memory"++ - an array of assets to send
         - `feeAssetItem` ++"uint32"++ - the index of the asset that will be used to pay fees
@@ -53,11 +53,11 @@ The interface includes the necessary data structures along with the following fu
         - `feeAssetItem` - 0
         - `weight` - [9223372036854775807, 9223372036854775807]
 
-??? function "**transferAssetsToPara32**(_paraId, beneficiary, assets,feeAssetItem, weight_) — sends assets to a Substrate appchain using the underlying `transfer_assets()` transaction included in the XCM pallet module"
+??? function "**transferAssetsToPara32**(_paraId, beneficiary, assets,feeAssetItem, weight_) — sends assets to a Substrate network using the underlying `transfer_assets()` transaction included in the XCM pallet module"
 
     === "Parameters"
 
-        - `paraId` ++"uint32"++ - the destination's appchain ID
+        - `paraId` ++"uint32"++ - the destination's network ID
         - `beneficiary` ++"bytes32"++ - the Substrate's SR25519-type account in the destination chain that will receive the tokens
         - `assets` ++"AssetAddressInfo[] memory"++ - an array of assets to send
         - `feeAssetItem` ++"uint32"++ - the index of the asset that will be used to pay fees
@@ -107,11 +107,11 @@ The interface includes the necessary data structures along with the following fu
 
 ### Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have your wallet configured to work with your EVM appchain and an account funded with native tokens. You can add your EVM appchain to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM appchain](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+To follow along with this tutorial, you will need to have your wallet configured to work with your EVM network and an account funded with native tokens. You can add your EVM network to MetaMask with one click on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}. Or, you can [configure MetaMask for Tanssi with the demo EVM network](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 
 !!! note
     It is necessary to have previously established communication channels with the destination chain before using this precompile's functionality. To do so, refer to the [Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} guide.
-    Also, if the token being transferred is native to your appchain, the destination chain must have registered the foreign asset.
+    Also, if the token being transferred is native to your network, the destination chain must have registered the foreign asset.
 
 ### Remix Set Up {: #remix-set-up }
 
@@ -145,12 +145,12 @@ Instead of deploying the precompile, you will access the interface given the add
 
 The **XCM Interface** precompile will appear in the list of **Deployed Contracts**.
 
-### Send Tokens Over to Another EVM-Compatible Appchain {: #transfer-to-evm-chains }
+### Send Tokens Over to Another EVM-Compatible Network {: #transfer-to-evm-chains }
 
-To send tokens over to an account in another EVM-compatible appchain, please follow these steps:
+To send tokens over to an account in another EVM-compatible network, please follow these steps:
 
 1. Expand the **transferAssetsToPara20** function
-2. Enter the appchain ID (paraId)
+2. Enter the network ID (paraId)
 3. Enter the 20-bytes (Ethereum-like) destination account (beneficiary)
 4. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset. Each asset is specified by its address and the total amount to transfer
 
@@ -165,12 +165,12 @@ To send tokens over to an account in another EVM-compatible appchain, please fol
 
 After the transaction is confirmed, wait for a few blocks for the transfer to reach the destination chain and reflect the new balance.
 
-### Send Tokens Over to a Substrate Appchain {: #transfer-to-substrate-chains }
+### Send Tokens Over to a Substrate Network {: #transfer-to-substrate-chains }
 
-To send tokens over to an account in a Substrate appchain, please follow these steps:
+To send tokens over to an account in a Substrate network, please follow these steps:
 
 1. Expand the **transferAssetsToPara32** function
-2. Enter the appchain ID (`paraId`)
+2. Enter the network ID (`paraId`)
 3. Enter the sr25519-type destination account (beneficiary)
 4. Specify the tokens to be transferred. Note that this parameter is an array that contains at least one asset. Each asset is specified by its address and the total amount to transfer
     

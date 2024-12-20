@@ -3,9 +3,9 @@ const Web3 = require('web3');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmAppchain: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+  evmNetwork: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
 };
-const web3 = new Web3(providerRPC.evmAppchain);
+const web3 = new Web3(providerRPC.evmNetwork);
 
 // Create address variables
 const addressFrom = 'INSERT_ADDRESS_FROM';

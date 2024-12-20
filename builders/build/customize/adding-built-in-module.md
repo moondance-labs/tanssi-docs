@@ -12,7 +12,7 @@ Substrate is a powerful and modular software development framework included in t
 
 What sets Substrate apart is its modular architecture, which enables the seamless integration of [built-in modules](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame){target=\_blank} and the creation of custom ones, facilitating the development of blockchain protocols.
 
-For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=\_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate appchain must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live Tanssi appchain.
+For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=\_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate network must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live Tanssi-powered network.
 
 This article focuses on the necessary steps for adding a built-in module to the EVM template.
 
@@ -35,7 +35,7 @@ cargo build -p container-chain-frontier-node --release
 
 As introduced in the [modularity](/learn/framework/modules/){target=\_blank} article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities, ready to be used in your runtime.
 
-Modules are meant to provide the functionality needed in very different use cases such as DeFi, NFTs, or any other, and, therefore, they are basic building blocks that are inherently abstract and can be configured according to the specific needs of the Tanssi appchain.
+Modules are meant to provide the functionality needed in very different use cases such as DeFi, NFTs, or any other, and, therefore, they are basic building blocks that are inherently abstract and can be configured according to the specific needs of the Tanssi-powered network.
 
 To add a module, the following steps are necessary:
 
@@ -49,7 +49,7 @@ In the following example, the popular Substrate module `pallet-assets` is added 
 
 ### Declare the Dependency {: #declare-dependency }
 
-Every package contains a manifest file named `Cargo.toml` stating, among other things, all the dependencies the package relies on, and the Tanssi appchain runtime is no exception.
+Every package contains a manifest file named `Cargo.toml` stating, among other things, all the dependencies the package relies on, and the Tanssi-powered network runtime is no exception.
 
 Therefore, the first step, is to declare the dependency and make it available to the runtime, open the `Cargo.toml` file located in the folder `container-chains/templates/frontier/runtime` with a text editor and add the module, referencing the code in the Polkadot SDK:
 
@@ -71,7 +71,7 @@ pallet-assets = {
 
 In Cargo, the “features” flags provide a mechanism to tell the compiler to include or leave out certain portions of code, which is a useful mechanism to optimize compile time, minimize binary file sizes, or disable certain behavior (for example, not including unit testing or benchmarking functionality in the runtime intended for production).
 
-To compile the standard features for the Assets module within the runtime, the same `Cargo.toml` file in the `runtime` folder must be edited, enabling the flag. Everything listed in this section will ensure that it is available to the compiler when building the runtime binary, which is ultimately the file containing all the information to run your Tanssi appchain initially.
+To compile the standard features for the Assets module within the runtime, the same `Cargo.toml` file in the `runtime` folder must be edited, enabling the flag. Everything listed in this section will ensure that it is available to the compiler when building the runtime binary, which is ultimately the file containing all the information to run your Tanssi-powered network initially.
 
 ```toml
 [features]

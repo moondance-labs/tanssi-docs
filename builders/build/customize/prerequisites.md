@@ -1,16 +1,16 @@
 ---
-title: Prerequisites for Building an Appchain
+title: Prerequisites for Building a Network
 description: Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your appchain.
 icon: octicons-checkbox-24
 ---
 
-# Prerequisites for Building an Appchain {: #prerequisites }
+# Prerequisites for Building a Network {: #prerequisites }
 
 ## Introduction {: #introduction }
 
-Deploying an appchain through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.substrate.io/build/chain-spec){target=\_blank} to upload to the Tanssi network and make it go live.
+Deploying a network through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.substrate.io/build/chain-spec){target=\_blank} to upload.
 
-Even though Tanssi provides chain specifications for the [available templates](/learn/tanssi/included-templates/), it could be necessary to generate a new one to match any changes the use case might need to be implemented in the runtime.
+Even though Tanssi provides chain specifications for the [available templates](/learn/decentralized-networks/included-templates/), it could be necessary to generate a new one to match any changes the use case might need to be implemented in the runtime.
 
 The following sections of this article will cover the minimal required software and its installation process to get a suitable development environment to compile a Substrate node and generate the chain specification.
 
@@ -18,7 +18,7 @@ The following sections of this article will cover the minimal required software 
 
 [Rust](/learn/framework/overview/#rust-programming-language){target=\_blank} is a modern, portable, and performant programming language that is the base of the Substrate blockchain development framework.  
 
-To compile the Tanssi appchain, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system.
+To compile the Tanssi network, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system.
 
 In accordance with the instructions described in the [official Rust documentation](https://www.rust-lang.org/tools/install){target=\_blank}, for any system running Linux or MacOS, the following command will do:
 
@@ -108,7 +108,7 @@ git clone https://github.com/moondance-labs/tanssi
 ```bash
 cd tanssi
 ```
-3. Build the Tanssi appchain template
+3. Build the Tanssi network template
 === "Baseline EVM"
 
     ```bash
@@ -121,4 +121,4 @@ cd tanssi
     cargo build -p container-chain-simple-node --release
     ```
 
-Having a healthy development environment will be necessary to build a customized runtime and to finally generate the chain specification file that will be used to deploy your Tanssi appchain.
+Having a healthy development environment will be necessary to build a customized runtime and to finally generate the chain specification file that will be used to deploy your Tanssi network.
