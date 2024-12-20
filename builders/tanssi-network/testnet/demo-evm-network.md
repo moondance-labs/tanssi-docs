@@ -1,6 +1,7 @@
 ---
 title: Demo EVM Tanssi Network
 description: Test our demo EVM Tanssi network to discover the capabilities of a fully Ethereum-compatible network deployed through Tanssi in just a few minutes.
+icon: material-ethereum
 ---
 
 ## Introduction

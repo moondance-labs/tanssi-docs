@@ -1,0 +1,6 @@
+title: Onboarding
+hide: false
+nav:
+  - index.md
+  - run-a-sequencer
+  - 'Set Up Your Account': 'account-setup.md'

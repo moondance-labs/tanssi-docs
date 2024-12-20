@@ -1,6 +1,0 @@
-title: Run a Block Producer Node
-hide: false
-nav:
-  - index.md
-  - 'Using Docker': 'block-producer-docker.md'
-  - 'Using Systemd': 'block-producer-systemd.md'

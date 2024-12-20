@@ -1,6 +1,7 @@
 ---
 title: Network Modules for your Runtime
 description: Substrate is a modular blockchain development framework with an extensive set of ready-to-use components to bundle with custom logic into the network Runtime.
+icon: material-puzzle-outline
 ---
 
 # Network Framework Modules {: #network-framework-modules }

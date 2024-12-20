@@ -1,6 +1,7 @@
 ---
 title: Impersonating Other Accounts With Sudo 
 description: Learn how to use the Sudo key to dispatch calls by signing a transaction as if it came from a different account.
+icon: octicons-person-add-24
 ---
 
 # Using Sudo to Impersonate Other Accounts

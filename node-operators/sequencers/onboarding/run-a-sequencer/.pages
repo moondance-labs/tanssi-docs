@@ -1,0 +1,6 @@
+title: Run a Sequencer
+hide: false
+nav:
+  - index.md
+  - 'Using Docker': 'sequencers-docker.md'
+  - 'Using Systemd': 'sequencers-systemd.md'

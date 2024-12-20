@@ -1,6 +1,7 @@
 ---
 title: Staking
 description: Learn how Tanssi implements a novel Staking mechanism to provide liveness via a decentralized and trustless set of sequencers to all Tanssi-powered networks.
+icon: material-hand-coin-outline
 ---
 
 # Tanssi Staking {: #tanssi-staking }
