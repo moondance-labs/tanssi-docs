@@ -11,7 +11,7 @@ Starting your journey as a sequencer begins here. This section covers the founda
 
 Getting Started as a Sequencer:
 
-- **Hardware requirements** - understand the recommended hardware specifications to ensure optimal performance of your [sequencer](run-a-sequencer/index.md) node
+- **Hardware requirements** - understand the recommended hardware specifications to ensure optimal performance of your [sequencer](/node-operators/sequencers/onboarding/run-a-sequencer/) node
 - **Port configuration** - learn which network ports need to be open to facilitate proper communication within the Tanssi ecosystem
 - **Session keys setup** - detailed instructions on generating and managing session keys, a vital step for enabling block production capabilities
 - **Docker and systemd deployment** - Choose between Docker and systemd for deploying your node, with step-by-step guides tailored for each method
