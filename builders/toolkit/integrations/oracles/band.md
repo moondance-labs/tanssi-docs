@@ -1,6 +1,7 @@
 ---
 title: Using Band Protocol for Price Feed Oracles
 description: Learn how to use the Band Protocol's descentralized oracle network to get reliable token prices enabling secure data access for your Tanssi EVM appchain.
+icon: octicons-eye-24
 ---
 
 # Accesing Price Feeds with the Band Protocol

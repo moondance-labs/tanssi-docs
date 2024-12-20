@@ -1,6 +1,7 @@
 ---
 title: How to Connect MetaMask
 description: This guide walks you through how to connect MetaMask, a browser-based Ethereum wallet, to your Tanssi EVM appchain and how to transfer funds.
+icon: material-wallet-outline
 ---
 
 # Interacting with your Tanssi EVM Appchain Using MetaMask

@@ -1,6 +1,7 @@
 ---
 title: How to use thirdweb
 description: This guide will show you some of thirdweb's features, including building, testing, and deploying smart contract templates to launch dApps on Tanssi.
+icon: octicons-code-square-24
 ---
 
 # Using thirdweb on Tanssi

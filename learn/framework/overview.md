@@ -1,6 +1,7 @@
 ---
 title: Appchain Development Framework Overview
 description: Substrate is a blockchain development framework built in Rust Programming Language that streamlines and speeds up the process of developing new appchains.
+icon: octicons-home-24
 ---
 
 # Appchain Development Framework Overview {: #appchain-dev-framework-overview }

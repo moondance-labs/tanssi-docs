@@ -3,7 +3,7 @@ hide: false
 nav:
   - index.md
   - wallets
-  - libraries
   - dev-env
+  - libraries
   - precompiles
   - 'JSON-RPC Methods' : 'rpc.md'

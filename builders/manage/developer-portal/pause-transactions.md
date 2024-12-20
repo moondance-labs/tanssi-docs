@@ -1,6 +1,7 @@
 ---
 title: Pausing Transactions
 description: Learn how to use Sudo to temporarily pause hand-picked transactions, preventing their execution while allowing all other transactions to proceed as usual.
+icon: octicons-stopwatch-24
 ---
 
 # Pausing Transactions
