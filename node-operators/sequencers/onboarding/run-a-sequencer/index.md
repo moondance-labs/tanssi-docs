@@ -6,6 +6,7 @@ template: index-page.html
 ---
 
 # Run a Sequencer Node
+
 Setting up a sequencer node is an important step to participate in the Tanssi network. You have two options for configuration: using _Docker_ or _Systemd._ Whichever path you choose, we provide step-by-step tutorials to guide you through the process and ensure your node meets the necessary requirements to produce blocks and maintain a secure connection to the network.
 
 ### Hardware Requirements
