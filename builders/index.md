@@ -1,7 +1,7 @@
 ---
 title: Guides for Developing Tanssi-Powered Networks
 description: Start building your network, set your development environment up, test and deploy your runtime, and choose the integrations that suit your use case.
-template: index-page.html
+template: root-index-page.html
 ---
 
 # Builders
@@ -12,34 +12,22 @@ Explore everything you need to build, deploy, and manage networks within the Tan
 
 <div class="grid cards" markdown>
 
--   Where to Start?
-
-    To begin building your Tanssi-powered network, you can choose one of two pathways:
-
+-   <h2 class="title">Where to Start?</h2>
     [:octicons-arrow-right-24: Build a network from scratch using a template](/builders/build/templates/)
 
     [:octicons-arrow-right-24: Configure an existing Substrate-based runtime to be Tanssi compatible](/builders/build/templates/custom-runtime/)
 
--   How to Customize Your Network
-
-    Once your base network is set up, you can start customizing it to suit your specific needs:
-
+-   <h2 class="title">Customize Your Network</h2>
     [:octicons-arrow-right-24: Leverage preexisting modules to add functionality](/builders/build/customize/adding-built-in-module/)
 
     [:octicons-arrow-right-24: Create your own custom module](/builders/build/customize/adding-custom-made-module/)
 
     [:octicons-arrow-right-24: Integrate external modules from other providers](/builders/build/customize/adding-external-module/)
 
--   Ready to Deploy?
-
-    After customizing and testing your network, it’s time to deploy:
-
+-   <h2 class="title">Ready to Deploy?</h2>
     [:octicons-arrow-right-24: Deploy your network with the Tanssi dApp](/builders/deploy/dapp/)
 
--   Steps to Take After Deployment
-
-    Once your Tanssi-powered network is live, follow these steps to ensure smooth and ongoing operations:
-
+-   <h2 class="title">Post-Deployment Actions</h2>
     [:octicons-arrow-right-24: Pay for block production services](/builders/manage/dapp/services-payment/)
 
     [:octicons-arrow-right-24: Mint tokens for your network's economy](/builders/manage/dapp/manage-tokens/)
@@ -52,16 +40,10 @@ Explore everything you need to build, deploy, and manage networks within the Tan
 
 <div class="grid cards" markdown>
 
--   Tanssi Network Information
-
-    Get the essential network details and access points for integrating your app with a Tanssi-powered network:
-
+-   <h2 class="title">Tanssi Network Information</h2>
     [:octicons-arrow-right-24: Access network endpoints for integration](/builders/tanssi-network/endpoints/)
 
--   Tools for Tanssi Network Development
-
-    Use the right tools to interact with and create applications on Tanssi networks
-
+-   <h2 class="title">Tools for Tanssi Network Development</h2>
     [:octicons-arrow-right-24: Explore tools for Ethereum API integration](/builders/toolkit/ethereum-api/)
 
     [:octicons-arrow-right-24: Leverage Substrate tools for advanced network control](/builders/toolkit/substrate-api/)

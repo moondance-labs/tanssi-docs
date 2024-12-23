@@ -10,7 +10,7 @@ icon: octicons-checkbox-24
 
 Deploying a network through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.substrate.io/build/chain-spec){target=\_blank} to upload.
 
-Even though Tanssi provides chain specifications for the [available templates](/learn/decentralized-networks/included-templates/), it could be necessary to generate a new one to match any changes the use case might need to be implemented in the runtime.
+Even though Tanssi provides chain specifications for the [available templates](/learn/networks/included-templates/), it could be necessary to generate a new one to match any changes the use case might need to be implemented in the runtime.
 
 The following sections of this article will cover the minimal required software and its installation process to get a suitable development environment to compile a Substrate node and generate the chain specification.
 

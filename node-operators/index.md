@@ -1,7 +1,7 @@
 ---
 title: Run Infrastructure on Tanssi
 description: This section offers guides on setting up infrastructure and nodes for RPC services, block production, and validation within the Tanssi ecosystem.
-template: index-page.html
+template: root-index-page.html
 ---
 
 # Node Operators
