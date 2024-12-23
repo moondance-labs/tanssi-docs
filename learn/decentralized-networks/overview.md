@@ -1,6 +1,7 @@
 ---
 title: Network Overview
 description: Learn the high-level definitions of how a Tanssi network works, its architecture, and its block production as a service mechanism with deterministic finality.
+icon: octicons-package-24
 ---
 
 # Tanssi Networks Overview {: #networks-tanssi-overview }

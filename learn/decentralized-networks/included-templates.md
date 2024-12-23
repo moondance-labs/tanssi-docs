@@ -1,6 +1,7 @@
 ---
 title: Network Templates Included in Tanssi
 description: Tanssi protocol provides useful templates to start building your decentralized network, including a ready-to-use EVM template for Ethereum compatibility.
+icon: octicons-copy-24
 ---
 
 # Network Templates Included in Tanssi {: #network-templates-included-in-tanssi }
