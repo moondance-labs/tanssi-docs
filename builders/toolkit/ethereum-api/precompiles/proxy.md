@@ -13,7 +13,7 @@ The Proxy Precompile allows accounts to set proxy accounts via the Ethereum API.
 If a user wanted to provide another user access to a limited number of actions on their behalf, traditionally, the only method to do so would be to share that account's private key. However, Tanssi-powered EVM networks include the proxy module, providing an additional layer of security. With proxies, many accounts can perform actions for a primary account, and such permissions can be revoked at any time. This is best if, for example, a user wants to keep their wallet safe in cold storage but still wants to access parts of the wallet's functionality, like governance or staking.  
 
 !!! note
-    The Proxy Precompile can only be called from an Externally Owned Account (EOA) or by the [Batch Precompile](/builders/ethereum/precompiles/ux/batch/){target=\_blank}.
+    The Proxy Precompile can only be called from an Externally Owned Account (EOA) or by the [Batch Precompile](/builders/toolkit/ethereum-api/precompiles/batch){target=\_blank}.
 
 To learn more about proxy accounts and how to set them up for your own purposes without use of the Proxy Precompile, visit the [Proxy Accounts](/builders/account-management/proxy-accounts/){target=\_blank} page.
 
