@@ -7,7 +7,7 @@ description: Networks deployed through Tanssi benefit from block production serv
 
 ## Introduction {: #introduction }
 
-As presented in the [Block Production as a Service](/learn/tanssi/technical-features/#services-payments){target=_\blank} article, there are two main costs associated that the network governor must cover: 
+As presented in the [Block Production as a Service](/learn/tanssi/network-services/block-production/#block-production-fees){target=_\blank} article, there are two main costs associated that the network governor must cover: 
 
 - **Block producers assignment** - for the assignment of block producers by the Tanssi protocol, which happens once per session
 - **Block production** - for each block that is produced on the network's behalf

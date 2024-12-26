@@ -22,7 +22,7 @@ Since the provided template already includes the essential configurations for se
 
 Here are some of the features that come with this template:
 
-- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank}
+- Utilize Tanssi's [block production as a service](/learn/tanssi/network-services/block-production/){target=\_blank}
 - Choose the security provider that best fits your needs. For example, leverage Ethereum-grade security from [Symbiotic](https://symbiotic.fi/){target=\_blank}
 - Get deterministic transaction finality in seconds
 - Build dApps interacting with your network through an [API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}
