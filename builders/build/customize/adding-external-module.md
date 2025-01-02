@@ -112,9 +112,9 @@ Next, add the following snippet to the `lib.rs` file inside the runtime folder. 
 
 ```rust
 ...
-impl pallet_template::Config for Runtime {
-	type RuntimeEvent = RuntimeEvent;
-	type WeightInfo = pallet_template::weights::SubstrateWeight<Runtime>;
+impl pallet_toggle::Config for Runtime {
+    type RuntimeEvent = RuntimeEvent;
+    type WeightInfo = pallet_toggle::weights::SubstrateWeight<Runtime>;
 }
 
 construct_runtime!(

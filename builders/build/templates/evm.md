@@ -20,7 +20,7 @@ The template already includes the necessary configuration for seamless integrati
 
 This means that this template is ready to be deployed as-is through Tanssi, unlocking many features, such as:
 
-- Utilize Tanssi's [block production as a service](/learn/tanssi/technical-features/#block-production-as-a-service){target=\_blank}
+- Utilize Tanssi's [block production as a service](/learn/tanssi/network-services/block-production/){target=\_blank}
 - Get deterministic transaction finality in seconds
 - Choose the security provider that best fits your needs. For example, leverage Ethereum-grade security from [Symbiotic](https://symbiotic.fi/){target=\_blank}
 - Build dApps interacting with your network through an [API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}
