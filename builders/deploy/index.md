@@ -24,7 +24,7 @@ Deploying a Tanssi-powered network via the [Tanssi dApp](https://apps.tanssi.net
 !!! note
     For _Snap networks_ and _Dedicated networks_ on the [Tanssi Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your Snap network to be ready and about two hours for a dedicated Tanssi network. For Tanssi MainNet, the process will be fully decentralized and permissionless.
 
-To get started, check out the Using the Tanssi DApp guide listed in the section below.
+To get started, visit [Using the Tanssi DApp](/builders/deploy/dapp/).
 
 ## Explore What This Section Covers
 

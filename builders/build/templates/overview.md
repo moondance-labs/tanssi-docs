@@ -8,12 +8,23 @@ icon: octicons-home-24
 
 ## Introduction {: #introduction }
 
-Networks deployed through Tanssi are fully customizable blockchains benefiting from a shared set of sequencers and the security of a provider of their choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). They also need to implement the necessary functionalities and configurations to support the Tanssi protocol, which the templates presented in this article already do, making it easier for developers.
+Networks deployed through Tanssi are fully customizable blockchains benefiting from a shared set of sequencers and the security of a provider of their choice. The templates presented in this article implement the necessary functionalities and configurations to support the Tanssi protocol, making development easier.
 
-As presented in the [Included Templates](/learn/networks/included-templates/#baseline-network-template){target=\_blank} from the Learn section, Tanssi already provides two templates to jumpstart the development process:
+## Choosing the Right Template
 
-- **[Baseline Tanssi network template](/learn/networks/included-templates#baseline-network-template){target=\_blank}** - a template that provides the basic platform to start adding custom logic 
-- **[Baseline Tanssi EVM (Ethereum Virtual Machine) network template](/learn/networks/included-templates/#baseline-evm-template){target=\_blank}** - a template that provides full Ethereum compatibility
+Selecting the right template is the first step in building your Tanssi-powered network. Whether you need a standard, fully customizable blockchain, or one that is EVM-compatible, both templates provide basic configurations, along with benefits like block production as a service, deterministic transaction finality, and the option to choose your security provider, such as [Symbiotic](https://symbiotic.fi/){target=\_blank}.
+
+**Baseline template:**
+
+- **Minimalistic design** - includes only the essential configurations for compatibility with Tanssi, making it an ideal base for adding custom modules
+- **Tailored runtime** - provides the flexibility to expand functionality by integrating existing or custom-built modules
+- **Highly configurable** - adapt the template to meet unique requirements for governance, economics, or consensus
+
+**Baseline EVM template:**
+
+- **Ready to deploy** - comes fully configured for Ethereum compatibility, requiring no runtime changes if the application is built on EVM
+- **Ethereum ecosystem integration** - supports Ethereum tools and libraries like [MetaMask](https://metamask.io){target=\_blank}, [Hardhat](https://hardhat.org/){target=\_blank}, [Foundry](https://book.getfoundry.sh/){target=\_blank}, and [Ethers.js](https://docs.ethers.org/){target=\_blank}
+- **Smart contract deployment** - deploy EVM smart contracts seamlessly using familiar tools
 
 In this article, the required base setup and how to use the templates as a starting point to start building your Tanssi network are presented.
 
