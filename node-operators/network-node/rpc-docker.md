@@ -25,7 +25,7 @@ A Docker image is built and published as part of the automated deployment proces
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
-The chain specification is generated when registering the network in the [dApp](https://apps.tanssi.network){target=\_blank} using the provided parameters for the selected [template](/learn/networks/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
+The chain specification is generated when registering the network in the [dApp](https://apps.tanssi.network){target=\_blank} using the provided parameters for the selected [template](/learn/decentralized-networks/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
 
 Luckily, running a node requires the right Docker image configured correctly!
 

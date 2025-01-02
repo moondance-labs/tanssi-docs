@@ -12,7 +12,7 @@ Networks deployed through Tanssi receive many [benefits](/learn/tanssi/overview/
 
 Also, because Tanssi-powered networks are based on a [modular tech stack](/learn/framework/){target=\_blank}, they profit from unique advantages when customizations are required at a runtime level. This [modularity](/learn/framework/modules/){target=\_blank} allows developers to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
-For example, Tanssi provides a ready-to-use [template](/learn/networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/paritytech/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
+For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/paritytech/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 This section covers the fundamentals of a Tanssi network, its architecture, its core modules and functionalities, and the transaction fee mechanism.
 
@@ -62,4 +62,4 @@ Next, the PoV is verified by the security provider's validators. Note that the v
 
 The transaction flow process is summarized in the following diagram:
 
-![Path of a Tanssi Network Block in Tanssi](/images/learn/networks/overview/overview-1.webp)
+![Path of a Tanssi Network Block in Tanssi](/images/learn/decentralized-networks/overview/overview-1.webp)
