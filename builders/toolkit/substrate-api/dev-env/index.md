@@ -11,10 +11,10 @@ Building on Substrate involves working with a flexible, modular blockchain frame
 
 In this section, you'll explore tools and techniques that can help you achieve the following with a Substrate development environment:
 
-**Local environment setup** - spin up a test environment without dealing with the complexity of configuring a Substrate node manually
-**Network interaction** - connect to and interact with Tanssi and Tanssi-powered networks
-**Transaction simulation** - test and simulate transactions on forked networks to evaluate changes before deploying
-**Debugging** - use debugging tools to troubleshoot and analyze transaction flow, state transitions, and more in a controlled environment
+- **Local environment setup** - spin up a test environment without dealing with the complexity of configuring a Substrate node manually
+- **Network interaction** - connect to and interact with Tanssi and Tanssi-powered networks
+- **Transaction simulation** - test and simulate transactions on forked networks to evaluate changes before deploying
+- **Debugging** - use debugging tools to troubleshoot and analyze transaction flow, state transitions, and more in a controlled environment
 
 ## Explore What This Section Covers
 

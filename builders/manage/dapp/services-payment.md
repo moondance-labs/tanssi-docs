@@ -1,7 +1,7 @@
 ---
 title: Block Production Services Payment
 description: Networks deployed through Tanssi benefit from block production services provided by a set of node operators, which are compensated with Tanssi tokens.
-con: octicons-server-24
+icon: octicons-server-24
 ---
 
 # Block Production Services Payment

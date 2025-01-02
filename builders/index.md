@@ -8,7 +8,7 @@ template: root-index-page.html
 
 Explore everything you need to build, deploy, and manage networks within the Tanssi ecosystem. From development tools to account management and network connectivity, the content in this section enables you to move confidently from concept to implementation.
 
-## Build and Manage a Tanssi-Powered Network
+## Build a Tanssi-Powered Network
 
 <div class="grid cards" markdown>
 
@@ -23,6 +23,12 @@ Explore everything you need to build, deploy, and manage networks within the Tan
     [:octicons-arrow-right-24: Create your own custom module](/builders/build/customize/adding-custom-made-module/)
 
     [:octicons-arrow-right-24: Integrate external modules from other providers](/builders/build/customize/adding-external-module/)
+
+</div>
+
+## Deploy and Manage a Tanssi-Powered Network
+
+<div class="grid cards" markdown>
 
 -   <h2 class="title">Ready to Deploy?</h2>
     [:octicons-arrow-right-24: Deploy your network with the Tanssi dApp](/builders/deploy/dapp/)

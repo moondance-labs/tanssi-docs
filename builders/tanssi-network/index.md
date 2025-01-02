@@ -19,7 +19,7 @@ Learn about the key networks within the Tanssi ecosystem and how to get started 
 
 :::INSERT_GENERATED_CARDS:::
 
-## Next Steps
+## Additional Resources
 
 <div class="subsection-wrapper">
   <div class="card">
