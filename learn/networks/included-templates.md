@@ -32,7 +32,7 @@ The process is as simple as:
 
 ![Using Templates to Speed Up the Developmet Process](/images/learn/networks/templates/templates-1.webp)
 
-The two included templates are *Baseline network template* and *Baseline EVM Template*, which are presented in the following sections.
+The two included templates are the *baseline network template* and the *baseline EVM template*, which are presented in the following sections.
 
 ### Baseline Network Template {: #baseline-network-template }
 
