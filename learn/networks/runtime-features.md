@@ -60,8 +60,7 @@ Forkless upgrades are made possible by storing the state transition function as 
 
 A high-level summary of the runtime upgrade process is shown in the following diagram:
 
-![Runtime Upgrade Process Tanssi Networks](/images/learn/decentralized-networks/runtime-features/dark-runtime-features-1.webp)
-
+![Runtime Upgrade Process Tanssi Networks](/images/learn/decentralized-networks/runtime-features/runtime-features-1.webp)
 
 ## SUDO Account {: #sudo-account}
 

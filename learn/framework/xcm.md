@@ -63,8 +63,7 @@ Finally, the execution takes place on the destination chain, calling a smart con
 
 The general flow for remote execution is represented in the following diagram:
 
-![Remote Execution Flow](/images/learn/framework/xcm/dark-xcm-1.webp#only-dark)
-![Remote Execution Flow](/images/learn/framework/xcm/light-xcm-1.webp#only-dark#only-light)
+![Remote Execution Flow](/images/learn/framework/xcm/xcm-1.webp)
 
 ## Establishing Cross-Chain Communication {: #channel-registration }
 
@@ -74,8 +73,7 @@ For chain A to communicate with chain B, chain A must send an open channel trans
 
 It is important to note that a channel between a network and the relay chain is automatically opened upon network registration and onboarding.
 
-![XCM Channel Registration Overview](/images/learn/framework/xcm/dark-xcm-2.webp#only-dark)
-![XCM Channel Registration Overview](/images/learn/framework/xcm/light-xcm-2.webp#only-dark#only-light)
+![XCM Channel Registration Overview](/images/learn/framework/xcm/xcm-2.webp)
 
 Once the channel is established, cross-chain messages can be sent between networks. For asset transfers, assets will also need to be registered before being transferred.
 
@@ -92,10 +90,8 @@ Multilocations are not a universal resource locator. They refer to elements from
 
 - **Network A references a smart contract in network B** - from the point of view of network A, to reach a smart contract in network B it is necessary to move up in the hierarchy (to the relay chain) and then descend to network B to, once there, reference the smart contract's address. The multilocation is therefore defined with a `parents` value set to `1`, which moves up, and two junctions, one defining which network should receive the message, and the other defining the H160 address of the smart contract that will be called
 
-![Smart Contract Multilocation Example](/images/learn/framework/xcm/dark-xcm-3.webp#only-dark)
-![Smart Contract Multilocation Example](/images/learn/framework/xcm/light-xcm-3.webp#only-light)
+![Smart Contract Multilocation Example](/images/learn/framework/xcm/xcm-3.webp)
 
-- **Network A references an account in the relay chain** - from the point of view of network A, to reference an account in the relay chain, it is necessary to move up and then reference the account. The multilocation is defined with a `parents` value set to `1`, which moves up to the relay chain, and one junction that references the substrate type destination address 
+- **Network A references an account in the relay chain** - from the point of view of network A, to reference an account in the relay chain, it is necessary to move up and then reference the account. The multilocation is defined with a `parents` value set to `1`, which moves up to the relay chain, and one junction that references the substrate type destination address
 
-![Account Multilocation Example](/images/learn/framework/xcm/dark-xcm-4.webp#only-dark)
-![Account Multilocation Example](/images/learn/framework/xcm/light-xcm-4.webp#only-light)
+![Account Multilocation Example](/images/learn/framework/xcm/xcm-4.webp)
