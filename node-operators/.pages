@@ -3,4 +3,4 @@ hide: false
 nav:
   - index.md
   - network-node
-  - block-producers
+  - sequencers

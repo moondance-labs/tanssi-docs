@@ -1,6 +1,7 @@
 ---
 title: Adding External Modules
 description: Learn how to resolve double reference issues of dependencies when customizing your Tanssi-powered network template with a Rust-based tool called Diener.
+icon: octicons-plug-24
 ---
 
 # Adding an External Module {: #adding-external-module }

@@ -1,6 +1,7 @@
 ---
 title: Core Runtime Features
 description: Learn about the core features of a Tanssi network, the transactions types, how they are executed and included in a block, and the forkless runtime upgrades.
+icon: octicons-package-24
 ---
 
 # Core Runtime Features {: #core-runtime-features }
@@ -59,8 +60,7 @@ Forkless upgrades are made possible by storing the state transition function as 
 
 A high-level summary of the runtime upgrade process is shown in the following diagram:
 
-![Runtime Upgrade Process Tanssi Networks](/images/learn/decentralized-networks/runtime-features/dark-runtime-features-1.webp#only-dark)
-![Runtime Upgrade Process Tanssi Networks](/images/learn/decentralized-networks/runtime-features/light-runtime-features-1.webp#only-light)
+![Runtime Upgrade Process Tanssi Networks](/images/learn/decentralized-networks/runtime-features/runtime-features-1.webp)
 
 ## SUDO Account {: #sudo-account}
 

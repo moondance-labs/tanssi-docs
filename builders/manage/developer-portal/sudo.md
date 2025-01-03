@@ -1,6 +1,7 @@
 ---
 title: Managing the Sudo Account
 description: Learn how to manage the Sudo account of your network, including viewing and importing the Sudo key into Polkadot.js Apps and changing the current Sudo key.
+icon: octicons-key-24
 ---
 
 # Managing Your Network's Sudo Account

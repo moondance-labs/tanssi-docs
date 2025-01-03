@@ -1,6 +1,7 @@
 ---
 title: Overview
 description: Tanssi is an infrastructure protocol that eases the process of deploying decentralized networks so that developers can focus on their custom application logic.
+icon: octicons-home-24
 ---
 
 # What is Tanssi? {: #what-is-tanssi }
@@ -43,12 +44,10 @@ As previously discussed, networks deployed through Tanssi are customizable block
 
 A high-level overview of what a network looks like in the ecosystem is presented below, featuring [Symbiotic](https://symbiotic.fi/){target=\_blank} as the security provider.
 
-![High-level overview of a network & Tanssi](/images/learn/tanssi/overview/dark-overview-1.webp#only-dark)
-![High-level overview of a network & Tanssi](/images/learn/tanssi/overview/light-overview-1.webp#only-light)
+![High-level overview of a network & Tanssi](/images/learn/tanssi/overview/overview-1.webp)
 
 The Tanssi protocol manages and orchestrates a decentralized set of sequencers assigned to provide block production services to Tanssi-powered networks. The sequencers execute transactions and include them in blocks, which the security provider's operators then proceed to validate. Symbiotic operators offer Ethereum-grade economic security through its restaking protocol. The mechanism of how this works is explained in two separate articles: [Block Production Services](/learn/tanssi/network-services/block-production/){target=\_blank} and [Ethereum with Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}.
 
 While the sequencers providing block production services are rotated and reassigned to a different network upon every session change, each network will have its own set of Data Preservers running full archive nodes, ensuring data availability. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi networks.
 
-![Data Preservers of a network & Tanssi](/images/learn/tanssi/overview/dark-overview-2.webp#only-dark)
-![Data Preservers of a network & Tanssi](/images/learn/tanssi/overview/light-overview-2.webp#only-light)
+![Data Preservers of a network & Tanssi](/images/learn/tanssi/overview/overview-2.webp)

@@ -1,6 +1,7 @@
 ---
 title: Index a Tanssi Network with Subsquid
 description: Learn how to use Subsquid, a query node framework for Substrate-based chains, to index and process data on a Tanssi EVM or Substrate network.
+icon: octicons-rocket-24
 ---
 
 # Indexing a Tanssi Network with Subsquid

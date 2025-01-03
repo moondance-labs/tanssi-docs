@@ -1,9 +1,10 @@
 ---
 title: Deploy Your Network via the DApp
 description: Learn how to spin up and deploy a network on Tanssi in minutes using the Tanssi dApp, a no-code solution for onboarding and launching decentralized networks.
+icon: octicons-browser-24
 ---
 
-# Deploy your Network via the Tanssi DApp
+# Deploy Your Network via the Tanssi DApp
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/SQw9fn_MOQA?si=INbq35lvKQdJ7IA2' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
@@ -24,20 +25,6 @@ Both types of Tanssi networks behave identically, with the only difference being
 The screenshots and content in this guide will showcase quick trial networks, but you can follow the same process to configure a dedicated Tanssi network. 
 
 ![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.webp)
-
-## Overview {: #overview }
-
-Deploying a Tanssi network via the Tanssi dApp is accomplished as a single, streamlined flow consisting of five distinct steps:
-
-1. Select a [template](/builders/build/templates/overview/){target=\_blank} and configure it
-2. Satisfy the required minimum token balances
-3. Reserve your Tanssi network ID on the relay chain
-4. Generate your custom network files
-5. Register your network on Tanssi, and the relay chain
-
-![A diagram mapping out the steps for deploying a Tanssi network with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-2.webp)
-
-For quick trial networks and Dedicated networks on the [Tanssi Dancebox Testnet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your quick trial network to be ready and about two hours for a dedicated Tanssi network. For Tanssi MainNet, the process will be fully decentralized and permissionless.
 
 ## Prerequisites {: #prerequisites }
 

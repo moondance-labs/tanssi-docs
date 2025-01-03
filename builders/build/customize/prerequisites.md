@@ -1,6 +1,7 @@
 ---
 title: Prerequisites for Building a Network
-description: Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your network.
+description: Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your appchain.
+icon: octicons-checkbox-24
 ---
 
 # Prerequisites for Building a Network {: #prerequisites }
