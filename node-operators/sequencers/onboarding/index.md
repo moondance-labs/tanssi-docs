@@ -9,7 +9,7 @@ template: index-page.html
 
 Starting your journey as a sequencer begins here. This section covers the foundational steps to set up your node and prepare your account for active participation in the Tanssi network.
 
-Getting Started as a Sequencer:
+Use the following resources to get started as a sequencer:
 
 - [**Hardware requirements**](/node-operators/sequencers/onboarding/run-a-sequencer/#hardware-requirements) - understand the recommended hardware specifications to ensure optimal performance of your sequencer node
 - [**Port configuration**](/node-operators/sequencers/onboarding/run-a-sequencer/#required-network-ports) - learn which network ports need to be open to facilitate proper communication within the Tanssi ecosystem
@@ -18,7 +18,4 @@ Getting Started as a Sequencer:
 
 ## Explore This Section
 
-:::INSERT_GENERATED_CARDS::: 
-
-
-
+:::INSERT_GENERATED_CARDS:::

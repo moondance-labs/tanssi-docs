@@ -9,10 +9,10 @@ template: index-page.html
 
 With Tanssi, developers can rely on seamless block production, integration with essential tools, and the flexibility to choose security providers that best fit their blockchain environment, empowering them to focus on innovation rather than technical hurdles.
 
-Tanssi's modular framework, runtime customization, transaction management and interoperability transform network development into an accessible and efficient process, drastically reducing time to market while ensuring high performance and scalability.
+Tanssi's modular framework, runtime customization, transaction management, and interoperability transform network development into an accessible and efficient process, drastically reducing time to market while ensuring high performance and scalability.
 
 This section includes an overview of Tanssi’s core capabilities that support network development, covering everything from infrastructure and security to essential integrations.
 
 ## Explore This Section
 
-:::INSERT_GENERATED_CARDS::: 
+:::INSERT_GENERATED_CARDS:::

@@ -11,4 +11,4 @@ Becoming a sequencer is a critical role in maintaining the security and efficien
 
 ## Explore This Section
 
-:::INSERT_GENERATED_CARDS::: 
+:::INSERT_GENERATED_CARDS:::
