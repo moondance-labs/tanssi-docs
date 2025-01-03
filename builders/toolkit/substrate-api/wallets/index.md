@@ -11,6 +11,6 @@ Wallets are digital tools that allow users to securely store, manage, and transa
 
 The pages in this section provide an overview of getting started with various wallet providers. It covers how to create and import accounts, connect to your network, and begin interacting with it.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

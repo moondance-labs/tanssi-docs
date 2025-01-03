@@ -11,6 +11,6 @@ Tanssi integrates external security providers to strengthen the flexibility and 
 
 This approach addresses common challenges developers face, such as securing significant economic resources or negotiating with operators to maintain nodes. Through Tanssi's collaborative security framework, developers can bypass these obstacles and focus on innovation, leveraging a secure and scalable infrastructure to streamline the deployment of networks.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

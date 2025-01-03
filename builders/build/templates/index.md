@@ -16,6 +16,6 @@ As presented in the [Network Templates Included in Tanssi](/learn/networks/inclu
 
 Learn more about each template, the minimum requirements for your chain to function on Tanssi, and  what modules are automatically included on the [Template Overview](/builders/build/templates/overview/) page.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

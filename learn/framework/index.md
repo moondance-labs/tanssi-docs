@@ -18,6 +18,6 @@ Key features of the framework:
 - **Modular system design** - incorporate pre-built modules or create custom ones to meet specific needs
 - **Developer-centric flexibility** - focus on runtime characteristics and use case specifics, allowing you to create a blockchain tailored to your vision without unnecessary complexity
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

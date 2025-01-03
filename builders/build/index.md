@@ -41,6 +41,6 @@ flowchart TD
 
 Now that you’ve explored the deployment paths, the next step is to [learn more about each template](/builders/build/templates) so you can choose the one that best fits your needs.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

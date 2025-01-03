@@ -15,7 +15,7 @@ Learn about the key networks within the Tanssi ecosystem and how to get started 
 - **Tanssi-powered networks** - networks built on the Tanssi platform, leveraging its capabilities to create custom blockchains
 - **Demo EVM network** - a sample Ethereum-compatible network that demonstrates a fully operational Tanssi-powered network
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::
 

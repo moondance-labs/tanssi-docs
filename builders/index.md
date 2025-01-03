@@ -58,6 +58,6 @@ Explore everything you need to build, deploy, and manage networks within the Tan
 
 </div>
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

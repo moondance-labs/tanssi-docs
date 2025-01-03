@@ -15,6 +15,6 @@ Ready to start building? Check out the following integrations:
 - **Indexers** - [Subsquid](/builders/toolkit/integrations/indexers/subsquid/quick-start/)
 - **Wallets** - [RainbowKit](/builders/toolkit/integrations/wallet-integrations/rainbowkit/)
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

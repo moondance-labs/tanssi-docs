@@ -17,6 +17,6 @@ Understanding the roles of different nodes in the Tanssi-powered network helps y
 - [**Network nodes**](/node-operators/network-node/) - provide RPC endpoints and data availability services for smooth data flow and interaction between chains and users
 - [**Sequencers**](/node-operators/sequencers/) - responsible for block production, transaction execution, and network maintenance to ensure liveness and operational continuity
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS::: 

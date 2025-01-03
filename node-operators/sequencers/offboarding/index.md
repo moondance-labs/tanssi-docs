@@ -17,7 +17,7 @@ What you’ll learn:
 !!! tip "Rejoining as a Sequencer" 
     If you decide to return as a Tanssi sequencer in the future, you can easily onboard again by following the steps outlined in the [Onboarding](/node-operators/sequencers/onboarding/) guide.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS::: 
 

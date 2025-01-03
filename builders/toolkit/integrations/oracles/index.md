@@ -15,6 +15,6 @@ Main features of oracles include:
 - **Automation** - trigger contract execution based on external conditions
 - **Flexibility** - support various data types, such as price feeds, weather updates, and sports results
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

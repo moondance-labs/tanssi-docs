@@ -23,6 +23,6 @@ The Tanssi dApp and the developer portal serve different purposes when managing 
 
 Jump into the sections below to explore how each tool helps you manage your Tanssi-powered network efficiently.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

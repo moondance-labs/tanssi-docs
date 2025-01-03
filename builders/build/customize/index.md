@@ -32,6 +32,6 @@ flowchart LR
 
 To proceed, check out the following section where you can find detailed, step-by-step guides for each of these stages.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

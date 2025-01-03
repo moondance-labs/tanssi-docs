@@ -11,6 +11,6 @@ On-chain account management gives users and developers greater flexibility and c
 
 This section outlines some of the tools and features related to account management.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

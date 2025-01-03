@@ -17,6 +17,6 @@ Some key capabilities of working with libraries include:
 - **Blockchain data parsing** - decode and interpret complex data structures returned by smart contracts
 - **Event monitoring** - listen to events emitted by contracts and trigger specific application actions
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

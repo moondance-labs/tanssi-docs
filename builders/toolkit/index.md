@@ -12,6 +12,6 @@ The Toolkit section is your all-in-one resource hub for building, deploying, and
 !!! tip
     If you are working with an EVM-compatible network, you can use Substrate tools to interact with the lower-level functionalities of your network. Using this, you can interact with custom runtime modules, query storage, manage governance, or work with features unique to Substrate.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

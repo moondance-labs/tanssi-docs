@@ -30,6 +30,6 @@ To configure your network, take these steps:
 
 Now that you have your network loaded on the developer portal, you can dive into the following guides to start managing your network.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

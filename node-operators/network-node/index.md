@@ -12,6 +12,6 @@ Setting up a network node is essential for interacting with your Tanssi-powered 
 - [**Using Docker**](/node-operators/network-node/rpc-docker/) - instructions to set up your node in a containerized environment for easy deployment and isolation
 - [**Using Systemd**](/node-operators/network-node/rpc-systemd/) - guidance for configuring your node as a service, enabling automated management and system integration
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS::: 

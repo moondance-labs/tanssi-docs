@@ -15,6 +15,6 @@ Key features of Tanssi-powered networks:
 - **Transaction efficiency** - optimize transaction fees for scalability and economic sustainability
 - **Scalability at its core** - build networks that are prepared to grow alongside your ecosystem
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

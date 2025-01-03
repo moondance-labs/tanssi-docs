@@ -10,6 +10,6 @@ template: index-page.html
 Keeping your sequencer node up and running is more than just setup - it requires regular maintenance to ensure consistent performance and secure management of your accounts. Regular updates are essential to keep your node compatible with the latest Tanssi protocol changes, while tools such as proxy accounts provide an extra layer of security by allowing you to delegate certain tasks without exposing your primary account credentials. This section provides the necessary steps to keep your operations smooth, reliable and secure.
 
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS::: 

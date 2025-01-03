@@ -11,6 +11,6 @@ The official Tanssi TestNet, Dancebox, allows developers to experiment with bloc
 
 When you're ready to see how your project could thrive in a real-world setting, try out the demo EVM environment. Fully compatible with Ethereum, this Tanssi-powered setup showcases key features and offers an immersive experience, giving you a glimpse into the full potential of your customized solution.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

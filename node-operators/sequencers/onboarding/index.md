@@ -16,7 +16,7 @@ Getting Started as a Sequencer:
 - **Session keys setup** - detailed instructions on [generating](/node-operators/sequencers/onboarding/account-setup/#map-account) and [managing](/node-operators/sequencers/onboarding/account-setup/#map-session-keys) session keys, a vital step for enabling block production capabilities
 - **Node deployment** - choose between [Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/) and [systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/) for deploying your node, with step-by-step guides tailored for each method
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS::: 
 

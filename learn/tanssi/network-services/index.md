@@ -9,6 +9,6 @@ template: index-page.html
 
 Tanssi's network services provide the essential infrastructure for secure and efficient blockchain operations. At the core of these services, the Tanssi protocol offers block production as a service, ensuring the continuous performance and scalability of decentralized networks.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

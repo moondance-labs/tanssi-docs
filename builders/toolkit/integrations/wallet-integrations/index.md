@@ -16,6 +16,6 @@ Main features of wallet integraions include:
 - **Pre-built UI components** - ready-to-use UI components for  wallet connection, account display, and balance management, streamlining development
 - **Customization** - customize the wallet modal's appearance and behavior to match your branding and user interface design
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

@@ -10,7 +10,7 @@ Launching a decentralized network has traditionally been a challenging and time-
 
 This section explores the core elements that define Tanssi as a leading solution for network development. Whether you’re starting your journey into decentralized networks or deepening your understanding of Tanssi’s unique capabilities, these documents provide everything you need to understand how Tanssi sets a new standard for network infrastructure.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::
 

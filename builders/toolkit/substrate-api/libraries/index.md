@@ -17,6 +17,6 @@ Some key capabilities of working with libraries include:
 - **Interaction with custom modules** - invoke a module's exposed functions, to query chain data or trigger state changes
 - **Account management** - create cryptographic key pairs for signing transactions and manage on-chain account information such as balances
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

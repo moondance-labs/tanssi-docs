@@ -13,6 +13,6 @@ Tanssi's modular framework, runtime customization, transaction management and in
 
 This section includes an overview of Tanssi’s core capabilities that support network development, covering everything from infrastructure and security to essential integrations.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS::: 

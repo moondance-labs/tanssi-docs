@@ -52,6 +52,6 @@ graph LR
 
 To find out more about each precompile, check out the guides listed in the following section.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

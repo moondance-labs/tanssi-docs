@@ -16,6 +16,6 @@ Main features of indexers include:
 - **Enhanced querying capabilities** - use sophisticatd querying methods, such as filtering, sorting, and pagination
 - **Real-time data updates** - synchronization with the blockchain enables applications to access the latest information as soon as its available
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

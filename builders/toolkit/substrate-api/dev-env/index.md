@@ -16,6 +16,6 @@ In this section, you'll explore tools and techniques that can help you achieve t
 - **Transaction simulation** - test and simulate transactions on forked networks to evaluate changes before deploying
 - **Debugging** - use debugging tools to troubleshoot and analyze transaction flow, state transitions, and more in a controlled environment
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

@@ -9,6 +9,6 @@ template: index-page.html
 
 The network features in Tanssi are designed to provide the foundational mechanisms that support decentralization, security, and scalability. From securing networks through staking to future capabilities, this section outlines the core elements that empower Tanssi’s network infrastructure.
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::

@@ -33,6 +33,6 @@ For successful block production, your node must synchronize and interact with th
 | Assigned Network  | 30335 (TCP)  |
 
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS::: 

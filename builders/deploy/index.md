@@ -26,6 +26,6 @@ Deploying a Tanssi-powered network via the [Tanssi dApp](https://apps.tanssi.net
 
 To get started, visit [Using the Tanssi DApp](/builders/deploy/dapp/).
 
-## Explore What This Section Covers
+## Explore This Section
 
 :::INSERT_GENERATED_CARDS:::
