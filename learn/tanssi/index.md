@@ -7,14 +7,11 @@ template: index-page.html
 
 # Learn About Tanssi
 
-Here, you'll find an overview of Tanssi’s core capabilities that support network development, covering everything from infrastructure and security to essential integrations.
+With Tanssi, developers can rely on seamless block production, integration with essential tools, and the flexibility to choose security providers that best fit their blockchain environment, empowering them to focus on innovation rather than technical hurdles.
 
-Key features that set Tanssi apart:
+Tanssi's modular framework, runtime customization, transaction management and interoperability transform network development into an accessible and efficient process, drastically reducing time to market while ensuring high performance and scalability.
 
-- **Block production as a service** - Tanssi’s incentivized block producers ensure reliable block creation and network liveness, removing the operational burden from developers
-- **Flexible security providers** - choose security solutions tailored to your Tanssi-powered network environment, such as Symbiotic for Ethereum-based chains, enabling shared security without sourcing economic guarantees
-- **Time-to-market efficiency** - launch networks in minutes with Tanssi’s comprehensive approach to infrastructure and security, significantly reducing development time
-- **Seamless integrations** - Tanssi provides out-of-the-box infrastructure, including wallets, RPC endpoints, and block explorers, streamlining network deployment
+This section includes an overview of Tanssi’s core capabilities that support network development, covering everything from infrastructure and security to essential integrations.
 
 ## Explore What This Section Covers
 

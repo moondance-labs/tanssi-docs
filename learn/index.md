@@ -6,17 +6,17 @@ template: root-index-page.html
 
 # Learn
 
-Launching a decentralized network has traditionally been a challenging and time-consuming process, requiring expertise in infrastructure, security, and operational setup. Tanssi simplifies this journey by removing the complexities and making network deployment fast and accessible. With Tanssi, developers can rely on seamless block production, integration with essential tools, and the flexibility to choose security providers that best fit their blockchain environment, empowering them to focus on innovation rather than technical hurdles.
+Launching a decentralized network has traditionally been a challenging and time-consuming process, requiring expertise in infrastructure, security, and operational setup. Tanssi simplifies this journey by removing the complexities and making network deployment fast and accessible.
 
-This section explores the core elements that define Tanssi as a leading solution for network development. From its modular framework and runtime customization to transaction management and interoperability, Tanssi transforms network development into an accessible and efficient process, drastically reducing time to market while ensuring high performance and scalability.
-
-Whether you’re starting your journey into decentralized networks or deepening your understanding of Tanssi’s unique capabilities, these documents provide everything you need to understand how Tanssi sets a new standard for network infrastructure.
+This section explores the core elements that define Tanssi as a leading solution for network development. Whether you’re starting your journey into decentralized networks or deepening your understanding of Tanssi’s unique capabilities, these documents provide everything you need to understand how Tanssi sets a new standard for network infrastructure.
 
 ## Explore What This Section Covers
 
 :::INSERT_GENERATED_CARDS:::
 
-## Want to Jump Right into the Action? 
+## Jump Right into Building
+
+Start your Tanssi journey here if you prefer to learn by doing.
 
 <div class="subsection-wrapper">
   <div class="card">
