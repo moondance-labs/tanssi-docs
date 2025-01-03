@@ -12,13 +12,10 @@ Whether you're setting up for the first time, handling operational tasks, or ret
 
 ### Node Types in the Tanssi Ecosystem
 
-Understanding the roles of different nodes in the Tanssi-powered network helps you choose the right one based on your goals:
+Understanding the roles of different nodes in the Tanssi-powered network helps you choose the right one based on your desired level of participation in the Tanssi ecosystem:
 
-- **Network nodes** - these nodes provide RPC endpoints and data availability services, ensuring smooth data flow and interaction between chains and users
-- **Sequencers** - Sequencers are responsible for producing blocks, executing transactions, and maintaining the network's liveness by ensuring its operational continuity
-
-!!!tip 
-    With this in mind, you can decide whether to set up a network node or become a sequencer depending on your desired level of participation in the Tanssi ecosystem.
+- [**Network nodes**](/node-operators/network-node/) - provide RPC endpoints and data availability services for smooth data flow and interaction between chains and users
+- [**Sequencers**](/node-operators/sequencers/) - responsible for block production, transaction execution, and network maintenance to ensure liveness and operational continuity
 
 ## Explore What This Section Covers
 

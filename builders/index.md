@@ -46,8 +46,8 @@ Explore everything you need to build, deploy, and manage networks within the Tan
 
 <div class="grid cards" markdown>
 
--   <h2 class="title">Tanssi Network Information</h2>
-    [:octicons-arrow-right-24: Access network endpoints for integration](/builders/tanssi-network/endpoints/)
+-   <h2 class="title">Tanssi Network References</h2>
+    [:octicons-arrow-right-24: Network Endpoints](/builders/tanssi-network/endpoints/)
 
 -   <h2 class="title">Tools for Tanssi Network Development</h2>
     [:octicons-arrow-right-24: Explore tools for Ethereum API integration](/builders/toolkit/ethereum-api/)

@@ -1,6 +1,6 @@
 ---
 title: Offboard Your Sequencer Node
-description: Learn how to properly offboard your Sequencer node (also known as block producers) including clearing session keys and undelegating funds.
+description: Learn how to properly offboard your sequencer node (also known as block producers) including clearing session keys and undelegating funds.
 icon: octicons-arrow-down-right-24
 template: index-page.html
 ---
@@ -11,12 +11,13 @@ Stepping down as a sequencer requires following the proper procedures to ensure 
 
 What you’ll learn:
 
-- **Removing your self-delegation** - steps to remove your self-bonded stake and ensure your sequencer is no longer listed as an eligible participant
-- **Unmapping session keys** - how to unmap your session keys, properly severing the connection between your node and your account
+- [**Removing your self-delegation**](/node-operators/sequencers/offboarding/account/#request-undelegation) - steps to remove your self-bonded stake and ensure your sequencer is no longer listed as an eligible participant
+- [**Unmapping session keys**](/node-operators/sequencers/offboarding/account/#unmap-session-keys) - how to unmap your session keys, properly severing the connection between your node and your account
+
+!!! tip "Rejoining as a Sequencer" 
+    If you decide to return as a Tanssi sequencer in the future, you can easily onboard again by following the steps outlined in the [Onboarding](/node-operators/sequencers/onboarding/) guide.
 
 ## Explore What This Section Covers
 
 :::INSERT_GENERATED_CARDS::: 
 
-!!! tip "Rejoining as a Sequencer" 
-    If you decide to return as a Tanssi sequencer in the future, you can easily onboard again by following the steps outlined in the [Onboarding](/node-operators/sequencers/onboarding/) guide.

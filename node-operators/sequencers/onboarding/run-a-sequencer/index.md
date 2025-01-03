@@ -1,6 +1,6 @@
 ---
 title: Run a Sequencer
-description: Learn how to set up and run Sequencer node (also known as block producers or collators) using Docker or Systemd to participate in the protocol.
+description: Learn how to set up and run sequencer node (also known as block producers or collators) using Docker or Systemd to participate in the protocol.
 icon: octicons-server-24
 template: index-page.html
 ---
