@@ -12,7 +12,7 @@ Discover integrations that enable you to extend the functionality of your Tanssi
 Ready to start building? Check out the following integrations:
 
 - **Oracles** - [Acurast](/builders/toolkit/integrations/oracles/acurast/), [Band](/builders/toolkit/integrations/oracles/band/), and [Phala](/builders/toolkit/integrations/oracles/phala/)
-- **Indexers** - [Subsquid](/builders/toolkit/integrations/indexers/subsquid/quick-start/)
+- **Indexers** - [SQD](/builders/toolkit/integrations/indexers/sqd/quick-start/)
 - **Wallets** - [RainbowKit](/builders/toolkit/integrations/wallet-integrations/rainbowkit/)
 
 ## Explore This Section
