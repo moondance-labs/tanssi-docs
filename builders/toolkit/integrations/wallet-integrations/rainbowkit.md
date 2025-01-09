@@ -45,7 +45,7 @@ The script will prompt for a project name, generate a new directory with the boi
 
 --8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/cli-quickstart.md'
 
-Navigate to the project directory, start the development server, and open [http://localhost:3000](http://localhost:3000){target=\_blank} to view the project locally:
+Navigate to the project directory, start the development server, and open `http://localhost:3000` to view the project locally:
 
 === "npm"
 
@@ -157,7 +157,7 @@ Next, start the development server to create a local dApp instance:
     yarn dev
     ```
 
-After starting the server, open [http://localhost:3000](http://localhost:3000){target=\_blank},  to view the Next.js application in the browser.
+After starting the server, open `http://localhost:3000` to view the Next.js application in the browser.
 
 To test the RainbowKit connection, the MetaMask app can be used. Ensure that the Tanssi demo EVM network is connected in the MetaMask wallet.
 

@@ -5,7 +5,7 @@ icon: octicons-arrow-down-right-24
 template: index-page.html
 ---
 
-## Offboarding
+# Offboarding
 
 Stepping down as a sequencer requires following the proper procedures to ensure a smooth transition. This section provides clear instructions to unmap your session keys and undelegate your self-bonded stake, allowing you to safely reclaim your funds and disconnect your account from the network.
 
