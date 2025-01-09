@@ -88,7 +88,7 @@ The [Substrate template](/builders/build/templates/overview/#baseline-network-te
 To get started, select the **Substrate** template from the left-side menu. Then take the following steps:
 
 1. In the **Project Details** section, provide your project's name, your contact email, and your Telegram
-2. Enter the token decimals and symbol for your native token and the [SS58 address format](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=\_blank}
+2. Enter the token decimals and symbol for your native token and the [SS58 address format registry](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=\_blank}
 3. Provide the Substrate-style address of the account you want to use as the sudo account and its initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the network is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
 4. (Optional) You can add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
 5. Once you have configured the template for your Tanssi network, you can select **Continue** to proceed to the [Check Balances section](#check-balances)
