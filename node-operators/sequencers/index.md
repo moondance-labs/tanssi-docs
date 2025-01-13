@@ -7,7 +7,7 @@ template: index-page.html
 
 # Tanssi Sequencers
 
-Becoming a sequencer is a critical role in maintaining the security and efficiency of the Tanssi ecosystem. Sequencers are responsible for producing blocks, validating transactions, and ensuring the smooth operation of the network. This section provides everything you need to get started, from initial setup to operational best practices and account management.
+Sequencers play a critical role in maintaining the liveness and performance of the Tanssi ecosystem. Sequencers are responsible for producing blocks, executing transactions, and ensuring the smooth operation of the network. This section provides everything you need to get started, from initial setup to operational best practices and account management.
 
 ## Explore This Section
 
