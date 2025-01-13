@@ -1,13 +1,13 @@
 ---
 title: Run a Sequencer
-description: Learn how to set up and run sequencer node (also known as block producers or collators) using Docker or Systemd to participate in the protocol.
+description: Learn how to set up and run a sequencer node using Docker or Systemd to participate in the protocol, providing block production services and earning rewards.
 icon: octicons-server-24
 template: index-page.html
 ---
 
 # Run a Sequencer Node
 
-Setting up a sequencer node is an important step to participate in the Tanssi network. You have two options for configuration: using _Docker_ or _Systemd._ Whichever path you choose, we provide step-by-step tutorials to guide you through the process and ensure your node meets the necessary requirements to produce blocks and maintain a secure connection to the network.
+Setting up a sequencer node is an important step to participate in the Tanssi network. You have two options: _Docker_ or _Systemd_. Whichever path you choose, we provide step-by-step tutorials to guide you through the process and ensure your node meets the necessary requirements to produce blocks and maintain a secure connection to the network.
 
 ### Hardware Requirements
 
