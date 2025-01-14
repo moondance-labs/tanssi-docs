@@ -4,13 +4,13 @@ description: Learn how to set up and run a sequencer (aka block producer) for Ta
 icon: simple-docker
 ---
 
-# Run a Block Producer in Tanssi Using Docker
+# Run a Sequencer in Tanssi Using Docker
 
 ## Introduction {: #introduction }
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
+In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the shared pool of sequencers using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -34,9 +34,9 @@ The command will download and extract the image and show the status upon executi
 
 ### Setup the Data Directory {: #setup-data-directory }
 
-Running a block producer requires syncing with three chains: the relay chain, the Tanssi chain, and the network it has been assigned to.
+Running a sequencer requires syncing with three chains: the relay chain, the Tanssi chain, and the network it has been assigned to.
 
-Run the following command to create the directory where your block producer will store the databases containing blocks and chain states:
+Run the following command to create the directory where your sequencer will store the databases containing blocks and chain states:
 
 ```bash
 mkdir /var/lib/dancebox
