@@ -116,7 +116,7 @@ KillSignal=SIGHUP
 ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 -- \
 --chain=westend_moonbase_relay_testnet \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
