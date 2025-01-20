@@ -27,7 +27,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
     ![Getting the chain specs](/images/node-operators/network-node/rpc-systemd/rpc-systemd-1.webp)
 
-- **Relay chain specifications file** - the relay chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha){target=\_blank}
+- **Tanssi network specifications file** - the Tanssi network specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha){target=\_blank}
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -49,11 +49,11 @@ Every new release includes two node binaries, one for EVM-compatible networks an
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-## Download the Relay Chain Specs File {: #download-relay-specs }
+## Download the Tanssi Network Specs File {: #download-tanssi-specs }
 
-The node binary file includes also the necessary code to run a relay chain node. When launching your network's node, it will also be required to provide the relay chain's specification file as a parameter.
+The node binary file includes also the necessary code to run a Tanssi network node. When launching your network's node, it will also be required to provide the Tanssi network specification file as a parameter.
 
-Download the relay chain specification file by executing:
+Download the Tanssi network specification file by executing:
 
 ```bash
 wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
