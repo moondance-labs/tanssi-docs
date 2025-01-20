@@ -8,13 +8,13 @@ icon: simple-docker
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi block producers can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi sequencers can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
 
-This tutorial covers upgrading your Tanssi block producer node that was configured using Docker. It assumes you have already set up your account and launched a [block producer node using Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
+This tutorial covers upgrading your Tanssi sequencer that was configured using Docker. It assumes you have already set up your account and launched a [sequencer using Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
 
 ## Upgrading Docker Nodes {: #upgrading-docker-nodes }
 
-If you're running your block producer node with Docker, updating your node is as simple as stopping the running container and restarting it with the new version tag.
+If you're running your sequencer with Docker, updating your node is as simple as stopping the running container and restarting it with the new version tag.
 
 First, get the container ID of your Tanssi block producer node with the following command:
 

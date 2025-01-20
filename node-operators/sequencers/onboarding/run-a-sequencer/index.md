@@ -24,12 +24,11 @@ Recommended Hardware:
 
 ### Required Network Ports
 
-For successful block production, your node must synchronize and interact with three peer-to-peer (P2P) networks. To ensure proper communication within the Tanssi ecosystem, make sure the following ports are open for incoming:
+For successful block production, your node must synchronize and interact with two peer-to-peer (P2P) networks. To ensure proper communication within the Tanssi ecosystem, make sure the following ports are open for incoming:
 
 | Network          | Port        |
 |------------------|-------------|
 | Tanssi Chain     | 30333 (TCP) |
-| Relay Chain      | 30334 (TCP) |
 | Assigned Network | 30335 (TCP) |
 
 ## Explore This Section

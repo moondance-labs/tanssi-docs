@@ -18,7 +18,7 @@ In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the 
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
-A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi block producer requires and the binary file itself.
+A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi sequencer requires and the binary file itself.
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the Tanssi orchestrator specification file.
 
@@ -34,7 +34,7 @@ The command will download and extract the image and show the status upon executi
 
 ### Setup the Data Directory {: #setup-data-directory }
 
-Running a sequencer requires syncing with three chains: the relay chain, the Tanssi chain, and the network it has been assigned to.
+Running a sequencer requires syncing with two chains: the Tanssi chain and the network it has been assigned to.
 
 Run the following command to create the directory where your sequencer will store the databases containing blocks and chain states:
 
@@ -48,7 +48,7 @@ Set the folder's ownership to the account that will run the Docker image to ensu
 chown INSERT_DOCKER_USER /var/lib/dancebox
 ```
 
-Or run the following command if you want to run the block producer with the current logged-in user:
+Or run the following command if you want to run the sequencer with the current logged-in user:
 
 ```bash
 sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
@@ -73,13 +73,12 @@ moondancelabs/tanssi key generate-node-key --file /data/node-key
 
 To spin up your node, you must run the Docker image with the `docker run` command. 
 
-Note that the command contains three sections, divided by `-- \`:
+Note that the command contains two sections, divided by `-- \`:
 
 - **Tanssi protocol section** - it contains the flags to run the Tanssi node
-- **Block producer section** - it contains the flags to run the block producer node. It is abstract enough to be dynamically adapted in runtime to the specific chain the node will serve
-- **Relay chain section** - contains the flag to run the relay chain node
+- **Sequencer section** - it contains the flags to run the sequencer node. It is abstract enough to be dynamically adapted in runtime to the specific chain the node will serve
 
-Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME`, `INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME`, and `INSERT_YOUR_RELAY_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
+Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
@@ -123,8 +122,8 @@ docker run -ti moondancelabs/tanssi --help
 
 ## Syncing Your Node {: #syncing-your-node }
 
-The first time your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+The first time your node spins up, the syncing process displays lots of log information from the node configuration and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
-When the syncing with the relay chain and the Tanssi orchestrator is finished, the node will still need to sync with the network it has been assigned to. The syncing with the chain served by the block producer node will happen every time the block producer is rotated.
+When the syncing with the Tanssi orchestrator is finished, the node will still need to sync with the network it has been assigned to. The syncing with the chain served by the sequencer node will happen every time the sequencer is rotated.

@@ -4,13 +4,13 @@ description: Learn how to set up and run a sequencer (block producer) node for T
 icon: simple-linux
 ---
 
-# Run a Block Producer Node Using Systemd
+# Run a Sequencer Node Using Systemd
 
 ## Introduction {: #introduction }
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
@@ -97,7 +97,7 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/tanssi.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_RELAY_NODE_NAME` tags with a human-readable text in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags with a human-readable text in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
 ```bash
 [Unit]
@@ -125,7 +125,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-node \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --node-key-file /var/lib/tanssi-data/node-key \
 -- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+--name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
 -- \
