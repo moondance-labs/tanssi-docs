@@ -87,7 +87,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/tanssi \
+    moondancelabs/tanssi-node solo-chain \
     --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 
@@ -96,7 +96,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi/tanssi-node-skylake" \
+    --entrypoint "/tanssi/tanssi-node-skylake solo-chain" \
     moondancelabs/tanssi \
     --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
@@ -105,7 +105,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi/tanssi-node-znver3" \
+    --entrypoint "/tanssi/tanssi-node-znver3 solo-chain" \
     moondancelabs/tanssi \
     --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
@@ -117,7 +117,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
-docker run -ti moondancelabs/tanssi --help
+docker run -ti moondancelabs/tanssi-node --help
 ```
 
 ## Syncing Your Node {: #syncing-your-node }

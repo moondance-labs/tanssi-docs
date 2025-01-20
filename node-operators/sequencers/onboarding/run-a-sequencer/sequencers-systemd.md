@@ -113,24 +113,13 @@ User=tanssi_service
 SyslogIdentifier=tanssi
 SyslogFacility=local7
 KillSignal=SIGHUP
-ExecStart=/var/lib/tanssi-data/tanssi-node \
---chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/var/lib/tanssi-data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---database paritydb \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---node-key-file /var/lib/tanssi-data/node-key \
--- \
+ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
 -- \
 --chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
 --base-path=/var/lib/tanssi-data/relay \
 --state-pruning=2000 \
