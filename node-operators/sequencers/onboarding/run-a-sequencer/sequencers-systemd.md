@@ -115,17 +115,42 @@ SyslogFacility=local7
 KillSignal=SIGHUP
 ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
---base-path=/var/lib/tanssi-data/container \
+--base-path=/data/container \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
--- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=fast \
---base-path=/var/lib/tanssi-data/relay \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
---database paritydb \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \      
+--rpc-port=9945 \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
 
 [Install]
 WantedBy=multi-user.target

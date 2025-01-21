@@ -87,7 +87,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/tanssi-node solo-chain \
+    moondancelabs/tanssi solo-chain \
     --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 
