@@ -5,7 +5,7 @@ icon: octicons-telescope-24
 template: index-page.html
 ---
 
-## TestNet
+# TestNet
 
 The official Tanssi TestNet, Dancebox, allows developers to experiment with blockchain applications in a controlled environment before going live. It provides the tools to configure networks, interact with test versions of protocols, and troubleshoot issues to ensure a smoother transition to production.
 
