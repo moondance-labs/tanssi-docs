@@ -4,13 +4,13 @@ description: Learn how to set up and run a sequencer (block producer) node for T
 icon: simple-linux
 ---
 
-# Run a Block Producer Node Using Systemd
+# Run a Sequencer Node Using Systemd
 
 ## Introduction {: #introduction }
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
@@ -97,7 +97,7 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/tanssi.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_RELAY_NODE_NAME` tags with a human-readable text in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags with a human-readable text in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
 ```bash
 [Unit]
@@ -113,30 +113,44 @@ User=tanssi_service
 SyslogIdentifier=tanssi
 SyslogFacility=local7
 KillSignal=SIGHUP
-ExecStart=/var/lib/tanssi-data/tanssi-node \
---chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/var/lib/tanssi-data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---database paritydb \
+ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
+--name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---node-key-file /var/lib/tanssi-data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
---base-path=/var/lib/tanssi-data/container \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
--- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
---sync=fast \
---base-path=/var/lib/tanssi-data/relay \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
---database paritydb \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \      
+--rpc-port=9945 \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
 
 [Install]
 WantedBy=multi-user.target

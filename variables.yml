@@ -43,8 +43,8 @@ networks:
           num: 5
           display: 'five'
       min_self_del:
-        dance: '10,000'
-        planck: 10000000000000000
+        dance: '100'
+        planck: 100000000000000
     staking:
       joining_delay_sessions: 2
       joining_delay_sessions_text: 'two'
