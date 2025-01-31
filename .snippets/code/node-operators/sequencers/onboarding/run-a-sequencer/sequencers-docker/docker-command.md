@@ -1,8 +1,14 @@
 --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --database=paritydb \
 --rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -10,8 +16,6 @@
 --blocks-pruning=2000 \
 --db-cache=1024 \
 --trie-cache-size=1073741824 \
---rpc-cors=all \
---unsafe-rpc-external \
 --collator \
 --in-peers=100 \
 --detailed-log-output \
@@ -20,18 +24,20 @@
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
 --base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
 --rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \
 --pool-limit=0 \
 --db-cache=128 \
---rpc-cors=all \
---rpc-methods=safe \
 --out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database=paritydb \
 --bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"

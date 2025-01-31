@@ -25,7 +25,7 @@ A Docker image combines the binary corresponding to the latest stable release of
 The following command to pull the Docker image:
 
 ```bash
-docker pull moondancelabs/tanssi
+docker pull moondancelabs/stagelight-collators:3
 ```
 
 The command will download and extract the image and show the status upon execution:
@@ -62,9 +62,9 @@ sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-intro.md'
 
 ```bash
-docker run --network="host" -v "/var/lib/dancebox:/data" \
+docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
 -u $(id -u ${USER}):$(id -g ${USER}) \
-moondancelabs/tanssi key generate-node-key --file /data/node-key
+{{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node key generate-node-key --file /data/node-key"
 ```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
@@ -85,30 +85,26 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 === "Generic"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/tanssi solo-chain \
+    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
     --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 
 === "Intel Skylake"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi/tanssi-node-skylake solo-chain" \
-    moondancelabs/tanssi \
+    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-skylake solo-chain \
     --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 === "AMD Zen3"
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi/tanssi-node-znver3 solo-chain" \
-    moondancelabs/tanssi \
+    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-znver3 solo-chain \
     --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
-    ```
 
 ### Run Flags {: #run-flags }
 
@@ -117,7 +113,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
-docker run -ti moondancelabs/tanssi-node --help
+docker run --entrypoint bash moondancelabs/stagelight-collators:3 -c "/chain-network/tanssi-node --help"
 ```
 
 ## Syncing Your Node {: #syncing-your-node }
