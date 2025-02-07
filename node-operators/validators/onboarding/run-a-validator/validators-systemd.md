@@ -1,6 +1,6 @@
 ---
-title: Run a Tanssi Sequencer
-description: Learn how to set up and run a sequencer (block producer) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
+title: Run a Tanssi Validator
+description: Learn how to set up and run a validator (operator) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 icon: simple-linux
 ---
 
@@ -8,17 +8,34 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
+--8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi validator using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
+To get started, you'll need access to a computer running an Ubuntu Linux OS with Landlock enabled and root privileges. You will also need:
 
-- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}
+- **Node binary files** - a validatos requires three binary files `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
+
+the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
+
+## Check Landlock {: #enable-landlock }
+
+Tanssi validators use Linux kernel's landlock feature as a security to restrict their own access to system resources, limiting the damage that a compromised application can cause.
+Check the landlock feature in your system running the following command:
+
+```bash
+sudo dmesg | grep landlock || journalctl -kg landlock
+```
+
+The output should look like:
+
+--8<-- 'code/node-operators/terminal/check-landlock.md'
+
+If landlock is not enabled in your system, upgrade the kernel to version 5.13 or above.
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -29,22 +46,28 @@ To get started, download and make executable the latest binary release by runnin
 === "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node && \
-    chmod +x ./tanssi-node
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker && \
+    chmod +x ./tanssi-relay*
     ```
 
 === "Intel Skylake"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-skylake -O tanssi-node && \
-    chmod +x ./tanssi-node
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay && \
+    chmod +x ./tanssi-relay*
     ```
 
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-node-znver3 -O tanssi-node && \
-    chmod +x ./tanssi-node
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-znver3 -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-node && \
+    chmod +x ./tanssi-relay*
     ```
 
 ## Setup the Systemd Service {: #setup-systemd-service }
@@ -71,21 +94,11 @@ Set the folder's ownership to the account that will run the service to ensure wr
 sudo chown -R tanssi_service /var/lib/tanssi-data
 ```
 
-And finally, move the binary to the folder:
+And finally, move the binaries to the folder:
 
 ```bash
-mv ./tanssi-node /var/lib/tanssi-data
+mv ./tanssi-relay* /var/lib/tanssi-data
 ```
-
-### Generate the Node Key {: #generate-node-key }
-
---8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-intro.md'
-
-```bash
-/var/lib/tanssi-data/tanssi-node key generate-node-key --file /var/lib/tanssi-data/node-key
-```
-
---8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
@@ -97,7 +110,7 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/tanssi.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_RELAY_NODE_NAME` tags with a human-readable text in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable text and `YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
 
 ```bash
 [Unit]
@@ -106,37 +119,30 @@ After=network.target
 StartLimitIntervalSec=0
 
 [Service]
-Type=simple
-Restart=on-failure
-RestartSec=10
 User=tanssi_service
+Type=simple
+Restart=always
+RestartSec=10
 SyslogIdentifier=tanssi
 SyslogFacility=local7
 KillSignal=SIGHUP
-ExecStart=/var/lib/tanssi-data/tanssi-node \
---chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/var/lib/tanssi-data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---database paritydb \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---node-key-file /var/lib/tanssi-data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
---base-path=/var/lib/tanssi-data/container \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
--- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
---sync=fast \
---base-path=/var/lib/tanssi-data/relay \
---state-pruning=2000 \
---blocks-pruning=2000 \
---database paritydb \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
+LimitNOFILE=100000
+ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
+  --base-path=/var/lib/tanssi-data/ \
+  --database=paritydb \
+  --rpc-port=9944 \
+  --prometheus-port=9615 \
+  --prometheus-external \
+  --name=INSERT_YOUR_TANSSI_NODE_NAME \
+  --listen-addr=/ip4/0.0.0.0/tcp/30333 \
+  --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+  --state-pruning=archive \
+  --blocks-pruning=archive \
+  --rpc-cors=all \
+  --rpc-methods=safe \
+  --unsafe-rpc-external \
+  --rpc-max-connections=100 \
+  --validator
 
 [Install]
 WantedBy=multi-user.target
@@ -149,7 +155,7 @@ The flags used in the ExecStart command can be adjusted according to your prefer
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
-/var/lib/tanssi-data/tanssi-node  --help
+/var/lib/tanssi-data/tanssi-relay  --help
 ```
 
 ## Run the Service {: #run-the-service }
