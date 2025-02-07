@@ -10,7 +10,7 @@ icon: simple-linux
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi validator using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi validator using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
@@ -20,12 +20,12 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS with
 
 - **Node binary files** - a validatos requires three binary files `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
 
-the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
+The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
-## Check Landlock {: #enable-landlock }
+## Check Landlock Support {: #check-landlock }
 
-Tanssi validators use Linux kernel's landlock feature as a security to restrict their own access to system resources, limiting the damage that a compromised application can cause.
-Check the landlock feature in your system running the following command:
+Tanssi validators use the Linux kernel's landlock feature as a security measure to restrict its own access to system resources, limiting the damage a compromise in the application can cause.
+Check the landlock feature support in your system running the following command:
 
 ```bash
 sudo dmesg | grep landlock || journalctl -kg landlock
@@ -35,7 +35,7 @@ The output should look like:
 
 --8<-- 'code/node-operators/terminal/check-landlock.md'
 
-If landlock is not enabled in your system, upgrade the kernel to version 5.13 or above.
+If landlock is disabled in your system, upgrade the kernel to version 5.13 or above.
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -74,7 +74,7 @@ To get started, download and make executable the latest binary release by runnin
 
 [Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
 
-The following commands configure a new account, the directory, and move the previously downloaded files to the right location.
+The following commands configure a new account, create the directory, and move the previously downloaded files to the right location.
 
 Create a new account to run the service:
 
@@ -175,7 +175,7 @@ systemctl status tanssi.service
 
 --8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
-And check the logs, if needed, with the following command:
+Check the logs, if needed, with the following command:
 
 ```bash
 journalctl -f -u tanssi.service
