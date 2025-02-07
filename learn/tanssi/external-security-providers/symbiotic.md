@@ -16,7 +16,7 @@ The following sections describe how the Symbiotic protocol works and how Tanssi 
 
 ## Ethereum-Grade Security with Symbiotic {: #symbiotic }
 
-[Symbiotic](https://symbiotic.fi/){target=\_blank} is a restaking protocol designed to be permissionless, multi-asset, and network-agnostic. It fosters capital efficiency by allowing users to extend the functionality of their staked assets to secure other networks while providing additional utility.
+[Symbiotic](https://symbiotic.fi/){target=\_blank} is a shared security protocol designed to be permissionless, multi-asset, and network-agnostic. It fosters capital efficiency by allowing users to extend the functionality of their staked assets to secure other networks while providing additional utility.
 
 The protocol provides a coordination layer for its main components and participants, aligning incentives among parties while minimizing execution layer risks by deploying non-upgradeable core contracts on Ethereum. The following diagram resumes all the components and actors participating in the protocol:
 
@@ -53,7 +53,7 @@ flowchart TD
     Tanssi <--> Networks
 
 
-    classDef container fill:#424242, rx:5px, ry:5px
+    classDef container fill:#424242, rx:5px, ry:5px;
     class Networks container
     class Validators container
     class Ethereum container
@@ -65,14 +65,15 @@ The following sections describe the protocol's main components.
 
 ### Vaults {: #vaults }
 
-[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, distribute rewards to restakers and operators, and penalize bad actors.
+[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from retakers, connect operators and networks, set up delegation strategies, and implement slashing logic.
 
 Vaults are programmable, and many vaults with different setups can coexist, each serving a different purpose. Vaults are managed by curators, who have the responsibility of deciding on critical matters such as:
 
-- **Accounting** - curators configure deposits and withdrawals, which [assets](https://app.symbiotic.fi/restake){target=\_blank} the vault accepts as valid collaterals
-- **Delegation Strategies** - curators define how the stake in the vault is delegated across operators and networks
+- **Accounting** - curators configure deposits and withdrawals and slashing of collateral. Each vault is tied to an asset.
+- **Delegation Strategies** - curators define the delegation and restaking strategy across networks.
+- **Reward Distribution** Vaults provide historical information to external rewards contracts.
 
-Vault managers also whitelist the operators and networks to work with. Since the operators get delegated stake and could potentially get slashed, they must be accepted by the vault managers before providing validation services to the networks. On a similar note, vault managers analyze and authorize each network the vault will secure, taking into consideration, for example, the rewards the network offers.
+Vault managers also whitelist the operators and networks with which to work. Since the operators get delegated stake and could potentially get slashed, they must be accepted by the vault managers before providing validation services to the networks. On a similar note, vault managers analyze and authorize each network the vault will secure, taking into consideration, for example, the rewards the network offers.
 
 Vault managers also designate [resolvers](https://docs.symbiotic.fi/modules/counterparties/resolvers){target=\_blank}, who are responsible for approving or vetoing [slashing events](https://docs.symbiotic.fi/modules/vault/slasher){target=\_blank} caused by operators on networks with [veto-slashing](https://docs.symbiotic.fi/modules/vault/slasher#veto-slashing){target=\_blank} support, like the Tanssi Network.
 
@@ -118,7 +119,7 @@ flowchart LR
     tanssi -- Security--> Networks
     tanssi -- Data Retrievability--> Networks
 
-    classDef container fill:#424242
+    classDef container fill:#424242, rx:5px, ry:5px;
     class Symbiotic container
 ```
 
