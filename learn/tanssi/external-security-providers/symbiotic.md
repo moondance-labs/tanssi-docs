@@ -136,4 +136,4 @@ The Tanssi protocol also implements veto-slashing to penalize bad actors' misbeh
 When a veto-slashing event is triggered, the authorities designated as resolvers by the vault managers can accept or revert this action.
 
 !!! note
-Slashing events can only be triggered by operators' misbehavings in the Tanssi Network itself. Tanssi networks, even if faulty or malicious, run in a sandboxed environment and can not cause slashing.
+    Slashing events can only be triggered by operators' misbehavings in the Tanssi Network itself. Tanssi networks, even if faulty or malicious, run in a sandboxed environment and can not cause slashing.
