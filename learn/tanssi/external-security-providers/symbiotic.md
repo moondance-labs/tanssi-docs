@@ -65,13 +65,13 @@ The following sections describe the protocol's main components.
 
 ### Vaults {: #vaults }
 
-[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from retakers, connect operators and networks, set up delegation strategies, and implement slashing logic.
+[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks and set up delegation strategies.
 
 Vaults are programmable, and many vaults with different setups can coexist, each serving a different purpose. Vaults are managed by curators, who have the responsibility of deciding on critical matters such as:
 
-- **Accounting** - curators configure deposits and withdrawals and slashing of collateral. Each vault is tied to an asset.
-- **Delegation Strategies** - curators define the delegation and restaking strategy across networks.
-- **Reward Distribution** Vaults provide historical information to external rewards contracts.
+- **Accounting**: curators configure deposits, withdrawals, and collateral slashing. Each vault is tied to a specific asset that is used as collateral.
+- **Delegation Strategies** - curators define the delegation and restaking strategy across networks. For example, using a multi-operator and network strategy involves higher capital efficiency and risk.
+- **Reward Distribution** vaults provide historical information to external rewards contracts.
 
 Vault managers also whitelist the operators and networks with which to work. Since the operators get delegated stake and could potentially get slashed, they must be accepted by the vault managers before providing validation services to the networks. On a similar note, vault managers analyze and authorize each network the vault will secure, taking into consideration, for example, the rewards the network offers.
 
@@ -123,11 +123,50 @@ flowchart LR
     class Symbiotic container
 ```
 
-### Slashing and Rewards {: #slashing-rewards }
+### Rewards {: #rewards }
 
-Well-behaved operators and restakers receive rewards for their participation in TANSSI tokens. Reward payments are managed through the vault.
+Well-behaved operators and restakers receive rewards for participating in TANSSI tokens. The reward process has two phases.
 
-The Tanssi protocol also implements veto-slashing to penalize bad actors' misbehavings. These are the actions that cause slashing events:
+#### Reward Distribution Phase
+
+The reward distribution process begins within the Tanssi Network, where rewards for operators and stakers are calculated, and a Merkle root is generated to represent the reward allocations cryptographically. This data is packaged into an XCM message and transmitted to the Gateway Contract on Ethereum via Snowbridge, a cross-chain communication protocol. The Gateway Contract verifies the message’s origin from Tanssi and propagates the reward data to the Middleware. The Middleware forwards the validated reward parameters to the ODefaultOperatorRewardsContract, finalizing the on-chain distribution without storing data or performing additional validation. This phase leverages Tanssi’s cross-chain infrastructure to ensure tamper-proof reward initialization.
+
+```mermaid
+sequenceDiagram
+    participant Tanssi Network
+    participant Snowbridge (XCM)
+    participant Gateway Contract
+    participant Middleware
+    participant ODefaultOperatorRewardsContract
+
+    Tanssi Network->>Tanssi Network: 1. Calculate rewards
+    Tanssi Network->>Tanssi Network: 2. Generate Merkle root
+    Tanssi Network->>Snowbridge (XCM): 3. Send XCM message (Merkle root + data)
+    Snowbridge (XCM)->>Gateway Contract: 4. Relay message
+    Gateway Contract->>Middleware: 5. Propagate rewards data
+    Middleware->>ODefaultOperatorRewardsContract: 6. distributeRewards()
+```
+
+#### Reward Claiming Phase
+
+Once rewards are allocated, operators initiate claims by submitting Merkle proofs to the ODefaultOperatorRewardsContract, which enforces an automated 80/20 split: 20% of the claimed rewards are distributed directly to the operator, while 80% are routed to the dedicated ODefaultStakerRewardsContract. Through vault-based share calculations, stakers subsequently claim their proportional shares from the latter contract. This phase emphasizes decentralized, self-custodial access, with smart contracts autonomously executing the reward split and ensuring atomic settlement.
+
+```mermaid
+sequenceDiagram
+    participant Operator
+    participant ODefaultOperatorRewardsContract
+    participant ODefaultStakerRewardsContract
+    participant Stakers
+
+    Operator->>ODefaultOperatorRewardsContract: 1. Claim rewards (Merkle proof)
+    ODefaultOperatorRewardsContract->>Operator: 2. Distribute 20% operator share
+    ODefaultOperatorRewardsContract->>ODefaultStakerRewardsContract: 3. Forward 80% staker allocation
+    Stakers->>ODefaultStakerRewardsContract: 4. Claim individual rewards
+```
+
+### Slashing {: #slashing }
+
+The Tanssi protocol implements veto-slashing to penalize bad actors' misbehavings. These are the actions that cause slashing events:
 
 1. Producing Invalid Blocks (blocks including invalid transactions, for example)
 2. Invalid Validation (double-signing or breaking protocol rules, for example).
@@ -135,6 +174,4 @@ The Tanssi protocol also implements veto-slashing to penalize bad actors' misbeh
 4. Consensus Violations
 
 When a veto-slashing event is triggered, the authorities designated as resolvers by the vault managers can accept or revert this action.
-
-!!! note
-    Slashing events can only be triggered by operators' misbehavings in the Tanssi Network itself. Tanssi networks, even if faulty or malicious, run in a sandboxed environment and can not cause slashing.
+Consider that slashing events can only be triggered by operators' misbehavings in the Tanssi Network itself. Tanssi networks, even if faulty or malicious, run in a sandboxed environment and can not cause slashing.
