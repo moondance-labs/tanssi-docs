@@ -26,7 +26,7 @@ flowchart TD
     subgraph Ethereum["Ethereum/Symbiotic"]
         slash[/Slashing Events/]
         Restakers -- Deposit Assets --> Vaults
-        Vault managers -- Manage --> Vaults
+        manager["Vault managers"] -- Manage --> Vaults
         Resolvers -- Decide On --> slash
         slash -- Executes On --> Vaults
     end
@@ -64,7 +64,7 @@ The following sections describe the protocol's main components.
 Vaults are programmable, and many vaults with different setups can coexist, each serving a different purpose. Vaults are managed by vault managers, who have the responsibility of deciding on critical matters such as:
 
 - **Accounting** - vault managers configure deposits, withdrawals, and how slashing event are handle for the given vault. Each vault is tied to a specific asset that is used as collateral.
-- **Delegation Strategies** - vault managers define the delegation and restaking strategy across networks.
+- **Delegation Strategies** - vault managers define the delegation and restaking strategy across networks and operators.
 - **Reward Distribution** - vaults provide historical information to external rewards contracts.
 
 Vault managers also whitelist the operators and networks with which to work. Since the operators get delegated stake and could potentially get slashed, they must be accepted by the vault managers before providing validation services to the networks. On a similar note, vault managers analyze and authorize each network the vault will secure, taking into consideration, for example, the rewards the network offers.
@@ -92,7 +92,7 @@ Since operators opt-in to provide services to networks and the vault managers mu
 
 Developers launching networks through Tanssi benefit from [block production services](/learn/tanssi/network-services/block-production/){target=\_blank}, data retrievability as a service, and the shared security model derived from every vault opting-in to support the Tanssi protocol. This eliminates the hurdle of dealing with infrastructural and security components developers would need to take on otherwise.
 
-vault managers running vaults can apply to offer the restaked collaterals as economic security for the Tanssi Network. Since Tanssi networks run in a sandbox-like environment, and the Tanssi protocol manages all the networks-related responsibilities, vault vault managers only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of networks that are running through the Tanssi protocol at any given moment.
+Vault managers running vaults can apply to offer the restaked collaterals as economic security for the Tanssi Network. Since Tanssi networks run in a sandbox-like environment, and the Tanssi protocol manages all the networks-related responsibilities, vault managers only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of networks that are running through the Tanssi protocol at any given moment.
 
 Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi Network and, consequently, to every network deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi network is launched or decommissioned.
 
@@ -118,17 +118,15 @@ flowchart LR
 
 ### Rewards {: #rewards }
 
-Well-behaved operators and restakers receive rewards for participating in TANSSI tokens. The reward process has two phases.
+Well-behaved operators and restakers receive rewards for participating in TANSSI tokens. The reward process can be split into two phases.
 
 #### **Reward Distribution Phase**
 
-1. Reward Calculation - the Tanssi network calculates rewards based on operator/staker activity and creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree) a cryptographic fingerprint of all reward allocations (think of it as a unique "summary" of who gets what). Stakers are rewarded based on their stake inside each vault, guaranteeing more stability/reliability to the network.
+1. Reward Calculation - Tanssi calculates rewards based on operator/staker activity and creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree). The result is a cryptographic fingerprint of all reward allocations (think of it a unique "summary" of who gets what). Stakers are rewarded based on their stake inside each vault, guaranteeing more stability/reliability to the network.
 2. Cross-Chain Messaging - this data is sent via [XCM](https://docs.moonbeam.network/builders/interoperability/xcm/overview/) (Cross-Consensus Messaging), a standardized protocol for blockchain communication. It uses [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge) as the trustless bridge between Tanssi and Ethereum.
-3. On-Chain Propagation - the verified data reaches:
-
-    - Gateway Contract - Tanssi's authorized entry point on Ethereum for the Snowbridge bridge.
-    - Middleware - a [contract](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol) that forwards rewards and slashing data.
-    - OperatorRewardsContract - [the final destination](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) storing the merkle tree of the rewards allocations.
+3. Gateway Contract - after the message get's relayed in to the gateway contract, this contract is the Tanssi's authorized entry point on Ethereum for the Snowbridge bridge.
+4. Middleware - the Gateway contract propagates the data to the [Middelware](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol); this contract has amongst other responsibilities to forward this to the OperatorReward contract.
+5. OperatorRewards - [the final destination](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) This contract has the responsibility to store the Merkle tree of the rewards allocations and transfer the reward tokens on a claim call.
 
 ```mermaid
 sequenceDiagram
@@ -136,22 +134,22 @@ sequenceDiagram
     participant Snowbridge (XCM)
     participant Gateway Contract
     participant Middleware
-    participant OperatorRewardsContract
+    participant OperatorRewards
 
     Tanssi Network->>Tanssi Network: 1. Calculate rewards
     Tanssi Network->>Tanssi Network: 2. Generate Merkle root
     Tanssi Network->>Snowbridge (XCM): 3. Send XCM message (Merkle root + data)
     Snowbridge (XCM)->>Gateway Contract: 4. Relay message
     Gateway Contract->>Middleware: 5. Propagate rewards data
-    Middleware->>OperatorRewardsContract: 6. distributeRewards()
+    Middleware->>OperatorRewards: 6. distributeRewards()
 ```
 
 #### **Reward Claiming Phase**
 
-1. Operator ClaimsOperators claim their 20% share from OperatorRewardsContract using a Merkle proof—a cryptographic receipt verifying their entitlement.
-2. Staker AllocationThe remaining "80%" is automatically routed to [StakerRewardsContract](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol), where stakers claim rewards proportional to their stake in the vaults.
+1. Operator Claims - operators claim their share from OperatorRewardsContract using a cryptographic receipt verifying their entitlement.
+2. Staker Allocation - the remaining "80%" is automatically routed to [StakerRewardsContract](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol), where stakers claim rewards proportional to their stake in the vaults.
 
-Tanssi sets the operator share so that x% goes to operators and the remainder to stakers.
+Tanssi sets the operator share so that x% goes to operators and the remainder to stakers. Currently, the split is 80% for stakers and 20% for operators.
 
 ```mermaid
 sequenceDiagram
