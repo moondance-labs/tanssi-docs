@@ -120,15 +120,15 @@ flowchart LR
 
 Well-behaved operators and restakers receive rewards for participating in TANSSI tokens. The reward process has two phases.
 
-#### Reward Distribution Phase
+#### **Reward Distribution Phase**
 
-1. Reward CalculationThe Tanssi Network calculates rewards based on operator/staker activity and creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree) a cryptographic fingerprint of all reward allocations (think of it as a unique "summary" of who gets what). Stakers are rewarded based on their stake inside each vault, guaranteeing more stability/reliability to the network.
-2. Cross-Chain MessagingThis data is sent via [XCM](https://docs.moonbeam.network/builders/interoperability/xcm/overview/) (Cross-Consensus Messaging), a standardized protocol for blockchain communication. It uses [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge) as the trustless bridge between Tanssi and Ethereum.
-3. On-Chain PropagationThe verified data reaches:
+1. Reward Calculation - the Tanssi network calculates rewards based on operator/staker activity and creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree) a cryptographic fingerprint of all reward allocations (think of it as a unique "summary" of who gets what). Stakers are rewarded based on their stake inside each vault, guaranteeing more stability/reliability to the network.
+2. Cross-Chain Messaging - this data is sent via [XCM](https://docs.moonbeam.network/builders/interoperability/xcm/overview/) (Cross-Consensus Messaging), a standardized protocol for blockchain communication. It uses [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge) as the trustless bridge between Tanssi and Ethereum.
+3. On-Chain Propagation - the verified data reaches:
 
-- **Gateway Contract**- Tanssi's authorized entry point on Ethereum for the Snowbridge bridge.
-- **Middleware**- a [contract](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol) that forwards rewards and slashing data.
-- **OperatorRewardsContract**- [the final destination](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) storing the merkle tree of the rewards allocations.
+    - Gateway Contract - Tanssi's authorized entry point on Ethereum for the Snowbridge bridge.
+    - Middleware - a [contract](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol) that forwards rewards and slashing data.
+    - OperatorRewardsContract - [the final destination](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) storing the merkle tree of the rewards allocations.
 
 ```mermaid
 sequenceDiagram
@@ -146,10 +146,11 @@ sequenceDiagram
     Middleware->>OperatorRewardsContract: 6. distributeRewards()
 ```
 
-#### Reward Claiming Phase
+#### **Reward Claiming Phase**
 
 1. Operator ClaimsOperators claim their 20% share from OperatorRewardsContract using a Merkle proof—a cryptographic receipt verifying their entitlement.
 2. Staker AllocationThe remaining "80%" is automatically routed to [StakerRewardsContract](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol), where stakers claim rewards proportional to their stake in the vaults.
+
 Tanssi sets the operator share so that x% goes to operators and the remainder to stakers.
 
 ```mermaid
