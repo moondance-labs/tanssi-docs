@@ -16963,9 +16963,9 @@ The following sections describe the protocol's main components.
 
 Vaults are programmable, and many vaults with different setups can coexist, each serving a different purpose. Vaults are managed by vault managers, who have the responsibility of deciding on critical matters such as:
 
-- **Accounting** - vault managers configure deposits, withdrawals, and how slashing event are handle for the given vault. Each vault is tied to a specific asset that is used as collateral.
-- **Delegation Strategies** - vault managers define the delegation and restaking strategy across networks and operators.
-- **Reward Distribution** - vaults provide historical information to external rewards contracts.
+- **Accounting** - configure deposits, withdrawals, and how slashing event are handle for the given vault. Each vault is tied to a specific asset that is used as collateral.
+- **Delegation Strategies** - define the delegation and restaking strategy across networks and operators.
+- **Reward Distribution** - provide historical information to external rewards contracts.
 
 Vault managers also whitelist the operators and networks with which to work. Since the operators get delegated stake and could potentially get slashed, they must be accepted by the vault managers before providing validation services to the networks. On a similar note, vault managers analyze and authorize each network the vault will secure, taking into consideration, for example, the rewards the network offers.
 
@@ -17066,7 +17066,8 @@ sequenceDiagram
 
 ### Slashing {: #slashing }
 
-The Tanssi protocol implements slashing to penalize operators for misbehavior. When a slashing event is triggered, the authorities designated as resolvers by the vault managers can either accept or revert this action. The vault manager of each vault appoints resolvers, and the selection criteria are specific to that vault.
+The Tanssi protocol implements slashing to penalize operators for misbehavior. When a slashing event is triggered, the authorities designated as resolvers by the vault managers can either accept or revert this action.
+
 The following actions can trigger slashing events:
 
 1. Producing Invalid Blocks (e.g., blocks that include invalid transactions)
@@ -17078,6 +17079,7 @@ The following actions can trigger slashing events:
     Slashing events can only be triggered by operators' misbehavior within the Tanssi Network. Even if Tanssi networks are faulty or malicious, they operate in a sandboxed environment and cannot cause slashing.
 
 The slashing process follows a path similar to that of rewards. When a validator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). This process resembles the reward, where the message passes through the gateway and into the Middleware. The slashing method gets called.
+
 This method receives the following parameters: operator key(a way to identify the operator identity), percentage (which reflects the severity of the slash and is a percentage of the operator's assigned stake in each vault), epoch (time context)
 
 The Middleware iterates through all vaults active during the offense epoch and skips any inactive. For each active vault, the Middleware retrieves the stake the particular operator has in the vault and applies the slashed percentage. Depending on the vault's slashing implementation, there are two possible routes:
