@@ -212,7 +212,7 @@ sequenceDiagram
     end
 ```
 
-### Burner {: #burning }
+#### **Burner**
 
 The Burner contract is an extension responsible for handling actions that follow a slashing event, notably the burning of slashed collateral. Once a slash is executed, the Slasher contract calls the Burner to carry out these post-slashing tasks.
 
