@@ -178,14 +178,9 @@ The following actions can trigger slashing events:
 !!!note
     Slashing events can only be triggered by operators' misbehavior within the Tanssi Network. Even if Tanssi networks are faulty or malicious, they operate in a sandboxed environment and cannot cause slashing.
 
-The slashing process follows a path similar to that of rewards. When a validator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). This process resembles the reward, where the message passes through the gateway and into the Middleware. The slashing method gets called.
+The slashing process follows a path similar to that of rewards. When a validator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). This process resembles the reward, where the message passes through the gateway and into the Middleware where the slashing method gets called.
 
 This method receives the following parameters: operator key(a way to identify the operator identity), percentage (which reflects the severity of the slash and is a percentage of the operator's assigned stake in each vault), epoch (time context)
-
-The Middleware iterates through all vaults active during the offense epoch and skips any inactive. For each active vault, the Middleware retrieves the stake the particular operator has in the vault and applies the slashed percentage. Depending on the vault's slashing implementation, there are two possible routes:
-
-1. **Instant Slashing** -  this involves direct stake reduction.
-2. **Veto Slashing** - this is a time-delayed slashing with dispute resolution mechanisms. In the case of veto slashing, a time-limited veto window (e.g., 7 days) is created. If a resolver vetoes the request, it is canceled; if the deadline passes, the penalty is finalized. It is essential to highlight that each vault's slashing is processed independently to prevent cross-contamination.
 
 ```mermaid
 sequenceDiagram
@@ -211,6 +206,11 @@ sequenceDiagram
         end
     end
 ```
+
+The Middleware iterates through all vaults active during the offense epoch and skips any inactive. For each active vault, the Middleware retrieves the stake the particular operator has in the vault and applies the slashed percentage. Depending on the vault's slashing implementation, there are two possible routes:
+
+1. **Instant Slashing** -  this involves direct stake reduction.
+2. **Veto Slashing** - this is a time-delayed slashing with dispute resolution mechanisms. In the case of veto slashing, a time-limited veto window (e.g., 7 days) is created. If a resolver vetoes the request, it is canceled; if the deadline passes, the penalty is finalized. It is essential to highlight that each vault's slashing is processed independently to prevent cross-contamination.
 
 #### **Burner**
 
