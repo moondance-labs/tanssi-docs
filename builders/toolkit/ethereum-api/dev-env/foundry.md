@@ -114,7 +114,7 @@ After compilation, two folders will be created: `out` and `cache`. The ABI and b
 Deploying the contract with Forge takes a single command, but you will need to include an RPC endpoint, a funded private key, and constructor arguments. `MyToken.sol` asks for an initial supply of tokens in its constructor, so the following command includes 100 as a constructor argument. You can deploy the `MyToken.sol` contract using the following command modified for the correct network:
 
 ```bash
-forge create --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network \
+forge create --rpc-url https://dancebox-3001.tanssi-api.network \
 --constructor-args 100 \
 --private-key INSERT_YOUR_PRIVATE_KEY \
 src/MyToken.sol:MyToken
@@ -133,7 +133,7 @@ Foundry includes [Cast](https://book.getfoundry.sh/cast){target=\_blank}, a CLI 
 Try to retrieve your token's name using Cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
 
 ```bash
-cast call INSERT_YOUR_CONTRACT_ADDRESS "name()" --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+cast call INSERT_YOUR_CONTRACT_ADDRESS "name()" --rpc-url https://dancebox-3001.tanssi-api.network
 ```
 
 You should get this data in hexadecimal format:
@@ -154,7 +154,7 @@ You can also mutate data with Cast as well. Try burning tokens by sending them t
 
 ```bash
 cast send --private-key INSERT_YOUR_PRIVATE_KEY \
---rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network \
+--rpc-url https://dancebox-3001.tanssi-api.network \
 --chain 5678 \
 INSERT_YOUR_CONTRACT_ADDRESS \
 "transfer(address,uint256)" 0x0000000000000000000000000000000000000001 1
@@ -173,7 +173,7 @@ As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil){target=\_blan
 To fork the demo EVM network from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your Tanssi EVM network.
 
 ```bash
-anvil --fork-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+anvil --fork-url https://dancebox-3001.tanssi-api.network
 ```
 
 Your forked instance will have 10 development accounts that are pre-funded with 10,000 test tokens. The forked instance is available at `http://127.0.0.1:8545/`. The output in your terminal should resemble the following:
@@ -308,7 +308,7 @@ Then to view and interact with your stored Chisel states, you can take the follo
 You can even fork networks while using Chisel:
 
 ```bash
-!fork https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+!fork https://dancebox-3001.tanssi-api.network
 ```
 
 Then, for example, you can query the balance of the Alice account on the demo EVM network:  

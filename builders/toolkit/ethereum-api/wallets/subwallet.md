@@ -50,7 +50,7 @@ On the following screen, you'll be able to provide the relevant seed phrase, pri
 
 To configure SubWallet for your Tanssi-powered EVM network, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the demo EVM network is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to SubWallet, take the following steps:
 
-1. Paste in the HTTPS RPC URL of your Tanssi network. The demo EVM network's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be auto-populated
+1. Paste in the HTTPS RPC URL of your Tanssi network. The demo EVM network's RPC URL is `https://dancebox-3001.tanssi-api.network/`. Other parameters will be auto-populated
 2. Paste in the block explorer URL of your Tanssi network. The demo EVM network's block explorer URL is `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`
 3. Press **Save**
 

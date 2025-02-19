@@ -234,7 +234,7 @@ The `.toLowerCase()` is critical because the SQD processor is case-sensitive, an
 .setDataSource({
   chain: {
     url: assertNotNull(
-      'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+      'https://dancebox-3001.tanssi-api.network'
     ),
     rateLimit: 300,
   },
