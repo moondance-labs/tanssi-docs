@@ -4,127 +4,127 @@
 Documentation: https://docs.tanssi.network/
 
 # List of doc pages:
-Doc-Page: https://docs.tanssi.network/builders/account-management/identity
-Doc-Page: https://docs.tanssi.network/builders/account-management/index
-Doc-Page: https://docs.tanssi.network/builders/account-management/proxy-accounts
-Doc-Page: https://docs.tanssi.network/builders/build/customize/adding-built-in-module
-Doc-Page: https://docs.tanssi.network/builders/build/customize/adding-custom-made-module
-Doc-Page: https://docs.tanssi.network/builders/build/customize/adding-external-module
-Doc-Page: https://docs.tanssi.network/builders/build/customize/customizing-chain-specs
-Doc-Page: https://docs.tanssi.network/builders/build/customize/index
-Doc-Page: https://docs.tanssi.network/builders/build/customize/prerequisites
-Doc-Page: https://docs.tanssi.network/builders/build/index
-Doc-Page: https://docs.tanssi.network/builders/build/templates/custom-runtime
-Doc-Page: https://docs.tanssi.network/builders/build/templates/evm
-Doc-Page: https://docs.tanssi.network/builders/build/templates/index
-Doc-Page: https://docs.tanssi.network/builders/build/templates/overview
-Doc-Page: https://docs.tanssi.network/builders/build/templates/substrate
-Doc-Page: https://docs.tanssi.network/builders/deploy/dapp
-Doc-Page: https://docs.tanssi.network/builders/deploy/index
-Doc-Page: https://docs.tanssi.network/builders/index
-Doc-Page: https://docs.tanssi.network/builders/manage/dapp/index
-Doc-Page: https://docs.tanssi.network/builders/manage/dapp/manage-tokens
-Doc-Page: https://docs.tanssi.network/builders/manage/dapp/register-external-assets
-Doc-Page: https://docs.tanssi.network/builders/manage/dapp/services-payment
-Doc-Page: https://docs.tanssi.network/builders/manage/dapp/xcm-channels
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/impersonate
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/index
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/maintenance
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/minting
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/pause-transactions
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/smart-contracts-creation-filter
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/sudo
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/upgrade
-Doc-Page: https://docs.tanssi.network/builders/manage/index
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/endpoints
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/index
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/testnet/demo-evm-network
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/testnet/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/foundry
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/hardhat
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/remix
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/thirdweb
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/ethersjs
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/viem
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/web3js
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/web3py
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/batch
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/call-permit
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/cross-chain-transfers
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/erc20
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/external-assets-erc20
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/proxy
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/metamask
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/subwallet
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/talisman
-Doc-Page: https://docs.tanssi.network/builders/toolkit/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/erc20-transfers
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/quick-start
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/oracles/acurast
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/oracles/band
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/oracles/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/oracles/phala
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/wallet-integrations/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/wallet-integrations/rainbowkit
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/chopsticks
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/polkadot-js-api
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/sidecar-api
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/index
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/subwallet
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/talisman
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/included-templates
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/index
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/overview
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/runtime-features
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/tx-fees
-Doc-Page: https://docs.tanssi.network/learn/framework/architecture
-Doc-Page: https://docs.tanssi.network/learn/framework/index
-Doc-Page: https://docs.tanssi.network/learn/framework/modules
-Doc-Page: https://docs.tanssi.network/learn/framework/overview
-Doc-Page: https://docs.tanssi.network/learn/framework/xcm
-Doc-Page: https://docs.tanssi.network/learn/index
-Doc-Page: https://docs.tanssi.network/learn/tanssi/external-security-providers/index
-Doc-Page: https://docs.tanssi.network/learn/tanssi/external-security-providers/symbiotic
-Doc-Page: https://docs.tanssi.network/learn/tanssi/index
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-features/index
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-features/staking
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-services/block-production
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-services/index
-Doc-Page: https://docs.tanssi.network/learn/tanssi/overview
-Doc-Page: https://docs.tanssi.network/node-operators/index
-Doc-Page: https://docs.tanssi.network/node-operators/network-node/index
-Doc-Page: https://docs.tanssi.network/node-operators/network-node/rpc-docker
-Doc-Page: https://docs.tanssi.network/node-operators/network-node/rpc-systemd
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/index
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/offboarding/account
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/offboarding/index
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/account-setup
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/index
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/index
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/index
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/proxy-accounts
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/index
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd
+Doc-Page: https://docs.tanssi.network/builders/account-management/identity/
+Doc-Page: https://docs.tanssi.network/builders/account-management/
+Doc-Page: https://docs.tanssi.network/builders/account-management/proxy-accounts/
+Doc-Page: https://docs.tanssi.network/builders/build/customize/adding-built-in-module/
+Doc-Page: https://docs.tanssi.network/builders/build/customize/adding-custom-made-module/
+Doc-Page: https://docs.tanssi.network/builders/build/customize/adding-external-module/
+Doc-Page: https://docs.tanssi.network/builders/build/customize/customizing-chain-specs/
+Doc-Page: https://docs.tanssi.network/builders/build/customize/
+Doc-Page: https://docs.tanssi.network/builders/build/customize/prerequisites/
+Doc-Page: https://docs.tanssi.network/builders/build/
+Doc-Page: https://docs.tanssi.network/builders/build/templates/custom-runtime/
+Doc-Page: https://docs.tanssi.network/builders/build/templates/evm/
+Doc-Page: https://docs.tanssi.network/builders/build/templates/
+Doc-Page: https://docs.tanssi.network/builders/build/templates/overview/
+Doc-Page: https://docs.tanssi.network/builders/build/templates/substrate/
+Doc-Page: https://docs.tanssi.network/builders/deploy/dapp/
+Doc-Page: https://docs.tanssi.network/builders/deploy/
+Doc-Page: https://docs.tanssi.network/builders/
+Doc-Page: https://docs.tanssi.network/builders/manage/dapp/
+Doc-Page: https://docs.tanssi.network/builders/manage/dapp/manage-tokens/
+Doc-Page: https://docs.tanssi.network/builders/manage/dapp/register-external-assets/
+Doc-Page: https://docs.tanssi.network/builders/manage/dapp/services-payment/
+Doc-Page: https://docs.tanssi.network/builders/manage/dapp/xcm-channels/
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/impersonate/
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/maintenance/
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/minting/
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/pause-transactions/
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/smart-contracts-creation-filter/
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/sudo/
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/upgrade/
+Doc-Page: https://docs.tanssi.network/builders/manage/
+Doc-Page: https://docs.tanssi.network/builders/tanssi-network/endpoints/
+Doc-Page: https://docs.tanssi.network/builders/tanssi-network/
+Doc-Page: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox/
+Doc-Page: https://docs.tanssi.network/builders/tanssi-network/testnet/demo-evm-network/
+Doc-Page: https://docs.tanssi.network/builders/tanssi-network/testnet/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/foundry/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/hardhat/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/remix/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/thirdweb/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/ethersjs/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/viem/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/web3js/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/web3py/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/batch/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/call-permit/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/cross-chain-transfers/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/erc20/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/proxy/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/metamask/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/subwallet/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/talisman/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/erc20-transfers/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/quick-start/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/oracles/acurast/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/oracles/band/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/oracles/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/oracles/phala/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/wallet-integrations/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/wallet-integrations/rainbowkit/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/chopsticks/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/polkadot-js-api/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/sidecar-api/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/subwallet/
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/talisman/
+Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/included-templates/
+Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/
+Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/overview/
+Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/runtime-features/
+Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/tx-fees/
+Doc-Page: https://docs.tanssi.network/learn/framework/architecture/
+Doc-Page: https://docs.tanssi.network/learn/framework/
+Doc-Page: https://docs.tanssi.network/learn/framework/modules/
+Doc-Page: https://docs.tanssi.network/learn/framework/overview/
+Doc-Page: https://docs.tanssi.network/learn/framework/xcm/
+Doc-Page: https://docs.tanssi.network/learn/
+Doc-Page: https://docs.tanssi.network/learn/tanssi/external-security-providers/
+Doc-Page: https://docs.tanssi.network/learn/tanssi/external-security-providers/symbiotic/
+Doc-Page: https://docs.tanssi.network/learn/tanssi/
+Doc-Page: https://docs.tanssi.network/learn/tanssi/network-features/
+Doc-Page: https://docs.tanssi.network/learn/tanssi/network-features/staking/
+Doc-Page: https://docs.tanssi.network/learn/tanssi/network-services/block-production/
+Doc-Page: https://docs.tanssi.network/learn/tanssi/network-services/
+Doc-Page: https://docs.tanssi.network/learn/tanssi/overview/
+Doc-Page: https://docs.tanssi.network/node-operators/
+Doc-Page: https://docs.tanssi.network/node-operators/network-node/
+Doc-Page: https://docs.tanssi.network/node-operators/network-node/rpc-docker/
+Doc-Page: https://docs.tanssi.network/node-operators/network-node/rpc-systemd/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/offboarding/account/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/offboarding/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/account-setup/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/proxy-accounts/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/
+Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd/
 
 # Full content for each doc page
 
-Doc-Content: https://docs.tanssi.network/builders/account-management/identity
+Doc-Content: https://docs.tanssi.network/builders/account-management/identity/
 --- BEGIN CONTENT ---
 ---
 title: Set an Account Identity
@@ -284,7 +284,7 @@ To confirm that your identity information has been successfully removed, revisit
 ![Clear an identity confirmation](/images/builders/account-management/identity/identity-9.webp)
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/account-management/index
+Doc-Content: https://docs.tanssi.network/builders/account-management/
 --- BEGIN CONTENT ---
 ---
 title: Account Management
@@ -304,7 +304,7 @@ This section outlines some of the tools and features related to account manageme
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/account-management/proxy-accounts
+Doc-Content: https://docs.tanssi.network/builders/account-management/proxy-accounts/
 --- BEGIN CONTENT ---
 ---
 title: Set Up and Manage Proxy Accounts
@@ -514,7 +514,7 @@ Once the transaction has successfully been submitted, you can review your curren
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-built-in-module
+Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-built-in-module/
 --- BEGIN CONTENT ---
 ---
 title: Adding Built-in Substrate Modules
@@ -788,7 +788,7 @@ fn testnet_genesis(
 With the module included, this new runtime version has unlocked a new set of functionalities ready to be composed with even more of the Substrate built-in modules or custom-made ones.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-custom-made-module
+Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-custom-made-module/
 --- BEGIN CONTENT ---
 ---
 title: Adding a Custom-Made Module
@@ -1499,7 +1499,7 @@ With everything set, the network now has support for a basic implementation of a
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-external-module
+Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-external-module/
 --- BEGIN CONTENT ---
 ---
 title: Adding External Modules
@@ -1692,7 +1692,7 @@ bp-runtime = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch =
 Finally, compiling will succeed, and the module will be built into your runtime.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/customize/customizing-chain-specs
+Doc-Content: https://docs.tanssi.network/builders/build/customize/customizing-chain-specs/
 --- BEGIN CONTENT ---
 ---
 title: Customizing Chain Specifications
@@ -1910,7 +1910,7 @@ After going through the [steps to generate the JSON chain Specification File](#g
 Now that this file has been configured and customized and is in the correct raw JSON format, it can be uploaded to initialize a new network in Tanssi.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/customize/index
+Doc-Content: https://docs.tanssi.network/builders/build/customize/
 --- BEGIN CONTENT ---
 ---
 title: Customize Your Tanssi-Powered Network
@@ -1951,7 +1951,7 @@ To proceed, check out the following section where you can find detailed, step-by
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/customize/prerequisites
+Doc-Content: https://docs.tanssi.network/builders/build/customize/prerequisites/
 --- BEGIN CONTENT ---
 ---
 title: Prerequisites for Building a Network
@@ -2079,7 +2079,7 @@ cd tanssi
 Having a healthy development environment will be necessary to build a customized runtime and to finally generate the chain specification file that will be used to deploy your Tanssi network.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/index
+Doc-Content: https://docs.tanssi.network/builders/build/
 --- BEGIN CONTENT ---
 ---
 title: Build Your Network
@@ -2129,7 +2129,7 @@ Now that you’ve explored the deployment paths, the next step is to [learn more
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/templates/custom-runtime
+Doc-Content: https://docs.tanssi.network/builders/build/templates/custom-runtime/
 --- BEGIN CONTENT ---
 ---
 title: Custom Runtime
@@ -2248,7 +2248,7 @@ To support the Tanssi protocol, it will be necessary to add [the modules](#base-
     ```
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/templates/evm
+Doc-Content: https://docs.tanssi.network/builders/build/templates/evm/
 --- BEGIN CONTENT ---
 ---
 title: Baseline EVM Template
@@ -2292,7 +2292,7 @@ To reach full Ethereum compatibility, these specific modules are also included:
 Both modules are part of the [Frontier](https://github.com/paritytech/frontier){target=\_blank} project, which is the backbone of Ethereum-compatible Tanssi-powered networks.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/templates/index
+Doc-Content: https://docs.tanssi.network/builders/build/templates/
 --- BEGIN CONTENT ---
 ---
 title: Templates for Network Development
@@ -2330,7 +2330,7 @@ To learn about the minimum requirements for your chain to function on Tanssi and
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/templates/overview
+Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
 --- BEGIN CONTENT ---
 ---
 title: Requirements and Features of Templates
@@ -2387,7 +2387,7 @@ This approach comes with some advantages, such as:
 If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy Your Network via the Tanssi DApp](/builders/deploy/dapp/){target=\_blank} article to know how to use the Tanssi dApp to register and get your chain up and running.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/build/templates/substrate
+Doc-Content: https://docs.tanssi.network/builders/build/templates/substrate/
 --- BEGIN CONTENT ---
 ---
 title: Baseline Network Template
@@ -2428,7 +2428,7 @@ The Substrate network template includes all the required modules and configurati
 This template is designed to serve as a foundation to build upon, as most use cases require expanded capabilities, adding existing or custom modules. To learn how to add new functionalities to your runtime, check the [customize runtime](/builders/build/customize/){target=\_blank} section.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/deploy/dapp
+Doc-Content: https://docs.tanssi.network/builders/deploy/dapp/
 --- BEGIN CONTENT ---
 ---
 title: Deploy Your Network via the DApp
@@ -2687,7 +2687,7 @@ Once the transaction has gone through successfully, the dApp will update to show
 And that's it! You've successfully registered your Tanssi network! The launch process will automatically begin once the Tanssi team has verified your network. Once your Tanssi network is live, you can return to the **Dashboard** to view the RPC URL and other pertinent chain information.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/deploy/index
+Doc-Content: https://docs.tanssi.network/builders/deploy/
 --- BEGIN CONTENT ---
 ---
 title: Deploy Your Network
@@ -2722,7 +2722,7 @@ To get started, visit [Using the Tanssi DApp](/builders/deploy/dapp/).
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/index
+Doc-Content: https://docs.tanssi.network/builders/
 --- BEGIN CONTENT ---
 ---
 title: Guides for Developing Tanssi-Powered Networks
@@ -2789,7 +2789,7 @@ Explore everything you need to build, deploy, and manage networks within the Tan
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/dapp/index
+Doc-Content: https://docs.tanssi.network/builders/manage/dapp/
 --- BEGIN CONTENT ---
 ---
 title: Using the Tanssi DApp to Manage Your Network
@@ -2807,7 +2807,7 @@ The [Tanssi dApp](https://apps.tanssi.network){target=\_blank} is your go-to pla
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/dapp/manage-tokens
+Doc-Content: https://docs.tanssi.network/builders/manage/dapp/manage-tokens/
 --- BEGIN CONTENT ---
 ---
 title: Manage Tokens
@@ -2935,7 +2935,7 @@ The governor of a Tanssi-powered EVM-compatible network can change its [EIP-1559
 You'll be asked to sign the transaction with the network's governor account. Once the transaction has gone through, the network's fee mechanism will run with the new transaction pricing parameters.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/dapp/register-external-assets
+Doc-Content: https://docs.tanssi.network/builders/manage/dapp/register-external-assets/
 --- BEGIN CONTENT ---
 ---
 title: Register External Assets
@@ -3009,7 +3009,7 @@ You'll be asked to sign the transaction, and once it's gone through, the externa
     The dApp only presents well-known assets from well-known networks of the ecosystem. If the asset you need to register is not listed, you'll have to do it using the developer portal.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/dapp/services-payment
+Doc-Content: https://docs.tanssi.network/builders/manage/dapp/services-payment/
 --- BEGIN CONTENT ---
 ---
 title: Block Production Services Payment
@@ -3084,7 +3084,7 @@ You will be asked to sign the transaction, and after it's gone through, your net
     If your network doesn't have enough funds to cover the block producer's assignment and one session's worth of blocks, it will stall.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/dapp/xcm-channels
+Doc-Content: https://docs.tanssi.network/builders/manage/dapp/xcm-channels/
 --- BEGIN CONTENT ---
 ---
 title: Manage Cross-Chain Communication Channels
@@ -3169,7 +3169,7 @@ You'll be asked to sign the transaction, and once it's gone through, the destina
 ![Channel opening request](/images/builders/manage/dapp/xcm-channels/xcm-channels-2.webp)
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/impersonate
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/impersonate/
 --- BEGIN CONTENT ---
 ---
 title: Impersonating Other Accounts With Sudo 
@@ -3254,7 +3254,7 @@ And that's it! The [Developer Portal](/builders/manage/developer-portal/) sectio
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/index
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/
 --- BEGIN CONTENT ---
 ---
 title: Using the Developer Portal to Manage Your Network
@@ -3293,7 +3293,7 @@ Now that you have your network loaded on the developer portal, you can dive into
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/maintenance
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/maintenance/
 --- BEGIN CONTENT ---
 ---
 title: Enabling Maintenance Mode 
@@ -3365,7 +3365,7 @@ And that's it! The [Developer Portal](/builders/manage/developer-portal/) sectio
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/minting
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/minting/
 --- BEGIN CONTENT ---
 ---
 title: Minting Native Tokens with Sudo 
@@ -3436,7 +3436,7 @@ And that's it! The [Developer Portal](/builders/manage/developer-portal/) sectio
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/pause-transactions
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/pause-transactions/
 --- BEGIN CONTENT ---
 ---
 title: Pausing Transactions
@@ -3624,7 +3624,7 @@ And that's it! The [Developer Portal](/builders/manage/developer-portal/) sectio
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/smart-contracts-creation-filter
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/smart-contracts-creation-filter/
 --- BEGIN CONTENT ---
 ---
 title: Smart EVM - Whitelist Contract Deployments
@@ -3715,7 +3715,7 @@ To get the current configuration containing the whitelisted accounts that can de
 ![Query the Whitelists](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-4.webp)
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/sudo
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/sudo/
 --- BEGIN CONTENT ---
 ---
 title: Managing the Sudo Account
@@ -3788,7 +3788,7 @@ And that's it! The [Developer Portal](/builders/manage/developer-portal/) sectio
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/upgrade
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/upgrade/
 --- BEGIN CONTENT ---
 ---
 title: Upgrade Your Network's Runtime
@@ -3874,7 +3874,7 @@ And that's it! The [Developer Portal](/builders/manage/developer-portal/) sectio
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/manage/index
+Doc-Content: https://docs.tanssi.network/builders/manage/
 --- BEGIN CONTENT ---
 ---
 title: Manage Your Network
@@ -3906,7 +3906,7 @@ Jump into the sections below to explore how each tool helps you manage your Tans
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/tanssi-network/endpoints
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/endpoints/
 --- BEGIN CONTENT ---
 ---
 title: Network Endpoints
@@ -3951,7 +3951,7 @@ The demo EVM network HTTPS and WSS endpoints are as follows:
     ```
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/tanssi-network/index
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/
 --- BEGIN CONTENT ---
 ---
 title: Network Essentials
@@ -3989,7 +3989,7 @@ Learn about the key networks within the Tanssi ecosystem and how to get started 
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox/
 --- BEGIN CONTENT ---
 ---
 title: Get Started with Dancebox
@@ -4042,7 +4042,7 @@ For Dancebox, you can use the following block explorer:
 Support for additional block explorers is in the works and as more explorers support Dancebox, this section will be updated accordingly.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/demo-evm-network
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/demo-evm-network/
 --- BEGIN CONTENT ---
 ---
 title: Demo EVM Tanssi Network
@@ -4150,7 +4150,7 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
     ```
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/index
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/
 --- BEGIN CONTENT ---
 ---
 title: Test Networks
@@ -4170,7 +4170,7 @@ When you're ready to see how your project could thrive in a real-world setting, 
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/foundry
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/foundry/
 --- BEGIN CONTENT ---
 ---
 title: Deploy Contracts with Foundry
@@ -4566,7 +4566,7 @@ Congratulations, you have successfully deployed and interacted with smart contra
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/hardhat
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/hardhat/
 --- BEGIN CONTENT ---
 ---
 title: Deploy Contracts with Hardhat
@@ -4903,7 +4903,7 @@ Congratulations, you have successfully deployed and interacted with a contract u
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/
 --- BEGIN CONTENT ---
 ---
 title: Dev Environments
@@ -4927,7 +4927,7 @@ Each development environment helps you achieve the same goal, building and deplo
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/remix
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/remix/
 --- BEGIN CONTENT ---
 ---
 title: Deploy Smart Contracts with Remix
@@ -5070,7 +5070,7 @@ You can also look up the transaction on [your Tanssi network's explorer](https:/
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/thirdweb
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/thirdweb/
 --- BEGIN CONTENT ---
 ---
 title: How to use thirdweb
@@ -5521,7 +5521,7 @@ If you have any further questions or encounter any issues during the process, pl
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/
 --- BEGIN CONTENT ---
 ---
 title: Ethereum API
@@ -5547,7 +5547,7 @@ Ready to dive in? Check out some of the following tools:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/ethersjs
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/ethersjs/
 --- BEGIN CONTENT ---
 ---
 title: EVM Transactions & Contracts with Ethers.js
@@ -6388,7 +6388,7 @@ If successful, the transaction hash will be displayed in the terminal. You can u
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/
 --- BEGIN CONTENT ---
 ---
 title: Ethereum Libraries
@@ -6414,7 +6414,7 @@ Some key capabilities of working with libraries include:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/viem
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/viem/
 --- BEGIN CONTENT ---
 ---
 title: How to use viem Ethereum Library
@@ -7322,7 +7322,7 @@ If successful, the transaction hash will be displayed in the terminal. You can u
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/web3js
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/web3js/
 --- BEGIN CONTENT ---
 ---
 title: EVM Transactions & Contracts with Web3.js
@@ -8122,7 +8122,7 @@ If successful, the transaction hash will be displayed in the terminal. You can u
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/web3py
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries/web3py/
 --- BEGIN CONTENT ---
 ---
 title: EVM Transactions & Contracts with Web3.py
@@ -8637,7 +8637,7 @@ If successful, the transaction hash will be displayed in the terminal. You can u
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/batch
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/batch/
 --- BEGIN CONTENT ---
 ---
 title: Batch Precompile
@@ -9055,7 +9055,7 @@ Afterwards, you should be all set to interact with the Batch Precompile as one t
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/call-permit
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/call-permit/
 --- BEGIN CONTENT ---
 ---
 title:  Call Permit
@@ -9471,7 +9471,7 @@ Congratulations! You've successfully generated a call permit signature and used 
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/cross-chain-transfers
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/cross-chain-transfers/
 --- BEGIN CONTENT ---
 ---
 title: Native Cross-Chain Token Transfers
@@ -9811,7 +9811,7 @@ After the transaction is confirmed, wait for a few blocks for the transfer to re
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/erc20
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/erc20/
 --- BEGIN CONTENT ---
 ---
 title:  Native Token ERC-20 Precompile
@@ -10133,7 +10133,7 @@ And that's it! You've successfully interacted with the ERC-20 precompile using M
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/external-assets-erc20
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/
 --- BEGIN CONTENT ---
 ---
 title: External Assets as ERC-20
@@ -10420,7 +10420,7 @@ And that's it! You've successfully interacted with the external assets ERC-20 pr
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/
 --- BEGIN CONTENT ---
 ---
 title: Solidity Precompiles
@@ -10481,7 +10481,7 @@ To find out more about each precompile, check out the guides listed in the follo
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/proxy
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompiles/proxy/
 --- BEGIN CONTENT ---
 ---
 title: The Proxy Precompile
@@ -10773,7 +10773,7 @@ And that's it! You've successfully interacted with the Proxy precompile using Me
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc/
 --- BEGIN CONTENT ---
 ---
 title: JSON-RPC API Methods
@@ -10876,7 +10876,7 @@ Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and 
         ```
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/
 --- BEGIN CONTENT ---
 ---
 title: Ethereum API Wallets
@@ -10898,7 +10898,7 @@ The pages in this section provide an overview of getting started with various wa
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/metamask
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/metamask/
 --- BEGIN CONTENT ---
 ---
 title: How to Connect MetaMask
@@ -11010,7 +11010,7 @@ Once you've [connected Metamask](#connect-metamask-to-evm-network) to your Tanss
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/subwallet
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/subwallet/
 --- BEGIN CONTENT ---
 ---
 title: How to Connect SubWallet to Tanssi
@@ -11091,7 +11091,7 @@ This guide focused specifically on configuring SubWallet to work with your Tanss
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/talisman
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/talisman/
 --- BEGIN CONTENT ---
 ---
 title: How to Connect Talisman to Tanssi
@@ -11196,7 +11196,7 @@ This guide focused specifically on configuring Talisman to work with your Tanssi
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/
 --- BEGIN CONTENT ---
 ---
 title: Guides for Developing DApps
@@ -11217,7 +11217,7 @@ The Toolkit section is your all-in-one resource hub for building, deploying, and
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/
 --- BEGIN CONTENT ---
 ---
 title: Integrations
@@ -11241,7 +11241,7 @@ Ready to start building? Check out the following integrations:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/
 --- BEGIN CONTENT ---
 ---
 title: EVM Blockchain Data Indexers
@@ -11266,7 +11266,7 @@ Main features of indexers include:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/erc20-transfers
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/erc20-transfers/
 --- BEGIN CONTENT ---
 ---
 title: Index ERC-20 Transfers on an EVM Network
@@ -12372,7 +12372,7 @@ export const contractAddress = '0x37822de108AFFdd5cDCFDaAa2E32756Da284DB85'.toLo
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/
 --- BEGIN CONTENT ---
 ---
 title: SQD
@@ -12390,7 +12390,7 @@ SQD is a blockchain indexing and query service designed to make it easier for de
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/quick-start
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/quick-start/
 --- BEGIN CONTENT ---
 ---
 title: Index a Tanssi Network with SQD
@@ -12559,7 +12559,7 @@ If you're interested in a more comprehensive step-by-step tutorial to get starte
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/acurast
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/acurast/
 --- BEGIN CONTENT ---
 ---
 title: Using Acurast for Price Feed Oracles
@@ -12899,7 +12899,7 @@ On the following screen, you'll be able to monitor the status of your job. For m
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/band
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/band/
 --- BEGIN CONTENT ---
 ---
 title: Using Band Protocol for Price Feed Oracles
@@ -13024,7 +13024,7 @@ Note that to obtain a readable price from the price feed, it's essential to adju
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/
 --- BEGIN CONTENT ---
 ---
 title: Oracles
@@ -13048,7 +13048,7 @@ Main features of oracles include:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/phala
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/phala/
 --- BEGIN CONTENT ---
 ---
 title: Using Phala for Price Feed Oracles
@@ -13514,7 +13514,7 @@ For more information about using Phala to access off-chain data, be sure to chec
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/wallet-integrations/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/wallet-integrations/
 --- BEGIN CONTENT ---
 ---
 title: Wallets Integrations
@@ -13539,7 +13539,7 @@ Main features of wallet integraions include:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/wallet-integrations/rainbowkit
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/wallet-integrations/rainbowkit/
 --- BEGIN CONTENT ---
 ---
 title: How to Add RainbowKit to a Tanssi EVM Network 
@@ -14021,7 +14021,7 @@ The complete example code is available in the [rainbow-manual-build-demo reposit
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/chopsticks
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/chopsticks/
 --- BEGIN CONTENT ---
 ---
 title: How to use Chopsticks to Fork Your Network
@@ -14264,7 +14264,7 @@ These are the methods that can be invoked and their parameters:
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/
 --- BEGIN CONTENT ---
 ---
 title: Substrate Development Environments
@@ -14289,7 +14289,7 @@ In this section, you'll explore tools and techniques that can help you achieve t
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/
 --- BEGIN CONTENT ---
 ---
 title: Substrate API
@@ -14315,7 +14315,7 @@ Ready to dive in? Check out some of the following tools:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/
 --- BEGIN CONTENT ---
 ---
 title: Substrate Libraries
@@ -14341,7 +14341,7 @@ Some key capabilities of working with libraries include:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/polkadot-js-api
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/polkadot-js-api/
 --- BEGIN CONTENT ---
 ---
 title: How to use the Polkadot.js API
@@ -15051,7 +15051,7 @@ You can check the respective [NPM repository page](https://www.npmjs.com/package
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/sidecar-api
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/sidecar-api/
 --- BEGIN CONTENT ---
 ---
 title: Using Substrate API Sidecar
@@ -15664,7 +15664,7 @@ extrinsics[extrinsic_number].events[event_number].data[0].weight
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/index
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/
 --- BEGIN CONTENT ---
 ---
 title: Substrate Wallets
@@ -15684,7 +15684,7 @@ The pages in this section provide an overview of getting started with various wa
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/subwallet
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/subwallet/
 --- BEGIN CONTENT ---
 ---
 title: How to Connect SubWallet to Tanssi Substrate
@@ -15801,7 +15801,7 @@ This guide focused specifically on configuring SubWallet to work with your Tanss
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/talisman
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/talisman/
 --- BEGIN CONTENT ---
 ---
 title: How to Connect Talisman to Tanssi
@@ -15933,7 +15933,7 @@ This guide focused specifically on configuring Talisman to work with your Tanssi
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/included-templates
+Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/included-templates/
 --- BEGIN CONTENT ---
 ---
 title: Network Templates Included in Tanssi
@@ -15994,7 +15994,7 @@ With this EVM template, developers can deploy a [Moonbeam](https://moonbeam.netw
 The source code for this template is public and accessible on the [Tanssi GitHub repository](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/index
+Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/
 --- BEGIN CONTENT ---
 ---
 title: Learn about Tanssi-Powered Networks
@@ -16018,7 +16018,7 @@ Key features of Tanssi-powered networks:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/overview
+Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/overview/
 --- BEGIN CONTENT ---
 ---
 title: Network Overview
@@ -16087,7 +16087,7 @@ The transaction flow process is summarized in the following diagram:
 ![Path of a Tanssi Network Block in Tanssi](/images/learn/decentralized-networks/overview/overview-1.webp)
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/runtime-features
+Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/runtime-features/
 --- BEGIN CONTENT ---
 ---
 title: Core Runtime Features
@@ -16168,7 +16168,7 @@ _SUDO_ is recommended for TestNets as it allows them to swiftly make changes wit
 **Understanding the centralization risks of having _SUDO_ in a production environment is key.**
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/tx-fees
+Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/tx-fees/
 --- BEGIN CONTENT ---
 ---
 title: Transaction Fees
@@ -16291,7 +16291,7 @@ Ultimately, the transaction fee and weight associated to an EVM call in a Tanssi
 `GasToWeight` is a constant value set to `{{ networks.dancebox.gas_to_weight }}`.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/framework/architecture
+Doc-Content: https://docs.tanssi.network/learn/framework/architecture/
 --- BEGIN CONTENT ---
 ---
 title: Framework Architecture
@@ -16360,7 +16360,7 @@ Bearing in mind the separated execution environments, all the communication betw
 - **Event Notifications** - the runtime emits events while executing transactions that the client node can use to keep external users updated about specific actions or changes in the state
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/framework/index
+Doc-Content: https://docs.tanssi.network/learn/framework/
 --- BEGIN CONTENT ---
 ---
 title: Appchain Development Framework
@@ -16387,7 +16387,7 @@ Key features of the framework:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/framework/modules
+Doc-Content: https://docs.tanssi.network/learn/framework/modules/
 --- BEGIN CONTENT ---
 ---
 title: Network Modules for your Runtime
@@ -16667,7 +16667,7 @@ pub mod pallet {
 For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/framework/overview
+Doc-Content: https://docs.tanssi.network/learn/framework/overview/
 --- BEGIN CONTENT ---
 ---
 title: Network Development Framework Overview
@@ -16740,7 +16740,7 @@ In addition to providing a great experience for developers, Rust excels in many 
 - **Interoperability** - Rust provides seamless interoperability with existing codebases written in C and C++. It has a Foreign Function Interface (FFI) that allows Rust code to interface with code written in other languages, enabling developers to gradually introduce Rust into existing projects, like the Linux kernel
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/framework/xcm
+Doc-Content: https://docs.tanssi.network/learn/framework/xcm/
 --- BEGIN CONTENT ---
 ---
 title: Native Cross-Chain Communication
@@ -16841,7 +16841,7 @@ Multilocations are not a universal resource locator. They refer to elements from
 ![Account Multilocation Example](/images/learn/framework/xcm/xcm-4.webp)
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/index
+Doc-Content: https://docs.tanssi.network/learn/
 --- BEGIN CONTENT ---
 ---
 title: Learn About Tanssi Infrastructure Protocol
@@ -16876,7 +16876,7 @@ Start your Tanssi journey here if you prefer to learn by doing.
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-providers/index
+Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-providers/
 --- BEGIN CONTENT ---
 ---
 title: External Security Providers
@@ -16896,7 +16896,7 @@ This approach addresses common challenges developers face, such as securing sign
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-providers/symbiotic
+Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-providers/symbiotic/
 --- BEGIN CONTENT ---
 ---
 title: Ethereum with Symbiotic
@@ -17029,7 +17029,7 @@ When a veto-slashing event is triggered, the authorities designated as resolvers
     Slashing events can only be triggered by operators' misbehavings in the Tanssi Network itself. Tanssi networks, even if faulty or malicious, run in a sandboxed environment and can not cause slashing.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/tanssi/index
+Doc-Content: https://docs.tanssi.network/learn/tanssi/
 --- BEGIN CONTENT ---
 ---
 title: Learn About Tanssi
@@ -17051,7 +17051,7 @@ This section includes an overview of Tanssi’s core capabilities that support n
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/tanssi/network-features/index
+Doc-Content: https://docs.tanssi.network/learn/tanssi/network-features/
 --- BEGIN CONTENT ---
 ---
 title: Network Features
@@ -17069,7 +17069,7 @@ The network features in Tanssi are designed to provide the foundational mechanis
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/tanssi/network-features/staking
+Doc-Content: https://docs.tanssi.network/learn/tanssi/network-features/staking/
 --- BEGIN CONTENT ---
 ---
 title: Staking for Block Production
@@ -17199,7 +17199,7 @@ First, all pending Manual Rewards Pool rewards are claimed at a protocol level, 
 ![High-level overview of Swapping between Manual and Auto-Compounded Pools when Staking](/images/learn/tanssi/staking/staking-6.webp)
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/tanssi/network-services/block-production
+Doc-Content: https://docs.tanssi.network/learn/tanssi/network-services/block-production/
 --- BEGIN CONTENT ---
 ---
 title: Block Production Services
@@ -17350,7 +17350,7 @@ On some occasions, Tanssi might experience a high demand for its block productio
 To deal with these high-workload periods, the Tanssi protocol implements a tipping mechanism that allows networks to compete for a higher priority over the rest. Similar to Ethereum-compatible networks, where a priority fee can be set to outbid competing transactions and obtain preferential execution treatment, the Tanssi networks will be served according to the priority given by the tips they offer. Following the previous example, if there are ten active networks for the next session and Tanssi can only serve eight, then only the eight highest bidding networks will get block producers assigned.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/tanssi/network-services/index
+Doc-Content: https://docs.tanssi.network/learn/tanssi/network-services/
 --- BEGIN CONTENT ---
 ---
 title: Network Services
@@ -17368,7 +17368,7 @@ Tanssi's network services provide the essential infrastructure for secure and ef
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/learn/tanssi/overview
+Doc-Content: https://docs.tanssi.network/learn/tanssi/overview/
 --- BEGIN CONTENT ---
 ---
 title: Overview
@@ -17425,7 +17425,7 @@ While the sequencers providing block production services are rotated and reassig
 ![Data Preservers of a network & Tanssi](/images/learn/tanssi/overview/overview-2.webp)
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/index
+Doc-Content: https://docs.tanssi.network/node-operators/
 --- BEGIN CONTENT ---
 ---
 title: Run Infrastructure on Tanssi
@@ -17451,7 +17451,7 @@ Understanding the roles of different nodes in the Tanssi-powered network helps y
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/network-node/index
+Doc-Content: https://docs.tanssi.network/node-operators/network-node/
 --- BEGIN CONTENT ---
 ---
 title: Run a Node on a Tanssi-Powered Network
@@ -17472,7 +17472,7 @@ Setting up a network node is essential for interacting with your Tanssi-powered 
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/network-node/rpc-docker
+Doc-Content: https://docs.tanssi.network/node-operators/network-node/rpc-docker/
 --- BEGIN CONTENT ---
 ---
 title: Run a Network Node Using Docker
@@ -17803,7 +17803,7 @@ Once your node spins up, the syncing process displays lots of log information fr
     The length of the syncing process is directly proportional to the size of the chain you are syncing to.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/network-node/rpc-systemd
+Doc-Content: https://docs.tanssi.network/node-operators/network-node/rpc-systemd/
 --- BEGIN CONTENT ---
 ---
 title: Run a Network Node Using Systemd
@@ -18139,7 +18139,7 @@ journalctl -f -u network.service
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/index
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/
 --- BEGIN CONTENT ---
 ---
 title: Tanssi Sequencers
@@ -18157,7 +18157,7 @@ Becoming a sequencer is a critical role in maintaining the security and efficien
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/offboarding/account
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/offboarding/account/
 --- BEGIN CONTENT ---
 ---
 title: Decommissioning Your Sequencer
@@ -18287,7 +18287,7 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 And that's it! You have successfully offboarded a Tanssi block producer. If you change your mind at any point and want to onboard back as a Tanssi block producer, you can follow the steps in the [onboarding guide](/node-operators/sequencers/onboarding/account-setup/){target=\_blank}.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/offboarding/index
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/offboarding/
 --- BEGIN CONTENT ---
 ---
 title: Offboard Your Sequencer Node
@@ -18313,7 +18313,7 @@ What you’ll learn:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/account-setup
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/account-setup/
 --- BEGIN CONTENT ---
 ---
 title: Setup an Account to Produce Blocks
@@ -18487,7 +18487,7 @@ If you've followed all of the steps in this guide and have fully synced your blo
 Remember that you'll need to be in the top candidates by total stake to produce blocks, and this is based on the number of [block producers required for each network and Tanssi](#important-variables).
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/index
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/
 --- BEGIN CONTENT ---
 ---
 title: Onboard to Run a Sequencer Node
@@ -18512,7 +18512,7 @@ Use the following resources to get started as a sequencer:
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/index
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/
 --- BEGIN CONTENT ---
 ---
 title: Run a Sequencer
@@ -18553,7 +18553,7 @@ For successful block production, your node must synchronize and interact with th
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/
 --- BEGIN CONTENT ---
 ---
 title: Run a Sequencer Using Docker
@@ -18806,7 +18806,7 @@ The first time your node spins up, the syncing process displays lots of log info
 When the syncing with the relay chain and the Tanssi orchestrator is finished, the node will still need to sync with the network it has been assigned to. The syncing with the chain served by the block producer node will happen every time the block producer is rotated.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/
 --- BEGIN CONTENT ---
 ---
 title: Run a Tanssi Sequencer
@@ -19011,7 +19011,7 @@ journalctl -f -u tanssi.service
 ```
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/index
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/
 --- BEGIN CONTENT ---
 ---
 title: Sequencers Operational Tasks
@@ -19030,7 +19030,7 @@ Keeping your sequencer node up and running is more than just setup - it requires
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/proxy-accounts
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/proxy-accounts/
 --- BEGIN CONTENT ---
 ---
 title: Set Up a Sequencer Proxy Account
@@ -19159,7 +19159,7 @@ That's it! You've successfully executed a transaction using a proxy account on b
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/index
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/
 --- BEGIN CONTENT ---
 ---
 title: Upgrade Sequencers Node
@@ -19182,7 +19182,7 @@ Keeping your node updated is critical to maintaining compatibility with the late
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/
 --- BEGIN CONTENT ---
 ---
 title: Upgrade Your Sequencer Docker Node
@@ -19431,7 +19431,7 @@ And that's it! You've successfully upgraded your Tanssi node.
 You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd
+Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd/
 --- BEGIN CONTENT ---
 ---
 title: Upgrade Your Sequencer Systemd Node
