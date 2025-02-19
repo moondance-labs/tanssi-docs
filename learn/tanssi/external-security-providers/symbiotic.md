@@ -118,7 +118,7 @@ flowchart LR
 
 ### Rewards {: #rewards }
 
-Well-behaved operators and restakers are rewarded for their participation with TANSSI tokens. The reward process consists of two main phases: [Reward Distribution Phase](#reward-distribution-phase) and [Reward Claiming Phase](#reward-claiming-phase). Each phase is described in detail below.
+Well-behaved operators and restakers are rewarded for their participation with TANSSI tokens. The reward process consists of two main phases: [Reward Distribution Phase](#reward-distribution-phase) and [Reward Claiming Phase](#reward-claiming-phase).
 
 ### Reward Distribution Phase {: #reward-distribution-phase }
 
@@ -189,14 +189,14 @@ The slashing method receives a unique identifier for the operator's identity, th
 
 The slashing process consists of the following steps:
 
-1. Slash Request - Tanssi sends the slash request to the Middleware with the parameters operatorKey, percentage, and epoch
-2. Operator Validation - the Middleware validates the operator's identity and checks if the operator is eligible for slashing
-3. Vault Iteration - the Middleware iterates through all active vaults during the offense epoch, skipping any inactive vaults
+1. Slash Request - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, percentage, and epoch
+2. Operator Validation - the `Middleware` validates the operator's identity and checks if the operator is eligible for slashing
+3. Vault Iteration - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
 4. Retrieve Operator Stake - for each active vault, the Middleware retrieves the stake of the misbehaving operator
-5. Calculate Slash Amount - the Middleware calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
+5. Calculate Slash Amount - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
 6. Slashing - Depending on the vault's slashing implementation, there are two possible routes
    6.1 Instant Slashing - if the vault uses instant slashing, the stake is immediately reduced
-   6.2.1 Veto Slashing - if the vault uses veto slashing, the Middleware requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
+   6.2.1 Veto Slashing - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
    6.2.2 Veto Process - if a resolver vetoes the request within the time window, the slashing is canceled. Otherwise, the slashing penalty is finalized if no veto occurs within the time window.
 
 This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
