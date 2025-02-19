@@ -3941,13 +3941,13 @@ The demo EVM network HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/
+    https://dancebox-3001.tanssi-api.network/
     ```
 
 === "WSS"
 
     ```text
-    wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/
+    wss://dancebox-3001.tanssi-api.network/
     ```
 --- END CONTENT ---
 
@@ -4084,20 +4084,20 @@ The demo EVM network HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/
+    https://dancebox-3001.tanssi-api.network/
     ```
 
 === "WSS"
 
     ```text
-    wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/
+    wss://dancebox-3001.tanssi-api.network/
     ```
 
 ## Block Explorers {: #block-explorers }
 
 For the demo EVM network, you can use any of the following explorers:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank} (Substrate API)
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://dancebox-3001.tanssi-api.network#/explorer){target=\_blank} (Substrate API)
 - [Blockscout](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network){target=\_blank} (Ethereum API)
 - [Expedition](https://tanssi-evmexplorer.netlify.app){target=\_blank} (Ethereum API)
 
@@ -4118,7 +4118,7 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
       evmNetwork: {
         name: 'dancebox-evm-network',
         // Insert your RPC URL here
-        rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', 
+        rpc: 'https://dancebox-3001.tanssi-api.network', 
         chainId: 5678, // 0x162E in hex,
       },
     };
@@ -4137,7 +4137,7 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
     const Web3 = require('web3');
 
     const web3 = new Web3(
-      'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+      'https://dancebox-3001.tanssi-api.network'
     );
     ```
 
@@ -4146,7 +4146,7 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
     ```python
     from web3 import Web3
 
-    web3 = Web3(Web3.HTTPProvider('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network')) 
+    web3 = Web3(Web3.HTTPProvider('https://dancebox-3001.tanssi-api.network')) 
     ```
 --- END CONTENT ---
 
@@ -4298,7 +4298,7 @@ After compilation, two folders will be created: `out` and `cache`. The ABI and b
 Deploying the contract with Forge takes a single command, but you will need to include an RPC endpoint, a funded private key, and constructor arguments. `MyToken.sol` asks for an initial supply of tokens in its constructor, so the following command includes 100 as a constructor argument. You can deploy the `MyToken.sol` contract using the following command modified for the correct network:
 
 ```bash
-forge create --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network \
+forge create --rpc-url https://dancebox-3001.tanssi-api.network \
 --constructor-args 100 \
 --private-key INSERT_YOUR_PRIVATE_KEY \
 src/MyToken.sol:MyToken
@@ -4317,7 +4317,7 @@ Foundry includes [Cast](https://book.getfoundry.sh/cast){target=\_blank}, a CLI 
 Try to retrieve your token's name using Cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
 
 ```bash
-cast call INSERT_YOUR_CONTRACT_ADDRESS "name()" --rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+cast call INSERT_YOUR_CONTRACT_ADDRESS "name()" --rpc-url https://dancebox-3001.tanssi-api.network
 ```
 
 You should get this data in hexadecimal format:
@@ -4338,7 +4338,7 @@ You can also mutate data with Cast as well. Try burning tokens by sending them t
 
 ```bash
 cast send --private-key INSERT_YOUR_PRIVATE_KEY \
---rpc-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network \
+--rpc-url https://dancebox-3001.tanssi-api.network \
 --chain 5678 \
 INSERT_YOUR_CONTRACT_ADDRESS \
 "transfer(address,uint256)" 0x0000000000000000000000000000000000000001 1
@@ -4357,7 +4357,7 @@ As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil){target=\_blan
 To fork the demo EVM network from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your Tanssi EVM network.
 
 ```bash
-anvil --fork-url https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+anvil --fork-url https://dancebox-3001.tanssi-api.network
 ```
 
 Your forked instance will have 10 development accounts that are pre-funded with 10,000 test tokens. The forked instance is available at `http://127.0.0.1:8545/`. The output in your terminal should resemble the following:
@@ -4492,7 +4492,7 @@ Then to view and interact with your stored Chisel states, you can take the follo
 You can even fork networks while using Chisel:
 
 ```bash
-!fork https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+!fork https://dancebox-3001.tanssi-api.network
 ```
 
 Then, for example, you can query the balance of the Alice account on the demo EVM network:  
@@ -5615,7 +5615,7 @@ const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
     // Insert your RPC URL here
-    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', 
+    rpc: 'https://dancebox-3001.tanssi-api.network', 
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -5685,7 +5685,7 @@ import { ethers } from 'ethers';
 const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
-    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+    rpc: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -5791,7 +5791,7 @@ import { ethers } from 'ethers';
 const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
-    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+    rpc: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -5959,7 +5959,7 @@ import contractFile from './compile.js';
 const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
-    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+    rpc: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6075,7 +6075,7 @@ import contractFile from './compile.js';
 const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
-    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+    rpc: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6196,7 +6196,7 @@ import contractFile from './compile.js';
 const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
-    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+    rpc: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6320,7 +6320,7 @@ import contractFile from './compile.js';
 const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
-    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+    rpc: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6506,12 +6506,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
     public: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
   },
   blockExplorers: {
@@ -6523,7 +6523,7 @@ export const demoEVM = defineChain({
 });
 
 // 3. Create a public client for reading chain data
-const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
 const publicClient = createPublicClient({
   chain: demoEVM,
   transport: http(rpcUrl),
@@ -6561,12 +6561,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
     public: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
   },
   blockExplorers: {
@@ -6579,7 +6579,7 @@ export const demoEVM = defineChain({
 
 // 3. Create your account using the privateKeyToAccount function
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
 
 //4. Create a wallet client for writing chain data
 const walletClient = createWalletClient({
@@ -6642,12 +6642,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
     public: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
   },
   blockExplorers: {
@@ -6659,7 +6659,7 @@ export const demoEVM = defineChain({
 });
 
 // 3. Create a public client for reading chain data
-const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
 const publicClient = createPublicClient({
   chain: demoEVM,
   transport: http(rpcUrl),
@@ -6742,12 +6742,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
     public: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
   },
   blockExplorers: {
@@ -6761,7 +6761,7 @@ export const demoEVM = defineChain({
 // 3. Create a wallet client for writing chain data
 // The private key must be prepended with `0x` to avoid errors
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,
@@ -6923,12 +6923,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
     public: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
   },
   blockExplorers: {
@@ -6942,7 +6942,7 @@ export const demoEVM = defineChain({
 // 3. Create a wallet client for writing chain data
 // The private key must be prepended with `0x` to avoid errors
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,
@@ -7034,12 +7034,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
     public: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
   },
   blockExplorers: {
@@ -7051,7 +7051,7 @@ export const demoEVM = defineChain({
 });
 
 // 3. Create a public client for reading chain data
-const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
 const publicClient = createPublicClient({
   chain: demoEVM,
   transport: http(rpcUrl),
@@ -7134,12 +7134,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
     public: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
   },
   blockExplorers: {
@@ -7153,7 +7153,7 @@ export const demoEVM = defineChain({
 // 3. Create a wallet client for writing chain data
 // The private key must be prepended with `0x` to avoid errors
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,
@@ -7244,12 +7244,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
     public: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
   },
   blockExplorers: {
@@ -7263,7 +7263,7 @@ export const demoEVM = defineChain({
 // 3. Create a wallet client for writing chain data
 // The private key must be prepended with `0x` to avoid errors
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,
@@ -7382,7 +7382,7 @@ const Web3 = require('web3');
 
 // 2. Create Web3 provider and insert your RPC url
 const web3 = new Web3(
-  'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+  'https://dancebox-3001.tanssi-api.network'
 );
 ```
 
@@ -7446,7 +7446,7 @@ const Web3 = require('web3');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+  evmNetwork: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -7549,7 +7549,7 @@ const Web3 = require('web3');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+  evmNetwork: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -7720,7 +7720,7 @@ const contractFile = require('./compile');
 
 // Add the Web3 provider logic here
 const providerRPC = {
-  evmNetwork: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+  evmNetwork: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -7833,7 +7833,7 @@ const { abi } = require('./compile');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+  evmNetwork: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -7943,7 +7943,7 @@ const { abi } = require('./compile');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+  evmNetwork: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -8064,7 +8064,7 @@ const { abi } = require('./compile');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+  evmNetwork: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -8172,7 +8172,7 @@ from web3 import Web3
 
 # 2. Create web3.py provider
 # Insert your RPC URL here
-web3 = Web3(Web3.HTTPProvider('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network')) 
+web3 = Web3(Web3.HTTPProvider('https://dancebox-3001.tanssi-api.network')) 
 ```
 
 Save this code snippet as you'll need it for the scripts that are used in the following sections.
@@ -8204,7 +8204,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network",
+    "evm_network": "https://dancebox-3001.tanssi-api.network",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -8260,7 +8260,7 @@ from web3.gas_strategies.rpc import rpc_gas_price_strategy
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network",
+    "evm_network": "https://dancebox-3001.tanssi-api.network",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -8393,7 +8393,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network",
+    "evm_network": "https://dancebox-3001.tanssi-api.network",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -8466,7 +8466,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network",
+    "evm_network": "https://dancebox-3001.tanssi-api.network",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -8519,7 +8519,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network",
+    "evm_network": "https://dancebox-3001.tanssi-api.network",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -8586,7 +8586,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network",
+    "evm_network": "https://dancebox-3001.tanssi-api.network",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -10973,13 +10973,13 @@ Next, go to the bottom of the page and click on **Add network manually**:
 
 Here, you can configure MetaMask for the following networks:
 
-|         Variable          |                           Value                            |
-|:-------------------------:|:----------------------------------------------------------:|
+|         Variable          |                           Value                           |
+|:-------------------------:|:---------------------------------------------------------:|
 |       Network Name        |                  `EVM Network Dancebox`                   |
-|          RPC URL          | `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network` |
-|         Chain ID          |                           `5678`                           |
-|     Symbol (Optional)     |                          `TANGO`                           |
-| Block Explorer (Optional) | `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`  |
+|          RPC URL          |        `https://dancebox-3001.tanssi-api.network`         |
+|         Chain ID          |                          `5678`                           |
+|     Symbol (Optional)     |                          `TANGO`                          |
+| Block Explorer (Optional) | `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/` |
 
 To do so, fill in the following information:
 
@@ -11064,7 +11064,7 @@ On the following screen, you'll be able to provide the relevant seed phrase, pri
 
 To configure SubWallet for your Tanssi-powered EVM network, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the demo EVM network is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to SubWallet, take the following steps:
 
-1. Paste in the HTTPS RPC URL of your Tanssi network. The demo EVM network's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be auto-populated
+1. Paste in the HTTPS RPC URL of your Tanssi network. The demo EVM network's RPC URL is `https://dancebox-3001.tanssi-api.network/`. Other parameters will be auto-populated
 2. Paste in the block explorer URL of your Tanssi network. The demo EVM network's block explorer URL is `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`
 3. Press **Save**
 
@@ -11168,7 +11168,7 @@ To configure Talisman for your Tanssi EVM network, open the Talisman extension a
 
 On the following page, you'll then be prompted to enter the network details for your Tanssi-powered network. For demonstration purposes, the demo EVM network is used here, but you can substitute these details for your own network. To add your network to Talisman, take the following steps:
 
-1. Paste in the RPC URL of your Tanssi-powered network. The demo EVM network's RPC URL is `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/`. Other parameters will be autopopulated
+1. Paste in the RPC URL of your Tanssi-powered network. The demo EVM network's RPC URL is `https://dancebox-3001.tanssi-api.network/`. Other parameters will be autopopulated
 2. Paste in the block explorer URL of your Tanssi-powered network. The demo EVM network's block explorer URL is `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
@@ -11343,7 +11343,7 @@ module.exports = {
   networks: {
     // 4. Add the network specification for your Tanssi EVM network
     demo: {
-      url: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/',
+      url: 'https://dancebox-3001.tanssi-api.network/',
       chainId: 5678, // Fill in the EVM ChainID for your Tanssi-powered network
       accounts: [privateKey],
     },
@@ -11884,7 +11884,7 @@ The `.toLowerCase()` is critical because the SQD processor is case-sensitive, an
 .setDataSource({
   chain: {
     url: assertNotNull(
-      'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+      'https://dancebox-3001.tanssi-api.network'
     ),
     rateLimit: 300,
   },
@@ -11962,7 +11962,7 @@ export const processor = new EvmBatchProcessor()
   .setDataSource({
     chain: {
       url: assertNotNull(
-        'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+        'https://dancebox-3001.tanssi-api.network'
       ),
       rateLimit: 300,
     },
@@ -12515,7 +12515,7 @@ To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to
         To try this out on the demo EVM network, you can use the following RPC URL:
 
         ```text
-        https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+        https://dancebox-3001.tanssi-api.network
         ```
 
 4. Launch Postgres by running
@@ -13646,7 +13646,7 @@ export const demoEVMChain = {
   name: "Tanssi demo EVM Network",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'] }
+    default: { http: ['https://dancebox-3001.tanssi-api.network'] }
   },
   blockExplorers: {
     default: { name: 'Demo EVM Explorer', url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/' }
@@ -13801,7 +13801,7 @@ export const demoEVMChain = {
   name: "Tanssi demo EVM Network",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'] }
+    default: { http: ['https://dancebox-3001.tanssi-api.network'] }
   },
   blockExplorers: {
     default: { name: 'Demo EVM Explorer', url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/' }
@@ -14069,14 +14069,14 @@ Now the development environment is ready to start testing and debugging Tanssi-d
 To fork a Tanssi network using Chopsticks, execute the command with only the RPC endpoint as a parameter:
 
 ```bash
-yarn start --endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+yarn start --endpoint wss://dancebox-3001.tanssi-api.network
 ```
 
 This command will start a local clone of the chain as it was in the latest block.
 
 <div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>
-    chopsticks % yarn start --endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+    chopsticks % yarn start --endpoint wss://dancebox-3001.tanssi-api.network
   </span>
   <span data-ty>
     [01:59:42.628] INFO (xcm/59650): Frontier Container 3001 RPC listening on port 8000
@@ -14086,7 +14086,7 @@ This command will start a local clone of the chain as it was in the latest block
 Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
 
 ```yaml
-endpoint: wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+endpoint: wss://dancebox-3001.tanssi-api.network
 mock-signature-host: true
 allow-unresolved-imports: true
 db: ./tmp/db_ftrcon.sqlite
@@ -14146,7 +14146,7 @@ You can run the command `yarn start` to fork chains by specifying a local config
 All settings (except `genesis` and `timestamp`) can also be passed as flags to configure the environment completely in the command line. For example, the following command forks the demo EVM network at block 100.
 
 ```bash
-yarn start --endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network --block 100
+yarn start --endpoint wss://dancebox-3001.tanssi-api.network --block 100
 ```
 
 ### Interacting with a Fork {: #interacting-with-a-fork }
@@ -14185,7 +14185,7 @@ For example, running the following command will re-run the demo EVM networks's b
 
 ```bash
 yarn start run-block  \
---endpoint wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network  \
+--endpoint wss://dancebox-3001.tanssi-api.network  \
 --output-path=./chain-output.json  \
 --block 1000
 ```
@@ -15106,7 +15106,7 @@ In the terminal that Sidecar will run, export the environmental variable for the
 === "Dancebox EVM Network"
 
     ```bash
-    export SAS_SUBSTRATE_URL=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+    export SAS_SUBSTRATE_URL=wss://dancebox-3001.tanssi-api.network
     ```
 
 === "Your Network"
