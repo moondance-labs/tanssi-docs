@@ -11,7 +11,7 @@ export const demoEVMChain = {
   name: "Tanssi demo EVM Network",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'] }
+    default: { http: ['https://dancebox-3001.tanssi-api.network'] }
   },
   blockExplorers: {
     default: { name: 'Demo EVM Explorer', url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/' }

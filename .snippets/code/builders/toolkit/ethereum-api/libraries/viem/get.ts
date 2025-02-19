@@ -14,12 +14,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
     public: {
-      http: ['https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
-      webSocket: ['wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'],
+      http: ['https://dancebox-3001.tanssi-api.network'],
+      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
     },
   },
   blockExplorers: {
@@ -31,7 +31,7 @@ export const demoEVM = defineChain({
 });
 
 // 3. Create a public client for reading chain data
-const rpcUrl = 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network';
+const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
 const publicClient = createPublicClient({
   chain: demoEVM,
   transport: http(rpcUrl),

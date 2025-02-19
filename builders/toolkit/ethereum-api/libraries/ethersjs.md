@@ -59,7 +59,7 @@ const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
     // Insert your RPC URL here
-    rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', 
+    rpc: 'https://dancebox-3001.tanssi-api.network', 
     chainId: 5678, // 0x162E in hex,
   },
 };

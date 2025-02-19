@@ -38,20 +38,20 @@ The demo EVM network HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/
+    https://dancebox-3001.tanssi-api.network/
     ```
 
 === "WSS"
 
     ```text
-    wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/
+    wss://dancebox-3001.tanssi-api.network/
     ```
 
 ## Block Explorers {: #block-explorers }
 
 For the demo EVM network, you can use any of the following explorers:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network#/explorer){target=\_blank} (Substrate API)
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://dancebox-3001.tanssi-api.network#/explorer){target=\_blank} (Substrate API)
 - [Blockscout](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network){target=\_blank} (Ethereum API)
 - [Expedition](https://tanssi-evmexplorer.netlify.app){target=\_blank} (Ethereum API)
 
@@ -72,7 +72,7 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
       evmNetwork: {
         name: 'dancebox-evm-network',
         // Insert your RPC URL here
-        rpc: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', 
+        rpc: 'https://dancebox-3001.tanssi-api.network', 
         chainId: 5678, // 0x162E in hex,
       },
     };
@@ -91,7 +91,7 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
     const Web3 = require('web3');
 
     const web3 = new Web3(
-      'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+      'https://dancebox-3001.tanssi-api.network'
     );
     ```
 
@@ -100,5 +100,5 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
     ```python
     from web3 import Web3
 
-    web3 = Web3(Web3.HTTPProvider('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network')) 
+    web3 = Web3(Web3.HTTPProvider('https://dancebox-3001.tanssi-api.network')) 
     ```

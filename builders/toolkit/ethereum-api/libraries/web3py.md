@@ -43,7 +43,7 @@ from web3 import Web3
 
 # 2. Create web3.py provider
 # Insert your RPC URL here
-web3 = Web3(Web3.HTTPProvider('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network')) 
+web3 = Web3(Web3.HTTPProvider('https://dancebox-3001.tanssi-api.network')) 
 ```
 
 Save this code snippet as you'll need it for the scripts that are used in the following sections.

@@ -71,13 +71,13 @@ Next, go to the bottom of the page and click on **Add network manually**:
 
 Here, you can configure MetaMask for the following networks:
 
-|         Variable          |                           Value                            |
-|:-------------------------:|:----------------------------------------------------------:|
+|         Variable          |                           Value                           |
+|:-------------------------:|:---------------------------------------------------------:|
 |       Network Name        |                  `EVM Network Dancebox`                   |
-|          RPC URL          | `https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network` |
-|         Chain ID          |                           `5678`                           |
-|     Symbol (Optional)     |                          `TANGO`                           |
-| Block Explorer (Optional) | `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`  |
+|          RPC URL          |        `https://dancebox-3001.tanssi-api.network`         |
+|         Chain ID          |                          `5678`                           |
+|     Symbol (Optional)     |                          `TANGO`                          |
+| Block Explorer (Optional) | `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/` |
 
 To do so, fill in the following information:
 
