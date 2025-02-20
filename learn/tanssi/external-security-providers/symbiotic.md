@@ -120,7 +120,7 @@ flowchart LR
 
 Well-behaved operators and restakers are rewarded for their participation with TANSSI tokens. The reward process consists of two main phases: [Reward Distribution Phase](#reward-distribution-phase) and [Reward Claiming Phase](#reward-claiming-phase).
 
-### Reward Distribution Phase {: #reward-distribution-phase }
+#### **Reward Distribution Phase** {: #reward-distribution-phase }
 
 The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
 
@@ -145,7 +145,7 @@ sequenceDiagram
     Middleware->>OperatorRewards: 5. distributeRewards()
 ```
 
-### Reward Claiming Phase {: #reward-claiming-phase }
+#### **Reward Claiming Phase** {: #reward-claiming-phase }
 
 In the reward-claiming phase, operators and stakers can claim rewards based on their participation in the network. Tanssi determines the share distribution for operators and stakers, currently setting it at 20% for operators and 80% for stakers.
 
@@ -181,7 +181,7 @@ The following actions can trigger slashing events:
 !!!note
     Slashing events can only be triggered by operators' misbehavior within the Tanssi Network. Even if Tanssi networks are faulty or malicious, they operate in a sandboxed environment and cannot cause slashing.
 
-### Slashing Process {: #slashing-process }
+#### **Slashing Process** {: #slashing-process }
 
 The slashing process follows a path similar to that of rewards. When a validator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). This process resembles the reward, where the message passes through the gateway and into the `Middleware` where the slashing method gets called.
 
@@ -195,9 +195,10 @@ The slashing process consists of the following steps:
 4. Retrieve Operator Stake - for each active vault, the Middleware retrieves the stake of the misbehaving operator
 5. Calculate Slash Amount - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
 6. Slashing - Depending on the vault's slashing implementation, there are two possible routes
-   6.1 Instant Slashing - if the vault uses instant slashing, the stake is immediately reduced
-   6.2.1 Veto Slashing - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
-   6.2.2 Veto Process - if a resolver vetoes the request within the time window, the slashing is canceled. Otherwise, the slashing penalty is finalized if no veto occurs within the time window
+    
+    6.1 Instant Slashing - if the vault uses instant slashing, the stake is immediately reduced
+
+    6.2 Veto Slashing - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days). f a resolver vetoes the request within the time window, the slashing is canceled. Otherwise, the slashing penalty is finalized if no veto occurs within the time window
 
 This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
 
@@ -217,15 +218,15 @@ sequenceDiagram
         alt Instant Slasher
             Middleware->>Slasher: 6.1 slash(subnetwork, operator, amount)
         else Veto Slasher
-            Middleware->>Slasher: 6.2.1 requestSlash(...)
+            Middleware->>Slasher: 6.2 requestSlash(...)
             opt If Not Vetoed
-                Slasher->>Slasher: 6.2.2 executeSlash()
+                Slasher->>Slasher: 6.2 executeSlash()
             end
         end
     end
 ```
 
-### Burner {: #burner }
+#### **Burner** {: #burner }
 
 The `Burner` contract is an extension responsible for handling actions that follow a [slashing event](#slashing-process), notably the burning of slashed collateral. Once a slash is executed, the Slasher contract calls the `Burner` to carry out these post-slashing tasks.
 
