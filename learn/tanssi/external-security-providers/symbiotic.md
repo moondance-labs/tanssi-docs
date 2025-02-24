@@ -152,11 +152,11 @@ class Relayer relayerNode;
 
 The `Middleware` plays a central role in network coordination between Tanssi and Symbiotic. It distributes rewards to operators and vaults based on their network security and performance contributions. The contract sorts operators by stake to create a merit-based ranking system for validator selection. It transmits these sorted operator key lists to Tanssi to inform validator assignment decisions. The Middleware facilitates operator registration processes, manages validator set construction based on stake and performance metrics, and handles the reward and slashing protocols that maintain network incentive alignment.
 
-### From Ethereum to Tanssi {: #from-ethereum-tanssi }
+#### From Ethereum to Tanssi {: #from-ethereum-tanssi }
 
 The `Middleware` transmits validator set information to Tanssi for session assignment through the bridge. The `Middleware` sends details about active operators for each epoch, with these operators ordered by their total stake aggregated across vaults. Tanssi then uses this information to assign validators for upcoming sessions, ensuring that the most economically aligned operators secure the network. This mechanism creates a stake-weighted validator selection process where economic security on Ethereum translates to operational security on Tanssi.
 
-### From Tanssi to Ethereum {: #from-tanssi-ethereum }
+#### From Tanssi to Ethereum {: #from-tanssi-ethereum }
 
 Tanssi sends operational data back to Ethereum through the same communication channel. This message includes reward information that enables proper distribution to stakeholders based on network performance. The network also transmits slashing event data when validators fail to perform correctly or violate protocol rules, allowing the protocol to apply penalties. Tanssi can also request new tokens to be created on Ethereum and register tokens, making managing assets between both networks easy.
 
