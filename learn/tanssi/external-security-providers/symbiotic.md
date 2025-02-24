@@ -138,7 +138,7 @@ sequenceDiagram
     participant Middleware
     participant OperatorRewards
 
-    Tanssi Network->>Tanssi Network: 1. Calculate rewards and Generate Merkle root
+    Tanssi Network->>Tanssi Network: 1. Calculate rewards and generate Merkle root
     Tanssi Network->>Snowbridge (XCM): 2. Send XCM message (Merkle root + data)
     Snowbridge (XCM)->>Gateway Contract: 3. Relay message
     Gateway Contract->>Middleware: 4. Propagate rewards data
