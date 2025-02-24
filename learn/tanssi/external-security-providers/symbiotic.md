@@ -116,7 +116,7 @@ flowchart LR
     class Symbiotic custom-container
 ```
 
-### How Tanssi and Symbiotic communicates {: #tanssi-symbiotic-communication }
+### Tanssi-Ethereum communication {: #tanssi-ethereum-communication }
 
 It is important to learn how Tanssi and Ethereum exchange data to understand the mechanics of the protocol. They connect through a two-way bridge that lets them communicate with each other. Each protocol has a specific job in making cross-chain operations possible.
 
