@@ -237,7 +237,7 @@ When a slash is executed, the `Burner` contract's `onSlash` function is activate
 The vault manager chooses the specific implementation of the burning process during the vault's initialization phase, and once set, the vault manager cannot modify it. The exact design of the `Burner` contract may differ depending on the type of collateral asset involved. Below are some potential implementation options:
 
 - **Burning Tokens** - If the slashed collateral is a regular `ERC-20` token, the `Burner` destroys those tokens, permanently removing them from circulation
-- **Unwrapping and Burning** - If the slashed tokens represent something like staked assets (e.g., liquid staking tokens) or liquidity provider (LP) tokens from a decentralized exchange (`DEX`), the `Burner` might convert them back into their original form before burning them
+- **Unwrapping and Burning** - If the slashed tokens represent something like staked assets (e.g., liquid staking tokens) or liquidity provider (LP) tokens from a decentralized exchange (DEX), the `Burner` might convert them back into their original form before burning them
 - **Cross-Chain Operations** - If the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
 - **Alternative Handling** -  Sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do
 
