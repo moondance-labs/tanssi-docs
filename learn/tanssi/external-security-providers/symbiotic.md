@@ -194,11 +194,11 @@ The slashing process consists of the following steps:
 3. **Vault Iteration** - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
 4. **Retrieve Operator Stake** - for each active vault, the Middleware retrieves the stake of the misbehaving operator
 5. **Calculate Slash Amount** - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
-6. **Slashing** - Depending on the vault's slashing implementation, there are two possible routes
+6. **Slashing** - depending on the vault's slashing implementation, there are two possible routes
 
-    6.1 **Instant Slashing** - if the vault uses instant slashing, the stake is immediately reduced
+    - **Instant Slashing** - if the vault uses instant slashing, the stake is immediately reduced
 
-    6.2 **Veto Slashing** - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days).
+    - **Veto Slashing** - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
     If the resolver vetoes the request within the time window, the slashing is canceled. Otherwise, the slashing penalty is executed if no veto occurs within the time window
 
 This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
@@ -229,14 +229,14 @@ sequenceDiagram
 
 #### Burner {: #burner }
 
-The `Burner` contract is an extension responsible for handling actions that follow a [slashing event](#slashing-process), notably the burning of slashed collateral. Once a slash is executed, the Slasher contract calls the `Burner` to carry out these post-slashing tasks.
+The `Burner` contract is an extension responsible for handling actions that follow a [slashing event](#slashing-process), notably the burning of slashed collateral. Once a slash is executed, the `Slasher` contract calls the `Burner` to carry out these post-slashing tasks.
 
 Within the protocol, the `Burner` contract plays a crucial role in deciding what happens after slashing. While there are different ways to implement the burning process, the recommended approach is to burn the slashed assets.
 When a slash is executed, the `Burner` contract's `onSlash` function is activated. This function kicks off the process of burning the slashed assets.
 
 The vault manager chooses the specific implementation of the burning process during the vault's initialization phase, and once set, the vault manager cannot modify it. The exact design of the `Burner` contract may differ depending on the type of collateral asset involved. Below are some potential implementation options:
 
-- **Burning Tokens** - if the slashed collateral is a regular `ERC-20` token, the `Burner` destroys those tokens, permanently removing them from circulation
+- **Burning Tokens** - if the slashed collateral is a regular ERC-20 token, the `Burner` destroys those tokens, permanently removing them from circulation
 - **Unwrapping and Burning** - if the slashed tokens represent something like staked assets (e.g., liquid staking tokens) or liquidity provider (LP) tokens from a decentralized exchange (DEX), the `Burner` might convert them back into their original form before burning them
 - **Cross-Chain Operations** - if the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
 - **Alternative Handling** -  sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do

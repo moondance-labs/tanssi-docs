@@ -17020,51 +17020,51 @@ flowchart LR
 
 Well-behaved operators and restakers are rewarded for their participation with TANSSI tokens. The reward process consists of two main phases: [Reward Distribution Phase](#reward-distribution-phase) and [Reward Claiming Phase](#reward-claiming-phase).
 
-#### **Reward Distribution Phase** {: #reward-distribution-phase }
+#### Reward Distribution Phase {: #reward-distribution-phase }
 
 The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
 
-1. Reward Calculation - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree). This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
-2. Cross-Chain Messaging - reward allocation data is sent using [XCM](https://docs.moonbeam.network/builders/interoperability/xcm/overview/) (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge) acts as a trustless bridge between Tanssi and Ethereum
-3. Gateway - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
-4. Middleware - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol), which is responsible for various tasks, including passing the information to the `OperatorReward` contract
-5. OperatorRewards - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
+1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree). This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
+2. **Cross-Chain Messaging** - reward allocation data is sent using [XCM](https://docs.moonbeam.network/builders/interoperability/xcm/overview/) (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge) acts as a trustless bridge between Tanssi and Ethereum
+3. **`Gateway`** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
+4. **`Middleware`** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol), which is responsible for various tasks, including passing the information to the `OperatorReward` contract
+5. **`OperatorRewards`** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
 
 ```mermaid
 sequenceDiagram
     participant Tanssi Network
     participant Snowbridge (XCM)
-    participant Gateway Contract
+    participant Gateway
     participant Middleware
     participant OperatorRewards
 
-    Tanssi Network->>Tanssi Network: 1. Calculate rewards and Generate Merkle root
+    Tanssi Network->>Tanssi Network: 1. Calculate rewards and generate Merkle root
     Tanssi Network->>Snowbridge (XCM): 2. Send XCM message (Merkle root + data)
-    Snowbridge (XCM)->>Gateway Contract: 3. Relay message
-    Gateway Contract->>Middleware: 4. Propagate rewards data
+    Snowbridge (XCM)->>Gateway: 3. Relay message
+    Gateway ->>Middleware: 4. Propagate rewards data
     Middleware->>OperatorRewards: 5. distributeRewards()
 ```
 
-#### **Reward Claiming Phase** {: #reward-claiming-phase }
+#### Reward Claiming Phase {: #reward-claiming-phase }
 
 In the reward-claiming phase, operators and stakers can claim rewards based on their participation in the network. Tanssi determines the share distribution for operators and stakers, currently setting it at 20% for operators and 80% for stakers.
 
-1. Operator Claims - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
-2. Token Release - the operator call triggers the token release, and the `OperatorRewards` sends the established amount to the operator
-3. Token Distribution Stakers - the remaining rewards are forwarded to the `StakerRewards` for further claiming of the staker
-4. Staker Allocation - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol) contract, where stakers can claim rewards proportional to their stake in the vaults
+1. **Operator Claims** - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
+2. **Token Release** - the operator call triggers the token release, and the `OperatorRewards` sends the established amount to the operator
+3. **Token Distribution Stakers** - the remaining rewards are forwarded to the `StakerRewards` contract for further claiming of the staker
+4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol) contract, where stakers can claim rewards proportional to their stake in the vaults
 
 ```mermaid
 sequenceDiagram
  participant Operator
- participant OperatorRewardsContract
- participant StakerRewardsContract
+ participant OperatorRewards
+ participant StakerRewards
  participant Stakers
 
- Operator->>OperatorRewardsContract: 1. Claim rewards (Merkle proof)
- OperatorRewardsContract->>Operator: 2. Release rewards to the operator
- OperatorRewardsContract->>StakerRewardsContract: 3. Forward the remainder to StakerRewards
- Stakers->>StakerRewardsContract: 4. Claim individual rewards
+ Operator->>OperatorRewards: 1. Claim rewards (Merkle proof)
+ OperatorRewards->>Operator: 2. Release rewards to the operator
+ OperatorRewards->>StakerRewards: 3. Forward the remainder to StakerRewards
+ Stakers->>StakerRewards: 4. Claim individual rewards
 ```
 
 ### Slashing {: #slashing }
@@ -17073,32 +17073,32 @@ The Tanssi protocol implements slashing to penalize operators for misbehavior. W
 
 The following actions can trigger slashing events:
 
-1. Producing Invalid Blocks (e.g., blocks that include invalid transactions)
-2. Invalid Validation (e.g., double-signing or breaking protocol rules)
-3. Downtime or Unavailability
-4. Consensus Violations
+1. Producing invalid blocks (e.g., blocks that include invalid transactions)
+2. Invalid validation (e.g., double-signing or breaking protocol rules)
+3. Downtime or unavailability
+4. Consensus violations
 
 !!!note
     Slashing events can only be triggered by operators' misbehavior within the Tanssi Network. Even if Tanssi networks are faulty or malicious, they operate in a sandboxed environment and cannot cause slashing.
 
-#### **Slashing Process** {: #slashing-process }
+#### Slashing Process {: #slashing-process }
 
-The slashing process follows a path similar to that of rewards. When a validator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). This process resembles the reward, where the message passes through the gateway and into the `Middleware` where the slashing method gets called.
+The slashing process follows a path similar to that of rewards. When a validator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). This process resembles the reward, where the message passes through the `Gateway` and into the `Middleware` where the slashing method gets called.
 
 The slashing method receives a unique identifier for the operator's identity, the severity of the slash as a percentage of the operator's assigned stake in each vault, and the time context within which the offense occurred.
 
 The slashing process consists of the following steps:
 
-1. Slash Request - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, percentage, and epoch
-2. Operator Validation - the `Middleware` validates the operator's identity and checks if the operator is eligible for slashing
-3. Vault Iteration - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
-4. Retrieve Operator Stake - for each active vault, the Middleware retrieves the stake of the misbehaving operator
-5. Calculate Slash Amount - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
-6. Slashing - Depending on the vault's slashing implementation, there are two possible routes
+1. **Slash Request** - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, percentage, and epoch
+2. **Operator Validation** - the `Middleware` validates the operator's identity and checks if the operator is eligible for slashing
+3. **Vault Iteration** - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
+4. **Retrieve Operator Stake** - for each active vault, the Middleware retrieves the stake of the misbehaving operator
+5. **Calculate Slash Amount** - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
+6. **Slashing** - depending on the vault's slashing implementation, there are two possible routes
 
-    6.1 Instant Slashing - if the vault uses instant slashing, the stake is immediately reduced
+    - **Instant Slashing** - if the vault uses instant slashing, the stake is immediately reduced
 
-    6.2 Veto Slashing - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days).
+    - **Veto Slashing** - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
     If the resolver vetoes the request within the time window, the slashing is canceled. Otherwise, the slashing penalty is executed if no veto occurs within the time window
 
 This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
@@ -17127,19 +17127,19 @@ sequenceDiagram
     end
 ```
 
-#### **Burner** {: #burner }
+#### Burner {: #burner }
 
-The `Burner` contract is an extension responsible for handling actions that follow a [slashing event](#slashing-process), notably the burning of slashed collateral. Once a slash is executed, the Slasher contract calls the `Burner` to carry out these post-slashing tasks.
+The `Burner` contract is an extension responsible for handling actions that follow a [slashing event](#slashing-process), notably the burning of slashed collateral. Once a slash is executed, the `Slasher` contract calls the `Burner` to carry out these post-slashing tasks.
 
 Within the protocol, the `Burner` contract plays a crucial role in deciding what happens after slashing. While there are different ways to implement the burning process, the recommended approach is to burn the slashed assets.
 When a slash is executed, the `Burner` contract's `onSlash` function is activated. This function kicks off the process of burning the slashed assets.
 
 The vault manager chooses the specific implementation of the burning process during the vault's initialization phase, and once set, the vault manager cannot modify it. The exact design of the `Burner` contract may differ depending on the type of collateral asset involved. Below are some potential implementation options:
 
-- **Burning Tokens** - If the slashed collateral is a regular `ERC-20` token, the `Burner` destroys those tokens, permanently removing them from circulation
-- **Unwrapping and Burning** - If the slashed tokens represent something like staked assets (e.g., liquid staking tokens) or liquidity provider (LP) tokens from a decentralized exchange (`DEX`), the `Burner` might convert them back into their original form before burning them
-- **Cross-Chain Operations** - If the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
-- **Alternative Handling** -  Sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do
+- **Burning Tokens** - if the slashed collateral is a regular ERC-20 token, the `Burner` destroys those tokens, permanently removing them from circulation
+- **Unwrapping and Burning** - if the slashed tokens represent something like staked assets (e.g., liquid staking tokens) or liquidity provider (LP) tokens from a decentralized exchange (DEX), the `Burner` might convert them back into their original form before burning them
+- **Cross-Chain Operations** - if the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
+- **Alternative Handling** -  sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do
 
 Burning slashed collateral is important because it ensures that misbehaving validators are penalized and reduces the total supply of tokens, which can have deflationary effects.
 --- END CONTENT ---
