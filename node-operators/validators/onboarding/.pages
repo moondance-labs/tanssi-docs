@@ -3,4 +3,4 @@ hide: false
 nav:
   - index.md
   - run-a-validator
-  # - 'Set Up Your Account': 'account-setup.md'
+  - 'Register in Symbiotic': register-in-symbiotic.md
