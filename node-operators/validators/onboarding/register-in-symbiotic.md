@@ -53,7 +53,7 @@ If you want to sign the transaction directly using the account private key, then
     ```
 
 !!! warning
-    Note that this method requires you to expose your private key, and therefore, it is not recommended.
+    Note that this method requires you to expose your private key; therefore, it is not recommended.
 
 ### Register Using Etherscan {: #register-with-etherscan }
 
