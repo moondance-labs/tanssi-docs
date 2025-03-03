@@ -10,76 +10,13 @@ icon: octicons-plus-circle-24
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
 
-Before being able to secure Tanssi-powered networks, node operators must ensure their node is [set up and running](/validators/onboarding/run-a-validator/){target=\_blank}, they [registered an operator in the Symbiotic registry](/validators/onboarding/register-in-symbiotic/){target=\_blank}, and, finally, they opted in to work with a Tanssi-enabled Symbiotic vault and also opted in to work with the Tanssi network itself. This guide will walk through the steps to successfully opt in to both, a Tanssi-enabled vault and the Tanssi network.
+Before being able to secure Tanssi-powered networks, node operators must ensure their node is [set up and running](/validators/onboarding/run-a-validator/){target=\_blank}, they [have registered an operator in the Symbiotic registry](/validators/onboarding/register-in-symbiotic/){target=\_blank}, and, finally, they have opted in to work with a Tanssi-enabled Symbiotic vault and the Tanssi network itself. This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-Provided that you already [registered as an operator](/validators/onboarding/register-in-symbiotic/){target=\_blank}, and before starting to secure Tanssi-powered networks, you must register your intention by opting in to a Tanssi-enabled Symbiotic vault, and the Tanssi network. Both steps require interacting with smart contracts, one from Symbiotic's core protocol and the other one from Tanssi's integration with Symbiotic.
+If you have already [registered as an operator](/validators/onboarding/register-in-symbiotic/){target=\_blank}, and before starting to secure Tanssi-powered networks, you must register your intention by opting into a Tanssi-enabled Symbiotic vault and the Tanssi network. Both steps require interacting with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
 
-There are several ways to interact with the smart contract:
-
-1. Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
-2. Using [Etherscan](https://etherscan.io/){target=\_blank}
-3. Using [Safe](https://safe.global/){target=\_blank} for multi-sig setups
-
-In any case you'll need to sign the transaction using the account you intend to use as the node's. You can choose between diffent options to sign the transaction:
-
-1. Using the account's private key directly (although this method is not recommended)
-2. Using a hot wallet, such as [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
-3. Using a cold wallet, such as [ledger](https://www.ledger.com/){target=\_blank}
-
-The [next section](#setting-up-the-cli) outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
-
-### Setting Up the Symbiotic CLI {: #setting-up-the-cli }
-
-The [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank} is a tool for interacting with Symbiotic's core smart contracts. It is written in [Python](https://www.python.org/){target=\_blank}, therefore you'll need to install the Python interpreter and [pip](https://pypi.org/project/pip/){target=\_blank}, Python's package installer:
-
-=== "Linux (Ubuntu/Debian)"
-
-    ```bash
-     sudo apt-get install python3 && \
-     sudo apt install python3-pip
-    ```
-
-=== "MacOS"
-
-    ```bash
-    brew install python3
-    ```
-
-Now with Python installed, download the Symbiotic CLI and its dependencies:
-
-```bash
-git clone https://github.com/symbioticfi/cli.git && \
-cd cli && \
-pip3 install -r requirements.txt
-```
-
-Run the following command to check if the installation was successful:
-
-```bash
-python3 symb.py --help
-```
-
-And the terminal should show a long list of the CLI available commands:
-
-<div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py --help</span>
-    <span data-ty>Usage: symb.py [OPTIONS] COMMAND [ARGS]...</span>
-    <br>
-<span data-ty>Options:</></span>
-  <span data-ty>&emsp;--chain CHAIN    Chain ID to use.  [default: mainnet]</span>
-  <span data-ty>&emsp;--provider TEXT  Ethereum provider URL [http(s)].</span>
-  <span data-ty>&emsp;--help           Show this message and exit.</span>
-  <br>
-<span data-ty>Commands:
-<span data-ty>&emsp;active-balance-of&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Get an active balance of a given account...</span>
-<span data-ty>&emsp;check-opt-in-network&emsp;&emsp;&ensp; Check if operator is opted in to a network.</span>
-<span data-ty>&emsp;check-opt-in-vault&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Check if operator is opted in to a vault.</span>
-<span data-ty>&emsp;claim&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Claim a withdrawal for some epoch at the...</span>
-<span data-ty>&emsp;deposit&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Deposit to the vault.</span>
-<span data-ty>&emsp;.......&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;..........</span>
-</div>
+--8<-- 'text/node-operators/validators/onboarding/run-a-validator/prerequisites.md'
 
 ## Opt-In to Tanssi-Enabled Vaults {: #opt-in-tanssi-vaults }
 
