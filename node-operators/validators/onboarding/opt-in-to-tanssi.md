@@ -1,6 +1,6 @@
 ---
-title: Register in Symbiotic
-description: Learn how to register your node in the Symbiotic registry as a first step to participate in the protocol, securing Tanssi-powered networks and earning rewards.
+title: Opt-In to Tanssi
+description: Learn how to opt-in your with registered node to Tanssi-enabled Symbiotic vaults and the Tanssi network to participate in the protocol and earn rewards.
 icon: simple-linux
 ---
 
