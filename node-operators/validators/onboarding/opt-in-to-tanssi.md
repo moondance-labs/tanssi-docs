@@ -53,7 +53,7 @@ If you want to sign the transaction directly using the operator's account privay
     ```
 
 !!! warning
-    Note that this method required you to expose your private key, and therefore it is not recommended
+    Note that this method requires you to expose your private key, and therefore, it is not recommended.
 
 ### Opt-In Using Etherscan {: #opt-in-with-etherscan }
 
@@ -82,7 +82,7 @@ Once connected, expand the `optin` function, insert the VAULT_ADDRESS, click on 
 
 ### Opt-In Using Safe for Multi-sig Setups {: #opt-in-with-safe }
 
-If you have a [Safe)](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
+If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
 
 === "Mainnet"
 
@@ -96,7 +96,7 @@ Finally, pick the `optin` function, insert the VAULT_ADDRESS, and sign the trans
 
 ### Checking the Registration Status {: #checking-registration }
 
-You can easily check your registration status on Etherscan. Open the following link:
+You can quickly check your registration status on Etherscan. Open the following link:
 
 === "Mainnet"
 
@@ -168,7 +168,7 @@ If you want to sign the transaction directly using the operator's account privay
     ```
 
 !!! warning
-    Note that this method required you to expose your private key, and therefore it is not recommended
+    Note that this method requires you to expose your private key, and therefore, it is not recommended.
 
 ### Opt-In Using Etherscan {: #opt-in-with-etherscan }
 
@@ -197,7 +197,7 @@ Once connected, expand the `optin` function, insert the TANSSI_NETWORK_ADDRESS, 
 
 ### Opt-In Using Safe for Multi-sig Setups {: #opt-in-with-safe }
 
-If you have a [Safe)](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
+If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
 
 === "Mainnet"
 
@@ -211,7 +211,7 @@ Finally, pick the `optin` function, insert the TANSSI_NETWORK_ADDRESS, and sign 
 
 ### Checking the Registration Status {: #checking-registration }
 
-You can easily check your registration status on Etherscan. Open the following link:
+You can quickly check your registration status on Etherscan. Open the following link:
 
 === "Mainnet"
 

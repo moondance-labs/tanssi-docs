@@ -20,11 +20,11 @@ If you have already [set up the node](/node-operators/validators/onboarding/run-
 
 ## Registering as an Operator {: #registering-operator }
 
-The Symbiotic protocol keeps a registry of all operators. Before being able to secure Tanssi-powered networks, node operators must register as an operator in the Symbiotic protocol using one of the methods described in the following sections.
+The Symbiotic protocol keeps a registry of all operators. Before being able to secure Tanssi-powered networks, node operators must register as operators in the Symbiotic protocol using one of the methods described in the following sections.
 
 ### Register Using the Symbiotic CLI {: #register-with-cli }
 
-Provided that you correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want to sign the transaction using a ledger device, then run the following command replacing the `OPERATOR_ADDRESS`:
+If you correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want to sign the transaction using a ledger device, then run the following command, replacing the `OPERATOR_ADDRESS` with your account:
 
 === "Mainnet"
 
@@ -38,7 +38,7 @@ Provided that you correctly installed the [Symbiotic CLI](#setting-up-the-cli) a
     python3 symb.py register-operator --ledger --ledger-account OPERATOR_ADDRESS --chain holesky
     ```
 
-If you want to sign the transaction directly using the operator's account privaye key, then run the following command replacing the `PRIVATE_KEY` parameter:
+If you want to sign the transaction directly using the account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
 
 === "Mainnet"
 
@@ -53,21 +53,21 @@ If you want to sign the transaction directly using the operator's account privay
     ```
 
 !!! warning
-    Note that this method required you to expose your private key, and therefore it is not recommended
+    Note that this method requires you to expose your private key, and therefore, it is not recommended.
 
 ### Register Using Etherscan {: #register-with-etherscan }
 
-You can interact with Symbiotic's smart contracts using Etherscan, and sign the transaction using a browser wallet ([Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, for example). 
+You can interact with Symbiotic's smart contracts using Etherscan and sign the transaction using a browser wallet ([Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, for example). 
 
-To open the contrat's page, open the link:
+Go to the contract's page by opening the link:
 
 === "Mainnet"
 
-    [https://etherscan.io/address/0xAd817a6Bc954F678451A71363f04150FDD81Af9F#writeContract](https://etherscan.io/address/0xAd817a6Bc954F678451A71363f04150FDD81Af9F#writeContract){target=\_blank}
+    [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract){target=\_blank}
 
 === "Testnet (Holesky)"
 
-    [https://holesky.etherscan.io/address/0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548#writeContract](https://holesky.etherscan.io/address/0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548#writeContract){target=\_blank}
+    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#writeContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#writeContract){target=\_blank}
 
 Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 
@@ -82,31 +82,31 @@ Once connected, expand the `registerOperator` function, click on `Write`, and si
 
 ### Register Using Safe for Multi-sig Setups {: #register-with-safe }
 
-If you have a [Safe)](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
+If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
 
 === "Mainnet"
 
-    0xAd817a6Bc954F678451A71363f04150FDD81Af9F
+    {{ networks.symbiotic.contracts.mainnet.operators_registry }}
 
 === "Testnet (Holesky)"
 
-    0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548
+    {{ networks.symbiotic.contracts.holesky.operators_registry }}
 
 Finally, pick the `registerOperator` function and sign the transaction.
 
 ## Checking the Registration Status {: #checking-registration }
 
-You can easily check your registration status on Etherscan. Open the following link:
+You can quickly check your registration status on Etherscan. Open the following link:
 
 === "Mainnet"
 
-    [https://etherscan.io/address/0xAd817a6Bc954F678451A71363f04150FDD81Af9F#readContract](https://etherscan.io/address/0xAd817a6Bc954F678451A71363f04150FDD81Af9F#readContract){target=\_blank}
+    [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract){target=\_blank}
 
 === "Testnet (Holesky)"
 
-    [https://holesky.etherscan.io/address/0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548#readContract](https://holesky.etherscan.io/address/0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548#readContract){target=\_blank}
+    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#readContract){target=\_blank}
 
-Now select the `isEntity` function, paste your operator's account, and click on `Query`. You'll get a `true` result if your operator was registered correctly and `false` otherwise.
+Select the `isEntity` function, paste your operator's account, and click on `Query`. If your operator was registered correctly, you'll get a `true` result, and otherwise, `false`.
 
 ![Check the registration status](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-3.webp)
 
@@ -135,7 +135,7 @@ And the output looks like:
 
 ## Submitting Metadata {: #submitting-metadata }
 
-Once your operator is successfully registered, you can add metadata (e.g. logo) that will improve its visibility in the [Symbiotic website](httos://app.symbiotic.fi){target=\_blank}.
+Once your operator is successfully registered, you can add metadata (e.g., logo) to improve its visibility in the [Symbiotic website](httos://app.symbiotic.fi){target=\_blank}.
 
 To submit your operator's metadata, head to the Symbiotic metadata repository:
 
@@ -174,5 +174,4 @@ Create a fork of this repo and, within the `operators` directory, create a new d
 !!! note
     The `links` parameter is an array. Add as many links as you need.
 
-
-Finally, open a pull request. The pull request will be reviewed by the Symbiotic team, and merged.
+Finally, open a pull request. The Symbiotic team will review it and merge it.
