@@ -192,7 +192,7 @@ The slashing process consists of the following steps:
 1. **Slash Request** - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, percentage, and epoch
 2. **Operator Validation** - the `Middleware` validates the operator's identity and checks if the operator is eligible for slashing
 3. **Vault Iteration** - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
-4. **Retrieve Operator Stake** - for each active vault, the Middleware retrieves the stake of the misbehaving operator
+4. **Retrieve Operator Stake** - for each active vault, the `Middleware` retrieves the stake of the misbehaving operator
 5. **Calculate Slash Amount** - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
 6. **Slashing** - depending on the vault's slashing implementation, there are two possible routes
 
