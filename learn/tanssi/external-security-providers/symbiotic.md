@@ -154,7 +154,7 @@ The `Middleware` plays a central role in network coordination between Tanssi and
 
 #### From Ethereum to Tanssi {: #from-ethereum-tanssi }
 
-The `Middleware` transmits validator set information to Tanssi for session assignment through the bridge. The `Middleware` sends details about active operators for each epoch, with these operators ordered by their total stake aggregated across vaults. Tanssi then uses this information to assign validators for upcoming sessions, ensuring that the most economically aligned operators secure the network. This mechanism creates a stake-weighted validator selection process where economic security on Ethereum translates to operational security on Tanssi.
+The `Middleware` transmits validator set information to Tanssi for session assignment through the bridge. It sends details about active operators for each epoch, ordering them by their total stake aggregated across vaults. Tanssi then uses this information to assign validators for upcoming sessions, ensuring that the most economically aligned operators secure the network. This mechanism creates a stake-weighted validator selection process where economic security on Ethereum translates to operational security on Tanssi.
 
 #### From Tanssi to Ethereum {: #from-tanssi-ethereum }
 
