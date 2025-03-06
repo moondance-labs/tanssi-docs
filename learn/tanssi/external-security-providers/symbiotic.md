@@ -163,10 +163,10 @@ sequenceDiagram
  participant StakerRewards
  participant Stakers
 
- Operator->>OperatorRewards: 1. Claim rewards (Merkle proof)
+ Operator->>OperatorRewards: 1. Operator reward claim
  OperatorRewards->>Operator: 2. Release rewards to the operator
  OperatorRewards->>StakerRewards: 3. Forward the remainder to StakerRewards
- Stakers->>StakerRewards: 4. Claim individual rewards
+ Stakers->>StakerRewards: 4. Stakers claim individual rewards
 ```
 
 ### Slashing {: #slashing }
@@ -191,9 +191,9 @@ The slashing method receives a unique identifier for the operator's identity, th
 
 The slashing process consists of the following steps:
 
-1. **Slash Request** - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, `percentage`, and `epoch`
+1. **Slash Reported** - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, `percentage`, and `epoch`
 2. **Operator Validation** - the `Middleware` validates the operator's identity and checks if the operator is subject to slashing
-3. **Vault Iteration** - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
+3. **Retrieve Active Vaults** - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
 4. **Retrieve Operator Stake** - for each active vault, the `Middleware` retrieves the stake of the misbehaving operator
 5. **Calculate Slash Amount** - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
 6. **Slashing** - depending on the vault's slashing implementation, there are two possible routes
@@ -201,7 +201,7 @@ The slashing process consists of the following steps:
     - **Instant Slashing** - if the vault uses instant slashing, the stake is immediately reduced
 
     - **Veto Slashing** - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
-    If the resolver vetoes the request within the time window, the slashing is canceled. Otherwise, the slashing penalty is executed if no veto occurs within the time window
+    The slashing is canceled if the resolver vetoes the request within the time window. Otherwise, the slashing penalty is executed if no veto occurs within the time window
 
 This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
 
@@ -213,18 +213,18 @@ sequenceDiagram
     participant Vault
     participant Slasher
     
-    Network->>Middleware: 1. slash(operatorKey, percentage, epoch)
-    Middleware->>Middleware: 2. Validate operator
+    Network->>Middleware: 1. Slash reported
+    Middleware->>Middleware: 2. Operator validation
     loop Each Active Vault
-        Middleware->>Vault: 3. getOperatorStake()
-        Vault-->>Middleware: 4. vaultStake
-        Middleware->>Middleware: 5. Calculate slashAmount
+        Middleware->>Vault: 3. Retrieve operator stake
+        Vault-->>Middleware: 4. Retrieve vault stake
+        Middleware->>Middleware: 5. Calculate slash amount
         alt Instant Slasher
-            Middleware->>Slasher: 6.1 slash(subnetwork, operator, amount)
+            Middleware->>Slasher: 6.1 Slash
         else Veto Slasher
-            Middleware->>Slasher: 6.2 requestSlash(...)
+            Middleware->>Slasher: 6.2 Request slash
             opt If Not Vetoed
-                Slasher->>Slasher: 6.2 executeSlash()
+                Slasher->>Slasher: 6.2 Execute slash
             end
         end
     end
@@ -244,4 +244,4 @@ The vault manager chooses the specific implementation of the burning process dur
 - **Cross-Chain Operations** - if the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
 - **Alternative Handling** - sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do
 
-Burning slashed collateral is important because it ensures that misbehaving validators are penalized and reduces the total supply of tokens, which can have deflationary effects.
+Burning slashed collateral is important because it penalizes misbehaving validators and reduces the total supply of tokens, which can have deflationary effects.
