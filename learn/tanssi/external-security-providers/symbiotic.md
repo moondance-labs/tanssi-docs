@@ -150,9 +150,9 @@ sequenceDiagram
 
 In the reward-claiming phase, operators and stakers can claim rewards based on their participation in the network. Tanssi determines the share distribution for operators and stakers, currently setting it at 20% for operators and 80% for stakers.
 
-1. **Operator Claims** - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
+1. **Operator Reward Claim** - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
 2. **Token Release** - the operator call triggers the token release, and the `OperatorRewards` sends the established amount to the operator
-3. **Token Distribution Stakers** - the remaining rewards are forwarded to the `StakerRewards` contract for further claiming of the staker
+3. **Token Distribution to Stakers** - the remaining rewards are forwarded to the `StakerRewards` contract for further claiming of the staker
 4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol) contract, where stakers can claim rewards proportional to their stake in the vaults
 
 ```mermaid
