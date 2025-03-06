@@ -126,11 +126,12 @@ The reward distribution phase calculates and allocates rewards through five key 
 
 1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree). This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
 2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](/builders/interoperability/xcm/overview/) (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge) acts as a trustless bridge between Tanssi and Ethereum
-3. **`Gateway`** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
-4. **`Middleware`** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol), which is responsible for various tasks, including passing the information to the `OperatorReward` contract
-5. **`OperatorRewards`** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
+3. **Ethereum Message Reception** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
+4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol), which is responsible for various tasks, including passing the information to the `OperatorReward` contract
+5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
 
 ```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
 sequenceDiagram
     participant Tanssi Network
     participant Snowbridge (XCM)
@@ -139,10 +140,10 @@ sequenceDiagram
     participant OperatorRewards
 
     Tanssi Network->>Tanssi Network: 1. Calculate rewards and generate Merkle root
-    Tanssi Network->>Snowbridge (XCM): 2. Send XCM message (Merkle root + data)
-    Snowbridge (XCM)->>Gateway: 3. Relay message
-    Gateway ->>Middleware: 4. Propagate rewards data
-    Middleware->>OperatorRewards: 5. distributeRewards()
+    Tanssi Network->>Snowbridge (XCM): 2. Reward data sent via XCM (Merkle root + data)
+    Snowbridge (XCM)->>Gateway: 3. Relay message and sent to Ethereum 
+    Gateway ->>Middleware: 4. Message processing and validation
+    Middleware->>OperatorRewards: 5. Reward storage and distribution
 ```
 
 #### Reward Claiming Phase {: #reward-claiming-phase }
@@ -155,6 +156,7 @@ In the reward-claiming phase, operators and stakers can claim rewards based on t
 4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol) contract, where stakers can claim rewards proportional to their stake in the vaults
 
 ```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
 sequenceDiagram
  participant Operator
  participant OperatorRewards
@@ -204,6 +206,7 @@ The slashing process consists of the following steps:
 This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
 
 ```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
 sequenceDiagram
     participant Network
     participant Middleware
