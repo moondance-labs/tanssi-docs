@@ -173,10 +173,10 @@ The Tanssi protocol implements slashing to penalize operators for misbehavior. W
 
 The following actions can trigger slashing events:
 
-1. Producing invalid blocks (e.g., blocks that include invalid transactions)
-2. Invalid validation (e.g., double-signing or breaking protocol rules)
-3. Downtime or unavailability
-4. Consensus violations
+- Producing invalid blocks (e.g., blocks that include invalid transactions)
+- Invalid validation (e.g., double-signing or breaking protocol rules)
+- Downtime or unavailability
+- Consensus violations
 
 !!!note
     Slashing events can only be triggered by operators' misbehavior within the Tanssi Network. Even if Tanssi networks are faulty or malicious, they operate in a sandboxed environment and cannot cause slashing.
