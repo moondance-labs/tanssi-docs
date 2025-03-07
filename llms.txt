@@ -17020,18 +17020,15 @@ flowchart LR
 
 It is important to learn how Tanssi and Ethereum exchange data to understand the mechanics of the protocol. They connect through a two-way bridge that lets them communicate with each other. Each protocol has a specific job in making cross-chain operations possible.
 
-There are the key components in this communication:
+There are three key components between Symbiotic and Tanssi:
 
 ```mermaid
 flowchart LR
 
-Middleware <--> Gateway["Gateway"]
-
-Gateway <--> Relayer
-
-Relayer <--> Tanssi["Tanssi"]
-
-Symbiotic["Symbiotic"] <--> Middleware
+Tanssi["Tanssi"] <--> Relayer 
+Relayer <--> Gateway 
+Gateway["Gateway"] <--> Middleware
+Middleware <--> Symbiotic["Symbiotic"]
 
 class Tanssi tanssiNode;
 
