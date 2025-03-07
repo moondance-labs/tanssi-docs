@@ -66,7 +66,7 @@ Each vault is bound to a specific token that satisfies the [IERC20](https://gith
 A vault comprises three key modules, each serving a distinct function: the slasher, the delegator, and the accounting module. The implementation of these modules can vary depending on the vault manager's decisions.
 
 - **Accounting Module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/), which provides a vault with a shares system included
-- **Delegator Module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator) are available, allowing the vault manager to select with which operators and networks want to work
+- **Delegator Module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator) are available, allowing the vault manager to select which operators and networks they want to work with
 - **Slahser Module** - implements the [slashing](#slashing-process) logic, which penalizes bad actors
 
 Since the operators get delegated stake and could potentially get slashed, they must be accepted by the vault managers before providing validation services to the networks. On a similar note, vault managers analyze and authorize each network the vault will secure, taking into consideration, for example, the rewards the network offers.
