@@ -125,13 +125,10 @@ There are three key components between Symbiotic and Tanssi:
 ```mermaid
 flowchart LR
 
-Middleware <--> Gateway["Gateway"]
-
-Gateway <--> Relayer
-
-Relayer <--> Tanssi["Tanssi"]
-
-Symbiotic["Symbiotic"] <--> Middleware
+Tanssi["Tanssi"] <--> Relayer 
+Relayer <--> Gateway 
+Gateway["Gateway"] <--> Middleware
+Middleware <--> Symbiotic["Symbiotic"]
 
 class Tanssi tanssiNode;
 
