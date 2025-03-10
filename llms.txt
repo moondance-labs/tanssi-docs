@@ -17045,7 +17045,7 @@ class Relayer relayerNode;
 
 2. **`Gateway`** - operates on the Ethereum side of the bridge and serves three essential functions. It receives, verifies, and routes incoming messages from Tanssi to ensure they are correctly processed. The contract accepts outgoing messages destined for the Tanssi network, preparing them for relay. Finally, it handles higher-level application functionalities, most notably token transfers between the two networks, providing a secure interface for cross-chain asset movement
 
-3. **`Middleware`** - is Tanssi's implementation for handling network events and operations. It is the critical link between the Gateway and Tanssi's core protocol
+3. **`Middleware`** - is Tanssi's implementation for handling network events and operations. It is the critical link between the `Gateway` and Tanssi's core protocol
 
 The `Middleware` plays a central role in network coordination between Tanssi and Symbiotic. It distributes rewards to operators and vaults based on their network security and performance contributions. The contract sorts operators by stake to create a merit-based ranking system for validator selection and transmits the sorted operator key lists to Tanssi for validator assignment. Additionally, it facilitates operator registration processes, manages validator set construction based on stake and performance metrics, and handles the reward and slashing protocols that maintain network incentive alignment.
 
