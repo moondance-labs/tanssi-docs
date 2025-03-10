@@ -17101,6 +17101,7 @@ The slashing process consists of the following steps:
     - **Instant Slashing** - if the vault uses instant slashing, the stake is immediately reduced
 
     - **Veto Slashing** - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
+
     The slashing is canceled if the resolver vetoes the request within the time window. Otherwise, the slashing penalty is executed if no veto occurs within the time window
 
 This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
