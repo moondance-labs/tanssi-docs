@@ -61,17 +61,17 @@ The following sections describe the protocol's main components.
 
 [Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, and set up delegation strategies.
 
-Each vault is bound to a specific token that satisfies the [IERC20](https://github.com/ethereum/ercs/blob/master/ERCS/erc-20.md){target=\_blank} interface that is accepted as collateral. Internally, the funds within the vault are represented as shares, which provide a mechanism for tracking ownership and distributing rewards. However, the reward token may differ from the collateral token.
+Each vault is bound to a specific token that satisfies the [IERC20](https://github.com/ethereum/ercs/blob/master/ERCS/erc-20.md){target=\_blank} interface and is accepted as collateral. Internally, the funds within the vault are represented as shares, which provide a mechanism for tracking ownership and distributing rewards. However, the reward token may differ from the collateral token.
 
 A vault comprises three key modules, each serving a distinct function: the slasher, the delegator, and the accounting module. The implementation of these modules can vary depending on the vault manager's decisions.
 
-- **Slahser Module** - implements the [slashing](#slashing-process) logic, which penalizes bad actors
-- **Delegator Module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator) are available, allowing the vault manager to select which operators and networks they want to work with
-- **Accounting Module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/), which provides a vault with a shares system included
+- **Slahser module** - implements the [slashing](#slashing-process) logic, which penalizes bad actors
+- **Delegator module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator) are available, allowing the vault manager to select which operators and networks they want to work with
+- **Accounting module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/), which provides a vault with a shares system included
 
 Since the operators get delegated stake from the vault and could potentially get slashed, they must be approved by the vault managers beforehand. On a similar note, vault managers analyze and authorize each network the vault will secure, considering, for example, the rewards the network offers.
 
-Vault managers also designate [resolvers](https://docs.symbiotic.fi/modules/counterparties/resolvers){target=\_blank}, who are responsible for approving or vetoing [slashing events](https://docs.symbiotic.fi/modules/vault/slasher){target=\_blank} caused by operators on networks with [veto-slashing](https://docs.symbiotic.fi/modules/vault/slasher#veto-slashing){target=\_blank} support, like the Tanssi Network.
+Vault managers also designate [resolvers](https://docs.symbiotic.fi/modules/counterparties/resolvers){target=\_blank}, responsible for approving or vetoing [slashing events](https://docs.symbiotic.fi/modules/vault/slasher){target=\_blank} caused by operators on networks with [veto-slashing](https://docs.symbiotic.fi/modules/vault/slasher#veto-slashing){target=\_blank} support, like the Tanssi Network.
 
 ### Operators {: #operators }
 
