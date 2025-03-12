@@ -116,6 +116,47 @@ flowchart LR
     class Symbiotic custom-container
 ```
 
+### Tanssi-Ethereum Communication {: #tanssi-ethereum-communication }
+
+It is important to learn how Tanssi and Ethereum exchange data to understand the mechanics of the protocol. They connect through a two-way bridge that lets them communicate with each other. Each protocol has a specific job in making cross-chain operations possible.
+
+There are three key components between Symbiotic and Tanssi:
+
+```mermaid
+flowchart LR
+
+Tanssi["Tanssi"] <--> Relayer 
+Relayer <--> Gateway 
+Gateway["Gateway"] <--> Middleware
+Middleware <--> Symbiotic["Symbiotic"]
+
+class Tanssi tanssiNode;
+
+class Middleware middlewareNode;
+
+class Gateway gatewayNode;
+
+class Symbiotic symbioticNode;
+
+class Relayer relayerNode;
+```
+
+- **`Relayer`** - is the software that continuously monitors both blockchains and transmits messages. Enabling reliable bidirectional communication between Tanssi and Ethereum, serving as the connection layer that ensures messages are correctly delivered across networks
+
+- **`Gateway`** - operates on the Ethereum side of the bridge and serves three essential functions. It receives, verifies, and routes incoming messages from Tanssi to ensure they are correctly processed. The contract accepts outgoing messages destined for the Tanssi network, preparing them for relay. Finally, it handles higher-level application functionalities, most notably token transfers between the two networks, providing a secure interface for cross-chain asset movement
+
+- **`Middleware`** - is Tanssi's implementation for handling network events and operations. It is the critical link between the `Gateway` and Tanssi's core protocol
+
+The `Middleware` plays a central role in network coordination between Tanssi and Symbiotic. It distributes rewards to operators and vaults based on their network security and performance contributions. The contract sorts operators by stake to create a merit-based ranking system for validator selection and transmits the sorted operator key lists to Tanssi for validator assignment. Additionally, it facilitates operator registration processes, manages validator set construction based on stake and performance metrics, and handles the reward and slashing protocols that maintain network incentive alignment.
+
+#### From Ethereum to Tanssi {: #from-ethereum-tanssi }
+
+The `Middleware` transmits validator set information to Tanssi for session assignment through the bridge. It sends details about active operators for each epoch, ordering them by their total stake aggregated across vaults. Tanssi then uses this information to assign validators for upcoming sessions, ensuring that the most economically aligned operators secure the network. This mechanism creates a stake-weighted validator selection process where economic security on Ethereum translates to operational security on Tanssi.
+
+#### From Tanssi to Ethereum {: #from-tanssi-ethereum }
+
+Tanssi sends operational data back to Ethereum through the same communication channel. This message includes reward information that enables proper distribution to stakeholders based on network performance. The network also transmits slashing event data when validators fail to perform correctly or violate protocol rules, allowing the protocol to apply penalties. Tanssi can also request new tokens to be created on Ethereum and register tokens, making managing assets between both networks easy.
+
 ### Rewards {: #rewards }
 
 Well-behaved operators and restakers are rewarded for their participation with TANSSI tokens. The reward process consists of two main phases: [Reward Distribution Phase](#reward-distribution-phase) and [Reward Claiming Phase](#reward-claiming-phase).
