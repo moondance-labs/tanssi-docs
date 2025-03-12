@@ -17,17 +17,6 @@ The diagram below provides a simplified outline of the essential steps to get st
 flowchart LR
     A[Install software prerequisites] --> B[Create and add modules]
     B --> C[Customize and generate chain specs]
-
-    style A fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-    style B fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-    style C fill:#151719,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-
-    %% arrow style
-    linkStyle default stroke-width:2px,stroke:#ccc
-
-    %% add padding
-    class A,B,C node-padding;
-    classDef node-padding padding:10px;
 ```
 
 To proceed, check out the following section where you can find detailed, step-by-step guides for each of these stages.
