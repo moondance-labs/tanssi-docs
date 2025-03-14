@@ -10,7 +10,7 @@ In any case, you'll need to sign the transaction using the account you intend to
 2. Using a hot wallet, such as [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
 3. Using a cold wallet, such as [ledger](https://www.ledger.com/){target=\_blank}
 
-The [following section](#setting-up-the-cli) outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
+The following section outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
 
 ### Setting Up the Symbiotic CLI {: #setting-up-the-cli }
 
