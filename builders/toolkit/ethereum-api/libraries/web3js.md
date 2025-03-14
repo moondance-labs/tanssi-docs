@@ -51,7 +51,7 @@ const Web3 = require('web3');
 
 // 2. Create Web3 provider and insert your RPC url
 const web3 = new Web3(
-  'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+  'https://dancebox-3001.tanssi-api.network'
 );
 ```
 

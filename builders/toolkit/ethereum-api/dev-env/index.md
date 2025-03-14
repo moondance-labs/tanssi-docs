@@ -13,7 +13,7 @@ Establishing an effective development environment is crucial for building, testi
 - Simulate blockchain interactions locally for testing and debugging
 - Automate workflows for faster deployments
 
-Each development environment helps you achieve the same goal, building and deploying blockchain applications, but they do so in unique ways. For instance, browser-based IDEs like [Remix](tanssi-docs/builders/toolkit/ethereum-api/dev-env/remix) provide a fast and accessible way to start coding, while tools like [Foundry](tanssi-docs/builders/toolkit/ethereum-api/dev-env/foundry) and [Hardhat](tanssi-docs/builders/toolkit/ethereum-api/dev-env/hardhat) cater to developers who prefer specific workflows, such as a Solidity-first or JavaScript-integrated approach. Choose the one that aligns best with your needs and development style.
+Each development environment helps you achieve the same goal, building and deploying blockchain applications, but they do so in unique ways. For instance, browser-based IDEs like [Remix](/builders/toolkit/ethereum-api/dev-env/remix/) provide a fast and accessible way to start coding, while tools like [Foundry](/builders/toolkit/ethereum-api/dev-env/foundry/) and [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/) cater to developers who prefer specific workflows, such as a Solidity-first or JavaScript-integrated approach. Choose the one that aligns best with your needs and development style.
 
 ## Explore This Section
 
