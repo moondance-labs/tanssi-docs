@@ -234,7 +234,7 @@ The `.toLowerCase()` is critical because the SQD processor is case-sensitive, an
 .setDataSource({
   chain: {
     url: assertNotNull(
-      'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+      'https://dancebox-3001.tanssi-api.network'
     ),
     rateLimit: 300,
   },
@@ -362,7 +362,7 @@ To query your squid, open up a new terminal window within your project and run t
 sqd serve
 ```
 
-And that's it! You can now run queries against your Squid on the GraphQL playground at [http://localhost:4350/graphql](http://localhost:4350/graphql){target=\_blank}. Try crafting your own GraphQL query, or use the below one:
+And that's it! You can now run queries against your Squid on the GraphQL playground at `http://localhost:4350/graphql`. Try crafting your own GraphQL query, or use the below one:
 
 ???+ code "Example query"
 

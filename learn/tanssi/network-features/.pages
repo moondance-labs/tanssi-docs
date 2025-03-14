@@ -2,4 +2,4 @@ title: Network Features
 hide: false
 nav:
   - index.md
-  - 'Staking': 'staking.md'
+  - 'Staking for Block Production': 'staking.md'

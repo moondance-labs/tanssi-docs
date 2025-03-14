@@ -46,7 +46,7 @@ In the terminal that Sidecar will run, export the environmental variable for the
 === "Dancebox EVM Network"
 
     ```bash
-    export SAS_SUBSTRATE_URL=wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+    export SAS_SUBSTRATE_URL=wss://dancebox-3001.tanssi-api.network
     ```
 
 === "Your Network"

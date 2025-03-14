@@ -3,7 +3,7 @@ const Web3 = require('web3');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network', // Insert your RPC URL here
+  evmNetwork: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 

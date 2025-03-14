@@ -8,7 +8,7 @@ icon: octicons-code-24
 
 ## Introduction {: #introduction }
 
-[Web3.py](https://web3py.readthedocs.io){target=\_blank} is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with Python. Tanssi EVM networks have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM network node as if they were doing so on Ethereum. For more information on Web3.py, check their [documentation site](https://web3py.readthedocs.io){target=\_blank}.
+[Web3.py](https://web3py.readthedocs.io/en/stable/){target=\_blank} is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with Python. Tanssi EVM networks have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM network node as if they were doing so on Ethereum. For more information on Web3.py, check their [documentation site](https://web3py.readthedocs.io/en/stable/){target=\_blank}.
 
 In this guide, you'll learn how to use setup the Web3.py library for your Tanssi-powered EVM network. Next, to showcase the library in action, you'll use Web3.py to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancebox](/builders/tanssi-network/testnet/dancebox/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint.
 
@@ -43,7 +43,7 @@ from web3 import Web3
 
 # 2. Create web3.py provider
 # Insert your RPC URL here
-web3 = Web3(Web3.HTTPProvider('https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network')) 
+web3 = Web3(Web3.HTTPProvider('https://dancebox-3001.tanssi-api.network')) 
 ```
 
 Save this code snippet as you'll need it for the scripts that are used in the following sections.
