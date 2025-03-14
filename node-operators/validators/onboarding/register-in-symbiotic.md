@@ -76,7 +76,10 @@ Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 !!! note
     You can configure Metamask to use a cold wallet.
 
-Once connected, expand the `registerOperator` function, click on `Write`, and sign the transaction.
+Once connected:
+
+1. Expand the `registerOperator` function
+2. Click on `Write`, and sign the transaction.
 
 ![Register the operator](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
 
@@ -106,7 +109,13 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#readContract){target=\_blank}
 
-Select the `isEntity` function, paste your operator's account, and click on `Query`. If your operator was registered correctly, you'll get a `true` result, and otherwise, `false`.
+On the contract's page:
+
+1. Select the `isEntity` function
+2. Paste your operator's account
+3. Click on `Query` 
+
+If your operator was registered correctly, you'll get a `true` result, and otherwise, `false`
 
 ![Check the registration status](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-3.webp)
 
