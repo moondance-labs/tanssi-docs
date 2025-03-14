@@ -25,18 +25,6 @@ flowchart TD
     Fork --> Customize[Customize your network]
     Customize --> Test[Run tests]
     Test --> Deploy2[Deploy via Tanssi dApp]
-
-    style Path1 fill:#151719,stroke:#4ecdc4,stroke-width:2px
-    style Path2 fill:#151719,stroke:#4ecdc4,stroke-width:2px
-    style Fork fill:#151719,stroke:#4ecdc4,stroke-width:2px
-    style Customize fill:#151719,stroke:#4ecdc4,stroke-width:2px
-    style Test fill:#151719,stroke:#4ecdc4,stroke-width:2px
-    style Start fill:#151719,stroke:#4ecdc4,stroke-width:2px
-    style Deploy1 fill:#151719,stroke:#4ecdc4,stroke-width:2px
-    style Deploy2 fill:#151719,stroke:#4ecdc4,stroke-width:2px
-
-    %% arrow style
-    linkStyle default stroke-width:2px,stroke:#ccc
 ```
 
 Now that you’ve explored the deployment paths, the next step is to [learn more about each template](/builders/build/templates) so you can choose the one that best fits your needs.

@@ -157,7 +157,7 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 
 ## Syncing Your Node {: #syncing-your-node }
 
-Once your node spins up, the syncing process displays lots of log information from the node itself and the Tanssi network. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+Once your node spins up, the syncing process displays a lot of log information from both the node and the Tanssi network. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
