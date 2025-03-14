@@ -76,7 +76,11 @@ Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 !!! note
     You can configure Metamask to use a cold wallet.
 
-Once connected, expand the `optin` function, insert the VAULT_ADDRESS, click on `Write`, and sign the transaction.
+Once connected:
+
+1. Expand the `optin` function
+2. Insert the VAULT_ADDRESS
+3. Click on `Write`, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)
 
@@ -106,7 +110,14 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#readContract){target=\_blank}
 
-Now select the `isOptedIn` function, paste your operator's account in the `who` field, insert the VAULT_ADDRESS in the `where` field, and click on `Query`. You'll get a `true` result if your operator was registered correctly and `false` otherwise.
+In the contract's page:
+
+1. Select the `isOptedIn` function
+2. Paste your operator's account in the `who` field
+3. Insert the VAULT_ADDRESS in the `where` field
+4. Click on `Query`
+
+ You'll get a `true` result if your operator was registered correctly and `false` otherwise.
 
 ![Check the registration status](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-3.webp)
 
@@ -191,7 +202,11 @@ Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 !!! note
     You can configure Metamask to use a cold wallet.
 
-Once connected, expand the `optin` function, insert the TANSSI_NETWORK_ADDRESS, click on `Write`, and sign the transaction.
+Once connected:
+
+1. Expand the `optin` function
+2. Insert the TANSSI_NETWORK_ADDRESS
+3. Click on `Write`, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
 
@@ -221,7 +236,14 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#readContract){target=\_blank}
 
-Select the `isOptedIn` function, paste your operator's account in the `who` field, insert the TANSSI_NETWORK_ADDRESS in the `where` field, and click on `Query`. You'll get a `true` result if your operator was registered correctly and `false` otherwise.
+In the contract's page:
+
+1. Select the `isOptedIn` function
+2. Paste your operator's account in the `who` field
+3. Insert the TANSSI_NETWORK_ADDRESS in the `where` field
+4. Click on `Query`
+
+You'll get a `true` result if your operator was registered correctly and `false` otherwise.
 
 ![Check the registration status](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-6.webp)
 
