@@ -10,11 +10,11 @@ icon: octicons-plus-circle-24
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
 
-Before being able to secure Tanssi-powered networks, node operators must ensure their node is [set up and running](/validators/onboarding/run-a-validator/){target=\_blank}, they [have registered an operator in the Symbiotic registry](/validators/onboarding/register-in-symbiotic/){target=\_blank}, and, finally, they have opted in to work with a Tanssi-enabled Symbiotic vault and the Tanssi network itself. This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
+Before being able to secure Tanssi-powered networks, node operators must ensure their node is [set up and running](/node-operators/validators/onboarding/run-a-validator/){target=\_blank}, they [have registered an operator in the Symbiotic registry](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank}, and, finally, they have opted in to work with a Tanssi-enabled Symbiotic vault and the Tanssi network itself. This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-If you have already [registered as an operator](/validators/onboarding/register-in-symbiotic/){target=\_blank}, and before starting to secure Tanssi-powered networks, you must register your intention by opting into a Tanssi-enabled Symbiotic vault and the Tanssi network. Both steps require interacting with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
+If you have already [registered as an operator](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank}, and before starting to secure Tanssi-powered networks, you must register your intention by opting into a Tanssi-enabled Symbiotic vault and the Tanssi network. Both steps require interacting with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/prerequisites.md'
 
