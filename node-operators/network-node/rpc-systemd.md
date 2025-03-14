@@ -27,7 +27,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
     ![Getting the chain specs](/images/node-operators/network-node/rpc-systemd/rpc-systemd-1.webp)
 
-- **Relay chain specifications file** - the relay chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha){target=\_blank}
+- **Tanssi network specifications file** - the Tanssi network specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha){target=\_blank}
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -49,11 +49,11 @@ Every new release includes two node binaries, one for EVM-compatible networks an
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-## Download the Relay Chain Specs File {: #download-relay-specs }
+## Download the Tanssi Network Specs File {: #download-tanssi-specs }
 
-The node binary file includes also the necessary code to run a relay chain node. When launching your network's node, it will also be required to provide the relay chain's specification file as a parameter.
+The node binary file includes also the necessary code to run a Tanssi network node. When launching your network's node, it will also be required to provide the Tanssi network specification file as a parameter.
 
-Download the relay chain specification file by executing:
+Download the Tanssi network specification file by executing:
 
 ```bash
 wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
@@ -129,20 +129,19 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     --rpc-port=9944 \
     --name=para \
     --base-path=/var/lib/network-data \
+    --state-pruning=archive \
+    --blocks-pruning=archive \
+    --database=paritydb \
+    --unsafe-rpc-external \
     --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
     -- \
-    --chain=/var/lib/network-data/westend-alphanet-raw-specs.json \
+    --chain=/var/lib/network-data/relay-raw-no-bootnodes-specs.json \
     --rpc-port=9945 \
     --name=relay \
     --sync=fast \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
+    --database=paritydb \
+    --bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+    --bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
 
     [Install]
     WantedBy=multi-user.target
