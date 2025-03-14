@@ -16,6 +16,7 @@ Understanding the roles of different nodes in the Tanssi-powered network helps y
 
 - [**Network nodes**](/node-operators/network-node/) - provide RPC endpoints and data availability services for smooth data flow and interaction between chains and users
 - [**Sequencers**](/node-operators/sequencers/) - responsible for block production, transaction execution, and network maintenance to ensure liveness and operational continuity
+- [**Validators**](/node-operators/validators/) - also known as network operators, validators are responsible for verifying that transactions executed on Tanssi-powered networks are valid according to their state transition function. They also produce blocks for the Tanssi network itself
 
 ## Explore This Section
 
