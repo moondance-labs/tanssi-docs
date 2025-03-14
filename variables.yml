@@ -1,4 +1,6 @@
 networks:
+  dancelight:
+    validator_docker_image: moondancelabs/dancelight-chain:2
   dancebox:
     client_version: v0.8.1
     substrate_api_sidecar:
