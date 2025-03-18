@@ -4,7 +4,7 @@ description: Learn how to set up and run a validator (operator) node for Tanssi 
 icon: simple-linux
 ---
 
-# Run a Block Producer Node Using Systemd
+# Run a Validator Node Using Systemd
 
 ## Introduction {: #introduction }
 
