@@ -19937,7 +19937,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 For a complete list of available flags, their description, and possible values, run the following command:
 
 ```bash
-docker run -ti {{ networks.dancelight.validator_docker_image }} --help
+docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.validator_docker_image }} --help
 ```
 
 ## Syncing Your Node {: #syncing-your-node }
