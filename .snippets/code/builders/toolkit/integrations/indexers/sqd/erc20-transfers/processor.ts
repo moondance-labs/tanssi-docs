@@ -17,7 +17,7 @@ export const processor = new EvmBatchProcessor()
   .setDataSource({
     chain: {
       url: assertNotNull(
-        'https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network'
+        'https://dancebox-3001.tanssi-api.network'
       ),
       rateLimit: 300,
     },

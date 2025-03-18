@@ -6,7 +6,7 @@ networks:
     substrate_api_sidecar:
       stable_version: 17.1.2
     chain_id: 5678
-    rpc_url: https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network
+    rpc_url: https://dancebox-3001.tanssi-api.network
     token_symbol: 'TANGO'
     block_explorer_url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/'
     precompiles: 

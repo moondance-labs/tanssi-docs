@@ -42,7 +42,7 @@ As part of the Tanssi ecosystem, networks must include the essential components 
 
 This template also includes Tanssi's [Author Noting](https://github.com/moondance-labs/tanssi/blob/master/pallets/author-noting/src/lib.rs){target=\_blank} module, which implements the logic for retrieving and validating the set of sequencers assigned to provide block production services to the network. It also includes logic that allows a sequencer to sign the block when the consensus mechanism determines that it is the sequencer's turn to produce the block (and thus be rewarded accordingly).
 
-The source code for this template is public and accessible on the [Tanssi GitHub repository](https://github.com/moondance-labs/tanssi/blob/master/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}.
+The source code for this template is public and accessible on the [Tanssi GitHub repository](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}.
 
 ### Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
 
@@ -54,4 +54,4 @@ Using this template, networks support the deployment and running of any existing
 
 With this EVM template, developers can deploy a [Moonbeam](https://moonbeam.network){target=\_blank}-like network in no time and add their custom logic and features specific to their use case.
 
-The source code for this template is public and accessible on the [Tanssi GitHub repository](https://github.com/moondance-labs/tanssi/blob/master/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}.
+The source code for this template is public and accessible on the [Tanssi GitHub repository](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}.
