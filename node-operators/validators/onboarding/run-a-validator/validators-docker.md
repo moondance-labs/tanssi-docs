@@ -113,7 +113,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
-docker run -ti {{ networks.dancelight.validator_docker_image }} --help
+docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.validator_docker_image }} --help
 ```
 
 ## Syncing Your Node {: #syncing-your-node }
