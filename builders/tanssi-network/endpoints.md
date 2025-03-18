@@ -31,11 +31,11 @@ The demo EVM network HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/
+    https://dancebox-3001.tanssi-api.network/
     ```
 
 === "WSS"
 
     ```text
-    wss://fraa-dancebox-3001-rpc.a.dancebox.tanssi.network/
+    wss://dancebox-3001.tanssi-api.network/
     ```

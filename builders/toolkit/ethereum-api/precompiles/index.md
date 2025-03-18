@@ -26,19 +26,6 @@ graph LR
     A -->|Interacts through| B
     B -->|Calls| C
     C -->|Accesses| D
-
-    %% Node styling
-    style A fill:#1e1e1e,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-    style B fill:#2a2a2a,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-    style C fill:#3a3a3a,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-    style D fill:#4a4a4a,stroke:#4ecdc4,stroke-width:2px,rx:10px,ry:10px
-
-    %% Arrow styling
-    linkStyle default stroke-width:2px,stroke:#4ecdc4,stroke-dasharray: 5, 5
-
-    %% Optional: Add a note or description
-    classDef note fill:#1a1a1a,stroke:#4ecdc4,stroke-width:1px;
-    class A,B,C,D note
 ```
 
 ## Precompile Addresses Quick Reference

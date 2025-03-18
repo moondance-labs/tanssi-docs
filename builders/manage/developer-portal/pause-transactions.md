@@ -32,8 +32,8 @@ The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/m
 
 To find out the names of the modules available in your runtime, you need to read the `construct_runtime!()` section in the `lib.rs` file of your network runtime in your project repository. If your network is based on one of the official templates, you'll find the file in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}:
 
-- For networks based on the EVM template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}
-- For networks based on the Substrate template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}
+- For networks based on the EVM template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}
+- For networks based on the Substrate template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}
 
 The following snippet is an example of how the `construct_runtime!()` section looks like. The module names are those located to the left of the colon.
 
