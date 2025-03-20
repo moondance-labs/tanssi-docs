@@ -8,13 +8,13 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi block producers can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi sequencer operators can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
 
-This tutorial covers upgrading your Tanssi block producer node that was configured using Systemd. It assumes you have already set up your account and launched a [block producer node using Systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/){target=\_blank}.
+This tutorial covers upgrading your Tanssi sequencer node that was configured using Systemd. It assumes you have already set up your account and launched a [sequencer node using Systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/){target=\_blank}.
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
-If you're running your block producer node via the Systemd service, you'll need to take a few steps to properly upgrade your node. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and then start the service.
+If you're running your sequencer via the Systemd service, you'll need to take a few steps to properly upgrade your node. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and then start the service.
 
 You can stop your Tanssi Systemd service with the following command:
 
