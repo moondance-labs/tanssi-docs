@@ -35,7 +35,7 @@ If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you
 === "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-vault VAULT_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
+    python3 symb.py opt-in-vault {{ networks.symbiotic.contracts.sepolia.vault }} --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
     ```
 
 If you want to sign the transaction directly using the operator's account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
@@ -49,7 +49,7 @@ If you want to sign the transaction directly using the operator's account privat
 === "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-vault VAULT_ADDRESS --private-key PRIVATE_KEY --chain sepolia
+    python3 symb.py opt-in-vault {{ networks.symbiotic.contracts.sepolia.vault }} --private-key PRIVATE_KEY --chain sepolia
     ```
 
 !!! warning
@@ -96,7 +96,7 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.sepolia.opt_in_vault }}
 
-Finally, pick the `optin` function, insert the VAULT_ADDRESS, and sign the transaction.
+Finally, pick the `optin` function, insert the VAULT_ADDRESS (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia testnet), and sign the transaction.
 
 ### Checking the Registration Status {: #checking-vault-registration }
 
@@ -132,7 +132,7 @@ You can also verify your registration status using the Symbiotic CLI running the
 === "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py check-opt-in-vault OPERATOR_ADDRESS VAULT_ADDRESS --chain sepolia
+    python3 symb.py check-opt-in-vault OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.vault }} --chain sepolia
     ```
 
 And the output looks like:
@@ -161,7 +161,7 @@ If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you
 === "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
+    python3 symb.py opt-in-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
     ```
 
 If you want to sign the transaction directly using the operator's account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
@@ -175,7 +175,7 @@ If you want to sign the transaction directly using the operator's account privat
 === "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --private-key PRIVATE_KEY --chain sepolia
+    python3 symb.py opt-in-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key PRIVATE_KEY --chain sepolia
     ```
 
 !!! warning
@@ -205,7 +205,7 @@ Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 Once connected:
 
 1. Expand the `optin` function
-2. Insert the TANSSI_NETWORK_ADDRESS
+2. Insert the TANSSI_NETWORK_ADDRESS (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet)
 3. Click on `Write`, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
@@ -222,7 +222,7 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.sepolia.opt_in_network }}
 
-Finally, pick the `optin` function, insert the TANSSI_NETWORK_ADDRESS, and sign the transaction.
+Finally, pick the `optin` function, insert the  (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet), and sign the transaction.
 
 ### Checking the Registration Status {: #checking-tanssi-registration }
 
@@ -240,7 +240,7 @@ In the contract's page:
 
 1. Select the `isOptedIn` function
 2. Paste your operator's account in the `who` field
-3. Insert the TANSSI_NETWORK_ADDRESS in the `where` field
+3. Insert the TANSSI_NETWORK_ADDRESS in the `where` field (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet)
 4. Click on `Query`
 
 You'll get a `true` result if your operator was registered correctly and `false` otherwise.
@@ -258,13 +258,13 @@ You can also verify your registration status using the Symbiotic CLI running the
 === "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py check-opt-in-network OPERATOR_ADDRESS TANSSI_NETWORK_ADDRESS --chain sepolia
+    python3 symb.py check-opt-in-network OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --chain sepolia
     ```
 
 And the output looks like:
 
 <div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py check-opt-in-network OPERATOR_ADDRESS TANSSI_NETWORK_ADDRESS</span>
+    <span data-ty="input"><span class="file-path"></span>python3 symb.py check-opt-in-network OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }}</span>
     <span data-ty>Connected to chain ID 1</span>
     <span data-ty>True</span>
     <br>
