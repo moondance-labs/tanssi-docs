@@ -100,6 +100,16 @@ And finally, move the binaries to the folder:
 mv ./tanssi-relay* /var/lib/tanssi-data
 ```
 
+### Generate the Node Key {: #generate-node-key }
+
+To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+
+```bash
+/var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
+```
+
+--8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
+
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
 The next step is to create the Systemd configuration file.
@@ -129,6 +139,7 @@ KillSignal=SIGHUP
 LimitNOFILE=100000
 ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
   --base-path=/var/lib/tanssi-data/ \
+  --node-key-file /var/lib/tanssi-data/node-key \
   --database=paritydb \
   --rpc-port=9944 \
   --prometheus-port=9615 \
