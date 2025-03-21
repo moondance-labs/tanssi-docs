@@ -1,0 +1,17 @@
+--chain=dancelight \
+--base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--rpc-max-connections=100 \
+--validator
