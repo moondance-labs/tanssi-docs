@@ -32,10 +32,10 @@ If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you
     python3 symb.py opt-in-vault VAULT_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-vault VAULT_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS --chain holesky
+    python3 symb.py opt-in-vault VAULT_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
     ```
 
 If you want to sign the transaction directly using the operator's account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
@@ -46,10 +46,10 @@ If you want to sign the transaction directly using the operator's account privat
     python3 symb.py opt-in-vault VAULT_ADDRESS --private-key PRIVATE_KEY
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-vault VAULT_ADDRESS --private-key PRIVATE_KEY --chain holesky
+    python3 symb.py opt-in-vault VAULT_ADDRESS --private-key PRIVATE_KEY --chain sepolia
     ```
 
 !!! warning
@@ -65,9 +65,9 @@ To open the contrat's page, open the link:
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#writeContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#writeContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#writeContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#writeContract){target=\_blank}
 
 Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 
@@ -92,9 +92,9 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.mainnet.opt_in_vault }}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.holesky.opt_in_vault }}
+    {{ networks.symbiotic.contracts.sepolia.opt_in_vault }}
 
 Finally, pick the `optin` function, insert the VAULT_ADDRESS, and sign the transaction.
 
@@ -106,9 +106,9 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#readContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#readContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#readContract){target=\_blank}
 
 In the contract's page:
 
@@ -129,10 +129,10 @@ You can also verify your registration status using the Symbiotic CLI running the
     python3 symb.py check-opt-in-vault OPERATOR_ADDRESS VAULT_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py check-opt-in-vault OPERATOR_ADDRESS VAULT_ADDRESS --chain holesky
+    python3 symb.py check-opt-in-vault OPERATOR_ADDRESS VAULT_ADDRESS --chain sepolia
     ```
 
 And the output looks like:
@@ -158,10 +158,10 @@ If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you
     python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS --chain holesky
+    python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
     ```
 
 If you want to sign the transaction directly using the operator's account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
@@ -172,10 +172,10 @@ If you want to sign the transaction directly using the operator's account privat
     python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --private-key PRIVATE_KEY
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --private-key PRIVATE_KEY --chain holesky
+    python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --private-key PRIVATE_KEY --chain sepolia
     ```
 
 !!! warning
@@ -191,9 +191,9 @@ Go to the contract's page by opening the link:
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#writeContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#writeContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#writeContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#writeContract){target=\_blank}
 
 Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 
@@ -218,9 +218,9 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.mainnet.opt_in_network }}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.holesky.opt_in_network }}
+    {{ networks.symbiotic.contracts.sepolia.opt_in_network }}
 
 Finally, pick the `optin` function, insert the TANSSI_NETWORK_ADDRESS, and sign the transaction.
 
@@ -232,9 +232,9 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#readContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#readContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#readContract){target=\_blank}
 
 In the contract's page:
 
@@ -255,10 +255,10 @@ You can also verify your registration status using the Symbiotic CLI running the
     python3 symb.py check-opt-in-network OPERATOR_ADDRESS TANSSI_NETWORK_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py check-opt-in-network OPERATOR_ADDRESS TANSSI_NETWORK_ADDRESS --chain holesky
+    python3 symb.py check-opt-in-network OPERATOR_ADDRESS TANSSI_NETWORK_ADDRESS --chain sepolia
     ```
 
 And the output looks like:

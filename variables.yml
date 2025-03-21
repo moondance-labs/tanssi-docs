@@ -96,6 +96,10 @@ networks:
         operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
         opt_in_network: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
         opt_in_vault: '0x95CC0a052ae33941877c9619835A233D21D57351'
+      sepolia: 
+        operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
+        opt_in_network: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
+        opt_in_vault: '0x95CC0a052ae33941877c9619835A233D21D57351'
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.11.0

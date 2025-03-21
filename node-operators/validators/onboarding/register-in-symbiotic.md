@@ -32,10 +32,10 @@ If you correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want
     python3 symb.py register-operator --ledger --ledger-account OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py register-operator --ledger --ledger-account OPERATOR_ADDRESS --chain holesky
+    python3 symb.py register-operator --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
     ```
 
 If you want to sign the transaction directly using the account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
@@ -46,10 +46,10 @@ If you want to sign the transaction directly using the account private key, then
     python3 symb.py register-operator --private-key PRIVATE_KEY
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py register-operator --private-key PRIVATE_KEY --chain holesky
+    python3 symb.py register-operator --private-key PRIVATE_KEY --chain sepolia
     ```
 
 !!! warning
@@ -65,9 +65,9 @@ Go to the contract's page by opening the link:
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#writeContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#writeContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#writeContract){target=\_blank}
 
 Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 
@@ -91,9 +91,9 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.mainnet.operators_registry }}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.holesky.operators_registry }}
+    {{ networks.symbiotic.contracts.sepolia.operators_registry }}
 
 Finally, pick the `registerOperator` function and sign the transaction.
 
@@ -105,9 +105,9 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#readContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#readContract){target=\_blank}
 
 On the contract's page:
 
@@ -127,10 +127,10 @@ You can also verify your registration status using the Symbiotic CLI running the
     python3 symb.py isop OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py isop OPERATOR_ADDRESS --chain holesky
+    python3 symb.py isop OPERATOR_ADDRESS --chain sepolia
     ```
 
 And the output looks like:
@@ -151,10 +151,6 @@ To submit your operator's metadata, head to the Symbiotic metadata repository:
 === "Mainnet"
 
     [https://github.com/symbioticfi/metadata-mainnet](https://github.com/symbioticfi/metadata-mainnet){target=\_blank}
-
-=== "Testnet (Holesky)"
-
-    [https://github.com/symbioticfi/metadata-holesky](https://github.com/symbioticfi/metadata-holesky){target=\_blank}
 
 Create a fork of this repo and, within the `operators` directory, create a new directory named after your operator's address. Within your operator's directory, add your `logo.png` and a file named `info.json` with the following fields, replacing the values with your own:
 
