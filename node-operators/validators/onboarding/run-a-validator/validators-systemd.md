@@ -91,7 +91,7 @@ mkdir /var/lib/tanssi-data
 Set the folder's ownership to the account that will run the service to ensure writing permission:
 
 ```bash
-sudo chown -R tanssi_service /var/lib/tanssi-data
+chown -R tanssi_service /var/lib/tanssi-data
 ```
 
 And finally, move the binaries to the folder:

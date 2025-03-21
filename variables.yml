@@ -1,6 +1,6 @@
 networks:
   dancebox:
-    client_version: v0.8.1
+    client_version: v0.11.0
     substrate_api_sidecar:
       stable_version: 17.1.2
     chain_id: 5678
