@@ -121,6 +121,11 @@ Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-task
 Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/
 Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/
 Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd/
+Doc-Page: https://docs.tanssi.network/node-operators/validators/
+Doc-Page: https://docs.tanssi.network/node-operators/validators/onboarding/
+Doc-Page: https://docs.tanssi.network/node-operators/validators/onboarding/run-a-validator/
+Doc-Page: https://docs.tanssi.network/node-operators/validators/onboarding/run-a-validator/validators-docker/
+Doc-Page: https://docs.tanssi.network/node-operators/validators/onboarding/run-a-validator/validators-systemd/
 
 # Full content for each doc page
 
@@ -17571,6 +17576,7 @@ Understanding the roles of different nodes in the Tanssi-powered network helps y
 
 - [**Network nodes**](/node-operators/network-node/) - provide RPC endpoints and data availability services for smooth data flow and interaction between chains and users
 - [**Sequencers**](/node-operators/sequencers/) - responsible for block production, transaction execution, and network maintenance to ensure liveness and operational continuity
+- [**Validators**](/node-operators/validators/) - also known as network operators, validators are responsible for verifying that transactions executed on Tanssi-powered networks are valid according to their state transition function. They also produce blocks for the Tanssi network itself
 
 ## Explore This Section
 
@@ -17698,7 +17704,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 - `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi network bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_NETWORK_BOOTNODE` with the actual bootnode information
 
 !!! note
-    For better performance, it is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
 
 === "EVM-compatible Network"
 
@@ -17981,7 +17987,7 @@ Every new release includes two node binaries, one for EVM-compatible networks an
     ```
 
 !!! note
-    For better performance, it is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
 
 ## Download the Tanssi Network Specs File {: #download-tanssi-specs }
 
@@ -18795,7 +18801,7 @@ Note that the command contains two sections, divided by `-- \`:
 Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
 !!! note
-    For better performance, it is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -19017,7 +19023,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 To get started, download and make executable the latest binary release by running the following command:
 
 !!! note
-    For better performance, it is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -19844,5 +19850,544 @@ And that's it! You've successfully upgraded your Tanssi node.
 ## Subscribe to Release Notifications {: #subscribe }
 
 You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/node-operators/validators/
+--- BEGIN CONTENT ---
+---
+title: Tanssi Validators
+description: Learn how to set up, run, and manage network validators to participate in the Tanssi infrastructure protocol, verifying transactions and earning rewards.
+icon: octicons-server-24
+template: index-page.html
+---
+
+# Tanssi Validators
+
+Validators (also known as operators) are responsible for maintaining security within all the Tanssi-powered networks, verifying the integrity and validity of their transactions. They participate in a NPoS (Nominated Proof-of-Stake) consensus mechanism, which improves decentralization and fosters good behavior via economic incentives. This section provides everything you need to get started, from initial setup to operational best practices and account management.
+
+## Explore This Section
+
+:::INSERT_GENERATED_CARDS:::
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/
+--- BEGIN CONTENT ---
+---
+title: Run a Validator Node
+description: Learn how to run a validator (also called operators) to verify all the Tanssi-powered networks' transactions, providing economic security while earning rewards.
+icon: octicons-arrow-up-right-24
+template: index-page.html
+---
+
+# Onboarding
+
+Your journey as a validator begins here. This section covers the foundational steps to set up your node and prepare your account for active participation in the Tanssi network.
+
+Use the following resources to get started as a validator:
+
+- [**Hardware requirements**](/node-operators/validators/onboarding/run-a-validator/#hardware-requirements) - understand the recommended hardware specifications to ensure optimal performance of your sequencer node
+- [**Port configuration**](/node-operators/validators/onboarding/run-a-validator/#required-network-ports) - learn which network ports need to be open to ensure proper communication within the Tanssi ecosystem
+<!-- - **Session keys setup** - detailed instructions on [generating](/node-operators/sequencers/onboarding/account-setup/#map-account) and [managing](/node-operators/sequencers/onboarding/account-setup/#map-session-keys) session keys, a vital step for enabling block production capabilities
+- **Node deployment** - choose between [Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/) and [systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/) for deploying your node, with step-by-step guides tailored for each method -->
+
+## Explore This Section
+
+:::INSERT_GENERATED_CARDS:::
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/run-a-validator/
+--- BEGIN CONTENT ---
+---
+title: Run a Validator
+description: Learn how to set up and run a validator node (also referred to as operators) using Docker or Systemd to participate in the protocol securing the ecosystem.
+icon: octicons-server-24
+template: index-page.html
+---
+
+# Run a Validator Node
+
+Setting up a validator node is an important step to participate in the Tanssi network. You have two options for configuration: using _Docker_ or _Systemd._ Whichever path you choose, we provide step-by-step tutorials to guide you through the process and ensure your node meets the necessary requirements to validate the Tanssi-powered network's transactions and provide security to the ecosystem.
+
+### Hardware Requirements
+
+To run a validator node successfully, high-performance hardware is essential. Suboptimal configurations can lead to delays, unavailability, and ultimately, lost rewards and/or penalizations. Since the validation process relies heavily on single-threaded performance, prioritizing CPUs with strong single-thread capabilities over higher core counts is recommended.
+
+Recommended Hardware:
+
+- **Recommended Configuration** - Bare metal hardware running linux debian or ubuntu
+ - **Recommended CPUs** - Intel Ice Lake or newer (Xeon or Core series) or AMD Zen3 or newer (EPYC or Ryzen). Eight Physical cores @ 3.4 Ghz with hyperthreading disabled (SMT for AMD processors) 
+- **Recommended NVMe** - 500 GB NVMe SSD
+- **Recommended RAM** - 32 GB ECC RAM
+- **Recommended Network** - 1 Gbps connection 
+
+!!! warning 
+    As a validator, you are responsible for both your own stake and that of your delegators. Maintaining your node's performance, keeping it updated, and ensuring its security are critical for maximizing rewards and building a strong reputation within the Tanssi network.
+
+### Required Network Ports
+
+A successful validator must be able to synchronize and interact with one peer-to-peer (P2P) network. To ensure proper communication within the Tanssi ecosystem, make sure the following port is open for incoming:
+
+| Network          | Port        |
+|------------------|-------------|
+| Tanssi Chain     | 30333 (TCP) |
+
+## Explore This Section
+
+:::INSERT_GENERATED_CARDS:::
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/run-a-validator/validators-docker/
+--- BEGIN CONTENT ---
+---
+title: Run a Validator Using Docker
+description: Learn how to set up and run a validator (aka operator) for Tanssi network using Docker to participate in the protocol, secure networks, and earn rewards.
+icon: simple-docker
+---
+
+# Run a Validator in Tanssi Using Docker
+
+## Introduction {: #introduction }
+
+One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of their TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting-in for their networks. 
+
+The protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators can be allowed to provide their validation services to both, the vault and the Tanssi network.
+
+In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks from the allow-listed ones those with the higher delegated stake.
+
+In this guide, you'll learn how to spin up a Tanssi validator using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+### Installing Docker {: #installing-docker}
+
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+
+Run the following command to install Docker on a Linux Ubuntu platform:
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+And the following command to check the installation:
+
+```bash
+sudo docker run hello-world
+```
+
+This is what a successful execution in the terminal looks like:
+
+--8<-- 'code/node-operators/terminal/hello-world.md'
+
+### Pull the Docker Image {: #pull-docker-image }
+
+A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi validator requires and the binary file itself.
+
+A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the Tanssi orchestrator specification file.
+
+The following command to pull the Docker image:
+
+```bash
+docker pull {{ networks.dancelight.validator_docker_image }}
+```
+
+The command will download and extract the image and show the status upon execution:
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker moondancelabs/dancelight-chain</span>
+  <span data-ty>
+    <br> 
+    <br> Using default tag: latest
+    <br> latest: Pulling from moondancelabs/dancelight-chain
+    <br> e1caac4eb9d2: Pull complete 
+    <br> 1d4409959e6d: Pull complete 
+    <br> b8beed19c122: Pull complete 
+    <br> c0fab1f18601: Pull complete 
+    <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
+    <br> Status: Downloaded newer image for moondancelabs/dancelight-chain
+    <br> docker.io/moondancelabs/dancelight-chain
+  </span>
+</div>
+
+### Set Up the Data Directory {: #set-up-data-directory }
+
+Running a validator requires syncing with the Tanssi chain and storing its state.
+
+Run the following command to create the directory where your node will store the databases containing blocks and chain states:
+
+```bash
+mkdir /var/lib/tanssi-data
+```
+
+Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
+
+```bash
+chown INSERT_DOCKER_USER /var/lib/tanssi-data
+```
+
+Or run the following command if you want to run the node with the current logged-in user:
+
+```bash
+sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+```
+
+!!! note
+    The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
+
+### Generate the Node Key {: #generate-node-key }
+
+To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+
+```bash
+docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+-u $(id -u ${USER}):$(id -g ${USER}) \
+--entrypoint /chain-network/tanssi-relay {{ networks.dancelight.validator_docker_image }} key generate-node-key --file /data/node-key
+```
+
+!!! note
+    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
+
+## Start Your Node {: #start-your-node }
+
+To spin up your node, you must run the Docker image with the `docker run` command. 
+
+Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_IP_ADDRESS` with your public IP address.
+
+!!! note
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+
+=== "Generic"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    --entrypoint "/chain-network/tanssi-relay" \
+    {{ networks.dancelight.validator_docker_image }} \
+    --chain=dancelight \
+--base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--rpc-max-connections=100 \
+--validator
+    ```
+
+=== "Intel Skylake"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    --entrypoint "/chain-network/tanssi-relay-skylake" \
+    {{ networks.dancelight.validator_docker_image }} \
+    --chain=dancelight \
+--base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--rpc-max-connections=100 \
+--validator
+    ```
+
+=== "AMD Zen3"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    --entrypoint "/chain-network/tanssi-relay-znver3" \
+    {{ networks.dancelight.validator_docker_image }} \
+    --chain=dancelight \
+--base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--rpc-max-connections=100 \
+--validator
+    ```
+
+### Run Flags {: #run-flags }
+
+The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+
+- `--name INSERT_NAME` - a human-readable name for this node
+- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
+- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
+- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
+- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
+- `--detailed-log-output` - enables detailed log output
+
+For a complete list of available flags, their description, and possible values, run the following command:
+
+```bash
+docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.validator_docker_image }} --help
+```
+
+## Syncing Your Node {: #syncing-your-node }
+
+The first time your node spins up, the syncing process displays lots of log information from the node configuration and the chain blocks being synced. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker run ....</span>
+  <span data-ty>
+    <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
+    <br> 2024-02-08 18:30:06.368  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #14139635 (0x8c41…8df6)    
+    <br> 2024-02-08 18:30:08.809  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #14139635 (0x8c41…8df6), finalized #14139632 (0xa9a8…cab9), ⬇ 32.7kiB/s ⬆
+  </span>
+</div>
+
+When the syncing process is finished, your node is ready for the next steps.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/run-a-validator/validators-systemd/
+--- BEGIN CONTENT ---
+---
+title: Run a Tanssi Validator
+description: Learn how to set up and run a validator (operator) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
+icon: simple-linux
+---
+
+# Run a Validator Node Using Systemd
+
+## Introduction {: #introduction }
+
+One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of their TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting-in for their networks. 
+
+The protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators can be allowed to provide their validation services to both, the vault and the Tanssi network.
+
+In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks from the allow-listed ones those with the higher delegated stake.
+
+In this guide, you'll learn how to spin up a Tanssi validator using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+
+The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+To get started, you'll need access to a computer running an Ubuntu Linux OS with Landlock enabled and root privileges. You will also need:
+
+- **Node binary files** - a validatos requires three binary files `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
+
+The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
+
+## Check Landlock Support {: #check-landlock }
+
+Tanssi validators use the Linux kernel's landlock feature as a security measure to restrict its own access to system resources, limiting the damage a compromise in the application can cause.
+Check the landlock feature support in your system running the following command:
+
+```bash
+sudo dmesg | grep landlock || journalctl -kg landlock
+```
+
+The output should look like:
+
+<div id="termynal" data-termynal>
+    <span data-ty="input">sudo dmesg | grep landlock || journalctl -kg landlock</span>
+    <span data-ty>[    0.240344] landlock: Up and running.</span>
+</div>
+
+If landlock is disabled in your system, upgrade the kernel to version 5.13 or above.
+
+## Download the Latest Release {: #download-latest-release }
+
+To get started, download and make executable the latest binary release by running the following command:
+
+!!! note
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+
+=== "Generic"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker && \
+    chmod +x ./tanssi-relay*
+    ```
+
+=== "Intel Skylake"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay && \
+    chmod +x ./tanssi-relay*
+    ```
+
+=== "AMD Zen3"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-znver3 -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-node && \
+    chmod +x ./tanssi-relay*
+    ```
+
+## Setup the Systemd Service {: #setup-systemd-service }
+
+[Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
+
+The following commands configure a new account, create the directory, and move the previously downloaded files to the right location.
+
+Create a new account to run the service:
+
+```bash
+adduser tanssi_service --system --no-create-home
+```
+
+Create a directory to store the required files and data:
+
+```bash
+mkdir /var/lib/tanssi-data
+```
+
+Set the folder's ownership to the account that will run the service to ensure writing permission:
+
+```bash
+chown -R tanssi_service /var/lib/tanssi-data
+```
+
+And finally, move the binaries to the folder:
+
+```bash
+mv ./tanssi-relay* /var/lib/tanssi-data
+```
+
+### Generate the Node Key {: #generate-node-key }
+
+To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+
+```bash
+/var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
+```
+
+!!! note
+    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
+
+### Create the Systemd Service Configuration File {: #create-systemd-configuration }
+
+The next step is to create the Systemd configuration file.
+
+You can create the file by running the following command:
+
+```bash
+sudo touch /etc/systemd/system/tanssi.service
+```
+
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable text and `YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
+
+```bash
+[Unit]
+Description="Tanssi systemd service"
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+User=tanssi_service
+Type=simple
+Restart=always
+RestartSec=10
+SyslogIdentifier=tanssi
+SyslogFacility=local7
+KillSignal=SIGHUP
+LimitNOFILE=100000
+ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
+  --base-path=/var/lib/tanssi-data/ \
+  --node-key-file /var/lib/tanssi-data/node-key \
+  --database=paritydb \
+  --rpc-port=9944 \
+  --prometheus-port=9615 \
+  --prometheus-external \
+  --name=INSERT_YOUR_TANSSI_NODE_NAME \
+  --listen-addr=/ip4/0.0.0.0/tcp/30333 \
+  --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+  --state-pruning=archive \
+  --blocks-pruning=archive \
+  --rpc-cors=all \
+  --rpc-methods=safe \
+  --unsafe-rpc-external \
+  --rpc-max-connections=100 \
+  --validator
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Run Flags {: #run-flags }
+
+The flags used in the ExecStart command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+
+- `--name INSERT_NAME` - a human-readable name for this node
+- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
+- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
+- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
+- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
+- `--detailed-log-output` - enables detailed log output
+
+For a complete list of available flags, their description, and possible values, run the following command:
+
+```bash
+/var/lib/tanssi-data/tanssi-relay  --help
+```
+
+## Run the Service {: #run-the-service }
+
+Finally, enable the service and start it for the first time:
+
+```bash
+systemctl enable tanssi.service && \
+systemctl start tanssi.service
+```
+
+You can verify that the service is up and running correctly running:
+
+```bash
+systemctl status tanssi.service
+```
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
+  <span data-ty>
+    <br> ● network.service - "Network systemd service"
+    <br>&nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/network.service; enabled; vendor preset: enabled)
+    <br>&nbsp;&nbsp;&nbsp;Active: active (running) since Sun 2024-02-18 18:16:40 EST; 14min ago
+    <br>&nbsp;&nbsp;Main PID: 4045278 (container-chain)
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;Tasks: 44 (limit: 9462)
+    <br>&nbsp;&nbsp;&nbsp;Memory: 6.5G
+    <br>&nbsp;&nbsp;&nbsp;CGroup: /system.slice/network.service
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─4045278 4045278 /var/lib/network-data/container-chain- ...
+  </span>
+</div>
+
+Check the logs, if needed, with the following command:
+
+```bash
+journalctl -f -u tanssi.service
+```
 --- END CONTENT ---
 
