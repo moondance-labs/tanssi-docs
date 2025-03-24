@@ -101,7 +101,7 @@ networks:
         opt_in_network: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
         opt_in_vault: '0x95CC0a052ae33941877c9619835A233D21D57351'
         vault: '0xB94f8852443FB4faB18363D22a45cA64a8CF4482'
-        tanssi_network: '0x0000000000000000000000000000000000000000'
+        tanssi_network: '0xdaD051447C4452e15B35B7F831ceE8DEb890f1a4'
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.11.0
