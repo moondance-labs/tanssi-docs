@@ -24,32 +24,32 @@ The Symbiotic protocol keeps a registry of all operators. Before being able to s
 
 ### Register Using the Symbiotic CLI {: #register-with-cli }
 
-If you correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a ledger device, then run the following command, replacing the `OPERATOR_ADDRESS` with your account:
+If you correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_OPERATOR_ADDRESS` with your account:
 
-=== "Mainnet"
+=== "MainNet"
 
     ```bash
-    python3 symb.py register-operator --ledger --ledger-account OPERATOR_ADDRESS
+    python3 symb.py register-operator --ledger --ledger-account INSERT_OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Sepolia)"
+=== "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py register-operator --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
+    python3 symb.py register-operator --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
     ```
 
-If you want to sign the transaction directly using the account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
+If you want to sign the transaction directly using the account private key, then run the following command, replacing the `INSERT_PRIVATE_KEY` parameter:
 
-=== "Mainnet"
+=== "MainNet"
 
     ```bash
-    python3 symb.py register-operator --private-key PRIVATE_KEY
+    python3 symb.py register-operator --private-key INSERT_PRIVATE_KEY
     ```
 
-=== "Testnet (Sepolia)"
+=== "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py register-operator --private-key PRIVATE_KEY --chain sepolia
+    python3 symb.py register-operator --private-key INSERT_PRIVATE_KEY --chain sepolia
     ```
 
 !!! warning
@@ -57,29 +57,29 @@ If you want to sign the transaction directly using the account private key, then
 
 ### Register Using Etherscan {: #register-with-etherscan }
 
-You can interact with Symbiotic's smart contracts using Etherscan and sign the transaction using a browser wallet ([Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, for example). 
+You can interact with Symbiotic's smart contracts using Etherscan and sign the transaction using a browser wallet ([MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, for example). 
 
 Go to the contract's page by opening the link:
 
-=== "Mainnet"
+=== "MainNet"
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract){target=\_blank}
 
-=== "Testnet (Sepolia)"
+=== "TestNet (Sepolia)"
 
     [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#writeContract){target=\_blank}
 
-Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
+Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
 ![Connect to Web3 step](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-1.webp)
 
 !!! note
-    You can configure Metamask to use a cold wallet.
+    You can configure MetaMask to use a cold wallet.
 
 Once connected:
 
 1. Expand the `registerOperator` function
-2. Click on `Write`, and sign the transaction
+2. Click on **Write**, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
 
@@ -87,25 +87,25 @@ Once connected:
 
 If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
 
-=== "Mainnet"
+=== "MainNet"
 
     {{ networks.symbiotic.contracts.mainnet.operators_registry }}
 
-=== "Testnet (Sepolia)"
+=== "TestNet (Sepolia)"
 
     {{ networks.symbiotic.contracts.sepolia.operators_registry }}
 
 Finally, pick the `registerOperator` function and sign the transaction.
 
-## Checking the Registration Status {: #checking-registration }
+## Check the Registration Status {: #check-registration }
 
 You can quickly check your registration status on Etherscan. Open the following link:
 
-=== "Mainnet"
+=== "MainNet"
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract){target=\_blank}
 
-=== "Testnet (Sepolia)"
+=== "TestNet (Sepolia)"
 
     [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#readContract){target=\_blank}
 
@@ -113,24 +113,24 @@ On the contract's page:
 
 1. Select the `isEntity` function
 2. Paste your operator's account
-3. Click on `Query` 
+3. Click on **Query**
 
 If your operator was registered correctly, you'll get a `true` result, and otherwise, `false`
 
 ![Check the registration status](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-3.webp)
 
-You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given OPERATOR_ADDRESS:
+You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given `INSERT_OPERATOR_ADDRESS`:
 
-=== "Mainnet"
+=== "MainNet"
     
     ```bash
-    python3 symb.py isop OPERATOR_ADDRESS
+    python3 symb.py isop INSERT_OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Sepolia)"
+=== "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py isop OPERATOR_ADDRESS --chain sepolia
+    python3 symb.py isop INSERT_OPERATOR_ADDRESS --chain sepolia
     ```
 
 And the output looks like:
@@ -148,7 +148,7 @@ Once your operator is successfully registered, you can add metadata (e.g., logo)
 
 To submit your operator's metadata, head to the Symbiotic metadata repository:
 
-=== "Mainnet"
+=== "MainNet"
 
     [https://github.com/symbioticfi/metadata-mainnet](https://github.com/symbioticfi/metadata-mainnet){target=\_blank}
 
