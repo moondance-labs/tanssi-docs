@@ -114,7 +114,7 @@ In the contract's page:
 
 1. Select the `isOptedIn` function
 2. Paste your operator's account in the `who` field
-3. Insert the VAULT_ADDRESS in the `where` field
+3. Insert the `VAULT_ADDRESS` in the `where` field
 4. Click on **Query**
 
  You'll get a `true` result if your operator was registered correctly and `false` otherwise.

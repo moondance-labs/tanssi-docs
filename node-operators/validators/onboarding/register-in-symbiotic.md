@@ -156,8 +156,8 @@ Create a fork of this repo and, within the `operators` directory, create a new d
 
 ```json
 {
-	"name": "YOUR_OPERATOR_NAME",
-	"description": "YOUR_OPERATOR_DESCRIPTION",
+	"name": "INSERT_YOUR_OPERATOR_NAME",
+	"description": "INSERT_YOUR_OPERATOR_DESCRIPTION",
 	"tags": [
 		"operator"
 	],
@@ -165,12 +165,12 @@ Create a fork of this repo and, within the `operators` directory, create a new d
 		{
 			"type": "website",
 			"name": "Website",
-			"url": "https://YOUR_WEBSITE_URL"
+			"url": "https://INSERT_YOUR_WEBSITE_URL"
 		},
 		{
 			"type": "website",
 			"name": "X",
-			"url": "https://YOUR_X_URL"
+			"url": "https://INSERT_YOUR_X_URL"
 		}
 	]
 }
