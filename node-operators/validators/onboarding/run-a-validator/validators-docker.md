@@ -10,13 +10,13 @@ icon: simple-docker
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi validator using the official  image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi validator using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 --8<-- 'text/node-operators/installing-docker.md'
 
-### Pulling the Docker Image {: #pulling-docker-image }
+### Pull the Docker Image {: #pull-docker-image }
 
 A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi validator requires and the binary file itself.
 
@@ -32,7 +32,7 @@ The command will download and extract the image and show the status upon executi
 
 --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/terminal/pulling-docker-image.md'
 
-### Setup the Data Directory {: #setup-data-directory }
+### Set Up the Data Directory {: #set-up-data-directory }
 
 Running a validator requires syncing with the Tanssi chain and storing its state.
 
@@ -69,7 +69,7 @@ docker run --network="host" -v "/var/lib/tanssi-data:/data" \
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
-## Start-Up Command {: #start-up-command }
+## Start Your Node {: #start-your-node }
 
 To spin up your node, you must run the Docker image with the `docker run` command. 
 
@@ -96,6 +96,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     {{ networks.dancelight.validator_docker_image }} \
     --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
     ```
+
 === "AMD Zen3"
 
     ```bash
