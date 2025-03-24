@@ -2,7 +2,7 @@ networks:
   dancelight:
     validator_docker_image: moondancelabs/dancelight-chain:2
   dancebox:
-    docker_sequencer_image_name: moondancelabs/stagelight-collators:3
+    docker_sequencer_image_name: moondancelabs/dancelight-collators:2
     client_version: v0.11.0
     substrate_api_sidecar:
       stable_version: 17.1.2

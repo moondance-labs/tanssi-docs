@@ -25,7 +25,7 @@ A Docker image combines the binary corresponding to the latest stable release of
 The following command to pull the Docker image:
 
 ```bash
-docker pull moondancelabs/stagelight-collators:3
+docker pull {{ networks.dancebox.docker_sequencer_image_name }}
 ```
 
 The command will download and extract the image and show the status upon execution:
@@ -113,7 +113,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
-docker run --entrypoint bash moondancelabs/stagelight-collators:3 -c "/chain-network/tanssi-node --help"
+docker run --entrypoint bash {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node --help"
 ```
 
 ## Syncing Your Node {: #syncing-your-node }
