@@ -19916,11 +19916,11 @@ The Tanssi protocol achieves this by integrating with [external security provide
 
 In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
 
-Before being able to secure Tanssi-powered networks, node operators must ensure their node is [set up and running](/validators/onboarding/run-a-validator/){target=\_blank}, they [have registered an operator in the Symbiotic registry](/validators/onboarding/register-in-symbiotic/){target=\_blank}, and, finally, they have opted in to work with a Tanssi-enabled Symbiotic vault and the Tanssi network itself. This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
+Before being able to secure Tanssi-powered networks, node operators must ensure their node is [set up and running](/node-operators/validators/onboarding/run-a-validator/){target=\_blank}, they [have registered an operator in the Symbiotic registry](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank}, and, finally, they have opted in to work with a Tanssi-enabled Symbiotic vault and the Tanssi network itself. This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-If you have already [registered as an operator](/validators/onboarding/register-in-symbiotic/){target=\_blank}, and before starting to secure Tanssi-powered networks, you must register your intention by opting into a Tanssi-enabled Symbiotic vault and the Tanssi network. Both steps require interacting with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
+If you have already [registered as an operator](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank}, and before starting to secure Tanssi-powered networks, you must register your intention by opting into a Tanssi-enabled Symbiotic vault and the Tanssi network. Both steps require interacting with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
 
 There are several ways to interact with the smart contract:
 
@@ -19934,7 +19934,7 @@ In any case, you'll need to sign the transaction using the account you intend to
 2. Using a hot wallet, such as [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
 3. Using a cold wallet, such as [ledger](https://www.ledger.com/){target=\_blank}
 
-The [following section](#setting-up-the-cli) outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
+The following section outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
 
 ### Setting Up the Symbiotic CLI {: #setting-up-the-cli }
 
@@ -20001,10 +20001,10 @@ If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you
     python3 symb.py opt-in-vault VAULT_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-vault VAULT_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS --chain holesky
+    python3 symb.py opt-in-vault {{ networks.symbiotic.contracts.sepolia.vault }} --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
     ```
 
 If you want to sign the transaction directly using the operator's account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
@@ -20015,10 +20015,10 @@ If you want to sign the transaction directly using the operator's account privat
     python3 symb.py opt-in-vault VAULT_ADDRESS --private-key PRIVATE_KEY
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-vault VAULT_ADDRESS --private-key PRIVATE_KEY --chain holesky
+    python3 symb.py opt-in-vault {{ networks.symbiotic.contracts.sepolia.vault }} --private-key PRIVATE_KEY --chain sepolia
     ```
 
 !!! warning
@@ -20034,9 +20034,9 @@ To open the contrat's page, open the link:
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#writeContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#writeContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#writeContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#writeContract){target=\_blank}
 
 Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 
@@ -20045,7 +20045,11 @@ Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 !!! note
     You can configure Metamask to use a cold wallet.
 
-Once connected, expand the `optin` function, insert the VAULT_ADDRESS, click on `Write`, and sign the transaction.
+Once connected:
+
+1. Expand the `optin` function
+2. Insert the VAULT_ADDRESS
+3. Click on `Write`, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)
 
@@ -20057,11 +20061,11 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.mainnet.opt_in_vault }}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.holesky.opt_in_vault }}
+    {{ networks.symbiotic.contracts.sepolia.opt_in_vault }}
 
-Finally, pick the `optin` function, insert the VAULT_ADDRESS, and sign the transaction.
+Finally, pick the `optin` function, insert the VAULT_ADDRESS (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia testnet), and sign the transaction.
 
 ### Checking the Registration Status {: #checking-vault-registration }
 
@@ -20071,11 +20075,18 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#readContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_vault }}#readContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#readContract){target=\_blank}
 
-Now select the `isOptedIn` function, paste your operator's account in the `who` field, insert the VAULT_ADDRESS in the `where` field, and click on `Query`. You'll get a `true` result if your operator was registered correctly and `false` otherwise.
+In the contract's page:
+
+1. Select the `isOptedIn` function
+2. Paste your operator's account in the `who` field
+3. Insert the VAULT_ADDRESS in the `where` field
+4. Click on `Query`
+
+ You'll get a `true` result if your operator was registered correctly and `false` otherwise.
 
 ![Check the registration status](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-3.webp)
 
@@ -20087,10 +20098,10 @@ You can also verify your registration status using the Symbiotic CLI running the
     python3 symb.py check-opt-in-vault OPERATOR_ADDRESS VAULT_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py check-opt-in-vault OPERATOR_ADDRESS VAULT_ADDRESS --chain holesky
+    python3 symb.py check-opt-in-vault OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.vault }} --chain sepolia
     ```
 
 And the output looks like:
@@ -20116,10 +20127,10 @@ If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you
     python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --ledger --ledger-account OPERATOR_ADDRESS --chain holesky
+    python3 symb.py opt-in-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
     ```
 
 If you want to sign the transaction directly using the operator's account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
@@ -20130,10 +20141,10 @@ If you want to sign the transaction directly using the operator's account privat
     python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --private-key PRIVATE_KEY
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-network TANSSI_NETWORK_ADDRESS --private-key PRIVATE_KEY --chain holesky
+    python3 symb.py opt-in-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key PRIVATE_KEY --chain sepolia
     ```
 
 !!! warning
@@ -20149,9 +20160,9 @@ Go to the contract's page by opening the link:
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#writeContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#writeContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#writeContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#writeContract){target=\_blank}
 
 Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 
@@ -20160,7 +20171,11 @@ Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 !!! note
     You can configure Metamask to use a cold wallet.
 
-Once connected, expand the `optin` function, insert the TANSSI_NETWORK_ADDRESS, click on `Write`, and sign the transaction.
+Once connected:
+
+1. Expand the `optin` function
+2. Insert the TANSSI_NETWORK_ADDRESS (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet)
+3. Click on `Write`, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
 
@@ -20172,11 +20187,11 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.mainnet.opt_in_network }}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.holesky.opt_in_network }}
+    {{ networks.symbiotic.contracts.sepolia.opt_in_network }}
 
-Finally, pick the `optin` function, insert the TANSSI_NETWORK_ADDRESS, and sign the transaction.
+Finally, pick the `optin` function, insert the  (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet), and sign the transaction.
 
 ### Checking the Registration Status {: #checking-tanssi-registration }
 
@@ -20186,11 +20201,18 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#readContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.opt_in_network }}#readContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#readContract){target=\_blank}
 
-Select the `isOptedIn` function, paste your operator's account in the `who` field, insert the TANSSI_NETWORK_ADDRESS in the `where` field, and click on `Query`. You'll get a `true` result if your operator was registered correctly and `false` otherwise.
+In the contract's page:
+
+1. Select the `isOptedIn` function
+2. Paste your operator's account in the `who` field
+3. Insert the TANSSI_NETWORK_ADDRESS in the `where` field (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet)
+4. Click on `Query`
+
+You'll get a `true` result if your operator was registered correctly and `false` otherwise.
 
 ![Check the registration status](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-6.webp)
 
@@ -20202,16 +20224,16 @@ You can also verify your registration status using the Symbiotic CLI running the
     python3 symb.py check-opt-in-network OPERATOR_ADDRESS TANSSI_NETWORK_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py check-opt-in-network OPERATOR_ADDRESS TANSSI_NETWORK_ADDRESS --chain holesky
+    python3 symb.py check-opt-in-network OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --chain sepolia
     ```
 
 And the output looks like:
 
 <div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py check-opt-in-network OPERATOR_ADDRESS TANSSI_NETWORK_ADDRESS</span>
+    <span data-ty="input"><span class="file-path"></span>python3 symb.py check-opt-in-network OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }}</span>
     <span data-ty>Connected to chain ID 1</span>
     <span data-ty>True</span>
     <br>
@@ -20257,7 +20279,7 @@ In any case, you'll need to sign the transaction using the account you intend to
 2. Using a hot wallet, such as [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
 3. Using a cold wallet, such as [ledger](https://www.ledger.com/){target=\_blank}
 
-The [following section](#setting-up-the-cli) outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
+The following section outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
 
 ### Setting Up the Symbiotic CLI {: #setting-up-the-cli }
 
@@ -20324,10 +20346,10 @@ If you correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want
     python3 symb.py register-operator --ledger --ledger-account OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py register-operator --ledger --ledger-account OPERATOR_ADDRESS --chain holesky
+    python3 symb.py register-operator --ledger --ledger-account OPERATOR_ADDRESS --chain sepolia
     ```
 
 If you want to sign the transaction directly using the account private key, then run the following command, replacing the `PRIVATE_KEY` parameter:
@@ -20338,10 +20360,10 @@ If you want to sign the transaction directly using the account private key, then
     python3 symb.py register-operator --private-key PRIVATE_KEY
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py register-operator --private-key PRIVATE_KEY --chain holesky
+    python3 symb.py register-operator --private-key PRIVATE_KEY --chain sepolia
     ```
 
 !!! warning
@@ -20357,9 +20379,9 @@ Go to the contract's page by opening the link:
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#writeContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#writeContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#writeContract){target=\_blank}
 
 Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 
@@ -20368,7 +20390,10 @@ Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 !!! note
     You can configure Metamask to use a cold wallet.
 
-Once connected, expand the `registerOperator` function, click on `Write`, and sign the transaction.
+Once connected:
+
+1. Expand the `registerOperator` function
+2. Click on `Write`, and sign the transaction.
 
 ![Register the operator](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
 
@@ -20380,9 +20405,9 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.mainnet.operators_registry }}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.holesky.operators_registry }}
+    {{ networks.symbiotic.contracts.sepolia.operators_registry }}
 
 Finally, pick the `registerOperator` function and sign the transaction.
 
@@ -20394,11 +20419,17 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract){target=\_blank}
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
-    [https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#readContract](https://holesky.etherscan.io/address/{{ networks.symbiotic.contracts.holesky.operators_registry }}#readContract){target=\_blank}
+    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#readContract){target=\_blank}
 
-Select the `isEntity` function, paste your operator's account, and click on `Query`. If your operator was registered correctly, you'll get a `true` result, and otherwise, `false`.
+On the contract's page:
+
+1. Select the `isEntity` function
+2. Paste your operator's account
+3. Click on `Query` 
+
+If your operator was registered correctly, you'll get a `true` result, and otherwise, `false`
 
 ![Check the registration status](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-3.webp)
 
@@ -20410,10 +20441,10 @@ You can also verify your registration status using the Symbiotic CLI running the
     python3 symb.py isop OPERATOR_ADDRESS
     ```
 
-=== "Testnet (Holesky)"
+=== "Testnet (Sepolia)"
 
     ```bash
-    python3 symb.py isop OPERATOR_ADDRESS --chain holesky
+    python3 symb.py isop OPERATOR_ADDRESS --chain sepolia
     ```
 
 And the output looks like:
@@ -20434,10 +20465,6 @@ To submit your operator's metadata, head to the Symbiotic metadata repository:
 === "Mainnet"
 
     [https://github.com/symbioticfi/metadata-mainnet](https://github.com/symbioticfi/metadata-mainnet){target=\_blank}
-
-=== "Testnet (Holesky)"
-
-    [https://github.com/symbioticfi/metadata-holesky](https://github.com/symbioticfi/metadata-holesky){target=\_blank}
 
 Create a fork of this repo and, within the `operators` directory, create a new directory named after your operator's address. Within your operator's directory, add your `logo.png` and a file named `info.json` with the following fields, replacing the values with your own:
 
@@ -20512,6 +20539,235 @@ A successful validator must be able to synchronize and interact with one peer-to
 
 Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/run-a-validator/validators-docker/
 --- BEGIN CONTENT ---
+---
+title: Run a Validator Using Docker
+description: Learn how to set up and run a validator (aka operator) for Tanssi network using Docker to participate in the protocol, secure networks, and earn rewards.
+icon: simple-docker
+---
+
+# Run a Validator in Tanssi Using Docker
+
+## Introduction {: #introduction }
+
+One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of their TVL, userbase, or use case specifics. Tanssi's design offers developers a shared security model, alleviating the need to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+
+The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
+
+In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
+
+In this guide, you'll learn how to spin up a Tanssi validator using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+### Installing Docker {: #installing-docker}
+
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+
+Run the following command to install Docker on a Linux Ubuntu platform:
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+And the following command to check the installation:
+
+```bash
+sudo docker run hello-world
+```
+
+This is what a successful execution in the terminal looks like:
+
+--8<-- 'code/node-operators/terminal/hello-world.md'
+
+### Pull the Docker Image {: #pull-docker-image }
+
+A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi validator requires and the binary file itself.
+
+A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the Tanssi orchestrator specification file.
+
+The following command to pull the Docker image:
+
+```bash
+docker pull {{ networks.dancelight.validator_docker_image }}
+```
+
+The command will download and extract the image and show the status upon execution:
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker moondancelabs/dancelight-chain</span>
+  <span data-ty>
+    <br> 
+    <br> Using default tag: latest
+    <br> latest: Pulling from moondancelabs/dancelight-chain
+    <br> e1caac4eb9d2: Pull complete 
+    <br> 1d4409959e6d: Pull complete 
+    <br> b8beed19c122: Pull complete 
+    <br> c0fab1f18601: Pull complete 
+    <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
+    <br> Status: Downloaded newer image for moondancelabs/dancelight-chain
+    <br> docker.io/moondancelabs/dancelight-chain
+  </span>
+</div>
+
+### Set Up the Data Directory {: #set-up-data-directory }
+
+Running a validator requires syncing with the Tanssi chain and storing its state.
+
+Run the following command to create the directory where your node will store the databases containing blocks and chain states:
+
+```bash
+mkdir /var/lib/tanssi-data
+```
+
+Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
+
+```bash
+chown INSERT_DOCKER_USER /var/lib/tanssi-data
+```
+
+Or run the following command if you want to run the node with the current logged-in user:
+
+```bash
+sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+```
+
+!!! note
+    The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
+
+### Generate the Node Key {: #generate-node-key }
+
+To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+
+```bash
+docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+-u $(id -u ${USER}):$(id -g ${USER}) \
+--entrypoint /chain-network/tanssi-relay {{ networks.dancelight.validator_docker_image }} key generate-node-key --file /data/node-key
+```
+
+!!! note
+    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
+
+## Start Your Node {: #start-your-node }
+
+To spin up your node, you must run the Docker image with the `docker run` command. 
+
+Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_IP_ADDRESS` with your public IP address.
+
+!!! note
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+
+=== "Generic"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    --entrypoint "/chain-network/tanssi-relay" \
+    {{ networks.dancelight.validator_docker_image }} \
+    --chain=dancelight \
+--base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--rpc-max-connections=100 \
+--validator
+    ```
+
+=== "Intel Skylake"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    --entrypoint "/chain-network/tanssi-relay-skylake" \
+    {{ networks.dancelight.validator_docker_image }} \
+    --chain=dancelight \
+--base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--rpc-max-connections=100 \
+--validator
+    ```
+
+=== "AMD Zen3"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    --entrypoint "/chain-network/tanssi-relay-znver3" \
+    {{ networks.dancelight.validator_docker_image }} \
+    --chain=dancelight \
+--base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--rpc-max-connections=100 \
+--validator
+    ```
+
+### Run Flags {: #run-flags }
+
+The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+
+- `--name INSERT_NAME` - a human-readable name for this node
+- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
+- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
+- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
+- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
+- `--detailed-log-output` - enables detailed log output
+
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
+
+For a complete list of available flags, their description, and possible values, run the following command:
+
+```bash
+docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.validator_docker_image }} --help
+```
+
+## Syncing Your Node {: #syncing-your-node }
+
+The first time your node spins up, the syncing process displays lots of log information from the node configuration and the chain blocks being synced. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker run ....</span>
+  <span data-ty>
+    <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
+    <br> 2024-02-08 18:30:06.368  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #14139635 (0x8c41…8df6)    
+    <br> 2024-02-08 18:30:08.809  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #14139635 (0x8c41…8df6), finalized #14139632 (0xa9a8…cab9), ⬇ 32.7kiB/s ⬆
+  </span>
+</div>
+
+When the syncing process is finished, your node is ready for the next steps.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/run-a-validator/validators-systemd/
@@ -20522,7 +20778,7 @@ description: Learn how to set up and run a validator (operator) node for Tanssi 
 icon: simple-linux
 ---
 
-# Run a Block Producer Node Using Systemd
+# Run a Validator Node Using Systemd
 
 ## Introduction {: #introduction }
 
@@ -20617,7 +20873,7 @@ mkdir /var/lib/tanssi-data
 Set the folder's ownership to the account that will run the service to ensure writing permission:
 
 ```bash
-sudo chown -R tanssi_service /var/lib/tanssi-data
+chown -R tanssi_service /var/lib/tanssi-data
 ```
 
 And finally, move the binaries to the folder:
@@ -20625,6 +20881,17 @@ And finally, move the binaries to the folder:
 ```bash
 mv ./tanssi-relay* /var/lib/tanssi-data
 ```
+
+### Generate the Node Key {: #generate-node-key }
+
+To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+
+```bash
+/var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
+```
+
+!!! note
+    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
@@ -20655,6 +20922,7 @@ KillSignal=SIGHUP
 LimitNOFILE=100000
 ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
   --base-path=/var/lib/tanssi-data/ \
+  --node-key-file /var/lib/tanssi-data/node-key \
   --database=paritydb \
   --rpc-port=9944 \
   --prometheus-port=9615 \
@@ -20684,6 +20952,9 @@ The flags used in the ExecStart command can be adjusted according to your prefer
 - `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
 - `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
 - `--detailed-log-output` - enables detailed log output
+
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
