@@ -19918,11 +19918,16 @@ The Tanssi protocol achieves this by integrating with [external security provide
 
 In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
 
-Before securing Tanssi-powered networks, node operators must ensure their node is [set up and running](/node-operators/validators/onboarding/run-a-validator/){target=\_blank}, they [have registered an operator in the Symbiotic registry](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank}, and, finally, they have opted in to work with a Tanssi-enabled Symbiotic vault and the Tanssi network itself. This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
+This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-If you have already [registered as an operator](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank}, and before starting to secure Tanssi-powered networks, you must register your intention by opting into a Tanssi-enabled Symbiotic vault and the Tanssi network. Both steps require interacting with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
+Before opting into a Tanssi-enabled vault and the Tanssi network, make sure that:
+
+- You have a node correctly [set up and running](/node-operators/validators/onboarding/run-a-validator/){target=\_blank}
+- You [have registered as an operator](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank} in the Symbiotic registry 
+
+To follow this guide, you must interact with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
 
 There are several ways to interact with the smart contracts:
 
@@ -20085,7 +20090,7 @@ In the contract's page:
 
 1. Select the `isOptedIn` function
 2. Paste your operator's account in the `who` field
-3. Insert the VAULT_ADDRESS in the `where` field
+3. Insert the `VAULT_ADDRESS` in the `where` field
 4. Click on **Query**
 
  You'll get a `true` result if your operator was registered correctly and `false` otherwise.
@@ -20266,12 +20271,13 @@ The Tanssi protocol achieves this by integrating with [external security provide
 
 In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
 
-Before securing Tanssi-powered networks, node operators must [set up the node](/node-operators/validators/onboarding/run-a-validator/){target=\_blank} and register as operators in the Symbiotic protocol. This guide will walk you through the steps to successfully register your node as an operator.
+This guide will walk you through the steps to successfully register your node as a Symbiotic operator.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-If you have already [set up the node](/node-operators/validators/onboarding/run-a-validator/){target=\_blank} and it is running, your next step is calling one of Symbiotic's core smart contracts: `registerOperator`.
+Before registering as an operator, ensure you have already [set up the node](/node-operators/validators/onboarding/run-a-validator/){target=\_blank} and it is running.
 
+To follow this guide, you must interact with smart contracts.
 There are several ways to interact with the smart contracts:
 
 - Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
@@ -20475,8 +20481,8 @@ Create a fork of this repo and, within the `operators` directory, create a new d
 
 ```json
 {
-	"name": "YOUR_OPERATOR_NAME",
-	"description": "YOUR_OPERATOR_DESCRIPTION",
+	"name": "INSERT_YOUR_OPERATOR_NAME",
+	"description": "INSERT_YOUR_OPERATOR_DESCRIPTION",
 	"tags": [
 		"operator"
 	],
@@ -20484,12 +20490,12 @@ Create a fork of this repo and, within the `operators` directory, create a new d
 		{
 			"type": "website",
 			"name": "Website",
-			"url": "https://YOUR_WEBSITE_URL"
+			"url": "https://INSERT_YOUR_WEBSITE_URL"
 		},
 		{
 			"type": "website",
 			"name": "X",
-			"url": "https://YOUR_X_URL"
+			"url": "https://INSERT_YOUR_X_URL"
 		}
 	]
 }
