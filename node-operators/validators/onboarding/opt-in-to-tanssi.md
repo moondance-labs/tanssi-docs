@@ -1,16 +1,16 @@
 ---
-title: Opt-In to Tanssi
-description: Learn how to opt-in your with registered node to Tanssi-enabled Symbiotic vaults and the Tanssi network to participate in the protocol and earn rewards.
+title: Opt In to Tanssi
+description: Learn how to opt in with your registered node to Tanssi-enabled Symbiotic vaults and the Tanssi network to participate in the protocol and earn rewards.
 icon: octicons-plus-circle-24
 ---
 
-# Opt-In to Tanssi
+# Opt In to Tanssi
 
 ## Introduction {: #introduction }
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
 
-Before being able to secure Tanssi-powered networks, node operators must ensure their node is [set up and running](/node-operators/validators/onboarding/run-a-validator/){target=\_blank}, they [have registered an operator in the Symbiotic registry](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank}, and, finally, they have opted in to work with a Tanssi-enabled Symbiotic vault and the Tanssi network itself. This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
+Before securing Tanssi-powered networks, node operators must ensure their node is [set up and running](/node-operators/validators/onboarding/run-a-validator/){target=\_blank}, they [have registered an operator in the Symbiotic registry](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank}, and, finally, they have opted in to work with a Tanssi-enabled Symbiotic vault and the Tanssi network itself. This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -18,13 +18,13 @@ If you have already [registered as an operator](/node-operators/validators/onboa
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/prerequisites.md'
 
-## Opt-In to Tanssi-Enabled Vaults {: #opt-in-tanssi-vaults }
+## Opt In to Tanssi-Enabled Vaults {: #opt-in-tanssi-vaults }
 
 Before enabling your operator to be an active Tanssi network validator, you must opt in to at least one of the Tanssi-enabled vaults. The following sections describe several ways to opt into the vaults.
 
-### Opt-In Using the Symbiotic CLI {: #opt-in-tanssi-vaults-with-cli }
+### Opt In Using the Symbiotic CLI {: #opt-in-tanssi-vaults-with-cli }
 
-If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want to sign the transaction using a ledger device, then run the following command, replacing the `VAULT_ADDRESS` with the specific one you want to join and `OPERATOR_ADDRESS` with your account:
+If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `VAULT_ADDRESS` with the specific one you want to join and `OPERATOR_ADDRESS` with your account:
 
 === "Mainnet"
 
@@ -55,11 +55,11 @@ If you want to sign the transaction directly using the operator's account privat
 !!! warning
     Note that this method requires you to expose your private key; therefore, it is not recommended.
 
-### Opt-In Using Etherscan {: #opt-in-tanssi-vaults-with-etherscan }
+### Opt In Using Etherscan {: #opt-in-tanssi-vaults-with-etherscan }
 
-You can interact with Symbiotic's smart contracts using Etherscan, and sign the transaction using a browser wallet ([Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, for example). 
+You can interact with Symbiotic's smart contracts using Etherscan, and sign the transaction using a browser wallet ([MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, for example). 
 
-To open the contrat's page, open the link:
+To open the contract's page, open the link:
 
 === "Mainnet"
 
@@ -69,7 +69,7 @@ To open the contrat's page, open the link:
 
     [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#writeContract){target=\_blank}
 
-Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
+Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
 ![Connect to Web3 step](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-1.webp)
 
@@ -79,12 +79,12 @@ Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 Once connected:
 
 1. Expand the `optin` function
-2. Insert the VAULT_ADDRESS
+2. Insert the `VAULT_ADDRESS`
 3. Click on `Write`, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)
 
-### Opt-In Using Safe for Multi-sig Setups {: #opt-in-tanssi-vaults-with-safe }
+### Opt In Using Safe for Multisig Setups {: #opt-in-tanssi-vaults-with-safe }
 
 If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
 
@@ -96,9 +96,9 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.sepolia.opt_in_vault }}
 
-Finally, pick the `optin` function, insert the VAULT_ADDRESS (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia testnet), and sign the transaction.
+Finally, pick the `optin` function, insert the `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet), and sign the transaction.
 
-### Checking the Registration Status {: #checking-vault-registration }
+### Check the Registration Status {: #checking-vault-registration }
 
 You can quickly check your registration status on Etherscan. Open the following link:
 
@@ -126,7 +126,7 @@ You can also verify your registration status using the Symbiotic CLI running the
 === "Mainnet"
     
     ```bash
-    python3 symb.py check-opt-in-vault OPERATOR_ADDRESS VAULT_ADDRESS
+    python3 symb.py check-opt-in-vault INSERT_OPERATOR_ADDRESS INSERT_VAULT_ADDRESS
     ```
 
 === "Testnet (Sepolia)"
@@ -144,13 +144,13 @@ And the output looks like:
     <br>
 </div>
 
-## Opt-In to Tanssi Network {: #opt-in-tanssi }
+## Opt In to the Tanssi Network {: #opt-in-tanssi }
 
 Before enabling your operator to be an active Tanssi network validator, you must opt into the network and be approved by the Tanssi team. The following sections describe several ways to opt into the network.
 
-### Opt-In Using the Symbiotic CLI {: #opt-in-tanssi-with-cli }
+### Opt In Using the Symbiotic CLI {: #opt-in-tanssi-with-cli }
 
-If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want to sign the transaction using a ledger device, then run the following command, replacing the `OPERATOR_ADDRESS`:
+If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a ledger device, then run the following command, replacing the `OPERATOR_ADDRESS`:
 
 === "Mainnet"
 
@@ -181,7 +181,7 @@ If you want to sign the transaction directly using the operator's account privat
 !!! warning
     Note that this method requires you to expose your private key; therefore, it is not recommended.
 
-### Opt-In Using Etherscan {: #opt-in-tanssi-with-etherscan }
+### Opt In Using Etherscan {: #opt-in-tanssi-with-etherscan }
 
 You can interact with Symbiotic's smart contracts using Etherscan and sign the transaction using a browser wallet ([Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, for example). 
 
@@ -210,7 +210,7 @@ Once connected:
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
 
-### Opt-In Using Safe for Multi-sig Setups {: #opt-in-tanssi-with-safe }
+### Opt In Using Safe for Multisig Setups {: #opt-in-tanssi-with-safe }
 
 If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
 
@@ -224,7 +224,7 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
 Finally, pick the `optin` function, insert the  (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet), and sign the transaction.
 
-### Checking the Registration Status {: #checking-tanssi-registration }
+### Check the Registration Status {: #checking-tanssi-registration }
 
 You can quickly check your registration status on Etherscan. Open the following link:
 
@@ -236,7 +236,7 @@ You can quickly check your registration status on Etherscan. Open the following 
 
     [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#readContract){target=\_blank}
 
-In the contract's page:
+On the contract's page:
 
 1. Select the `isOptedIn` function
 2. Paste your operator's account in the `who` field
@@ -271,4 +271,4 @@ And the output looks like:
 </div>
 
 !!! note
-    Opting-in to the Tanssi Networks requires approval by the Tanssi team. Requests to join could take up to one week.
+    Opting in to the Tanssi Networks requires approval by the Tanssi team. Requests to join could take up to one week.

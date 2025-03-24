@@ -10,7 +10,7 @@ icon: octicons-shield-check-24
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
 
-Before being able to secure Tanssi-powered networks, node operators must [set up the node](/node-operators/validators/onboarding/run-a-validator/){target=\_blank} and register as operators in the Symbiotic protocol. This guide will walk you through the steps to successfully register your node as an operator.
+Before securing Tanssi-powered networks, node operators must [set up the node](/node-operators/validators/onboarding/run-a-validator/){target=\_blank} and register as operators in the Symbiotic protocol. This guide will walk you through the steps to successfully register your node as an operator.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -18,13 +18,13 @@ If you have already [set up the node](/node-operators/validators/onboarding/run-
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/prerequisites.md'
 
-## Registering as an Operator {: #registering-operator }
+## Register as an Operator {: #registering-operator }
 
 The Symbiotic protocol keeps a registry of all operators. Before being able to secure Tanssi-powered networks, node operators must register as operators in the Symbiotic protocol using one of the methods described in the following sections.
 
 ### Register Using the Symbiotic CLI {: #register-with-cli }
 
-If you correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want to sign the transaction using a ledger device, then run the following command, replacing the `OPERATOR_ADDRESS` with your account:
+If you correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a ledger device, then run the following command, replacing the `OPERATOR_ADDRESS` with your account:
 
 === "Mainnet"
 
@@ -79,7 +79,7 @@ Click on `Connect to Web3`, and select your preferred wallet (e.g. Metamask):
 Once connected:
 
 1. Expand the `registerOperator` function
-2. Click on `Write`, and sign the transaction.
+2. Click on `Write`, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
 
@@ -142,9 +142,9 @@ And the output looks like:
     <br>
 </div>
 
-## Submitting Metadata {: #submitting-metadata }
+## Submit Metadata {: #submitting-metadata }
 
-Once your operator is successfully registered, you can add metadata (e.g., logo) to improve its visibility in the [Symbiotic website](httos://app.symbiotic.fi){target=\_blank}.
+Once your operator is successfully registered, you can add metadata (e.g., logo) to improve its visibility on the [Symbiotic website](httos://app.symbiotic.fi){target=\_blank}.
 
 To submit your operator's metadata, head to the Symbiotic metadata repository:
 

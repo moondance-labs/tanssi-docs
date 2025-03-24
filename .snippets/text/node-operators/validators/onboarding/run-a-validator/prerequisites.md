@@ -1,18 +1,18 @@
-There are several ways to interact with the smart contract:
+There are several ways to interact with the smart contracts:
 
-1. Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
-2. Using [Etherscan](https://etherscan.io/){target=\_blank}
-3. Using [Safe](https://safe.global/){target=\_blank} for multi-sig setups
+- Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
+- Using [Etherscan](https://etherscan.io/){target=\_blank}
+- Using [Safe](https://safe.global/){target=\_blank} for multisig setups
 
 In any case, you'll need to sign the transaction using the account you intend to use for the node. You can choose between different options to do so:
 
-1. Using the account's private key directly (although this method is not recommended)
-2. Using a hot wallet, such as [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
-3. Using a cold wallet, such as [ledger](https://www.ledger.com/){target=\_blank}
+- Using the account's private key directly (although this method is not recommended)
+- Using a hot wallet, such as [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
+- Using a cold wallet, such as [Ledger](https://www.ledger.com/){target=\_blank}
 
 The following section outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
 
-### Setting Up the Symbiotic CLI {: #setting-up-the-cli }
+### Set Up the Symbiotic CLI {: #set-up-the-cli }
 
 The [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank} is a tool for interacting with Symbiotic's core smart contracts. It is written in [Python](https://www.python.org/){target=\_blank}, so you'll need to install the Python interpreter and [pip](https://pypi.org/project/pip/){target=\_blank}, Python's package installer:
 

@@ -14,10 +14,10 @@ Use the following resources to get started as a validator:
 - [**Hardware requirements**](/node-operators/validators/onboarding/run-a-validator/#hardware-requirements) - understand the recommended hardware specifications to ensure optimal performance of your sequencer node
 - [**Port configuration**](/node-operators/validators/onboarding/run-a-validator/#required-network-ports) - learn which network ports need to be open to ensure proper communication within the Tanssi ecosystem
 - [**Register in Symbiotic**](/node-operators/validators/onboarding/register-in-symbiotic) - learn how to register your node in the Symbiotic protocol
-- [**Opt in to Tanssi Network**](/node-operators/validators/onboarding/opt-in-to-tanssi/) - learn how opt in to Tanssi network and Tanssi-enabled symbiotic vaults
+- [**Opt in to Tanssi**](/node-operators/validators/onboarding/opt-in-to-tanssi/) - learn how to opt in to the Tanssi network and Tanssi-enabled Symbiotic vaults
 
 !!! note
-    The public testnet is not yet open to registrations by external operators.
+    The public TestNet is not yet open to registrations by external operators.
 
 ## Explore This Section
 
