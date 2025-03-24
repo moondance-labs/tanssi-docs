@@ -10,12 +10,13 @@ icon: octicons-shield-check-24
 
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
 
-Before securing Tanssi-powered networks, node operators must [set up the node](/node-operators/validators/onboarding/run-a-validator/){target=\_blank} and register as operators in the Symbiotic protocol. This guide will walk you through the steps to successfully register your node as an operator.
+This guide will walk you through the steps to successfully register your node as a Symbiotic operator.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-If you have already [set up the node](/node-operators/validators/onboarding/run-a-validator/){target=\_blank} and it is running, your next step is calling one of Symbiotic's core smart contracts: `registerOperator`.
+Before registering as an operator, ensure you have already [set up the node](/node-operators/validators/onboarding/run-a-validator/){target=\_blank} and it is running.
 
+To follow this guide, you must interact with smart contracts.
 --8<-- 'text/node-operators/validators/onboarding/run-a-validator/prerequisites.md'
 
 ## Register as an Operator {: #registering-operator }
