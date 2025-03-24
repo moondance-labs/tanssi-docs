@@ -63,11 +63,11 @@ Go to the contract's page by opening the link:
 
 === "MainNet"
 
-    [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.operators_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#writeContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.operators_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#writeContract){target=\_blank}
 
 Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
@@ -103,11 +103,11 @@ You can quickly check your registration status on Etherscan. Open the following 
 
 === "MainNet"
 
-    [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.operators_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.operators_registry }}#readContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.operators_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.operators_registry }}#readContract){target=\_blank}
 
 On the contract's page:
 
@@ -150,7 +150,7 @@ To submit your operator's metadata, head to the Symbiotic metadata repository:
 
 === "MainNet"
 
-    [https://github.com/symbioticfi/metadata-mainnet](https://github.com/symbioticfi/metadata-mainnet){target=\_blank}
+    [Mainnet repository](https://github.com/symbioticfi/metadata-mainnet){target=\_blank}
 
 Create a fork of this repo and, within the `operators` directory, create a new directory named after your operator's address. Within your operator's directory, add your `logo.png` and a file named `info.json` with the following fields, replacing the values with your own:
 

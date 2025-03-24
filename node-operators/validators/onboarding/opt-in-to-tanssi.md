@@ -63,11 +63,11 @@ To open the contract's page, open the link:
 
 === "MainNet"
 
-    [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.opt_in_vault }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#writeContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.opt_in_vault }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#writeContract){target=\_blank}
 
 Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
@@ -104,11 +104,11 @@ You can quickly check your registration status on Etherscan. Open the following 
 
 === "MainNet"
 
-    [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.opt_in_vault }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_vault }}#readContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.opt_in_vault }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_vault }}#readContract){target=\_blank}
 
 In the contract's page:
 
@@ -147,6 +147,9 @@ And the output looks like:
 ## Opt In to the Tanssi Network {: #opt-in-tanssi }
 
 Before enabling your operator to be an active Tanssi network validator, you must opt into the network and be approved by the Tanssi team. The following sections describe several ways to opt into the network.
+
+!!! note
+    The MainNet Tanssi Network address will be disclosed upon launch.
 
 ### Opt In Using the Symbiotic CLI {: #opt-in-tanssi-with-cli }
 
@@ -189,11 +192,11 @@ Go to the contract's page by opening the link:
 
 === "MainNet"
 
-    [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#writeContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.opt_in_network }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#writeContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#writeContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.opt_in_network }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#writeContract){target=\_blank}
 
 Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
@@ -230,11 +233,11 @@ You can quickly check your registration status on Etherscan. Open the following 
 
 === "MainNet"
 
-    [https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#readContract](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.opt_in_network }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.opt_in_network }}#readContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#readContract](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.opt_in_network }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.opt_in_network }}#readContract){target=\_blank}
 
 On the contract's page:
 
