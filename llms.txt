@@ -17036,11 +17036,11 @@ Well-behaved operators and restakers are rewarded for their participation with T
 
 The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
 
-1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree). This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
-2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](/builders/interoperability/xcm/overview/) (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge) acts as a trustless bridge between Tanssi and Ethereum
+1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
+2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.network/docs/learn/xcm/overview-summary){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
 3. **Ethereum Message Reception** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
-4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol), which is responsible for various tasks, including passing the information to the `OperatorReward` contract
-5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
+4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, which is responsible for various tasks, including passing the information to the `OperatorReward` contract
+5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
 
 ```mermaid
 %%{init: {'sequence': {'mirrorActors': false}}}%%
@@ -17065,7 +17065,7 @@ In the reward-claiming phase, operators and stakers can claim rewards based on t
 1. **Operator Reward Claim** - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
 2. **Token Release** - the operator call triggers the token release, and the `OperatorRewards` sends the established amount to the operator
 3. **Token Distribution to Stakers** - the remaining rewards are forwarded to the `StakerRewards` contract for further claiming of the staker
-4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol) contract, where stakers can claim rewards proportional to their stake in the vaults
+4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol){target=\_blank} contract, where stakers can claim rewards proportional to their stake in the vaults
 
 ```mermaid
 %%{init: {'sequence': {'mirrorActors': false}}}%%
@@ -17594,7 +17594,7 @@ template: index-page.html
 
 # Run a Network Node
 
-Setting up a network node is essential for interacting with your Tanssi-powered network, providing a secure and dedicated RPC endpoint. This section offers step-by-step guides to help you deploy and manage your node effectively. Explore options tailored to different deployment approaches:
+Setting up a network node is essential for interacting with your Tanssi-powered network, providing a secure and dedicated RPC endpoint. This section offers step-by-step guides to help you configure and manage your node effectively. Explore two different approaches for running your node:
 
 - [**Using Docker**](/node-operators/network-node/rpc-docker/) - instructions to set up your node in a containerized environment for easy deployment and isolation
 - [**Using Systemd**](/node-operators/network-node/rpc-systemd/) - guidance for configuring your node as a service, enabling automated management and system integration
@@ -17716,20 +17716,19 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
 --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
 -- \
 --name=relay \
 --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
 --rpc-port=9945 \
 --sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+--database=paritydb \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
         ```
 
     === "Intel Skylake"
@@ -17740,20 +17739,19 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
 --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
 -- \
 --name=relay \
 --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
 --rpc-port=9945 \
 --sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+--database=paritydb \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
         ```
 
     === "AMD Zen3"
@@ -17764,20 +17762,19 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
 --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
 -- \
 --name=relay \
 --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
 --rpc-port=9945 \
 --sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+--database=paritydb \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
         ```
 
 === "Simple Substrate Network"
@@ -17790,20 +17787,19 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
 --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
 -- \
 --name=relay \
 --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
 --rpc-port=9945 \
 --sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+--database=paritydb \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
         ```
 
     === "Intel Skylake"
@@ -17814,20 +17810,19 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
 --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
 -- \
 --name=relay \
 --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
 --rpc-port=9945 \
 --sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+--database=paritydb \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
         ```
     
     === "AMD Zen3"
@@ -17838,20 +17833,19 @@ To spin up your node, you must run the Docker image with the `docker run` comman
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
 --name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
 --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
 -- \
 --name=relay \
 --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
 --rpc-port=9945 \
 --sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+--database=paritydb \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
         ```
 
 !!! note
@@ -17859,7 +17853,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [Polkadot.js explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancebox.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancebox.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
 
 To do so, take the following steps:
 
@@ -17882,6 +17876,8 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 --name=para \
 --state-pruning=archive \
 --blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
 --bootnodes=/dns4/fraa-dancebox-c1-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p
 /12D3KooWHbs1SetugtcwHUYEAN2j1gE2TW8vmqgfcbcELy4x9hqg \
 -- \
@@ -17889,14 +17885,9 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 --rpc-port=9945 \
 --name=relay \
 --sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE \
+--database=paritydb \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
 ```
 
 ### Run Flags {: #run-flags }
@@ -17910,6 +17901,9 @@ The flags used in the `docker run` command can be adjusted according to your pre
 - `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
 - `--detailed-log-output` - enables detailed log output
 
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
+
 For a complete list of available flags, their description, and possible values, run the following command:
 
 ```bash
@@ -17920,7 +17914,7 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 
 ## Syncing Your Node {: #syncing-your-node }
 
-Once your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+Once your node spins up, the syncing process displays a lot of log information from both the node and the Tanssi network. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
 <div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>docker run ....</span>
@@ -17972,7 +17966,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
     ![Getting the chain specs](/images/node-operators/network-node/rpc-systemd/rpc-systemd-1.webp)
 
-- **Relay chain specifications file** - the relay chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha){target=\_blank}
+- **Tanssi network specifications file** - the Tanssi network specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha){target=\_blank}
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -17995,11 +17989,11 @@ Every new release includes two node binaries, one for EVM-compatible networks an
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
 
-## Download the Relay Chain Specs File {: #download-relay-specs }
+## Download the Tanssi Network Specs File {: #download-tanssi-specs }
 
-The node binary file includes also the necessary code to run a relay chain node. When launching your network's node, it will also be required to provide the relay chain's specification file as a parameter.
+The node binary file includes also the necessary code to run a Tanssi network node. When launching your network's node, it will also be required to provide the Tanssi network specification file as a parameter.
 
-Download the relay chain specification file by executing:
+Download the Tanssi network specification file by executing:
 
 ```bash
 wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
@@ -18075,20 +18069,19 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     --rpc-port=9944 \
     --name=para \
     --base-path=/var/lib/network-data \
+    --state-pruning=archive \
+    --blocks-pruning=archive \
+    --database=paritydb \
+    --unsafe-rpc-external \
     --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
     -- \
-    --chain=/var/lib/network-data/westend-alphanet-raw-specs.json \
+    --chain=/var/lib/network-data/relay-raw-no-bootnodes-specs.json \
     --rpc-port=9945 \
     --name=relay \
     --sync=fast \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
+    --database=paritydb \
+    --bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+    --bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
 
     [Install]
     WantedBy=multi-user.target
@@ -18136,7 +18129,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [Polkadot.js explorer](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancebox.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancebox.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
 
 To do so, take the following steps:
 
@@ -18203,6 +18196,9 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 - `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
 - `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
 - `--detailed-log-output` - enables detailed log output
+
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
@@ -18282,7 +18278,7 @@ template: index-page.html
 
 # Tanssi Sequencers
 
-Becoming a sequencer is a critical role in maintaining the security and efficiency of the Tanssi ecosystem. Sequencers are responsible for producing blocks, validating transactions, and ensuring the smooth operation of the network. This section provides everything you need to get started, from initial setup to operational best practices and account management.
+Sequencers play a critical role in maintaining the liveness and performance of the Tanssi ecosystem. They are responsible for producing blocks, executing transactions, and ensuring the network's smooth operation. This section provides everything you need to get started, from initial setup to operational best practices and account management.
 
 ## Explore This Section
 
@@ -18293,25 +18289,25 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/offboarding/a
 --- BEGIN CONTENT ---
 ---
 title: Decommissioning Your Sequencer
-description: In these step-by-step instructions, learn how to properly offboard as a Tanssi block producer, including unmapping your session keys and unstaking your bond.
+description: In these step-by-step instructions, learn how to properly offboard as a Tanssi sequencer, including unmapping your session keys and unstaking your bond.
 icon: octicons-arrow-down-right-24
 ---
 
-# Offboard as a Tanssi Block Producer
+# Offboard as a Tanssi Sequencer
 
 ## Introduction {: #introduction }
 
-As a block producer, there may come a time when you need to gracefully exit the network. Decommissioning your account involves a two-step process to ensure that your node is properly disassociated from your account and that you receive your bond back.
+As a sequencer, there may come a time when you need to gracefully exit the network. Decommissioning your account involves a two-step process to ensure that your node is properly disassociated from your account and that you receive your bond back.
 
-This guide will show you how to wind down your operations as a Tanssi block producer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi block producer with a [block-producing node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}.
+This guide will show you how to wind down your operations as a Tanssi sequencer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi sequencer with a [sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}.
 
 ## Request Undelegation {: #request-undelegation }
 
-When you set up your Tanssi block producer node, you had to submit a delegation bond of at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. To get that back and remove your block producer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
+When you set up your Tanssi sequencer, you had to submit a delegation bond of at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. To get that back and remove your sequencer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
 
 ### View Existing Stake {: #viewing-existing-stake }
 
-Before undelegating, it is helpful first to see how much you have staked, as you'll need to provide this figure later. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain State** from the dropdown, and take the following steps:
+Before undelegating, it is helpful first to see how much you have staked, as you'll need to provide this figure later. To do so, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain State** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module
 2. Select the **pools** query
@@ -18320,32 +18316,32 @@ Before undelegating, it is helpful first to see how much you have staked, as you
 5. In the **option** field, you select **JoiningShares**
 6. Click the **+** button next to the extrinsic field
 
-![Check existing stake on Polkadot.js Apps](/images/node-operators/sequencers/offboarding/account/account-1.webp)
+![Check existing stake on the developer portal](/images/node-operators/sequencers/offboarding/account/account-1.webp)
 
-Note, **JoiningShares** returns only the initial amount you delegated when configuring your block producer. To get your total amount staked, you'll need to repeat the above steps for either **ManualRewardShares** or **ManualRewardSharesHeldStake** if you didn't select Autocompounding, and either **AutoCompoundingShares** or **AutoCompoundingSharesHeldStake** if you configured Autocompounding. Then add your autocompounding or manual shares value to **JoiningShares** to get your total delegation outstanding.
+Note, **JoiningShares** returns only the initial amount you delegated when configuring your sequencer. To get your total amount staked, you'll need to repeat the above steps for either **ManualRewardShares** or **ManualRewardSharesHeldStake** if you didn't select Autocompounding, and either **AutoCompoundingShares** or **AutoCompoundingSharesHeldStake** if you configured Autocompounding. Then add your autocompounding or manual shares value to **JoiningShares** to get your total delegation outstanding.
 
-As an example, the total stake of an autocompounding block producer can be calculated by adding **JoiningShares** to **AutoCompoundingShares**. Note this amount, as you'll need it in the next section.
+As an example, the total stake of an autocompounding sequencer can be calculated by adding **JoiningShares** to **AutoCompoundingShares**. Note this amount, as you'll need it in the next section.
 
 ### Submit Undelegation Request {: #submit-undelegation-request }
 
-Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
-1. Select the account from which you want to send the extrinsic. This account must be your existing block producer account that you initially delegated from
+1. Select the account from which you want to send the transaction. This account must be your existing sequencer account that you initially delegated from
 2. Select the **pooledStaking** module
 3. Select the **requestUndelegate** extrinsic
-4. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to decommission as a block producer
+4. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to decommission as a sequencer
 5. Choose the target pool that you originally used when configuring your delegation (either **Autocompounding** or **Manual**)
 6. Select **Stake** or **Shares** from the dropdown
 7. Enter the amount to unstake. If you selected **Shares**, simply enter the number of Shares. If you selected **Stake**, you'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}. As a reminder, the minimum stake amount is `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. If you delegated the minimum amount and didn't accumulate additional rewards, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}` Planck
 8. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit an extrinsic to un-delegate on Polkadot.js Apps](/images/node-operators/sequencers/offboarding/account/account-2.webp)
+![Create and submit an extrinsic to un-delegate on the developer portal](/images/node-operators/sequencers/offboarding/account/account-2.webp)
 
 ### Execute the Pending Request {: #execute-pending-request }
 
 You'll need to wait at least {{ networks.dancebox.staking.leaving_delay_sessions_text }} sessions before executing the pending request. Each session is comprised of `{{ networks.dancebox.session.blocks }}` blocks and translates to about {{ networks.dancebox.session.hours }} hour per session. So, {{ networks.dancebox.staking.leaving_delay_sessions_text }} sessions correspond to approximately {{ networks.dancebox.staking.leaving_delay_hours_text }} hours.
 
-Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module
 2. Select the **pendingOperations** query
@@ -18354,7 +18350,7 @@ Before executing the pending request, you'll need to retrieve the session at whi
 5. Click the **+** button next to the extrinsic field
 6. The pending request will be displayed at the bottom of the page
 
-![Query the pending undelegation request on Polkadot.js Apps](/images/node-operators/sequencers/offboarding/account/account-3.webp)
+![Query the pending undelegation request on the developer portal](/images/node-operators/sequencers/offboarding/account/account-3.webp)
 
 In the example in the above image, the undelegate request to leave the auto-compounding pool was submitted during session `5,037`. So, the request can be executed starting at session `5,039`. Take note of the operation and the session index at which you submitted the request, as you'll need both values to execute the pending request.
 
@@ -18365,7 +18361,7 @@ You can run another query from the **Chain state** page to check the current ses
 3. Click the **+** button next to the extrinsic field
 4. The current session will be displayed at the bottom of the page
 
-![Query the current session index on Polkadot.js Apps](/images/node-operators/sequencers/offboarding/account/account-4.webp)
+![Query the current session index on the developer portal](/images/node-operators/sequencers/offboarding/account/account-4.webp)
 
 If at least two sessions have passed from the session you submitted the extrinsic, the request is ready to be executed. To do so, select **Extrinsics** from the **Developer** dropdown and take the following steps:
 
@@ -18378,34 +18374,34 @@ If at least two sessions have passed from the session you submitted the extrinsi
 7. For **at**, enter the session index at which you submitted the delegate request
 8. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/sequencers/offboarding/account/account-5.webp)
+![Create and submit an extrinsic to execute the pending self-delegation request on the developer portal](/images/node-operators/sequencers/offboarding/account/account-5.webp)
 
 ### Verify That Your Account Is Not in the List of Eligible Candidates {: #verify }
 
-If you'd like, you can verify that your block-producing node is no longer in the list of eligible candidates. To do so, go to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+If you'd like, you can verify that your sequencer is no longer in the list of eligible candidates. To do so, go to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module and the **sortedEligibleCandidates** query
 2. Click the **+** button next to the extrinsic field
 3. A list of the eligible candidates and their stakes will be displayed at the bottom of the page. You can search for your address to ensure that it does not exist in the list
 
-![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/sequencers/offboarding/account/account-6.webp)
+![Query the current list of eligible candidates on the developer portal](/images/node-operators/sequencers/offboarding/account/account-6.webp)
 
 ## Unmap Session Keys {: #unmap-session-keys }
 
-Session keys are used to perform network operations, such as signing blocks, whereas your block producer account holds the staked funds and has an on-chain identity. By unmapping the session key to your account, you sever the association between your block producer account and your block-producing node.
+Session keys are used to perform network operations, such as signing blocks, whereas your sequencer account holds the staked funds and has an on-chain identity. By unmapping the session key to your account, you sever the association between your sequencer account and your sequencer node.
 
 The unmapping step is taken only as part of the offboarding process. If you need to rotate/change your session keys, you'll need to follow the [generating and mapping new session keys](/node-operators/sequencers/onboarding/account-setup/#map-session-keys){target=\_blank}. You should not purge your keys during the session key rotation process.
 
-To unmap your session keys, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+To unmap your session keys, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
-1. Select your Tanssi block producer account
+1. Select your Tanssi sequencer account
 2. Select the **session** module
 3. Select **purgeKeys** extrinsic
 4. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Unmap session keys on Polkadot.js Apps](/images/node-operators/sequencers/offboarding/account/account-7.webp)
+![Unmap session keys on the developer portal](/images/node-operators/sequencers/offboarding/account/account-7.webp)
 
-Using the `session.keyOwner` method, you can verify that your session keys have been unmapped from your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Using the `session.keyOwner` method, you can verify that your session keys have been unmapped from your account as expected. To do this on the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **session** module
 2. Select the **keyOwner** query
@@ -18416,7 +18412,7 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 ![Verifying Unmapping was successful](/images/node-operators/sequencers/offboarding/account/account-8.webp)
 
-And that's it! You have successfully offboarded a Tanssi block producer. If you change your mind at any point and want to onboard back as a Tanssi block producer, you can follow the steps in the [onboarding guide](/node-operators/sequencers/onboarding/account-setup/){target=\_blank}.
+And that's it! You have successfully offboarded a Tanssi sequencer. If you change your mind at any point and want to onboard back as a Tanssi sequencer, you can follow the steps in the [onboarding guide](/node-operators/sequencers/onboarding/account-setup/){target=\_blank}.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/sequencers/offboarding/
@@ -18459,11 +18455,11 @@ icon: octicons-person-add-24
 
 Before you can start producing blocks on Tanssi-powered networks, you'll need to set up your account and establish your eligibility.
 
-You must have spun up a [block-producing node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} to tackle the account setup steps in this guide.
+You must have spun up a [Sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} to tackle the account setup steps in this guide.
 
 You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
 
-To establish eligibility, you must delegate yourself as a block producer and meet the minimum bond requirements.
+To establish eligibility, you must delegate yourself as a sequencer and meet the minimum bond requirements.
 
 By following the steps outlined in this guide, you'll learn everything you need to know to get started producing blocks within the Tanssi ecosystem.
 
@@ -18472,26 +18468,24 @@ By following the steps outlined in this guide, you'll learn everything you need 
 When establishing eligibility to produce blocks, there are a couple of variables to be aware of:
 
 - **Minimum self-delegation** - there is a minimum amount you must self-delegate to be considered eligible
-- **Session** - a period that has a constant set of block producers
-- **Tanssi block producers per session** - the number of block producers assigned to Tanssi per session
-- **Network block producers per session** - the number of block producers assigned to a Tanssi-powered network per session
+- **Session** - a period that has a constant set of sequencers
+- **Network sequencers per session** - the number of sequencers assigned to a Tanssi-powered network per session
 
-|               Variable               |                                                              Value                                                               |
-|:------------------------------------:|:--------------------------------------------------------------------------------------------------------------------------------:|
-|       Minimum self-delegation        |                                 {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE                                 |
-|               Session                |                                          {{ networks.dancebox.session.blocks }} blocks                                           |
-|  Tanssi block producers per session  | {{ networks.dancebox.block_producers.tanssi.min.num }} to {{ networks.dancebox.block_producers.tanssi.max.num }} block producers |
-| Network block producers per session |                               {{ networks.dancebox.block_producers.appchain.num }} block producers                               |
+|            Variable            |                              Value                               |
+|:------------------------------:|:----------------------------------------------------------------:|
+|    Minimum self-delegation     | {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE |
+|            Session             |          {{ networks.dancebox.session.blocks }} blocks           |
+| Network sequencers per session | {{ networks.dancebox.block_producers.appchain.num }} sequencers  |
 
-## Map an Account to Your Block Producer Node {: #map-account }
+## Map an Account to Your Sequencer Node {: #map-account }
 
-The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your block-producing node.
+The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your sequencer.
 
 You will need to create session keys for your primary and backup servers. Each of your servers, your primary and backup, should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
 
 ### Generate Session Keys {: #generate-session-keys }
 
-Before generating session keys, you must be [running a block-producing node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank}.
+Before generating session keys, you must be [running a sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank}.
 
 To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your block producer's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
 
@@ -18527,7 +18521,7 @@ Make sure you write down your session keys; you'll need to map your session keys
 
 ### Map Session Keys {: #map-session-keys }
 
-To perform the next step and map your session keys to your account, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+To perform the next step and map your session keys to your account, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
 1. Select your account, which should be the same account that you previously self-delegated
 2. Select the **session** module and the **setKeys** extrinsic
@@ -18535,9 +18529,9 @@ To perform the next step and map your session keys to your account, head to [Pol
 4. For **proof**, enter `0x`
 5. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit an extrinsic to set session keys on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-1.webp)
+![Create and submit a transaction to set session keys on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-1.webp)
 
-Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **session** module and the **keyOwner** query
 2. Enter `nmbs` in the **SpCoreCryptoKeyTypeId** field
@@ -18545,7 +18539,7 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 4. Click the **+** button next to the extrinsic field
 5. The account associated with the session keys, which should be your account, will be displayed at the bottom of the page
 
-![Create and submit query to verify session keys on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-2.webp)
+![Create and submit query to verify session keys on the developer portal](/images/node-operators/sequencers/onboarding/account-setup/setup-2.webp)
 
 ## Submit Self-Delegation {: #submit-self-delegation }
 
@@ -18553,24 +18547,24 @@ The next step towards becoming eligible to produce blocks on Tanssi-powered netw
 
 After you've submitted the request to delegate, you'll need to wait for a minimum of {{ networks.dancebox.staking.joining_delay_sessions_text }} sessions before you can execute the pending request. There are {{ networks.dancebox.session.blocks }} blocks in a session. So, {{ networks.dancebox.staking.joining_delay_sessions_text }} sessions are {{ networks.dancebox.staking.joining_delay_blocks }} blocks, which can take around {{ networks.dancebox.staking.joining_delay_hours_text }} hours.
 
-Block producers are assigned upon each session, requiring {{ networks.dancebox.block_producers.appchain.display }} per network and a minimum of {{ networks.dancebox.block_producers.tanssi.min.display }} to {{ networks.dancebox.block_producers.tanssi.max.display }} for Tanssi. The block producers participating in the session are picked from the list of candidates ordered by total stake until the total number of block producers required is covered. So, you'll need to ensure that your total stake is enough to fill one of the slots, which may require more than {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
+Sequencers are assigned upon each session, requiring {{ networks.dancebox.block_producers.appchain.display }} per network and a minimum of {{ networks.dancebox.block_producers.tanssi.min.display }} to {{ networks.dancebox.block_producers.tanssi.max.display }} for Tanssi. The sequencers participating in the session are picked from the list of candidates ordered by total stake until the total number of sequencers required is covered. So, you'll need to ensure that your total stake is enough to fill one of the slots, which may require more than {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
 
 ### Request Delegate {: #request-delegate }
 
-Head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
-1. Select the account from which you want to send the extrinsic. This account must be the same account that you are delegating to and is the account that you want to become a block producer
+1. Select the account from which you want to send the transaction. This account must be the same account that you are delegating to and is the account that you want to become a sequencer
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
-3. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to become a block producer
+3. Enter your account, which is, again, the same account you are sending the transaction from and the account you want to become a sequencer
 4. Choose the target pool. The pool can either be the auto-compounding pool, which auto-compounds delegation rewards, or the manual rewards pool, in which all actions related to rewards are manual
 5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit an extrinsic to self-delegate on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-3.webp)
+![Create and submit a transaction to self-delegate on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-3.webp)
 
 ### Execute the Pending Request {: #execute-pending-request }
 
-Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module and the **pendingOperations** query
 2. Enter your account
@@ -18578,7 +18572,7 @@ Before executing the pending request, you'll need to retrieve the session at whi
 4. Click the **+** button next to the extrinsic field
 5. The pending request will be displayed at the bottom of the page
 
-![Query the pending self-delegation request on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-4.webp)
+![Query the pending self-delegation request on the developer portal](/images/node-operators/sequencers/onboarding/account-setup/setup-4.webp)
 
 In the example in the above image, the delegate request to join the auto-compounding pool was submitted during session 4,829. So, the request can be executed starting at session 4,831.
 
@@ -18590,54 +18584,54 @@ You can run another query from the **Chain state** page to check the current ses
 2. Click the **+** button next to the extrinsic field
 3. The current session will be displayed at the bottom of the page
 
-![Query the current session index on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-5.webp)
+![Query the current session index on the developer portal](/images/node-operators/sequencers/onboarding/account-setup/setup-5.webp)
 
 If the request can be executed, select **Extrinsics** from the **Developer** dropdown and take the following steps:
 
-1. Select the account from which you want to send the extrinsic
-2. Select the **pooledStaking** module and the **executePendingOperations** extrinsic
+1. Select the account from which you want to send the transaction
+2. Select the **pooledStaking** module and the **executePendingOperations** transaction
 3. For **delegator**, enter your account, which is the same account you sent the self-delegate request from
 4. For **operation**, select the type of operation to execute. This should be either **JoiningAutoCompounding** or **JoiningManualRewards**, depending on the target pool you selected at the time of submitting the self-delegation request
 5. For **candidate**, enter the same account as you did in the **delegator** field
 6. For **at**, enter the session id at which you submitted the delegate request
 7. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit an extrinsic to execute the pending self-delegation request on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-6.webp)
+![Create and submit a transaction to execute the pending self-delegation request on the developer portal](/images/node-operators/sequencers/onboarding/account-setup/setup-6.webp)
 
 Now, you have completed all of the necessary account setup to be eligible to produce blocks!
 
 ## Verify That Your Account Is in the List of Eligible Candidates {: #verify }
 
-If you've followed all of the steps in this guide and have fully synced your block-producing node, you are now eligible to produce blocks. To verify that you are in the list of eligible candidates, you can go to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+If you've followed all of the steps in this guide and have fully synced your sequencer, you are now eligible to produce blocks. To verify that you are in the list of eligible candidates, you can go to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **pooledStaking** module and the **sortedEligibleCandidates** query
 2. Click the **+** button next to the extrinsic field
 3. A list of the eligible candidates and their stake will be displayed at the bottom of the page. You can search for your address to ensure you are eligible to produce blocks
 
-![Query the current list of eligible candidates on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-7.webp)
+![Query the current list of eligible candidates on the developer portal](/images/node-operators/sequencers/onboarding/account-setup/setup-7.webp)
 
-Remember that you'll need to be in the top candidates by total stake to produce blocks, and this is based on the number of [block producers required for each network and Tanssi](#important-variables).
+Remember that you'll need to be in the top candidates by total stake to produce blocks, and this is based on the number of [sequencers required for each network and Tanssi](#important-variables).
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/
 --- BEGIN CONTENT ---
 ---
 title: Onboard to Run a Sequencer Node
-description: Learn how to get started to run a sequencer (also known as producer nodes) using Docker or Systemd to participate in the protocol.
+description: Learn how to get started to run a sequencer using Docker or Systemd to participate in the protocol, provide block production services, and earn rewards.
 icon: octicons-arrow-up-right-24
 template: index-page.html
 ---
 
 # Onboarding
 
-Starting your journey as a sequencer begins here. This section covers the foundational steps to set up your node and prepare your account for active participation in the Tanssi network.
+Your journey as a sequencer begins here. This section covers the foundational steps to set up your node and prepare your account for active participation in the Tanssi network.
 
 Use the following resources to get started as a sequencer:
 
 - [**Hardware requirements**](/node-operators/sequencers/onboarding/run-a-sequencer/#hardware-requirements) - understand the recommended hardware specifications to ensure optimal performance of your sequencer node
 - [**Port configuration**](/node-operators/sequencers/onboarding/run-a-sequencer/#required-network-ports) - learn which network ports need to be open to facilitate proper communication within the Tanssi ecosystem
 - **Session keys setup** - detailed instructions on [generating](/node-operators/sequencers/onboarding/account-setup/#map-account) and [managing](/node-operators/sequencers/onboarding/account-setup/#map-session-keys) session keys, a vital step for enabling block production capabilities
-- **Node deployment** - choose between [Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/) and [systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/) for deploying your node, with step-by-step guides tailored for each method
+- **Node deployment** - choose between [Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/) and [systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/) for running your node, with step-by-step guides tailored for each method
 
 ## Explore This Section
 
@@ -18648,14 +18642,14 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/ru
 --- BEGIN CONTENT ---
 ---
 title: Run a Sequencer
-description: Learn how to set up and run sequencer node (also known as block producers or collators) using Docker or Systemd to participate in the protocol.
+description: Learn how to set up and run a sequencer node using Docker or Systemd to participate in the protocol, providing block production services and earning rewards.
 icon: octicons-server-24
 template: index-page.html
 ---
 
 # Run a Sequencer Node
 
-Setting up a sequencer node is an important step to participate in the Tanssi network. You have two options for configuration: using _Docker_ or _Systemd._ Whichever path you choose, we provide step-by-step tutorials to guide you through the process and ensure your node meets the necessary requirements to produce blocks and maintain a secure connection to the network.
+Setting up a sequencer node is an important step to participate in the Tanssi network. You have two options: _Docker_ or _Systemd_. Whichever path you choose, we provide step-by-step tutorials to guide you through the process and ensure your node meets the necessary requirements to produce blocks and maintain a secure connection to the network.
 
 ### Hardware Requirements
 
@@ -18672,12 +18666,11 @@ Recommended Hardware:
 
 ### Required Network Ports
 
-For successful block production, your node must synchronize and interact with three peer-to-peer (P2P) networks. To ensure proper communication within the Tanssi ecosystem, make sure the following ports are open for incoming:
+For successful block production, your node must synchronize and interact with two peer-to-peer (P2P) networks. To ensure proper communication within the Tanssi ecosystem, make sure the following ports are open for incoming:
 
 | Network          | Port        |
 |------------------|-------------|
 | Tanssi Chain     | 30333 (TCP) |
-| Relay Chain      | 30334 (TCP) |
 | Assigned Network | 30335 (TCP) |
 
 ## Explore This Section
@@ -18693,17 +18686,17 @@ description: Learn how to set up and run a sequencer (aka block producer) for Ta
 icon: simple-docker
 ---
 
-# Run a Block Producer in Tanssi Using Docker
+# Run a Sequencer in Tanssi Using Docker
 
 ## Introduction {: #introduction }
 
 One of Tanssi's core propositions is that it provides decentralized and trustless block production for its networks. Tanssi's runtime handles sequencer assignments to all the active networks in the Tanssi ecosystem.
 
-Each time, the assignment algorithm distributes the available block producers per session, assigning them to a random chain. Consequently, they would be producing blocks for the same network only for a relatively short period, increasing the overall security of the ecosystem.
+Each time, the assignment algorithm distributes the available set of sequencers per session, assigning them to a random chain. Consequently, they would be producing blocks for the same network only for a relatively short period, increasing the overall security of the ecosystem.
 
-To this end, Tanssi's binary file (the software used to run nodes) already has an embedded mechanism to switch block production automatically to the assigned chain without requiring the node operator to make any changes. The binary includes the logic to sync the new chain and produce blocks when the session changes. Consequently, sequencers need to run the Tanssi binary file, and not that of the networks (like full nodes).
+To this end, Tanssi's binary file (the software used to run nodes) already has an embedded mechanism to switch block production automatically to the assigned chain without requiring the node operator to make any changes. The binary includes the logic to sync the new chain and produce blocks when the session changes. Consequently, sequencers need to run the Tanssi binary file, and not that of the networks (like full nodes do).
 
-In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
+In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the shared pool of sequencers using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -18729,40 +18722,40 @@ This is what a successful execution in the terminal looks like:
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
-A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi block producer requires and the binary file itself.
+A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi sequencer requires and the binary file itself.
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the Tanssi orchestrator specification file.
 
 The following command to pull the Docker image:
 
 ```bash
-docker pull moondancelabs/tanssi
+docker pull {{ networks.dancebox.docker_sequencer_image_name }}
 ```
 
 The command will download and extract the image and show the status upon execution:
 
 <div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/tanssi</span>
+  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/stagelight-collators:3</span>
   <span data-ty>
     <br> 
     <br> Using default tag: latest
-    <br> latest: Pulling from moondancelabs/tanssi
+    <br> latest: Pulling from moondancelabs/stagelight-collators:3
     <br> e1caac4eb9d2: Pull complete 
     <br> 1d4409959e6d: Pull complete 
     <br> b8beed19c122: Pull complete 
     <br> c0fab1f18601: Pull complete 
     <br> d9dcf3cddfc5: Pull complete 
     <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
-    <br> Status: Downloaded newer image for moondancelabs/tanssi
-    <br> docker.io/moondancelabs/tanssi:latest
+    <br> Status: Downloaded newer image for moondancelabs/stagelight-collators:3
+    <br> docker.io/moondancelabs/stagelight-collators:3
   </span>
 </div>
 
 ### Setup the Data Directory {: #setup-data-directory }
 
-Running a block producer requires syncing with three chains: the relay chain, the Tanssi chain, and the network it has been assigned to.
+Running a sequencer requires syncing with two chains: the Tanssi chain and the network it has been assigned to.
 
-Run the following command to create the directory where your block producer will store the databases containing blocks and chain states:
+Run the following command to create the directory where your sequencer will store the databases containing blocks and chain states:
 
 ```bash
 mkdir /var/lib/dancebox
@@ -18774,7 +18767,7 @@ Set the folder's ownership to the account that will run the Docker image to ensu
 chown INSERT_DOCKER_USER /var/lib/dancebox
 ```
 
-Or run the following command if you want to run the block producer with the current logged-in user:
+Or run the following command if you want to run the sequencer with the current logged-in user:
 
 ```bash
 sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
@@ -18785,12 +18778,12 @@ sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
 
 ### Generate the Node Key {: #generate-node-key }
 
-Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi block producer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
 ```bash
-docker run --network="host" -v "/var/lib/dancebox:/data" \
+docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
 -u $(id -u ${USER}):$(id -g ${USER}) \
-moondancelabs/tanssi key generate-node-key --file /data/node-key
+{{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node key generate-node-key --file /data/node-key"
 ```
 
 !!! note
@@ -18800,13 +18793,12 @@ moondancelabs/tanssi key generate-node-key --file /data/node-key
 
 To spin up your node, you must run the Docker image with the `docker run` command. 
 
-Note that the command contains three sections, divided by `-- \`:
+Note that the command contains two sections, divided by `-- \`:
 
 - **Tanssi protocol section** - it contains the flags to run the Tanssi node
-- **Block producer section** - it contains the flags to run the block producer node. It is abstract enough to be dynamically adapted in runtime to the specific chain the node will serve
-- **Relay chain section** - contains the flag to run the relay chain node
+- **Sequencer section** - it contains the flags to run the sequencer node. It is abstract enough to be dynamically adapted in runtime to the specific chain the node will serve
 
-Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME`, `INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME`, and `INSERT_YOUR_RELAY_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
+Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
@@ -18814,96 +18806,152 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 === "Generic"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/tanssi \
-    --chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb \
---node-key-file /data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
 -- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
     ```
 
 === "Intel Skylake"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi/tanssi-node-skylake" \
-    moondancelabs/tanssi \
-    --chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb \
---node-key-file /data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-skylake solo-chain \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
 -- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
     ```
 === "AMD Zen3"
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi/tanssi-node-znver3" \
-    moondancelabs/tanssi \
-    --chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb \
---node-key-file /data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-znver3 solo-chain \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
 -- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
-    ```
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
 
 ### Run Flags {: #run-flags }
 
@@ -18916,15 +18964,18 @@ The flags used in the `docker run` command can be adjusted according to your pre
 - `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
 - `--detailed-log-output` - enables detailed log output
 
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
+
 For a complete list of available flags, their description, and possible values, run the following command:
 
 ```bash
-docker run -ti moondancelabs/tanssi --help
+docker run --entrypoint bash {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node --help"
 ```
 
 ## Syncing Your Node {: #syncing-your-node }
 
-The first time your node spins up, the syncing process displays lots of log information from the node configuration, the relay chain, and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+The first time your node spins up, the syncing process displays lots of log information from the node configuration and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
 <div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>docker run ....</span>
@@ -18935,7 +18986,7 @@ The first time your node spins up, the syncing process displays lots of log info
   </span>
 </div>
 
-When the syncing with the relay chain and the Tanssi orchestrator is finished, the node will still need to sync with the network it has been assigned to. The syncing with the chain served by the block producer node will happen every time the block producer is rotated.
+When the syncing with the Tanssi orchestrator is finished, the node will still need to sync with the network it has been assigned to. The syncing with the chain served by the sequencer node will happen every time the sequencer is rotated.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/
@@ -18946,17 +18997,17 @@ description: Learn how to set up and run a sequencer (block producer) node for T
 icon: simple-linux
 ---
 
-# Run a Block Producer Node Using Systemd
+# Run a Sequencer Node Using Systemd
 
 ## Introduction {: #introduction }
 
 One of Tanssi's core propositions is that it provides decentralized and trustless block production for its networks. Tanssi's runtime handles sequencer assignments to all the active networks in the Tanssi ecosystem.
 
-Each time, the assignment algorithm distributes the available block producers per session, assigning them to a random chain. Consequently, they would be producing blocks for the same network only for a relatively short period, increasing the overall security of the ecosystem.
+Each time, the assignment algorithm distributes the available set of sequencers per session, assigning them to a random chain. Consequently, they would be producing blocks for the same network only for a relatively short period, increasing the overall security of the ecosystem.
 
-To this end, Tanssi's binary file (the software used to run nodes) already has an embedded mechanism to switch block production automatically to the assigned chain without requiring the node operator to make any changes. The binary includes the logic to sync the new chain and produce blocks when the session changes. Consequently, sequencers need to run the Tanssi binary file, and not that of the networks (like full nodes).
+To this end, Tanssi's binary file (the software used to run nodes) already has an embedded mechanism to switch block production automatically to the assigned chain without requiring the node operator to make any changes. The binary includes the logic to sync the new chain and produce blocks when the session changes. Consequently, sequencers need to run the Tanssi binary file, and not that of the networks (like full nodes do).
 
-In this guide, you'll learn how to spin up a Tanssi block producer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
@@ -18965,6 +19016,7 @@ The article follows the good practice of running the service with its own non-ro
 To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
 
 - **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}
+- **Tanssi chain specifications file** - the Tanssi chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Stagelight){target=\_blank}
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -18994,6 +19046,16 @@ To get started, download and make executable the latest binary release by runnin
     chmod +x ./tanssi-node
     ```
 
+## Download the Tanssi Chain Specs File {: #download-tanssi-specs }
+
+The node binary file includes the necessary code to run a Tanssi chain node. When launching your network's node, it will also be required to provide the chain's specification file as a parameter.
+
+Download the relay chain specification file by executing the following:
+
+```bash
+wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Stagelight/relay-raw-no-bootnodes-specs.json
+```
+
 ## Setup the Systemd Service {: #setup-systemd-service }
 
 [Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
@@ -19018,6 +19080,12 @@ Set the folder's ownership to the account that will run the service to ensure wr
 sudo chown -R tanssi_service /var/lib/tanssi-data
 ```
 
+Move the chain specification file to the folder:
+
+```bash
+mv ./relay-raw-no-bootnodes-specs.json /var/lib/tanssi-data
+```
+
 And finally, move the binary to the folder:
 
 ```bash
@@ -19026,7 +19094,7 @@ mv ./tanssi-node /var/lib/tanssi-data
 
 ### Generate the Node Key {: #generate-node-key }
 
-Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi block producer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
 ```bash
 /var/lib/tanssi-data/tanssi-node key generate-node-key --file /var/lib/tanssi-data/node-key
@@ -19045,7 +19113,7 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/tanssi.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_RELAY_NODE_NAME` tags with a human-readable text in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags with a human-readable text in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
 ```bash
 [Unit]
@@ -19061,30 +19129,50 @@ User=tanssi_service
 SyslogIdentifier=tanssi
 SyslogFacility=local7
 KillSignal=SIGHUP
-ExecStart=/var/lib/tanssi-data/tanssi-node \
---chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/var/lib/tanssi-data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---database paritydb \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---node-key-file /var/lib/tanssi-data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
+--name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
--- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
---sync=fast \
---base-path=/var/lib/tanssi-data/relay \
+--node-key-file=/var/lib/tanssi-data/node-key \
+--keystore-path=/var/lib/tanssi-data/session \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
---database paritydb \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' 
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/var/lib/tanssi-data/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/var/lib/tanssi-data/relay \      
+--node-key-file=/var/lib/tanssi-data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
 
 [Install]
 WantedBy=multi-user.target
@@ -19100,6 +19188,9 @@ The flags used in the ExecStart command can be adjusted according to your prefer
 - `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
 - `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
 - `--detailed-log-output` - enables detailed log output
+
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
@@ -19154,7 +19245,7 @@ template: index-page.html
 
 # Operational Task
 
-Keeping your sequencer node up and running is more than just setup - it requires regular maintenance to ensure consistent performance and secure management of your accounts. Regular updates are essential to keep your node compatible with the latest Tanssi protocol changes, while tools such as proxy accounts provide an extra layer of security by allowing you to delegate certain tasks without exposing your primary account credentials. This section provides the necessary steps to keep your operations smooth, reliable and secure.
+Keeping your sequencer up and running is more than just setup - it requires regular maintenance to ensure consistent performance and secure management of your accounts. Regular updates are essential to keep your node compatible with the latest Tanssi protocol changes, while tools such as proxy accounts provide an extra layer of security by allowing you to delegate certain tasks without exposing your primary account credentials. This section provides the necessary steps to keep your operations smooth, reliable, and secure.
 
 
 ## Explore This Section
@@ -19174,27 +19265,27 @@ icon: octicons-shield-lock-24
 
 ## Introduction {: #introduction }
 
-Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and help keep the underlying accounts safe. As a block producer on Tanssi, it's a good idea to take advantage of proxy accounts to interact with the network in place of your block producer account.
+Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and help keep the underlying accounts safe. As a sequencer on Tanssi, it's a good idea to take advantage of proxy accounts to interact with the network in place of your sequencer account.
 
-The staking proxy type conveniently allows the proxy account to manage staking activities, such as delegating and rotating session keys, on behalf of the primary block producer account, effectively transforming it into a "hot wallet" for performing regular maintenance duties on behalf of your "cold wallet" block producer account. For added safety, you can regularly rotate the proxy account.
+The staking proxy type conveniently allows the proxy account to manage staking activities, such as delegating and rotating session keys, on behalf of the primary sequencer account, effectively transforming it into a "hot wallet" for performing regular maintenance duties on behalf of your "cold wallet" sequencer account. For added safety, you can regularly rotate the proxy account.
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum access required to carry out their duties via a specific proxy account.
 
-This tutorial will walk you through configuring a staking proxy account on the Tanssi Dancebox TestNet specifically for operations as a block producer. Then, it will demonstrate initiating a delegation using the newly created staking proxy.
+This tutorial will walk you through configuring a staking proxy account on the Tanssi Dancebox TestNet specifically for operations as a sequencer. Then, it will demonstrate initiating a delegation using the newly created staking proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 To follow along with this tutorial, you will need to have:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
-- Create or have two accounts accessible in Polkadot.js Apps
-- Both accounts will need to be funded with `DANCE` tokens, and the block producer account will need at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` `DANCE`
+- The [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
+- Create or have two accounts accessible in the developer portal
+- Both accounts will need to be funded with `DANCE` tokens, and the sequencer account will need at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` `DANCE`
 
-If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
+If you need help importing your accounts into the developer portal, please check out the [Connecting to the Developer Portal](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
 ## Creating a Staking Proxy Account {: #creating-a-staking-proxy-account }
 
-There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions and provides a limited period of time to cancel any actions.
+There are a couple of ways you can create proxy accounts in the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions and provides a limited period of time to cancel any actions.
 
 You also have the option of creating a proxy of type **Any** which grants the proxy account full and unrestricted control over the primary account. This means that the proxy account can transfer funds, and perform any arbitrary action. The following demo will showcase configuring a **Staking** proxy, which is more restrictive than an **Any** proxy, as it limits functions to activities that pertain to staking, such as delegating, undelegating, and mapping session keys.
 
@@ -19209,7 +19300,7 @@ To get started creating your proxy account, head to the **Developer** tab and se
 7. Optionally, you can add a time delay using a specified number of blocks to add an additional layer of security for the primary account to review the pending transaction
 8. Click **Submit Transaction**
 
-![Add a proxy account from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-1.webp)
+![Add a proxy account from the Extrinsics page of the developer portal](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-1.webp)
 
 You will then be prompted to authorize and sign the transaction. Click **Sign and Submit** to create the proxy relationship. Once the transaction has been successfully submitted, you will receive some notifications confirming the transaction.
 
@@ -19218,14 +19309,14 @@ As previously mentioned, you can also create a proxy from the **Accounts** page.
 1. Select the three vertical dots next to the primary account
 2. Select **Add proxy**
 
-![Select the Add proxy menu item from the Accounts page of Polkadot.js Apps.](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-2.webp)
+![Select the Add proxy menu item from the Accounts page of the developer portal](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-2.webp)
 
 !!! note
     If the account already has a proxy, **Manage proxies** will be displayed as an option instead of **Add proxy**.
 
 A pop-up will appear and you can enter the required information, such as the proxied/primary account, the proxy account, and the type of proxy to create a proxy account. First, click **Add proxy**.
 
-![Add a proxy account from the Accounts page of Polkadot.js Apps](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-3.webp)
+![Add a proxy account from the Accounts page of the developer portal](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-3.webp)
 
 Then, take the following steps:
 
@@ -19233,7 +19324,7 @@ Then, take the following steps:
 2. Select the proxy type
 3. Click **Submit** and sign the transaction
 
-![Add the details of the proxy account, including the proxy account and type.](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-4.webp)
+![Add the details of the proxy account, including the proxy account and type](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-4.webp)
 
 In the next section, you will learn how to verify that your proxy account was set up successfully.
 
@@ -19248,21 +19339,21 @@ To check your proxy accounts from the [**Chain state** page](https://polkadot.js
 3. Select your primary/proxied account
 4. Click on the **+** button to send the query
 
-![Verify your proxy accounts via the Extrinsics page of Polkadot.js Apps.](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-5.webp)
+![Verify your proxy accounts via the Extrinsics page of the developer portal](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-5.webp)
 
 The result will appear on the page showing you information about all of your proxies, including the delegate/proxy account address, the proxy type, the delay period if one was specified, and the total bond amount for all of your proxies in Planck.
 
 You can also check your proxy accounts from the **Accounts** page. To do so, navigate to the **Accounts** page, and there should be a Proxy symbol next to the primary account. Hover over the icon and click on **Manage proxies** to review your proxies.
 
-![Hover over the proxy icon to manage your proxies via the Accounts page of Polkadot.js Apps.](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-6.webp)
+![Hover over the proxy icon to manage your proxies via the Accounts page of Polkadot.js Apps](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-6.webp)
 
 A pop-up will appear where you can see an overview of all of your proxy accounts.
 
-![Review your proxy accounts.](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-7.webp)
+![Review your proxy accounts](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-7.webp)
 
 ## Executing a Proxy Transaction {: #executing-a-proxy-transaction }
 
-Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the staking proxy account on behalf of your block producer account, also known as the primary account or the account that is being proxied. The following example will demonstrate initiating a self-delegation. The proxy configuration shown is a realistic example of how you might have your own proxy configured for your block producer primary account.
+Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the staking proxy account on behalf of your sequencer account, also known as the primary account or the account that is being proxied. The following example will demonstrate initiating a self-delegation. The proxy configuration shown is a realistic example of how you might have your own proxy configured for your developer portal primary account.
 
 To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank} and take the following steps:
 
@@ -19278,7 +19369,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 10. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 11. Click **Submit Transaction**
 
-![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-8.webp)
+![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-8.webp)
 
 A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/sequencers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/sequencers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
 
@@ -19305,7 +19396,7 @@ template: index-page.html
 Keeping your node updated is critical to maintaining compatibility with the latest Tanssi protocol changes and ensuring optimal performance. Outdated nodes can lead to desynchronization, reduced efficiency, or even an inability to participate in block production. By staying current with client releases, you can ensure your node operates securely and reliably within the network.
 
 !!! tip "Subscribe to Release Notifications" 
-    Staying informed about new client releases is essential for maintaining an up-to-date node. Tanssi block producers can subscribe to GitHub notifications to be alerted for new client release versions.  
+    Staying informed about new client releases is essential for maintaining an up-to-date node. Tanssi sequencers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
     To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){:target="_blank"} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
@@ -19326,13 +19417,13 @@ icon: simple-docker
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi block producers can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi sequencer operators can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
 
-This tutorial covers upgrading your Tanssi block producer node that was configured using Docker. It assumes you have already set up your account and launched a [block producer node using Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
+This tutorial covers upgrading your Tanssi sequencer that was configured using Docker. It assumes you have already set up your account and launched a [sequencer using Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
 
 ## Upgrading Docker Nodes {: #upgrading-docker-nodes }
 
-If you're running your block producer node with Docker, updating your node is as simple as stopping the running container and restarting it with the new version tag.
+If you're running your sequencer with Docker, updating your node is as simple as stopping the running container and restarting it with the new version tag.
 
 First, get the container ID of your Tanssi block producer node with the following command:
 
@@ -19340,7 +19431,7 @@ First, get the container ID of your Tanssi block producer node with the followin
 docker ps -a
 ```
 
-The container ID is the first column and if you're running multiple Docker containers, you can identify it by the image name of `moondancelabs/tanssi`. You can run the stop command as follows:
+The container ID is the first column and if you're running multiple Docker containers, you can identify it by the image name of `{{ networks.dancebox.docker_sequencer_image_name }}`. You can run the stop command as follows:
 
 ```bash
 docker stop INSERT_YOUR_CONTAINER_ID
@@ -19367,30 +19458,50 @@ To restart the node, you can use the command you used when launching your block 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/tanssi \
-    --chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb \
---node-key-file /data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    {{ networks.dancebox.docker_sequencer_image_name }} \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
 -- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
     ```
 
 === "Intel Skylake"
@@ -19399,30 +19510,50 @@ To restart the node, you can use the command you used when launching your block 
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
-    moondancelabs/tanssi \
-    --chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb \
---node-key-file /data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    {{ networks.dancebox.docker_sequencer_image_name }} \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
 -- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
     ```
 === "AMD Zen3"
 
@@ -19430,131 +19561,209 @@ To restart the node, you can use the command you used when launching your block 
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
-    moondancelabs/tanssi \
-    --chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb \
---node-key-file /data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    {{ networks.dancebox.docker_sequencer_image_name }} \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
 -- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
     ```
 
 ### Specifying a Version Tag {: #specifying-a-version-tag }
 
-The Docker commands above will automatically fetch the latest release version tag, but if you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by appending the version tag to the image name. For example, if you wanted to fetch version `{{ networks.dancebox.client_version }}`, rather than specifying the image name as `moondancelabs/tanssi`, you would indicate `moondancelabs/tanssi:{{ networks.dancebox.client_version }}` as the image name.
+The Docker commands above will automatically fetch the latest release version tag, but if you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by appending the version tag to the image name. For example, if you wanted to fetch version `{{ networks.dancebox.client_version }}`, rather than specifying the image name as `{{ networks.dancebox.docker_sequencer_image_name }}`, you would indicate `{{ networks.dancebox.docker_sequencer_image_name }}:{{ networks.dancebox.client_version }}` as the image name.
 
 The complete commands with specific version tags are thus as follows:
 
 === "Generic"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/tanssi:{{ networks.dancebox.client_version }} \
-    --chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb \
---node-key-file /data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
 -- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
     ```
 
 === "Intel Skylake"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi/tanssi-node-skylake" \
-    moondancelabs/tanssi:{{ networks.dancebox.client_version }} \
-    --chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb \
---node-key-file /data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
 -- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
     ```
 
 === "AMD Zen3"
 
     ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi/tanssi-node-znver3" \
-    moondancelabs/tanssi:{{ networks.dancebox.client_version }} \
-    --chain=dancebox \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=warp \
---base-path=/data/para \
---state-pruning=2000 \
---blocks-pruning=2000 \
---collator \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb \
---node-key-file /data/node-key \
--- \
---name=INSERT_YOUR_BLOCK_PRODUCER_NODE_NAME \
+    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
 -- \
---chain=westend_moonbase_relay_testnet \
---name=INSERT_YOUR_RELAY_NODE_NAME \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---database paritydb
+--bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
+--bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
     ```
 And that's it! You've successfully upgraded your Tanssi node.
 
@@ -19575,13 +19784,13 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi block producer node. Not only does it help to ensure that your block producer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi block producers can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi sequencer operators can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
 
-This tutorial covers upgrading your Tanssi block producer node that was configured using Systemd. It assumes you have already set up your account and launched a [block producer node using Systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/){target=\_blank}.
+This tutorial covers upgrading your Tanssi sequencer node that was configured using Systemd. It assumes you have already set up your account and launched a [sequencer node using Systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/){target=\_blank}.
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
-If you're running your block producer node via the Systemd service, you'll need to take a few steps to properly upgrade your node. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and then start the service.
+If you're running your sequencer via the Systemd service, you'll need to take a few steps to properly upgrade your node. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and then start the service.
 
 You can stop your Tanssi Systemd service with the following command:
 
