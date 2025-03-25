@@ -25,7 +25,7 @@ The Symbiotic protocol keeps a registry of all operators. Before being able to s
 
 ### Register Using the Symbiotic CLI {: #register-with-cli }
 
-If you correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_OPERATOR_ADDRESS` with your account:
+If you correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing `INSERT_OPERATOR_ADDRESS` with your account:
 
 === "MainNet"
 
@@ -79,12 +79,12 @@ Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
 Once connected:
 
-1. Expand the `registerOperator` function
+1. Expand the **`registerOperator`** function
 2. Click on **Write**, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
 
-### Register Using Safe for Multi-sig Setups {: #register-with-safe }
+### Register Using Safe for Multisig Setups {: #register-with-safe }
 
 If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
 
@@ -151,11 +151,11 @@ To submit your operator's metadata, head to the Symbiotic metadata repository:
 
 === "MainNet"
 
-    [Mainnet repository](https://github.com/symbioticfi/metadata-mainnet){target=\_blank}
+    [MainNet repository](https://github.com/symbioticfi/metadata-mainnet){target=\_blank}
 
 Create a fork of this repo and, within the `operators` directory, create a new directory named after your operator's address. Within your operator's directory, add your `logo.png` and a file named `info.json` with the following fields, replacing the values with your own:
 
-```json
+```json title="info.json"
 {
 	"name": "INSERT_YOUR_OPERATOR_NAME",
 	"description": "INSERT_YOUR_OPERATOR_DESCRIPTION",

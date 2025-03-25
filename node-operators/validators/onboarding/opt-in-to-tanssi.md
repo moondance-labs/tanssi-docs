@@ -29,7 +29,7 @@ Before enabling your operator to be an active Tanssi network validator, you must
 
 ### Opt In Using the Symbiotic CLI {: #opt-in-tanssi-vaults-with-cli }
 
-If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_VAULT_ADDRESS` with the specific one you want to join and `INSERT_OPERATOR_ADDRESS` with your account:
+If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_VAULT_ADDRESS` with the specific one you want to join and `INSERT_OPERATOR_ADDRESS` with your account:
 
 === "MainNet"
 
@@ -158,7 +158,7 @@ Before enabling your operator to be an active Tanssi network validator, you must
 
 ### Opt In Using the Symbiotic CLI {: #opt-in-tanssi-with-cli }
 
-If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_OPERATOR_ADDRESS`:
+If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing `INSERT_OPERATOR_ADDRESS`:
 
 === "MainNet"
 
@@ -213,7 +213,7 @@ Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 Once connected:
 
 1. Expand the `optin` function
-2. Insert the `TANSSI_NETWORK_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet)
+2. Insert the `TANSSI_NETWORK_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 3. Click on **Write**, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
@@ -230,7 +230,7 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.sepolia.opt_in_network }}
 
-Finally, pick the `optin` function, insert the  (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet), and sign the transaction.
+Finally, pick the `optin` function, insert the  (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
 
 ### Check the Registration Status {: #check-tanssi-registration }
 
@@ -248,7 +248,7 @@ On the contract's page:
 
 1. Select the `isOptedIn` function
 2. Paste your operator's account in the `who` field
-3. Insert the `TANSSI_NETWORK_ADDRESS` in the `where` field (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet)
+3. Insert the `TANSSI_NETWORK_ADDRESS` in the `where` field (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 4. Click on **Query**
 
 You'll get a `true` result if your operator was registered correctly and `false` otherwise.
