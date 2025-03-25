@@ -86,7 +86,7 @@ Once connected:
 
 ### Register Using Safe for Multisig Setups {: #register-with-safe }
 
-If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
+If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the **Transaction builder** and insert the following contract address:
 
 === "MainNet"
 
@@ -112,7 +112,7 @@ You can quickly check your registration status on Etherscan. Open the following 
 
 On the contract's page:
 
-1. Select the `isEntity` function
+1. Select the **`isEntity`** function
 2. Paste your operator's account
 3. Click on **Query**
 
@@ -120,7 +120,7 @@ If your operator was registered correctly, you'll get a `true` result, and other
 
 ![Check the registration status](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-3.webp)
 
-You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given `INSERT_OPERATOR_ADDRESS`:
+You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given operator address:
 
 === "MainNet"
     
@@ -137,7 +137,7 @@ You can also verify your registration status using the Symbiotic CLI running the
 And the output looks like:
 
 <div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py isop OPERATOR_ADDRESS</span>
+    <span data-ty="input"><span class="file-path"></span>python3 symb.py isop INSERT_OPERATOR_ADDRESS</span>
     <span data-ty>Connected to chain ID 1</span>
     <span data-ty>True</span>
     <br>
