@@ -13,7 +13,7 @@ Setting up a validator node is an important step to participate in the Tanssi ne
 
 To run a validator node successfully, high-performance hardware is essential. Suboptimal configurations can lead to delays, unavailability, and ultimately, lost rewards and/or penalizations. Since the validation process relies heavily on single-threaded performance, prioritizing CPUs with strong single-thread capabilities over higher core counts is recommended.
 
-Recommended Hardware:
+Recommended hardware:
 
 - **Recommended Configuration** - Bare metal hardware running linux debian or ubuntu
  - **Recommended CPUs** - Intel Ice Lake or newer (Xeon or Core series) or AMD Zen3 or newer (EPYC or Ryzen). Eight Physical cores @ 3.4 Ghz with hyperthreading disabled (SMT for AMD processors) 

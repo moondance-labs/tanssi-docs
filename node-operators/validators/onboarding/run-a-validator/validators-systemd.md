@@ -16,16 +16,17 @@ The article follows the good practice of running the service with its own non-ro
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-To get started, you'll need access to a computer running an Ubuntu Linux OS with Landlock enabled and root privileges. You will also need:
+To get started, you'll need access to a computer running an Ubuntu Linux OS with [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} enabled and root privileges. You will also need:
 
-- **Node binary files** - a validatos requires three binary files `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
+- **Node binary files** - a validator requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
 
 The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
 ## Check Landlock Support {: #check-landlock }
 
-Tanssi validators use the Linux kernel's landlock feature as a security measure to restrict its own access to system resources, limiting the damage a compromise in the application can cause.
-Check the landlock feature support in your system running the following command:
+Tanssi validators use the Linux kernel's Landlock feature as a security measure to restrict its own access to system resources, limiting the damage if the application is compromised.
+
+Check the Landlock feature support in your system running the following command:
 
 ```bash
 sudo dmesg | grep landlock || journalctl -kg landlock
@@ -35,11 +36,11 @@ The output should look like:
 
 --8<-- 'code/node-operators/terminal/check-landlock.md'
 
-If landlock is disabled in your system, upgrade the kernel to version 5.13 or above.
+If Landlock is disabled in your system, upgrade the kernel to version 5.13 or above.
 
 ## Download the Latest Release {: #download-latest-release }
 
-To get started, download and make executable the latest binary release by running the following command:
+To get started, download the latest binary release and make it executable by running the following command:
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
@@ -70,35 +71,35 @@ To get started, download and make executable the latest binary release by runnin
     chmod +x ./tanssi-relay*
     ```
 
-## Setup the Systemd Service {: #setup-systemd-service }
+## Set Up the Systemd Service {: #set-up-systemd-service }
 
 [Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
 
 The following commands configure a new account, create the directory, and move the previously downloaded files to the right location.
 
-Create a new account to run the service:
+1. Create a new account to run the service:
 
-```bash
-adduser tanssi_service --system --no-create-home
-```
+    ```bash
+    adduser tanssi_service --system --no-create-home
+    ```
 
-Create a directory to store the required files and data:
+2. Create a directory to store the required files and data:
 
-```bash
-mkdir /var/lib/tanssi-data
-```
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
 
-Set the folder's ownership to the account that will run the service to ensure writing permission:
+3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-```bash
-chown -R tanssi_service /var/lib/tanssi-data
-```
+    ```bash
+    chown -R tanssi_service /var/lib/tanssi-data
+    ```
 
-And finally, move the binaries to the folder:
+4. Move the binaries to the folder:
 
-```bash
-mv ./tanssi-relay* /var/lib/tanssi-data
-```
+    ```bash
+    mv ./tanssi-relay* /var/lib/tanssi-data
+    ```
 
 ### Generate the Node Key {: #generate-node-key }
 
@@ -120,7 +121,7 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/tanssi.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable text and `YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
 
 ```bash
 [Unit]
@@ -161,7 +162,7 @@ WantedBy=multi-user.target
 
 ### Run Flags {: #run-flags }
 
-The flags used in the ExecStart command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
