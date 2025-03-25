@@ -9,7 +9,7 @@ template: index-page.html
 
 Your journey as a validator begins here. This section covers the foundational steps to set up your node and prepare your account for active participation in the Tanssi network.
 
-Use the following resources to get started as a validator:
+Use the following resources to understand the requirements before running a validator:
 
 - [**Hardware requirements**](/node-operators/validators/onboarding/run-a-validator/#hardware-requirements) - understand the recommended hardware specifications to ensure optimal performance of your sequencer node
 - [**Port configuration**](/node-operators/validators/onboarding/run-a-validator/#required-network-ports) - learn which network ports need to be open to ensure proper communication within the Tanssi ecosystem

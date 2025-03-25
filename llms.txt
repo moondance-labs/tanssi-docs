@@ -17038,11 +17038,11 @@ Well-behaved operators and restakers are rewarded for their participation with T
 
 The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
 
-1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree). This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
-2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](/builders/interoperability/xcm/overview/) (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge) acts as a trustless bridge between Tanssi and Ethereum
+1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
+2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.network/docs/learn/xcm/overview-summary){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://wiki.polkadot.network/docs/learn-snowbridge){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
 3. **Ethereum Message Reception** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
-4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol), which is responsible for various tasks, including passing the information to the `OperatorReward` contract
-5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol) contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
+4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, which is responsible for various tasks, including passing the information to the `OperatorReward` contract
+5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
 
 ```mermaid
 %%{init: {'sequence': {'mirrorActors': false}}}%%
@@ -17067,7 +17067,7 @@ In the reward-claiming phase, operators and stakers can claim rewards based on t
 1. **Operator Reward Claim** - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
 2. **Token Release** - the operator call triggers the token release, and the `OperatorRewards` sends the established amount to the operator
 3. **Token Distribution to Stakers** - the remaining rewards are forwarded to the `StakerRewards` contract for further claiming of the staker
-4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol) contract, where stakers can claim rewards proportional to their stake in the vaults
+4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol){target=\_blank} contract, where stakers can claim rewards proportional to their stake in the vaults
 
 ```mermaid
 %%{init: {'sequence': {'mirrorActors': false}}}%%
@@ -17577,8 +17577,8 @@ Whether you're setting up for the first time, handling operational tasks, or ret
 Understanding the roles of different nodes in the Tanssi-powered network helps you choose the right one based on your desired level of participation in the Tanssi ecosystem:
 
 - [**Network nodes**](/node-operators/network-node/) - provide RPC endpoints and data availability services for smooth data flow and interaction between chains and users
-- [**Sequencers**](/node-operators/sequencers/) - responsible for block production, transaction execution, and network maintenance to ensure liveness and operational continuity
-- [**Validators**](/node-operators/validators/) - also known as network operators, validators are responsible for verifying that transactions executed on Tanssi-powered networks are valid according to their state transition function. They also produce blocks for the Tanssi network itself
+- [**Sequencers**](/node-operators/sequencers/) - responsible for block production within the Tanssi ecosystem, sequencers collect transactions, execute them, and compile them in blocks, keeping liveness and operational continuity for all the Tanssi-powered networks
+- [**Validators**](/node-operators/validators/) - also known as network operators, validators are responsible for securing the ecosystem. They verify every block produced by sequencers within Tanssi-powered networks, checking that the included transactions are valid. Validators must register and stake in the security provider (e.g., [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}). They also produce blocks for the Tanssi network itself, keeping its liveness
 
 ## Explore This Section
 
@@ -19865,7 +19865,9 @@ template: index-page.html
 
 # Tanssi Validators
 
-Validators (also known as operators) are responsible for maintaining security within all the Tanssi-powered networks, verifying the integrity and validity of their transactions. They participate in a NPoS (Nominated Proof-of-Stake) consensus mechanism, which improves decentralization and fosters good behavior via economic incentives. This section provides everything you need to get started, from initial setup to operational best practices and account management.
+Validators (also known as operators) are responsible for maintaining security within all the Tanssi-powered networks, verifying the integrity and validity of their transactions. They participate in a NPoS (Nominated Proof-of-Stake) consensus mechanism, which improves decentralization and fosters good behavior via economic incentives.
+
+This section provides everything you need to get started, from initial setup to operational best practices and account management.
 
 ## Explore This Section
 
@@ -19885,7 +19887,7 @@ template: index-page.html
 
 Your journey as a validator begins here. This section covers the foundational steps to set up your node and prepare your account for active participation in the Tanssi network.
 
-Use the following resources to get started as a validator:
+Use the following resources to understand the requirements before running a validator:
 
 - [**Hardware requirements**](/node-operators/validators/onboarding/run-a-validator/#hardware-requirements) - understand the recommended hardware specifications to ensure optimal performance of your sequencer node
 - [**Port configuration**](/node-operators/validators/onboarding/run-a-validator/#required-network-ports) - learn which network ports need to be open to ensure proper communication within the Tanssi ecosystem
@@ -20524,7 +20526,7 @@ Setting up a validator node is an important step to participate in the Tanssi ne
 
 To run a validator node successfully, high-performance hardware is essential. Suboptimal configurations can lead to delays, unavailability, and ultimately, lost rewards and/or penalizations. Since the validation process relies heavily on single-threaded performance, prioritizing CPUs with strong single-thread capabilities over higher core counts is recommended.
 
-Recommended Hardware:
+Recommended hardware:
 
 - **Recommended Configuration** - Bare metal hardware running linux debian or ubuntu
  - **Recommended CPUs** - Intel Ice Lake or newer (Xeon or Core series) or AMD Zen3 or newer (EPYC or Ryzen). Eight Physical cores @ 3.4 Ghz with hyperthreading disabled (SMT for AMD processors) 
@@ -20805,16 +20807,17 @@ The article follows the good practice of running the service with its own non-ro
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-To get started, you'll need access to a computer running an Ubuntu Linux OS with Landlock enabled and root privileges. You will also need:
+To get started, you'll need access to a computer running an Ubuntu Linux OS with [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} enabled and root privileges. You will also need:
 
-- **Node binary files** - a validatos requires three binary files `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
+- **Node binary files** - a validator requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
 
 The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
 ## Check Landlock Support {: #check-landlock }
 
-Tanssi validators use the Linux kernel's landlock feature as a security measure to restrict its own access to system resources, limiting the damage a compromise in the application can cause.
-Check the landlock feature support in your system running the following command:
+Tanssi validators use the Linux kernel's Landlock feature as a security measure to restrict its own access to system resources, limiting the damage if the application is compromised.
+
+Check the Landlock feature support in your system running the following command:
 
 ```bash
 sudo dmesg | grep landlock || journalctl -kg landlock
@@ -20823,15 +20826,15 @@ sudo dmesg | grep landlock || journalctl -kg landlock
 The output should look like:
 
 <div id="termynal" data-termynal>
-    <span data-ty="input">sudo dmesg | grep landlock || journalctl -kg landlock</span>
+    <span data-ty="input"><span class="file-path"></span>sudo dmesg | grep landlock || journalctl -kg landlock</span>
     <span data-ty>[    0.240344] landlock: Up and running.</span>
 </div>
 
-If landlock is disabled in your system, upgrade the kernel to version 5.13 or above.
+If Landlock is disabled in your system, upgrade the kernel to version 5.13 or above.
 
 ## Download the Latest Release {: #download-latest-release }
 
-To get started, download and make executable the latest binary release by running the following command:
+To get started, download the latest binary release and make it executable by running the following command:
 
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
@@ -20863,35 +20866,35 @@ To get started, download and make executable the latest binary release by runnin
     chmod +x ./tanssi-relay*
     ```
 
-## Setup the Systemd Service {: #setup-systemd-service }
+## Set Up the Systemd Service {: #set-up-systemd-service }
 
 [Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
 
 The following commands configure a new account, create the directory, and move the previously downloaded files to the right location.
 
-Create a new account to run the service:
+1. Create a new account to run the service:
 
-```bash
-adduser tanssi_service --system --no-create-home
-```
+    ```bash
+    adduser tanssi_service --system --no-create-home
+    ```
 
-Create a directory to store the required files and data:
+2. Create a directory to store the required files and data:
 
-```bash
-mkdir /var/lib/tanssi-data
-```
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
 
-Set the folder's ownership to the account that will run the service to ensure writing permission:
+3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-```bash
-chown -R tanssi_service /var/lib/tanssi-data
-```
+    ```bash
+    chown -R tanssi_service /var/lib/tanssi-data
+    ```
 
-And finally, move the binaries to the folder:
+4. Move the binaries to the folder:
 
-```bash
-mv ./tanssi-relay* /var/lib/tanssi-data
-```
+    ```bash
+    mv ./tanssi-relay* /var/lib/tanssi-data
+    ```
 
 ### Generate the Node Key {: #generate-node-key }
 
@@ -20914,7 +20917,7 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/tanssi.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable text and `YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
 
 ```bash
 [Unit]
@@ -20955,7 +20958,7 @@ WantedBy=multi-user.target
 
 ### Run Flags {: #run-flags }
 
-The flags used in the ExecStart command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
 - `--name INSERT_NAME` - a human-readable name for this node
 - `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
