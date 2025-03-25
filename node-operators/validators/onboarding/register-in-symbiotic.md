@@ -96,7 +96,7 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.sepolia.operators_registry }}
 
-Finally, pick the `registerOperator` function and sign the transaction.
+Finally, pick the **`registerOperator`** function and sign the transaction.
 
 ## Check the Registration Status {: #check-registration }
 
