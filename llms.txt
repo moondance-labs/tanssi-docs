@@ -19914,11 +19914,11 @@ icon: octicons-plus-circle-24
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of their TVL, userbase, or use case specifics. Tanssi's design offers developers a shared security model, alleviating the need to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
 The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
 
-In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
+In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. With the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
 
 This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
 
@@ -20267,11 +20267,11 @@ icon: octicons-shield-check-24
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of their TVL, userbase, or use case specifics. Tanssi's design offers developers a shared security model, alleviating the need to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
 The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
 
-In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
+In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. With the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
 
 This guide will walk you through the steps to successfully register your node as a Symbiotic operator.
 
@@ -20562,11 +20562,11 @@ icon: simple-docker
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of their TVL, userbase, or use case specifics. Tanssi's design offers developers a shared security model, alleviating the need to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
 The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
 
-In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
+In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. With the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
 
 In this guide, you'll learn how to spin up a Tanssi validator using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
 
@@ -20795,11 +20795,11 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of their TVL, userbase, or use case specifics. Tanssi's design offers developers a shared security model, alleviating the need to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
 The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
 
-In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. Knowing the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
+In every session, the Tanssi protocol determines how many validators are required to support the entire ecosystem. With the number of validators, the protocol picks those with the higher delegated stake from the allow-listed ones.
 
 In this guide, you'll learn how to spin up a Tanssi validator using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
