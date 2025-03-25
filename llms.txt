@@ -19891,8 +19891,6 @@ Use the following resources to understand the requirements before running a vali
 
 - [**Hardware requirements**](/node-operators/validators/onboarding/run-a-validator/#hardware-requirements) - understand the recommended hardware specifications to ensure optimal performance of your sequencer node
 - [**Port configuration**](/node-operators/validators/onboarding/run-a-validator/#required-network-ports) - learn which network ports need to be open to ensure proper communication within the Tanssi ecosystem
-- [**Register in Symbiotic**](/node-operators/validators/onboarding/register-in-symbiotic) - learn how to register your node in the Symbiotic protocol
-- [**Opt in to Tanssi**](/node-operators/validators/onboarding/opt-in-to-tanssi/) - learn how to opt in to the Tanssi network and Tanssi-enabled Symbiotic vaults
 
 !!! note
     The public TestNet is not yet open to registrations by external operators.
@@ -20002,7 +20000,7 @@ Before enabling your operator to be an active Tanssi network validator, you must
 
 ### Opt In Using the Symbiotic CLI {: #opt-in-tanssi-vaults-with-cli }
 
-If you have correctly installed the [Symbiotic CLI](#setting-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_VAULT_ADDRESS` with the specific one you want to join and `INSERT_OPERATOR_ADDRESS` with your account:
+If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_VAULT_ADDRESS` with the specific one you want to join and `INSERT_OPERATOR_ADDRESS` with your account:
 
 === "MainNet"
 
@@ -20056,7 +20054,7 @@ Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
 Once connected:
 
-1. Expand the `optin` function
+1. Expand the **`optin`** function
 2. Insert the `VAULT_ADDRESS`
 3. Click on **Write**, and sign the transaction
 
@@ -20064,7 +20062,7 @@ Once connected:
 
 ### Opt In Using Safe for Multisig Setups {: #opt-in-tanssi-vaults-with-safe }
 
-If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
+If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the **Transaction builder** and insert the following contract address:
 
 === "MainNet"
 
@@ -20074,7 +20072,7 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.sepolia.opt_in_vault }}
 
-Finally, pick the `optin` function, insert the `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet), and sign the transaction.
+Finally, pick the **`optin`** function, insert the `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet), and sign the transaction.
 
 ### Check the Registration Status {: #check-vault-registration }
 
@@ -20090,16 +20088,16 @@ You can quickly check your registration status on Etherscan. Open the following 
 
 In the contract's page:
 
-1. Select the `isOptedIn` function
-2. Paste your operator's account in the `who` field
-3. Insert the `VAULT_ADDRESS` in the `where` field
+1. Select the **`isOptedIn`** function
+2. Paste your operator's account in the **who** field
+3. Insert the `VAULT_ADDRESS` in the **where** field
 4. Click on **Query**
 
  You'll get a `true` result if your operator was registered correctly and `false` otherwise.
 
 ![Check the registration status](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-3.webp)
 
-You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given INSERT_OPERATOR_ADDRESS in a Tanssi-enabled vault:
+You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given operator address in a Tanssi-enabled vault:
 
 === "MainNet"
     
@@ -20116,7 +20114,7 @@ You can also verify your registration status using the Symbiotic CLI running the
 And the output looks like:
 
 <div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py check-opt-in-vault OPERATOR_ADDRESS VAULT_ADDRESS</span>
+    <span data-ty="input"><span class="file-path"></span>python3 symb.py check-opt-in-vault INSERT_OPERATOR_ADDRESS INSERT_VAULT_ADDRESS</span>
     <span data-ty>Connected to chain ID 1</span>
     <span data-ty>True</span>
     <br>
@@ -20131,7 +20129,7 @@ Before enabling your operator to be an active Tanssi network validator, you must
 
 ### Opt In Using the Symbiotic CLI {: #opt-in-tanssi-with-cli }
 
-If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_OPERATOR_ADDRESS`:
+If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing `INSERT_OPERATOR_ADDRESS`:
 
 === "MainNet"
 
@@ -20185,15 +20183,15 @@ Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
 Once connected:
 
-1. Expand the `optin` function
-2. Insert the `TANSSI_NETWORK_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet)
+1. Expand the **`optin`** function
+2. Insert the `TANSSI_NETWORK_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 3. Click on **Write**, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
 
 ### Opt In Using Safe for Multisig Setups {: #opt-in-tanssi-with-safe }
 
-If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
+If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the **Transaction builder** and insert the following contract address:
 
 === "MainNet"
 
@@ -20203,7 +20201,7 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.sepolia.opt_in_network }}
 
-Finally, pick the `optin` function, insert the  (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet), and sign the transaction.
+Finally, pick the **`optin`** function, insert the  (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
 
 ### Check the Registration Status {: #check-tanssi-registration }
 
@@ -20219,16 +20217,16 @@ You can quickly check your registration status on Etherscan. Open the following 
 
 On the contract's page:
 
-1. Select the `isOptedIn` function
-2. Paste your operator's account in the `who` field
-3. Insert the `TANSSI_NETWORK_ADDRESS` in the `where` field (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia testnet)
+1. Select the **`isOptedIn`** function
+2. Paste your operator's account in the **who** field
+3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 4. Click on **Query**
 
 You'll get a `true` result if your operator was registered correctly and `false` otherwise.
 
 ![Check the registration status](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-6.webp)
 
-You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given `INSERT_OPERATOR_ADDRESS` in the Tanssi Network:
+You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given operator address in the Tanssi Network:
 
 === "MainNet"
     
@@ -20245,7 +20243,7 @@ You can also verify your registration status using the Symbiotic CLI running the
 And the output looks like:
 
 <div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py check-opt-in-network OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }}</span>
+    <span data-ty="input"><span class="file-path"></span>python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }}</span>
     <span data-ty>Connected to chain ID 1</span>
     <span data-ty>True</span>
     <br>
@@ -20351,7 +20349,7 @@ The Symbiotic protocol keeps a registry of all operators. Before being able to s
 
 ### Register Using the Symbiotic CLI {: #register-with-cli }
 
-If you correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_OPERATOR_ADDRESS` with your account:
+If you correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing `INSERT_OPERATOR_ADDRESS` with your account:
 
 === "MainNet"
 
@@ -20405,14 +20403,14 @@ Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
 Once connected:
 
-1. Expand the `registerOperator` function
+1. Expand the **`registerOperator`** function
 2. Click on **Write**, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
 
-### Register Using Safe for Multi-sig Setups {: #register-with-safe }
+### Register Using Safe for Multisig Setups {: #register-with-safe }
 
-If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the `Transaction builder` and insert the following contract address:
+If you have a [Safe](https://app.safe.global/){target=\_blank} account, then open the **Transaction builder** and insert the following contract address:
 
 === "MainNet"
 
@@ -20422,7 +20420,7 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.sepolia.operators_registry }}
 
-Finally, pick the `registerOperator` function and sign the transaction.
+Finally, pick the **`registerOperator`** function and sign the transaction.
 
 ## Check the Registration Status {: #check-registration }
 
@@ -20438,7 +20436,7 @@ You can quickly check your registration status on Etherscan. Open the following 
 
 On the contract's page:
 
-1. Select the `isEntity` function
+1. Select the **`isEntity`** function
 2. Paste your operator's account
 3. Click on **Query**
 
@@ -20446,7 +20444,7 @@ If your operator was registered correctly, you'll get a `true` result, and other
 
 ![Check the registration status](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-3.webp)
 
-You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given `INSERT_OPERATOR_ADDRESS`:
+You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given operator address:
 
 === "MainNet"
     
@@ -20463,7 +20461,7 @@ You can also verify your registration status using the Symbiotic CLI running the
 And the output looks like:
 
 <div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py isop OPERATOR_ADDRESS</span>
+    <span data-ty="input"><span class="file-path"></span>python3 symb.py isop INSERT_OPERATOR_ADDRESS</span>
     <span data-ty>Connected to chain ID 1</span>
     <span data-ty>True</span>
     <br>
@@ -20477,11 +20475,11 @@ To submit your operator's metadata, head to the Symbiotic metadata repository:
 
 === "MainNet"
 
-    [Mainnet repository](https://github.com/symbioticfi/metadata-mainnet){target=\_blank}
+    [MainNet repository](https://github.com/symbioticfi/metadata-mainnet){target=\_blank}
 
 Create a fork of this repo and, within the `operators` directory, create a new directory named after your operator's address. Within your operator's directory, add your `logo.png` and a file named `info.json` with the following fields, replacing the values with your own:
 
-```json
+```json title="info.json"
 {
 	"name": "INSERT_YOUR_OPERATOR_NAME",
 	"description": "INSERT_YOUR_OPERATOR_DESCRIPTION",
