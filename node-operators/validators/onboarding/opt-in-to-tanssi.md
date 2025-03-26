@@ -29,7 +29,7 @@ Before enabling your operator to be an active Tanssi network validator, you must
 
 ### Opt In Using the Symbiotic CLI {: #opt-in-tanssi-vaults-with-cli }
 
-If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing the `INSERT_VAULT_ADDRESS` with the specific one you want to join and `INSERT_OPERATOR_ADDRESS` with your account:
+If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to sign the transaction using a Ledger device, then run the following command, replacing `INSERT_VAULT_ADDRESS` with the specific one you want to join and `INSERT_OPERATOR_ADDRESS` with your account:
 
 === "MainNet"
 
