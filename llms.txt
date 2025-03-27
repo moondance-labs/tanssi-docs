@@ -17668,23 +17668,23 @@ Luckily, running a node requires the right Docker image configured correctly!
 If the Tanssi network was registered in the dApp choosing the EVM template or uploading a custom specification representing a Tanssi EVM-compatible network, then execute the following command to pull the Docker image:
 
 ```bash
-docker pull moondancelabs/dancebox-container-chain-evm-templates
+docker pull moondancelabs/dancelight-container-chain-evm-templates
 ```
 
 The command will download and extract the image and show the status upon execution:
 
 <div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/dancebox-container-chain-evm-templates</span>
+  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/dancelight-container-chain-evm-templates</span>
   <span data-ty>
     <br> 
     <br> Using default tag: latest
-    <br> latest: Pulling from moondancelabs/dancebox-container-chain-evm-templates
+    <br> latest: Pulling from moondancelabs/dancelight-container-chain-evm-templates
     <br> 31ad3619f756: Already exists 
     <br> 8f3d9759dcde: Pull complete 
     <br> de5eaba9b289: Pull complete 
     <br> Digest: sha256:4930d631a8ac7f7852754d4cf77bb3317229d768f44092a00295ba50641b2a33
-    <br> Status: Downloaded newer image for moondancelabs/dancebox-container-chain-evm-templates:latest
-    <br> docker.io/moondancelabs/dancebox-container-chain-evm-templates:latest
+    <br> Status: Downloaded newer image for moondancelabs/dancelight-container-chain-evm-templates
+    <br> docker.io/moondancelabs/dancelight-container-chain-evm-templates:latest
   </span>
 </div>
 
@@ -17693,7 +17693,7 @@ The command will download and extract the image and show the status upon executi
 If the network was registered in the dApp choosing the basic Substrate template or uploading a custom specification file representing a Substrate network, then execute the following command to pull the Docker image:
 
 ```bash
-docker pull moondancelabs/dancebox-container-chain-simple-templates
+docker pull moondancelabs/dancelight-container-chain-simple-templates
 ```
 
 The command will download and extract the image and show the status upon execution, showing a similar output as the previous terminal image.
@@ -17713,7 +17713,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     === "Generic"
 
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
         /chain-network/container-chain-frontier-node \
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
@@ -17729,14 +17729,15 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 --rpc-port=9945 \
 --sync=fast \
 --database=paritydb \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
         ```
 
     === "Intel Skylake"
 
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
         /chain-network/container-chain-frontier-node-skylake \
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
@@ -17752,14 +17753,15 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 --rpc-port=9945 \
 --sync=fast \
 --database=paritydb \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
         ```
 
     === "AMD Zen3"
 
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
         /chain-network/container-chain-frontier-node-znver3 \
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
@@ -17775,8 +17777,9 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 --rpc-port=9945 \
 --sync=fast \
 --database=paritydb \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
         ```
 
 === "Simple Substrate Network"
@@ -17784,7 +17787,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     === "Generic"
 
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-simple-templates \
         /chain-network/container-chain-simple-node \
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
@@ -17800,14 +17803,15 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 --rpc-port=9945 \
 --sync=fast \
 --database=paritydb \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
         ```
 
     === "Intel Skylake"
     
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-simple-templates \
         /chain-network/container-chain-simple-node-skylake \
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
@@ -17823,14 +17827,15 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 --rpc-port=9945 \
 --sync=fast \
 --database=paritydb \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
         ```
     
     === "AMD Zen3"
     
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-simple-templates \
         /chain-network/container-chain-simple-node-znver3 \
         --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
 --rpc-port=9944 \
@@ -17846,8 +17851,9 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 --rpc-port=9945 \
 --sync=fast \
 --database=paritydb \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
         ```
 
 !!! note
@@ -17855,7 +17861,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancebox.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
 
 To do so, take the following steps:
 
@@ -17871,7 +17877,7 @@ To do so, take the following steps:
 The following example spins up a full archive RPC node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancebox with an ID of `3001`.
 
 ```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
 /chain-network/container-chain-frontier-node \
 --chain=/chain-network/container-3001-raw-specs.json \
 --rpc-port=9944 \
@@ -17888,8 +17894,9 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 --name=relay \
 --sync=fast \
 --database=paritydb \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
 ```
 
 ### Run Flags {: #run-flags }
@@ -17909,7 +17916,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 For a complete list of available flags, their description, and possible values, run the following command:
 
 ```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
 /chain-network/container-chain-frontier-node \
 --help
 ```
@@ -17998,7 +18005,7 @@ The node binary file includes also the necessary code to run a Tanssi network no
 Download the Tanssi network specification file by executing:
 
 ```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Moonbeam/Moonbase-Alpha/westend-alphanet-raw-specs.json
+wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancelight/dancelight-raw-specs.json
 ```
 
 ## Setup the Systemd Service {: #setup-systemd-service }
@@ -18027,7 +18034,7 @@ And finally, move the binary and the relay chain spec to the folder:
 
 ```bash
 mv ./container-chain-template-*-node /var/lib/network-data && \
-mv ./westend-alphanet-raw-specs.json /var/lib/network-data
+mv ./dancelight-raw-specs.json /var/lib/network-data
 ```
 
 !!! note
@@ -18077,13 +18084,14 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     --unsafe-rpc-external \
     --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
     -- \
-    --chain=/var/lib/network-data/relay-raw-no-bootnodes-specs.json \
+    --chain=/var/lib/network-data/dancelight-raw-specs.json \
     --rpc-port=9945 \
     --name=relay \
     --sync=fast \
     --database=paritydb \
-    --bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
-    --bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
 
     [Install]
     WantedBy=multi-user.target
@@ -18112,18 +18120,13 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     --base-path=/var/lib/network-data \
     --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
     -- \
-    --chain=/var/lib/network-data/westend-alphanet-raw-specs.json \
+    --chain=/var/lib/network-data/dancelight-raw-specs.json \
     --rpc-port=9945 \
     --name=relay \
     --sync=fast \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
-    --bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
-    --bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
+    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
 
     [Install]
     WantedBy=multi-user.target
@@ -18131,7 +18134,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancebox.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
 
 To do so, take the following steps:
 
@@ -18171,18 +18174,13 @@ ExecStart=/var/lib/network-data/container-chain-frontier-node \
 --base-path=/var/lib/network-data \
 --bootnodes=/dns4/fraa-dancebox-3001-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p/12D3KooWQ9jVpatqmWS41Zf6PHncV4ZmEYvywifRTs9YVoz8HgTM \
 -- \
---chain=/var/lib/network-data/westend-alphanet-raw-specs.json \
+--chain=/var/lib/network-data/dancelight-raw-specs.json \
 --rpc-port=9945 \
 --name=relay \
 --sync=fast \
---bootnodes=/dns4/frag3-stagenet-relay-val-0.g.moondev.network/tcp/30334/p2p/12D3KooWKvtM52fPRSdAnKBsGmST7VHvpKYeoSYuaAv5JDuAvFCc \
---bootnodes=/dns4/frag3-stagenet-relay-val-1.g.moondev.network/tcp/30334/p2p/12D3KooWQYLjopFtjojRBfTKkLFq2Untq9yG7gBjmAE8xcHFKbyq \
---bootnodes=/dns4/frag3-stagenet-relay-val-2.g.moondev.network/tcp/30334/p2p/12D3KooWMAtGe8cnVrg3qGmiwNjNaeVrpWaCTj82PGWN7PBx2tth \
---bootnodes=/dns4/frag3-stagenet-relay-val-3.g.moondev.network/tcp/30334/p2p/12D3KooWLKAf36uqBBug5W5KJhsSnn9JHFCcw8ykMkhQvW7Eus3U \
---bootnodes=/dns4/vira-stagenet-relay-validator-0.a.moondev.network/tcp/30334/p2p/12D3KooWSVTKUkkD4KBBAQ1QjAALeZdM3R2Kc2w5eFtVxbYZEGKd \
---bootnodes=/dns4/vira-stagenet-relay-validator-1.a.moondev.network/tcp/30334/p2p/12D3KooWFJoVyvLNpTV97SFqs91HaeoVqfFgRNYtUYJoYVbBweW4 \
---bootnodes=/dns4/vira-stagenet-relay-validator-2.a.moondev.network/tcp/30334/p2p/12D3KooWP1FA3dq1iBmEBYdQKAe4JNuzvEcgcebxBYMLKpTNirCR \
---bootnodes=/dns4/vira-stagenet-relay-validator-3.a.moondev.network/tcp/30334/p2p/12D3KooWDaTC6H6W1F4NkbaqK3Ema3jzc2BbhE2tyD3YEf84yNLE 
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
 
 [Install]
 WantedBy=multi-user.target
@@ -18737,19 +18735,19 @@ docker pull {{ networks.dancebox.docker_sequencer_image_name }}
 The command will download and extract the image and show the status upon execution:
 
 <div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/stagelight-collators:3</span>
+  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/dancelight-collators:2</span>
   <span data-ty>
     <br> 
     <br> Using default tag: latest
-    <br> latest: Pulling from moondancelabs/stagelight-collators:3
+    <br> latest: Pulling from moondancelabs/dancelight-collators:2
     <br> e1caac4eb9d2: Pull complete 
     <br> 1d4409959e6d: Pull complete 
     <br> b8beed19c122: Pull complete 
     <br> c0fab1f18601: Pull complete 
     <br> d9dcf3cddfc5: Pull complete 
     <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
-    <br> Status: Downloaded newer image for moondancelabs/stagelight-collators:3
-    <br> docker.io/moondancelabs/stagelight-collators:3
+    <br> Status: Downloaded newer image for moondancelabs/dancelight-collators:2
+    <br> docker.io/moondancelabs/dancelight-collators:2
   </span>
 </div>
 
@@ -18816,6 +18814,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -18852,8 +18851,9 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 
 === "Intel Skylake"
@@ -18867,6 +18867,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -18903,8 +18904,9 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 === "AMD Zen3"
 
@@ -18916,6 +18918,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -18952,8 +18955,9 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
 
 ### Run Flags {: #run-flags }
 
@@ -19018,7 +19022,7 @@ The article follows the good practice of running the service with its own non-ro
 To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
 
 - **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}
-- **Tanssi chain specifications file** - the Tanssi chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Stagelight){target=\_blank}
+- **Tanssi chain specifications file** - the Tanssi chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Dancelight){target=\_blank}
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -19055,7 +19059,7 @@ The node binary file includes the necessary code to run a Tanssi chain node. Whe
 Download the relay chain specification file by executing the following:
 
 ```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Stagelight/relay-raw-no-bootnodes-specs.json
+wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancelight/dancelight-raw-specs.json
 ```
 
 ## Setup the Systemd Service {: #setup-systemd-service }
@@ -19137,6 +19141,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --node-key-file=/var/lib/tanssi-data/node-key \
 --keystore-path=/var/lib/tanssi-data/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -19173,8 +19178,9 @@ ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
 
 [Install]
 WantedBy=multi-user.target
@@ -19466,6 +19472,7 @@ To restart the node, you can use the command you used when launching your block 
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -19502,8 +19509,9 @@ To restart the node, you can use the command you used when launching your block 
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 
 === "Intel Skylake"
@@ -19518,6 +19526,7 @@ To restart the node, you can use the command you used when launching your block 
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -19554,8 +19563,9 @@ To restart the node, you can use the command you used when launching your block 
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 === "AMD Zen3"
 
@@ -19569,6 +19579,7 @@ To restart the node, you can use the command you used when launching your block 
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -19605,8 +19616,9 @@ To restart the node, you can use the command you used when launching your block 
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 
 ### Specifying a Version Tag {: #specifying-a-version-tag }
@@ -19626,6 +19638,7 @@ The complete commands with specific version tags are thus as follows:
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -19662,8 +19675,9 @@ The complete commands with specific version tags are thus as follows:
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 
 === "Intel Skylake"
@@ -19677,6 +19691,7 @@ The complete commands with specific version tags are thus as follows:
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -19713,8 +19728,9 @@ The complete commands with specific version tags are thus as follows:
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 
 === "AMD Zen3"
@@ -19728,6 +19744,7 @@ The complete commands with specific version tags are thus as follows:
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -19764,8 +19781,9 @@ The complete commands with specific version tags are thus as follows:
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa"
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 And that's it! You've successfully upgraded your Tanssi node.
 
