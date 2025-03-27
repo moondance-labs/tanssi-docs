@@ -19,7 +19,7 @@ The article follows the good practice of running the service with its own non-ro
 To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
 
 - **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable `tanssi-node` release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}
-- **Tanssi chain specifications file** - the Tanssi chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Stagelight){target=\_blank}
+- **Tanssi chain specifications file** - the Tanssi chain specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Dancelight){target=\_blank}
 
 ## Download the Latest Release {: #download-latest-release }
 
@@ -55,7 +55,7 @@ The node binary file includes the necessary code to run a Tanssi chain node. Whe
 Download the relay chain specification file by executing the following:
 
 ```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Stagelight/relay-raw-no-bootnodes-specs.json
+wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancelight/dancelight-raw-specs.json
 ```
 
 ## Setup the Systemd Service {: #setup-systemd-service }
@@ -136,6 +136,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --node-key-file=/var/lib/tanssi-data/node-key \
 --keystore-path=/var/lib/tanssi-data/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
 --rpc-cors=all \
@@ -172,8 +173,9 @@ ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
 
 [Install]
 WantedBy=multi-user.target

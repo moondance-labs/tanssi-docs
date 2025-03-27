@@ -34,7 +34,7 @@ Luckily, running a node requires the right Docker image configured correctly!
 If the Tanssi network was registered in the dApp choosing the EVM template or uploading a custom specification representing a Tanssi EVM-compatible network, then execute the following command to pull the Docker image:
 
 ```bash
-docker pull moondancelabs/dancebox-container-chain-evm-templates
+docker pull moondancelabs/dancelight-container-chain-evm-templates
 ```
 
 The command will download and extract the image and show the status upon execution:
@@ -46,7 +46,7 @@ The command will download and extract the image and show the status upon executi
 If the network was registered in the dApp choosing the basic Substrate template or uploading a custom specification file representing a Substrate network, then execute the following command to pull the Docker image:
 
 ```bash
-docker pull moondancelabs/dancebox-container-chain-simple-templates
+docker pull moondancelabs/dancelight-container-chain-simple-templates
 ```
 
 The command will download and extract the image and show the status upon execution, showing a similar output as the previous terminal image.
@@ -65,7 +65,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     === "Generic"
 
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
         /chain-network/container-chain-frontier-node \
         --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
@@ -73,7 +73,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     === "Intel Skylake"
 
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
         /chain-network/container-chain-frontier-node-skylake \
         --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
@@ -81,7 +81,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     === "AMD Zen3"
 
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
         /chain-network/container-chain-frontier-node-znver3 \
         --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
@@ -91,7 +91,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     === "Generic"
 
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-simple-templates \
         /chain-network/container-chain-simple-node \
         --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
@@ -99,7 +99,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     === "Intel Skylake"
     
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-simple-templates \
         /chain-network/container-chain-simple-node-skylake \
         --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
@@ -107,7 +107,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     === "AMD Zen3"
     
         ```bash
-        docker run -ti moondancelabs/dancebox-container-chain-simple-templates \
+        docker run -ti moondancelabs/dancelight-container-chain-simple-templates \
         /chain-network/container-chain-simple-node-znver3 \
         --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
         ```
@@ -122,7 +122,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 The following example spins up a full archive RPC node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancebox with an ID of `3001`.
 
 ```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
 /chain-network/container-chain-frontier-node \
 --chain=/chain-network/container-3001-raw-specs.json \
 --rpc-port=9944 \
@@ -139,8 +139,9 @@ docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
 --name=relay \
 --sync=fast \
 --database=paritydb \
---bootnodes=/dns4/fraa-stagelight-rpc-0.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWCUwf99GjNKtDJ7SnuGPaecdiugiWJ3pr9JdoH27BW2tZ \
---bootnodes=/dns4/fraa-stagelight-rpc-1.a.stagenet.tanssi.network/tcp/30334/p2p/12D3KooWHRQfPBf82SUU39CFh5jcUT1TL2ZvvTWvnbtghxqqNQwa
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
 ```
 
 ### Run Flags {: #run-flags }
@@ -150,7 +151,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
-docker run -ti moondancelabs/dancebox-container-chain-evm-templates \
+docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
 /chain-network/container-chain-frontier-node \
 --help
 ```
