@@ -8,13 +8,13 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi Validator. Not only does it help to ensure that your validator node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi validatos operators can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi validator. Not only does it help ensure that your node stays healthy, but it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi validator operators can subscribe to [GitHub notifications](#subscribe) to be alerted about new client release versions.
 
 This tutorial covers upgrading your Tanssi validator node that was configured using Systemd. It assumes you have already set up your account and launched a [validator node using Systemd](/node-operators/validators/onboarding/run-a-validator/validators-systemd/){target=\_blank}.
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
-If you're running your validator via the Systemd service, you'll need to take a few steps to properly upgrade your node. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and then start the service.
+If you're running your validator via the Systemd service, you'll need to take a few steps to upgrade your node properly. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and then start the service.
 
 You can stop your Tanssi Systemd service with the following command:
 
@@ -22,13 +22,13 @@ You can stop your Tanssi Systemd service with the following command:
 systemctl stop tanssi.service
 ```
 
-Then, navigate to the directory where your Tanssi binary is stored and remove it.
+Then, navigate to the directory where your Tanssi binaries are stored and remove them.
 
 ```bash
 cd /var/lib/tanssi-data
 ```
 
-If you haven't changed your Tanssi binary files, thet will be named `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`. Otherwise, you can replace `tanssi-relay*` below with the correct names of your Tanssi binary files.
+If you haven't changed your Tanssi binary file names, they will be named `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`. Otherwise, you can replace `tanssi-relay*` in the command below with the correct names of your Tanssi binary files.
 
 ```bash
 rm tanssi-relay*
