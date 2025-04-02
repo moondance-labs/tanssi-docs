@@ -19407,9 +19407,9 @@ template: index-page.html
 Keeping your node updated is critical to maintaining compatibility with the latest Tanssi protocol changes and ensuring optimal performance. Outdated nodes can lead to desynchronization, reduced efficiency, or even an inability to participate in block production. By staying current with client releases, you can ensure your node operates securely and reliably within the network.
 
 !!! tip "Subscribe to Release Notifications" 
-    Staying informed about new client releases is essential for maintaining an up-to-date node. Tanssi sequencers can subscribe to GitHub notifications to be alerted for new client release versions.  
+    Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
-    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){:target="_blank"} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
+    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
 ## Explore What This Section Covers
 
@@ -19428,9 +19428,14 @@ icon: simple-docker
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi sequencer operators can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly.
 
 This tutorial covers upgrading your Tanssi sequencer that was configured using Docker. It assumes you have already set up your account and launched a [sequencer using Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
+
+!!! tip "Subscribe to Release Notifications" 
+    Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
+
+    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
 ## Upgrading Docker Nodes {: #upgrading-docker-nodes }
 
@@ -19789,10 +19794,6 @@ The complete commands with specific version tags are thus as follows:
 --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 And that's it! You've successfully upgraded your Tanssi node.
-
-## Subscribe to Release Notifications {: #subscribe }
-
-You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd/
@@ -19807,9 +19808,14 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi sequencer operators can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly.
 
 This tutorial covers upgrading your Tanssi sequencer node that was configured using Systemd. It assumes you have already set up your account and launched a [sequencer node using Systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/){target=\_blank}.
+
+!!! tip "Subscribe to Release Notifications" 
+    Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
+
+    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
@@ -19869,10 +19875,6 @@ systemctl status tanssi.service
 ```
 
 And that's it! You've successfully upgraded your Tanssi node.
-
-## Subscribe to Release Notifications {: #subscribe }
-
-You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/validators/
@@ -21063,9 +21065,9 @@ template: index-page.html
 Keeping your node updated is critical to maintaining compatibility with the latest Tanssi protocol changes and ensuring optimal performance. Outdated nodes can lead to desynchronization, reduced efficiency, or even an inability to participate in the protocol. By staying current with client releases, you can ensure your node operates securely and reliably within the network.
 
 !!! tip "Subscribe to Release Notifications" 
-    Staying informed about new client releases is essential for maintaining an up-to-date node. Tanssi validators maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
+    Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
-    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){:target="_blank"} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
+    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
 ## Explore What This Section Covers
 
@@ -21084,9 +21086,14 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi validator. Not only does it help ensure that your node stays healthy, but it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi validator operators can subscribe to [GitHub notifications](#subscribe) to be alerted about new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi validator. Not only does it help ensure that your node stays healthy, but it also contributes to keeping the entire Tanssi Network running smoothly.
 
 This tutorial covers upgrading your Tanssi validator node that was configured using Systemd. It assumes you have already set up your account and launched a [validator node using Systemd](/node-operators/validators/onboarding/run-a-validator/validators-systemd/){target=\_blank}.
+
+!!! tip "Subscribe to Release Notifications" 
+    Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
+
+    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
@@ -21152,9 +21159,5 @@ systemctl status tanssi.service
 ```
 
 And that's it! You've successfully upgraded your Tanssi node.
-
-## Subscribe to Release Notifications {: #subscribe }
-
-You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.
 --- END CONTENT ---
 
