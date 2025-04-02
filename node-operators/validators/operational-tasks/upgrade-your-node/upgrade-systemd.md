@@ -8,9 +8,11 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi validator. Not only does it help ensure that your node stays healthy, but it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi validator operators can subscribe to [GitHub notifications](#subscribe) to be alerted about new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi validator. Not only does it help ensure that your node stays healthy, but it also contributes to keeping the entire Tanssi Network running smoothly.
 
 This tutorial covers upgrading your Tanssi validator node that was configured using Systemd. It assumes you have already set up your account and launched a [validator node using Systemd](/node-operators/validators/onboarding/run-a-validator/validators-systemd/){target=\_blank}.
+
+--8<-- 'text/node-operators/github-release-notifications.md'
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
@@ -76,7 +78,3 @@ systemctl status tanssi.service
 ```
 
 And that's it! You've successfully upgraded your Tanssi node.
-
-## Subscribe to Release Notifications {: #subscribe }
-
-You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.

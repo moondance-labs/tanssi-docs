@@ -8,9 +8,11 @@ icon: simple-docker
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly. Tanssi sequencer operators can subscribe to [GitHub notifications](#subscribe) to be alerted for new client release versions.
+Keeping your node up-to-date is an important part of being a Tanssi sequencer. Not only does it help to ensure that your sequencer node stays healthy, it also contributes to keeping the entire Tanssi Network running smoothly.
 
 This tutorial covers upgrading your Tanssi sequencer that was configured using Docker. It assumes you have already set up your account and launched a [sequencer using Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
+
+--8<-- 'text/node-operators/github-release-notifications.md'
 
 ## Upgrading Docker Nodes {: #upgrading-docker-nodes }
 
@@ -95,7 +97,3 @@ The complete commands with specific version tags are thus as follows:
     --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
 And that's it! You've successfully upgraded your Tanssi node.
-
-## Subscribe to Release Notifications {: #subscribe }
-
-You can subscribe to email notifications of new releases by clicking **Watch** on the [Tanssi GitHub Repo](https://github.com/moondance-labs/tanssi){target=\_blank} and selecting **Custom** notifications and checking the box for **Releases**.
