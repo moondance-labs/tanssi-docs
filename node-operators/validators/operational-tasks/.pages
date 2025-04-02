@@ -1,0 +1,6 @@
+title: Operational Tasks
+hide: false
+nav:
+  - index.md
+  - upgrade-your-node
+  #- 'Use a Proxy Account': 'proxy-accounts.md'

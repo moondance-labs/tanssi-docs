@@ -9,10 +9,7 @@ template: index-page.html
 
 Keeping your node updated is critical to maintaining compatibility with the latest Tanssi protocol changes and ensuring optimal performance. Outdated nodes can lead to desynchronization, reduced efficiency, or even an inability to participate in block production. By staying current with client releases, you can ensure your node operates securely and reliably within the network.
 
-!!! tip "Subscribe to Release Notifications" 
-    Staying informed about new client releases is essential for maintaining an up-to-date node. Tanssi sequencers can subscribe to GitHub notifications to be alerted for new client release versions.  
-
-    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){:target="_blank"} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
+--8<-- 'text/node-operators/github-release-notifications.md'
 
 ## Explore What This Section Covers
 
