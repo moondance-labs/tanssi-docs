@@ -2,5 +2,5 @@ title: Upgrade Your Node
 hide: false
 nav:
   - index.md
-  #- 'Using Docker': 'upgrade-docker.md'
+  - 'Using Docker': 'upgrade-docker.md'
   - 'Using Systemd': 'upgrade-systemd.md'
