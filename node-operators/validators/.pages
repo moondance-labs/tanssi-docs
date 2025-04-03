@@ -3,5 +3,6 @@ hide: false
 nav:
   - index.md
   - onboarding
+  - offboarding
   #- operational-tasks
-  #- offboarding
+ 
