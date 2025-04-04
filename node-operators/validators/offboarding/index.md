@@ -19,9 +19,9 @@ The offboarding process consists of the following steps:
 
 What you'll learn:
 
-- [**Initiating the offboarding process**](/node-operators/validators/offboarding/process/#contact-tanssi-team) - how to properly communicate your intention to offboard
-- [**Pausing operations**](/node-operators/validators/offboarding/process/#pause-operations) - steps to safely pause your validator node
-- [**Network and registry removal**](/node-operators/validators/offboarding/process/#network-removal) - how to properly opt-out from the network and related registries
+- [**Opting out from the network**](/node-operators/validators/offboarding/offboarding-process/#opt-out-from-the-tanssi-network) - how to properly opt-out from the Tanssi network and verify your status
+- [**Initiating the offboarding process**](/node-operators/validators/offboarding/offboarding-process/#contact-tanssi-team) - how to communicate your intention to offboard through the form
+- [**Vault opt-out**](/node-operators/validators/offboarding/offboarding-process/#vault-opt-out-optional) - how to optionally opt-out from the vault and verify your status
 
 !!! tip "Rejoining as a Validator" 
     If you decide to return as a Tanssi validator in the future, you can easily onboard again by following the steps outlined in the [Onboarding](/node-operators/validators/onboarding/) guide.
