@@ -21044,7 +21044,7 @@ template: index-page.html
 
 # Operational Tasks
 
-Keeping your validator up and running requires regular maintenance to ensure consistent performance and secure management of your accounts. Regular updates are essential to keep your node compatible with the latest Tanssi protocol changes, while tools such as proxy accounts provide an extra layer of security by allowing you to delegate certain tasks without exposing your primary account credentials. This section provides the necessary steps to keep your operations smooth, reliable, and secure.
+Keeping your validator running requires regular maintenance to ensure consistent performance and secure account management. Regular updates are essential to keep your node compatible with the latest Tanssi protocol changes. At the same time, tools such as proxy accounts provide an extra layer of security by allowing you to delegate specific tasks without exposing your primary account credentials. This section provides the steps to keep your operations smooth, reliable, and secure.
 
 ## Explore This Section
 
@@ -21097,7 +21097,7 @@ This tutorial covers upgrading your Tanssi validator node that was configured us
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
-If you're running your validator via the Systemd service, you'll need to take a few steps to upgrade your node properly. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and then start the service.
+If you're running your validator via the Systemd service, you must take steps to upgrade your node correctly. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and restart the service.
 
 You can stop your Tanssi Systemd service with the following command:
 
