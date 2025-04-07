@@ -7,7 +7,7 @@ template: index-page.html
 
 # Operational Tasks
 
-Keeping your validator up and running requires regular maintenance to ensure consistent performance and secure management of your accounts. Regular updates are essential to keep your node compatible with the latest Tanssi protocol changes, while tools such as proxy accounts provide an extra layer of security by allowing you to delegate certain tasks without exposing your primary account credentials. This section provides the necessary steps to keep your operations smooth, reliable, and secure.
+Keeping your validator running requires regular maintenance to ensure consistent performance and secure account management. Regular updates are essential to keep your node compatible with the latest Tanssi protocol changes. At the same time, tools such as proxy accounts provide an extra layer of security by allowing you to delegate specific tasks without exposing your primary account credentials. This section provides the steps to keep your operations smooth, reliable, and secure.
 
 ## Explore This Section
 
