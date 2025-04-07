@@ -23,15 +23,13 @@ Before opting into a Tanssi-enabled vault and the Tanssi network, make sure that
 
 ## Map an Account to Your Node {: #map-account }
 
-The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your sequencer.
+The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing validity proofs, whereas your account keeps track of your work and related rewards, and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your node.
 
 You will need to create session keys for your primary and backup servers. Each of your servers, your primary and backup, should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
 
 ### Generate Session Keys {: #generate-session-keys }
 
-Before generating session keys, you must be [running a sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank}.
-
-To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your block producer's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
+To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your node's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
 
 ```bash
 curl http://127.0.0.1:9944 -H \
@@ -46,15 +44,15 @@ curl http://127.0.0.1:9944 -H \
 
 Your hex-encoded session keys will be printed to the terminal in the `"result"` field.
 
---8<-- 'code/node-operators/sequencers/onboarding/account-setup/terminal/generate-session-keys.md'
+--8<-- 'code/node-operators/validators/onboarding/account-setup/terminal/generate-session-keys.md'
 
 Make sure you write down your session keys; you'll need to map your session keys to your account in the next section.
 
 ### Map Session Keys {: #map-session-keys }
 
-To perform the next step and map your session keys to your account, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+To perform the next step and map your session keys to your account, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
 
-1. Select your account, which should be the same account that you previously self-delegated
+1. Select your account, which should be the same account that you previously registered with Tanssi
 2. Select the **session** module and the **setKeys** extrinsic
 3. For **keys**, enter your session keys
 4. For **proof**, enter `0x`
@@ -62,7 +60,7 @@ To perform the next step and map your session keys to your account, head to the 
 
 ![Create and submit a transaction to set session keys on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-1.webp)
 
-Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **session** module and the **keyOwner** query
 2. Enter `nmbs` in the **SpCoreCryptoKeyTypeId** field
@@ -72,14 +70,4 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 ![Create and submit query to verify session keys on the developer portal](/images/node-operators/sequencers/onboarding/account-setup/setup-2.webp)
 
-## Verify That Your Account Is in the List of Eligible Candidates {: #verify }
-
-If you've followed all of the steps in this guide and have fully synced your sequencer, you are now eligible to produce blocks. To verify that you are in the list of eligible candidates, you can go to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancebox.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
-
-1. Select the **pooledStaking** module and the **sortedEligibleCandidates** query
-2. Click the **+** button next to the extrinsic field
-3. A list of the eligible candidates and their stake will be displayed at the bottom of the page. You can search for your address to ensure you are eligible to produce blocks
-
-![Query the current list of eligible candidates on the developer portal](/images/node-operators/sequencers/onboarding/account-setup/setup-7.webp)
-
-Remember that you'll need to be in the top candidates by total stake to produce blocks, and this is based on the number of [sequencers required for each network and Tanssi](#important-variables).
+And that's it! You've successfully mapped your account and your node is now eligible to participate in the protocol.
