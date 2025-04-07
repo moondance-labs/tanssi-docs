@@ -7,11 +7,11 @@ description: Learn how to map your node's account with your stash account, makin
 
 ## Introduction {: #introduction }
 
-Before you can start participating in the Tanssi protocol validating blocks and securing the Tanssi ecosystem, you'll need to set up your account and establish your eligibility.
+Before you can start participating in the Tanssi protocol, validating blocks, and securing the Tanssi ecosystem, you'll need to set up your account and establish your node's eligibility.
 
-This step maps your Tanssi stash account (the one keeping track of your rewards) to your node's [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}, allowing the protocol to include your node in the active set. 
+This step maps your Tanssi stash account (the one keeping track of your rewards) to your node's session keys (the ones used for communication and consensus), allowing the protocol to include your node in the active set. 
 
-By following the steps outlined in this guide, you'll learn everything you need to know to get started validating within the Tanssi ecosystem. You can optionally [establish a proxy account](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
+By following the steps outlined in this guide, you'll learn everything you need to know to validate within the Tanssi ecosystem.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -23,9 +23,10 @@ Before opting into a Tanssi-enabled vault and the Tanssi network, make sure that
 
 ## Map an Account to Your Node {: #map-account }
 
-The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing validity proofs, whereas your account keeps track of your work and related rewards, and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your node.
+The first step is a two-step process that generates and maps the session keys to your account. Session keys can be compared to the node's ID, and are used to perform network operations, such as signing validity proofs, whereas your account keeps track of your work and related rewards, and could have an on-chain identity. By mapping the session key to your account, you create an association between your account and your node.
 
-You will need to create session keys for your primary and backup servers. Each of your servers, your primary and backup, should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
+You will need to create session keys for your primary and backup servers. Each server should have its own 
+unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
 
 ### Generate Session Keys {: #generate-session-keys }
 
@@ -58,16 +59,16 @@ To perform the next step and map your session keys to your account, head to the 
 4. For **proof**, enter `0x`
 5. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit a transaction to set session keys on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-1.webp)
+![Create and submit a transaction to set session keys on Polkadot.js Apps](/images/node-operators/validators/onboarding/account-setup/account-setup-1.webp)
 
 Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
 1. Select the **session** module and the **keyOwner** query
-2. Enter `nmbs` in the **SpCoreCryptoKeyTypeId** field
-3. For **Bytes**, enter your hex-encoded session keys
+2. Enter `gran` in the **SpCoreCryptoKeyTypeId** field
+3. For **Bytes**, enter the first sixty six hex-encoded characters from your session keys (e.g., `0x00a12170e0925a9bf98f31bbdd7988550c1bf587766a2d2735e969aa5b4291dc`)
 4. Click the **+** button next to the extrinsic field
 5. The account associated with the session keys, which should be your account, will be displayed at the bottom of the page
 
-![Create and submit query to verify session keys on the developer portal](/images/node-operators/sequencers/onboarding/account-setup/setup-2.webp)
+![Create and submit query to verify session keys on the developer portal](/images/node-operators/validators/onboarding/account-setup/account-setup-2.webp)
 
 And that's it! You've successfully mapped your account and your node is now eligible to participate in the protocol.
