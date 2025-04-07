@@ -7,7 +7,7 @@ template: index-page.html
 
 # Offboarding
 
-Stepping down as a validator requires following the proper procedures to ensure a smooth transition. This section provides clear instructions on how to properly offboard your validator from the Tanssi network.
+Stepping down as a validator requires following the proper procedures to ensure a smooth transition. This section provides clear instructions on properly offboarding your validator from the Tanssi network.
 
 The offboarding process consists of the following steps:
 
