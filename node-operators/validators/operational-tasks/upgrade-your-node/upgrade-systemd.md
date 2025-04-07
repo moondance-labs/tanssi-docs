@@ -16,7 +16,7 @@ This tutorial covers upgrading your Tanssi validator node that was configured us
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
-If you're running your validator via the Systemd service, you'll need to take a few steps to upgrade your node properly. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and then start the service.
+If you're running your validator via the Systemd service, you must take steps to upgrade your node correctly. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and restart the service.
 
 You can stop your Tanssi Systemd service with the following command:
 
