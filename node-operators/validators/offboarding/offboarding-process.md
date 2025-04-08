@@ -9,7 +9,7 @@ template: main.html
 
 This guide provides detailed instructions for each step of the validator offboarding process. Follow these steps carefully to ensure a smooth transition.
 
-## Opt-out from the Tanssi Network
+## Opt out from the Tanssi Network
 
 The first step in the offboarding process is to opt out of the Tanssi network. This will enable Tanssi to verify your intent to leave the protocol and validate your identity.
 You can do this through several methods:
@@ -80,13 +80,13 @@ For [Safe](https://app.safe.global/){target=\_blank} accounts, use the Transacti
 
     {{ networks.symbiotic.contracts.sepolia.network_registry }}
 
-### Verify Opt-out Status {: #verify-opt-out-status }
+### Verify Opt out Status {: #verify-opt-out-status }
 
-After submitting the opt-out transaction, you can verify your opt-out status using one of these methods:
+After submitting the opt out transaction, you can verify your opt out status using one of these methods:
 
 #### Using Etherscan
 
-You can check your opt-out status on Etherscan:
+You can check your opt out status on Etherscan:
 
 === "MainNet"
 
@@ -111,7 +111,7 @@ You'll get a `false` result if your operator has successfully opted out and `tru
 
 #### Using the Symbiotic CLI
 
-You can also verify your opt-out status using the Symbiotic CLI:
+You can also verify your opt out status using the Symbiotic CLI:
 
 === "MainNet"
     
@@ -133,7 +133,7 @@ After opting out from the network, notify the Tanssi team of your intention to s
 
 1. Complete the [validator offboarding form](INSERT_FORM_URL){target=_blank} with the following information:
     - Your account address
-    - Opt-out transaction hash (for verification)
+    - Opt out transaction hash (for verification)
     - Preferred timeline for offboarding
     - Reason for offboarding (optional)
 
@@ -147,9 +147,9 @@ Once your request is received and processed, the Tanssi team will schedule the r
 
 After receiving confirmation of middleware removal, you can safely decommission your validator node. If you haven't yet received confirmation that your operator has been removed from the middleware, wait for one complete epoch to ensure all operations are correctly settled. You can check the current epoch status through the Tanssi dashboard. Do not proceed to the next steps until you've received confirmation of middleware removal or an entire epoch has passed.
 
-## Vault Opt-out (Optional)
+## Vault Opt out (Optional)
 
-After completing the above steps, you may optionally opt-out from the vault using one of these methods:
+After completing the above steps, you may optionally opt out from the vault using one of these methods:
 
 ### Using the Symbiotic CLI {: #opt-out-vault-with-cli }
 
@@ -217,13 +217,13 @@ For Safe accounts, use these contract addresses in the Transaction Builder:
 
     {{ networks.symbiotic.contracts.sepolia.vault_registry }}
 
-### Verify Vault Opt-out Status {: #verify-vault-opt-out-status }
+### Verify Vault Opt out Status {: #verify-vault-opt-out-status }
 
 After submitting the vault opt-out transaction, you can verify your opt-out status using one of these methods:
 
 #### Using Etherscan
 
-You can check your vault opt-out status on Etherscan:
+You can check your vault opt out status on Etherscan:
 
 === "MainNet"
 
@@ -251,7 +251,7 @@ You'll get a `false` result if your operator has successfully opted out of the v
 You can also verify your vault opt-out status using the Symbiotic CLI:
 
 === "MainNet"
-    
+
     ```bash
     python3 symb.py check-opt-in-vault INSERT_OPERATOR_ADDRESS INSERT_VAULT_ADDRESS
     ```
