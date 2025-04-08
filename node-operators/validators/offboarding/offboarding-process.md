@@ -30,7 +30,7 @@ If you have the [Symbiotic CLI](../../onboarding/opt-in-to-tanssi/#set-up-the-cl
     python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
     ```
 
-For signing with a private key (not recommended):
+For signing with a private key:
 
 === "MainNet"
 
@@ -43,6 +43,9 @@ For signing with a private key (not recommended):
     ```bash
     python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key INSERT_PRIVATE_KEY --chain sepolia
     ```
+
+!!! warning
+    Note that this method requires you to expose your private key; therefore, it is not recommended.
 
 ### Using Etherscan {: #opt-out-network-with-etherscan }
 
@@ -164,7 +167,7 @@ With Ledger:
     python3 symb.py opt-out-vault {{ networks.symbiotic.contracts.sepolia.vault }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
     ```
 
-With private key (not recommended):
+With private key:
 
 === "MainNet"
 
@@ -177,6 +180,9 @@ With private key (not recommended):
     ```bash
     python3 symb.py opt-out-vault {{ networks.symbiotic.contracts.sepolia.vault }} --private-key INSERT_PRIVATE_KEY --chain sepolia
     ```
+
+!!! warning
+    Note that this method requires you to expose your private key; therefore, it is not recommended.
 
 ### Using Etherscan {: #opt-out-vault-with-etherscan }
 
