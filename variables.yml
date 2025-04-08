@@ -10,22 +10,22 @@ networks:
       stable_version: 17.1.2
     chain_id: 5678
     rpc_url: https://dancebox-3001.tanssi-api.network
-    token_symbol: "TANGO"
-    block_explorer_url: "https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/"
+    token_symbol: 'TANGO'
+    block_explorer_url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/'
     precompiles:
-      erc20: "0x0000000000000000000000000000000000000800"
-      batch: "0x0000000000000000000000000000000000000801"
-      call_permit: "0x0000000000000000000000000000000000000802"
-      xcm_interface: "0x0000000000000000000000000000000000000804"
-      external_assets_erc20: "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF____"
-      external_assets_erc20_example: "0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0001"
-      proxy: "0x0000000000000000000000000000000000000805"
+      erc20: '0x0000000000000000000000000000000000000800'
+      batch: '0x0000000000000000000000000000000000000801'
+      call_permit: '0x0000000000000000000000000000000000000802'
+      xcm_interface: '0x0000000000000000000000000000000000000804'
+      external_assets_erc20: '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF____'
+      external_assets_erc20_example: '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0001'
+      proxy: '0x0000000000000000000000000000000000000805'
     dns_name: dancebox.tanssi-api.network
     gas_to_weight: 25000
     session:
       blocks: 600
       hours: 1
-      display: "one"
+      display: 'one'
     costs:
       registration_deposit: 100
       cost_per_block: 1
@@ -39,47 +39,47 @@ networks:
         full_rotation_period: 12
       appchain:
         num: 2
-        display: "two"
+        display: 'two'
       tanssi:
         min:
           num: 3
-          display: "three"
+          display: 'three'
         max:
           num: 5
-          display: "five"
+          display: 'five'
       min_self_del:
-        dance: "100"
+        dance: '100'
         planck: 100000000000000
     staking:
       joining_delay_sessions: 2
-      joining_delay_sessions_text: "two"
+      joining_delay_sessions_text: 'two'
       joining_delay_blocks: 1200
       joining_delay_hours: 2
-      joining_delay_hours_text: "two"
+      joining_delay_hours_text: 'two'
       leaving_delay_sessions: 2
-      leaving_delay_sessions_text: "two"
+      leaving_delay_sessions_text: 'two'
       leaving_delay_blocks: 1200
       leaving_delay_hours: 2
-      leaving_delay_hours_text: "two"
+      leaving_delay_hours_text: 'two'
     oracles:
       phala:
-        aave_usd: "0x2E1640853bB2dD9f47831582665477865F9240DB"
-        btc_usd: "0x89BC5048d634859aef743fF2152363c0e83a6a49"
-        crv_usd: "0xf38b25b79A72393Fca2Af88cf948D98c64726273"
-        dai_usd: "0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B"
-        eth_usd: "0x739d71fC66397a28B3A3b7d40eeB865CA05f0185"
-        usdc_usd: "0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252"
-        usdt_usd: "0x5018c16707500D2C89a0446C08f347A024f55AE3"
+        aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'
+        btc_usd: '0x89BC5048d634859aef743fF2152363c0e83a6a49'
+        crv_usd: '0xf38b25b79A72393Fca2Af88cf948D98c64726273'
+        dai_usd: '0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B'
+        eth_usd: '0x739d71fC66397a28B3A3b7d40eeB865CA05f0185'
+        usdc_usd: '0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252'
+        usdt_usd: '0x5018c16707500D2C89a0446C08f347A024f55AE3'
       acurast:
-        aave_usd: "0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42"
-        btc_usd: "0x02093b190D9462d964C11587f7DedD92718D7B56"
-        crv_usd: "0x01F143dfd745861902dA396ad7dfca962e5C83cA"
-        dai_usd: "0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92"
-        eth_usd: "0x007c3F3cc99302c19792F73b7434E3eCbbC3db25"
-        usdc_usd: "0xe4a46ef4cFbf87D026C3eB293b7672998d932F62"
-        usdt_usd: "0xf9c885E3A5846CEA887a0D69655BC08e52afe569"
+        aave_usd: '0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42'
+        btc_usd: '0x02093b190D9462d964C11587f7DedD92718D7B56'
+        crv_usd: '0x01F143dfd745861902dA396ad7dfca962e5C83cA'
+        dai_usd: '0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92'
+        eth_usd: '0x007c3F3cc99302c19792F73b7434E3eCbbC3db25'
+        usdc_usd: '0xe4a46ef4cFbf87D026C3eB293b7672998d932F62'
+        usdt_usd: '0xf9c885E3A5846CEA887a0D69655BC08e52afe569'
       band:
-        smart_contract: "0x8c064bCf7C0DA3B3b090BAbFE8f3323534D84d68"
+        smart_contract: '0x8c064bCf7C0DA3B3b090BAbFE8f3323534D84d68'
     proxy:
       deposit_base: 10.08
       deposit_factor: 0.33
@@ -93,20 +93,20 @@ networks:
   symbiotic:
     contracts:
       mainnet:
-        operators_registry: "0xAd817a6Bc954F678451A71363f04150FDD81Af9F"
-        registry_network: "0x7133415b33B438843D581013f98A08704316633c"
-        registry_vault: "0xb361894bC06cbBA7Ea8098BF0e32EB1906A5F891"
-        tanssi_network: "INSERT_TANSSI_NETWORK_ADDRESS"
+        operators_registry: '0xAd817a6Bc954F678451A71363f04150FDD81Af9F'
+        registry_network: '0x7133415b33B438843D581013f98A08704316633c'
+        registry_vault: '0xb361894bC06cbBA7Ea8098BF0e32EB1906A5F891'
+        tanssi_network: 'INSERT_TANSSI_NETWORK_ADDRESS'
       holesky:
-        operators_registry: "0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548"
-        registry_network: "0x58973d16FFA900D11fC22e5e2B6840d9f7e13401"
-        registry_vault: "0x95CC0a052ae33941877c9619835A233D21D57351"
+        operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
+        registry_network: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
+        registry_vault: '0x95CC0a052ae33941877c9619835A233D21D57351'
       sepolia:
-        operators_registry: "0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548"
-        registry_network: "0x58973d16FFA900D11fC22e5e2B6840d9f7e13401"
-        registry_vault: "0x95CC0a052ae33941877c9619835A233D21D57351"
-        vault: "0xB94f8852443FB4faB18363D22a45cA64a8CF4482"
-        tanssi_network: "0xdaD051447C4452e15B35B7F831ceE8DEb890f1a4"
+        operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
+        registry_network: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
+        registry_vault: '0x95CC0a052ae33941877c9619835A233D21D57351'
+        vault: '0xB94f8852443FB4faB18363D22a45cA64a8CF4482'
+        tanssi_network: '0xdaD051447C4452e15B35B7F831ceE8DEb890f1a4'
 repository:
   tanssi:
     release_branch: tanssi-polkadot-v1.11.0
