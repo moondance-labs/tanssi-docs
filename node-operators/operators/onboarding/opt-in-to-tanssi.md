@@ -68,11 +68,11 @@ To open the contract's page, open the link:
 
 === "MainNet"
 
-    [Contract address: {{ networks.symbiotic.contracts.mainnet.registry_vault }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.registry_vault }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.vault_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.vault_registry }}#writeContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [Contract address: {{ networks.symbiotic.contracts.sepolia.registry_vault }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.registry_vault }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#writeContract){target=\_blank}
 
 Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
@@ -95,11 +95,11 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
 === "MainNet"
 
-    {{ networks.symbiotic.contracts.mainnet.registry_vault }}
+    {{ networks.symbiotic.contracts.mainnet.vault_registry }}
 
 === "TestNet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.sepolia.registry_vault }}
+    {{ networks.symbiotic.contracts.sepolia.vault_registry }}
 
 Finally, pick the **`optin`** function, insert the `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet), and sign the transaction.
 
@@ -109,11 +109,11 @@ You can quickly check your registration status on Etherscan. Open the following 
 
 === "MainNet"
 
-    [Contract address: {{ networks.symbiotic.contracts.mainnet.registry_vault }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.registry_vault }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.vault_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.vault_registry }}#readContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [Contract address: {{ networks.symbiotic.contracts.sepolia.registry_vault }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.registry_vault }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#readContract){target=\_blank}
 
 In the contract's page:
 
@@ -197,11 +197,11 @@ Go to the contract's page by opening the link:
 
 === "MainNet"
 
-    [Contract address: {{ networks.symbiotic.contracts.mainnet.registry_network }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.registry_network }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#writeContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [Contract address: {{ networks.symbiotic.contracts.sepolia.registry_network }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.registry_network }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
 
 Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
@@ -224,11 +224,11 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
 === "MainNet"
 
-    {{ networks.symbiotic.contracts.mainnet.registry_network }}
+    {{ networks.symbiotic.contracts.mainnet.network_registry }}
 
 === "TestNet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.sepolia.registry_network }}
+    {{ networks.symbiotic.contracts.sepolia.network_registry }}
 
 Finally, pick the **`optin`** function, insert the  (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
 
@@ -238,11 +238,11 @@ You can quickly check your registration status on Etherscan. Open the following 
 
 === "MainNet"
 
-    [Contract address: {{ networks.symbiotic.contracts.mainnet.registry_network }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.registry_network }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#readContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [Contract address: {{ networks.symbiotic.contracts.sepolia.registry_network }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.registry_network }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#readContract){target=\_blank}
 
 On the contract's page:
 

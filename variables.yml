@@ -94,17 +94,17 @@ networks:
     contracts:
       mainnet:
         operators_registry: '0xAd817a6Bc954F678451A71363f04150FDD81Af9F'
-        registry_network: '0x7133415b33B438843D581013f98A08704316633c'
-        registry_vault: '0xb361894bC06cbBA7Ea8098BF0e32EB1906A5F891'
+        network_registry: '0x7133415b33B438843D581013f98A08704316633c'
+        vault_registry: '0xb361894bC06cbBA7Ea8098BF0e32EB1906A5F891'
         tanssi_network: 'INSERT_TANSSI_NETWORK_ADDRESS'
       holesky:
         operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
-        registry_network: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
-        registry_vault: '0x95CC0a052ae33941877c9619835A233D21D57351'
+        network_registry: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
+        vault_registry: '0x95CC0a052ae33941877c9619835A233D21D57351'
       sepolia:
         operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
-        registry_network: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
-        registry_vault: '0x95CC0a052ae33941877c9619835A233D21D57351'
+        network_registry: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
+        vault_registry: '0x95CC0a052ae33941877c9619835A233D21D57351'
         vault: '0xB94f8852443FB4faB18363D22a45cA64a8CF4482'
         tanssi_network: '0xdaD051447C4452e15B35B7F831ceE8DEb890f1a4'
 repository:

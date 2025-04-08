@@ -50,11 +50,11 @@ You can interact directly with the smart contract through Etherscan using a brow
 
 === "MainNet"
 
-    [Contract address: {{ networks.symbiotic.contracts.mainnet.registry_network }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.registry_network }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#writeContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [Contract address: {{ networks.symbiotic.contracts.sepolia.registry_network }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.registry_network }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
 
 Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
 ![Connect to Web3 step](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-1.webp)
@@ -71,11 +71,11 @@ For [Safe](https://app.safe.global/){target=\_blank} accounts, use the Transacti
 
 === "MainNet"
 
-    {{ networks.symbiotic.contracts.mainnet.registry_network }}
+    {{ networks.symbiotic.contracts.mainnet.network_registry }}
 
 === "TestNet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.sepolia.registry_network }}
+    {{ networks.symbiotic.contracts.sepolia.network_registry }}
 
 ### Verify Opt-out Status {: #verify-opt-out-status }
 
@@ -87,11 +87,11 @@ You can check your opt-out status on Etherscan:
 
 === "MainNet"
 
-    [Contract address: {{ networks.symbiotic.contracts.mainnet.registry_network }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.registry_network }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#readContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [Contract address: {{ networks.symbiotic.contracts.sepolia.registry_network }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.registry_network }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#readContract){target=\_blank}
 
 On the contract's page:
 
@@ -184,11 +184,11 @@ Access the contract through Etherscan:
 
 === "MainNet"
 
-    [Contract address: {{ networks.symbiotic.contracts.mainnet.registry_vault }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.registry_vault }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.vault_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.vault_registry }}#writeContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [Contract address: {{ networks.symbiotic.contracts.sepolia.registry_vault }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.registry_vault }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#writeContract){target=\_blank}
 
 Make sure to select `Contract` and `Write Contract` then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
 ![Connect to Web3 step](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-4.webp)
@@ -205,11 +205,11 @@ For Safe accounts, use these contract addresses in the Transaction Builder:
 
 === "MainNet"
 
-    {{ networks.symbiotic.contracts.mainnet.registry_vault }}
+    {{ networks.symbiotic.contracts.mainnet.vault_registry }}
 
 === "TestNet (Sepolia)"
 
-    {{ networks.symbiotic.contracts.sepolia.registry_vault }}
+    {{ networks.symbiotic.contracts.sepolia.vault_registry }}
 
 ### Verify Vault Opt-out Status {: #verify-vault-opt-out-status }
 
@@ -221,11 +221,11 @@ You can check your vault opt-out status on Etherscan:
 
 === "MainNet"
 
-    [Contract address: {{ networks.symbiotic.contracts.mainnet.registry_vault }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.registry_vault }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.vault_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.vault_registry }}#readContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
-    [Contract address: {{ networks.symbiotic.contracts.sepolia.registry_vault }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.registry_vault }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#readContract){target=\_blank}
 
 On the contract's page:
 
