@@ -14,44 +14,51 @@ This guide provides detailed instructions for each step of the validator offboar
 Before starting the offboarding process, ensure you have the following:
 
 - Access to the wallet that controls your validator operator account
-- The [Symbiotic CLI](../../onboarding/opt-in-to-tanssi/#set-up-the-cli) installed (if you plan to use it for the process)
 - Your validator operator address and network address
 - Sufficient ETH in your wallet to cover gas fees for transactions
+
+### Interaction Methods
+
+To follow this guide, you must interact with smart contracts. There are several ways to interact with the smart contracts:
+
+- Using the [Symbiotic CLI](../../onboarding/opt-in-to-tanssi/#set-up-the-cli)
+- Using Etherscan
+- Using Safe for multisig setups
+
+In any case, you'll need to sign the transaction using your operator account. You can choose between different options to do so:
+
+- Using a hot wallet, such as MetaMask
+- Using a cold wallet, such as Ledger
+- Using the account's private key directly (not recommended for security reasons)
+
+The following sections outline the steps for each method of interaction.
 
 ## Process Overview
 
 The offboarding process consists of the following steps:
 
-1. **Opt out from the Tanssi Network** (Required)
-   - This is the first and mandatory step to initiate the offboarding process
-   - Can be done via CLI, Etherscan, or Safe (for multisig setups)
+1. **Opt out from the Tanssi Network** (Required): This is the first and mandatory step to initiate the offboarding process and can be done via CLI, Etherscan, or Safe (for multisig setups)
 
-2. **Contact Tanssi Team** (Required)
-   - Submit the offboarding form with the required information
-   - Wait for team acknowledgment
+2. **Contact Tanssi Team** (Required): Submit the offboarding form with the required information and wait for team acknowledgment
 
-3. **Middleware Removal** (Required)
-   - Handled by the Tanssi team
-   - Takes approximately two epochs to complete
-   - No action is required from your side
+3. **Middleware Removal** (Required): This step is handled by the Tanssi team, it cloud take approximately two epochs, no action is required from your side
 
-4. **Pause Operations** (Required)
-   - Decommission your validator node after middleware removal confirmation
-   - Wait for one complete epoch after middleware removal
+4. **Pause Operations** (Required): Decommission your validator node after middleware removal confirmation
 
-5. **Vault Opt out** (Optional)
-   - This step is optional and only necessary if you want to remove your association with the Tanssi vault completely
-   - Skipping this step won't affect your ability to rejoin the network in the future
-   - Can be done via CLI, Etherscan, or Safe
+5. **Vault Opt out** (Optional): This step is optional and only necessary if you want to remove your association with the vault completely. Skipping this step won't affect your ability to rejoin the network in the future
 
 ## Opt out from the Tanssi Network
 
 The first step in the offboarding process is to opt out of the Tanssi network. This will enable Tanssi to verify your intent to leave the protocol and validate your identity.
-You can do this through several methods:
+
+!!! important "Identity Validation"
+    When opting out, you sign the transaction using the private key or Ledger device associated with your operator account. This signature serves as cryptographic proof that you are the legitimate owner of the operator account, ensuring that only authorized operators can initiate the offboarding process.
 
 ### Using the Symbiotic CLI {: #opt-out-network-with-cli }
 
-If you have the [Symbiotic CLI](../../onboarding/opt-in-to-tanssi/#set-up-the-cli) installed and want to sign with a Ledger device:
+The Symbiotic CLI provides a straightforward way to opt out from the network. Choose the appropriate command based on your network and signing method:
+
+#### Using a Ledger Device
 
 === "MainNet"
 
