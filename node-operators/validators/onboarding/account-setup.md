@@ -1,6 +1,7 @@
 ---
 title: Set Up an Operator Account
 description: Learn how to map your node's account with your stash account, making your node eligible to secure Tanssi and the Tanssi-powered networks and receive rewards.
+icon: octicons-tools-24
 ---
 
 # Set Up Your Account to Secure the Tanssi Ecosystem
