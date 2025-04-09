@@ -145,7 +145,7 @@ And the output looks like:
 
 ## Submit Metadata {: #submitting-metadata }
 
-Once your operator is successfully registered, you can add metadata (e.g., logo) to improve its visibility on the [Symbiotic website](httos://app.symbiotic.fi){target=\_blank}.
+Once your operator is successfully registered, you can add metadata (e.g., logo) to improve its visibility on the [Symbiotic website](https://app.symbiotic.fi){target=\_blank}.
 
 To submit your operator's metadata, head to the Symbiotic metadata repository:
 

@@ -84,7 +84,7 @@ Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 Once connected:
 
 1. Expand the **`optin`** function
-2. Insert the `VAULT_ADDRESS`
+2. Insert the `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet)
 3. Click on **Write**, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)

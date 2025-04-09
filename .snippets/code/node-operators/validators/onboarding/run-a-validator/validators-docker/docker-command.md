@@ -14,4 +14,5 @@
 --rpc-methods=safe \
 --unsafe-rpc-external \
 --rpc-max-connections=100 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
