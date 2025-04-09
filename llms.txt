@@ -19903,6 +19903,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/ac
 ---
 title: Set Up an Operator Account
 description: Learn how to map your node's account with your stash account, making your node eligible to secure Tanssi and the Tanssi-powered networks and receive rewards.
+icon: octicons-tools-24
 ---
 
 # Set Up Your Account to Secure the Tanssi Ecosystem
@@ -19962,7 +19963,8 @@ Your hex-encoded session keys will be printed to the terminal in the `"result"` 
   "0xca17757962a065eeebec2c6e0d2dc7fb24b56967fd9003e4d22bf4981da86fd4ac7cd701462730a76ab539d5a48f4fd2821acf07743335e56eef84d1544686480ada0ff0f38dfccee43515e619e03b0de95a08c74fcbb2da26af55ad144d5f54829a57d7d77bb9333cf9301eaa5d20c384f67388f36b402e33a03b949148325e80b812699fb22d9e4b4976e1d0e9964034489cb0b5b6b70c37d227fb54ffe50b444434b488361038b8b6949c36f0073c6bd52f2907c0991e32257d96bb946c590320539c343fc1f2e1dd1951a0ff38c6c9ea2f93a263e81ee95da1de0697e47e32"}</span>
 </div>
 
-Make sure you write down your session keys; you'll need to map your session keys to your account in the next section.
+!!! note
+    Make sure you write down your session keys. In the next section, you'll need to map them to your account.
 
 ### Map Session Keys {: #map-session-keys }
 
@@ -19986,7 +19988,7 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 ![Create and submit query to verify session keys on the developer portal](/images/node-operators/validators/onboarding/account-setup/account-setup-2.webp)
 
-And that's it! You've successfully mapped your account and your node is now eligible to participate in the protocol.
+And that's it! You've successfully mapped your account, and your node is now eligible to participate in the protocol.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/

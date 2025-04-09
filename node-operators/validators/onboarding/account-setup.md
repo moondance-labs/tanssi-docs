@@ -48,7 +48,8 @@ Your hex-encoded session keys will be printed to the terminal in the `"result"` 
 
 --8<-- 'code/node-operators/validators/onboarding/account-setup/terminal/generate-session-keys.md'
 
-Make sure you write down your session keys; you'll need to map your session keys to your account in the next section.
+!!! note
+    Make sure you write down your session keys. In the next section, you'll need to map them to your account.
 
 ### Map Session Keys {: #map-session-keys }
 
