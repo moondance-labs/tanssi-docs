@@ -186,6 +186,14 @@ After opting out from the network, notify the Tanssi team of your intention to s
 ## Middleware Removal
 
 Once your request is received and processed, the Tanssi team will schedule the removal of your operator from the middleware. The removal process follows a specific timeline: the operator is paused at epoch n and then unregistered at epoch n+1. This process typically takes two epochs to complete. You will receive a notification when it is complete. This step requires no action, but you must wait for confirmation before proceeding to the next steps.
+You will be notified by email when it is safe to decommission the node.
+
+!!! info "What is an Epoch?"
+ A network epoch is when a specific set of operators, determined by their captured stake, operates for the network. The middleware removal process follows a specific timeline:
+ - At epoch `n`: Your operator is paused
+ - At epoch `n+1`: Your operator is unregistered
+
+ The epoch duration is designed to ensure that withdrawals don't impact the captured stake, taking into account the vault's veto and execution phases. This two-epoch process ensures a smooth transition and proper settlement of all operations.
 
 ## Pause Operations
 
