@@ -1,9 +1,9 @@
 networks:
   dancelight:
-    validator_docker_image: moondancelabs/dancelight-chain:2
+    validator_docker_image: moondancelabs/starlight
     dns_name: dancelight.tanssi-api.network
   dancebox:
-    docker_sequencer_image_name: moondancelabs/dancelight-collators:2
+    docker_sequencer_image_name: moondancelabs/tanssi
     client_version: v0.12.0
     substrate_api_sidecar:
       stable_version: 17.1.2
