@@ -19918,7 +19918,7 @@ By following the steps outlined in this guide, you'll learn everything you need 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-Before opting into a Tanssi-enabled vault and the Tanssi network, make sure that:
+Before setting up your account, make sure that:
 
 - You have a node correctly [set up and running](/node-operators/validators/onboarding/run-a-validator/){target=\_blank}
 - You [have registered as an operator](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank} in the Symbiotic registry 
