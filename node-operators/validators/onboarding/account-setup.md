@@ -26,8 +26,7 @@ Before setting up your account, make sure that:
 
 The first step is a two-step process that generates and maps the session keys to your account. Session keys can be compared to the node's ID, and are used to perform network operations, such as signing validity proofs, whereas your account keeps track of your work and related rewards, and could have an on-chain identity. By mapping the session key to your account, you create an association between your account and your node.
 
-You will need to create session keys for your primary and backup servers. Each server should have its own 
-unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
+You will need to create session keys for your primary and backup servers. Each server should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
 
 ### Generate Session Keys {: #generate-session-keys }
 
