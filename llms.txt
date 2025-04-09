@@ -20078,7 +20078,7 @@ Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 Once connected:
 
 1. Expand the **`optin`** function
-2. Insert the `VAULT_ADDRESS`
+2. Insert the `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet)
 3. Click on **Write**, and sign the transaction
 
 ![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)
@@ -20628,18 +20628,18 @@ docker pull {{ networks.dancelight.validator_docker_image }}
 The command will download and extract the image and show the status upon execution:
 
 <div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker moondancelabs/dancelight-chain</span>
+  <span data-ty="input"><span class="file-path"></span>docker moondancelabs/starlight</span>
   <span data-ty>
     <br> 
     <br> Using default tag: latest
-    <br> latest: Pulling from moondancelabs/dancelight-chain
+    <br> latest: Pulling from moondancelabs/starlight
     <br> e1caac4eb9d2: Pull complete 
     <br> 1d4409959e6d: Pull complete 
     <br> b8beed19c122: Pull complete 
     <br> c0fab1f18601: Pull complete 
     <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
-    <br> Status: Downloaded newer image for moondancelabs/dancelight-chain
-    <br> docker.io/moondancelabs/dancelight-chain
+    <br> Status: Downloaded newer image for moondancelabs/starlight
+    <br> docker.io/moondancelabs/starlight
   </span>
 </div>
 
@@ -20713,6 +20713,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 --rpc-methods=safe \
 --unsafe-rpc-external \
 --rpc-max-connections=100 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     ```
 
@@ -20739,6 +20740,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 --rpc-methods=safe \
 --unsafe-rpc-external \
 --rpc-max-connections=100 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     ```
 
@@ -20765,6 +20767,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 --rpc-methods=safe \
 --unsafe-rpc-external \
 --rpc-max-connections=100 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     ```
 
@@ -20873,17 +20876,17 @@ To get started, download the latest binary release and make it executable by run
 
     ```bash
     wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-znver3 -O tanssi-node && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-node && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-znver3 -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
@@ -20971,6 +20974,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
   --rpc-methods=safe \
   --unsafe-rpc-external \
   --rpc-max-connections=100 \
+  --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
   --validator
 
 [Install]
