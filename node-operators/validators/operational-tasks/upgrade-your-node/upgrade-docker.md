@@ -41,7 +41,6 @@ To restart the node, you can use the same command you used when launching your n
     ```bash
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/chain-network/tanssi-relay" \
     {{ networks.dancelight.validator_docker_image }} \
     --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
     ```
@@ -51,7 +50,7 @@ To restart the node, you can use the same command you used when launching your n
     ```bash
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/chain-network/tanssi-relay-skylake" \
+    --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
     {{ networks.dancelight.validator_docker_image }} \
     --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
     ```
@@ -61,7 +60,7 @@ To restart the node, you can use the same command you used when launching your n
     ```bash
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/chain-network/tanssi-relay-znver3" \
+    --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
     {{ networks.dancelight.validator_docker_image }} \
     --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
     ```
@@ -70,6 +69,6 @@ To restart the node, you can use the same command you used when launching your n
 
 ### Specifying a Version Tag {: #specifying-a-version-tag }
 
-If you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by replacing the version tag appended to the image name. For example, if you wanted to fetch version `3`, you would replace the `2` in `{{ networks.dancelight.validator_docker_image }}`.
+If you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by appending a version tag to the image name. For example, if you wanted to fetch the version tagged `latest` (which is the default), you would append `:latest` to `{{ networks.dancelight.validator_docker_image }}`.
 
 And that's it! You've successfully upgraded your Tanssi node.
