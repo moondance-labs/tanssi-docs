@@ -71,4 +71,4 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 ![Create and submit query to verify session keys on the developer portal](/images/node-operators/validators/onboarding/account-setup/account-setup-2.webp)
 
-And that's it! You've successfully mapped your account and your node is now eligible to participate in the protocol.
+And that's it! You've successfully mapped your account, and your node is now eligible to participate in the protocol.
