@@ -30,7 +30,7 @@ You will need to create session keys for your primary and backup servers. Each s
 
 ### Generate Session Keys {: #generate-session-keys }
 
-To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your node's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
+To generate session keys, send an RPC call using the `author_rotateKeys` method to your node's HTTP endpoint. For reference, if your node's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
 
 ```bash
 curl http://127.0.0.1:9944 -H \
