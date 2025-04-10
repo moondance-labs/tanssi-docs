@@ -106,8 +106,8 @@ You can interact directly with the smart contract through Etherscan using a brow
 Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
 ![Connect to Web3 step](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-1.webp)
 
-1. Expand the **`optout`** function
-2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field
+1. Expand the **`optOut`** function
+2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g, `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
 ![Opt out operator](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-2.webp)
@@ -123,6 +123,8 @@ For [Safe](https://app.safe.global/){target=\_blank} accounts, use the Transacti
 === "TestNet (Sepolia)"
 
     {{ networks.symbiotic.contracts.sepolia.network_registry }}
+
+Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which your node is currently registered (e.g, `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
 
 ### Verify Opt out Status {: #verify-opt-out-status }
 
@@ -146,7 +148,7 @@ On the contract's page:
 2. Ensure your wallet is connected; if not, connect it again
 3. Select the **`isOptedIn`** function
 4. Paste your operator's account in the **who** field
-5. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+5. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 6. Click on **Query**
 
 You'll get a `false` result if your operator has successfully opted out and `true` if they are still opted in.
@@ -186,18 +188,23 @@ After opting out from the network, notify the Tanssi team of your intention to s
 ## Middleware Removal
 
 Once your request is received and processed, the Tanssi team will schedule the removal of your operator from the middleware. This process typically takes two epochs to complete. You will receive a notification when it is complete. This step requires no action, but you must wait for confirmation before proceeding to the next steps.
-You will be notified by email when it is safe to decommission the node.
+
+You will be notified by email when it is safe to decommission the node. Please wait for this notification before proceeding with the next steps.
 
 !!! info "What is an Epoch?"
- A network epoch is when a specific set of operators, determined by their captured stake, operates for the network. The middleware removal process follows a specific timeline:
- - At epoch `n`: Your operator is paused
- - At epoch `n+1`: Your operator is unregistered
+    A network epoch is when a specific set of operators, determined by their captured stake, operates for the network. The middleware removal process follows a specific timeline:
+    - At epoch `n`: Your operator is paused
+    - At epoch `n+1`: Your operator is unregistered
 
- The epoch duration is designed to ensure that withdrawals don't impact the captured stake, taking into account the vault's veto and execution phases. This two-epoch process ensures a smooth transition and proper settlement of all operations.
+    The epoch duration is designed to ensure that withdrawals don't impact the captured stake, taking into account the vault's veto and execution phases. This two-epoch process ensures a smooth transition and proper settlement of all operations.
 
 ## Pause Operations
 
-After receiving confirmation of middleware removal, you can safely decommission your validator node. If you haven't yet received confirmation that your operator has been removed from the middleware, wait for one complete epoch to ensure all operations are correctly settled. You can check the current epoch status through the Tanssi dashboard. Do not proceed to the next steps until you've received confirmation of middleware removal or an entire epoch has passed.
+After receiving the confirmation email indicating that your middleware removal is complete, you can safely decommission your validator node.
+
+1. **Stop the Validator Service**: Start by fully stopping your validator service. Ensure the service is no longer running, and all related processes have been terminated. If needed, back up any important configuration files or data.
+
+2. **Clean Up Resources**: Once the node is stopped, you can clean up your resources. This includes safely removing or repurposing the hardware or virtual machine hosting the validator. If you are using cloud infrastructure, it's safe to terminate the associated instances. It’s also a good idea to back up logs and configuration files in case you need to reference them in the future.
 
 ## Vault Opt out (Optional)
 
@@ -251,8 +258,8 @@ Access the contract through Etherscan:
 Make sure to select `Contract` and `Write Contract` then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
 ![Connect to Web3 step](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-4.webp)
 
-1. Expand the **`optout`** function
-2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field
+1. Expand the **`optOut`** function
+2. Insert the `VAULT_ADDRESS` in the **where** field (e.g, `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
 ![Opt out operator](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-5.webp)
@@ -268,6 +275,8 @@ For Safe accounts, use these contract addresses in the Transaction Builder:
 === "TestNet (Sepolia)"
 
     {{ networks.symbiotic.contracts.sepolia.vault_registry }}
+
+Finally, pick the optOut function, insert the `VAULT_ADDRESS` to which your node is currently registered (e.g, `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet), and sign the transaction.
 
 ### Verify Vault Opt out Status {: #verify-vault-opt-out-status }
 
