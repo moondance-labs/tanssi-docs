@@ -8,9 +8,9 @@ icon: octicons-shield-lock-24
 
 ## Introduction {: #introduction }
 
-Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and help keep the underlying accounts safe. As an operator on Tanssi, it's a good idea to take advantage of proxy accounts to interact with the network in place of your operator account.
+Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and help keep the underlying accounts safe. As an operator on Tanssi, it's a good idea to use proxy accounts to interact with the network in place of your operator account.
 
-The `SessionKeyManagement` proxy type conveniently allows the proxy account to rotate session keys on behalf of the primary account, effectively transforming it into a "hot wallet" for performing regular maintenance duties on behalf of your "cold wallet" operator account. For added safety, you can regularly rotate the proxy account.
+The `SessionKeyManagement` proxy type conveniently allows the proxy account to rotate session keys on behalf of the primary account, transforming it into a "hot wallet" for performing regular maintenance duties on behalf of your "cold wallet" operator account. For added safety, you can regularly rotate the proxy account.
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum access required to carry out their duties via a specific proxy account.
 
@@ -34,7 +34,7 @@ You also have the option of creating a proxy of type **Any** which grants the pr
 
 ### Using the **Extrinsics** Section {: #creating-proxy-account-using-extrinsics }
 
-To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
+To start creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
 
 1. Select the primary account
 2. From the **submit the following extrinsic** dropdown, select **proxy**
@@ -61,7 +61,7 @@ Another method for creating a proxy is using the **Accounts** section of the dev
 !!! note
     If the account already has a proxy, **Manage proxies** will be displayed as an option instead of **Add proxy**.
 
-A pop-up will appear and you can enter the required information, such as the proxied/primary account, the proxy account, and the type of proxy to create a proxy account. First, click **Add proxy**.
+A pop-up will appear, and you can enter the required information, such as the proxied/primary account, the proxy account, and the type of proxy to create a proxy account. First, click **Add proxy**.
 
 ![Add a proxy account from the Accounts page of the developer portal](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-3.webp)
 
@@ -77,7 +77,7 @@ In the next section, you will learn how to verify that your proxy account was se
 
 ## Verifying Your Proxy Account {: #verifying-your-proxy-account }
 
-You can verify that your proxy account has been successfully set up in a couple of ways: either through the **Accounts** page or via the **Chain state** page.
+You can verify that your proxy account has been successfully set up in two ways: either through the **Accounts** page or via the **Chain state** page.
 
 ### Using the **Chain State** Section {: #verifying-your-proxy-account-chain-state }
 
@@ -90,7 +90,7 @@ To check your proxy accounts from the [**Chain state** section](https://polkadot
 
 ![Verify your proxy accounts via the chain state page of the developer portal](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-5.webp)
 
-The result will appear on the page showing you information about all of your proxies, including the delegate/proxy account address, the proxy type, the delay period if one was specified, and the total bond amount for all of your proxies, expressed in Planck units.
+The result will appear on the page showing you information about your proxies, including the delegate/proxy account address, the proxy type, the delay period if one was specified, and the total bond amount for all of your proxies, expressed in Planck units.
 
 ### Using the Accounts Section {: #verifying-your-proxy-account-accounts-section }
 
@@ -104,7 +104,7 @@ You can also check your proxy accounts from the **Accounts** section of the deve
 
 ![Manage your proxies via the Accounts page of the developer portal](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-6.webp)
 
-A pop-up will appear where you can see an overview of all of your proxy accounts.
+A pop-up will appear where you can see an overview of your proxy accounts.
 
 ![Review your proxy accounts](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-7.webp)
 
@@ -127,7 +127,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-8.webp)
 
-A pop-up will appear for you to authorize and sign the transaction, click on **Sign and Submit**.
+A pop-up will appear for you to authorize and sign the transaction; click on **Sign and Submit**.
 
 That's it! You've successfully executed a transaction using a proxy account on behalf of your primary operator account.
 
