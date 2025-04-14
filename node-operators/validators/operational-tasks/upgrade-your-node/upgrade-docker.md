@@ -14,7 +14,7 @@ This tutorial covers upgrading your Tanssi validator node that was configured us
 
 --8<-- 'text/node-operators/github-release-notifications.md'
 
-## Upgrading Docker Nodes {: #upgrading-docker-nodes }
+## Upgrade Docker Nodes {: #upgrading-docker-nodes }
 
 Upgrading your node is as simple as stopping the running container and restarting it with the new version tag.
 
@@ -67,8 +67,8 @@ To restart the node, you can use the same command you used when launching your n
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-### Specifying a Version Tag {: #specifying-a-version-tag }
+### Specify a Version Tag {: #specifying-a-version-tag }
 
-If you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by appending a version tag to the image name. For example, if you wanted to fetch the version tagged `latest` (which is the default), you would append `:latest` to `{{ networks.dancelight.validator_docker_image }}`.
+To use a specific [version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, append it to the image name. For example, to fetch the version tagged `latest` (which is the default), append `:latest` to `{{ networks.dancelight.validator_docker_image }}`.
 
 And that's it! You've successfully upgraded your Tanssi node.
