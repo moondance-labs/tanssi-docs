@@ -21032,7 +21032,7 @@ This tutorial covers upgrading your Tanssi validator node that was configured us
 
     To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
-## Upgrading Docker Nodes {: #upgrading-docker-nodes }
+## Upgrade Docker Nodes {: #upgrading-docker-nodes }
 
 Upgrading your node is as simple as stopping the running container and restarting it with the new version tag.
 
@@ -21147,9 +21147,9 @@ To restart the node, you can use the same command you used when launching your n
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
 
-### Specifying a Version Tag {: #specifying-a-version-tag }
+### Specify a Version Tag {: #specifying-a-version-tag }
 
-If you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by appending a version tag to the image name. For example, if you wanted to fetch the version tagged `latest` (which is the default), you would append `:latest` to `{{ networks.dancelight.validator_docker_image }}`.
+To use a specific [version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, append it to the image name. For example, to fetch the version tagged `latest` (which is the default), append `:latest` to `{{ networks.dancelight.validator_docker_image }}`.
 
 And that's it! You've successfully upgraded your Tanssi node.
 --- END CONTENT ---
