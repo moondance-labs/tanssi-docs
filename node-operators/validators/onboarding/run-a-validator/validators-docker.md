@@ -64,7 +64,7 @@ To generate and store on disk the session keys that will be referenced on the st
 ```bash
 docker run --network="host" -v "/var/lib/tanssi-data:/data" \
 -u $(id -u ${USER}):$(id -g ${USER}) \
---entrypoint /chain-network/tanssi-relay {{ networks.dancelight.validator_docker_image }} key generate-node-key --file /data/node-key
+{{ networks.dancelight.validator_docker_image }} key generate-node-key --file /data/node-key
 ```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
@@ -82,7 +82,6 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     ```bash
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/chain-network/tanssi-relay" \
     {{ networks.dancelight.validator_docker_image }} \
     --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
     ```
@@ -92,7 +91,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     ```bash
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/chain-network/tanssi-relay-skylake" \
+    --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
     {{ networks.dancelight.validator_docker_image }} \
     --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
     ```
@@ -102,7 +101,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     ```bash
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/chain-network/tanssi-relay-znver3" \
+    --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
     {{ networks.dancelight.validator_docker_image }} \
     --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
     ```

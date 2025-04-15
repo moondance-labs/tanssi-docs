@@ -34,7 +34,7 @@ Your terminal interaction will resemble the following:
 
 --8<-- 'code/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/terminal/docker-stop.md'
 
-To restart the node, you can use the command you used when launching your block producer node. The Docker command is configured to automatically retrieve the latest version. The node will resume syncing blocks from where it left off when the Docker process was stopped.  
+To restart the node, you can use the same command you used when launching your node the first time. The command pulls the image and the node will resume syncing blocks from where it left off when the Docker process was stopped.
 
 === "Generic"
 
@@ -66,34 +66,6 @@ To restart the node, you can use the command you used when launching your block 
 
 ### Specifying a Version Tag {: #specifying-a-version-tag }
 
-The Docker commands above will automatically fetch the latest release version tag, but if you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by appending the version tag to the image name. For example, if you wanted to fetch version `{{ networks.dancebox.client_version }}`, rather than specifying the image name as `{{ networks.dancebox.docker_sequencer_image_name }}`, you would indicate `{{ networks.dancebox.docker_sequencer_image_name }}:{{ networks.dancebox.client_version }}` as the image name.
+If you wanted to specify a [particular version tag](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, you can do so by replacing the version tag appended to the image name. For example, if you wanted to fetch version `3`, you would replace the `2` in `{{ networks.dancebox.docker_sequencer_image_name }}`.
 
-The complete commands with specific version tags are thus as follows:
-
-=== "Generic"
-
-    ```bash
-    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
-    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
-    ```
-
-=== "Intel Skylake"
-
-    ```bash
-    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
-    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
-    ```
-
-=== "AMD Zen3"
-
-    ```bash
-    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
-    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
-    ```
 And that's it! You've successfully upgraded your Tanssi node.
