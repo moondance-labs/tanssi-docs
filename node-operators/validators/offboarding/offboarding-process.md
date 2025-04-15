@@ -33,22 +33,6 @@ In any case, you'll need to sign the transaction using your operator account. Yo
 
 The following sections outline the steps for each method of interaction.
 
-## Process Overview
-
-The offboarding process consists of the following steps:
-
-The offboarding process consists of the following steps:
-
-1. **Opt out from the Tanssi Network** (Required): This is the first and mandatory step to initiate the offboarding process and can be done via CLI, Etherscan, or Safe (for multisig setups)
-
-2. **Contact Tanssi Team** (Required): Submit the offboarding form with the required information and wait for team acknowledgment
-
-3. **Middleware Removal** (Required): This step is handled by the Tanssi team. It can take approximately two epochs, and no action is required from your side
-
-4. **Pause Operations** (Required): Decommission your validator node after middleware removal confirmation
-
-5. **Vault Opt out** (Optional): This step is optional and only necessary if you want to completely remove your association with the vault. Skipping this step won't affect your ability to rejoin the network in the future
-
 ## Opt out from the Tanssi Network
 
 The first step in the offboarding process is to opt out of the Tanssi network. This will enable Tanssi to verify your intent to leave the protocol and validate your identity.
