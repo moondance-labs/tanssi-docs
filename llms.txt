@@ -20642,10 +20642,6 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
 --state-pruning=archive \
 --blocks-pruning=archive \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
---rpc-max-connections=100 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     ```
@@ -20669,10 +20665,6 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
 --state-pruning=archive \
 --blocks-pruning=archive \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
---rpc-max-connections=100 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     ```
@@ -20696,10 +20688,6 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
 --state-pruning=archive \
 --blocks-pruning=archive \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
---rpc-max-connections=100 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     ```
@@ -20903,7 +20891,6 @@ ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
   --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
   --state-pruning=archive \
   --blocks-pruning=archive \
-
   --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
   --validator
 
@@ -21079,10 +21066,6 @@ To restart the node, you can use the same command you used when launching your n
 --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
 --state-pruning=archive \
 --blocks-pruning=archive \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
---rpc-max-connections=100 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     ```
@@ -21106,10 +21089,6 @@ To restart the node, you can use the same command you used when launching your n
 --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
 --state-pruning=archive \
 --blocks-pruning=archive \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
---rpc-max-connections=100 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     ```
@@ -21133,10 +21112,6 @@ To restart the node, you can use the same command you used when launching your n
 --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
 --state-pruning=archive \
 --blocks-pruning=archive \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
---rpc-max-connections=100 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     ```
