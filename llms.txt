@@ -21161,13 +21161,13 @@ icon: octicons-shield-lock-24
 
 ## Introduction {: #introduction }
 
-Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and help keep the underlying accounts safe. As an operator on Tanssi, it's a good idea to use proxy accounts to interact with the network in place of your operator account.
+Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and help keep the underlying accounts safe. As an operator on Tanssi, it's a beneficial to use proxy accounts to interact with the network in place of your account.
 
-The `SessionKeyManagement` proxy type conveniently allows the proxy account to rotate session keys on behalf of the primary account, transforming it into a "hot wallet" for performing regular maintenance duties on behalf of your "cold wallet" operator account. For added safety, you can regularly rotate the proxy account.
+The `SessionKeyManagement` proxy type conveniently allows the account to rotate session keys on behalf of the primary account, transforming it into a "hot wallet" that performs regular maintenance duties on behalf of your "cold wallet" operator account. For added safety, you can regularly rotate your proxy account.
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum access required to carry out their duties via a specific proxy account.
 
-This tutorial will walk you through configuring a `SessionKeyManagement` proxy account on the Tanssi TestNet specifically for operations as an operator. Then, it will demonstrate how to rotate your newly created keys using the proxy.
+This tutorial will walk you through how to configure a `SessionKeyManagement` proxy account on the Tanssi TestNet specifically for operator-related actions. Then, it will demonstrate how to rotate your newly created keys using the proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -21181,9 +21181,9 @@ If you need help importing your accounts into the developer portal, please check
 
 ## Creating a Proxy Account {: #creating-a-proxy-account }
 
-There are a couple of ways you can create proxy accounts in the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions and provides a limited period of time to cancel any actions.
+There are a couple of ways you can create proxy accounts in the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. The delay provides an additional layer of security for proxies by specifying a delay period based on the number of blocks. This setting prevents the proxy account from executing a transaction until the delay period ends, allowing the primary account that controls the proxy to review or cancel pending transactions.
 
-You also have the option of creating a proxy of type **Any** which grants the proxy account full and unrestricted control over the primary account. This means that the proxy account can transfer funds, and perform any arbitrary action. The following demo will showcase configuring a **SessionKeyManagement** proxy, which is more restrictive than an **Any** proxy, as it limits functions to activities that pertain to mapping session keys.
+You also have the option of creating a proxy of type **Any** which grants the proxy account full and unrestricted control over the primary account. This means that the proxy account can transfer funds, and perform any arbitrary action. The following demo will showcase how to configure a **SessionKeyManagement** proxy, which is more restrictive than an **Any** proxy, as it limits functionality to activities that pertain to mapping session keys.
 
 ### Using the **Extrinsics** Section {: #creating-proxy-account-using-extrinsics }
 
@@ -21204,7 +21204,7 @@ You will then be prompted to authorize and sign the transaction. Click **Sign an
 
 ### Using the Accounts Section {: #creating-proxy-account-using-accounts }
 
-Another method for creating a proxy is using the **Accounts** section of the developer portal. To do so, navigate to the **Accounts** page and take the following steps:
+Another method for creating a proxy is by using the **Accounts** section of the developer portal. To do so, navigate to the **Accounts** page and take the following steps:
 
 1. Select the three vertical dots next to the primary account
 2. Select **Add proxy**
@@ -21214,7 +21214,7 @@ Another method for creating a proxy is using the **Accounts** section of the dev
 !!! note
     If the account already has a proxy, **Manage proxies** will be displayed as an option instead of **Add proxy**.
 
-A pop-up will appear, and you can enter the required information, such as the proxied/primary account, the proxy account, and the type of proxy to create a proxy account. First, click **Add proxy**.
+A pop-up will appear where you can enter the required information, such as the proxied/primary account, the proxy account, and the type of proxy to create a proxy account. First, click **Add proxy**.
 
 ![Add a proxy account from the Accounts page of the developer portal](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-3.webp)
 
@@ -21226,11 +21226,11 @@ Then, take the following steps:
 
 ![Add the details of the proxy account, including the proxy account and type](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-4.webp)
 
-In the next section, you will learn how to verify that your proxy account was set up successfully.
+In the next section, you will learn how to verify if your proxy account was set up successfully.
 
 ## Verifying Your Proxy Account {: #verifying-your-proxy-account }
 
-You can verify that your proxy account has been successfully set up in two ways: either through the **Accounts** page or via the **Chain state** page.
+You can verify that your proxy account has been successfully set up in two ways - either through the **Accounts** page or via the **Chain state** page.
 
 ### Using the **Chain State** Section {: #verifying-your-proxy-account-chain-state }
 
