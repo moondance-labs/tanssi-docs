@@ -5,6 +5,7 @@ networks:
   dancebox:
     docker_sequencer_image_name: moondancelabs/tanssi
     client_version: v0.12.0
+    para_client_version: v0.12.0-para
     substrate_api_sidecar:
       stable_version: 17.1.2
     chain_id: 5678
