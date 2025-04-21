@@ -55,7 +55,7 @@ To download the latest release and change permissions on it so the Tanssi servic
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ .networks.dancebox.para_client_version }}/tanssi-node-znver3 -O tanssi-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.para_client_version }}/tanssi-node-znver3 -O tanssi-node && \
     chmod +x ./tanssi-node
     ```
 
