@@ -9,6 +9,6 @@ jobs:
   trigger-check-mkdocs-build:
     uses: Telucero/workflows/.github/workflows/check-mkdocs-build.yml@Central_repo_test
     with:
-      docs_repo: 'tanssi-docs'  # The repository to clone for MkDocs
+      docs_repo: 'Telucero/tanssi-docs'  # The repository to clone for MkDocs
       docs_url: 'https://docs.tanssi.network/'  # The base URL for the docs
       branch: 'main'  # The branch to checkout in the docs repository
