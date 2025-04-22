@@ -77,7 +77,7 @@ In the next section, you will learn how to verify if your proxy account was set 
 
 ## Verifying Your Proxy Account {: #verifying-your-proxy-account }
 
-You can verify that your proxy account has been successfully set up in two ways - either through the **Accounts** page or via the **Chain state** page.
+You can verify that your proxy account has been successfully set up in two ways: through the **Accounts** page or via the **Chain state** page.
 
 ### Using the Chain State Section {: #verifying-your-proxy-account-chain-state }
 
