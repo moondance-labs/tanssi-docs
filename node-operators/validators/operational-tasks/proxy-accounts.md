@@ -26,7 +26,7 @@ To follow along with this tutorial, you will need to have:
 
 If you need help importing your accounts into the developer portal, please check out the [Connecting to the Developer Portal](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
-## Creating a Proxy Account {: #creating-a-proxy-account }
+## Create a Proxy Account {: #create-a-proxy-account }
 
 There are a couple of ways you can create proxy accounts in the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, you must use the **Extrinsics** page to create a time-delayed proxy. The delay provides an additional layer of security for proxies by specifying a delay period based on the number of blocks. This setting prevents the proxy account from executing a transaction until the delay period ends, allowing the primary account that controls the proxy to review or cancel pending transactions.
 
@@ -75,7 +75,7 @@ Then, take the following steps:
 
 In the next section, you will learn how to verify if your proxy account was set up successfully.
 
-## Verifying Your Proxy Account {: #verifying-your-proxy-account }
+## Verify Your Proxy Account {: #verify-your-proxy-account }
 
 You can verify that your proxy account has been successfully set up in two ways: through the **Accounts** page or via the **Chain state** page.
 
@@ -108,7 +108,7 @@ A pop-up will appear where you can see an overview of your proxy accounts.
 
 ![Review your proxy accounts](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-7.webp)
 
-## Executing a Proxy Transaction {: #executing-a-proxy-transaction }
+## Execute a Proxy Transaction {: #execute-a-proxy-transaction }
 
 Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the proxy on behalf of your primary account. The following example will set keys for a node. The proxy configuration shown is a realistic example of how you might have your own proxy configured for your developer portal primary account.
 
