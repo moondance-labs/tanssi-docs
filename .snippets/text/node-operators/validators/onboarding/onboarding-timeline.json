@@ -1,0 +1,32 @@
+[
+    {
+      "title": "[Run an operator node](/node-operators/validators/onboarding/run-a-validator/){target=_blank}",
+      "content": "Set up the actual node using Systemd or Docker.",
+      "icon": ":fontawesome-solid-1:"
+    },
+    {
+      "title": "[Register in Symbiotic](/node-operators/validators/onboarding/register-in-symbiotic/){target=_blank}",
+      "content": "Add your account to the Symbiotic operators registry.",
+      "icon": ":fontawesome-solid-2:"
+    },
+    {
+      "title": "[Opt in to Tanssi Network](/node-operators/validators/onboarding/opt-in-to-tanssi/#opt-in-tanssi){target=_blank}",
+      "content": "Add your account to the Tanssi network operators registry.",
+      "icon": ":fontawesome-solid-3:"
+    },
+    {
+        "title": "[Opt in to a Tanssi-enabled vault](/node-operators/validators/onboarding/opt-in-to-tanssi/#opt-in-tanssi-vaults){target=_blank}",
+        "content": "Add your account to a Tanssi-enabled vault.",
+        "icon": ":fontawesome-solid-4:"
+    },
+    {
+      "title": "[Fill out the application form](https://www.tanssi.network/node-operators-application){target=_blank}",
+      "content": "Fill out the form to become an operator, and wait for your application to be processed.",
+      "icon": ":fontawesome-solid-5:"
+    },
+    {
+      "title": "[Set up your account](/node-operators/validators/onboarding/account-setup/){target=_blank}",
+      "content": "Map your account to your node one and start validating in the Tanssi protocol.",
+      "icon": ":fontawesome-solid-6:"
+    }
+]
