@@ -31,13 +31,12 @@ flowchart TD
         slash -- Executes On --> Vaults
     end
 
-    %% Validators subgraph
-    subgraph Validators
+    %% Operators subgraph
+    subgraph Operators
         direction BT
-        validators["Operators/Validators"]
-        operators["Node Operators"]
-        operators -- Run --> validators
-
+        operators["Operators (Validators)"]
+        node_operators["Node Operators"]
+        node_operators -- Run --> operators
     end
 
     %% Networks subgraph
@@ -49,7 +48,7 @@ flowchart TD
     end
 
     Vaults <--> Tanssi
-    Tanssi <--> Validators
+    Tanssi <--> Operators
     Tanssi <--> Networks
 ```
 
@@ -149,15 +148,15 @@ class Relayer relayerNode;
 
 - **`Middleware`** - is Tanssi's implementation for handling network events and operations. It is the critical link between the `Gateway` and Tanssi's core protocol
 
-The `Middleware` plays a central role in network coordination between Tanssi and Symbiotic. It distributes rewards to operators and vaults based on their network security and performance contributions. The contract sorts operators by stake to create a merit-based ranking system for validator selection and transmits the sorted operator key lists to Tanssi for validator assignment. Additionally, it facilitates operator registration processes, manages validator set construction based on stake and performance metrics, and handles the reward and slashing protocols that maintain network incentive alignment.
+The `Middleware` plays a central role in network coordination between Tanssi and Symbiotic. It distributes rewards to operators and vaults based on their network security and performance contributions. The contract sorts operators by stake to create a merit-based ranking system for their selection and transmits the list of sorted operator keys to Tanssi for assignment. Additionally, it facilitates operator registration processes and handles the reward and slashing protocols that maintain network incentive alignment.
 
 #### From Ethereum to Tanssi {: #from-ethereum-tanssi }
 
-The `Middleware` transmits validator set information to Tanssi for session assignment through the bridge. It sends details about active operators for each epoch, ordering them by their total stake aggregated across vaults. Tanssi then uses this information to assign validators for upcoming sessions, ensuring that the most economically aligned operators secure the network. This mechanism creates a stake-weighted validator selection process where economic security on Ethereum translates to operational security on Tanssi.
+The `Middleware` transmits operator set information to Tanssi for session assignment through the bridge. It sends details about active operators for each epoch, ordering them by their total stake aggregated across vaults. Tanssi then uses this information to assign operators for upcoming sessions, ensuring that the most economically aligned ones secure the network. This mechanism creates a stake-weighted operator selection process where economic security on Ethereum translates to operational security on Tanssi.
 
 #### From Tanssi to Ethereum {: #from-tanssi-ethereum }
 
-Tanssi sends operational data back to Ethereum through the same communication channel. This message includes reward information that enables proper distribution to stakeholders based on network performance. The network also transmits slashing event data when validators fail to perform correctly or violate protocol rules, allowing the protocol to apply penalties. Tanssi can also request new tokens to be created on Ethereum and register tokens, making managing assets between both networks easy.
+Tanssi sends operational data back to Ethereum through the same communication channel. This message includes reward information that enables proper distribution to stakeholders based on network performance. The network also transmits slashing event data when operators fail to perform correctly or violate protocol rules, allowing the protocol to apply penalties. Tanssi can also request new tokens to be created on Ethereum and register tokens, making managing assets between both networks easy.
 
 ### Rewards {: #rewards }
 
@@ -228,7 +227,7 @@ The following actions can trigger slashing events:
 
 #### Slashing Process {: #slashing-process }
 
-The slashing process follows a path similar to that of rewards. When a validator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). The message passes through the `Gateway` and into the `Middleware` where the slashing method gets called.
+The slashing process follows a path similar to that of rewards. When an operator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). The message passes through the `Gateway` and into the `Middleware` where the slashing method gets called.
 
 The slashing method receives a unique identifier for the operator's identity, the severity of the slash as a percentage of the operator's assigned stake in each vault, and the time context within which the offense occurred.
 
@@ -288,4 +287,4 @@ The vault manager chooses the specific implementation of the burning process dur
 - **Cross-Chain Operations** - if the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
 - **Alternative Handling** - sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do
 
-Burning slashed collateral is important because it penalizes misbehaving validators and reduces the total supply of tokens, which can have deflationary effects.
+Burning slashed collateral is important because it penalizes misbehaving operators and reduces the total supply of tokens, which can have deflationary effects.

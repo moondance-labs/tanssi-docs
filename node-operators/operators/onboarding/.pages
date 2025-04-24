@@ -2,7 +2,7 @@ title: Onboarding
 hide: false
 nav:
   - index.md
-  - run-a-validator
+  - run-an-operator
   - 'Register in Symbiotic': 'register-in-symbiotic.md'
   - 'Opt In to Tanssi': 'opt-in-to-tanssi.md'
   - 'Set Up Your Account': 'account-setup.md'
