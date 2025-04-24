@@ -1,14 +1,14 @@
 name: Trigger MkDocs Build
 
 on:
-  push:
-    branches:
-      - main  # Trigger this on a push to the main branch.
+  pull_request_target:
+    branches: [main]
 
 jobs:
-  trigger-check-mkdocs-build:
+  call-build-docs:
     uses: Telucero/workflows/.github/workflows/check-mkdocs-build.yml@Central_repo_test
     with:
-      docs_repo: 'Telucero/tanssi-docs'  # The repository to clone for MkDocs
-      docs_url: 'https://docs.tanssi.network/'  # The base URL for the docs
-      branch: 'main'  # The branch to checkout in the docs repository
+      repo_name: tanssi-docs
+      mkdocs_repo: Telucero/tanssi-mkdocs
+    secrets:
+      REPO_SCOPED_TOKEN: ${{ secrets.REPO_SCOPED_TOKEN }}
