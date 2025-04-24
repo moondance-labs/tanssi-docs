@@ -107,17 +107,17 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 5. Select the primary account from the **real** dropdown
 6. Select the **pooledStaking** call
 7. Choose the **requestDelegate** extrinsic
-8. Enter the **candidate** address, which is the block producer account
+8. Enter the **candidate** address, which is the sequencer account
 9. Select **AutoCompounding** or **ManualRewards** for the **pool** field
 10. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 11. Click **Submit Transaction**
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-8.webp)
 
-A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/sequencers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/sequencers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
+A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/sequencers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your sequencer account](/node-operators/sequencers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
 
-After you've mapped your session keys and executed the pending delegation request, you can [verify that your block producer is in the list of eligible candidates](/node-operators/sequencers/onboarding/account-setup/#verify){target=\_blank}.
+After you've mapped your session keys and executed the pending delegation request, you can [verify that your sequencer is in the list of eligible candidates](/node-operators/sequencers/onboarding/account-setup/#verify){target=\_blank}.
 
-That's it! You've successfully executed a transaction using a proxy account on behalf of your primary block producer account.
+That's it! You've successfully executed a transaction using a proxy account on behalf of your primary sequencer account.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

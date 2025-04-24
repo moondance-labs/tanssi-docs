@@ -22,7 +22,7 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 - **Custom fields include** - any other relevant information
 
-- **Subaccounts** - You can link subaccounts underneath a primary account. As an example, a block producer service that's running multiple different block producer nodes can establish subaccounts to demonstrate an official link between the nodes
+- **Subaccounts** - You can link subaccounts underneath a primary account. As an example, a sequencer service that's running multiple different sequencer nodes can establish subaccounts to demonstrate an official link between the nodes
 
     |       Variable        |                               Definition                                |                      Value                      |
     |:---------------------:|:-----------------------------------------------------------------------:|:-----------------------------------------------:|

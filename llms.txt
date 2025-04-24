@@ -163,7 +163,7 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 - **Custom fields include** - any other relevant information
 
-- **Subaccounts** - You can link subaccounts underneath a primary account. As an example, a block producer service that's running multiple different block producer nodes can establish subaccounts to demonstrate an official link between the nodes
+- **Subaccounts** - You can link subaccounts underneath a primary account. As an example, a sequencer service that's running multiple different sequencer nodes can establish subaccounts to demonstrate an official link between the nodes
 
     |       Variable        |                               Definition                                |                      Value                      |
     |:---------------------:|:-----------------------------------------------------------------------:|:-----------------------------------------------:|
@@ -379,7 +379,7 @@ When creating a proxy account, you must choose a type of proxy that will define 
 - **`Registrar`** - allows the proxy account to only make transactions related to the registrar pallet
 - **`SudoRegistrar`** - allows the proxy account to only make transactions related to the registrar pallet that need to be called by Sudo
 - **`CancelProxy`** - allows the proxy account to reject and remove any announced proxy calls
-- **`Staking`** - allows the proxy account to perform staking-related transactions, such as block producer and `session()` functions 
+- **`Staking`** - allows the proxy account to perform staking-related transactions, such as sequencer and `session()` functions 
 - **`SessionKeyManagement`** - allows the proxy account to make key management related transactions included in the session pallet
 
 For this guide, you will be setting up a proxy account using the balances proxy type. Since this type enables the proxy to spend funds on behalf of the primary account, you should exercise caution and only provide access to accounts you trust. The proxy will have access to transfer all of the funds within the primary account, and if not trusted, the proxy could drain the primary account. Ensure that you maintain oversight of your proxy accounts and remove any proxies that are no longer needed.
@@ -1753,7 +1753,7 @@ In the `properties` attribute, the following settings are used by various front-
 
 ## The Genesis State {: #genesis-state }
 
-All the block producers assigned to the Tanssi network must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
+All the sequencers assigned to the Tanssi network must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
 
 This genesis state will define the starting point of the Tanssi network. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
 
@@ -3013,7 +3013,7 @@ icon: octicons-server-24
 
 As presented in the [Block Production as a Service](/learn/tanssi/network-services/block-production/#block-production-fees){target=_\blank} article, there are two main costs associated that the network governor must cover: 
 
-- **Block producers assignment** - for the assignment of block producers by the Tanssi protocol, which happens once per session
+- **Sequencers assignment** - for the assignment of sequencers by the Tanssi protocol, which happens once per session
 - **Block production** - for each block that is produced on the network's behalf
 
 In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} to top-up your account and keep your network's liveness.
@@ -3041,7 +3041,7 @@ You'll see the registration account at the bottom.
 
 ## Topping-Up Your Network's Credits {: #topping-up }
 
-Following a pay-as-you-go model, the networks must have funds allocated to pay for the services, which, in time, will be deducted by the Tanssi protocol upon every session change for the cost of block producer assignment and every block for the cost of producing the block.
+Following a pay-as-you-go model, the networks must have funds allocated to pay for the services, which, in time, will be deducted by the Tanssi protocol upon every session change for the cost of sequencer's assignment and every block for the cost of producing the block.
 
 Tanssi reserves a fraction of the payments received for the protocol's treasury, and the remainder is burnt. This is the current configuration:
 
@@ -3058,7 +3058,7 @@ Clicking on the **Top Up** button displays a sidebar where the following informa
 
 - **Current balance** - the current balance allocated for the network's block production service
 - **Available balance** - the balance available in the network's registration account, which is connected to the dApp
-- **Current cost** - current cost per block producer's assignment and cost per block
+- **Current cost** - current cost per sequencer's assignment and cost per block
 - **Projected forecast** - the estimated day when the network runs out of funds and stops being served
 
 To extend the network's projected runway, take the following actions:
@@ -3071,7 +3071,7 @@ To extend the network's projected runway, take the following actions:
 You will be asked to sign the transaction, and after it's gone through, your network will benefit from an extended horizon of liveness.
 
 !!! warning
-    If your network doesn't have enough funds to cover the block producer's assignment and one session's worth of blocks, it will stall.
+    If your network doesn't have enough funds to cover the sequencer's assignment and one session's worth of blocks, it will stall.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/manage/dapp/xcm-channels/
@@ -15952,7 +15952,7 @@ The two included templates are the *baseline network template* and the *baseline
 
 As presented in the [Overview](/learn/tanssi/overview/){target=\_blank} article, networks deployed through Tanssi are fully sovereign and customizable blockchains.
 
-As part of the Tanssi ecosystem, networks must include the essential components to implement the consensus mechanism and be able to interact and synchronize with the security provider of their choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} on Ethereum). The baseline Tanssi network template includes all the necessary functionality for the block producers logic, p2p, database, and synchronization layers between the network and the security provider, allowing developers to focus solely on customizing their product.
+As part of the Tanssi ecosystem, networks must include the essential components to implement the consensus mechanism and be able to interact and synchronize with the security provider of their choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} on Ethereum). The baseline Tanssi network template includes all the necessary functionality for the sequencers logic, p2p, database, and synchronization layers between the network and the security provider, allowing developers to focus solely on customizing their product.
 
 This template also includes Tanssi's [Author Noting](https://github.com/moondance-labs/tanssi/blob/master/pallets/author-noting/src/lib.rs){target=\_blank} module, which implements the logic for retrieving and validating the set of sequencers assigned to provide block production services to the network. It also includes logic that allows a sequencer to sign the block when the consensus mechanism determines that it is the sequencer's turn to produce the block (and thus be rewarded accordingly).
 
@@ -16203,7 +16203,7 @@ With all function calls benchmarked, the transaction fee for each specific call 
 - **`LengthFee`** - a fee correlated to the length in bytes of the function call. The fee is defined by two separate parameters:
     - **`ByteLengthFunctionCall`** - length in bytes of the call being executed
     - **`LengthToFee`** - a function that defines the per-byte fee algorithm. For Tanssi networks, this is a constant value
-- **`Tip`** - an optional value that increases the overall fee, increasing the priority of the transaction by incentivizing block producers to include it in the next block
+- **`Tip`** - an optional value that increases the overall fee, increasing the priority of the transaction by incentivizing sequencers to include it in the next block
 
 Therefore, in general terms, the transaction fee can be calculated with the following equation:
 
@@ -17400,7 +17400,7 @@ flowchart TB
     Tanssi -- Assigns Sequencers --> network2
 ```
 
-### Block Producer Selection Process {: #block-producer-selection-process}
+### Sequencer Selection Process {: #sequencer-selection-process}
 
 At any given time, all Tanssi networks require a certain number of sequencers, depending on the number of active networks and the current block production configuration set in Tanssi. The configuration sets the maximum number of total sequencers in the set and the number of sequencers each network has to have assigned.
 
@@ -17410,7 +17410,7 @@ At any given time, all Tanssi networks require a certain number of sequencers, d
     |    Max. # of Sequencers    |     {{ networks.dancebox.block_producers.configuration.max_block_producers }}      |
     | # of Sequencers (Networks) | {{ networks.dancebox.block_producers.configuration.block_producer_per_container }} |
 
-Once the required number of block producers for a given session is known, Tanssi uses two mechanisms to decide the set of sequencers distributed among all networks. 
+Once the required number of sequencers for a given session is known, Tanssi uses two mechanisms to decide the set of sequencers distributed among all networks. 
 
 The first mechanism is through the *Invunerables* module, which sets a list of fixed sequencers prioritized by the protocol and ensures block production stability in certain scenarios, such as TestNets. 
 
@@ -17420,11 +17420,11 @@ The second mechanism is through the [Tanssi staking module](/learn/tanssi/networ
 
 Once the sequencer set that will participate in the next session is known, Tanssi shuffles the list and assigns them to provide block production services to the active Tanssi networks.
 
-The assignment algorithm will start distributing the sequencers serving the networks by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of block producers. In Dancebox, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
+The assignment algorithm will start distributing the sequencers serving the networks by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of sequencers. In Dancebox, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
 
-Every new assignment works intentionally with a one-session delay, so the sequencers know in advance which one of the networks they are assigned to. Sequencers will start syncing the new network they'll have to serve in the next session with a special syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the block producers to swiftly sync the new network without acting as an archive node.
+Every new assignment works intentionally with a one-session delay, so the sequencers know in advance which one of the networks they are assigned to. Sequencers will start syncing the new network they'll have to serve in the next session with a special syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the sequencers to swiftly sync the new network without acting as an archive node.
 
-When a new session starts, the Tanssi protocol will put the queued assignment into effect. Sequencers will automatically change and start producing blocks in the new Tanssi network they've been assigned to while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in Tanssi networks that might have been activated or deactivated and block producers that might have been added or removed from the pool or changed the total staked value. This new assignment will be queued for the next session.
+When a new session starts, the Tanssi protocol will put the queued assignment into effect. Sequencers will automatically change and start producing blocks in the new Tanssi network they've been assigned to while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in Tanssi networks that might have been activated or deactivated and sequencers that might have been added or removed from the pool or changed the total staked value. This new assignment will be queued for the next session.
 
 ![Sessions](/images/learn/tanssi/network-services/block-production/block-production-1.webp)
 
@@ -17436,7 +17436,7 @@ As the Tanssi networks produce blocks, those blocks need to be validated and fin
 
 Finally, Tanssi can verify that the author of a network block was the expected one and reward accordingly.
 
-The following diagram shows a simplified model of the data Tanssi stores in its internal state. For every active network (in this example, two), Tanssi stores the assigned sequencers, which are the only ones authorized to produce blocks on the network's behalf, proof of validity (candidate receipts) extended by the security provider's operators, the latest state root, and the latest block producer. 
+The following diagram shows a simplified model of the data Tanssi stores in its internal state. For every active network (in this example, two), Tanssi stores the assigned sequencers, which are the only ones authorized to produce blocks on the network's behalf, proof of validity (candidate receipts) extended by the security provider's operators, the latest state root, and the latest sequencer. 
 
 ![Tanssi's internal state](/images/learn/tanssi/network-services/block-production/block-production-2.webp)
 
@@ -17470,13 +17470,13 @@ There are three main costs associated with block production as a service that an
 The current configuration is set as follows:
 
 === "Dancebox"
-    |         Variable          |                                         Value                                         |
-    |:-------------------------:|:-------------------------------------------------------------------------------------:|
-    |   Registration deposit    |               {{ networks.dancebox.costs.registration_deposit }} DANCE                |
-    | Block producer assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
-    |     Block production      |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
+    |       Variable        |                                         Value                                         |
+    |:---------------------:|:-------------------------------------------------------------------------------------:|
+    | Registration deposit  |               {{ networks.dancebox.costs.registration_deposit }} DANCE                |
+    | Sequencers assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
+    |   Block production    |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
 
-To ensure block production in the next session, the total balance must be at least enough to cover the block producer assignment cost plus the cost to produce the {{ networks.dancebox.session.blocks }} blocks that comprise an entire session.
+To ensure block production in the next session, the total balance must be at least enough to cover the sequencers assignment cost plus the cost to produce the {{ networks.dancebox.session.blocks }} blocks that comprise an entire session.
 
 !!! note
     Although these costs are currently fixed, as protocol development progresses, they might become dynamic, varying in response to the network's workload.
@@ -17485,7 +17485,7 @@ To ensure block production in the next session, the total balance must be at lea
 
 On some occasions, Tanssi might experience a high demand for its block production services that can not be met with the available resources. For example, if there are ten active networks for the next session and Tanssi can only serve eight, two networks will stall for the entire session duration.
 
-To deal with these high-workload periods, the Tanssi protocol implements a tipping mechanism that allows networks to compete for a higher priority over the rest. Similar to Ethereum-compatible networks, where a priority fee can be set to outbid competing transactions and obtain preferential execution treatment, the Tanssi networks will be served according to the priority given by the tips they offer. Following the previous example, if there are ten active networks for the next session and Tanssi can only serve eight, then only the eight highest bidding networks will get block producers assigned.
+To deal with these high-workload periods, the Tanssi protocol implements a tipping mechanism that allows networks to compete for a higher priority over the rest. Similar to Ethereum-compatible networks, where a priority fee can be set to outbid competing transactions and obtain preferential execution treatment, the Tanssi networks will be served according to the priority given by the tips they offer. Following the previous example, if there are ten active networks for the next session and Tanssi can only serve eight, then only the eight highest bidding networks will get sequencers assigned.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/learn/tanssi/network-services/
@@ -19835,7 +19835,7 @@ Before undelegating, it is helpful first to see how much you have staked, as you
 
 1. Select the **pooledStaking** module
 2. Select the **pools** query
-3. Enter your block producer account
+3. Enter your sequencer account
 4. Ensure that the **include option** slider is toggled on
 5. In the **option** field, you select **JoiningShares**
 6. Click the **+** button next to the extrinsic field
@@ -19869,7 +19869,7 @@ Before executing the pending request, you'll need to retrieve the session at whi
 
 1. Select the **pooledStaking** module
 2. Select the **pendingOperations** query
-3. Enter your block producer account
+3. Enter your sequencer account
 4. Toggle the **include option** slider off
 5. Click the **+** button next to the extrinsic field
 6. The pending request will be displayed at the bottom of the page
@@ -20011,7 +20011,7 @@ You will need to create session keys for your primary and backup servers. Each o
 
 Before generating session keys, you must be [running a sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank}.
 
-To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your block producer's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
+To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your sequencer's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
 
 ```bash
 curl http://127.0.0.1:9944 -H \
@@ -20896,18 +20896,18 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 5. Select the primary account from the **real** dropdown
 6. Select the **pooledStaking** call
 7. Choose the **requestDelegate** extrinsic
-8. Enter the **candidate** address, which is the block producer account
+8. Enter the **candidate** address, which is the sequencer account
 9. Select **AutoCompounding** or **ManualRewards** for the **pool** field
 10. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 11. Click **Submit Transaction**
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-8.webp)
 
-A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/sequencers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your block producer account](/node-operators/sequencers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
+A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**. To confirm the delegation request, you'll need to execute the pending request after two sessions have passed. Please refer to the instructions for [executing pending requests](/node-operators/sequencers/onboarding/account-setup/#execute-pending-request){target=\_blank} for a step-by-step guide. You can also [map your session keys to your sequencer account](/node-operators/sequencers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
 
-After you've mapped your session keys and executed the pending delegation request, you can [verify that your block producer is in the list of eligible candidates](/node-operators/sequencers/onboarding/account-setup/#verify){target=\_blank}.
+After you've mapped your session keys and executed the pending delegation request, you can [verify that your sequencer is in the list of eligible candidates](/node-operators/sequencers/onboarding/account-setup/#verify){target=\_blank}.
 
-That's it! You've successfully executed a transaction using a proxy account on behalf of your primary block producer account.
+That's it! You've successfully executed a transaction using a proxy account on behalf of your primary sequencer account.
 
 <div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
@@ -20962,7 +20962,7 @@ This tutorial covers upgrading your Tanssi sequencer that was configured using D
 
 If you're running your sequencer with Docker, updating your node is as simple as stopping the running container and restarting it with the new version tag.
 
-First, get the container ID of your Tanssi block producer node with the following command:
+First, get the container ID of your Tanssi sequencer node with the following command:
 
 ```bash
 docker ps -a

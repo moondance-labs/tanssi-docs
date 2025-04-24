@@ -22,7 +22,7 @@ Before undelegating, it is helpful first to see how much you have staked, as you
 
 1. Select the **pooledStaking** module
 2. Select the **pools** query
-3. Enter your block producer account
+3. Enter your sequencer account
 4. Ensure that the **include option** slider is toggled on
 5. In the **option** field, you select **JoiningShares**
 6. Click the **+** button next to the extrinsic field
@@ -56,7 +56,7 @@ Before executing the pending request, you'll need to retrieve the session at whi
 
 1. Select the **pooledStaking** module
 2. Select the **pendingOperations** query
-3. Enter your block producer account
+3. Enter your sequencer account
 4. Toggle the **include option** slider off
 5. Click the **+** button next to the extrinsic field
 6. The pending request will be displayed at the bottom of the page

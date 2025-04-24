@@ -59,7 +59,7 @@ flowchart TB
     Tanssi -- Assigns Sequencers --> network2
 ```
 
-### Block Producer Selection Process {: #block-producer-selection-process}
+### Sequencer Selection Process {: #sequencer-selection-process}
 
 At any given time, all Tanssi networks require a certain number of sequencers, depending on the number of active networks and the current block production configuration set in Tanssi. The configuration sets the maximum number of total sequencers in the set and the number of sequencers each network has to have assigned.
 
@@ -69,7 +69,7 @@ At any given time, all Tanssi networks require a certain number of sequencers, d
     |    Max. # of Sequencers    |     {{ networks.dancebox.block_producers.configuration.max_block_producers }}      |
     | # of Sequencers (Networks) | {{ networks.dancebox.block_producers.configuration.block_producer_per_container }} |
 
-Once the required number of block producers for a given session is known, Tanssi uses two mechanisms to decide the set of sequencers distributed among all networks. 
+Once the required number of sequencers for a given session is known, Tanssi uses two mechanisms to decide the set of sequencers distributed among all networks. 
 
 The first mechanism is through the *Invunerables* module, which sets a list of fixed sequencers prioritized by the protocol and ensures block production stability in certain scenarios, such as TestNets. 
 
@@ -79,11 +79,11 @@ The second mechanism is through the [Tanssi staking module](/learn/tanssi/networ
 
 Once the sequencer set that will participate in the next session is known, Tanssi shuffles the list and assigns them to provide block production services to the active Tanssi networks.
 
-The assignment algorithm will start distributing the sequencers serving the networks by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of block producers. In Dancebox, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
+The assignment algorithm will start distributing the sequencers serving the networks by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of sequencers. In Dancebox, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
 
-Every new assignment works intentionally with a one-session delay, so the sequencers know in advance which one of the networks they are assigned to. Sequencers will start syncing the new network they'll have to serve in the next session with a special syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the block producers to swiftly sync the new network without acting as an archive node.
+Every new assignment works intentionally with a one-session delay, so the sequencers know in advance which one of the networks they are assigned to. Sequencers will start syncing the new network they'll have to serve in the next session with a special syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the sequencers to swiftly sync the new network without acting as an archive node.
 
-When a new session starts, the Tanssi protocol will put the queued assignment into effect. Sequencers will automatically change and start producing blocks in the new Tanssi network they've been assigned to while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in Tanssi networks that might have been activated or deactivated and block producers that might have been added or removed from the pool or changed the total staked value. This new assignment will be queued for the next session.
+When a new session starts, the Tanssi protocol will put the queued assignment into effect. Sequencers will automatically change and start producing blocks in the new Tanssi network they've been assigned to while discarding the chain state from the previous assignment. Tanssi will also calculate the new assignment, considering changes in Tanssi networks that might have been activated or deactivated and sequencers that might have been added or removed from the pool or changed the total staked value. This new assignment will be queued for the next session.
 
 ![Sessions](/images/learn/tanssi/network-services/block-production/block-production-1.webp)
 
@@ -95,7 +95,7 @@ As the Tanssi networks produce blocks, those blocks need to be validated and fin
 
 Finally, Tanssi can verify that the author of a network block was the expected one and reward accordingly.
 
-The following diagram shows a simplified model of the data Tanssi stores in its internal state. For every active network (in this example, two), Tanssi stores the assigned sequencers, which are the only ones authorized to produce blocks on the network's behalf, proof of validity (candidate receipts) extended by the security provider's operators, the latest state root, and the latest block producer. 
+The following diagram shows a simplified model of the data Tanssi stores in its internal state. For every active network (in this example, two), Tanssi stores the assigned sequencers, which are the only ones authorized to produce blocks on the network's behalf, proof of validity (candidate receipts) extended by the security provider's operators, the latest state root, and the latest sequencer. 
 
 ![Tanssi's internal state](/images/learn/tanssi/network-services/block-production/block-production-2.webp)
 
@@ -129,13 +129,13 @@ There are three main costs associated with block production as a service that an
 The current configuration is set as follows:
 
 === "Dancebox"
-    |         Variable          |                                         Value                                         |
-    |:-------------------------:|:-------------------------------------------------------------------------------------:|
-    |   Registration deposit    |               {{ networks.dancebox.costs.registration_deposit }} DANCE                |
-    | Block producer assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
-    |     Block production      |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
+    |       Variable        |                                         Value                                         |
+    |:---------------------:|:-------------------------------------------------------------------------------------:|
+    | Registration deposit  |               {{ networks.dancebox.costs.registration_deposit }} DANCE                |
+    | Sequencers assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
+    |   Block production    |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
 
-To ensure block production in the next session, the total balance must be at least enough to cover the block producer assignment cost plus the cost to produce the {{ networks.dancebox.session.blocks }} blocks that comprise an entire session.
+To ensure block production in the next session, the total balance must be at least enough to cover the sequencers assignment cost plus the cost to produce the {{ networks.dancebox.session.blocks }} blocks that comprise an entire session.
 
 !!! note
     Although these costs are currently fixed, as protocol development progresses, they might become dynamic, varying in response to the network's workload.
@@ -144,4 +144,4 @@ To ensure block production in the next session, the total balance must be at lea
 
 On some occasions, Tanssi might experience a high demand for its block production services that can not be met with the available resources. For example, if there are ten active networks for the next session and Tanssi can only serve eight, two networks will stall for the entire session duration.
 
-To deal with these high-workload periods, the Tanssi protocol implements a tipping mechanism that allows networks to compete for a higher priority over the rest. Similar to Ethereum-compatible networks, where a priority fee can be set to outbid competing transactions and obtain preferential execution treatment, the Tanssi networks will be served according to the priority given by the tips they offer. Following the previous example, if there are ten active networks for the next session and Tanssi can only serve eight, then only the eight highest bidding networks will get block producers assigned.
+To deal with these high-workload periods, the Tanssi protocol implements a tipping mechanism that allows networks to compete for a higher priority over the rest. Similar to Ethereum-compatible networks, where a priority fee can be set to outbid competing transactions and obtain preferential execution treatment, the Tanssi networks will be served according to the priority given by the tips they offer. Following the previous example, if there are ten active networks for the next session and Tanssi can only serve eight, then only the eight highest bidding networks will get sequencers assigned.
