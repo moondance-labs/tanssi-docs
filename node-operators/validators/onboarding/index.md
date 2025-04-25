@@ -7,10 +7,7 @@ template: index-page.html
 
 # Onboarding
 
-Your journey as an operator begins here. Follow these steps to set up your node and prepare your account for active participation in the Tanssi protocol:
-
-!!! tip
-    To understand the concepts behind these steps, please refer to the [External Security Providers - Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} article of the learn section.
+Your journey as an operator begins here. Follow these steps to set up your node and prepare your account for active participation in the Tanssi protocol. For background on the concepts behind these steps, see the [External Security Providers - Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} article in the Learn section.
 
 [timeline left (tanssi-docs/.snippets/text/node-operators/validators/onboarding/onboarding-timeline.json)]
 

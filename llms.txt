@@ -19835,23 +19835,17 @@ And that's it! You've successfully mapped your account, and your node is now eli
 Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/
 --- BEGIN CONTENT ---
 ---
-title: Run an operator Node
-description: Learn how to run an operator (also called validators) to verify all the Tanssi-powered networks' transactions, providing economic security while earning rewards.
+title: Run an Operator Node
+description: Learn how to run an operator (validator) to verify transactions across Tanssi-powered networks, providing security and earning rewards for your contribution.
 icon: octicons-arrow-up-right-24
 template: index-page.html
 ---
 
 # Onboarding
 
-Your journey as an operator begins here. Follow these steps to set up your node and prepare your account for active participation in the Tanssi protocol:
-
-!!! tip
-    To understand the concepts behind these steps, please refer to the [External Security Providers - Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} article of the learn section.
+Your journey as an operator begins here. Follow these steps to set up your node and prepare your account for active participation in the Tanssi protocol. For background on the concepts behind these steps, see the [External Security Providers - Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} article in the Learn section.
 
 [timeline left (tanssi-docs/.snippets/text/node-operators/validators/onboarding/onboarding-timeline.json)]
-
-!!! note
-    The fifth step is not fully automated and could take up to one week to be completed.
 
 Once you've fully onboarded, check out the [operational tasks](/node-operators/validators/operational-tasks/){target=\_blank} related to the maintenance of your node.
 
