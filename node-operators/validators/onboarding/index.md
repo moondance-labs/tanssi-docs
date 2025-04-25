@@ -1,6 +1,6 @@
 ---
 title: Run an Operator Node
-description: Learn how to run an operator (also called validators) to verify all the Tanssi-powered networks' transactions, providing economic security while earning rewards.
+description: Learn how to run an operator (validator) to verify transactions across Tanssi-powered networks, providing security and earning rewards for your contribution.
 icon: octicons-arrow-up-right-24
 template: index-page.html
 ---
