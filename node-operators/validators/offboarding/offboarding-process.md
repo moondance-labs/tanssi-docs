@@ -182,11 +182,12 @@ You will be notified by email when it is safe to decommission the node. Please w
 
     The epoch duration is designed to ensure that withdrawals don't impact the captured stake, taking into account the vault's veto and execution phases. This two-epoch process ensures a smooth transition and proper settlement of all operations.
 
-## Pause Operations
+## Pause Operations (Optional)
 
 After receiving the confirmation email indicating that your middleware removal is complete, you can safely decommission your validator node.
+This step is optional but recommended; leaving your node running won't provide any rewards.
 
-1. **Stop the Validator Service**: Start by fully stopping your validator service. Ensure the service is no longer running, and all related processes have been terminated. If needed, back up any important configuration files or data.
+1. **Stop the Validator Service**: Start by fully stopping your validator service. Ensure the service is no longer running and all related processes have been terminated. If needed, back up any important configuration files or data.
 
 2. **Clean Up Resources**: Once the node is stopped, you can clean up your resources. This includes safely removing or repurposing the hardware or virtual machine hosting the validator. If you are using cloud infrastructure, it's safe to terminate the associated instances. It’s also a good idea to back up logs and configuration files in case you need to reference them in the future.
 
