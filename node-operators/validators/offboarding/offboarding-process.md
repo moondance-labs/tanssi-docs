@@ -169,8 +169,6 @@ After opting out from the network, notify the Tanssi team of your intention to s
 
 2. Wait for confirmation from the Tanssi team acknowledging your request
 
-## Middleware Removal
-
 Once your request is received and processed, the Tanssi team will schedule the removal of your operator from the middleware. This process typically takes two epochs to complete. You will receive a notification when it is complete. This step requires no action, but you must wait for confirmation before proceeding to the next steps.
 
 You will be notified by email when it is safe to decommission the node. Please wait for this notification before proceeding with the next steps.
