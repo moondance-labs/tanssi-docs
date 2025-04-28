@@ -21544,8 +21544,9 @@ Please read each section carefully and follow the instructions that match your s
 
 Before starting the offboarding process, ensure you have the following:
 
-- Access to the wallet that controls your validator operator account
-- Your validator operator address and network address
+- Access to the Ethereum (EVM) wallet that controls your validator operator account. This is the account used to interact with the Tanssi smart contracts (e.g., via MetaMask, Ledger, or private key)
+- Your validator operator address, which is the EVM account address registered as an operator
+- The Tanssi network address, which refers to the on-chain identifier of the network your operator is registered to. This value is required when calling smart contract functions (e.g., the optOut function)
 - Sufficient ETH in your wallet to cover gas fees for transactions
 
 ### Interaction Methods
