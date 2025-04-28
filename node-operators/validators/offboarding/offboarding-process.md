@@ -32,19 +32,7 @@ Before starting the offboarding process, ensure you have the following:
 
 ### Interaction Methods
 
-To follow this guide, you must interact with smart contracts. There are several ways to interact with the smart contracts:
-
-- Using the [Symbiotic CLI](../../onboarding/opt-in-to-tanssi/#set-up-the-cli)
-- Using Etherscan
-- Using Safe for multisig setups
-
-In any case, you'll need to sign the transaction using your operator account. You can choose between different options to do so:
-
-- Using a hot wallet, such as MetaMask
-- Using a cold wallet, such as Ledger
-- Using the account's private key directly (not recommended for security reasons)
-
-The following sections outline the steps for each method of interaction.
+--8<-- 'text/node-operators/validators/onboarding/run-a-validator/prerequisites.md'
 
 ## Opt out from the Tanssi Network
 
