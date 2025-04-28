@@ -5,7 +5,7 @@ icon: octicons-arrow-down-right-24
 template: main.html
 ---
 
-# Offboarding Process
+# Offboarding an Operator from the Tanssi Protocol
 
 This guide provides detailed instructions for each step of the validator offboarding process. Follow these steps carefully to ensure a smooth transition.
 
