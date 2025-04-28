@@ -17,11 +17,9 @@ The offboarding process consists of the following steps:
 
 2. **Contact Tanssi Team** (Required): Submit the offboarding form with the required information and wait for team acknowledgment
 
-3. **Middleware Removal** (Required): This step is handled by the Tanssi team. It can take approximately two epochs, and no action is required from your side
+3. **Pause Operations** (Optional): Decommission your validator node after middleware removal confirmation
 
-4. **Pause Operations** (Optional): Decommission your validator node after middleware removal confirmation
-
-5. **Vault Opt out** (Optional): This step is optional and only necessary if you want to completely remove your association with the vault. Skipping this step won't affect your ability to rejoin the network in the future
+4. **Vault Opt out** (Optional): This step is optional and only necessary if you want to completely remove your association with the vault. Skipping this step won't affect your ability to rejoin the network in the future
 
 !!! tip "Rejoining as a Validator"
     If you decide to return as a Tanssi validator in the future, you can easily onboard again by following the steps outlined in the [Onboarding](/node-operators/validators/onboarding/) guide.
