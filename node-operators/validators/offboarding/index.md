@@ -5,7 +5,7 @@ icon: octicons-arrow-down-right-24
 template: index-page.html
 ---
 
-# Offboarding
+# Offboarding an Operator from the Tanssi Protocol
 
 Stepping down as a validator requires following the proper procedures to ensure a smooth transition. This section provides clear instructions on properly offboarding your validator from the Tanssi network.
 
