@@ -15,6 +15,10 @@ By following this guide, you will:
 - Ensure your operator is cleanly removed from Tanssi's middleware
 - Prevent unnecessary resource usage and avoid missed communication
 
+The offboarding process includes multiple steps: opting out of the network, notifying the Tanssi team, waiting for confirmation of removal from the middleware, and optionally decommissioning your node and opting out from the vault.
+
+Please read each section carefully and follow the instructions that match your specific setup. The Tanssi team is available to support you if questions arise during the offboarding.
+
 ## Prerequisites
 
 Before starting the offboarding process, ensure you have the following:
