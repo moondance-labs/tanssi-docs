@@ -23,12 +23,6 @@ The offboarding process consists of the following steps:
 
 5. **Vault Opt out** (Optional): This step is optional and only necessary if you want to completely remove your association with the vault. Skipping this step won't affect your ability to rejoin the network in the future
 
-What you'll learn:
-
-- [**Opting out from the network**](/node-operators/validators/offboarding/offboarding-process/#opt-out-from-the-tanssi-network) - how to properly opt out from the Tanssi network and verify your status
-- [**Initiating the offboarding process**](/node-operators/validators/offboarding/offboarding-process/#contact-tanssi-team) - how to communicate your intention to offboard through the form
-- [**Vault opt out**](/node-operators/validators/offboarding/offboarding-process/#vault-opt-out-optional) - how to opt out of the vault and verify your status. (This step is optional)
-
 !!! tip "Rejoining as a Validator"
     If you decide to return as a Tanssi validator in the future, you can easily onboard again by following the steps outlined in the [Onboarding](/node-operators/validators/onboarding/) guide.
 
