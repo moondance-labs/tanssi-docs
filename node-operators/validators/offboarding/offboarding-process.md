@@ -162,7 +162,7 @@ The output will show `false` if you have successfully opted out and `true` if yo
 
 After opting out from the network, notify the Tanssi team of your intention to stop operating as a validator:
 
-1. Complete the [validator offboarding form](INSERT_FORM_URL){target=_blank} with the following information:
+1. Complete the [validator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} with the following information:
     - Your account address
     - Opt out transaction hash (for verification)
     - Preferred timeline for offboarding
