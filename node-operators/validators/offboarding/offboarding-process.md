@@ -170,9 +170,11 @@ After opting out from the network, notify the Tanssi team of your intention to s
 
 2. Wait for confirmation from the Tanssi team acknowledging your request
 
-Once your request is received and processed, the Tanssi team will schedule the removal of your operator from the middleware. This process typically takes two epochs to complete. You will receive a notification when it is complete. This step requires no action, but you must wait for confirmation before proceeding to the next steps.
+Once your request is received, the Tanssi team will manually schedule the removal of your operator from the middleware. This step is semi-automated and requires manual action from the Tanssi team before the process can continue.
 
-You will be notified by email when it is safe to decommission the node. Please wait for this notification before proceeding with the next steps.
+After the removal is initiated, the process may take up to two additional epochs to fully complete. You will receive a notification when the removal is finalized. Until then, no further action is needed, but you must wait for the confirmation before proceeding.
+
+You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
 
 !!! info "What is an Epoch?"
     A network epoch is when a specific set of operators, determined by their captured stake, operates for the network. The middleware removal process follows a specific timeline:
