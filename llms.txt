@@ -134,7 +134,6 @@ Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-task
 Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/
 Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/
 Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd/
-Doc-Page: https://docs.tanssi.network/node-operators/validators/onboarding/
 
 # Full content for each doc page
 
@@ -21233,27 +21232,5 @@ systemctl status tanssi.service
 ```
 
 And that's it! You've successfully upgraded your Tanssi node.
---- END CONTENT ---
-
-Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/
---- BEGIN CONTENT ---
----
-title: Run an Operator Node
-description: Learn how to run an operator (validator) to verify transactions across Tanssi-powered networks, providing security and earning rewards for your contribution.
-icon: octicons-arrow-up-right-24
-template: index-page.html
----
-
-# Onboarding
-
-Your journey as an operator begins here. Follow these steps to set up your node and prepare your account for active participation in the Tanssi protocol. For background on the concepts behind these steps, see the [External Security Providers - Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} article in the Learn section.
-
-[timeline left (tanssi-docs/.snippets/text/node-operators/validators/onboarding/onboarding-timeline.json)]
-
-Once you've fully onboarded, check out the [operational tasks](/node-operators/validators/operational-tasks/){target=\_blank} related to the maintenance of your node.
-
-## Explore This Section
-
-:::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
