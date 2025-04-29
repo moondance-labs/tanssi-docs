@@ -129,12 +129,12 @@ You can check your opt out status on Etherscan:
 
 On the contract's page:
 
-1. Click on the **Read Contract** tab
-2. Ensure your wallet is connected; if not, connect it again
-3. Select the **`isOptedIn`** function
-4. Paste your operator's account in the **who** field
-5. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
-6. Click on **Query**
+Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
+
+1. Select the **`isOptedIn`** function
+2. Paste your operator's account in the **who** field
+3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+4. Click on **Query**
 
 You'll get a `false` result if your operator has successfully opted out and `true` if they are still opted in.
 
@@ -282,12 +282,12 @@ You can check your vault opt out status on Etherscan:
 
 On the contract's page:
 
-1. Click on the **Read Contract** tab
-2. Ensure your wallet is connected; if not, connect it again
-3. Select the **`isOptedIn`** function
-4. Paste your operator's account in the **who** field
-5. Insert the vault address in the **where** field
-6. Click on **Query**
+Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
+
+1. Select the **`isOptedIn`** function
+2. Paste your operator's account in the **who** field
+3. Insert the vault address in the **where** field
+4. Click on **Query**
 
 You'll get a `false` result if your operator has successfully opted out of the vault and `true` if they are still opted in.
 
