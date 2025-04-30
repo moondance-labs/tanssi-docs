@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Opt out from the Tanssi Networ (Required)",
+    "content": "This is the first and mandatory step to initiate the offboarding process and can be done via CLI, Etherscan, or Safe (for multisig setups).",
+    "icon": ":fontawesome-solid-1:"
+  },
+  {
+    "title": "Contact Tanssi Team (Required)",
+    "content": "Submit the offboarding form with the required information and wait for team acknowledgment.",
+    "icon": ":fontawesome-solid-2:"
+  },
+  {
+    "title": "Pause Operations (Optional)",
+    "content": "Decommission your validator node after middleware removal confirmation.",
+    "icon": ":fontawesome-solid-3:"
+  },
+  {
+    "title": "Vault Opt out (Optional)",
+    "content": "This step is optional and only necessary if you want to completely remove your association with the vault. Skipping this step won't affect your ability to rejoin the network in the future",
+    "icon": ":fontawesome-solid-4:"
+  }
+]
