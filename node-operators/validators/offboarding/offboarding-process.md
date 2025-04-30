@@ -185,7 +185,7 @@ You will be notified by email when it is safe to decommission the node. Please d
 
 ## Pause Operations (Optional)
 
-After receiving the confirmation email indicating that your middleware removal is complete, you can safely decommission your validator node.
+With the confirmation of your operator's removal, your node will stop participating in the Tanssi protocol and can now be safely decommissioned.
 This step is optional but recommended; leaving your node running won't provide any rewards.
 
 1. **Stop the Validator Service**: Start by fully stopping your validator service. Ensure the service is no longer running and all related processes have been terminated. If needed, back up any important configuration files or data.
