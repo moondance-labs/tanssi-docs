@@ -21519,7 +21519,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/validators/offboarding/o
 --- BEGIN CONTENT ---
 ---
 title: Offboarding Process
-description: Detailed guide on how to properly offboard your validator node from the Tanssi network
+description: Detailed guide on how to properly offboard your operator node from the Tanssi network
 icon: octicons-arrow-down-right-24
 template: main.html
 ---
@@ -21528,24 +21528,25 @@ template: main.html
 
 ## Introduction {: #introduction }
 
-This guide provides detailed instructions for each step of the validator offboarding process. It is intended for node operators who wish to cease their participation in the Tanssi protocol in a safe, verifiable, and coordinated manner.
-Validator offboarding is a formal process designed to maintain the network's integrity, security, and stability. Since validators are critical in consensus and protocol operations, their entry and exit must follow a transparent and auditable flow. Simply shutting down a node without notice can lead to unintended consequences as slashing.
-By following this guide, you will:
+Operator offboarding is the formal process by which node operators safely and transparently exit the Tanssi protocol. It ensures network integrity, security, and stability by providing clear steps for operators who wish to cease participation.
 
-- Properly signal your intent to leave the protocol
-- Ensure your operator is cleanly removed from Tanssi's middleware
-- Prevent unnecessary resource usage and avoid missed communication
+Operators play a critical role in consensus and network operations. Abruptly shutting down a node without following the proper procedures can negatively impact the network, potentially resulting in slashing or operational disruptions. Therefore, adhering to this process is essential for maintaining protocol health and protecting operators.
 
-The offboarding process includes multiple steps: opting out of the network, notifying the Tanssi team, waiting for confirmation of removal from the middleware, and optionally decommissioning your node and opting out from the vault.
+By reading this guide, you will learn how to:
 
-Please read each section carefully and follow the instructions that match your specific setup. The Tanssi team is available to support you if questions arise during the offboarding.
+- Clearly signal your intent to exit the Tanssi protocol.
+- Safely remove your operator from Tanssi's middleware.
+- Prevent resource waste during the offboarding period.
 
-## Prerequisites
+This document covers all necessary steps, including opting out of the network, notifying the Tanssi team, verifying middleware removal, and optionally decommissioning your node and exiting associated vaults.
+
+Please carefully review each section relevant to your setup. If you have questions during offboarding, the Tanssi team is available to support you on [Discord](https://discord.gg/Jm2KH8xT7J).
+
+## Prerequisites {: #prerequisites}
 
 Before starting the offboarding process, ensure you have the following:
 
-- Access to the Ethereum (EVM) wallet that controls your validator operator account. This is the account used to interact with the Tanssi smart contracts (e.g., via MetaMask, Ledger, or private key)
-- Your validator operator address, which is the EVM account address registered as an operator
+- Access to the Ethereum (EVM) wallet that controls your operator account. This is the account used to interact with the Tanssi smart contracts (e.g., via MetaMask, Ledger, or private key)
 - The Tanssi network address, which refers to the on-chain identifier of the network your operator is registered to. This value is required when calling smart contract functions (e.g., the optOut function)
 - Sufficient ETH in your wallet to cover gas fees for transactions
 
@@ -21627,7 +21628,7 @@ The first step in the offboarding process is to opt out of the Tanssi network. T
 
 The Symbiotic CLI provides a straightforward way to opt out from the network. Choose the appropriate command based on your network and signing method:
 
-#### Using a Ledger Device
+### Using a Ledger Device
 
 === "MainNet"
 
@@ -21718,16 +21719,16 @@ Make sure to select **`Contract`** and **`Write Contract`** then click on Connec
 3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 4. Click on **Query**
 
-You'll get a `false` result if your operator has successfully opted out and `true` if they are still opted in.
-
 ![Check the registration status](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-3.webp)
+
+You'll get a `false` result if your operator has successfully opted out and `true` if they are still opted in.
 
 #### Using the Symbiotic CLI
 
 You can also verify your opt out status using the Symbiotic CLI:
 
 === "MainNet"
-    
+
     ```bash
     python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.mainnet.tanssi_network }}
     ```
@@ -21742,37 +21743,17 @@ The output will show `false` if you have successfully opted out and `true` if yo
 
 ## Contact Tanssi Team
 
-After opting out from the network, notify the Tanssi team of your intention to stop operating as a validator:
+After opting out from the network, notify the Tanssi team of your intention to stop operating as a operator:
 
-1. Complete the [validator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} with the following information:
-    - Your account address
-    - Opt out transaction hash (for verification)
-    - Preferred timeline for offboarding
-    - Reason for offboarding (optional)
+Complete the [operator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} and wait for confirmation of request completion from the Tanssi team.
 
-2. Wait for confirmation from the Tanssi team acknowledging your request
-
-Once your request is received, the Tanssi team will manually schedule the removal of your operator from the middleware. This step is semi-automated and requires manual action from the Tanssi team before the process can continue.
-
-After the removal is initiated, the process may take up to two additional epochs to fully complete. You will receive a notification when the removal is finalized. Until then, no further action is needed, but you must wait for the confirmation before proceeding.
-
-You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
-
-!!! info "What is an Epoch?"
-    A network epoch is when a specific set of operators, determined by their captured stake, operates for the network. The middleware removal process follows a specific timeline:
-    - At epoch `n`: Your operator is paused
-    - At epoch `n+1`: Your operator is unregistered
-
-    The epoch duration is designed to ensure that withdrawals don't impact the captured stake, taking into account the vault's veto and execution phases. This two-epoch process ensures a smooth transition and proper settlement of all operations.
+Upon receiving your request, your operator's removal will be scheduled. This step is semi-automated and may take time to complete. You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
 
 ## Pause Operations (Optional)
 
-After receiving the confirmation email indicating that your middleware removal is complete, you can safely decommission your validator node.
-This step is optional but recommended; leaving your node running won't provide any rewards.
+Once you receive confirmation of your operator's removal, your node will no longer participate in the Tanssi protocol and can be safely decommissioned.
 
-1. **Stop the Validator Service**: Start by fully stopping your validator service. Ensure the service is no longer running and all related processes have been terminated. If needed, back up any important configuration files or data.
-
-2. **Clean Up Resources**: Once the node is stopped, you can clean up your resources. This includes safely removing or repurposing the hardware or virtual machine hosting the validator. If you are using cloud infrastructure, it's safe to terminate the associated instances. It’s also a good idea to back up logs and configuration files in case you need to reference them in the future.
+At this stage, you can safely stop any running services related to your operator. Depending on your setup (cloud infrastructure, Docker containers, bare metal, etc.), ensure the operator processes have fully stopped. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
 
 ## Vault Opt out (Optional)
 
@@ -21897,7 +21878,7 @@ The output will show `false` if you have successfully opted out of the vault and
 
 After completing the offboarding process:
 
-- Consider providing feedback about your experience to help improve the Tanssi network
+- Consider providing feedback in the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network
 - If you plan to return in the future, you can follow the [onboarding process](/node-operators/validators/onboarding/) again
 <<<<<<< HEAD
 >>>>>>> f7594172 (feat: offboarding docs and rename variables)
