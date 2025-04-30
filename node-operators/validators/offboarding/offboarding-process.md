@@ -98,6 +98,9 @@ Make sure to select **`Contract`** and **`Write Contract`** then click on Connec
 
 ![Opt out operator](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-2.webp)
 
+!!! warning
+    Important: After submitting your opt-out transaction, make sure to save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank}.
+
 ### Using Safe for Multisig Setups {: #opt-out-network-with-safe }
 
 For [Safe](https://app.safe.global/){target=\_blank} accounts, use the Transaction Builder with these addresses:
