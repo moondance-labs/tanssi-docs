@@ -10,7 +10,7 @@ template: main.html
 ## Introduction {: #introduction }
 
 This guide provides detailed instructions for each step of the validator offboarding process. It is intended for node operators who wish to cease their participation in the Tanssi protocol in a safe, verifiable, and coordinated manner.
-Validator offboarding is a formal process designed to maintain the network's integrity, security, and stability. Since validators are critical in consensus and protocol operations, their entry and exit must follow a transparent and auditable flow. Simply shutting down a node without notice can lead to unintended consequences as slashing.
+Validator offboarding is a formal process designed to maintain the network's integrity, security, and stability. Since validators are critical in consensus and protocol operations, their entry and exit must follow a transparent and auditable flow. Simply shutting down a node without notice can lead to unintended consequences, such as slashing.
 By following this guide, you will:
 
 - Properly signal your intent to leave the protocol
