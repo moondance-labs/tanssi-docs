@@ -2,6 +2,8 @@
 import fs from 'fs';
 import solc from 'solc';
 
+{{ networks.dancebox.token_symbol }}
+
 // 2. Get path and load contract
 const source = fs.readFileSync('Incrementer.sol', 'utf8');
 
