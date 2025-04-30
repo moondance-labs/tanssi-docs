@@ -165,7 +165,7 @@ After opting out from the network, notify the Tanssi team of your intention to s
 1. Complete the [validator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} with the following information:
     - Your account address
     - Opt out transaction hash (for verification)
-    - Preferred timeline for offboarding
+    - Preferred date for offboarding
     - Reason for offboarding (optional)
 
 2. Wait for confirmation from the Tanssi team acknowledging your request
