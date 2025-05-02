@@ -44,6 +44,7 @@ sequenceDiagram
     activate Eth_BeefyClient
     Eth_BeefyClient->>Eth_BeefyClient: Verify commitment
     deactivate Eth_BeefyClient
+
 ```
 
 ### Consensus Beacon (Ethereum to Tanssi)
