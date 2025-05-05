@@ -83,7 +83,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     {{ networks.dancelight.operator_docker_image }} \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md' 
+    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
     ```
 
 === "Intel Skylake"
