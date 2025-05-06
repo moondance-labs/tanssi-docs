@@ -8,16 +8,16 @@ icon: octicons-shield-check-24
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
+--8<-- 'text/node-operators/operators/onboarding/run-an-operator/intro.md'
 
 This guide will walk you through the steps to successfully register your node as a Symbiotic operator.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-Before registering as an operator, ensure you have already [set up the node](/node-operators/validators/onboarding/run-a-validator/){target=\_blank} and it is running.
+Before registering as an operator, ensure you have already [set up the node](/node-operators/operators/onboarding/run-an-operator/){target=\_blank} and it is running.
 
 To follow this guide, you must interact with smart contracts.
---8<-- 'text/node-operators/validators/onboarding/run-a-validator/prerequisites.md'
+--8<-- 'text/node-operators/operators/onboarding/run-an-operator/prerequisites.md'
 
 ## Register as an Operator {: #registering-operator }
 
@@ -72,7 +72,7 @@ Go to the contract's page by opening the link:
 
 Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
-![Connect to Web3 step](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-1.webp)
+![Connect to Web3 step](/images/node-operators/operators/onboarding/register-in-symbiotic/register-in-symbiotic-1.webp)
 
 !!! note
     You can configure MetaMask to use a cold wallet.
@@ -82,7 +82,7 @@ Once connected:
 1. Expand the **`registerOperator`** function
 2. Click on **Write**, and sign the transaction
 
-![Register the operator](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
+![Register the operator](/images/node-operators/operators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
 
 ### Register Using Safe for Multisig Setups {: #register-with-safe }
 
@@ -118,7 +118,7 @@ On the contract's page:
 
 If your operator was registered correctly, you'll get a `true` result, and otherwise, `false`
 
-![Check the registration status](/images/node-operators/validators/onboarding/register-in-symbiotic/register-in-symbiotic-3.webp)
+![Check the registration status](/images/node-operators/operators/onboarding/register-in-symbiotic/register-in-symbiotic-3.webp)
 
 You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given operator address:
 

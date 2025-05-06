@@ -54,7 +54,7 @@ With all function calls benchmarked, the transaction fee for each specific call 
 - **`LengthFee`** - a fee correlated to the length in bytes of the function call. The fee is defined by two separate parameters:
     - **`ByteLengthFunctionCall`** - length in bytes of the call being executed
     - **`LengthToFee`** - a function that defines the per-byte fee algorithm. For Tanssi networks, this is a constant value
-- **`Tip`** - an optional value that increases the overall fee, increasing the priority of the transaction by incentivizing block producers to include it in the next block
+- **`Tip`** - an optional value that increases the overall fee, increasing the priority of the transaction by incentivizing sequencers to include it in the next block
 
 Therefore, in general terms, the transaction fee can be calculated with the following equation:
 

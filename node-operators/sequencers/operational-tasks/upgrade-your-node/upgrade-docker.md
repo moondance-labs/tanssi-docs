@@ -18,7 +18,7 @@ This tutorial covers upgrading your Tanssi sequencer that was configured using D
 
 If you're running your sequencer with Docker, updating your node is as simple as stopping the running container and restarting it with the new version tag.
 
-First, get the container ID of your Tanssi block producer node with the following command:
+First, get the container ID of your Tanssi sequencer node with the following command:
 
 ```bash
 docker ps -a

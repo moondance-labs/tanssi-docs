@@ -10,7 +10,7 @@ icon: octicons-server-24
 
 As presented in the [Block Production as a Service](/learn/tanssi/network-services/block-production/#block-production-fees){target=_\blank} article, there are two main costs associated that the network governor must cover: 
 
-- **Block producers assignment** - for the assignment of block producers by the Tanssi protocol, which happens once per session
+- **Sequencers assignment** - for the assignment of sequencers by the Tanssi protocol, which happens once per session
 - **Block production** - for each block that is produced on the network's behalf
 
 In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} to top-up your account and keep your network's liveness.
@@ -26,7 +26,7 @@ For the examples in this guide, you will need to have the following:
 
 ## Topping-Up Your Network's Credits {: #topping-up }
 
-Following a pay-as-you-go model, the networks must have funds allocated to pay for the services, which, in time, will be deducted by the Tanssi protocol upon every session change for the cost of block producer assignment and every block for the cost of producing the block.
+Following a pay-as-you-go model, the networks must have funds allocated to pay for the services, which, in time, will be deducted by the Tanssi protocol upon every session change for the cost of sequencer's assignment and every block for the cost of producing the block.
 
 Tanssi reserves a fraction of the payments received for the protocol's treasury, and the remainder is burnt. This is the current configuration:
 
@@ -43,7 +43,7 @@ Clicking on the **Top Up** button displays a sidebar where the following informa
 
 - **Current balance** - the current balance allocated for the network's block production service
 - **Available balance** - the balance available in the network's registration account, which is connected to the dApp
-- **Current cost** - current cost per block producer's assignment and cost per block
+- **Current cost** - current cost per sequencer's assignment and cost per block
 - **Projected forecast** - the estimated day when the network runs out of funds and stops being served
 
 To extend the network's projected runway, take the following actions:
@@ -56,4 +56,4 @@ To extend the network's projected runway, take the following actions:
 You will be asked to sign the transaction, and after it's gone through, your network will benefit from an extended horizon of liveness.
 
 !!! warning
-    If your network doesn't have enough funds to cover the block producer's assignment and one session's worth of blocks, it will stall.
+    If your network doesn't have enough funds to cover the sequencer's assignment and one session's worth of blocks, it will stall.

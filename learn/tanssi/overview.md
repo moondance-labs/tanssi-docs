@@ -16,9 +16,9 @@ Securing a new network is a major feat, but Tanssi allows your network to connec
 
 Developers looking to build decentralized networks typically have to deal with the following problems:
 
-- **Complex Infrastructure Management** - network deployments typically demand handling numerous infrastructural components like bootstrapping sequencers, validators, wallets, block explorers, oracles, indexers, RPC endpoints, and more. This is both time-consuming and resource-intensive
+- **Complex Infrastructure Management** - network deployments typically demand handling numerous infrastructural components like bootstrapping sequencers, operators (also called validators), wallets, block explorers, oracles, indexers, RPC endpoints, and more. This is both time-consuming and resource-intensive
 
-- **Weak & Inefficient Security** - networks commonly suffer from having small set of validators or weak economic security. Early-stage networks don't have enough economic backing to power a robust consensus mechanism. Moreover, developers often have to pay for full blockchain capacity validation even when they might not have achieved product-market fit, and blocks might be close to empty. This essentially means validators are being overpaid, and there is a large opportunity cost since those resources could be used elsewhere to develop the protocol
+- **Weak & Inefficient Security** - networks commonly suffer from having small set of operators or weak economic security. Early-stage networks don't have enough economic backing to power a robust consensus mechanism. Moreover, developers often have to pay for full blockchain capacity validation even when they might not have achieved product-market fit, and blocks might be close to empty. This essentially means operators are being overpaid, and there is a large opportunity cost since those resources could be used elsewhere to develop the protocol
 
 - **Cross-Chain and Interoperability** - networks inherently lack cross-chain capabilities to connect to other blockchain ecosystems. Furthermore, developing interoperability solutions requires specialized expertise and meticulous implementation
 
@@ -30,7 +30,7 @@ Tanssi addresses the most common network problems by:
 
 - **Block Production as a Service** - networks built with Tanssi have their blocks produced by Tanssi's incentivized workers. Tanssi guarantees the liveness of the network and a decentralized set of sequencers
 
-- **External Security Providers** -  networks deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of validators
+- **External Security Providers** -  networks deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of operators
 
 - **Modular Blockchain Framework** - networks built with Tanssi can use a modular blockchain framework called [Substrate](https://substrate.io){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their network's custom logic
 

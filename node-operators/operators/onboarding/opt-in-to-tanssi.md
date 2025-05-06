@@ -8,7 +8,7 @@ icon: octicons-plus-circle-24
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
+--8<-- 'text/node-operators/operators/onboarding/run-an-operator/intro.md'
 
 This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
 
@@ -16,16 +16,16 @@ This guide will walk through the steps to successfully opt into a Tanssi-enabled
 
 Before opting into a Tanssi-enabled vault and the Tanssi network, make sure that:
 
-- You have a node correctly [set up and running](/node-operators/validators/onboarding/run-a-validator/){target=\_blank}
-- You [have registered as an operator](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank} in the Symbiotic registry 
+- You have a node correctly [set up and running](/node-operators/operators/onboarding/run-an-operator/){target=\_blank}
+- You [have registered as an operator](/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} in the Symbiotic registry 
 
 To follow this guide, you must interact with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
 
---8<-- 'text/node-operators/validators/onboarding/run-a-validator/prerequisites.md'
+--8<-- 'text/node-operators/operators/onboarding/run-an-operator/prerequisites.md'
 
 ## Opt In to Tanssi-Enabled Vaults {: #opt-in-tanssi-vaults }
 
-Before enabling your operator to be an active Tanssi network validator, you must opt in to at least one of the Tanssi-enabled vaults. The following sections describe several ways to opt into the vaults.
+Before enabling your operator to be active within the Tanssi network, you must opt in to at least one of the Tanssi-enabled vaults. The following sections describe several ways to opt into the vaults.
 
 ### Opt In Using the Symbiotic CLI {: #opt-in-tanssi-vaults-with-cli }
 
@@ -76,7 +76,7 @@ To open the contract's page, open the link:
 
 Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
-![Connect to Web3 step](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-1.webp)
+![Connect to Web3 step](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-1.webp)
 
 !!! note
     You can configure MetaMask to use a cold wallet.
@@ -87,7 +87,7 @@ Once connected:
 2. Insert the `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet)
 3. Click on **Write**, and sign the transaction
 
-![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)
+![Register the operator](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)
 
 ### Opt In Using Safe for Multisig Setups {: #opt-in-tanssi-vaults-with-safe }
 
@@ -124,7 +124,7 @@ In the contract's page:
 
  You'll get a `true` result if your operator was registered correctly and `false` otherwise.
 
-![Check the registration status](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-3.webp)
+![Check the registration status](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-3.webp)
 
 You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given operator address in a Tanssi-enabled vault:
 
@@ -151,7 +151,7 @@ And the output looks like:
 
 ## Opt In to the Tanssi Network {: #opt-in-tanssi }
 
-Before enabling your operator to be an active Tanssi network validator, you must opt into the network and be approved by the Tanssi team. The following sections describe several ways to opt into the network.
+Before enabling your operator to be a active within the Tanssi network, you must opt into the network and be approved by the Tanssi team. The following sections describe several ways to opt into the network.
 
 !!! note
     The MainNet Tanssi Network address will be disclosed upon launch.
@@ -205,7 +205,7 @@ Go to the contract's page by opening the link:
 
 Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 
-![Connect to Web3 step](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-4.webp)
+![Connect to Web3 step](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-4.webp)
 
 !!! note
     You can configure MetaMask to use a cold wallet.
@@ -216,7 +216,7 @@ Once connected:
 2. Insert the `TANSSI_NETWORK_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 3. Click on **Write**, and sign the transaction
 
-![Register the operator](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
+![Register the operator](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
 
 ### Opt In Using Safe for Multisig Setups {: #opt-in-tanssi-with-safe }
 
@@ -253,7 +253,7 @@ On the contract's page:
 
 You'll get a `true` result if your operator was registered correctly and `false` otherwise.
 
-![Check the registration status](/images/node-operators/validators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-6.webp)
+![Check the registration status](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-6.webp)
 
 You can also verify your registration status using the Symbiotic CLI running the following command, which prints `true` or `false` for any given operator address in the Tanssi Network:
 

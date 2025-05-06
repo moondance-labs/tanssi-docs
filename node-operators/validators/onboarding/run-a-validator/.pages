@@ -1,6 +1,0 @@
-title: Run a Validator
-hide: false
-nav:
-  - index.md
-  - 'Using Docker': 'validators-docker.md'
-  - 'Using Systemd': 'validators-systemd.md'

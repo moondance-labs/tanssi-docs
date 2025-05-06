@@ -1,16 +1,16 @@
 ---
-title: Run a Validator Using Docker
-description: Learn how to set up and run a validator (aka operator) for Tanssi network using Docker to participate in the protocol, secure networks, and earn rewards.
+title: Run an Operator Using Docker
+description: Learn how to set up and run an operator (aka validator) for Tanssi network using Docker to participate in the protocol, secure networks, and earn rewards.
 icon: simple-docker
 ---
 
-# Run a Validator in Tanssi Using Docker
+# Run an Operator in Tanssi Using Docker
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
+--8<-- 'text/node-operators/operators/onboarding/run-an-operator/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi validator using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi operator using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -18,23 +18,23 @@ In this guide, you'll learn how to spin up a Tanssi validator using the official
 
 ### Pull the Docker Image {: #pull-docker-image }
 
-A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi validator requires and the binary file itself.
+A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi operator requires and the binary file itself.
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the Tanssi orchestrator specification file.
 
 The following command to pull the Docker image:
 
 ```bash
-docker pull {{ networks.dancelight.validator_docker_image }}
+docker pull {{ networks.dancelight.operator_docker_image }}
 ```
 
 The command will download and extract the image and show the status upon execution:
 
---8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/terminal/pulling-docker-image.md'
+--8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/terminal/pulling-docker-image.md'
 
 ### Set Up the Data Directory {: #set-up-data-directory }
 
-Running a validator requires syncing with the Tanssi chain and storing its state.
+Running an operator requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
@@ -64,7 +64,7 @@ To generate and store on disk the session keys that will be referenced on the st
 ```bash
 docker run --network="host" -v "/var/lib/tanssi-data:/data" \
 -u $(id -u ${USER}):$(id -g ${USER}) \
-{{ networks.dancelight.validator_docker_image }} key generate-node-key --file /data/node-key
+{{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
 ```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
@@ -82,8 +82,8 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     ```bash
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.validator_docker_image }} \
-    --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
+    {{ networks.dancelight.operator_docker_image }} \
+    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
     ```
 
 === "Intel Skylake"
@@ -92,8 +92,8 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
-    {{ networks.dancelight.validator_docker_image }} \
-    --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
+    {{ networks.dancelight.operator_docker_image }} \
+    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
     ```
 
 === "AMD Zen3"
@@ -102,8 +102,8 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
-    {{ networks.dancelight.validator_docker_image }} \
-    --8<-- 'code/node-operators/validators/onboarding/run-a-validator/validators-docker/docker-command.md'
+    {{ networks.dancelight.operator_docker_image }} \
+    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
     ```
 
 ### Run Flags {: #run-flags }
@@ -113,7 +113,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
 ```bash
-docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.validator_docker_image }} --help
+docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
 ```
 
 ## Syncing Your Node {: #syncing-your-node }
