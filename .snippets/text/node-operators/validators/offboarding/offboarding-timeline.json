@@ -1,21 +1,21 @@
 [
   {
-    "title": "Opt out from the Tanssi Networ (Required)",
+    "title": "[Opt out from the Tanssi Network (Required)](/node-operators/validators/offboarding/offboarding-process/#opt-out-from-tanssi){target=_blank}",
     "content": "This is the first and mandatory step to initiate the offboarding process and can be done via CLI, Etherscan, or Safe (for multisig setups).",
     "icon": ":fontawesome-solid-1:"
   },
   {
-    "title": "Contact Tanssi Team (Required)",
-    "content": "Submit the offboarding form with the required information and wait for middleware removal confirmation.",
+    "title": "[Contact Tanssi Team (Required)](/node-operators/validators/offboarding/offboarding-process/#contact-tanssi-team){target=_blank}",
+    "content": "Submit the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} with the required information and wait for middleware removal confirmation.",
     "icon": ":fontawesome-solid-2:"
   },
   {
-    "title": "Pause Operations (Optional)",
+    "title": "[Pause Operations (Optional)](/node-operators/validators/offboarding/offboarding-process/#pause-operations-optional){target=_blank}",
     "content": "Decommission your validator node after middleware removal confirmation.",
     "icon": ":fontawesome-solid-3:"
   },
   {
-    "title": "Vault Opt out (Optional)",
+    "title": "[Vault Opt out (Optional)](/node-operators/validators/offboarding/offboarding-process/#vault-opt-out-optional){target=_blank}",
     "content": "This step is optional and only necessary if you want to remove your association with the vault completely. Skipping this step won't affect your ability to rejoin the network in the future",
     "icon": ":fontawesome-solid-4:"
   }

@@ -1,5 +1,5 @@
 ---
-title: Offboard Your Validator Node
+title: Offboard Your Operator Node
 description: Learn how to properly offboard your operator (also known as validator), including pausing operations, opting out from the network, and removing yourself from the registry.
 icon: octicons-arrow-down-right-24
 template: index-page.html
