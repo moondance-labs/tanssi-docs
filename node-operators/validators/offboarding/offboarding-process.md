@@ -170,7 +170,7 @@ Upon receiving your request, your operator's removal will be scheduled. This ste
 
 ## Pause Operations (Optional)
 
-Once you receive confirmation of your operator's removal you can safely stop any running services related to your operator at this stage. Ensure the operator processes have fully stopped depending on your setup (cloud infrastructure, Docker containers, bare metal, etc.). If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
+Once you receive confirmation of your operator's removal, you can safely stop any running services related to your operator. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
 
 ## Vault Opt-out (Optional)
 
