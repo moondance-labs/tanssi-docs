@@ -42,7 +42,7 @@ In summary, networks deployed through Tanssi are Layer 1 solutions designed to b
 
 As previously discussed, networks deployed through Tanssi are customizable blockchains which, among other features, have block production as a service and inherit block finality from the chosen security provider.
 
-A high-level overview of what a network looks like in the ecosystem is presented below, featuring [Symbiotic](https://symbiotic.fi/){target=\_blank} as the security provider.
+A high-level overview of the architecture is presented below, featuring [Symbiotic](https://symbiotic.fi/){target=\_blank} as the security provider.
 
 ![High-level overview of a network & Tanssi](/images/learn/tanssi/overview/overview-1.webp)
 
