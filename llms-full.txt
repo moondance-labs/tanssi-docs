@@ -18308,10 +18308,10 @@ template: index-page.html
 
 Stepping down as an operator requires following the proper procedures to ensure a smooth transition. This section provides clear instructions on offboarding your operator from the Tanssi network.
 
-[timeline left (tanssi-docs/.snippets/text/node-operators/validators/offboarding/offboarding-timeline.json)]
+[timeline left (tanssi-docs/.snippets/text/node-operators/operators/offboarding/offboarding-timeline.json)]
 
 !!! tip "Rejoining as an Operator"
-    If you decide to return as a Tanssi validator in the future, you can easily onboard again by following the steps outlined in the [Onboarding](/node-operators/validators/onboarding/) guide.
+    If you decide to return as a Tanssi validator in the future, you can easily onboard again by following the steps outlined in the [Onboarding](/node-operators/operators/onboarding/) guide.
 
 ## Explore This Section
 
@@ -18354,7 +18354,70 @@ Before starting the offboarding process, ensure you have the following:
 
 ### Interaction Methods
 
-text/node-operators/validators/onboarding/run-a-validator/prerequisites.md
+There are several ways to interact with the smart contracts:
+
+- Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
+- Using [Etherscan](https://etherscan.io/){target=\_blank}
+- Using [Safe](https://safe.global/){target=\_blank} for multisig setups
+
+In any case, you'll need to sign the transaction using the account you intend to use for the node. You can choose between different options to do so:
+
+- Using the account's private key directly (although this method is not recommended)
+- Using a hot wallet, such as [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
+- Using a cold wallet, such as [Ledger](https://www.ledger.com/){target=\_blank}
+
+The following section outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
+
+### Set Up the Symbiotic CLI {: #set-up-the-cli }
+
+The [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank} is a tool for interacting with Symbiotic's core smart contracts. It is written in [Python](https://www.python.org/){target=\_blank}, so you'll need to install the Python interpreter and [pip](https://pypi.org/project/pip/){target=\_blank}, Python's package installer:
+
+=== "Linux (Ubuntu/Debian)"
+
+    ```bash
+     sudo apt-get install python3 && \
+     sudo apt install python3-pip
+    ```
+
+=== "MacOS"
+
+    ```bash
+    brew install python3
+    ```
+
+Now, with Python installed, download the Symbiotic CLI and its dependencies:
+
+```bash
+git clone https://github.com/symbioticfi/cli.git && \
+cd cli && \
+pip3 install -r requirements.txt
+```
+
+Run the following command to check if the installation was successful:
+
+```bash
+python3 symb.py --help
+```
+
+The terminal should show a long list of the CLI available commands:
+
+<div id="termynal" data-termynal>
+    <span data-ty="input"><span class="file-path"></span>python3 symb.py --help</span>
+    <span data-ty>Usage: symb.py [OPTIONS] COMMAND [ARGS]...</span>
+    <br>
+<span data-ty>Options:</></span>
+  <span data-ty>&emsp;--chain CHAIN    Chain ID to use.  [default: mainnet]</span>
+  <span data-ty>&emsp;--provider TEXT  Ethereum provider URL [http(s)].</span>
+  <span data-ty>&emsp;--help           Show this message and exit.</span>
+  <br>
+<span data-ty>Commands:
+<span data-ty>&emsp;active-balance-of&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Get an active balance of a given account...</span>
+<span data-ty>&emsp;check-opt-in-network&emsp;&emsp;&ensp; Check if operator is opted in to a network.</span>
+<span data-ty>&emsp;check-opt-in-vault&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Check if operator is opted in to a vault.</span>
+<span data-ty>&emsp;claim&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Claim a withdrawal for some epoch at the...</span>
+<span data-ty>&emsp;deposit&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Deposit to the vault.</span>
+<span data-ty>&emsp;.......&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;..........</span>
+</div>
 
 ## Opt out from Tanssi
 
@@ -18411,13 +18474,13 @@ You can interact directly with the smart contract through Etherscan using a brow
  [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
 
 Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
-![Connect to Web3 step](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-1.webp)
+![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-1.webp)
 
 1. Expand the **`optOut`** function
 2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g, `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
-![Opt out operator](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-2.webp)
+![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
 
 !!! warning
     After submitting your opt-out transaction, save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank}.
@@ -18461,7 +18524,7 @@ Make sure to select **`Contract`** and **`Write Contract`** then click on Connec
 3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 4. Click on **Query**
 
-![Check the registration status](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-3.webp)
+![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-3.webp)
 
 You'll get a `false` result if your operator has successfully opted out and `true` if they are still opted in.
 
@@ -18547,13 +18610,13 @@ Access the contract through Etherscan:
  [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#writeContract){target=\_blank}
 
 Make sure to select `Contract` and `Write Contract` then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
-![Connect to Web3 step](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-4.webp)
+![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-4.webp)
 
 1. Expand the **`optOut`** function
 2. Insert the `VAULT_ADDRESS` in the **where** field (e.g, `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
-![Opt out operator](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-5.webp)
+![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-5.webp)
 
 ### Using Safe {: #opt-out-vault-with-safe }
 
@@ -18596,7 +18659,7 @@ Make sure to select **`Contract`** and **`Write Contract`** then click on Connec
 
 You'll get a `false` result if your operator has successfully opted out of the vault and `true` if they are still opted in.
 
-![Check the registration status](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-6.webp)
+![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-6.webp)
 
 #### Using the Symbiotic CLI
 
@@ -18618,7 +18681,7 @@ The output will show `false` if you have successfully opted out of the vault and
 
 ## Next Steps
 
-After completing the offboarding process, if you plan to return in the future, you can follow the [onboarding process](/node-operators/validators/onboarding/) again
+After completing the offboarding process, if you plan to return in the future, you can follow the [onboarding process](/node-operators/operators/onboarding/) again
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/operators/onboarding/account-setup/

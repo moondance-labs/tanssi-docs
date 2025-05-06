@@ -32,7 +32,7 @@ Before starting the offboarding process, ensure you have the following:
 
 ### Interaction Methods
 
---8<-- 'text/node-operators/validators/onboarding/run-a-validator/prerequisites.md'
+--8<-- 'text/node-operators/operators/onboarding/run-an-operator/prerequisites.md'
 
 ## Opt out from Tanssi
 
@@ -89,13 +89,13 @@ You can interact directly with the smart contract through Etherscan using a brow
  [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
 
 Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
-![Connect to Web3 step](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-1.webp)
+![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-1.webp)
 
 1. Expand the **`optOut`** function
 2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g, `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
-![Opt out operator](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-2.webp)
+![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
 
 !!! warning
     After submitting your opt-out transaction, save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank}.
@@ -139,7 +139,7 @@ Make sure to select **`Contract`** and **`Write Contract`** then click on Connec
 3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 4. Click on **Query**
 
-![Check the registration status](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-3.webp)
+![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-3.webp)
 
 You'll get a `false` result if your operator has successfully opted out and `true` if they are still opted in.
 
@@ -225,13 +225,13 @@ Access the contract through Etherscan:
  [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#writeContract){target=\_blank}
 
 Make sure to select `Contract` and `Write Contract` then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
-![Connect to Web3 step](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-4.webp)
+![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-4.webp)
 
 1. Expand the **`optOut`** function
 2. Insert the `VAULT_ADDRESS` in the **where** field (e.g, `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
-![Opt out operator](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-5.webp)
+![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-5.webp)
 
 ### Using Safe {: #opt-out-vault-with-safe }
 
@@ -274,7 +274,7 @@ Make sure to select **`Contract`** and **`Write Contract`** then click on Connec
 
 You'll get a `false` result if your operator has successfully opted out of the vault and `true` if they are still opted in.
 
-![Check the registration status](/images/node-operators/validators/offboarding/offboarding-process/offboarding-process-6.webp)
+![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-6.webp)
 
 #### Using the Symbiotic CLI
 
@@ -296,4 +296,4 @@ The output will show `false` if you have successfully opted out of the vault and
 
 ## Next Steps
 
-After completing the offboarding process, if you plan to return in the future, you can follow the [onboarding process](/node-operators/validators/onboarding/) again
+After completing the offboarding process, if you plan to return in the future, you can follow the [onboarding process](/node-operators/operators/onboarding/) again
