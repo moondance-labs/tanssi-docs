@@ -151,6 +151,7 @@ Doc-Page: https://docs.tanssi.network/node-operators/validators/operational-task
 Doc-Page: https://docs.tanssi.network/node-operators/validators/operational-tasks/upgrade-your-node/
 Doc-Page: https://docs.tanssi.network/node-operators/validators/operational-tasks/upgrade-your-node/upgrade-docker/
 Doc-Page: https://docs.tanssi.network/node-operators/validators/operational-tasks/upgrade-your-node/upgrade-systemd/
+Doc-Page: https://docs.tanssi.network/path/to/venv/lib/python3.13/site-packages/idna-3.10.dist-info/LICENSE/
 
 # Full content for each doc page
 
@@ -21485,7 +21486,7 @@ And that's it! You've successfully mapped your account, and your node is now eli
 Doc-Content: https://docs.tanssi.network/node-operators/validators/offboarding/
 --- BEGIN CONTENT ---
 ---
-title: Offboard Your Validator Node
+title: Offboard Your Operator Node
 description: Learn how to properly offboard your operator (also known as validator), including pausing operations, opting out from the network, and removing yourself from the registry.
 icon: octicons-arrow-down-right-24
 template: index-page.html
@@ -21740,9 +21741,12 @@ complete the [operator offboarding form](https://www.tanssi.network/ecosystem/op
 
 Upon receiving your request, your operator's removal will be scheduled. This step is semi-automated and may take time to complete. You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
 
+!!! important "Provide feedback"
+    Consider providing feedback in the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network
+
 ## Pause Operations (Optional)
 
-Once you receive confirmation of your operator's removal you can safely stop any running services related to your operator at this stage. Ensure the operator processes have fully stopped depending on your setup (cloud infrastructure, Docker containers, bare metal, etc.). If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
+Once you receive confirmation of your operator's removal, you can safely stop any running services related to your operator. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
 
 ## Vault Opt-out (Optional)
 
@@ -21865,6 +21869,7 @@ The output will show `false` if you have successfully opted out of the vault and
 
 ## Next Steps
 
+<<<<<<< HEAD
 After completing the offboarding process:
 
 - Consider providing feedback in the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network
@@ -21873,6 +21878,9 @@ After completing the offboarding process:
 >>>>>>> f7594172 (feat: offboarding docs and rename variables)
 >>>>>>> 8ee20dc2 (chore: fix registry naming convention)
 =======
+=======
+After completing the offboarding process, if you plan to return in the future, you can follow the [onboarding process](/node-operators/validators/onboarding/) again
+>>>>>>> 6e09f09e (chore: add comments)
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/validators/onboarding/account-setup/
@@ -23424,5 +23432,40 @@ systemctl status tanssi.service
 ```
 
 And that's it! You've successfully upgraded your Tanssi node.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/path/to/venv/lib/python3.13/site-packages/idna-3.10.dist-info/LICENSE/
+--- BEGIN CONTENT ---
+BSD 3-Clause License
+
+Copyright (c) 2013-2024, Kim Davies and contributors.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+
+1. Redistributions of source code must retain the above copyright
+   notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright
+   notice, this list of conditions and the following disclaimer in the
+   documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its
+   contributors may be used to endorse or promote products derived from
+   this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+"AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED
+TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 --- END CONTENT ---
 
