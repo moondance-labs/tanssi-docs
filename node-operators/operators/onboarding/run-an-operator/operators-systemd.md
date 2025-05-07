@@ -1,16 +1,16 @@
 ---
-title: Run a Tanssi Validator
-description: Learn how to set up and run a validator (operator) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
+title: Run a Tanssi Operator
+description: Learn how to set up and run an operator (validator) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 icon: simple-linux
 ---
 
-# Run a Validator Node Using Systemd
+# Run an Operator Node Using Systemd
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/validators/onboarding/run-a-validator/intro.md'
+--8<-- 'text/node-operators/operators/onboarding/run-an-operator/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi validator using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi operator using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
@@ -18,13 +18,13 @@ The article follows the good practice of running the service with its own non-ro
 
 To get started, you'll need access to a computer running an Ubuntu Linux OS with [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} enabled and root privileges. You will also need:
 
-- **Node binary files** - a validator requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
+- **Node binary files** - an operator requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
 
 The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
 ## Check Landlock Support {: #check-landlock }
 
-Tanssi validators use the Linux kernel's Landlock feature as a security measure to restrict its own access to system resources, limiting the damage if the application is compromised.
+Tanssi operators use the Linux kernel's Landlock feature as a security measure to restrict its own access to system resources, limiting the damage if the application is compromised.
 
 Check the Landlock feature support in your system running the following command:
 

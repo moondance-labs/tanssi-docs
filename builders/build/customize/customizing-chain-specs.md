@@ -44,7 +44,7 @@ In the `properties` attribute, the following settings are used by various front-
 
 ## The Genesis State {: #genesis-state }
 
-All the block producers assigned to the Tanssi network must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
+All the sequencers assigned to the Tanssi network must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
 
 This genesis state will define the starting point of the Tanssi network. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
 

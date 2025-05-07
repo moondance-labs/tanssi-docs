@@ -45,7 +45,7 @@ To start creating your proxy account, head to the **Developer** tab and select [
 7. Optionally, you can add a time delay using a specified number of blocks to add an additional layer of security for the primary account to review the pending transaction
 8. Click **Submit Transaction**
 
-![Add a proxy account from the Extrinsics page of the developer portal](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-1.webp)
+![Add a proxy account from the Extrinsics page of the developer portal](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-1.webp)
 
 You will then be prompted to authorize and sign the transaction. Click **Sign and Submit** to create the proxy relationship. Once the transaction has been successfully submitted, you will receive some notifications confirming the transaction.
 
@@ -56,14 +56,14 @@ Another method for creating a proxy is by using the **Accounts** section of the 
 1. Select the three vertical dots next to the primary account
 2. Select **Add proxy**
 
-![Select the Add proxy menu item from the Accounts page of the developer portal](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-2.webp)
+![Select the Add proxy menu item from the Accounts page of the developer portal](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-2.webp)
 
 !!! note
     If the account already has a proxy, **Manage proxies** will be displayed as an option instead of **Add proxy**.
 
 A pop-up will appear where you can enter the required information, such as the proxied/primary account, the proxy account, and the type of proxy to create a proxy account. First, click **Add proxy**.
 
-![Add a proxy account from the Accounts page of the developer portal](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-3.webp)
+![Add a proxy account from the Accounts page of the developer portal](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-3.webp)
 
 Then, take the following steps:
 
@@ -71,7 +71,7 @@ Then, take the following steps:
 2. Select the proxy type
 3. Click **Submit** and sign the transaction
 
-![Add the details of the proxy account, including the proxy account and type](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-4.webp)
+![Add the details of the proxy account, including the proxy account and type](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-4.webp)
 
 In the next section, you will learn how to verify if your proxy account was set up successfully.
 
@@ -88,7 +88,7 @@ To check your proxy accounts from the [**Chain state** section](https://polkadot
 3. Select or paste your primary/proxied account
 4. Click on the **+** button to send the query
 
-![Verify your proxy accounts via the chain state page of the developer portal](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-5.webp)
+![Verify your proxy accounts via the chain state page of the developer portal](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-5.webp)
 
 The result will appear on the page showing you information about your proxies, including the delegate/proxy account address, the proxy type, the delay period if one was specified, and the total bond amount for all of your proxies, expressed in Planck units.
 
@@ -102,11 +102,11 @@ You can also check your proxy accounts from the **Accounts** section of the deve
 !!! note
     There should be a proxy symbol next to the primary account. To achieve the same effect, hover over the icon and click **Manage proxies**.
 
-![Manage your proxies via the Accounts page of the developer portal](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-6.webp)
+![Manage your proxies via the Accounts page of the developer portal](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-6.webp)
 
 A pop-up will appear where you can see an overview of your proxy accounts.
 
-![Review your proxy accounts](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-7.webp)
+![Review your proxy accounts](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-7.webp)
 
 ## Execute a Proxy Transaction {: #execute-a-proxy-transaction }
 
@@ -125,7 +125,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 9. Enter `0x` in **proof**
 10. Click **Submit Transaction**
 
-![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps](/images/node-operators/validators/operational-tasks/proxy-accounts/proxy-accounts-8.webp)
+![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-8.webp)
 
 A pop-up will appear asking you to authorize and sign the transaction; click on **Sign and Submit**.
 

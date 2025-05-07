@@ -58,7 +58,7 @@ When creating a proxy account, you must choose a type of proxy that will define 
 - **`Registrar`** - allows the proxy account to only make transactions related to the registrar pallet
 - **`SudoRegistrar`** - allows the proxy account to only make transactions related to the registrar pallet that need to be called by Sudo
 - **`CancelProxy`** - allows the proxy account to reject and remove any announced proxy calls
-- **`Staking`** - allows the proxy account to perform staking-related transactions, such as block producer and `session()` functions 
+- **`Staking`** - allows the proxy account to perform staking-related transactions, such as sequencer and `session()` functions 
 - **`SessionKeyManagement`** - allows the proxy account to make key management related transactions included in the session pallet
 
 For this guide, you will be setting up a proxy account using the balances proxy type. Since this type enables the proxy to spend funds on behalf of the primary account, you should exercise caution and only provide access to accounts you trust. The proxy will have access to transfer all of the funds within the primary account, and if not trusted, the proxy could drain the primary account. Ensure that you maintain oversight of your proxy accounts and remove any proxies that are no longer needed.

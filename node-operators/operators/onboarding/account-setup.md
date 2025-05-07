@@ -18,9 +18,9 @@ By following the steps outlined in this guide, you'll learn everything you need 
 
 Before setting up your account, make sure that:
 
-- You have a node correctly [set up and running](/node-operators/validators/onboarding/run-a-validator/){target=\_blank}
-- You [have registered as an operator](/node-operators/validators/onboarding/register-in-symbiotic/){target=\_blank} in the Symbiotic registry 
-- You [have opted in to Tanssi Network and a Tanssi-enabled vault](/node-operators/validators/onboarding/opt-in-to-tanssi/){target=\_blank}
+- You have a node correctly [set up and running](/node-operators/operators/onboarding/run-an-operator/){target=\_blank}
+- You [have registered as an operator](/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} in the Symbiotic registry 
+- You [have opted in to Tanssi Network and a Tanssi-enabled vault](/node-operators/operators/onboarding/opt-in-to-tanssi/){target=\_blank}
 
 ## Map an Account to Your Node {: #map-account }
 
@@ -45,7 +45,7 @@ curl http://127.0.0.1:9944 -H \
 
 Your hex-encoded session keys will be printed to the terminal in the `"result"` field.
 
---8<-- 'code/node-operators/validators/onboarding/account-setup/terminal/generate-session-keys.md'
+--8<-- 'code/node-operators/operators/onboarding/account-setup/terminal/generate-session-keys.md'
 
 !!! note
     Make sure you write down your session keys. In the next section, you'll need to map them to your account.
@@ -60,7 +60,7 @@ To perform the next step and map your session keys to your account, head to the 
 4. For **proof**, enter `0x`
 5. Click **Submit Transaction** and sign and send the transaction from your wallet
 
-![Create and submit a transaction to set session keys on Polkadot.js Apps](/images/node-operators/validators/onboarding/account-setup/account-setup-1.webp)
+![Create and submit a transaction to set session keys on Polkadot.js Apps](/images/node-operators/operators/onboarding/account-setup/account-setup-1.webp)
 
 Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
@@ -70,6 +70,6 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 4. Click the **+** button next to the extrinsic field
 5. The account associated with the session keys, which should be your account, will be displayed at the bottom of the page
 
-![Create and submit query to verify session keys on the developer portal](/images/node-operators/validators/onboarding/account-setup/account-setup-2.webp)
+![Create and submit query to verify session keys on the developer portal](/images/node-operators/operators/onboarding/account-setup/account-setup-2.webp)
 
 And that's it! You've successfully mapped your account, and your node is now eligible to participate in the protocol.

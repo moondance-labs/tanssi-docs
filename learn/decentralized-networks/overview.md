@@ -22,7 +22,7 @@ As previously discussed, networks deployed through Tanssi are customizable block
 
 Tanssi-powered networks are fully decentralized networks. The decentralized nature of the networks considerably increases their resilience and fault tolerance since they don't rely on a single authority or entity to ensure their liveness, security, and performance but on trustless, decentralized protocols. For example, they receive block production services from a decentralized and incentivized set of sequencers managed by Tanssi.
 
-The Tanssi protocol runs with an external security provider, which has a set of validators with assets at stake, validating the transactions from the Tanssi network itself and all of the networks deployed through Tanssi. This way, all Tanssi-powered networks inherit the economic security derived from the Tanssi protocol and, indirectly, from the validators, which verify every transaction from every network. Tanssi networks don't need to run their own validator set nor bootstrap liquidity to secure their protocol.
+The Tanssi protocol runs with an [external security provider](/learn/tanssi/external-security-providers/){target=\_blank}, which has a set of operators (also called validators) with assets at stake, validating the transactions from the Tanssi network itself and all of the networks deployed through Tanssi. This way, all Tanssi-powered networks inherit the economic security derived from the Tanssi protocol and, indirectly, from the operators, which verify every transaction from every network. Tanssi networks don't need to run their own operator set nor bootstrap liquidity to secure their protocol.
 
 Tanssi networks also benefit from a set of Data-Preservers, with full archive nodes, ensuring the data availability layer availability. These data-preservers are incentivized through Tanssi's data retrieval services and also provide the RPC infrastructure for apps and users interacting with Tanssi networks.
 
@@ -36,7 +36,7 @@ flowchart TB
         node["Full Archive Nodes with<br/>RPC Services"]
     end
 
-    security["External Security Provider<br/>Validators"]
+    security["External Security Provider<br/>Operators"]
     
     networks<--Block Production-->tanssi
     networks<--Shared Security Model-->tanssi
@@ -50,7 +50,7 @@ A transaction submitted to a Tanssi-powered network follows a complex yet seamle
 
 For example, a user initiates a transaction when interacting via an application deployed to a Tanssi-powered network. The RPC provider will share the transaction, which sits in the chain's transaction pool, with all network participants. A sequencer assigned by Tanssi to that network will eventually pick up the transaction and include it in the next network block.
 
-Then, the sequencer will share with the security provider's validators:
+Then, the sequencer will share with the security provider's operators:
 
 - The block itself with the state transitions
 - The storage components in the Tanssi network database that the block is modifying
@@ -58,7 +58,7 @@ Then, the sequencer will share with the security provider's validators:
 
 These components constitute the proof of validity (PoV).
 
-Next, the PoV is verified by the security provider's validators. Note that the validators do not check that the Tanssi network storage is valid but that the state transitions that affect it are. A summary of that verification is then gossiped to other validators so they can verify it and include it in the next Tanssi block. Lastly, that Tanssi block with all the networks' verifications is finalized.
+Next, the PoV is verified by the security provider's operators. Note that the operators do not check that the Tanssi network storage is valid but that the state transitions that affect it are. A summary of that verification is then gossiped to other operators so they can verify it and include it in the next Tanssi block. Lastly, that Tanssi block with all the networks' verifications is finalized.
 
 The transaction flow process is summarized in the following diagram:
 

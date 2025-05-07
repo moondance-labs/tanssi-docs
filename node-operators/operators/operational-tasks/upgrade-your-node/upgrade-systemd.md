@@ -1,6 +1,6 @@
 ---
-title: Upgrade Your Validator Systemd Node
-description: Follow these instructions to update your Tanssi validator node running via Systemd to the latest version of the Tanssi client software.
+title: Upgrade Your Operator Systemd Node
+description: Follow these instructions to update your Tanssi operator node running via Systemd to the latest version of the Tanssi client software.
 icon: simple-linux
 ---
 
@@ -8,15 +8,15 @@ icon: simple-linux
 
 ## Introduction {: #introduction }
 
-Keeping your node up-to-date is an important part of being a Tanssi validator. Not only does it help ensure that your node stays healthy, but it also contributes to keeping the entire Tanssi Network running smoothly.
+Keeping your node up-to-date is an important part of being a Tanssi operator. Not only does it help ensure that your node stays healthy, but it also contributes to keeping the entire Tanssi Network running smoothly.
 
-This tutorial covers upgrading your Tanssi validator node that was configured using Systemd. It assumes you have already set up your account and launched a [validator node using Systemd](/node-operators/validators/onboarding/run-a-validator/validators-systemd/){target=\_blank}.
+This tutorial covers upgrading your Tanssi operator node that was configured using Systemd. It assumes you have already set up your account and launched a [operator node using Systemd](/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
 --8<-- 'text/node-operators/github-release-notifications.md'
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
-If you're running your validator via the Systemd service, you must take steps to upgrade your node correctly. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and restart the service.
+If you're running your operator via the Systemd service, you must take steps to upgrade your node correctly. In short, you'll need to stop the service, replace the Tanssi binary with the updated version, and restart the service.
 
 You can stop your Tanssi Systemd service with the following command:
 
