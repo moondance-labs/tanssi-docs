@@ -87,11 +87,11 @@ You can interact directly with the smart contract through Etherscan using a brow
 
     [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
 
-Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
+Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g., MetaMask):
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-1.webp)
 
 1. Expand the **`optOut`** function
-2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g, `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
 ![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
@@ -131,9 +131,9 @@ You can check your opt-out status on Etherscan:
 
 On the contract's page:
 
-Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
+Make sure to select **`Contract`** and **`Write Contract`** then click on **Connect** to Web3, and select your preferred wallet (e.g., MetaMask):
 
-1. Select the **`isOptedIn`** function
+1. Select the **isOptedIn** function
 2. Paste your operator's account in the **who** field
 3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 4. Click on **Query**
@@ -222,11 +222,11 @@ Access the contract through Etherscan:
 
     [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#writeContract){target=\_blank}
 
-Make sure to select **Contract** and **Write Contract** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
+Make sure to select **Contract** and **Write Contract** then click on Connect to Web3, and select your preferred wallet (e.g., MetaMask):
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-4.webp)
 
 1. Expand the **optOut** function
-2. Insert the `VAULT_ADDRESS` in the **where** field (e.g, `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet)
+2. Insert the `VAULT_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
 ![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-5.webp)
@@ -243,7 +243,7 @@ For Safe accounts, use these contract addresses in the Transaction Builder:
 
     {{ networks.symbiotic.contracts.sepolia.vault_registry }}
 
-Finally, pick the optOut function, insert the `VAULT_ADDRESS` to which your node is currently registered (e.g, `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet), and sign the transaction.
+Finally, pick the optOut function, insert the `VAULT_ADDRESS` to which your node is currently registered (e.g., `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet), and sign the transaction.
 
 ### Verify Vault Opt Out Status {: #verify-vault-opt-out-status }
 
@@ -263,7 +263,7 @@ You can check your vault opt-out status on Etherscan:
 
 On the contract's page:
 
-Make sure to select **Contract** and **Write Contract** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
+Make sure to select **Contract** and **Write Contract** then click on Connect to Web3, and select your preferred wallet (e.g., MetaMask):
 
 1. Select the **`isOptedIn`** function
 2. Paste your operator's account in the **who** field
