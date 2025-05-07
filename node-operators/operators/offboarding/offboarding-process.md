@@ -11,7 +11,7 @@ template: main.html
 
 Operator offboarding is the formal process by which node operators safely and transparently exit the Tanssi protocol. It ensures network integrity, security, and stability by providing clear steps for operators who wish to cease participation.
 
-Operators play a critical role in consensus and network operations. Abruptly shutting down a node without following the proper procedures can negatively operators, potentially resulting in slashing.
+Operators play a critical role in consensus and network operations. Abruptly shutting down a node without following the proper procedures can negatively impact operators, potentially resulting in slashing.
 
 By reading this guide, you will learn how to:
 
