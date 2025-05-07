@@ -7,7 +7,7 @@ template: index-page.html
 
 # Network Bridge
 
-The Tanssi–Ethereum Bridge is a decentralized interoperability solution that facilitates secure asset and message transfers between the Tanssi and Ethereum networks. Designed to eliminate centralized intermediaries, this bridge employs cryptographic proofs and light clients to ensure the authenticity of cross-chain transactions.
+The Tanssi bridge is a decentralized interoperability solution that facilitates secure asset and message transfers between the Tanssi and Ethereum networks. Designed to eliminate centralized intermediaries, this bridge employs cryptographic proofs and light clients to ensure the authenticity of cross-chain transactions.
 
 ## Explore This Section
 
