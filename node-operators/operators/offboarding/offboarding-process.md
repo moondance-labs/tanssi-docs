@@ -296,4 +296,4 @@ The output will show `false` if you have successfully opted out of the vault and
 
 ## Next Steps
 
-After completing the offboarding process, if you plan to return in the future, you can follow the [onboarding process](/node-operators/operators/onboarding/) again
+After completing the offboarding process, if you plan to return in the future, you can follow the [onboarding process](/node-operators/operators/onboarding/) again.
