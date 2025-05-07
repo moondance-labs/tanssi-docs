@@ -1,0 +1,15 @@
+name: CheckMkDocsBuild
+
+on:
+  pull_request_target:
+    branches:
+      - main
+
+jobs:
+  build-docs:
+    uses: Telucero/workflows/.github/workflows/mkdocs-build.yml@main
+    with:
+      mkdocs_repo: moondance-labs/tanssi-mkdocs
+      docs_dir: tanssi-docs
+    secrets:
+      token: ${{ secrets.REPO_SCOPED_TOKEN }}
