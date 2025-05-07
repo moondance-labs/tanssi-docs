@@ -64,6 +64,12 @@ jobs:
             echo "Error: SHA256 hashes do not match. The generated llms.txt file differs from the one in the PR."
             echo "You need to run the generate LLMS script:"
             echo "python3 scripts/generate_llms.py"
+
+                        # Show the diff
+            echo "--- DIFF ---"
+            diff llms.txt <(python3 scripts/generate_llms.py)
+            echo "--- END DIFF ---"
+            
             exit 1
           else
             echo "SHA256 hashes match. The llms-full.txt file is consistent."
