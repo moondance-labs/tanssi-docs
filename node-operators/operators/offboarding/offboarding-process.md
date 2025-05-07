@@ -21,7 +21,7 @@ By reading this guide, you will learn how to:
 
 This document covers all necessary steps, including opting out of the network, notifying the Tanssi team, and optionally decommissioning your node and exiting associated vaults.
 
-Please carefully review each section relevant to your setup. If you have questions during offboarding, the Tanssi team can support you on [Discord](https://discord.gg/Jm2KH8xT7J).
+Please carefully review each section relevant to your setup. If you have questions during offboarding, the Tanssi team can support you on [Discord](https://discord.gg/Jm2KH8xT7J){target=\_blank}.
 
 ## Prerequisites {: #prerequisites}
 
