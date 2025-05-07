@@ -171,46 +171,63 @@ This flow describes the reverse process, moving assets from Tanssi to Ethereum.
 The `Outbound Queue` processes this message, bundles the payload, and commits its Merkle root to the Tanssi Bridge, the network’s block header. This root cryptographically represents all outgoing messages in that block.
 
 **2. Relay Proof to Ethereum** - An off-chain relayer monitors the Tanssi Bridge for finalized blocks containing relevant `Outbound Queue` Merkle roots. The relayer retrieves the necessary proof components: typically a BEEFY commitment (a signed statement about finalized Tanssi block headers) and a Merkle proof showing that the specific user's transfer payload is included under the committed `Outbound Queue` root. The relayer submits the BEEFY commitment and the Merkle proof to the `Gateway` contract on the Ethereum network.
+**2. Relay Proof to Ethereum** - an off-chain relayer monitors the Tanssi Bridge for finalized blocks containing relevant `Outbound Queue` Merkle roots. The relayer retrieves the necessary proof components: typically a BEEFY commitment (a signed statement about finalized Tanssi block headers) and a Merkle proof showing that the specific user's transfer payload is included under the committed `Outbound Queue` root
 
-**3. Verify on Ethereum** - The `Beefy Client` contract on Ethereum (an on-chain light client for Tanssi consensus) receives the BEEFY commitment from the `Gateway`. It verifies the commitment's validity, checking the signatures against the known authorities using techniques like random-sampling signature verification
+**3. Submit Commitment in Ethereum** - the relayer submits the BEEFY commitment and the Merkle proof to the `Gateway` contract on the Ethereum network
 
-Once the commitment is verified, the `Gateway` validates the submitted Merkle proof for the user's specific action payload.
+**4. Verify on Ethereum** - the `Beefy Client` contract on Ethereum (an on-chain light client for Tanssi consensus) receives the BEEFY commitment from the `Gateway`. It verifies the commitment's validity, checking the signatures
 
-**4. Execute on Ethereum** -  Upon successfully verifying the BEEFY commitment and the Merkle proof**,** the `Gateway` contract proceeds with execution.
+**5. Validate Payload** - once the commitment is verified, the `Gateway` validates the submitted Merkle proof for the user's specific action payload
 
-This typically involves interacting with the main Bridge contract to release the originally locked asset and transfer it to the recipient's Ethereum address. Alternatively, depending on the message payload, it might execute a specified call on a target contract on Ethereum.
+**6. Execute on Ethereum** - upon successfully verifying the BEEFY commitment and the Merkle proof**,** the `Gateway` contract proceeds with execution. Typically, it involves interacting with the main Bridge contract to release the initially locked asset and transfer it to the recipient's Ethereum address. Alternatively, depending on the message payload, it might execute a specified call on a target contract on Ethereum
+
+#### Part 1: Tanssi Side - Initiation and Commitment
 
 ```mermaid
 sequenceDiagram
     %%{init: {'sequence': {'mirrorActors': false}}}%%
     participant User
-    participant TAH as Tanssi 
+    participant TAH as Tanssi
     participant TBP as Tanssi Bridge<br/> (Outbound Queue)
+    participant Relayer
+
+    User->>TAH: 1. Initiate Transfer & Deposit Asset
+    activate TAH
+    TAH->>TBP: Send XCM Payload to Outbound Queue
+    deactivate TAH
+
+    activate TBP
+    Note over TBP: Process Payload, Bundle, and<br/>Commit Merkle Root to Tanssi Header
+    deactivate TBP
+
+    Relayer->>Relayer: 2. Observe Tanssi Header /<br/>BEEFY Commitment & Get Proof
+    Note over Relayer: Relayer is now ready to interact<br/>with Ethereum based on observed data.
+```
+
+#### Part 2: Ethereum Side - Relay, Verification, and Execution
+
+```mermaid
+sequenceDiagram
+    %%{init: {'sequence': {'mirrorActors': false}}}%%
     participant Relayer
     participant EGateway as Ethereum Gateway Contract
     participant EBeefy as Ethereum Beefy Client Contract
     participant EBridge as Ethereum Bridge Contract
+    participant User
 
-    User->>TAH: 1. Deposit Asset
-    activate TAH
-    TAH->>TBP: Send XCM Payload
-    deactivate TAH
-
-    activate TBP
-    Note over TBP: Bundle Payload & Commit Root to Header
-    deactivate TBP
-
-    Relayer->>Relayer: Observe Header / BEEFY Commitment
-    Relayer->>EGateway: Submit BEEFY Commitment + Merkle Proof
+    Relayer->>EGateway: 3. Submit BEEFY Commitment + Merkle Proof
     activate EGateway
-    EGateway->>EBeefy: Verify Commitment & Proof
+    EGateway->>EBeefy: 4. Verify BEEFY Commitment
     activate EBeefy
     EBeefy-->>EGateway: Verification OK
     deactivate EBeefy
 
-    EGateway->>EBridge: Execute: Unlock Tokens / Call Target
+    EGateway->>EGateway: 5. Verify Merkle Proof for Payload
+    Note over EGateway: Proof Validated
+
+    EGateway->>EBridge: 6. Execute: Unlock Tokens / Call Target Contract
     activate EBridge
-    Note over EBridge: Tokens Unlocked / Target Called
+    Note over EBridge: Assets Transferred or<br/>Target Call Executed
     EBridge-->>User: (Tokens Received / Call Executed)
     deactivate EBridge
     deactivate EGateway
