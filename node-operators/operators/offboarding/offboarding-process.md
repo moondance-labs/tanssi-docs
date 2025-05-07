@@ -34,7 +34,7 @@ Before starting the offboarding process, ensure you have the following:
 
 --8<-- 'text/node-operators/operators/onboarding/run-an-operator/prerequisites.md'
 
-## Opt out from Tanssi
+## Opt Out from Tanssi
 
 The first step in offboarding is to opt out of the Tanssi network. This will enable Tanssi to verify your intent to leave the protocol and validate your identity.
 
