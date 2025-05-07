@@ -48,29 +48,29 @@ The Symbiotic CLI provides a straightforward way to opt out of the network. Choo
 
 === "MainNet"
 
- ```bash
- python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --ledger --ledger-account INSERT_OPERATOR_ADDRESS
- ```
+    ```bash
+    python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --ledger --ledger-account INSERT_OPERATOR_ADDRESS
+    ```
 
 === "TestNet (Sepolia)"
 
- ```bash
- python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
- ```
+    ```bash
+    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
+    ```
 
 For signing with a private key:
 
 === "MainNet"
 
- ```bash
- python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --private-key INSERT_PRIVATE_KEY
- ```
+    ```bash
+    python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --private-key INSERT_PRIVATE_KEY
+    ```
 
 === "TestNet (Sepolia)"
 
- ```bash
- python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key INSERT_PRIVATE_KEY --chain sepolia
- ```
+    ```bash
+    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key INSERT_PRIVATE_KEY --chain sepolia
+    ```
 
 !!! warning
     Note that this method requires you to expose your private key; therefore, it is not recommended.
@@ -81,11 +81,11 @@ You can interact directly with the smart contract through Etherscan using a brow
 
 === "MainNet"
 
- [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#writeContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
- [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
 
 Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-1.webp)
@@ -105,11 +105,11 @@ For [Safe](https://app.safe.global/){target=\_blank} accounts, use the Transacti
 
 === "MainNet"
 
- {{ networks.symbiotic.contracts.mainnet.network_registry }}
+    {{ networks.symbiotic.contracts.mainnet.network_registry }}
 
 === "TestNet (Sepolia)"
 
- {{ networks.symbiotic.contracts.sepolia.network_registry }}
+    {{ networks.symbiotic.contracts.sepolia.network_registry }}
 
 Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which your node is currently registered (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
 
@@ -123,11 +123,11 @@ You can check your opt-out status on Etherscan:
 
 === "MainNet"
 
- [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#readContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
- [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#readContract){target=\_blank}
 
 On the contract's page:
 
@@ -148,15 +148,15 @@ You can also verify your opt-out status using the Symbiotic CLI:
 
 === "MainNet"
 
- ```bash
- python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.mainnet.tanssi_network }}
- ```
+    ```bash
+    python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.mainnet.tanssi_network }}
+    ```
 
 === "TestNet (Sepolia)"
 
- ```bash
- python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --chain sepolia
- ```
+    ```bash
+    python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --chain sepolia
+    ```
 
 The output will show `false` if you have successfully opted out and `true` if you are still opted in.
 
@@ -183,29 +183,29 @@ With Ledger:
 
 === "MainNet"
 
- ```bash
- python3 symb.py opt-out-vault INSERT_VAULT_ADDRESS --ledger --ledger-account INSERT_OPERATOR_ADDRESS
- ```
+    ```bash
+    python3 symb.py opt-out-vault INSERT_VAULT_ADDRESS --ledger --ledger-account INSERT_OPERATOR_ADDRESS
+    ```
 
 === "TestNet (Sepolia)"
 
- ```bash
- python3 symb.py opt-out-vault {{ networks.symbiotic.contracts.sepolia.vault }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
- ```
+    ```bash
+    python3 symb.py opt-out-vault {{ networks.symbiotic.contracts.sepolia.vault }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
+    ```
 
 With private key:
 
 === "MainNet"
 
- ```bash
- python3 symb.py opt-out-vault INSERT_VAULT_ADDRESS --private-key INSERT_PRIVATE_KEY
- ```
+    ```bash
+    python3 symb.py opt-out-vault INSERT_VAULT_ADDRESS --private-key INSERT_PRIVATE_KEY
+    ```
 
 === "TestNet (Sepolia)"
 
- ```bash
- python3 symb.py opt-out-vault {{ networks.symbiotic.contracts.sepolia.vault }} --private-key INSERT_PRIVATE_KEY --chain sepolia
- ```
+    ```bash
+    python3 symb.py opt-out-vault {{ networks.symbiotic.contracts.sepolia.vault }} --private-key INSERT_PRIVATE_KEY --chain sepolia
+    ```
 
 !!! warning
     Note that this method requires you to expose your private key; therefore, it is not recommended.
@@ -216,16 +216,16 @@ Access the contract through Etherscan:
 
 === "MainNet"
 
- [Contract address: {{ networks.symbiotic.contracts.mainnet.vault_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.vault_registry }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.vault_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.vault_registry }}#writeContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
- [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#writeContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#writeContract){target=\_blank}
 
 Make sure to select **Contract** and **Write Contract** then click on Connect to Web3, and select your preferred wallet (e.g. MetaMask):
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-4.webp)
 
-1. Expand the **`optOut`** function
+1. Expand the **optOut** function
 2. Insert the `VAULT_ADDRESS` in the **where** field (e.g, `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
@@ -237,11 +237,11 @@ For Safe accounts, use these contract addresses in the Transaction Builder:
 
 === "MainNet"
 
- {{ networks.symbiotic.contracts.mainnet.vault_registry }}
+    {{ networks.symbiotic.contracts.mainnet.vault_registry }}
 
 === "TestNet (Sepolia)"
 
- {{ networks.symbiotic.contracts.sepolia.vault_registry }}
+    {{ networks.symbiotic.contracts.sepolia.vault_registry }}
 
 Finally, pick the optOut function, insert the `VAULT_ADDRESS` to which your node is currently registered (e.g, `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet), and sign the transaction.
 
@@ -255,11 +255,11 @@ You can check your vault opt-out status on Etherscan:
 
 === "MainNet"
 
- [Contract address: {{ networks.symbiotic.contracts.mainnet.vault_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.vault_registry }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.vault_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.vault_registry }}#readContract){target=\_blank}
 
 === "TestNet (Sepolia)"
 
- [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#readContract){target=\_blank}
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#readContract){target=\_blank}
 
 On the contract's page:
 
@@ -280,15 +280,15 @@ You can also verify your vault opt-out status using the Symbiotic CLI:
 
 === "MainNet"
 
- ```bash
- python3 symb.py check-opt-in-vault INSERT_OPERATOR_ADDRESS INSERT_VAULT_ADDRESS
- ```
+    ```bash
+    python3 symb.py check-opt-in-vault INSERT_OPERATOR_ADDRESS INSERT_VAULT_ADDRESS
+    ```
 
 === "TestNet (Sepolia)"
 
- ```bash
- python3 symb.py check-opt-in-vault INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.vault }} --chain sepolia
- ```
+    ```bash
+    python3 symb.py check-opt-in-vault INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.vault }} --chain sepolia
+    ```
 
 The output will show `false` if you have successfully opted out of the vault and `true` if you are still opted in.
 
