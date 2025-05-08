@@ -31,7 +31,7 @@ Key examples of provers include the [BEEFY](https://docs.snowbridge.network/arch
 
 Each blockchain maintains a [light client](https://ethereum.org/en/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other chain. These light clients act as on-chain verifiers, crucial for confirming the legitimacy of data from the opposing network. Consider a message sent from Tanssi to Ethereum: the Tanssi side generates compact proofs confirming that certain events or state changes are valid based on Tanssi's consensus rules. The light client on Ethereum verifies these proofs before allowing any subsequent action. This approach is highly efficient as it eliminates the need for the receiving chain to process the whole state of the sending chain, relying instead on verifying concise cryptographic proofs.
 
-### Consensus BEEFY (Tanssi to Ethereum)
+### Tanssi to Ethereum Consensus  { : #tanssi-ethereum-consensus }
 
 The BEEFY (Bridge Efficiency Enabling Finality Yielder) consensus protocol operates as a crucial prover from the Tanssi side of the bridge. It was specifically designed to facilitate efficient and trustless bridging to external blockchains like Ethereum that were not natively built with interoperability features in mind.
 
