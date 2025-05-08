@@ -17621,6 +17621,7 @@ The BEEFY (Bridge Efficiency Enabling Finality Yielder) consensus protocol opera
 sequenceDiagram
     %%{init: {'sequence': {'mirrorActors': false}}}%%
 <<<<<<< HEAD
+<<<<<<< HEAD
     participant Tanssi_Module as Tanssi <br/> BEEFY Module (prover)
     participant Beefy_Relayer as Relayer <br/> (Beefy)
     participant Eth_BeefyClient as Ethereum <br/> BEEFY Client (verifier)
@@ -17633,6 +17634,13 @@ sequenceDiagram
 
     Tanssi_Pallet->>Beefy_Relayer: Generate BEEFY Commitment
 >>>>>>> cf9a7600 (chore: reformat order)
+=======
+    participant Tanssi_Module as Tanssi <br/> BEEFY Module (prover)
+    participant Beefy_Relayer as Relayer <br/> (Beefy)
+    participant Eth_BeefyClient as Ethereum <br/> BEEFY Client (verifier)
+
+    Tanssi_Module->>Beefy_Relayer: Generate BEEFY Commitment
+>>>>>>> 02121bb6 (chore: reformat text and rephrase)
     activate Beefy_Relayer
     Beefy_Relayer->>Eth_BeefyClient: Submit commitment/proof
     deactivate Beefy_Relayer
@@ -17754,8 +17762,12 @@ This flow outlines how assets move from Ethereum to Tanssi to become representat
 
 The relayer submits this proof package to the `Inbound Queue` on the Tanssi Bridge
 
+<<<<<<< HEAD
 **3. Verify on Tanssi** - the `EthereumClient` pallet, acting as an on-chain light client within the Tanssi Bridge, receives the proof package from the `Inbound Queue`. It verifies the finality and validity of the Ethereum block header and checks the Merkle proof to confirm the deposit event's authenticity
 >>>>>>> cf9a7600 (chore: reformat order)
+=======
+**3. Verify on Tanssi** - the `EthereumClient` module, acting as an on-chain light client within the Tanssi Bridge, receives the proof package from the `Inbound Queue`. It verifies the finality and validity of the Ethereum block header and checks the Merkle proof to confirm the deposit event's authenticity
+>>>>>>> 02121bb6 (chore: reformat text and rephrase)
 
 **4. Mint on Tanssi** - once the `EthereumClient` confirms the proof's validity, the `Inbound Queue` is notified. The `Inbound Queue` mint the asset on the Tanssi network
 
@@ -17778,10 +17790,14 @@ sequenceDiagram
     activate TBP
     Note over TBP: Receive Proof (Inbound Queue)
 <<<<<<< HEAD
+<<<<<<< HEAD
     TBP->>TBP: 3. Verify Proof (EthereumClient Module)
 =======
     TBP->>TBP: 3. Verify Proof (EthereumClient Pallet)
 >>>>>>> cf9a7600 (chore: reformat order)
+=======
+    TBP->>TBP: 3. Verify Proof (EthereumClient Module)
+>>>>>>> 02121bb6 (chore: reformat text and rephrase)
     TBP->>TAH: Send Mint Request
     deactivate TBP
 
@@ -17796,10 +17812,14 @@ sequenceDiagram
 This flow describes the reverse process, moving assets from Tanssi to Ethereum.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 **1. Initiate & Commit on Tanssi** - the user initiates the action on Tanssi, and an internal message containing the transfer details is generated and sent to the Bridge `Outbound Queue`. The `Outbound Queue` processes this message, bundles the payload, and commits its Merkle root to the Tanssi Bridge, the network’s block header. This root cryptographically represents all outgoing messages in that block
 =======
 **1. Initiate & Commit on Tanssi** - the user initiates the action on Tanssi, and an `XCM` message containing the transfer details is generated and sent to the Bridge `Outbound Queue`. The `Outbound Queue` processes this message, bundles the payload, and commits its Merkle root to the Tanssi Bridge, the network’s block header. This root cryptographically represents all outgoing messages in that block
 >>>>>>> cf9a7600 (chore: reformat order)
+=======
+**1. Initiate & Commit on Tanssi** - the user initiates the action on Tanssi, and an internal message containing the transfer details is generated and sent to the Bridge `Outbound Queue`. The `Outbound Queue` processes this message, bundles the payload, and commits its Merkle root to the Tanssi Bridge, the network’s block header. This root cryptographically represents all outgoing messages in that block
+>>>>>>> 02121bb6 (chore: reformat text and rephrase)
 
 **2. Relay Proof to Ethereum** - an off-chain relayer monitors the Tanssi Bridge for finalized blocks containing relevant `Outbound Queue` Merkle roots. The relayer retrieves the necessary proof components: typically a BEEFY commitment (a signed statement about finalized Tanssi block headers) and a Merkle proof showing that the specific user's transfer payload is included under the committed `Outbound Queue` root
 
@@ -17830,10 +17850,14 @@ sequenceDiagram
     User->>TAH: 1. Initiate Transfer & Deposit Asset
     activate TAH
 <<<<<<< HEAD
+<<<<<<< HEAD
     TAH->>TBP: Send Payload to Outbound Queue
 =======
     TAH->>TBP: Send XCM Payload to Outbound Queue
 >>>>>>> cf9a7600 (chore: reformat order)
+=======
+    TAH->>TBP: Send Payload to Outbound Queue
+>>>>>>> 02121bb6 (chore: reformat text and rephrase)
     deactivate TAH
 
     activate TBP

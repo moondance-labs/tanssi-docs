@@ -16,7 +16,7 @@ Consider this bridge not merely an asset exchange mechanism but a secure, standa
 
 The bridge facilitates several critical operations between Tanssi and Ethereum:
 
-- **Operator Management** - operator stake information is maintained on Ethereum via the [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/#tanssi-symbiotic){target=\_blank} restaking protocol, which organizes operators based on their assigned stake. This ordered list is transmitted to Tanssi through the bridge. Tanssi then utilizes this information to select active operators for each era, ensuring a decentralized and economically aligned set of operators
+- **Operator Management** - operator stake information is maintained on Ethereum via the [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/#tanssi-symbiotic){target=\_blank} restaking protocol. This protocol provides stake information to Tanssi through the bridge. Tanssi then utilizes this information to select active operators for each era, ensuring a decentralized and economically aligned set of operators
 - **Economic Operations** - distributing [rewards](/learn/tanssi/external-security-providers/symbiotic/#rewards){target=\_blank} from Tanssi to Ethereum stakers and operators
 - **Slashing** - processing [slashing requests](/learn/tanssi/external-security-providers/symbiotic/#slashing){target=\_blank} from Tanssi to Ethereum when operators violate protocol rules
 - **Asset Transfer** - transferring assets bilaterally between ecosystems without centralized intermediaries
@@ -143,13 +143,11 @@ The process involved, in general terms, is the following.
 
 ### Ethereum to Tanssi Transfer
 
-This flow outlines how assets move from Ethereum to Tanssi to become representative assets.
+This flow outlines how assets move from Ethereum to Tanssi to become derivate assets.
 
 **1. Lock on Ethereum** - the user interacts with the designated Bridge contract on Ethereum, depositing their asset. The contract securely locks these tokens and emits a corresponding event containing details of the deposit
 
-**2. Relay Proof to Tanssi** - an off-chain relayer service monitors the Ethereum Bridge contract for these events. Upon detecting a finalized event, the relayer constructs a proof package. This typically includes the relevant Ethereum block header (proving finality) and a Merkle proof demonstrating that the specific deposit event occurred within that block
-
-The relayer submits this proof package to the `Inbound Queue` on the Tanssi Bridge
+**2. Relay Proof to Tanssi** - an off-chain relayer service monitors the Ethereum Bridge contract for these events. Upon detecting a finalized event, the relayer constructs a proof package. This typically includes the relevant Ethereum block header (proving finality) and a Merkle proof demonstrating that the specific deposit event occurred within that block. The relayer submits this proof package to the `Inbound Queue` on the Tanssi Bridge
 
 **3. Verify on Tanssi** - the `EthereumClient` pallet, acting as an on-chain light client within the Tanssi Bridge, receives the proof package from the `Inbound Queue`. It verifies the finality and validity of the Ethereum block header and checks the Merkle proof to confirm the deposit event's authenticity
 
@@ -199,7 +197,7 @@ This flow describes the reverse process, moving assets from Tanssi to Ethereum.
 
 **6. Execute on Ethereum** - upon successfully verifying the BEEFY commitment and the Merkle proof**,** the `Gateway` contract proceeds with execution. Typically, it involves interacting with the main Bridge contract to release the initially locked asset and transfer it to the recipient's Ethereum address. Alternatively, depending on the message payload, it might execute a specified call on a target contract on Ethereum
 
-#### Part 1: Tanssi Side - Initiation and Commitment
+The following diagram illustrates the initiation and commitment phase of the asset transfer process on the Tanssi side.
 
 ```mermaid
 sequenceDiagram
@@ -222,7 +220,7 @@ sequenceDiagram
     Note over Relayer: Relayer is now ready to interact<br/>with Ethereum based on observed data.
 ```
 
-#### Part 2: Ethereum Side - Relay, Verification, and Execution
+The subsequent diagram details the relay, verification, and execution steps that occur on the Ethereum side of the asset transfer.
 
 ```mermaid
 sequenceDiagram
