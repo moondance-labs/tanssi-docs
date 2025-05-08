@@ -18481,11 +18481,11 @@ Make sure to select **Contract** and **Write Contract** then click on **Connect 
 ![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
 
 !!! warning
-    After submitting your opt-out transaction, save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank}.
+    After submitting your opt out transaction, save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank}.
 
 ### Using Safe for Multisig Setups {: #opt-out-network-with-safe }
 
-For [Safe](https://app.safe.global/){target=\_blank} accounts, use the Transaction Builder with these addresses:
+For [Safe](https://app.safe.global/){target=\_blank} accounts, use the **Transaction Builder** with these addresses:
 
 === "MainNet"
 
@@ -18497,13 +18497,13 @@ For [Safe](https://app.safe.global/){target=\_blank} accounts, use the Transacti
 
 Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which your node is currently registered (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
 
-### Verify Opt out Status {: #verify-opt-out-status }
+### Verify Opt Out Status {: #verify-opt-out-status }
 
-After submitting the opt-out transaction, you can verify your opt-out status using one of these methods
+After submitting the opt out transaction, you can verify your opt out status using one of these methods
 
 #### Using Etherscan
 
-You can check your opt-out status on Etherscan:
+You can check your opt out status on Etherscan:
 
 === "MainNet"
 
@@ -18528,7 +18528,7 @@ You'll get a `false` result if your operator has successfully opted out and `tru
 
 #### Using the Symbiotic CLI
 
-You can also verify your opt-out status using the Symbiotic CLI:
+You can also verify your opt out status using the Symbiotic CLI:
 
 === "MainNet"
 
@@ -18557,9 +18557,9 @@ Upon receiving your request, your operator's removal will be scheduled. This ste
 
 Once you receive confirmation of your operator's removal, you can safely stop any running services related to your operator. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
 
-## Vault Opt-out (Optional)
+## Vault Opt out (Optional)
 
-After completing the above steps, you may optionally opt-out from the vault using one of these methods
+After completing the above steps, you may optionally opt out from the vault using one of these methods
 
 ### Using the Symbiotic CLI {: #opt-out-vault-with-cli }
 
@@ -18617,7 +18617,7 @@ Make sure to select **Contract** and **Write Contract** then click on **Connect 
 
 ### Using Safe {: #opt-out-vault-with-safe }
 
-For Safe accounts, use these contract addresses in the Transaction Builder:
+For Safe accounts, use these contract addresses in the **Transaction Builder**:
 
 === "MainNet"
 
@@ -18631,11 +18631,11 @@ Finally, pick the optOut function, insert the `VAULT_ADDRESS` to which your node
 
 ### Verify Vault Opt Out Status {: #verify-vault-opt-out-status }
 
-After submitting the vault opt-out transaction, you can verify your opt-out status using one of these methods:
+After submitting the vault opt out transaction, you can verify your opt out status using one of these methods:
 
 #### Using Etherscan
 
-You can check your vault opt-out status on Etherscan:
+You can check your vault opt out status on Etherscan:
 
 === "MainNet"
 
@@ -18660,7 +18660,7 @@ You'll get a `false` result if your operator has successfully opted out of the v
 
 #### Using the Symbiotic CLI
 
-You can also verify your vault opt-out status using the Symbiotic CLI:
+You can also verify your vault opt out status using the Symbiotic CLI:
 
 === "MainNet"
 
