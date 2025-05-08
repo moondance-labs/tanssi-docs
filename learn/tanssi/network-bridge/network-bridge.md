@@ -53,7 +53,7 @@ sequenceDiagram
 
 ```
 
-### Consensus Beacon (Ethereum to Tanssi)
+### Ethereum to Tanssi Consensus { : #ethereum-tanssi-consensus }
 
 When bridging from Ethereum to Tanssi, the Ethereum Beacon Chain's consensus mechanism acts as the prover. The core idea is to provide Tanssi's on-chain light client with undeniable proof of Ethereum's finalized state, including specific events or messages destined for Tanssi.
 
