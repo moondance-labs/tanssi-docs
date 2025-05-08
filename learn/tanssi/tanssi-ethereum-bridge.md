@@ -8,6 +8,10 @@ icon: octicons-link-24
 
 ## Introduction {: #introduction }
 
+This article provides a comprehensive overview of the Tanssi-Ethereum bridge, a crucial infrastructure component enabling interoperability between the Tanssi and Ethereum blockchain ecosystems. By reading this article, you will gain an understanding of the bridge's architecture and core functionalities, such as operator management, economic operations, slashing, and, importantly, asset transfer.
+
+You will also learn about the underlying consensus mechanisms (BEEFY on Tanssi and Beacon Chain on Ethereum) that ensure secure and trustless cross-chain communication, the roles of provers, verifiers, and relayers, and the detailed flow of asset transfers in both directions (Ethereum to Tanssi and Tanssi to Ethereum). This knowledge will be valuable for anyone who understands how assets and messages can seamlessly move between these two essential blockchain networks without relying on centralized intermediaries.
+
 In traditional blockchain environments, assets and functionalities are restricted to their respective chains, creating silos that limit interoperability and asset utility. The Tanssi-Ethereum bridge breaks these limitations by enabling seamless cross-chain operations that benefit both ecosystems.
 
 Consider this bridge not merely an asset exchange mechanism but a secure, standardized protocol allowing direct interaction between different blockchain networks without reliance on centralized intermediaries. This emphasis on eliminating trusted third parties is fundamental to its design, setting it apart from bridge solutions that might introduce central points of failure or control.
@@ -195,7 +199,7 @@ This flow describes the reverse process, moving assets from Tanssi to Ethereum.
 
 **5. Validate Payload** - once the commitment is verified, the `Gateway` validates the submitted Merkle proof for the user's specific action payload
 
-**6. Execute on Ethereum** - upon successfully verifying the BEEFY commitment and the Merkle proof**,** the `Gateway` contract proceeds with execution. Typically, it involves interacting with the main Bridge contract to release the initially locked asset and transfer it to the recipient's Ethereum address. Alternatively, depending on the message payload, it might execute a specified call on a target contract on Ethereum
+**6. Execute on Ethereum** - upon successfully verifying the BEEFY commitment and the Merkle proof, the `Gateway` contract proceeds with execution. Typically, it involves interacting with the main Bridge contract to release the initially locked asset and transfer it to the recipient's Ethereum address. Alternatively, depending on the message payload, it might execute a specified call on a target contract on Ethereum
 
 The following diagram illustrates the initiation and commitment phase of the asset transfer process on the Tanssi side.
 
