@@ -19,7 +19,7 @@ The bridge facilitates several critical operations between Tanssi and Ethereum:
 - **Operator Management** - operator stake information is maintained on Ethereum via the [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/#tanssi-symbiotic){target=\_blank} restaking protocol. This protocol provides stake information to Tanssi through the bridge. Tanssi then utilizes this information to select active operators for each era, ensuring a decentralized and economically aligned set of operators
 - **Economic Operations** - distributing [rewards](/learn/tanssi/external-security-providers/symbiotic/#rewards){target=\_blank} from Tanssi to Ethereum stakers and operators
 - **Slashing** - processing [slashing requests](/learn/tanssi/external-security-providers/symbiotic/#slashing){target=\_blank} from Tanssi to Ethereum when operators violate protocol rules
-- **Asset Transfer** - transferring assets bilaterally between ecosystems without centralized intermediaries
+- **Asset Transfer** - facilitating bilateral asset transfers between Tanssi, Tanssi-powered networks, and Ethereum without centralized intermediaries. This significantly enhances liquidity across these ecosystems
 
 This interoperability expands the potential of decentralized applications and significantly enhances the liquidity and usability of blockchain assets.
 
@@ -130,7 +130,7 @@ The `Outbound Queue` is used for messages heading to Ethereum. It gathers messag
 
 The `Inbound Queue` plays a key role in inbound messages arriving from Ethereum. It receives proofs of Ethereum events and verifies their legitimacy by interacting with the on-chain Ethereum light client. Following successful verification, these confirmed events are interpreted and dispatched as internal instructions within the Tanssi environment. This layered messaging architecture, secured by the underlying consensus verification, guarantees that all cross-chain interactions are trustless.
 
-## Message & Token Flow {: #message-flow }
+## Token Transfers Flow {: #token-transfers-flow }
 
 After covering the architecture and security basics, it’s helpful to understand **how the Bridge moves assets and messages between chains**. In practice, the flow involves locking or minting assets on one side and performing a complementary action on the other side, always underpinned by verified proofs of action. Below, we describe the typical sequence for each direction of transfer.
 
