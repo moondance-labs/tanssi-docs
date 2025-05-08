@@ -38,11 +38,11 @@ The BEEFY (Bridge Efficiency Enabling Finality Yielder) consensus protocol opera
 ```mermaid
 sequenceDiagram
     %%{init: {'sequence': {'mirrorActors': false}}}%%
-    participant Tanssi_Pallet as Tanssi <br/> BEEFY Pallet (prover)
+    participant Tanssi_Module as Tanssi <br/> BEEFY Module (prover)
     participant Beefy_Relayer as Relayer <br/> (Beefy)
     participant Eth_BeefyClient as Ethereum <br/> BEEFY Client (verifier)
 
-    Tanssi_Pallet->>Beefy_Relayer: Generate BEEFY Commitment
+    Tanssi_Module->>Beefy_Relayer: Generate BEEFY Commitment
     activate Beefy_Relayer
     Beefy_Relayer->>Eth_BeefyClient: Submit commitment/proof
     deactivate Beefy_Relayer
@@ -151,7 +151,7 @@ This flow outlines how assets move from Ethereum to Tanssi to become representat
 
 The relayer submits this proof package to the `Inbound Queue` on the Tanssi Bridge
 
-**3. Verify on Tanssi** - the `EthereumClient` pallet, acting as an on-chain light client within the Tanssi Bridge, receives the proof package from the `Inbound Queue`. It verifies the finality and validity of the Ethereum block header and checks the Merkle proof to confirm the deposit event's authenticity
+**3. Verify on Tanssi** - the `EthereumClient` module, acting as an on-chain light client within the Tanssi Bridge, receives the proof package from the `Inbound Queue`. It verifies the finality and validity of the Ethereum block header and checks the Merkle proof to confirm the deposit event's authenticity
 
 **4. Mint on Tanssi** - once the `EthereumClient` confirms the proof's validity, the `Inbound Queue` is notified. The `Inbound Queue` mint the asset on the Tanssi network
 
@@ -173,7 +173,7 @@ sequenceDiagram
     Relayer->>TBP: 2. Submit Header + Merkle Proof
     activate TBP
     Note over TBP: Receive Proof (Inbound Queue)
-    TBP->>TBP: 3. Verify Proof (EthereumClient Pallet)
+    TBP->>TBP: 3. Verify Proof (EthereumClient Module)
     TBP->>TAH: Send Mint Request
     deactivate TBP
 
