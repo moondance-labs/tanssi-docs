@@ -1,10 +1,10 @@
 ---
-title: Tanssi Bridge
+title: Tanssi-Ethereum Bridge
 description: Discover how Tanssi bridge enables secure, trustless cross-chain interoperability, facilitating asset and message transfers between Tanssi and Ethereum.
 icon: octicons-link-24
 ---
 
-# Tanssi Bridge {: #tanssi-bridge }
+# Tanssi-Ethereum Bridge {: #tanssi-ethereum-bridge }
 
 ## Introduction {: #introduction }
 
