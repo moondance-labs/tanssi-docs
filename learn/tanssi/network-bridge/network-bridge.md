@@ -128,7 +128,7 @@ Outbound communications originating from Ethereum are managed by the `Gateway`. 
 
 The `Outbound Queue` is used for messages heading to Ethereum. It gathers messages, bundles them, and incorporates a cryptographic commitment – a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank} of the bundled messages – into the header of each block. This commitment is crucial as it enables the Ethereum light client to verify the inclusion of these messages efficiently using the established consensus proofs.
 
-The `Inbound Queue` plays a key role in inbound messages arriving from Ethereum. It receives proofs of Ethereum events and verifies their legitimacy by interacting with the on-chain Ethereum light client. Following successful verification, these confirmed events are interpreted and dispatched as `XCM` instructions within the Tanssi environment. This layered messaging architecture, secured by the underlying consensus verification, guarantees that all cross-chain interactions are trustless.
+The `Inbound Queue` plays a key role in inbound messages arriving from Ethereum. It receives proofs of Ethereum events and verifies their legitimacy by interacting with the on-chain Ethereum light client. Following successful verification, these confirmed events are interpreted and dispatched as internal instructions within the Tanssi environment. This layered messaging architecture, secured by the underlying consensus verification, guarantees that all cross-chain interactions are trustless.
 
 ## Message & Token Flow {: #message-flow }
 
