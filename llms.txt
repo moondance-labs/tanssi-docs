@@ -17221,7 +17221,7 @@ icon: octicons-link-24
 
 ## Introduction {: #introduction }
 
-In traditional blockchain environments, assets and functionalities are restricted to their respective chains, creating silos that limit interoperability and asset utility. The Tanssi bridge breaks these limitations by enabling seamless cross-chain operations that benefit both ecosystems.
+In traditional blockchain environments, assets and functionalities are restricted to their respective chains, creating silos that limit interoperability and asset utility. The Tanssi-Ethereum bridge breaks these limitations by enabling seamless cross-chain operations that benefit both ecosystems.
 
 Consider this bridge not merely an asset exchange mechanism but a secure, standardized protocol allowing direct interaction between different blockchain networks without reliance on centralized intermediaries. This emphasis on eliminating trusted third parties is fundamental to its design, setting it apart from bridge solutions that might introduce central points of failure or control.
 
@@ -17240,11 +17240,11 @@ This interoperability expands the potential of decentralized applications and si
 
 To understand the bridge's functionality from a consensus standpoint, we can analyze its core components: provers, verifiers, and relayers. Provers generate cryptographic proofs, verifiers validate these proofs, and relayers handle the data movement between the connected chains.
 
-Key examples of provers include the [BEEFY](https://wiki.polkadot.network/learn/learn-consensus/#bridging-beefy){target=\_blank} pallet on Tanssi and the Beacon Chain consensus on Ethereum. These components produce the necessary consensus data, which is then transmitted by specialized relayers.
+Key examples of provers include the [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} module on Tanssi and the Beacon Chain consensus on Ethereum. These components produce the necessary consensus data, which is then transmitted by specialized relayers.
 
 Each blockchain maintains a [light client](https://ethereum.org/en/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other chain. These light clients act as on-chain verifiers, crucial for confirming the legitimacy of data from the opposing network. Consider a message sent from Tanssi to Ethereum: the Tanssi side generates compact proofs confirming that certain events or state changes are valid based on Tanssi's consensus rules. The light client on Ethereum verifies these proofs before allowing any subsequent action. This approach is highly efficient as it eliminates the need for the receiving chain to process the whole state of the sending chain, relying instead on verifying concise cryptographic proofs.
 
-### Consensus BEEFY (Tanssi to Ethereum)
+### Tanssi to Ethereum Consensus  { : #tanssi-ethereum-consensus }
 
 The BEEFY (Bridge Efficiency Enabling Finality Yielder) consensus protocol operates as a crucial prover from the Tanssi side of the bridge. It was specifically designed to facilitate efficient and trustless bridging to external blockchains like Ethereum that were not natively built with interoperability features in mind.
 
@@ -17266,7 +17266,7 @@ sequenceDiagram
 
 ```
 
-### Consensus Beacon (Ethereum to Tanssi)
+### Ethereum to Tanssi Consensus { : #ethereum-tanssi-consensus }
 
 When bridging from Ethereum to Tanssi, the Ethereum Beacon Chain's consensus mechanism acts as the prover. The core idea is to provide Tanssi's on-chain light client with undeniable proof of Ethereum's finalized state, including specific events or messages destined for Tanssi.
 
@@ -17289,11 +17289,11 @@ sequenceDiagram
 
 Viewing the bridge from a messaging perspective reveals how it manages cross-chain communication, leveraging the underlying consensus verification layer for security. Dedicated relayers are responsible for message transport: the Execution relay handles transfers from Ethereum to Tanssi, and the Tanssi relay manages the flow from Tanssi to Ethereum.
 
-Crucially, these relayers operate without maintaining state. Their role is limited to submitting proofs. They cannot forge messages or misappropriate funds because each proof they relay is subject to rigorous, independent re-validation on-chain by the consensus mechanism. This architecture supports multiple relayers working concurrently, improving system responsiveness without concentrating power or granting special privileges to any single relayer.
+Crucially, these relayers are stateless. Their role is limited to submitting proofs. They cannot forge messages or misappropriate funds because each proof they relay is subject to rigorous, independent re-validation on-chain by the consensus mechanism. This architecture supports multiple relayers working concurrently, improving system responsiveness without concentrating power or granting special privileges to any single relayer.
 
 The `Gateway` contract is Ethereum's central point for messaging. This contract receives messages originating from Tanssi (delivered via the relayers). It validates these incoming messages by checking the associated consensus proofs before executing the appropriate operations, such as unlocking/minting tokens or invoking other smart contracts.
 
-### Inbound Messages (Ethereum to Tanssi)
+### Ethereum to Tanssi Inbound Messages { : #ethereum-tanssi-messages }
 
 This flow describes messages originating on Ethereum and destined for Tanssi. It utilizes Ethereum's Beacon Chain consensus for proof and a dedicated "Execution Relay" (or "Beacon Relay").
 
@@ -17315,7 +17315,7 @@ sequenceDiagram
     deactivate Tanssi_InQueue
 ```
 
-### Outbound Messages (Tanssi to Ethereum)
+### Tanssi to Ethereum Outbound Messages { : #tanssi-ethereum-messages }
 
 This flow describes messages originating on Tanssi and destined for Ethereum. It utilizes the BEEFY consensus to prove Tanssi's state and a dedicated "Tanssi Relay" for message transmission.
 
@@ -17339,9 +17339,9 @@ sequenceDiagram
 
 Outbound communications originating from Ethereum are managed by the `Gateway`. When an Ethereum transaction initiates a cross-chain transfer, the `Gateway` logs a specific event and, if needed, locks tokens, effectively packaging the message and data for relay to Tanssi. Two distinct queues efficiently handle message processing on the Tanssi side.
 
-The `Outbound Queue` is used for messages heading to Ethereum. It gathers [`XCM`](https://wiki.polkadot.network/learn/learn-xcm/){target=\_blank} messages, bundles them, and incorporates a cryptographic commitment – a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank} of the bundled messages – into the header of each block. This commitment is crucial as it enables the Ethereum light client to verify the inclusion of these messages efficiently using the established consensus proofs.
+The `Outbound Queue` is used for messages heading to Ethereum. It gathers messages, bundles them, and incorporates a cryptographic commitment – a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank} of the bundled messages – into the header of each block. This commitment is crucial as it enables the Ethereum light client to verify the inclusion of these messages efficiently using the established consensus proofs.
 
-The `Inbound Queue` plays a key role in inbound messages arriving from Ethereum. It receives proofs of Ethereum events and verifies their legitimacy by interacting with the on-chain Ethereum light client. Following successful verification, these confirmed events are interpreted and dispatched as `XCM` instructions within the Tanssi environment. This layered messaging architecture, secured by the underlying consensus verification, guarantees that all cross-chain interactions are trustless.
+The `Inbound Queue` plays a key role in inbound messages arriving from Ethereum. It receives proofs of Ethereum events and verifies their legitimacy by interacting with the on-chain Ethereum light client. Following successful verification, these confirmed events are interpreted and dispatched as internal instructions within the Tanssi environment. This layered messaging architecture, secured by the underlying consensus verification, guarantees that all cross-chain interactions are trustless.
 
 ## Message & Token Flow {: #message-flow }
 
