@@ -27,7 +27,7 @@ This interoperability expands the potential of decentralized applications and si
 
 To understand the bridge's functionality from a consensus standpoint, we can analyze its core components: provers, verifiers, and relayers. Provers generate cryptographic proofs, verifiers validate these proofs, and relayers handle the data movement between the connected chains.
 
-Key examples of provers include the [BEEFY](https://wiki.polkadot.network/learn/learn-consensus/#bridging-beefy){target=\_blank} pallet on Tanssi and the Beacon Chain consensus on Ethereum. These components produce the necessary consensus data, which is then transmitted by specialized relayers.
+Key examples of provers include the [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} module on Tanssi and the Beacon Chain consensus on Ethereum. These components produce the necessary consensus data, which is then transmitted by specialized relayers.
 
 Each blockchain maintains a [light client](https://ethereum.org/en/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other chain. These light clients act as on-chain verifiers, crucial for confirming the legitimacy of data from the opposing network. Consider a message sent from Tanssi to Ethereum: the Tanssi side generates compact proofs confirming that certain events or state changes are valid based on Tanssi's consensus rules. The light client on Ethereum verifies these proofs before allowing any subsequent action. This approach is highly efficient as it eliminates the need for the receiving chain to process the whole state of the sending chain, relying instead on verifying concise cryptographic proofs.
 
