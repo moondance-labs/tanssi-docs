@@ -187,7 +187,7 @@ sequenceDiagram
 
 This flow describes the reverse process, moving assets from Tanssi to Ethereum.
 
-**1. Initiate & Commit on Tanssi** - the user initiates the action on Tanssi, and an `XCM` message containing the transfer details is generated and sent to the Bridge `Outbound Queue`. The `Outbound Queue` processes this message, bundles the payload, and commits its Merkle root to the Tanssi Bridge, the network’s block header. This root cryptographically represents all outgoing messages in that block
+**1. Initiate & Commit on Tanssi** - the user initiates the action on Tanssi, and an internal message containing the transfer details is generated and sent to the Bridge `Outbound Queue`. The `Outbound Queue` processes this message, bundles the payload, and commits its Merkle root to the Tanssi Bridge, the network’s block header. This root cryptographically represents all outgoing messages in that block
 
 **2. Relay Proof to Ethereum** - an off-chain relayer monitors the Tanssi Bridge for finalized blocks containing relevant `Outbound Queue` Merkle roots. The relayer retrieves the necessary proof components: typically a BEEFY commitment (a signed statement about finalized Tanssi block headers) and a Merkle proof showing that the specific user's transfer payload is included under the committed `Outbound Queue` root
 
@@ -211,7 +211,7 @@ sequenceDiagram
 
     User->>TAH: 1. Initiate Transfer & Deposit Asset
     activate TAH
-    TAH->>TBP: Send XCM Payload to Outbound Queue
+    TAH->>TBP: Send Payload to Outbound Queue
     deactivate TAH
 
     activate TBP
