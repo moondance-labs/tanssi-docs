@@ -80,7 +80,7 @@ Crucially, these relayers are stateless. Their role is limited to submitting pro
 
 The `Gateway` contract is Ethereum's central point for messaging. This contract receives messages originating from Tanssi (delivered via the relayers). It validates these incoming messages by checking the associated consensus proofs before executing the appropriate operations, such as unlocking/minting tokens or invoking other smart contracts.
 
-### Inbound Messages (Ethereum to Tanssi)
+### Ethereum to Tanssi Inbound Messages { : #ethereum-tanssi-messages }
 
 This flow describes messages originating on Ethereum and destined for Tanssi. It utilizes Ethereum's Beacon Chain consensus for proof and a dedicated "Execution Relay" (or "Beacon Relay").
 
