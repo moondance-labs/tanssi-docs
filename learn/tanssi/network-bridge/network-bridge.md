@@ -102,7 +102,7 @@ sequenceDiagram
     deactivate Tanssi_InQueue
 ```
 
-### Outbound Messages (Tanssi to Ethereum)
+### Tanssi to Ethereum Outbound Messages { : #tanssi-ethereum-messages }
 
 This flow describes messages originating on Tanssi and destined for Ethereum. It utilizes the BEEFY consensus to prove Tanssi's state and a dedicated "Tanssi Relay" for message transmission.
 
