@@ -76,7 +76,7 @@ sequenceDiagram
 
 Viewing the bridge from a messaging perspective reveals how it manages cross-chain communication, leveraging the underlying consensus verification layer for security. Dedicated relayers are responsible for message transport: the Execution relay handles transfers from Ethereum to Tanssi, and the Tanssi relay manages the flow from Tanssi to Ethereum.
 
-Crucially, these relayers operate without maintaining state. Their role is limited to submitting proofs. They cannot forge messages or misappropriate funds because each proof they relay is subject to rigorous, independent re-validation on-chain by the consensus mechanism. This architecture supports multiple relayers working concurrently, improving system responsiveness without concentrating power or granting special privileges to any single relayer.
+Crucially, these relayers are stateless. Their role is limited to submitting proofs. They cannot forge messages or misappropriate funds because each proof they relay is subject to rigorous, independent re-validation on-chain by the consensus mechanism. This architecture supports multiple relayers working concurrently, improving system responsiveness without concentrating power or granting special privileges to any single relayer.
 
 The `Gateway` contract is Ethereum's central point for messaging. This contract receives messages originating from Tanssi (delivered via the relayers). It validates these incoming messages by checking the associated consensus proofs before executing the appropriate operations, such as unlocking/minting tokens or invoking other smart contracts.
 
