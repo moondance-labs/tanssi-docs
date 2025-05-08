@@ -6,4 +6,4 @@ nav:
   - 'network-services'
   - 'external-security-providers'
   - 'network-features'
-  - 'network-bridge'
+  - 'Tanssi-Ethereum Bridge': 'tanssi-ethereum-bridge.md'
