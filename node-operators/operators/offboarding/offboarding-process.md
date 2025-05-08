@@ -42,7 +42,7 @@ The first step in offboarding is to opt out of the Tanssi network. This will ena
 
 ### Using the Symbiotic CLI {: #opt-out-network-with-cli }
 
-The Symbiotic CLI provides a straightforward way to opt out of the network. Choose the appropriate command based on your network and signing method
+The Symbiotic CLI provides a straightforward way to opt out of the network. Choose the appropriate command based on your network and signing method.
 
 ### Using a Ledger Device
 
@@ -77,7 +77,7 @@ For signing with a private key:
 
 ### Using Etherscan {: #opt-out-network-with-etherscan }
 
-You can interact directly with the smart contract through Etherscan using a browser wallet like MetaMask:
+You can interact directly with the smart contract through Etherscan using a browser wallet like MetaMask
 
 === "MainNet"
 
@@ -87,10 +87,10 @@ You can interact directly with the smart contract through Etherscan using a brow
 
     [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
 
-Make sure to select **`Contract`** and **`Write Contract`** then click on Connect to Web3, and select your preferred wallet (e.g., MetaMask):
+Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-1.webp)
 
-1. Expand the **`optOut`** function
+1. Expand the **optOut** function
 2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
 3. Click **Write** and sign the transaction
 
@@ -131,7 +131,7 @@ You can check your opt-out status on Etherscan:
 
 On the contract's page:
 
-Make sure to select **`Contract`** and **`Write Contract`** then click on **Connect** to Web3, and select your preferred wallet (e.g., MetaMask):
+Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
 
 1. Select the **isOptedIn** function
 2. Paste your operator's account in the **who** field
@@ -222,7 +222,7 @@ Access the contract through Etherscan:
 
     [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#writeContract){target=\_blank}
 
-Make sure to select **Contract** and **Write Contract** then click on Connect to Web3, and select your preferred wallet (e.g., MetaMask):
+Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-4.webp)
 
 1. Expand the **optOut** function
@@ -263,9 +263,9 @@ You can check your vault opt-out status on Etherscan:
 
 On the contract's page:
 
-Make sure to select **Contract** and **Write Contract** then click on Connect to Web3, and select your preferred wallet (e.g., MetaMask):
+Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
 
-1. Select the **`isOptedIn`** function
+1. Select the **isOptedIn** function
 2. Paste your operator's account in the **who** field
 3. Insert the vault address in the **where** field
 4. Click on **Query**
@@ -294,4 +294,4 @@ The output will show `false` if you have successfully opted out of the vault and
 
 ## Next Steps
 
-After completing the offboarding process, if you plan to return in the future, you can follow the [onboarding process](/node-operators/operators/onboarding/) again.
+After completing the offboarding process, if you plan to return in the future, you can follow the [onboarding process](/node-operators/operators/onboarding/){target=\_blank} again.
