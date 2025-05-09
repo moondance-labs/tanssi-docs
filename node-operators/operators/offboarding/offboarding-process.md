@@ -173,7 +173,7 @@ Upon receiving your request, your operator's removal will be scheduled. This ste
 
 Once you receive confirmation of your operator's removal, you can safely stop any running services related to your operator. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
 
-## Vault Opt out (Optional)
+## Vault Opt Out (Optional)
 
 After completing the above steps, you may optionally opt out from the vault using one of the methods in the following sections.
 
