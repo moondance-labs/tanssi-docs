@@ -223,7 +223,7 @@ def main():
     # Add the full content
     llms_content += build_content_section(files, yaml_file)
 
-    # Write to llms.txt
+    # Write to llms-full.txt
     with open(output_file, 'w', encoding='utf-8') as output:
         output.write(llms_content)
 

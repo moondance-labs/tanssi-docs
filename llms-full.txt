@@ -1,4 +1,4 @@
-# llms.txt
+# llms-full.txt
 # Generated automatically. Do not edit directly.
 
 Documentation: https://docs.tanssi.network/

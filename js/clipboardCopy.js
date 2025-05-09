@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector(".copy-llms-btn").addEventListener("click", async (event) => {
       try {
-        const response = await fetch('https://docs.tanssi.network/llms-full.txt');
+        const response = await fetch('https://docs.tanssi.network/llms.txt');
         const text = await response.text();
         await navigator.clipboard.writeText(text);
 
