@@ -1,0 +1,137 @@
+---
+title: Opt Out from Tanssi
+description: Learn how to initiate the offboarding process from a Tanssi network by opting out. 
+icon: octicons-sign-out-24
+template: main.html
+---
+
+# Opt Out from Tanssi
+
+## Introduction {: #introduction }
+
+The ability to manage node operators' participation within the Tanssi ecosystem is crucial. This guide addresses the initial step in the offboarding process: opting out of a specific Tanssi-powered network. This action signals your intent to withdraw and allows the Tanssi protocol to verify your identity as the legitimate operator.
+
+This guide will walk you through several methods to execute this crucial opt-out step. You can choose the method that best suits your technical setup and comfort level, including utilizing the Symbiotic Command Line Interface (CLI), interacting directly with the smart contract via Etherscan, or employing Safe for multisig setups. Furthermore, this guide will detail how to verify that the Tanssi network has successfully processed your opt-out request. Let's begin by exploring the different ways to opt out of a Tanssi network.
+
+!!! important "Identity Validation"
+    When opting out, you sign the transaction using the private key or Ledger device associated with your operator account. This signature serves as cryptographic proof that you are the legitimate owner of the operator account, ensuring that only authorized operators can initiate the offboarding process.
+
+### Using the Symbiotic CLI {: #opt-out-network-with-cli }
+
+The Symbiotic CLI provides a straightforward way to opt out of the network. Choose the appropriate command based on your network and signing method.
+
+### Using a Ledger Device
+
+=== "MainNet"
+
+    ```bash
+    python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --ledger --ledger-account INSERT_OPERATOR_ADDRESS
+    ```
+
+=== "TestNet (Sepolia)"
+
+    ```bash
+    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
+    ```
+
+For signing with a private key:
+
+=== "MainNet"
+
+    ```bash
+    python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --private-key INSERT_PRIVATE_KEY
+    ```
+
+=== "TestNet (Sepolia)"
+
+    ```bash
+    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key INSERT_PRIVATE_KEY --chain sepolia
+    ```
+
+!!! warning
+    Note that this method requires you to expose your private key; therefore, it is not recommended.
+
+### Using Etherscan {: #opt-out-network-with-etherscan }
+
+You can interact directly with the smart contract through Etherscan using a browser wallet like MetaMask
+
+=== "MainNet"
+
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#writeContract){target=\_blank}
+
+=== "TestNet (Sepolia)"
+
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
+
+Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
+![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-1.webp)
+
+1. Expand the **optOut** function
+2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+3. Click **Write** and sign the transaction
+
+![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
+
+!!! warning
+    After submitting your opt out transaction, save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank}.
+
+### Using Safe for Multisig Setups {: #opt-out-network-with-safe }
+
+For [Safe](https://app.safe.global/){target=\_blank} accounts, use the **Transaction Builder** with these addresses:
+
+=== "MainNet"
+
+    {{ networks.symbiotic.contracts.mainnet.network_registry }}
+
+=== "TestNet (Sepolia)"
+
+    {{ networks.symbiotic.contracts.sepolia.network_registry }}
+
+Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which your node is currently registered (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
+
+### Verify Opt Out Status {: #verify-opt-out-status }
+
+After submitting the opt out transaction, you can verify your opt out status using one of the methods in the following sections.
+
+#### Using Etherscan
+
+You can check your opt out status on Etherscan:
+
+=== "MainNet"
+
+    [Contract address: {{ networks.symbiotic.contracts.mainnet.network_registry }}](https://etherscan.io/address/{{ networks.symbiotic.contracts.mainnet.network_registry }}#readContract){target=\_blank}
+
+=== "TestNet (Sepolia)"
+
+    [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#readContract){target=\_blank}
+
+On the contract's page:
+
+Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
+
+1. Select the **isOptedIn** function
+2. Paste your operator's account in the **who** field
+3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+4. Click on **Query**
+
+![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-3.webp)
+
+You'll get a `false` result if your operator has successfully opted out and `true` if they are still opted in.
+
+#### Using the Symbiotic CLI
+
+You can also verify your opt out status using the Symbiotic CLI:
+
+=== "MainNet"
+
+    ```bash
+    python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.mainnet.tanssi_network }}
+    ```
+
+=== "TestNet (Sepolia)"
+
+    ```bash
+    python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --chain sepolia
+    ```
+
+The output will show `false` if you have successfully opted out and `true` if you are still opted in.
