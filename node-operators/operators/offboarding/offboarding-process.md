@@ -247,7 +247,7 @@ Finally, pick the optOut function, insert the `VAULT_ADDRESS` to which your node
 
 ### Verify Vault Opt Out Status {: #verify-vault-opt-out-status }
 
-After submitting the vault opt out transaction, you can verify your opt out status using one of these methods:
+After submitting the vault opt out transaction, you can verify your opt out status using one of the methods in the following sections.
 
 #### Using Etherscan
 
