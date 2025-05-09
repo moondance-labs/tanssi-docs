@@ -6,3 +6,4 @@ nav:
   - 'network-services'
   - 'external-security-providers'
   - 'network-features'
+  - 'Key types in Tanssi': 'key-types.md'
