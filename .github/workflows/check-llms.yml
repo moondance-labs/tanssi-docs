@@ -57,6 +57,9 @@ jobs:
           generated_hash=$(cat generated_sha256.txt)
           pr_hash=$(cat pr_sha256.txt)
 
+          echo "Generated Hash: $generated_hash"
+          echo "PR Hash: $pr_hash"
+
           if [ "$generated_hash" != "$pr_hash" ]; then
             echo "Error: SHA256 hashes do not match. The generated llms.txt file differs from the one in the PR."
             echo "You need to run the generate LLMS script:"
