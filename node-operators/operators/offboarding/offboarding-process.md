@@ -175,7 +175,7 @@ Once you receive confirmation of your operator's removal, you can safely stop an
 
 ## Vault Opt out (Optional)
 
-After completing the above steps, you may optionally opt out from the vault using one of these methods
+After completing the above steps, you may optionally opt out from the vault using one of the methods in the following sections.
 
 ### Using the Symbiotic CLI {: #opt-out-vault-with-cli }
 
