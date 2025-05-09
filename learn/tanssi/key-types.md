@@ -1,7 +1,7 @@
 ---
 title: Keys in the Tanssi Protocol
 description: Overview of the cryptographic keys essential for the Tanssi protocol, detailing the keys used and their general functions.
-icon: octicons-home-24
+icon: octicons-key-24
 ---
 
 # Keys in the Tanssi Protocol
