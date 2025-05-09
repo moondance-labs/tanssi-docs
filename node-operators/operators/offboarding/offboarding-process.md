@@ -115,7 +115,7 @@ Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which 
 
 ### Verify Opt Out Status {: #verify-opt-out-status }
 
-After submitting the opt out transaction, you can verify your opt out status using one of these methods
+After submitting the opt out transaction, you can verify your opt out status using one of the methods in the following sections.
 
 #### Using Etherscan
 
