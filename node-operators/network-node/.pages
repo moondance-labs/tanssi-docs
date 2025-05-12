@@ -1,6 +1,6 @@
-title: Run a Network Node
+title: Run a Node
 hide: false
 nav:
   - index.md
-  - 'Using Docker': 'rpc-docker.md'
-  - 'Using Systemd': 'rpc-systemd.md'
+  - tanssi
+  - tanssi-powered-network
