@@ -1,7 +1,7 @@
 [
   {
     "title": "[Prerequisites](/node-operators/operators/offboarding/prerequisites){target=_blank}",
-    "content": "Before offboarding your Tanssi node, ensure you have wallet access and sufficient ETH for gas.",
+    "content": "Before starting offboarding your Tanssi node, check the prerequisites.",
     "icon": ":fontawesome-solid-1:"
   },
   {
