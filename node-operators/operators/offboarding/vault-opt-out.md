@@ -9,9 +9,11 @@ template: main.html
 
 ## Introduction {: #introduction }
 
-This page details the optional final step in the Tanssi offboarding process: opting out of a specific vault. While not mandatory, this action allows operators to disassociate their accounts from individual vaults. This guide provides instructions for opting out using the Symbiotic CLI, Etherscan, and Safe, as well as verifying the successful completion of this step.
+This page details the optional final step in the Tanssi offboarding process: opting out of a specific vault. While not mandatory, this action allows operators to disassociate their accounts from individual vaults. Before proceeding with this step, please ensure you have met all the necessary conditions outlined in our prerequisites guide. This guide provides instructions for opting out using one of several available methods, as well as how to verify the successful completion of this action.
 
-After completing the above steps, you may optionally opt out from the vault using one of the methods in the following sections.
+## Opting Out of a Vault {: #opting-out-of-a-vault }
+
+To proceed with opting out of a vault, you can utilize one of the methods detailed in the following sections.
 
 ### Using the Symbiotic CLI {: #opt-out-vault-with-cli }
 
@@ -81,11 +83,11 @@ For Safe accounts, use these contract addresses in the **Transaction Builder**:
 
 Finally, pick the optOut function, insert the `VAULT_ADDRESS` to which your node is currently registered (e.g., `{{ networks.symbiotic.contracts.sepolia.vault }}` on Sepolia TestNet), and sign the transaction.
 
-### Verify Vault Opt Out Status {: #verify-vault-opt-out-status }
+## Verify Vault Opt Out Status {: #verify-vault-opt-out-status }
 
 After submitting the vault opt out transaction, you can verify your opt out status using one of the methods in the following sections.
 
-#### Using Etherscan
+### Using Etherscan
 
 You can check your vault opt out status on Etherscan:
 
@@ -110,7 +112,7 @@ You'll get a `false` result if your operator has successfully opted out of the v
 
 ![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-6.webp)
 
-#### Using the Symbiotic CLI
+### Using the Symbiotic CLI
 
 You can also verify your vault opt out status using the Symbiotic CLI:
 
