@@ -1,11 +1,11 @@
 ---
-title: Prerequisites
-description: Before offboarding your Tanssi node, ensure you have wallet access and sufficient ETH for gas. This guide outlines crucial prerequisites.
+title: Prerequisites for Offboarding
+description: Before offboarding your Tanssi operator, ensure you have wallet access and sufficient ETH for gas. This guide outlines crucial prerequisites.
 icon: octicons-arrow-down-right-24
 template: main.html
 ---
 
-# Prerequisites
+# Prerequisites for Offboarding
 
 ## Introduction {: #introduction }
 
@@ -13,14 +13,9 @@ Operator offboarding is the formal process by which node operators safely and tr
 
 Operators play a critical role in consensus and network operations. Abruptly shutting down a node without following the proper procedures can negatively impact operators, potentially resulting in slashing.
 
-This guide provides a complete walkthrough of the operator offboarding process, including:
+This specific guide provides a walkthrough of the **prerequisites** needed before starting the operator offboarding process. Subsequent guides will cover signaling your intent, removing the operator, and decommissioning your node.
 
-- Signaling your intent to exit the protocol
-- Safely removing your operator from Tanssi's middleware
-- Preventing resource waste during offboarding
-- Decommissioning your node and exiting associated vaults
-
-If you have questions during offboarding, the Tanssi team can support you on [Discord](https://discord.gg/Jm2KH8xT7J){target=\_blank}.
+If you have questions during any part of the offboarding process, the Tanssi team can support you on [Discord](https://discord.gg/Jm2KH8xT7J){target=\_blank}.
 
 ## Prerequisites {: #prerequisites}
 
@@ -28,6 +23,11 @@ Before starting the offboarding process, ensure you have the following:
 
 - Access to the Ethereum (EVM) wallet that controls your operator account
 - Sufficient ETH in your wallet to cover gas fees for transactions
+
+### Why Smart Contract Interaction is Required {: #why-smart-contracts }
+
+The Tanssi protocol, like many decentralized systems, utilizes smart contracts on the Ethereum blockchain to manage critical operations, including operator registration and staking. When an operator decides to offboard, they are essentially changing their status and relationship with these core protocol contracts.
+Key offboarding steps, such as signaling your intent to exit or formally unregistering, involve transactions that update the state recorded in these smart contracts.
 
 ### Interaction Methods
 
