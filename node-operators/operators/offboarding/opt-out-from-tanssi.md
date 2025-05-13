@@ -156,4 +156,4 @@ Once you receive confirmation of your operator's removal from the Tanssi team, y
 
 ## Next Steps (Optional) {: #next-steps-vault-opt-out }
 
-After you have opted out of the network and informed the Tanssi team by submitting the offboarding form, you have an additional optional step you can take: [opting out](/node-operators/operators/offboarding/vault-opt-out/){target=\_blank} of any specific vaults your operator might be associated with. This allows for a more granular disassociation from the Tanssi ecosystem components.
+After you have opted out of the network and informed the Tanssi team by submitting the offboarding form, you have an additional optional step you can take, [opting out](/node-operators/operators/offboarding/vault-opt-out/){target=\_blank} of any specific vaults your operator might be associated with.
