@@ -1,7 +1,7 @@
 [
   {
     "title": "[Prerequisites](/node-operators/operators/offboarding/prerequisites){target=_blank}",
-    "content": "Before starting offboarding your Tanssi node, check the prerequisites.",
+    "content": "Before starting to offboard your Tanssi node, check the prerequisites.",
     "icon": ":fontawesome-solid-1:"
   },
   {
@@ -10,13 +10,8 @@
     "icon": ":fontawesome-solid-2:"
   },
   {
-    "title": "[Contact Tanssi Team (Required)](/node-operators/operators/offboarding/contact-tanssi){target=_blank}",
-    "content": "Submit the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} with the required information and wait for middleware removal confirmation.",
-    "icon": ":fontawesome-solid-3:"
-  },
-  {
     "title": "[Vault Opt out (Optional)](/node-operators/operators/offboarding/vault-opt-out){target=_blank}",
     "content": "This step is optional and only necessary if you want to remove your association with the vault completely. Skipping this step won't affect your ability to rejoin the network in the future",
-    "icon": ":fontawesome-solid-4:"
+    "icon": ":fontawesome-solid-3:"
   }
 ]

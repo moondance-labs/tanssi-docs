@@ -109,7 +109,6 @@ Doc-Page: https://docs.tanssi.network/node-operators/network-node/
 Doc-Page: https://docs.tanssi.network/node-operators/network-node/rpc-docker/
 Doc-Page: https://docs.tanssi.network/node-operators/network-node/rpc-systemd/
 Doc-Page: https://docs.tanssi.network/node-operators/operators/
-Doc-Page: https://docs.tanssi.network/node-operators/operators/offboarding/contact-tanssi/
 Doc-Page: https://docs.tanssi.network/node-operators/operators/offboarding/
 Doc-Page: https://docs.tanssi.network/node-operators/operators/offboarding/opt-out-from-tanssi/
 Doc-Page: https://docs.tanssi.network/node-operators/operators/offboarding/prerequisites/
@@ -18297,31 +18296,6 @@ This section provides everything you need to get started, from initial setup to 
 :::INSERT_GENERATED_CARDS:::
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/node-operators/operators/offboarding/contact-tanssi/
---- BEGIN CONTENT ---
----
-title: Contact Tanssi Team
-description: Submit the official form to notify the team and await confirmation before decommissioning your node.
-icon: octicons-mail-24
-template: main.html
----
-
-# Contact Tanssi Team
-
-Following the network opt out, the next stage of offboarding your Tanssi operator involves formally notifying the Tanssi team. This page guides you through submitting the required offboarding form and explaining what to expect during the final removal process.
-
-After opting out from the network, notify the Tanssi team of your intention to stop running an operator to do so complete the [operator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} and wait for confirmation of request completion from the Tanssi team.
-
-Upon receiving your request, your operator's removal will be scheduled. This step is semi-automated and may take time to complete. You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
-
-!!! important "Provide feedback"
-    Consider providing feedback in the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network.
-
-## Pause Operations (Optional)
-
-Once you receive confirmation of your operator's removal, you can safely stop any running services related to your operator. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
---- END CONTENT ---
-
 Doc-Content: https://docs.tanssi.network/node-operators/operators/offboarding/
 --- BEGIN CONTENT ---
 ---
@@ -18358,9 +18332,9 @@ template: main.html
 
 ## Introduction {: #introduction }
 
-The ability to manage node operators' participation within the Tanssi ecosystem is crucial. This guide addresses the initial step in the offboarding process: opting out of a specific Tanssi-powered network. This action signals your intent to withdraw and allows the Tanssi protocol to verify your identity as the legitimate operator.
+The ability to manage node operators' participation within the Tanssi ecosystem is crucial. This guide addresses the initial step in the offboarding process: opting out of the specific Tanssi-powered network. This action signals your intent to withdraw and allows the Tanssi protocol to verify your identity as the legitimate operator.
 
-This guide will walk you through several methods to execute this crucial opt-out step. You can choose the method that best suits your technical setup and comfort level, including utilizing the Symbiotic Command Line Interface (CLI), interacting directly with the smart contract via Etherscan, or employing Safe for multisig setups. Furthermore, this guide will detail how to verify that the Tanssi network has successfully processed your opt-out request. Let's begin by exploring the different ways to opt out of a Tanssi network.
+During the onboarding process, one step was opting in to the Tanssi network to become an operator. This guide will walk you through the process of opting out. There are several ways to interact with the smart contracts involved. Refer to the [prerequisites article](/node-operators/operators/offboarding/prerequisites/){target=\_blank} to evaluate which alternative suits you best.
 
 !!! important "Identity Validation"
     When opting out, you sign the transaction using the private key or Ledger device associated with your operator account. This signature serves as cryptographic proof that you are the legitimate owner of the operator account, ensuring that only authorized operators can initiate the offboarding process.
@@ -18484,6 +18458,21 @@ You can also verify your opt out status using the Symbiotic CLI:
     ```
 
 The output will show `false` if you have successfully opted out and `true` if you are still opted in.
+
+## Contact Tanssi Team
+
+Following the network opt out, the next stage of offboarding your Tanssi operator involves formally notifying the Tanssi team. This page guides you through submitting the required offboarding form and explaining what to expect during the final removal process.
+
+After opting out from the network, notify the Tanssi team of your intention to stop running an operator to do so complete the [operator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} and wait for confirmation of request completion from the Tanssi team.
+
+Upon receiving your request, your operator's removal will be scheduled. This step is semi-automated and may take time to complete. You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
+
+!!! important "Provide feedback"
+    Consider providing feedback in the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network.
+
+## Pause Operations (Optional)
+
+Once you receive confirmation of your operator's removal, you can safely stop any running services related to your operator. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/operators/offboarding/prerequisites/
