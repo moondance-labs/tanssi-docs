@@ -1,26 +1,28 @@
 ---
 title: Run a Tanssi Node
-description: Learn how to set up and run a Tanssi node using Docker or Systemd to host your own RPC endpoints for chain interaction.
+description: Learn how to set up and run a Tanssi node using Docker or Systemd to interact with the Tanssi network.
 icon: octicons-server-24
 template: index-page.html
 ---
 
 # Run a Tanssi Node
 
-Setting up a Tanssi node is essential for interacting with the Tanssi network, providing a secure and dedicated RPC endpoint. You have two options for configuration: using _Docker_ or _Systemd_. Whichever path you choose, we provide step-by-step tutorials to guide you through the process.
+Setting up a Tanssi Node is an important step to interact with and query the Tanssi network. You have two options for configuration: using _Docker_ or _Systemd._ Whichever path you choose, we provide step-by-step tutorials to guide you through the process.
 
 ## Hardware Requirements
 
-To run a Tanssi node successfully, adequate hardware is essential for optimal performance:
+To run a Tanssi Node successfully, appropriate hardware is essential. A performant setup ensures reliable service and quick responses to queries.
 
-- **Recommended Configuration** - Bare metal hardware running Linux Debian or Ubuntu
-- **Recommended CPUs** - Intel Ice Lake or newer (Xeon or Core series) or AMD Zen3 or newer (EPYC or Ryzen). Four Physical cores @ 3.4 Ghz with hyperthreading disabled (SMT for AMD processors)
+Recommended hardware:
+
+- **Recommended Configuration** - Bare metal hardware running linux debian or ubuntu
+- **Recommended CPUs** - Intel Ice Lake or newer (Xeon or Core series) or AMD Zen3 or newer (EPYC or Ryzen). Eight Physical cores @ 3.4 Ghz with hyperthreading disabled (SMT for AMD processors)
 - **Recommended NVMe** - 500 GB NVMe SSD
-- **Recommended RAM** - 16 GB ECC RAM
+- **Recommended RAM** - 32 GB ECC RAM
 - **Recommended Network** - 1 Gbps connection
 
-!!! note
-    While these are the recommended specifications, lower configurations may work for non-production environments. However, for stable performance and complete chain synchronization, meeting or exceeding these specifications is advised.
+!!! warning
+    Maintaining your Tanssi Node's performance, keeping it updated, and ensuring its security are critical for reliable operation.
 
 ### Required Network Ports
 

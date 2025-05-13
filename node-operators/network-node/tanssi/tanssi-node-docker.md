@@ -1,6 +1,6 @@
 ---
 title: Run a Tanssi Node Using Docker
-description: Learn how to set up and run a Tanssi node using Docker to host your own RPC endpoints for chain interaction.
+description: Learn how to set up and run a Node for Tanssi network using Docker to provide API endpoints for applications and users.
 icon: simple-docker
 ---
 
@@ -8,9 +8,7 @@ icon: simple-docker
 
 ## Introduction {: #introduction }
 
-Running your own Tanssi node allows you to have a dedicated connection to the Tanssi network. This provides you with a secure and private RPC endpoint to interact with the chain management functionality, query blockchain data, and submit transactions to the network.
-
-In this guide, you'll learn how to spin up a Tanssi node using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi Node using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems. Nodes are crucial for the Tanssi ecosystem as they provide stable API endpoints that applications and users can connect to for chain data and transaction submission.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -34,7 +32,7 @@ The command will download and extract the image and show the status upon executi
 
 ### Set Up the Data Directory {: #set-up-data-directory }
 
-Running a Tanssi node requires syncing with the Tanssi chain and storing its state.
+Running an Node requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
@@ -83,20 +81,20 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
-    --base-path=/data \
-    --node-key-file=/data/node-key \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-    --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
-    --state-pruning=archive \
-    --blocks-pruning=archive \
-    --database=paritydb \
-    --unsafe-rpc-external \
-    --rpc-port=9944 \
-    --prometheus-port=9615 \
+    --chain dancelight \
+    --base-path /data \
+    --name INSERT_YOUR_TANSSI_NODE_NAME \
+    --node-key-file /data/node-key \
+    --rpc-port 9944 \
+    --prometheus-port 9615 \
     --prometheus-external \
-    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0'
+    --listen-addr /ip4/0.0.0.0/tcp/30333 \
+    --public-addr /ip4/YOUR_IP_ADDRESS/tcp/30333 \
+    --state-pruning archive \
+    --blocks-pruning archive \
+    --database paritydb \
+    --unsafe-rpc-external \
+    --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
     ```
 
 === "Intel Skylake"
@@ -106,20 +104,20 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
     {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
-    --base-path=/data \
-    --node-key-file=/data/node-key \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-    --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
-    --state-pruning=archive \
-    --blocks-pruning=archive \
-    --database=paritydb \
-    --unsafe-rpc-external \
-    --rpc-port=9944 \
-    --prometheus-port=9615 \
+    --chain dancelight \
+    --base-path /data \
+    --name INSERT_YOUR_TANSSI_NODE_NAME \
+    --node-key-file /data/node-key \
+    --rpc-port 9944 \
+    --prometheus-port 9615 \
     --prometheus-external \
-    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0'
+    --listen-addr /ip4/0.0.0.0/tcp/30333 \
+    --public-addr /ip4/YOUR_IP_ADDRESS/tcp/30333 \
+    --state-pruning archive \
+    --blocks-pruning archive \
+    --database paritydb \
+    --unsafe-rpc-external \
+    --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
     ```
 
 === "AMD Zen3"
@@ -129,20 +127,20 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
     {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
-    --base-path=/data \
-    --node-key-file=/data/node-key \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-    --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
-    --state-pruning=archive \
-    --blocks-pruning=archive \
-    --database=paritydb \
-    --unsafe-rpc-external \
-    --rpc-port=9944 \
-    --prometheus-port=9615 \
+    --chain dancelight \
+    --base-path /data \
+    --name INSERT_YOUR_TANSSI_NODE_NAME \
+    --node-key-file /data/node-key \
+    --rpc-port 9944 \
+    --prometheus-port 9615 \
     --prometheus-external \
-    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0'
+    --listen-addr /ip4/0.0.0.0/tcp/30333 \
+    --public-addr /ip4/YOUR_IP_ADDRESS/tcp/30333 \
+    --state-pruning archive \
+    --blocks-pruning archive \
+    --database paritydb \
+    --unsafe-rpc-external \
+    --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
     ```
 
 ### Run Flags {: #run-flags }
@@ -151,22 +149,21 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
-For a complete list of available flags and their descriptions:
+Additionally, these RPC-specific flags are important for your setup:
+
+- `--state-pruning=archive` - Keeps all state data, which is necessary for historical state queries
+- `--blocks-pruning=archive` - Keeps all blocks, necessary for historical block data
+- `--database=paritydb` - Uses ParityDB as the database backend, which is optimized for RPC node performance
+- `--unsafe-rpc-external` - Allows external connections to the RPC server, which is required for an RPC node
+
+You can view all available flags by running:
 
 ```bash
 docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
 ```
 
-#### RPC Specific Flags
-
-For RPC nodes that need to be accessed from external machines, ensure these flags are included:
-
-- `--unsafe-rpc-external` - Allows external machines to connect to your RPC endpoint
-- `--rpc-cors=all` - (Optional) Configures CORS settings for your RPC endpoint
-- `--rpc-methods=safe` - (Optional) Limits RPC methods to only safe ones
-
 !!! warning
-    Using `--unsafe-rpc-external` exposes your RPC endpoint to the internet. Consider implementing additional security measures like a firewall or reverse proxy with authentication.
+    The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.
 
 ## Syncing Your Node {: #syncing-your-node }
 
@@ -174,4 +171,14 @@ The first time your node spins up, the syncing process displays lots of log info
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
-When the syncing process is finished, your node is ready to be used as an RPC endpoint.
+When the syncing process is finished, your Node is ready to serve API requests.
+
+## Testing Your Node {: #testing-your-rpc-node }
+
+After your node is fully synced, you can verify that the RPC endpoint is working correctly by making a simple request. You can use curl to test the connection:
+
+```bash
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method":"chain_getHeader", "params":[]}' http://localhost:9944
+```
+
+If the RPC endpoint is working correctly, you should receive a JSON response containing the latest block header information.

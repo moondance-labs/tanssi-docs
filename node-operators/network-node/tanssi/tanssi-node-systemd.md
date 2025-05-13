@@ -1,16 +1,14 @@
 ---
-title: Run a Tanssi Operator
-description: Learn how to set up and run an operator (validator) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
+title: Run a Tanssi Node Using Systemd
+description: Learn how to set up and run a Node for Tanssi networks using Systemd, allowing you to provide API endpoints for applications and users.
 icon: simple-linux
 ---
 
-# Run an Operator Node Using Systemd
+# Run a Tanssi Node Using Systemd
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/operators/onboarding/run-an-operator/intro.md'
-
-In this guide, you'll learn how to spin up a Tanssi operator using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi Node using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems. Nodes provide essential API endpoints for applications and users to interact with the Tanssi network.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
@@ -18,13 +16,13 @@ The article follows the good practice of running the service with its own non-ro
 
 To get started, you'll need access to a computer running an Ubuntu Linux OS with [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} enabled and root privileges. You will also need:
 
-- **Node binary files** - an operator requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
+- **Node binary files** - an Node requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
 
 The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
 ## Check Landlock Support {: #check-landlock }
 
-Tanssi operators use the Linux kernel's Landlock feature as a security measure to restrict its own access to system resources, limiting the damage if the application is compromised.
+Tanssi nodes use the Linux kernel's Landlock feature as a security measure to restrict its own access to system resources, limiting the damage if the application is compromised.
 
 Check the Landlock feature support in your system running the following command:
 
@@ -125,7 +123,7 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
 
 ```bash
 [Unit]
-Description="Tanssi systemd service"
+Description="Tanssi Node systemd service"
 After=network.target
 StartLimitIntervalSec=0
 
@@ -141,7 +139,6 @@ LimitNOFILE=100000
 ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
   --base-path=/var/lib/tanssi-data/ \
   --node-key-file /var/lib/tanssi-data/node-key \
-  --database=paritydb \
   --rpc-port=9944 \
   --prometheus-port=9615 \
   --prometheus-external \
@@ -150,8 +147,9 @@ ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
   --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
   --state-pruning=archive \
   --blocks-pruning=archive \
-  --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
-  --validator
+  --database=paritydb \
+  --unsafe-rpc-external \
+  --telemetry-url='wss://telemetry.polkadot.io/submit/ 0'
 
 [Install]
 WantedBy=multi-user.target
@@ -163,9 +161,21 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
+Additionally, these RPC-specific flags are important for your setup:
+
+- `--state-pruning=archive` - Keeps all state data, which is necessary for historical state queries
+- `--blocks-pruning=archive` - Keeps all blocks, necessary for historical block data
+- `--database=paritydb` - Uses ParityDB as the database backend, which is optimized for RPC node performance
+- `--unsafe-rpc-external` - Allows external connections to the RPC server, which is required for an RPC node
+
+You can view all available flags by running:
+
 ```bash
-/var/lib/tanssi-data/tanssi-relay  --help
+/var/lib/tanssi-data/tanssi-relay --help
 ```
+
+!!! warning
+    The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.
 
 ## Run the Service {: #run-the-service }
 
@@ -189,3 +199,13 @@ Check the logs, if needed, with the following command:
 ```bash
 journalctl -f -u tanssi.service
 ```
+
+## Testing Your Node {: #testing-your-rpc-node }
+
+After your node is fully synced, you can verify that the RPC endpoint is working correctly by making a simple request. You can use curl to test the connection:
+
+```bash
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method":"chain_getHeader", "params":[]}' http://localhost:9944
+```
+
+If the RPC endpoint is working correctly, you should receive a JSON response containing the latest block header information.
