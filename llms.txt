@@ -18476,6 +18476,10 @@ Upon receiving your request, your operator's removal will be scheduled. This ste
 ## Pause Operations (Optional) {: #pause-operations }
 
 Once you receive confirmation of your operator's removal from the Tanssi team, you can safely stop any running services related to your operator. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
+
+## Next Steps (Optional) {: #next-steps-vault-opt-out }
+
+After you have opted out of the network and informed the Tanssi team by submitting the offboarding form, you have an additional optional step you can take, [opting out](/node-operators/operators/offboarding/vault-opt-out/){target=\_blank} of any specific vaults your operator might be associated with.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/operators/offboarding/prerequisites/
