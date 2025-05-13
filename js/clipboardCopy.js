@@ -9,9 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const copiedToClipboard = document.querySelector('.md-dialog')
         copiedToClipboard.classList.add('md-dialog--active');
         const copiedToClipboardMessage = copiedToClipboard.querySelector('.md-dialog__inner')
-        if (copiedToClipboardMessage.textContent !== "{{ lang.t('clipboard.copied') }}") {
-          copiedToClipboardMessage.textContent = "{{ lang.t('clipboard.copied') }}";
-        }
+        copiedToClipboardMessage.textContent = "Copied to clipboard";
         // Set a timer to remove the after 2 seconds (2000ms)
         setTimeout(() => {
           copiedToClipboard.classList.remove('md-dialog--active');
