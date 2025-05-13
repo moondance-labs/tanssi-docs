@@ -18323,7 +18323,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/operators/offboarding/op
 --- BEGIN CONTENT ---
 ---
 title: Opt Out from Tanssi
-description: Learn how to initiate the offboarding process from a Tanssi network by opting out. 
+description: Learn how to initiate the offboarding process from a Tanssi network by opting out using various methods and how to verify your status.
 icon: octicons-sign-out-24
 template: main.html
 ---
@@ -18339,11 +18339,15 @@ During the onboarding process, one step was opting in to the Tanssi network to b
 !!! important "Identity Validation"
     When opting out, you sign the transaction using the private key or Ledger device associated with your operator account. This signature serves as cryptographic proof that you are the legitimate owner of the operator account, ensuring that only authorized operators can initiate the offboarding process.
 
+## Methods for Opting Out from a Tanssi Network {: #methods-for-opting-out }
+
+To opt out from a Tanssi network, you will need to interact with a smart contract. Below are the different methods available to perform this action. Choose the one that best fits your setup and security preferences.
+
 ### Using the Symbiotic CLI {: #opt-out-network-with-cli }
 
 The Symbiotic CLI provides a straightforward way to opt out of the network. Choose the appropriate command based on your network and signing method.
 
-### Using a Ledger Device
+#### Using a Ledger Device
 
 === "MainNet"
 
@@ -18357,7 +18361,7 @@ The Symbiotic CLI provides a straightforward way to opt out of the network. Choo
     python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
     ```
 
-For signing with a private key:
+#### For signing with a private key
 
 === "MainNet"
 
@@ -18376,7 +18380,7 @@ For signing with a private key:
 
 ### Using Etherscan {: #opt-out-network-with-etherscan }
 
-You can interact directly with the smart contract through Etherscan using a browser wallet like MetaMask
+You can interact directly with the smart contract through Etherscan using a browser wallet like MetaMask.
 
 === "MainNet"
 
@@ -18412,13 +18416,13 @@ For [Safe](https://app.safe.global/){target=\_blank} accounts, use the **Transac
 
 Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which your node is currently registered (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
 
-### Verify Opt Out Status {: #verify-opt-out-status }
+## Verifying Your Opt-Out Status {: #verify-opt-out-status }
 
-After submitting the opt out transaction, you can verify your opt out status using one of the methods in the following sections.
+After submitting the opt-out transaction, it's important to confirm that the action was successful and your operator is no longer opted into the network. You can verify this status using the methods outlined below.
 
-#### Using Etherscan
+### Using Etherscan to Verify {: #verify-opt-out-etherscan }
 
-You can check your opt out status on Etherscan:
+You can check your opt-out status on Etherscan by querying the smart contract:
 
 === "MainNet"
 
@@ -18430,20 +18434,19 @@ You can check your opt out status on Etherscan:
 
 On the contract's page:
 
-Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
-
-1. Select the **isOptedIn** function
-2. Paste your operator's account in the **who** field
-3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
-4. Click on **Query**
+1. Make sure to select the **Read Contract** tab.
+2. Locate and expand the **isOptedIn** function.
+3. Paste your operator's account address in the **who** field.
+4. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet).
+5. Click on **Query**.
 
 ![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-3.webp)
 
-You'll get a `false` result if your operator has successfully opted out and `true` if they are still opted in.
+You'll get a `false` result if your operator has successfully opted out, and `true` if they are still opted in.
 
-#### Using the Symbiotic CLI
+### Using the Symbiotic CLI to Verify {: #verify-opt-out-cli }
 
-You can also verify your opt out status using the Symbiotic CLI:
+You can also verify your opt-out status using the Symbiotic CLI:
 
 === "MainNet"
 
@@ -18459,20 +18462,20 @@ You can also verify your opt out status using the Symbiotic CLI:
 
 The output will show `false` if you have successfully opted out and `true` if you are still opted in.
 
-## Contact Tanssi Team
+## Contact Tanssi Team {: #contact-tanssi-team }
 
-Following the network opt out, the next stage of offboarding your Tanssi operator involves formally notifying the Tanssi team. This page guides you through submitting the required offboarding form and explaining what to expect during the final removal process.
+Following the network opt-out, the next stage of offboarding your Tanssi operator involves formally notifying the Tanssi team. This page guides you through submitting the required offboarding form and explaining what to expect during the final removal process.
 
-After opting out from the network, notify the Tanssi team of your intention to stop running an operator to do so complete the [operator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} and wait for confirmation of request completion from the Tanssi team.
+After opting out from the network, notify the Tanssi team of your intention to stop running an operator. To do so, complete the [operator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} and wait for confirmation of request completion from the Tanssi team.
 
 Upon receiving your request, your operator's removal will be scheduled. This step is semi-automated and may take time to complete. You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
 
 !!! important "Provide feedback"
     Consider providing feedback in the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network.
 
-## Pause Operations (Optional)
+## Pause Operations (Optional) {: #pause-operations }
 
-Once you receive confirmation of your operator's removal, you can safely stop any running services related to your operator. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
+Once you receive confirmation of your operator's removal from the Tanssi team, you can safely stop any running services related to your operator. If needed, back up important configuration files, logs, or any relevant data before deleting them. Afterward, you may repurpose, terminate, or shut down your infrastructure entirely.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/operators/offboarding/prerequisites/
