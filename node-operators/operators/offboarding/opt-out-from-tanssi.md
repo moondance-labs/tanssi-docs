@@ -11,7 +11,7 @@ template: main.html
 
 The ability to manage node operators' participation within the Tanssi ecosystem is crucial. This guide addresses the initial step in the offboarding process: opting out of the specific Tanssi-powered network. This action signals your intent to withdraw and allows the Tanssi protocol to verify your identity as the legitimate operator.
 
-This guide will walk you through several methods to execute this crucial opt-out step. You can choose the method that best suits your technical setup and comfort level, including utilizing the Symbiotic Command Line Interface (CLI), interacting directly with the smart contract via Etherscan, or employing Safe for multisig setups. Furthermore, this guide will detail how to verify that the Tanssi network has successfully processed your opt-out request. Let's begin by exploring the different ways to opt out of a Tanssi network.
+During the onboarding process, one step was opting in to the Tanssi network to become an operator. This guide will walk you through the process of opting out. There are several ways to interact with the smart contracts involved. Refer to the [prerequisites article](/node-operators/operators/offboarding/prerequisites/){target=\_blank} to evaluate which alternative suits you best.
 
 !!! important "Identity Validation"
     When opting out, you sign the transaction using the private key or Ledger device associated with your operator account. This signature serves as cryptographic proof that you are the legitimate owner of the operator account, ensuring that only authorized operators can initiate the offboarding process.
