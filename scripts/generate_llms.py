@@ -11,7 +11,7 @@ import requests
 base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 docs_dir = os.path.join(base_dir, docs_repo)
 yaml_dir = os.path.join(base_dir, docs_repo, 'variables.yml')
-output_file = os.path.join(docs_dir, 'llms.txt')
+output_file = os.path.join(docs_dir, 'llms-full.txt')
 snippet_dir = os.path.join(docs_dir, '.snippets')
 
 # Regex to find lines like: --8<-- 'code/build/applications/...' and --8<-- 'http....'
