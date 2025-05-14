@@ -151,8 +151,6 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
 
 The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-Additionally, these RPC-specific flags are important for your setup:
-
 - `--state-pruning=archive` - Keeps all state data, which is necessary for historical state queries
 - `--blocks-pruning=archive` - Keeps all blocks, necessary for historical block data
 - `--database=paritydb` - Uses ParityDB as the database backend, which is optimized for RPC node performance
