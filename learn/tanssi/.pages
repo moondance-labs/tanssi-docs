@@ -2,8 +2,8 @@ title: Introduction to Tanssi
 hide: false
 nav:
   - index.md
-  - 'Overview': 'overview.md'
-  - 'network-services'
-  - 'external-security-providers'
-  - 'network-features'
-  - 'Key types in Tanssi': 'key-types.md'
+  - "Overview": "overview.md"
+  - "network-services"
+  - "external-security-providers"
+  - "network-features"
+  - "Account types in Tanssi": "account-types.md"
