@@ -20,7 +20,11 @@ Blockchain technology relies on [public-private](https://en.wikipedia.org/wiki/P
 
 ## Identity and Operations { : #identity-and-operations }
 
-Tanssi is built with the Substrate framework, which supports cryptographic schemes like Sr25519 and Ed25519. Sr25519 is known for security and efficiency, while Ed25519 excels in speed. Within Tanssi, Substrate accounts, identified by public keys, are essential for participants to sign transactions and interact with the protocol's Substrate components.
+Tanssi, built with the Substrate framework, utilizes distinct cryptographic schemes for different functions, primarily Sr25519 and Ed25519. These account types are crucial for interacting with the protocol's Substrate components by signing transactions.
+
+**Sr25519 (Schnorrkel/Ristretto x25519):** This is the primary account type used for most user-facing operations within Tanssi. Its strengths lie in security and efficiency. **Sr25519 accounts serve as your on-chain identity, used for holding tokens, participating in governance, paying transaction fees, and other general interactions with the network.** When you create a wallet to interact with Tanssi as a regular user, you will create and use an Sr25519 account.
+
+**Ed25519 (Edwards-curve Digital Signature Algorithm):** While Sr25519 handles general identity and transactions, Ed25519 is specifically leveraged for its high performance in cryptographic signing, making it ideal for consensus-related operations. **Within Tanssi, Ed25519 accounts are used by node operators for critical consensus mechanisms, such as block production and finality.** Regular users will typically not create or directly use an Ed25519 account. However, these accounts are fundamental for the security and operation of the network, managed by those running nodes.
 
 Node operators on Tanssi require a Substrate account to record their activities, including operators who secure the network and sequencers who produce blocks. This account also tracks rewards, with session keys mapped to it for enhanced security.
 
