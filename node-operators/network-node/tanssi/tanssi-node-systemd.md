@@ -59,27 +59,27 @@ The following commands configure a new account, create the directory, and move t
 
 1. Create a new account to run the service:
 
-    ```bash
-    adduser tanssi_service --system --no-create-home
-    ```
+```bash
+adduser tanssi_service --system --no-create-home
+```
 
 2. Create a directory to store the required files and data:
 
-    ```bash
-    mkdir /var/lib/tanssi-data
-    ```
+```bash
+mkdir /var/lib/tanssi-data
+```
 
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-    ```bash
-    chown -R tanssi_service /var/lib/tanssi-data
-    ```
+```bash
+chown -R tanssi_service /var/lib/tanssi-data
+```
 
 4. Move the binaries to the folder:
 
-    ```bash
-    mv ./tanssi-relay* /var/lib/tanssi-data
-    ```
+```bash
+mv ./tanssi-relay* /var/lib/tanssi-data
+```
 
 ### Generate the Node Key {: #generate-node-key }
 

@@ -23,6 +23,7 @@ A Docker image combines the binary corresponding to the latest stable release of
 The following command to pull the Docker image:
 
 === "Dancelight"
+
     ```bash
     docker pull {{ networks.dancelight.operator_docker_image }}
     ```
@@ -60,17 +61,19 @@ sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-docker run --network="host" -v "/var/lib/tanssi-data:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
-```
+=== "Dancelight"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
 ## Start Your Node {: #start-your-node }
 
-To spin up your node, you must run the Docker image with the `docker run` command. 
+To spin up your node, you must run the Docker image with the `docker run` command.
 
 Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_IP_ADDRESS` with your public IP address.
 
@@ -116,9 +119,11 @@ Additionally, these RPC-specific flags are important for your setup:
 
 You can view all available flags by running:
 
-```bash
-docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
-```
+=== "Dancelight"
+
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
 
 ## Syncing Your Node {: #syncing-your-node }
 

@@ -55,9 +55,11 @@ The node binary file includes also the necessary code to run a Tanssi network no
 
 Download the Tanssi network specification file by executing:
 
-```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancelight/dancelight-raw-specs.json
-```
+=== "Dancelight"
+
+    ```bash
+    wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancelight/dancelight-raw-specs.json
+    ```
 
 ## Setup the Systemd Service {: #setup-systemd-service }
 
@@ -83,10 +85,12 @@ sudo chown -R network_node_service /var/lib/network-data
 
 And finally, move the binary and the relay chain spec to the folder:
 
-```bash
-mv ./container-chain-template-*-node /var/lib/network-data && \
-mv ./dancelight-raw-specs.json /var/lib/network-data
-```
+=== "Dancelight"
+
+    ```bash
+    mv ./container-chain-template-*-node /var/lib/network-data && \
+    mv ./dancelight-raw-specs.json /var/lib/network-data
+    ```
 
 !!! note
     To keep all the necessary files grouped in the same directory, it is also recommended to copy your network's specification file there.
@@ -191,40 +195,42 @@ The following example deploys a fully functional full archive node for the [demo
 
 The raw chain specification file for the demo network is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain){target=\_blank}. Download the file and place it in the `/var/lib/network-data/` directory.
 
-```bash
-[Unit]
-Description="Network systemd service"
-After=network.target
-StartLimitIntervalSec=0
+=== "Dancelight"
 
-[Service]
-Type=simple
-Restart=on-failure
-RestartSec=10
-User=network_node_service
-SyslogIdentifier=network
-SyslogFacility=local7
-KillSignal=SIGHUP
-ExecStart=/var/lib/network-data/container-chain-frontier-node \
---chain=/var/lib/network-data/container-3001-raw-specs.json \
---rpc-port=9944 \
---name=para \
---state-pruning=archive \
---blocks-pruning=archive \
---base-path=/var/lib/network-data \
---bootnodes=/dns4/fraa-dancebox-3001-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p/12D3KooWQ9jVpatqmWS41Zf6PHncV4ZmEYvywifRTs9YVoz8HgTM \
--- \
---chain=/var/lib/network-data/dancelight-raw-specs.json \
---rpc-port=9945 \
---name=relay \
---sync=fast \
---bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
---bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
---bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+    ```bash
+    [Unit]
+    Description="Network systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
 
-[Install]
-WantedBy=multi-user.target
-```
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=network_node_service
+    SyslogIdentifier=network
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart=/var/lib/network-data/container-chain-frontier-node \
+    --chain=/var/lib/network-data/container-3001-raw-specs.json \
+    --rpc-port=9944 \
+    --name=para \
+    --state-pruning=archive \
+    --blocks-pruning=archive \
+    --base-path=/var/lib/network-data \
+    --bootnodes=/dns4/fraa-dancebox-3001-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p/12D3KooWQ9jVpatqmWS41Zf6PHncV4ZmEYvywifRTs9YVoz8HgTM \
+    -- \
+    --chain=/var/lib/network-data/dancelight-raw-specs.json \
+    --rpc-port=9945 \
+    --name=relay \
+    --sync=fast \
+    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
 
 ### Run Flags {: #run-flags }
 
