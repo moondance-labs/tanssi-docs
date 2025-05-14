@@ -7,7 +7,7 @@ template: index-page.html
 
 # Run a Tanssi Node
 
-Setting up a Tanssi Node is an important step to interact with and query the Tanssi network. You have two options for configuration: using _Docker_ or _Systemd._ Whichever path you choose, we provide step-by-step tutorials to guide you through the process.
+Setting up a Tanssi Node is an important step in interacting with and querying the Tanssi network. You have two options for configuration: using _Docker_ or _Systemd_. Whichever path you choose, we provide step-by-step tutorials to guide you through the process.
 
 ## Hardware Requirements
 
