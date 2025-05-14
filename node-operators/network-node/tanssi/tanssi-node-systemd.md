@@ -16,16 +16,16 @@ The article follows the good practice of running the service with its own non-ro
 
 To get started, you'll need access to a computer running an Ubuntu Linux OS with [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} enabled and root privileges. You will also need:
 
-- **Node binary files** - an Node requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`
+- **Node binary files** - a node requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`
 ``
 
-The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
+The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file by compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
 ## Check Landlock Support {: #check-landlock }
 
-Tanssi nodes use the Linux kernel's Landlock feature as a security measure to restrict its own access to system resources, limiting the damage if the application is compromised.
+Tanssi nodes use the Linux kernel's Landlock feature as a security measure to restrict access to system resources, limiting the damage if the application is compromised.
 
-Check the Landlock feature support in your system running the following command:
+Check the Landlock feature support in your system by running the following command:
 
 ```bash
 sudo dmesg | grep landlock || journalctl -kg landlock
@@ -110,7 +110,7 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/tanssi.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
 
 === "Dancelight"
 
@@ -137,7 +137,7 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
     --prometheus-external \
     --name=INSERT_YOUR_TANSSI_NODE_NAME \
     --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-    --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+    --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
     --state-pruning=archive \
     --blocks-pruning=archive \
     --database=paritydb \
@@ -152,10 +152,10 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
 
 The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--state-pruning=archive` - Keeps all state data, which is necessary for historical state queries
-- `--blocks-pruning=archive` - Keeps all blocks, necessary for historical block data
-- `--database=paritydb` - Uses ParityDB as the database backend, which is optimized for RPC node performance
-- `--unsafe-rpc-external` - Allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below)
+- **--state-pruning=archive** - keeps all state data, which is necessary for historical state queries
+- **--blocks-pruning=archive** - keeps all blocks, necessary for historical block data
+- **--database=paritydb** - uses ParityDB as the database backend, which is optimized for RPC node performance
+- **--unsafe-rpc-external** - allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below)
 
 !!! warning
     The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.

@@ -1,6 +1,6 @@
 ---
 title: Run a Tanssi Node Using Docker
-description: Learn how to set up and run a Node for Tanssi network using Docker to provide API endpoints for applications and users.
+description: Learn how to set up and run a node for Tanssi network using Docker to provide API endpoints for applications and users.
 icon: simple-docker
 ---
 
@@ -8,7 +8,7 @@ icon: simple-docker
 
 ## Introduction {: #introduction }
 
-In this guide, you'll learn how to spin up a Tanssi Node using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems. Nodes are crucial for the Tanssi ecosystem as they provide stable API endpoints that applications and users can connect to for chain data and transaction submission.
+In this guide, you'll learn how to spin up a Tanssi node using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems. Nodes are crucial for the Tanssi ecosystem as they provide stable API endpoints that applications and users can connect to for chain data and transaction submission.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -133,7 +133,7 @@ The first time your node spins up, the syncing process displays lots of log info
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
-When the syncing process is finished, your Node is ready to serve API requests.
+When the syncing process is finished, your node is ready to serve API requests.
 
 ## Testing Your Node {: #testing-your-rpc-node }
 
