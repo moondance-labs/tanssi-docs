@@ -1,16 +1,16 @@
 ---
-title: Run a Node on a Tanssi-Powered Network
-description: Learn how to set up and run a node on a Tanssi-powered network using Docker or Systemd, which allows you to host your own RPC endpoint for chain interaction.
+title: Run a Node
+description: Learn how to set up and run nodes for Tanssi and Tanssi-powered networks. This will allow you to host your own RPC endpoints for chain interaction.
 icon: octicons-globe-24
 template: index-page.html
 ---
 
-# Run a Network Node
+# Run a Node
 
-Setting up a network node is essential for interacting with your Tanssi-powered network, providing a secure and dedicated RPC endpoint. This section offers step-by-step guides to help you configure and manage your node effectively. Explore two different approaches for running your node:
+Setting up a network node is essential for interacting with Tanssi or your Tanssi-powered network, providing a secure and dedicated RPC endpoint. This section offers step-by-step guides to help you configure and manage different types of nodes effectively.
 
-- [**Using Docker**](/node-operators/network-node/rpc-docker/) - instructions to set up your node in a containerized environment for easy deployment and isolation
-- [**Using Systemd**](/node-operators/network-node/rpc-systemd/) - guidance for configuring your node as a service, enabling automated management and system integration
+- [**Tanssi Node**](/node-operators/network-node/tanssi) - a Tanssi node connects directly to the Tanssi network, allowing you to interact via RPC endpoint
+- [**Tanssi-powered Network Node**](/node-operators/network-node/tanssi-powered-network) - run a node for your Tanssi-powered network, enabling you to maintain your own RPC endpoint
 
 ## Explore This Section
 
