@@ -94,7 +94,7 @@ To generate and store on disk the session keys that will be referenced on the st
 === "Dancelight"
 
     ```bash
-    /var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
+    /var/lib/dancelight-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
     ```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
@@ -162,7 +162,7 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 You can view all available flags by running:
 
 ```bash
-/var/lib/tanssi-data/tanssi-relay --help
+/var/lib/dancelight-data/tanssi-relay --help
 ```
 
 ## Run the Service {: #run-the-service }

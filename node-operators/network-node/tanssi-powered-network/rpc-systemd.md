@@ -113,7 +113,7 @@ Now, you can open the file using your favorite text editor (vim, emacs, nano, et
 
 Note that the `ExecStart` command  has some parameters that need to be changed to match your specific network:
 
-- `Specification file` - replace `YOUR_NETWORK_SPECS_FILE_LOCATION` with your network's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/network-data/YOUR_FILENAME.json`, e.g., `/var/lib/network-data/spec-raw.json`
+- `Specification file` - replace `YOUR_NETWORK_SPECS_FILE_LOCATION` with your network's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/dancelight-data/YOUR_FILENAME.json`, e.g., `/var/lib/dancelight-data/spec-raw.json`
 --8<-- 'text/node-operators/network-node/bootnode-item.md'
 
 === "EVM-Compatible Network"
@@ -132,18 +132,18 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     SyslogIdentifier=network
     SyslogFacility=local7
     KillSignal=SIGHUP
-    ExecStart=/var/lib/network-data/container-chain-frontier-node \
+    ExecStart=/var/lib/dancelight-data/container-chain-frontier-node \
     --chain=YOUR_NETWORK_SPECS_FILE_LOCATION \
     --rpc-port=9944 \
     --name=para \
-    --base-path=/var/lib/network-data \
+    --base-path=/var/lib/dancelight-data \
     --state-pruning=archive \
     --blocks-pruning=archive \
     --database=paritydb \
     --unsafe-rpc-external \
     --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
     -- \
-    --chain=/var/lib/network-data/dancelight-raw-specs.json \
+    --chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
     --rpc-port=9945 \
     --name=relay \
     --sync=fast \
@@ -172,14 +172,14 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     SyslogIdentifier=network
     SyslogFacility=local7
     KillSignal=SIGHUP
-    ExecStart=/var/lib/network-data/container-chain-simple-node \
+    ExecStart=/var/lib/dancelight-data/container-chain-simple-node \
     --chain=YOUR_NETWORK_SPECS_FILE_LOCATION \
     --rpc-port=9944 \
     --name=para \
-    --base-path=/var/lib/network-data \
+    --base-path=/var/lib/dancelight-data \
     --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
     -- \
-    --chain=/var/lib/network-data/dancelight-raw-specs.json \
+    --chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
     --rpc-port=9945 \
     --name=relay \
     --sync=fast \
@@ -197,7 +197,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
 
 The following example deploys a fully functional full archive node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancebox with an ID of `3001`.
 
-The raw chain specification file for the demo network is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain){target=\_blank}. Download the file and place it in the `/var/lib/network-data/` directory.
+The raw chain specification file for the demo network is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain){target=\_blank}. Download the file and place it in the `/var/lib/dancelight-data/` directory.
 
 === "Dancelight"
 
@@ -215,16 +215,16 @@ The raw chain specification file for the demo network is required to run the nod
     SyslogIdentifier=network
     SyslogFacility=local7
     KillSignal=SIGHUP
-    ExecStart=/var/lib/network-data/container-chain-frontier-node \
-    --chain=/var/lib/network-data/container-3001-raw-specs.json \
+    ExecStart=/var/lib/dancelight-data/container-chain-frontier-node \
+    --chain=/var/lib/dancelight-data/container-3001-raw-specs.json \
     --rpc-port=9944 \
     --name=para \
     --state-pruning=archive \
     --blocks-pruning=archive \
-    --base-path=/var/lib/network-data \
+    --base-path=/var/lib/dancelight-data \
     --bootnodes=/dns4/fraa-dancebox-3001-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p/12D3KooWQ9jVpatqmWS41Zf6PHncV4ZmEYvywifRTs9YVoz8HgTM \
     -- \
-    --chain=/var/lib/network-data/dancelight-raw-specs.json \
+    --chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
     --rpc-port=9945 \
     --name=relay \
     --sync=fast \
@@ -245,13 +245,13 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 === "EVM-compatible Network"
 
     ```bash
-    /var/lib/network-data/container-chain-frontier-node --help
+    /var/lib/dancelight-data/container-chain-frontier-node --help
     ```
 
 === "Simple Substrate Network"
 
     ```bash
-    /var/lib/network-data/container-chain-simple-node --help
+    /var/lib/dancelight-data/container-chain-simple-node --help
     ```
 
 ## Run the Service {: #run-the-service }
