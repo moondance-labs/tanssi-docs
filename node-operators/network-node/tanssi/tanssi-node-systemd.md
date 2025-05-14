@@ -175,7 +175,7 @@ systemctl enable tanssi.service && \
 systemctl start tanssi.service
 ```
 
-You can verify that the service is up and running correctly running:
+You can verify that the service is up and running correctly:
 
 ```bash
 systemctl status tanssi.service
