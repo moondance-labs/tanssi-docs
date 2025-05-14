@@ -11,7 +11,7 @@ Setting up a Tanssi Node is an important step to interact with and query the Tan
 
 ## Hardware Requirements
 
-To run a Tanssi Node successfully, appropriate hardware is essential. A performant setup ensures reliable service and quick responses to queries.
+Appropriate hardware is essential for running a Tanssi node successfully. A performant setup ensures reliable service and quick response to queries.
 
 Recommended hardware:
 
