@@ -18382,9 +18382,10 @@ A Docker image combines the binary corresponding to the latest stable release of
 
 The following command to pull the Docker image:
 
-```bash
-docker pull {{ networks.dancelight.operator_docker_image }}
-```
+=== "Dancelight"
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
 
 The command will download and extract the image and show the status upon execution:
 
@@ -18451,57 +18452,11 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
 
-=== "Generic"
+=== "Dancelight"
 
     ```bash
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain dancelight \
-    --base-path /data \
-    --name INSERT_YOUR_TANSSI_NODE_NAME \
-    --node-key-file /data/node-key \
-    --rpc-port 9944 \
-    --prometheus-port 9615 \
-    --prometheus-external \
-    --listen-addr /ip4/0.0.0.0/tcp/30333 \
-    --public-addr /ip4/YOUR_IP_ADDRESS/tcp/30333 \
-    --state-pruning archive \
-    --blocks-pruning archive \
-    --database paritydb \
-    --unsafe-rpc-external \
-    --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
-    ```
-
-=== "Intel Skylake"
-
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain dancelight \
-    --base-path /data \
-    --name INSERT_YOUR_TANSSI_NODE_NAME \
-    --node-key-file /data/node-key \
-    --rpc-port 9944 \
-    --prometheus-port 9615 \
-    --prometheus-external \
-    --listen-addr /ip4/0.0.0.0/tcp/30333 \
-    --public-addr /ip4/YOUR_IP_ADDRESS/tcp/30333 \
-    --state-pruning archive \
-    --blocks-pruning archive \
-    --database paritydb \
-    --unsafe-rpc-external \
-    --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
-    ```
-
-=== "AMD Zen3"
-
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
     {{ networks.dancelight.operator_docker_image }} \
     --chain dancelight \
     --base-path /data \
@@ -18540,16 +18495,16 @@ Additionally, these RPC-specific flags are important for your setup:
 - `--state-pruning=archive` - Keeps all state data, which is necessary for historical state queries
 - `--blocks-pruning=archive` - Keeps all blocks, necessary for historical block data
 - `--database=paritydb` - Uses ParityDB as the database backend, which is optimized for RPC node performance
-- `--unsafe-rpc-external` - Allows external connections to the RPC server, which is required for an RPC node
+- `--unsafe-rpc-external` - Allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below).
+
+!!! warning
+    The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.
 
 You can view all available flags by running:
 
 ```bash
 docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
 ```
-
-!!! warning
-    The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.
 
 ## Syncing Your Node {: #syncing-your-node }
 
@@ -18627,30 +18582,12 @@ To get started, download the latest binary release and make it executable by run
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
 
-=== "Generic"
+=== "Dancelight"
 
     ```bash
     wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay && \
     wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker && \
     wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker && \
-    chmod +x ./tanssi-relay*
-    ```
-
-=== "Intel Skylake"
-
-    ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay-execute-worker && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay-prepare-worker && \
-    chmod +x ./tanssi-relay*
-    ```
-
-=== "AMD Zen3"
-
-    ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-znver3 -O tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-relay-execute-worker && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
@@ -18764,16 +18701,16 @@ Additionally, these RPC-specific flags are important for your setup:
 - `--state-pruning=archive` - Keeps all state data, which is necessary for historical state queries
 - `--blocks-pruning=archive` - Keeps all blocks, necessary for historical block data
 - `--database=paritydb` - Uses ParityDB as the database backend, which is optimized for RPC node performance
-- `--unsafe-rpc-external` - Allows external connections to the RPC server, which is required for an RPC node
+- `--unsafe-rpc-external` - Allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below).
+
+!!! warning
+    The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.
 
 You can view all available flags by running:
 
 ```bash
 /var/lib/tanssi-data/tanssi-relay --help
 ```
-
-!!! warning
-    The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.
 
 ## Run the Service {: #run-the-service }
 
