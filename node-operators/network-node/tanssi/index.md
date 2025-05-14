@@ -15,7 +15,7 @@ To run a Tanssi Node successfully, appropriate hardware is essential. A performa
 
 Recommended hardware:
 
-- **Recommended Configuration** - Bare metal hardware running linux debian or ubuntu
+- **Recommended Configuration** - bare metal hardware running Linux Debian or Ubuntu
 - **Recommended CPUs** - Intel Ice Lake or newer (Xeon or Core series) or AMD Zen3 or newer (EPYC or Ryzen). Eight Physical cores @ 3.4 Ghz with hyperthreading disabled (SMT for AMD processors)
 - **Recommended NVMe** - 500 GB NVMe SSD
 - **Recommended RAM** - 32 GB ECC RAM
