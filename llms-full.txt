@@ -17214,7 +17214,7 @@ Blockchain technology relies on [public-private](https://en.wikipedia.org/wiki/P
 
 ## Identity and Operations { : #identity-and-operations }
 
-Tanssi utilizes the Substrate framework, which supports cryptographic schemes like Sr25519 and Ed25519. Sr25519 is known for security and efficiency, while Ed25519 excels in speed. Within Tanssi, Substrate accounts, identified by public keys, are essential for participants to sign transactions and interact with the protocol's Substrate components.
+Tanssi is built with the Substrate framework, which supports cryptographic schemes like Sr25519 and Ed25519. Sr25519 is known for security and efficiency, while Ed25519 excels in speed. Within Tanssi, Substrate accounts, identified by public keys, are essential for participants to sign transactions and interact with the protocol's Substrate components.
 
 Node operators on Tanssi require a Substrate account to record their activities, including operators who secure the network and sequencers who produce blocks. This account also tracks rewards, with session keys mapped to it for enhanced security.
 
