@@ -38,21 +38,27 @@ Running an Node requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
-```bash
-mkdir /var/lib/tanssi-data
-```
+=== "Dancelight"
+
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
 
-```bash
-chown INSERT_DOCKER_USER /var/lib/tanssi-data
-```
+=== "Dancelight"
+
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/dancelight-data
+    ```
 
 Or run the following command if you want to run the node with the current logged-in user:
 
-```bash
-sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
-```
+=== "Dancelight"
+
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
+    ```
 
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
@@ -64,7 +70,7 @@ To generate and store on disk the session keys that will be referenced on the st
 === "Dancelight"
 
     ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
     ```
@@ -82,7 +88,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 === "Dancelight"
 
     ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     {{ networks.dancelight.operator_docker_image }} \
     --chain dancelight \
@@ -104,8 +110,6 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 ### Run Flags {: #run-flags }
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
-
---8<-- 'text/node-operators/network-node/run-flags.md'
 
 Additionally, these RPC-specific flags are important for your setup:
 

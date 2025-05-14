@@ -73,23 +73,27 @@ adduser network_node_service --system --no-create-home
 
 Create a directory to store the required files and data:
 
-```bash
-mkdir /var/lib/network-data
-```
+=== "Dancelight"
+
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-```bash
-sudo chown -R network_node_service /var/lib/network-data
-```
+=== "Dancelight"
+
+    ```bash
+    sudo chown -R network_node_service /var/lib/dancelight-data
+    ```
 
 And finally, move the binary and the relay chain spec to the folder:
 
 === "Dancelight"
 
     ```bash
-    mv ./container-chain-template-*-node /var/lib/network-data && \
-    mv ./dancelight-raw-specs.json /var/lib/network-data
+    mv ./container-chain-template-*-node /var/lib/dancelight-data && \
+    mv ./dancelight-raw-specs.json /var/lib/dancelight-data
     ```
 
 !!! note

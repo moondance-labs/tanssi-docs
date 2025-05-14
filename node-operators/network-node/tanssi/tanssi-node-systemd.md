@@ -65,29 +65,37 @@ adduser tanssi_service --system --no-create-home
 
 2. Create a directory to store the required files and data:
 
-```bash
-mkdir /var/lib/tanssi-data
-```
+=== "Dancelight"
+
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-```bash
-chown -R tanssi_service /var/lib/tanssi-data
-```
+=== "Dancelight"
+
+    ```bash
+    chown -R tanssi_service /var/lib/dancelight-data
+    ```
 
 4. Move the binaries to the folder:
 
-```bash
-mv ./tanssi-relay* /var/lib/tanssi-data
-```
+=== "Dancelight"
+
+    ```bash
+    mv ./tanssi-relay* /var/lib/dacelight-data
+    ```
 
 ### Generate the Node Key {: #generate-node-key }
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-/var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
-```
+=== "Dancelight"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
+    ```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
@@ -120,9 +128,9 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
     SyslogFacility=local7
     KillSignal=SIGHUP
     LimitNOFILE=100000
-    ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
+    ExecStart=/var/lib/dancelight-data/tanssi-relay --chain=dancelight \
     --base-path=/var/lib/tanssi-data/ \
-    --node-key-file /var/lib/tanssi-data/node-key \
+    --node-key-file /var/lib/dancelight-data/node-key \
     --rpc-port=9944 \
     --prometheus-port=9615 \
     --prometheus-external \
@@ -142,8 +150,6 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
 ### Run Flags {: #run-flags }
 
 The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
-
---8<-- 'text/node-operators/network-node/run-flags.md'
 
 Additionally, these RPC-specific flags are important for your setup:
 
