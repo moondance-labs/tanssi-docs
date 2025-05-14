@@ -2,5 +2,5 @@ title: Tanssi-powered Network Node
 hide: false
 nav:
   - index.md
-  - "Using Docker": "rpc-docker.md"
-  - "Using Systemd": "rpc-systemd.md"
+  - 'Using Docker': 'rpc-docker.md'
+  - 'Using Systemd': 'rpc-systemd.md'

@@ -114,7 +114,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 - `--state-pruning=archive` - Keeps all state data, which is necessary for historical state queries
 - `--blocks-pruning=archive` - Keeps all blocks, necessary for historical block data
 - `--database=paritydb` - Uses ParityDB as the database backend, which is optimized for RPC node performance
-- `--unsafe-rpc-external` - Allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below).
+- `--unsafe-rpc-external` - Allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below)
 
 !!! warning
     The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.

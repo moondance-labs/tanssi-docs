@@ -16,7 +16,8 @@ The article follows the good practice of running the service with its own non-ro
 
 To get started, you'll need access to a computer running an Ubuntu Linux OS with [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} enabled and root privileges. You will also need:
 
-- **Node binary files** - an Node requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`.
+- **Node binary files** - an Node requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`
+``
 
 The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
@@ -154,7 +155,7 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 - `--state-pruning=archive` - Keeps all state data, which is necessary for historical state queries
 - `--blocks-pruning=archive` - Keeps all blocks, necessary for historical block data
 - `--database=paritydb` - Uses ParityDB as the database backend, which is optimized for RPC node performance
-- `--unsafe-rpc-external` - Allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below).
+- `--unsafe-rpc-external` - Allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below)
 
 !!! warning
     The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.

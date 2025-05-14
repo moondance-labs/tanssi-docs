@@ -7,7 +7,7 @@ template: index-page.html
 
 # Run a Node on a Tanssi-Powered Network
 
-Setting up a network node is essential for interacting with your Tanssi-powered network, providing a secure and dedicated RPC endpoint. This section offers step-by-step guides to help you configure and manage your node effectively. Explore two different approaches for running your node:
+Setting up a network node is essential for interacting with your Tanssi-powered network and providing a secure and dedicated RPC endpoint. This section offers step-by-step guides to help you configure and manage your node effectively. Explore two different approaches for running your node:
 
 - [**Using Docker**](/node-operators/network-node/rpc-docker/) - instructions to set up your node in a containerized environment for easy deployment and isolation
 - [**Using Systemd**](/node-operators/network-node/rpc-systemd/) - guidance for configuring your node as a service, enabling automated management and system integration
