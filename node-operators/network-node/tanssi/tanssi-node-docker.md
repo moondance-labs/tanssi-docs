@@ -76,7 +76,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-=== "Generic"
+=== "Dancelight"
 
     ```bash
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
