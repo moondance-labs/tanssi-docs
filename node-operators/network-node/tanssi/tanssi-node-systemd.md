@@ -42,7 +42,7 @@ To get started, download the latest binary release and make it executable by run
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-=== "Generic"
+=== "Dancelight"
 
     ```bash
     wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay && \
