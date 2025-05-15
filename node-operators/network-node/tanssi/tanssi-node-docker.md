@@ -34,7 +34,7 @@ The command will download and extract the image and show the status upon executi
 
 ### Set Up the Data Directory {: #set-up-data-directory }
 
-Running an node requires syncing with the Tanssi chain and storing its state.
+Running a node requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
