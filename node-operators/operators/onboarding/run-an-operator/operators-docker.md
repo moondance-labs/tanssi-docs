@@ -73,7 +73,7 @@ docker run --network="host" -v "/var/lib/tanssi-data:/data" \
 
 To spin up your node, you must run the Docker image with the `docker run` command. 
 
-Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_IP_ADDRESS` with your public IP address.
+Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 

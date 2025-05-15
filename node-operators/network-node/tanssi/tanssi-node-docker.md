@@ -1,6 +1,6 @@
 ---
 title: Run a Tanssi Node Using Docker
-description: Learn how to set up and run a Node for Tanssi network using Docker to provide API endpoints for applications and users.
+description: Learn how to set up and run a node for Tanssi network using Docker to provide API endpoints for applications and users.
 icon: simple-docker
 ---
 
@@ -8,7 +8,7 @@ icon: simple-docker
 
 ## Introduction {: #introduction }
 
-In this guide, you'll learn how to spin up a Tanssi Node using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems. Nodes are crucial for the Tanssi ecosystem as they provide stable API endpoints that applications and users can connect to for chain data and transaction submission.
+In this guide, you'll learn how to spin up a Tanssi node using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems. Nodes are crucial for the Tanssi ecosystem as they provide stable API endpoints that applications and users can connect to for chain data and transaction submission.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -16,11 +16,11 @@ In this guide, you'll learn how to spin up a Tanssi Node using the official imag
 
 ### Pull the Docker Image {: #pull-docker-image }
 
-A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi node requires and the binary file itself.
+For every release, a Docker image is built and published. It contains all the necessary dependencies a Tanssi node requires and the binary file itself.
 
 A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the Tanssi orchestrator specification file.
 
-The following command to pull the Docker image:
+Run the following command to pull the Docker image:
 
 === "Dancelight"
 
@@ -34,7 +34,7 @@ The command will download and extract the image and show the status upon executi
 
 ### Set Up the Data Directory {: #set-up-data-directory }
 
-Running an Node requires syncing with the Tanssi chain and storing its state.
+Running a node requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
@@ -65,7 +65,7 @@ Or run the following command if you want to run the node with the current logged
 
 ### Generate the Node Key {: #generate-node-key }
 
-To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+To generate and store on disk the session keys that will be referenced in the start-up command, run the following command:
 
 === "Dancelight"
 
@@ -81,7 +81,7 @@ To generate and store on disk the session keys that will be referenced on the st
 
 To spin up your node, you must run the Docker image with the `docker run` command.
 
-Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_IP_ADDRESS` with your public IP address.
+Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
@@ -99,7 +99,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
     --prometheus-port 9615 \
     --prometheus-external \
     --listen-addr /ip4/0.0.0.0/tcp/30333 \
-    --public-addr /ip4/YOUR_IP_ADDRESS/tcp/30333 \
+    --public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
     --state-pruning archive \
     --blocks-pruning archive \
     --database paritydb \
@@ -111,10 +111,10 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `YOUR_
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--state-pruning=archive` - Keeps all state data, which is necessary for historical state queries
-- `--blocks-pruning=archive` - Keeps all blocks, necessary for historical block data
-- `--database=paritydb` - Uses ParityDB as the database backend, which is optimized for RPC node performance
-- `--unsafe-rpc-external` - Allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below)
+- **--state-pruning=archive** - keeps all state data, which is necessary for historical state queries
+- **--blocks-pruning=archive** - keeps all blocks, necessary for historical block data
+- **--database=paritydb** - uses ParityDB as the database backend, which is optimized for RPC node performance
+- **--unsafe-rpc-external** - allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below)
 
 !!! warning
     The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.
@@ -133,7 +133,7 @@ The first time your node spins up, the syncing process displays lots of log info
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
-When the syncing process is finished, your Node is ready to serve API requests.
+When the syncing process is finished, your node is ready to serve API requests.
 
 ## Testing Your Node {: #testing-your-rpc-node }
 
