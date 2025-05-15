@@ -36,7 +36,7 @@ If you correctly installed the [Symbiotic CLI](#set-up-the-cli) and you want to 
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py register-operator --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
+    python3 symb.py --chain sepolia register-operator --ledger --ledger-account INSERT_OPERATOR_ADDRESS 
     ```
 
 If you want to sign the transaction directly using the account private key, then run the following command, replacing the `INSERT_PRIVATE_KEY` parameter:
@@ -50,7 +50,7 @@ If you want to sign the transaction directly using the account private key, then
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py register-operator --private-key INSERT_PRIVATE_KEY --chain sepolia
+    python3 symb.py --chain sepolia register-operator --private-key INSERT_PRIVATE_KEY
     ```
 
 !!! warning
@@ -131,7 +131,7 @@ You can also verify your registration status using the Symbiotic CLI running the
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py isop INSERT_OPERATOR_ADDRESS --chain sepolia
+    python3 symb.py --chain sepolia isop INSERT_OPERATOR_ADDRESS 
     ```
 
 And the output looks like:
