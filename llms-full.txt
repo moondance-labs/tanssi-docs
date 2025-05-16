@@ -17576,36 +17576,36 @@ icon: octicons-link-24
 
 ## Introduction {: #introduction }
 
-In traditional blockchain environments, assets and functionalities are restricted to their respective chains, creating silos that limit interoperability and asset utility. The Tanssi-Ethereum bridge breaks these limitations by enabling seamless cross-chain operations that benefit both ecosystems.
+Traditional blockchains often create silos, limiting asset and functional interoperability. The Tanssi-Ethereum bridge overcomes these limitations by enabling seamless cross-chain operations, benefiting both ecosystems.
 
-Consider this bridge not merely an asset exchange mechanism but a secure, standardized protocol allowing direct interaction between different blockchain networks without reliance on centralized intermediaries. This emphasis on eliminating trusted third parties is fundamental to its design, setting it apart from bridge solutions that might introduce central points of failure or control.
+The bridge is more than an asset exchange—it’s a secure, standardized protocol for direct cross-chain interaction without centralized intermediaries. Its trustless design avoids the risks of central points of failure that many other bridges face.
 
-This article provides a comprehensive overview of the Tanssi-Ethereum bridge, a crucial infrastructure component enabling interoperability between the Tanssi and Ethereum blockchain ecosystems. By reading this article, you will gain an understanding of the bridge's architecture and core functionalities, such as operator management, economic operations, slashing, and, importantly, asset transfer.
+This article introduces the Tanssi-Ethereum bridge as a key interoperability layer between the two networks. You’ll learn how it works, including its architecture, operator management, economic model, slashing mechanisms, and asset transfers.
 
-You will also learn about the underlying consensus mechanisms (BEEFY on Tanssi and Beacon Chain on Ethereum) that ensure secure and trustless cross-chain communication, the roles of provers, verifiers, and relayers, and the detailed flow of asset transfers in both directions (Ethereum to Tanssi and Tanssi to Ethereum). This knowledge will be valuable for anyone who understands how assets and messages can seamlessly move between these two essential blockchain networks without relying on centralized intermediaries.
+You'll also learn about the consensus layers that secure communication (BEEFY on Tanssi and the Ethereum Beacon Chain), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
 
 ## Core Functions { : #core-functions }
 
 The bridge facilitates several critical operations between Tanssi and Ethereum:
 
-- **Operator Management** - operator stake information is maintained on Ethereum via the [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/#tanssi-symbiotic){target=\_blank} restaking protocol. This protocol provides stake information to Tanssi through the bridge. Tanssi then utilizes this information to select active operators for each era, ensuring a decentralized and economically aligned set of operators
-- **Economic Operations** - distributing [rewards](/learn/tanssi/external-security-providers/symbiotic/#rewards){target=\_blank} from Tanssi to Ethereum stakers and operators
-- **Slashing** - processing [slashing requests](/learn/tanssi/external-security-providers/symbiotic/#slashing){target=\_blank} from Tanssi to Ethereum when operators violate protocol rules
-- **Asset Transfer** - facilitating bilateral asset transfers between Tanssi, Tanssi-powered networks, and Ethereum without centralized intermediaries. This significantly enhances liquidity across these ecosystems
+- **Operator Management** - maintains operator stake information on Ethereum via the [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/#tanssi-symbiotic){target=\_blank} protocol, providing this data to Tanssi for selecting active, decentralized, and economically aligned operators each era
+- **Economic Operations** - distributes [rewards](/learn/tanssi/external-security-providers/symbiotic/#rewards){target=\_blank} from Tanssi to Ethereum stakers and operators
+- **Slashing** - processes [slashing requests](/learn/tanssi/external-security-providers/symbiotic/#slashing){target=\_blank} from Tanssi to Ethereum when operators violate protocol rules
+- **Asset Transfer** - enables bilateral, trustless asset transfers between Tanssi and Ethereum, enhancing liquidity.
 
 This interoperability expands the potential of decentralized applications and significantly enhances the liquidity and usability of blockchain assets.
 
 ## The Bridge Architecture { : #bridge-architecture }
 
-It is important to analyze the bridge's core components, provers, verifiers, and relayers, to understand its functionality from a consensus standpoint.Provers generate cryptographic proofs, verifiers validate these proofs, and relayers handle the data movement between the connected chains.
+Understanding the bridge's consensus functionality requires examining its core components: provers, verifiers, and relayers. Provers generate cryptographic proofs, verifiers validate them, and relayers move data between chains.
 
-Key examples of provers include the [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} module on Tanssi and the Beacon Chain consensus on Ethereum. These components produce the necessary consensus data, which is then transmitted by specialized relayers.
+Provers include Tanssi's [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} module and Ethereum's Beacon Chain consensus. They produce consensus data transmitted by specialized relayers.
 
-Each blockchain maintains a [light client](https://ethereum.org/en/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other chain. These light clients act as on-chain verifiers, crucial for confirming the legitimacy of data from the opposing network. Consider a message sent from Tanssi to Ethereum: the Tanssi side generates compact proofs confirming that certain events or state changes are valid based on Tanssi's consensus rules. The light client on Ethereum verifies these proofs before allowing any subsequent action. This approach is highly efficient as it eliminates the need for the receiving chain to process the whole state of the sending chain, relying instead on verifying concise cryptographic proofs.
+Each chain runs a [light client](https://ethereum.org/en/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other, acting as an on-chain verifier for data legitimacy. For instance, when Tanssi sends a message to Ethereum, it generates compact proofs of events or state changes based on its consensus. Ethereum's light client verifies these proofs before actioning. This efficient method avoids processing the entire sending chain's state, relying instead on concise cryptographic proof verification.
 
 ### Tanssi to Ethereum Consensus  { : #tanssi-ethereum-consensus }
 
-The BEEFY (Bridge Efficiency Enabling Finality Yielder) consensus protocol operates as a crucial prover from the Tanssi side of the bridge. It was specifically designed to facilitate efficient and trustless bridging to external blockchains like Ethereum that were not natively built with interoperability features in mind.
+BEEFY (Bridge Efficiency Enabling Finality Yielder) Tanssi's consensus protocol act as prover. It's designed for efficient, trustless bridging to chains like Ethereum not natively built for interoperability.
 
 ```mermaid
 sequenceDiagram
@@ -17627,7 +17627,7 @@ sequenceDiagram
 
 ### Ethereum to Tanssi Consensus { : #ethereum-tanssi-consensus }
 
-When bridging from Ethereum to Tanssi, the Ethereum Beacon Chain's consensus mechanism acts as the prover. The core idea is to provide Tanssi's on-chain light client with undeniable proof of Ethereum's finalized state, including specific events or messages destined for Tanssi.
+For Ethereum-to-Tanssi bridging, Ethereum's Beacon Chain consensus is the prover. It provides Tanssi's on-chain light client with proof of Ethereum's finalized state, including events or messages for Tanssi.
 
 ```mermaid
 sequenceDiagram
@@ -17646,15 +17646,15 @@ sequenceDiagram
     deactivate Tanssi_EthClient
 ```
 
-Viewing the bridge from a messaging perspective reveals how it manages cross-chain communication, leveraging the underlying consensus verification layer for security. Dedicated relayers are responsible for message transport: the Execution Relay handles transfers from Ethereum to Tanssi, and the Tanssi Relay manages the flow from Tanssi to Ethereum.
+From a messaging perspective, the bridge uses its consensus verification layer for secure cross-chain communication. Dedicated relayers transport messages: the Execution Relay for Ethereum to Tanssi, and the Tanssi Relay for Tanssi to Ethereum.
 
-Crucially, these relayers are stateless. Their role is limited to submitting proofs. They cannot forge messages or misappropriate funds because each proof they relay is subject to rigorous, independent re-validation on-chain by the consensus mechanism. This architecture supports multiple relayers working concurrently, improving system responsiveness without concentrating power or granting special privileges to any single relayer.
+Relayers are stateless and only submit proofs. They cannot forge messages or steal funds, as each proof is re-validated on-chain by the consensus mechanism. Multiple concurrent relayers improve responsiveness without centralizing power.
 
-The `Gateway` contract is Ethereum's central point for messaging. This contract receives messages originating from Tanssi (delivered via the relayers). It validates these incoming messages by checking the associated consensus proofs before executing the appropriate operations, such as unlocking/minting tokens or invoking other smart contracts.
+Ethereum's `Gateway` contract is the central messaging point. It receives messages from Tanssi via relayers, validates them using consensus proofs, and then executes operations like token minting/unlocking or smart contract calls.
 
 ### Ethereum to Tanssi Inbound Messages { : #ethereum-tanssi-messages }
 
-This flow describes messages originating on Ethereum and destined for Tanssi. It utilizes Ethereum's Beacon Chain consensus for proof and a dedicated "Execution Relay" (or "Beacon Relay").
+This describes messages from Ethereum to Tanssi, using Ethereum's Beacon Chain consensus for proofs and an Execution Relay (or Beacon Relay).
 
 ```mermaid
 sequenceDiagram
@@ -17676,7 +17676,7 @@ sequenceDiagram
 
 ### Tanssi to Ethereum Outbound Messages { : #tanssi-ethereum-messages }
 
-This flow describes messages originating on Tanssi and destined for Ethereum. It utilizes the BEEFY consensus to prove Tanssi's state and a dedicated "Tanssi Relay" for message transmission.
+This describes messages from Tanssi to Ethereum, using BEEFY consensus to prove Tanssi's state and a Tanssi Relay for transmission.
 
 ```mermaid
 sequenceDiagram
@@ -17696,34 +17696,32 @@ sequenceDiagram
     deactivate Eth_Gateway
 ```
 
-Outbound communications originating from Ethereum are managed by the `Gateway`. When an Ethereum transaction initiates a cross-chain transfer, the `Gateway` logs a specific event and, if needed, locks tokens, effectively packaging the message and data for relay to Tanssi. Two distinct queues efficiently handle message processing on the Tanssi side.
+The `Gateway` manages Ethereum's outbound communications. For cross-chain transfers, it logs an event, locks tokens if necessary, and packages data for relay to Tanssi. Tanssi uses two queues for efficient message processing.
 
-The `Outbound Queue` is used for messages heading to Ethereum. It gathers messages, bundles them, and incorporates a cryptographic commitment – a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank} of the bundled messages – into the header of each block. This commitment is crucial as it enables the Ethereum light client to verify the inclusion of these messages efficiently using the established consensus proofs.
+The `Outbound Queue` handles messages to Ethereum. It bundles them and adds a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank} (cryptographic commitment) to each block header. This allows Ethereum's light client to efficiently verify message inclusion using consensus proofs.
 
-The `Inbound Queue` plays a key role in inbound messages arriving from Ethereum. It receives proofs of Ethereum events and verifies their legitimacy by interacting with the on-chain Ethereum light client. Following successful verification, these confirmed events are interpreted and dispatched as internal instructions within the Tanssi environment. This layered messaging architecture, secured by the underlying consensus verification, guarantees that all cross-chain interactions are trustless.
+The `Inbound Queue` processes messages from Ethereum. It receives and verifies proofs of Ethereum events via Tanssi's on-chain Ethereum light client. Verified events become internal instructions in Tanssi. This layered, consensus-secured architecture ensures trustless cross-chain interactions.
 
 ## Token Transfers Flow {: #token-transfers-flow }
 
-After covering the architecture and security basics, it’s helpful to understand **how the Bridge moves assets and messages between chains**. In practice, the flow involves locking or minting assets on one side and performing a complementary action on the other side, always underpinned by verified proofs of action. Below, we describe the typical sequence for each direction of transfer.
+This section explains how the bridge moves assets and messages. It involves locking/minting assets on one chain and a complementary action on the other, secured by verified proofs. The following describes the typical transfer sequences.
 
-The process involved, in general terms, is the following.
-
-1. **Initiation (Source Chain)** - the user initiates asset transfer
+1. **Initiation (Source Chain)** - user initiates asset transfer
 2. **Relay Proof** - off-chain relayers pick up the event and submit cryptographic proofs to the destination chain
 3. **Verification (Destination Chain)** - on-chain light clients independently verify submitted proofs
 4. **Execution** - upon successful verification, tokens are minted/unlocked on the destination chain
 
 ### Ethereum to Tanssi Transfer
 
-This flow outlines how assets move from Ethereum to Tanssi to become derivate assets.
+This outlines asset movement from Ethereum to Tanssi (as derivative assets).
 
-**1. Lock on Ethereum** - the user interacts with the designated Bridge contract on Ethereum, depositing their asset. The contract securely locks these tokens and emits a corresponding event containing details of the deposit
+**1. Lock on Ethereum** - a user deposits assets into Ethereum's Bridge contract. The contract locks the tokens and emits a deposit event
 
-**2. Relay Proof to Tanssi** - an off-chain relayer service monitors the Ethereum Bridge contract for these events. Upon detecting a finalized event, the relayer constructs a proof package. This typically includes the relevant Ethereum block header (proving finality) and a Merkle proof demonstrating that the specific deposit event occurred within that block. The relayer submits this proof package to the `Inbound Queue` on the Tanssi Bridge
+**2. Relay Proof to Tanssi** - an off-chain relayer detects the finalized event, creates a proof package (including Ethereum block header and Merkle proof of the deposit), and submits it to the Tanssi Bridge's `Inbound Queue`
 
-**3. Verify on Tanssi** - the `EthereumClient` pallet, acting as an on-chain light client within the Tanssi Bridge, receives the proof package from the `Inbound Queue`. It verifies the finality and validity of the Ethereum block header and checks the Merkle proof to confirm the deposit event's authenticity
+**3. Verify on Tanssi** - Tanssi Bridge's `EthereumClient` module (an on-chain light client) receives the proof from the `Inbound Queue`. It verifies the Ethereum block header's finality/validity and the Merkle proof's authenticity
 
-**4. Mint on Tanssi** - once the `EthereumClient` confirms the proof's validity, the `Inbound Queue` is notified. The `Inbound Queue` mint the asset on the Tanssi network
+**4. Mint on Tanssi** - upon successful verification by the `EthereumClient`, the `Inbound Queue` is notified and mints the corresponding asset on Tanssi
 
 ```mermaid
 sequenceDiagram
@@ -17757,17 +17755,17 @@ sequenceDiagram
 
 This flow describes the reverse process, moving assets from Tanssi to Ethereum.
 
-**1. Initiate and Commit on Tanssi** - the user initiates the action on Tanssi, and an `XCM` message containing the transfer details is generated and sent to the Bridge `Outbound Queue`. The `Outbound Queue` processes this message, bundles the payload, and commits its Merkle root to the Tanssi Bridge, the network’s block header. This root cryptographically represents all outgoing messages in that block
+**1. Initiate and Commit on Tanssi** - user initiates a transfer on Tanssi. A message with transfer details goes to the Bridge's `Outbound Queue`. The queue processes it, bundles the payload, and commits its Merkle root to the Tanssi block header, representing all outgoing messages in that block
 
-**2. Relay Proof to Ethereum** - an off-chain relayer monitors the Tanssi Bridge for finalized blocks containing relevant `Outbound Queue` Merkle roots. The relayer retrieves the necessary proof components: typically a BEEFY commitment (a signed statement about finalized Tanssi block headers) and a Merkle proof showing that the specific user's transfer payload is included under the committed `Outbound Queue` root
+**2. Relay Proof to Ethereum** - an off-chain relayer monitors Tanssi for finalized blocks with `Outbound Queue` Merkle roots. It retrieves proofs: a BEEFY commitment (signed statement of finalized Tanssi block headers) and a Merkle proof of the user's transfer payload under the committed root
 
-**3. Submit Commitment in Ethereum** - the relayer submits the BEEFY commitment and the Merkle proof to the `Gateway` contract on the Ethereum network
+**3. Submit Commitment in Ethereum** - the relayer submits the BEEFY commitment and Merkle proof to Ethereum's `Gateway` contract
 
-**4. Verify on Ethereum** - the `Beefy Client` contract on Ethereum (an on-chain light client for Tanssi consensus) receives the BEEFY commitment from the `Gateway`. It verifies the commitment's validity, checking the signatures
+**4. Verify on Ethereum** - Ethereum's Beefy Client contract (Tanssi's on-chain light client) receives the BEEFY commitment from the `Gateway` and verifies its validity (including signatures)
 
-**5. Validate Payload** - once the commitment is verified, the `Gateway` validates the submitted Merkle proof for the user's specific action payload
+**5. Validate Payload** - after commitment verification, the `Gateway` validates the Merkle proof for the user's payload
 
-**6. Execute on Ethereum** - upon successfully verifying the BEEFY commitment and the Merkle proof, the `Gateway` contract proceeds with execution. Typically, it involves interacting with the main Bridge contract to release the initially locked asset and transfer it to the recipient's Ethereum address. Alternatively, depending on the message payload, it might execute a specified call on a target contract on Ethereum
+**6. Execute on Ethereum** - with both proofs verified, the `Gateway` contract executes the action, usually releasing locked assets via the main Bridge contract to the recipient or executing a target contract call on Ethereum
 
 The following diagram illustrates the initiation and commitment phase of the asset transfer process on the Tanssi side.
 
@@ -17781,11 +17779,11 @@ sequenceDiagram
 
     User->>TAH: 1. Initiate Transfer & Deposit Asset
     activate TAH
-    TAH->>TBP: Send XCM Payload to Outbound Queue
+    TAH->>TBP: Send message to Outbound Queue
     deactivate TAH
 
     activate TBP
-    Note over TBP: Process Payload, Bundle, and<br/>Commit Merkle Root to Tanssi Header
+    Note over TBP: Process message, Bundle, and<br/>Commit Merkle Root to Tanssi Header
     deactivate TBP
 
     Relayer->>Relayer: 2. Observe Tanssi Header /<br/>BEEFY Commitment & Get Proof
