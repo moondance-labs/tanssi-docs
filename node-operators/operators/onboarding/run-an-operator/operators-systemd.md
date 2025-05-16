@@ -121,7 +121,7 @@ You can create the file by running the following command:
 sudo touch /etc/systemd/system/tanssi.service
 ```
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
 
 ```bash
 [Unit]
@@ -147,7 +147,7 @@ ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
   --prometheus-external \
   --name=INSERT_YOUR_TANSSI_NODE_NAME \
   --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-  --public-addr=/ip4/YOUR_IP_ADDRESS/tcp/30333 \
+  --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
   --state-pruning=archive \
   --blocks-pruning=archive \
   --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
