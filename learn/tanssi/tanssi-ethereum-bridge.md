@@ -10,7 +10,7 @@ icon: octicons-link-24
 
 In traditional blockchain environments, assets and functionalities are restricted to their respective chains, creating silos that limit interoperability and asset utility. The Tanssi-Ethereum bridge breaks these limitations by enabling seamless cross-chain operations that benefit both ecosystems.
 
-Consider this bridge not merely an asset exchange mechanism but a secure, standardized protocol allowing direct interaction between different blockchain networks without reliance on centralized intermediaries. This emphasis on eliminating trusted third parties is fundamental to its design, setting it apart from bridge solutions that might introduce central points of failure or control.
+The bridge is more than an asset exchange—it’s a secure, standardized protocol for direct cross-chain interaction without centralized intermediaries. Its trustless design avoids the risks of central points of failure that many other bridges face.
 
 This article provides a comprehensive overview of the Tanssi-Ethereum bridge, a crucial infrastructure component enabling interoperability between the Tanssi and Ethereum blockchain ecosystems. By reading this article, you will gain an understanding of the bridge's architecture and core functionalities, such as operator management, economic operations, slashing, and, importantly, asset transfer.
 
