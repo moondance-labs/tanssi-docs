@@ -11,7 +11,7 @@
   },
   {
     "title": "[Vault Opt out (Optional)](/node-operators/operators/offboarding/vault-opt-out){target=_blank}",
-    "content": "This step is optional and only necessary if you want to remove your association with the vault completely. Skipping this step won't affect your ability to rejoin the network in the future",
+    "content": "This step is optional and only necessary if you want to completely remove your association with the vault. Skipping this step won't affect your ability to rejoin the network in the future.",
     "icon": ":fontawesome-solid-3:"
   }
 ]
