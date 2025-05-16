@@ -14,7 +14,7 @@ The bridge is more than an asset exchange—it’s a secure, standardized protoc
 
 This article provides a comprehensive overview of the Tanssi-Ethereum bridge, a crucial infrastructure component enabling interoperability between the Tanssi and Ethereum blockchain ecosystems. By reading this article, you will gain an understanding of the bridge's architecture and core functionalities, such as operator management, economic operations, slashing, and, importantly, asset transfer.
 
-You will also learn about the underlying consensus mechanisms (BEEFY on Tanssi and Beacon Chain on Ethereum) that ensure secure and trustless cross-chain communication, the roles of provers, verifiers, and relayers, and the detailed flow of asset transfers in both directions (Ethereum to Tanssi and Tanssi to Ethereum). This knowledge will be valuable for anyone who understands how assets and messages can seamlessly move between these two essential blockchain networks without relying on centralized intermediaries.
+You'll also learn about the consensus layers that secure communication (BEEFY on Tanssi and the Ethereum Beacon Chain), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
 
 ## Core Functions { : #core-functions }
 
