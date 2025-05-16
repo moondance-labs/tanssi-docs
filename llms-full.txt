@@ -16871,7 +16871,7 @@ icon: octicons-key-24
 
 ## Introduction {: #introduction }
 
-Blockchain technology relies on [public-private](https://en.wikipedia.org/wiki/Public-key_cryptography){target=\_blank} key cryptography for secure asset ownership and transaction verification. Private keys authorize transactions, while public keys serve as addresses for verification. Due to the Tanssi protocol's hybrid [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk){target=\_blank} and Ethereum nature, understanding the different account types is crucial for users and operators.
+Blockchain technology relies on [public-private](https://en.wikipedia.org/wiki/Public-key_cryptography){target=\_blank} key cryptography for secure asset ownership and transaction verification. Private keys authorize transactions, while public keys serve as addresses for verification. Due to the Tanssi protocol's hybrid [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} and Ethereum nature, understanding the different account types is crucial for users and operators.
 
 ## Account Types in the Tanssi Protocol {: #key-types-in-tanssi-protocol }
 
