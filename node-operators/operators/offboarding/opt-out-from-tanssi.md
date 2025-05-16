@@ -24,7 +24,7 @@ To opt out of the Tanssi network, you must interact with a smart contract. Below
 
 The Symbiotic CLI provides a straightforward way to opt out of the network. Choose the appropriate command based on your network and signing method.
 
-#### Using a Ledger Device
+Using a Ledger device:
 
 === "MainNet"
 
@@ -67,7 +67,7 @@ You can interact directly with the smart contract through Etherscan using a brow
 
     [Contract address: {{ networks.symbiotic.contracts.sepolia.network_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.network_registry }}#writeContract){target=\_blank}
 
-Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
+Make sure to select **Contract** and **Write Contract**, then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-1.webp)
 
 1. Expand the **optOut** function
@@ -111,11 +111,11 @@ You can check your opt-out status on Etherscan by querying the smart contract:
 
 On the contract's page:
 
-1. Make sure to select the **Read Contract** tab.
-2. Locate and expand the **isOptedIn** function.
+1. Make sure to select the **Read Contract** tab
+2. Locate and expand the **isOptedIn** function
 3. Paste your operator's account address in the **who** field.
-4. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet).
-5. Click on **Query**.
+4. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+5. Click on **Query**
 
 ![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-3.webp)
 

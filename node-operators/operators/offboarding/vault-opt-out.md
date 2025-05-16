@@ -17,7 +17,7 @@ To proceed with opting out of a vault, you can utilize one of the methods detail
 
 ### Using the Symbiotic CLI {: #opt-out-vault-with-cli }
 
-With Ledger:
+Using a Ledger device:
 
 === "MainNet"
 
@@ -31,7 +31,7 @@ With Ledger:
     python3 symb.py opt-out-vault {{ networks.symbiotic.contracts.sepolia.vault }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
     ```
 
-With private key:
+For signing with a private key:
 
 === "MainNet"
 
@@ -60,7 +60,7 @@ Access the contract through Etherscan:
 
     [Contract address: {{ networks.symbiotic.contracts.sepolia.vault_registry }}](https://sepolia.etherscan.io/address/{{ networks.symbiotic.contracts.sepolia.vault_registry }}#writeContract){target=\_blank}
 
-Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
+Make sure to select **Contract** and **Write Contract**, then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-4.webp)
 
 1. Expand the **optOut** function
@@ -101,14 +101,14 @@ You can check your vault opt out status on Etherscan:
 
 On the contract's page:
 
-Make sure to select **Contract** and **Write Contract** then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
+Make sure to select **Contract** and **Write Contract**, then click on **Connect to Web3**, and select your preferred wallet (e.g., MetaMask):
 
 1. Select the **isOptedIn** function
 2. Paste your operator's account in the **who** field
 3. Insert the vault address in the **where** field
 4. Click on **Query**
 
-You'll get a `false` result if your operator has successfully opted out of the vault and `true` if they are still opted in.
+You'll get a `false` result if your operator has successfully opted out of the vault, and `true` if they are still opted in.
 
 ![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-6.webp)
 

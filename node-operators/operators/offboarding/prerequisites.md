@@ -13,7 +13,7 @@ Operator offboarding is the formal process by which node operators safely and tr
 
 Operators play a critical role in consensus and network operations. Abruptly shutting down a node without following the proper procedures can negatively impact operators, potentially resulting in slashing.
 
-This specific guide provides a walkthrough of the **prerequisites** needed before starting the operator offboarding process. Subsequent guides will cover signaling your intent, removing the operator, and decommissioning your node.
+This guide provides a walkthrough of the **prerequisites** needed before starting the operator offboarding process. Subsequent guides will cover signaling your intent, removing the operator, and decommissioning your node.
 
 If you have questions during any part of the offboarding process, the Tanssi team can support you on [Discord](https://discord.gg/Jm2KH8xT7J){target=\_blank}.
 
@@ -26,7 +26,7 @@ Before starting the offboarding process, ensure you have the following:
 
 ### Why Smart Contract Interaction is Required {: #why-smart-contracts }
 
-The Tanssi protocol, like many decentralized systems, utilizes smart contracts on the Ethereum blockchain to manage critical operations, including operator registration and staking. When an operator decides to offboard, they are essentially changing their status and relationship with these core protocol contracts.
+Like many decentralized systems, the Tanssi protocol utilizes smart contracts on the Ethereum blockchain to manage critical operations, including operator registration and staking. When an operator decides to offboard, they change their status and relationship with these core protocol contracts.
 Key offboarding steps, such as signaling your intent to exit or formally unregistering, involve transactions that update the state recorded in these smart contracts.
 
 ### Interaction Methods
