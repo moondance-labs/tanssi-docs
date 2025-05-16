@@ -147,10 +147,10 @@ This section explains how the bridge moves assets and messages. It involves lock
 
 This section outlines asset movement from Ethereum to Tanssi (as derivative assets).
 
-**1. Lock on Ethereum** - a user deposits assets into Ethereum's Bridge contract. The contract locks the tokens and emits a deposit event
-**2. Relay Proof to Tanssi** - an off-chain relayer detects the finalized event, creates a proof package (including Ethereum block header and Merkle proof of the deposit), and submits it to the Tanssi Bridge's `Inbound Queue`
-**3. Verify on Tanssi** - Tanssi Bridge's `EthereumClient` module (an on-chain light client) receives the proof from the `Inbound Queue`. It verifies the Ethereum block header's finality/validity and the Merkle proof's authenticity
-**4. Mint on Tanssi** - upon successful verification by the `EthereumClient`, the `Inbound Queue` is notified and mints the corresponding asset on Tanssi
+1. **Lock on Ethereum** - a user deposits assets into Ethereum's Bridge contract. The contract locks the tokens and emits a deposit event
+2. **Relay Proof to Tanssi** - an off-chain relayer detects the finalized event, creates a proof package (including Ethereum block header and Merkle proof of the deposit), and submits it to the Tanssi Bridge's `Inbound Queue`
+3. **Verify on Tanssi** - Tanssi Bridge's `EthereumClient` module (an on-chain light client) receives the proof from the `Inbound Queue`. It verifies the Ethereum block header's finality/validity and the Merkle proof's authenticity
+4. **Mint on Tanssi** - upon successful verification by the `EthereumClient`, the `Inbound Queue` is notified and mints the corresponding asset on Tanssi
 
 ```mermaid
 sequenceDiagram
@@ -184,12 +184,12 @@ sequenceDiagram
 
 This flow describes the reverse process, moving assets from Tanssi to Ethereum.
 
-**1. Initiate and Commit on Tanssi** - user initiates a transfer on Tanssi. A message with transfer details goes to the Bridge's `Outbound Queue`. The queue processes it, bundles the payload, and commits its Merkle root to the Tanssi block header, representing all outgoing messages in that block
-**2. Relay Proof to Ethereum** - an off-chain relayer monitors Tanssi for finalized blocks with `Outbound Queue` Merkle roots. It retrieves proofs: a BEEFY commitment (signed statement of finalized Tanssi block headers) and a Merkle proof of the user's transfer payload under the committed root
-**3. Submit Commitment in Ethereum** - the relayer submits the BEEFY commitment and Merkle proof to Ethereum's `Gateway` contract
-**4. Verify on Ethereum** - Ethereum's Beefy Client contract (Tanssi's on-chain light client) receives the BEEFY commitment from the `Gateway` and verifies its validity (including signatures)
-**5. Validate Payload** - after commitment verification, the `Gateway` validates the Merkle proof for the user's payload
-**6. Execute on Ethereum** - with both proofs verified, the `Gateway` contract executes the action, usually releasing locked assets via the main Bridge contract to the recipient or executing a target contract call on Ethereum
+1. **Initiate and Commit on Tanssi** - user initiates a transfer on Tanssi. A message with transfer details goes to the Bridge's `Outbound Queue`. The queue processes it, bundles the payload, and commits its Merkle root to the Tanssi block header, representing all outgoing messages in that block
+2. **Relay Proof to Ethereum** - an off-chain relayer monitors Tanssi for finalized blocks with `Outbound Queue` Merkle roots. It retrieves proofs: a BEEFY commitment (signed statement of finalized Tanssi block headers) and a Merkle proof of the user's transfer payload under the committed root
+3. **Submit Commitment in Ethereum** - the relayer submits the BEEFY commitment and Merkle proof to Ethereum's `Gateway` contract
+4. **Verify on Ethereum** - Ethereum's Beefy Client contract (Tanssi's on-chain light client) receives the BEEFY commitment from the `Gateway` and verifies its validity (including signatures)
+5. **Validate Payload** - after commitment verification, the `Gateway` validates the Merkle proof for the user's payload
+6. **Execute on Ethereum** - with both proofs verified, the `Gateway` contract executes the action, usually releasing locked assets via the main Bridge contract to the recipient or executing a target contract call on Ethereum
 
 The following diagram illustrates the initiation and commitment phase of the asset transfer process on the Tanssi side.
 
