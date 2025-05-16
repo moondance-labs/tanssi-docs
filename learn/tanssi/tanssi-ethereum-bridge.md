@@ -8,9 +8,9 @@ icon: octicons-link-24
 
 ## Introduction {: #introduction }
 
-Traditional blockchains often create silos, limiting asset and functional interoperability. The Tanssi-Ethereum bridge overcomes these limitations by enabling seamless cross-chain operations, benefiting both ecosystems.
+Traditional blockchains often create silos, limiting asset and functional interoperability. The Tanssi-Ethereum bridge overcomes these limitations by enabling seamless cross-chain operations that benefit both ecosystems.
 
-The bridge is more than an asset exchange—it’s a secure, standardized protocol for direct cross-chain interaction without centralized intermediaries. Its trustless design avoids the risks of central points of failure that many other bridges face.
+The bridge is more than an asset exchange. It’s a secure, standardized protocol for direct cross-chain interaction without centralized intermediaries. Its trustless design avoids the risks of central points of failure that many other bridges face.
 
 This article introduces the Tanssi-Ethereum bridge as a key interoperability layer between the two networks. You’ll learn how it works, including its architecture, operator management, economic model, slashing mechanisms, and asset transfers.
 
@@ -33,7 +33,7 @@ Understanding the bridge's consensus functionality requires examining its core c
 
 Provers include Tanssi's [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} module and Ethereum's Beacon Chain consensus. They produce consensus data transmitted by specialized relayers.
 
-Each chain runs a [light client](https://ethereum.org/en/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other, acting as an on-chain verifier for data legitimacy. For instance, when Tanssi sends a message to Ethereum, it generates compact proofs of events or state changes based on its consensus. Ethereum's light client verifies these proofs before actioning. This efficient method avoids processing the entire sending chain's state, relying instead on concise cryptographic proof verification.
+Each chain runs a [light client](https://ethereum.org/en/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other, acting as an on-chain verifier for data legitimacy. For instance, when Tanssi sends a message to Ethereum, it generates compact proofs of events or state changes based on its consensus. Ethereum's light client verifies these proofs before acting. This efficient method avoids processing the entire sending chain's state, relying instead on concise cryptographic proof verification.
 
 ### Tanssi to Ethereum Consensus  { : #tanssi-ethereum-consensus }
 
@@ -80,9 +80,9 @@ sequenceDiagram
 
 From a messaging perspective, the bridge uses its consensus verification layer for secure cross-chain communication. Dedicated relayers transport messages: the Execution Relay for Ethereum to Tanssi, and the Tanssi Relay for Tanssi to Ethereum.
 
-Relayers are stateless and only submit proofs. They cannot forge messages or steal funds, as each proof is re-validated on-chain by the consensus mechanism. Multiple concurrent relayers improve responsiveness without centralizing power.
+Relayers are stateless and only submit proofs. They cannot forge messages or steal funds, as the consensus mechanism revalidates each proof on-chain. Multiple concurrent relayers improve responsiveness without centralizing power.
 
-Ethereum's `Gateway` contract is the central messaging point. It receives messages from Tanssi via relayers, validates them using consensus proofs, and then executes operations like token minting/unlocking or smart contract calls.
+Ethereum's `Gateway` contract is the central messaging point. It receives messages from Tanssi via relayers, validates them using consensus proofs, and executes operations like token minting/unlocking or smart contract calls.
 
 ### Ethereum to Tanssi Inbound Messages { : #ethereum-tanssi-messages }
 
@@ -222,7 +222,7 @@ sequenceDiagram
     Note over Relayer: Relayer is now ready to interact<br/>with Ethereum based on observed data.
 ```
 
-The subsequent diagram details the relay, verification, and execution steps that occur on the Ethereum side of the asset transfer.
+The subsequent diagram details the relay, verification, and execution steps on the Ethereum side of the asset transfer.
 
 ```mermaid
 sequenceDiagram
