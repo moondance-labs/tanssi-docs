@@ -9,7 +9,7 @@ template: main.html
 
 ## Introduction {: #introduction }
 
-The ability to manage node operators' participation within the Tanssi ecosystem is crucial. This guide addresses the initial step in the offboarding process: opting out of the specific Tanssi-powered network. This action signals your intent to withdraw and allows the Tanssi protocol to verify your identity as the legitimate operator.
+The ability to manage node operators' participation within the Tanssi ecosystem is crucial. This guide addresses the initial step in the offboarding process: opting out of the Tanssi network. This action signals your intent to withdraw and allows the Tanssi protocol to verify your identity as the legitimate operator.
 
 During the onboarding process, one step was opting in to the Tanssi network to become an operator. This guide will walk you through the process of opting out. There are several ways to interact with the smart contracts involved. Refer to the [prerequisites article](/node-operators/operators/offboarding/prerequisites/){target=\_blank} to evaluate which alternative suits you best.
 
@@ -18,7 +18,7 @@ During the onboarding process, one step was opting in to the Tanssi network to b
 
 ## Methods for Opting Out from a Tanssi Network {: #methods-for-opting-out }
 
-To opt out from a Tanssi network, you will need to interact with a smart contract. Below are the different methods available to perform this action. Choose the one that best fits your setup and security preferences.
+To opt out of the Tanssi network, you must interact with a smart contract. Below are the different methods available to perform this action. Choose the one that best fits your setup and security preferences.
 
 ### Using the Symbiotic CLI {: #opt-out-network-with-cli }
 
