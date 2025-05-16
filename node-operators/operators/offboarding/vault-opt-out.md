@@ -9,7 +9,9 @@ template: main.html
 
 ## Introduction {: #introduction }
 
-This page details the optional final step in the Tanssi offboarding process: opting out of a specific vault. While not mandatory, this action allows operators to disassociate their accounts from individual vaults. Before proceeding with this step, please ensure you have met all the necessary conditions outlined in our prerequisites guide. This guide provides instructions for opting out using one of several available methods, as well as how to verify the successful completion of this action.
+This page details the optional final step in the Tanssi offboarding process: opting out of a specific vault. While not mandatory, this action allows operators to disassociate their accounts from individual vaults. Before you go ahead with this step, please make sure you have met all the conditions outlined in our [prerequisites](/node-operators/operators/offboarding/prerequisites/){target=\_blank} guide. 
+
+This guide provides instructions for opting out using one of several available methods and for verifying the successful completion of this action.
 
 ## Opting Out of a Vault {: #opting-out-of-a-vault }
 
