@@ -38,7 +38,7 @@ The Symbiotic CLI provides a straightforward way to opt out of the network. Choo
     python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
     ```
 
-#### For signing with a private key
+For signing with a private key:
 
 === "MainNet"
 
