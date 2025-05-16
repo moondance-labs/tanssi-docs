@@ -20,7 +20,7 @@ Blockchain technology relies on [public-private](https://en.wikipedia.org/wiki/P
 
 ## Identity and Operations { : #identity-and-operations }
 
-Tanssi, built with the Substrate framework, utilizes distinct cryptographic schemes for different functions, primarily Sr25519 and Ed25519. These account types are crucial for interacting with the protocol's Substrate components by signing transactions.
+Tanssi, built with the Substrate framework, utilizes distinct cryptographic schemes for different functions, primarily _Sr25519_ and _Ed25519_. These account types are crucial for interacting with the protocol's Substrate components by signing transactions.
 
 **Sr25519 (Schnorrkel/Ristretto x25519):** This is the primary account type used for most user-facing operations within Tanssi. Its strengths lie in security and efficiency. **Sr25519 accounts serve as your on-chain identity, used for holding tokens, participating in governance, paying transaction fees, and other general interactions with the network.** When you create a wallet to interact with Tanssi as a regular user, you will create and use an Sr25519 account.
 
