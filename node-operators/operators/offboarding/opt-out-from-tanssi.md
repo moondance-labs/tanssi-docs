@@ -35,7 +35,7 @@ Using a Ledger device:
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
+    python3 symb.py --chain sepolia opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS
     ```
 
 For signing with a private key:
@@ -49,7 +49,7 @@ For signing with a private key:
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key INSERT_PRIVATE_KEY --chain sepolia
+    python3 symb.py --chain sepolia opt-out-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key INSERT_PRIVATE_KEY
     ```
 
 !!! warning
@@ -134,7 +134,7 @@ You can also verify your opt-out status using the Symbiotic CLI:
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --chain sepolia
+    python3 symb.py --chain sepolia check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }}
     ```
 
 The output will show `false` if you have successfully opted out and `true` if you are still opted in.

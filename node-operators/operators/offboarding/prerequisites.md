@@ -13,7 +13,7 @@ Operator offboarding is the formal process by which node operators safely and tr
 
 Operators play a critical role in consensus and network operations. Abruptly shutting down a node without following the proper procedures can negatively impact operators, potentially resulting in slashing.
 
-This guide provides a walkthrough of the **prerequisites** needed before starting the operator offboarding process. Subsequent guides will cover signaling your intent, removing the operator, and decommissioning your node.
+This guide outlines the **prerequisites** for offboarding, and subsequent guides will walk you through the process.
 
 If you have questions during any part of the offboarding process, the Tanssi team can support you on [Discord](https://discord.gg/Jm2KH8xT7J){target=\_blank}.
 
