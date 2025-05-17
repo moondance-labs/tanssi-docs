@@ -1,0 +1,7 @@
+title: Offboarding
+hide: false
+nav:
+  - index.md
+  - 'Prerequisites': 'prerequisites.md'
+  - 'Opt Out from Tanssi': 'opt-out-from-tanssi.md'
+  - 'Vault Opt Out': 'vault-opt-out.md'
