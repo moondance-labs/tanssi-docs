@@ -6,4 +6,5 @@ nav:
   - 'network-services'
   - 'external-security-providers'
   - 'network-features'
+  - 'Account Types in Tanssi': 'account-types.md'
   - 'Tanssi-Ethereum Bridge': 'tanssi-ethereum-bridge.md'
