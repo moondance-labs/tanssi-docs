@@ -40,7 +40,7 @@ If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you wan
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-vault {{ networks.symbiotic.contracts.sepolia.vault }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
+    python3 symb.py --chain sepolia opt-in-vault {{ networks.symbiotic.contracts.sepolia.vault }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS
     ```
 
 If you want to sign the transaction directly using the operator's account private key, then run the following command, replacing the `INSERT_PRIVATE_KEY` parameter:
@@ -54,7 +54,7 @@ If you want to sign the transaction directly using the operator's account privat
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-vault {{ networks.symbiotic.contracts.sepolia.vault }} --private-key INSERT_PRIVATE_KEY --chain sepolia
+    python3 symb.py --chain sepolia opt-in-vault {{ networks.symbiotic.contracts.sepolia.vault }} --private-key INSERT_PRIVATE_KEY
     ```
 
 !!! warning
@@ -137,7 +137,7 @@ You can also verify your registration status using the Symbiotic CLI running the
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py check-opt-in-vault INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.vault }} --chain sepolia
+    python3 symb.py --chain sepolia check-opt-in-vault INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.vault }}
     ```
 
 And the output looks like:
@@ -169,7 +169,7 @@ If you have correctly installed the [Symbiotic CLI](#set-up-the-cli) and you wan
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS --chain sepolia
+    python3 symb.py --chain sepolia opt-in-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS
     ```
 
 If you want to sign the transaction directly using the operator's account private key, then run the following command, replacing the `INSERT_PRIVATE_KEY` parameter:
@@ -183,7 +183,7 @@ If you want to sign the transaction directly using the operator's account privat
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py opt-in-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key INSERT_PRIVATE_KEY --chain sepolia
+    python3 symb.py --chain sepolia opt-in-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --private-key INSERT_PRIVATE_KEY
     ```
 
 !!! warning
@@ -266,7 +266,7 @@ You can also verify your registration status using the Symbiotic CLI running the
 === "TestNet (Sepolia)"
 
     ```bash
-    python3 symb.py check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --chain sepolia
+    python3 symb.py --chain sepolia check-opt-in-network INSERT_OPERATOR_ADDRESS {{ networks.symbiotic.contracts.sepolia.tanssi_network }} 
     ```
 
 And the output looks like:
