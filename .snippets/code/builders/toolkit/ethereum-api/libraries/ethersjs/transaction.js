@@ -5,7 +5,7 @@ import { ethers } from 'ethers';
 const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
-    rpc: 'https://dancebox-3001.tanssi-api.network', // Insert your RPC URL here
+    rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };

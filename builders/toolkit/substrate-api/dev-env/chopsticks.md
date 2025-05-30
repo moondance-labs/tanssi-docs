@@ -44,7 +44,7 @@ Now the development environment is ready to start testing and debugging Tanssi-d
 To fork a Tanssi network using Chopsticks, execute the command with only the RPC endpoint as a parameter:
 
 ```bash
-yarn start --endpoint wss://dancebox-3001.tanssi-api.network
+yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}
 ```
 
 This command will start a local clone of the chain as it was in the latest block.
@@ -54,7 +54,7 @@ This command will start a local clone of the chain as it was in the latest block
 Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
 
 ```yaml
-endpoint: wss://dancebox-3001.tanssi-api.network
+endpoint: {{ networks.dancelight.demo_evm_rpc_wss_url }}
 mock-signature-host: true
 allow-unresolved-imports: true
 db: ./tmp/db_ftrcon.sqlite
@@ -114,7 +114,7 @@ You can run the command `yarn start` to fork chains by specifying a local config
 All settings (except `genesis` and `timestamp`) can also be passed as flags to configure the environment completely in the command line. For example, the following command forks the demo EVM network at block 100.
 
 ```bash
-yarn start --endpoint wss://dancebox-3001.tanssi-api.network --block 100
+yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }} --block 100
 ```
 
 ### Interacting with a Fork {: #interacting-with-a-fork }
@@ -153,7 +153,7 @@ For example, running the following command will re-run the demo EVM networks's b
 
 ```bash
 yarn start run-block  \
---endpoint wss://dancebox-3001.tanssi-api.network  \
+--endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}  \
 --output-path=./chain-output.json  \
 --block 1000
 ```

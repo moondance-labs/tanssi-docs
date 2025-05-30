@@ -34,7 +34,7 @@ As seen above in the interface, there are five functions for fetching data: `dec
 
 ## Interacting with Price Feeds on the Tanssi Demo EVM Network {: #interacting-with-price-feeds-demo-evm-network }
 
-This tutorial will showcase interacting with a sample BTC/USDT price feed contract on the demo EVM network, but you can interact any of the price feeds listed in [Supported Assets](#supported-assets). The BTC/USDT price feed is [deployed on the demo EVM network](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}, so you can interact with it by accessing the aggregator contract at the below contract address:
+This tutorial will showcase interacting with a sample BTC/USDT price feed contract on the demo EVM network, but you can interact any of the price feeds listed in [Supported Assets](#supported-assets). The BTC/USDT price feed is [deployed on the demo EVM network]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}, so you can interact with it by accessing the aggregator contract at the below contract address:
 
 ```text
 {{ networks.dancebox.oracles.acurast.btc_usd }}
@@ -83,15 +83,15 @@ Upon running the above command in your terminal, you'll see a result that resemb
 
 The Acurast team has deployed the below price feeds on the Tanssi demo EVM network:
 
-| Asset & Base Pair |                                                                              Aggregator Contract                                                                               |
-|:-----------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|   AAVE to USDT    | [{{ networks.dancebox.oracles.acurast.aave_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42){target=\_blank} |
-|    BTC to USDT    | [{{ networks.dancebox.oracles.acurast.btc_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}  |
-|    CRV to USDT    | [{{ networks.dancebox.oracles.acurast.crv_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x01F143dfd745861902dA396ad7dfca962e5C83cA){target=\_blank}  |
-|    DAI to USDT    | [{{ networks.dancebox.oracles.acurast.dai_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92){target=\_blank}  |
-|    ETH to USDT    | [{{ networks.dancebox.oracles.acurast.eth_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x007c3F3cc99302c19792F73b7434E3eCbbC3db25){target=\_blank}  |
-|   USDC to USDT    | [{{ networks.dancebox.oracles.acurast.usdc_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xe4a46ef4cFbf87D026C3eB293b7672998d932F62){target=\_blank} |
-|    USDT to USD    | [{{ networks.dancebox.oracles.acurast.usdt_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xf9c885E3A5846CEA887a0D69655BC08e52afe569){target=\_blank} |
+| Asset & Base Pair |                                                                                                   Aggregator Contract                                                                                                   |
+|:-----------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|   AAVE to USDT    | [{{ networks.dancebox.oracles.acurast.aave_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42){target=\_blank} |
+|    BTC to USDT    | [{{ networks.dancebox.oracles.acurast.btc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}  |
+|    CRV to USDT    | [{{ networks.dancebox.oracles.acurast.crv_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x01F143dfd745861902dA396ad7dfca962e5C83cA){target=\_blank}  |
+|    DAI to USDT    | [{{ networks.dancebox.oracles.acurast.dai_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92){target=\_blank}  |
+|    ETH to USDT    | [{{ networks.dancebox.oracles.acurast.eth_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x007c3F3cc99302c19792F73b7434E3eCbbC3db25){target=\_blank}  |
+|   USDC to USDT    | [{{ networks.dancebox.oracles.acurast.usdc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xe4a46ef4cFbf87D026C3eB293b7672998d932F62){target=\_blank} |
+|    USDT to USD    | [{{ networks.dancebox.oracles.acurast.usdt_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xf9c885E3A5846CEA887a0D69655BC08e52afe569){target=\_blank} |
 
 ## Designing and Launching Your Own Price Feed {: #designing-and-launching-your-own-price-feed }
 
@@ -110,7 +110,7 @@ The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price i
 !!! warning
     This demo contract has some security vulnerabilities and lacks access control mechanisms, making it unsuitable for any real use. It was developed by the Acurast team for demonstration purposes only.
 
-Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM network. Or, you can deploy it to the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/), and you can obtain TestNet TANGO tokens from the [Tanssi faucet](https://apps.tanssi.network/demo){target=\_blank}. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
+Before proceeding to the next steps, you must first deploy your price feed's smart contract on your Tanssi EVM network. Or, you can deploy it to the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/), and you can obtain TestNet {{ networks.dancelight.demo_evm_token_symbol }} tokens from the [Tanssi faucet](https://apps.tanssi.network/demo){target=\_blank}. Once deployed, be sure to record the contract address, as you will need to enter this information into your Acurast price feed script.
 
 ### Building the Acurast Script
 

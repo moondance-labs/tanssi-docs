@@ -59,8 +59,8 @@ const providerRPC = {
   evmNetwork: {
     name: 'dancebox-evm-network',
     // Insert your RPC URL here
-    rpc: 'https://dancebox-3001.tanssi-api.network', 
-    chainId: 5678, // 0x162E in hex,
+    rpc: '{{ networks.dancelight.demo_evm_rpc_url }}',
+    chainId: {{ networks.dancelight.demo_evm_chain_id }}, // 0x162E in hex,
   },
 };
 // 3. Create ethers provider
@@ -111,8 +111,8 @@ const balances = async () => {
   const balanceFrom = ethers.formatEther(await provider.getBalance(addressFrom));
   const balanceTo = ethers.formatEther(await provider.getBalance(addressTo));
 
-  console.log(`The balance of ${addressFrom} is: ${balanceFrom} TANGO`);
-  console.log(`The balance of ${addressTo} is: ${balanceTo} TANGO`);
+  console.log(`The balance of ${addressFrom} is: ${balanceFrom} {{ networks.dancelight.demo_evm_token_symbol }}`);
+  console.log(`The balance of ${addressTo} is: ${balanceTo} {{ networks.dancelight.demo_evm_token_symbol }}`);
 };
 
 // 5. Call the balances function
@@ -131,13 +131,13 @@ To run the script and fetch the account balances, you can run the following comm
 node balances.js
 ```
 
-If successful, the balances for the origin and receiving address will be displayed in your terminal in TANGO.
+If successful, the balances for the origin and receiving address will be displayed in your terminal in {{ networks.dancelight.demo_evm_token_symbol }}.
 
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/ethers/terminal/balances.md'
 
 ### Send Transaction Script {: #send-transaction-script }
 
-You'll only need one file for executing a transaction between accounts. For this example, you'll be transferring 1 TANGO token from an origin address (from which you hold the private key) to another address. To get started, you can create a `transaction.js` file by running:
+You'll only need one file for executing a transaction between accounts. For this example, you'll be transferring 1 {{ networks.dancelight.demo_evm_token_symbol }} token from an origin address (from which you hold the private key) to another address. To get started, you can create a `transaction.js` file by running:
 
 ```bash
 touch transaction.js

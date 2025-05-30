@@ -121,7 +121,7 @@ To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to
         To try this out on the demo EVM network, you can use the following RPC URL:
 
         ```text
-        https://dancebox-3001.tanssi-api.network
+        {{ networks.dancelight.demo_evm_rpc_url }}
         ```
 
 4. Launch Postgres by running

@@ -234,7 +234,7 @@ The `.toLowerCase()` is critical because the SQD processor is case-sensitive, an
 .setDataSource({
   chain: {
     url: assertNotNull(
-      'https://dancebox-3001.tanssi-api.network'
+      '{{ networks.dancelight.demo_evm_rpc_url }}'
     ),
     rateLimit: 300,
   },
@@ -244,7 +244,7 @@ The `.toLowerCase()` is critical because the SQD processor is case-sensitive, an
 The Squid template comes with a variable for your RPC URL defined in your `.env` file. You can replace that with the RPC URL for your network. For demonstration purposes, the RPC URL for the demo EVM network is hardcoded directly, as shown above. If you're setting the RPC URL in your `.env`, the respective line will look like this:
 
 ```text
-RPC_ENDPOINT={{ networks.dancebox.rpc_url }}
+RPC_ENDPOINT={{ networks.dancelight.demo_evm_rpc_url }}
 ```
 
 Now, let's define the event that we want to index by adding the following:

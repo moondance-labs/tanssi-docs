@@ -20,18 +20,18 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancebox-3001.tanssi-api.network'],
-      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
+      http: ['https://dancelight-2001.tanssi-api.network'],
+      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
     },
     public: {
-      http: ['https://dancebox-3001.tanssi-api.network'],
-      webSocket: ['wss://dancebox-3001.tanssi-api.network'],
+      http: ['https://dancelight-2001.tanssi-api.network'],
+      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
     },
   },
   blockExplorers: {
     default: {
       name: 'Explorer',
-      url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/',
+      url: 'https://dancelight-2001-blockscout.tanssi-chains.network/',
     },
   },
 });
@@ -39,7 +39,7 @@ export const demoEVM = defineChain({
 // 3. Create a wallet client for writing chain data
 // The private key must be prepended with `0x` to avoid errors
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://dancebox-3001.tanssi-api.network';
+const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,

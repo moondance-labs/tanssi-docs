@@ -2,16 +2,17 @@ networks:
   dancelight:
     operator_docker_image: moondancelabs/starlight
     dns_name: dancelight.tanssi-api.network
+    demo_evm_rpc_url: https://dancelight-2001.tanssi-api.network/
+    demo_evm_rpc_wss_url: wss://dancelight-2001.tanssi-api.network/
+    demo_evm_blockscout_url: https://dancelight-2001-blockscout.tanssi-chains.network/
+    demo_evm_chain_id: 5678
+    demo_evm_token_symbol: 'TANGO'
   dancebox:
     docker_sequencer_image_name: moondancelabs/tanssi
     client_version: v0.12.0
     para_client_version: v0.12.0-para
     substrate_api_sidecar:
       stable_version: 17.1.2
-    chain_id: 5678
-    rpc_url: https://dancebox-3001.tanssi-api.network
-    token_symbol: 'TANGO'
-    block_explorer_url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/'
     precompiles:
       erc20: '0x0000000000000000000000000000000000000800'
       batch: '0x0000000000000000000000000000000000000801'
@@ -89,7 +90,6 @@ networks:
       max_fields: 100
       per_byte_deposit: 0.1
       max_subaccounts: 100
-    treasury_allocation: 20%
   symbiotic:
     contracts:
       mainnet:

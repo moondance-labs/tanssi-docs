@@ -26,14 +26,7 @@ For the examples in this guide, you will need to have the following:
 
 ## Topping-Up Your Network's Credits {: #topping-up }
 
-Following a pay-as-you-go model, the networks must have funds allocated to pay for the services, which, in time, will be deducted by the Tanssi protocol upon every session change for the cost of sequencer's assignment and every block for the cost of producing the block.
-
-Tanssi reserves a fraction of the payments received for the protocol's treasury, and the remainder is burnt. This is the current configuration:
-
-=== "Dancebox"
-    ```text
-    {{ networks.dancebox.treasury_allocation }}
-    ```
+Following a pay-as-you-go model, the networks must have funds allocated to pay for the services, which, in time, will be deducted and burnt by the Tanssi protocol upon every session change for the cost of sequencer's assignment and every block for the cost of producing the block. 
 
 You can check your network's current balance and top it up using the Tanssi dApp. To do so, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank} and connect the network's registration account to the dApp. The site will display a card showing your network status. This card includes the projected liveness forecast underneath the **Block Production** section and the **Top Up** button.
 
