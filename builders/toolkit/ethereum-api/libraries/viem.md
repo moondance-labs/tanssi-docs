@@ -97,7 +97,7 @@ To create a client for writing chain data, you can take the following steps:
 
 ## Send a Transaction {: #send-transaction }
 
-During this section, you'll be creating a couple of scripts. The first one will be to check the balances of your accounts before trying to send a transaction. The second script will actually send the transaction. You can also use the balance script to check the account balances after the transaction has been sent.
+During this section, you'll be creating a couple of scripts. The first one will check the balances of your accounts before trying to send a transaction. The second script will send the transaction. You can also use the balance script to check the account balances after the transaction has been sent.
 
 ### Check Balances Script {: #check-balances-script }
 
