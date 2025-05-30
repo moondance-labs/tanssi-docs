@@ -46,7 +46,7 @@ from web3 import Web3
 web3 = Web3(Web3.HTTPProvider('{{ networks.dancelight.demo_evm_rpc_url }}')) 
 ```
 
-Save this code snippet as you'll need it for the scripts that are used in the following sections.
+Save this code snippet, as you'll need it for the scripts that are used in the following sections.
 
 ## Send a Transaction {: #send-a-transaction }
 
