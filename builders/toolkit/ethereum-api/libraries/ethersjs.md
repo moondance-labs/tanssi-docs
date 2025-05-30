@@ -42,7 +42,7 @@ For this guide, you'll need to install the Ethers.js library and the Solidity co
 
 ## Setting up the Ethers Provider {: #setting-up-the-ethers-provider }
 
-Throughout this guide, you'll be creating a bunch of scripts that provide different functionality such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Ethers provider](https://docs.ethers.org/v6/api/providers/){target=\_blank} to interact with the network.
+Throughout this guide, you'll create several scripts that provide various functionalities, such as sending a transaction, deploying a contract, and interacting with a deployed contract. In most of these scripts you'll need to create an [Ethers provider](https://docs.ethers.org/v6/api/providers/){target=\_blank} to interact with the network.
 
 To create a provider, you can take the following steps:
 
@@ -148,8 +148,8 @@ Next, you will create the script for this file and complete the following steps:
 1. [Set up the Ethers provider](#setting-up-the-ethers-provider)
 2. Define the `privateKey` and the `addressTo` variables. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 3. Create a wallet using the `privateKey` and `provider` from the previous steps. The wallet instance is used to sign transactions
-4. Create the asynchronous `send` function which wraps the transaction object and the `wallet.sendTransaction` method
-5. Create the transaction object which only requires the recipient's address and the amount to send. Note that `ethers.parseEther` can be used, which handles the necessary unit conversions from Ether to Wei - similar to using `ethers.parseUnits(value, 'ether')`
+4. Create the asynchronous `send` function, which wraps the transaction object and the `wallet.sendTransaction` method
+5. Create the transaction object, which only requires the recipient's address and the amount to send. Note that `ethers.parseEther` can be used, which handles the necessary unit conversions from Ether to Wei - similar to using `ethers.parseUnits(value, 'ether')`
 6. Send the transaction using the `wallet.sendTransaction` method and then use `await` to wait until the transaction is processed and the transaction receipt is returned
 7. Lastly, run the `send` function
 
@@ -302,7 +302,7 @@ Then you can take the following steps to create the script:
 3. Create the `contractAddress` variable using the address of the deployed contract
 4. Create an instance of the contract using the `ethers.Contract` function and passing in the `contractAddress`, `abi`, and `provider`
 5. Create the asynchronous `get` function
-6. Use the contract instance to call one of the contract's methods and pass in any inputs if necessary. For this example, you will call the `number` method which doesn't require any inputs. You can use `await` which will return the value requested once the request promise resolves
+6. Use the contract instance to call one of the contract's methods and pass in any inputs if necessary. For this example, you'll call the `number` method, which requires no inputs, and `await`, which will return the requested value once the request promise resolves
 7. Lastly, call the `get` function
 
 ```js
@@ -368,7 +368,7 @@ Open the `increment.js` file and take the following steps to create the script:
 4. Create a wallet using the `privateKey` and `provider` from the previous steps. The wallet instance is used to sign transactions
 5. Create an instance of the contract using the `ethers.Contract` function and passing in the `contractAddress`, `abi`, and `provider`
 6. Create the asynchronous `increment` function
-7. Use the contract instance to call one of the contract's methods and pass in any inputs if necessary. For this example, you will call the `increment` method which requires the value to increment by as an input. You can use `await` which will return the value requested once the request promise resolves
+7. Use the contract instance to call one of the contract's methods and pass in any inputs if necessary. For this example, you'll call the `increment` method, providing the value to increment by as an input, and `await`, which will return the requested value once the request promise resolves
 8. Lastly, call the `increment` function
 
 ```js
@@ -424,7 +424,7 @@ To run the script, you can enter the following command in your terminal:
 node increment.js
 ```
 
-If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that value is changing as expected:
+If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that the value is changing as expected:
 
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/ethers/terminal/increment.md'
 
