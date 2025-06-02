@@ -57,7 +57,7 @@ For the demo EVM network, you can use any of the following explorers:
 
 ## Chain ID {: #chain-id }
 
-The demo EVM network has a [chain ID](https://chainlist.org/chain/{{ networks.dancelight.demo_evm_chain_id }}){target=\_blank} of: `{{ networks.dancelight.demo_evm_chain_id }}`, which is `0x162E` in hex.
+The demo EVM network has a [chain ID](https://chainlist.org/chain/{{ networks.dancelight.demo_evm_chain_id }}){target=\_blank} of: `{{ networks.dancelight.demo_evm_chain_id }}`, which is `{{ networks.dancelight.demo_evm_chain_hex_id }}` in hex.
 
 ## Quick Start {: #quick-start }
 
@@ -73,7 +73,7 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
         name: 'dancebox-evm-network',
         // Insert your RPC URL here
         rpc: '{{ networks.dancelight.demo_evm_rpc_url }}', 
-        chainId: {{ networks.dancelight.demo_evm_chain_id }}, // 0x162E in hex,
+        chainId: {{ networks.dancelight.demo_evm_chain_id }}, // {{ networks.dancelight.demo_evm_chain_hex_id }} in hex,
       },
     };
     const provider = new ethers.JsonRpcProvider(

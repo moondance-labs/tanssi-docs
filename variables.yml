@@ -6,6 +6,7 @@ networks:
     demo_evm_rpc_wss_url: wss://dancelight-2001.tanssi-api.network/
     demo_evm_blockscout_url: https://dancelight-2001-blockscout.tanssi-chains.network/
     demo_evm_chain_id: 5678
+    demo_evm_chain_hex_id: "0x162E"
     demo_evm_token_symbol: 'TANGO'
     subscan_url: https://dancelight.subscan.io/
   dancebox:

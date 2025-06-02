@@ -195,7 +195,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
 
 ### Full Node Configuration Example for the Demo EVM Network {: #example-demo-evm-network}
 
-The following example deploys a fully functional full archive node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancebox with an ID of `3001`.
+The following example deploys a fully functional full archive node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancelight with an ID of `2001`.
 
 The raw chain specification file for the demo network is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain){target=\_blank}. Download the file and place it in the `/var/lib/dancelight-data/` directory.
 
@@ -216,7 +216,7 @@ The raw chain specification file for the demo network is required to run the nod
     SyslogFacility=local7
     KillSignal=SIGHUP
     ExecStart=/var/lib/dancelight-data/container-chain-frontier-node \
-    --chain=/var/lib/dancelight-data/container-3001-raw-specs.json \
+    --chain=/var/lib/dancelight-data/container-2001-raw-specs.json \
     --rpc-port=9944 \
     --name=para \
     --state-pruning=archive \

@@ -59,7 +59,7 @@ The command will download and extract the image and show the status upon executi
 
 To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
 
-- `Network ID` - replace `YOUR_NETWORK_ID` with your Tanssi network ID within the `--chain` command. This ID was obtained during the [third step of the network deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network){target=\_blank}. For example, `3001`
+- `Network ID` - replace `YOUR_NETWORK_ID` with your Tanssi network ID within the `--chain` command. This ID was obtained during the [third step of the network deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network){target=\_blank}. For example, `2001`
 --8<-- 'text/node-operators/network-node/bootnode-item.md'
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
@@ -87,14 +87,14 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 ### Full Node Example for Demo EVM Network {: #example-demo-evm-network }
 
-The following example spins up a full archive RPC node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancebox with an ID of `3001`.
+The following example spins up a full archive RPC node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancelight with an ID of `2001`.
 
 === "Dancelight"
 
     ```bash
     docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
     /chain-network/container-chain-frontier-node \
-    --chain=/chain-network/container-3001-raw-specs.json \
+    --chain=/chain-network/container-2001-raw-specs.json \
     --rpc-port=9944 \
     --name=para \
     --state-pruning=archive \

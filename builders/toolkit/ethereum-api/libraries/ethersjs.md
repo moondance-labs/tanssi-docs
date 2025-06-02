@@ -60,7 +60,7 @@ const providerRPC = {
     name: 'dancebox-evm-network',
     // Insert your RPC URL here
     rpc: '{{ networks.dancelight.demo_evm_rpc_url }}',
-    chainId: {{ networks.dancelight.demo_evm_chain_id }}, // 0x162E in hex,
+    chainId: {{ networks.dancelight.demo_evm_chain_id }}, // {{ networks.dancelight.demo_evm_chain_hex_id }} in hex,
   },
 };
 // 3. Create ethers provider
