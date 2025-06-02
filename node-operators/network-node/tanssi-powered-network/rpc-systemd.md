@@ -222,7 +222,8 @@ The raw chain specification file for the demo network is required to run the nod
     --state-pruning=archive \
     --blocks-pruning=archive \
     --base-path=/var/lib/dancelight-data \
-    --bootnodes=/dns4/fraa-dancebox-3001-rpc-0.a.dancebox.tanssi.network/tcp/30333/p2p/12D3KooWQ9jVpatqmWS41Zf6PHncV4ZmEYvywifRTs9YVoz8HgTM \
+    --bootnodes=/dns4/ukl-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWKDotMgTRpURvoZHsLWP4K9ymhkBByi1EJjMQAnCmqg8E \
+    --bootnodes=/dns4/qco-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWB3kqqNhYgGtGbsdtgD18wUoFVeuXVXgWLXTFs91RNgAx \
     -- \
     --chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
     --rpc-port=9945 \
