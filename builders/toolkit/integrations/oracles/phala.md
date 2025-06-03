@@ -39,15 +39,15 @@ As seen above in the interface, there are five functions for fetching data: `dec
 Phala sources its price feed data by mirroring Chainlink's price feeds from Ethereum MainNet. Currently, there are data feed contracts for [the demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} for the following asset pairs:
 
 === "Tanssi Demo EVM Network"
-    | Asset & Base Pair |                                                                             Aggregator Contract                                                                              |
-    |:-----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-    |    AAVE to USD    | [{{ networks.dancebox.oracles.phala.aave_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x2E1640853bB2dD9f47831582665477865F9240DB){target=\_blank} |
-    |    BTC to USD     | [{{ networks.dancebox.oracles.phala.btc_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x89BC5048d634859aef743fF2152363c0e83a6a49){target=\_blank}  |
-    |    CRV to USD     | [{{ networks.dancebox.oracles.phala.crv_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xf38b25b79A72393Fca2Af88cf948D98c64726273){target=\_blank}  |
-    |    DAI to USD     | [{{ networks.dancebox.oracles.phala.dai_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B){target=\_blank}  |
-    |    ETH to USD     | [{{ networks.dancebox.oracles.phala.eth_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x739d71fC66397a28B3A3b7d40eeB865CA05f0185){target=\_blank}  |
-    |    USDC to USD    | [{{ networks.dancebox.oracles.phala.usdc_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252){target=\_blank} |
-    |    USDT to USD    | [{{ networks.dancebox.oracles.phala.usdt_usd }}](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0x5018c16707500D2C89a0446C08f347A024f55AE3){target=\_blank} |
+    | Asset & Base Pair |                                                                          Aggregator Contract                                                                          |
+    |:-----------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+    |    AAVE to USD    | [{{ networks.dancebox.oracles.phala.aave_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x2E1640853bB2dD9f47831582665477865F9240DB){target=\_blank} |
+    |    BTC to USD     | [{{ networks.dancebox.oracles.phala.btc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x89BC5048d634859aef743fF2152363c0e83a6a49){target=\_blank}  |
+    |    CRV to USD     | [{{ networks.dancebox.oracles.phala.crv_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xf38b25b79A72393Fca2Af88cf948D98c64726273){target=\_blank}  |
+    |    DAI to USD     | [{{ networks.dancebox.oracles.phala.dai_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B){target=\_blank}  |
+    |    ETH to USD     | [{{ networks.dancebox.oracles.phala.eth_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x739d71fC66397a28B3A3b7d40eeB865CA05f0185){target=\_blank}  |
+    |    USDC to USD    | [{{ networks.dancebox.oracles.phala.usdc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252){target=\_blank} |
+    |    USDT to USD    | [{{ networks.dancebox.oracles.phala.usdt_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x5018c16707500D2C89a0446C08f347A024f55AE3){target=\_blank} |
 
 === "Ethereum MainNet"
     | Asset & Base Pair |                                                          Aggregator Contract                                                           |

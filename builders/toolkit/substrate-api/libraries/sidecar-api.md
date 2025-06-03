@@ -40,13 +40,13 @@ In the terminal that Sidecar will run, export the environmental variable for the
 === "Dancebox"
 
     ```bash
-    export SAS_SUBSTRATE_URL=wss://{{ networks.dancebox.dns_name }}
+    export SAS_SUBSTRATE_URL=wss://{{ networks.dancelight.dns_name }}
     ```
 
 === "Dancebox EVM Network"
 
     ```bash
-    export SAS_SUBSTRATE_URL=wss://dancebox-3001.tanssi-api.network
+    export SAS_SUBSTRATE_URL={{ networks.dancelight.demo_evm_rpc_wss_url }}
     ```
 
 === "Your Network"

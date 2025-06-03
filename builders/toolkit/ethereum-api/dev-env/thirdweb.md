@@ -170,8 +170,8 @@ thirdweb offers a small number of chains from `@thirdweb/chains` and does not in
 ```typescript title="chains.ts"
     import { defineChain } from 'thirdweb';
     const tanssi = defineChain({
-      id: {{ networks.dancebox.chain_id }},
-      rpc: '{{ networks.dancebox.rpc_url }}',
+      id: {{ networks.dancelight.demo_evm_chain_id }},
+      rpc: '{{ networks.dancelight.demo_evm_rpc_url }}',
     });
 ```
 
@@ -192,7 +192,7 @@ The below code snippet demonstrates how to initialize and connect a MetaMask wal
 
 ### Get Contract {: #get-contract }
 
-To connect to your contract, use the SDK’s [`getContract`](https://portal.thirdweb.com/references/typescript/v5/getContract){target=\_blank} method. As an example, you could fetch data from an [incrementer contract on the Tanssi demo EVM network](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}.
+To connect to your contract, use the SDK’s [`getContract`](https://portal.thirdweb.com/references/typescript/v5/getContract){target=\_blank} method. As an example, you could fetch data from an [incrementer contract on the Tanssi demo EVM network]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}.
 
 ```typescript
 import { getContract } from 'thirdweb';
@@ -223,7 +223,7 @@ const tx = prepareContractCall({
 });
 ```
 
-Returning to our [incrementer contract](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}, preparing a call to increment the contract looks like the following:
+Returning to our [incrementer contract]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}, preparing a call to increment the contract looks like the following:
 
 ```typescript
 import { prepareContractCall } from 'thirdweb';
@@ -271,7 +271,7 @@ const balance = await readContract({
 });
 ```
 
-For a function that takes no parameters, such as the number function that returns the current number stored in the [incrementer contract](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}, you simply need to provide the function name as follows: 
+For a function that takes no parameters, such as the number function that returns the current number stored in the [incrementer contract]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank}, you simply need to provide the function name as follows: 
 
 ```typescript
 import { readContract } from 'thirdweb';
@@ -289,13 +289,13 @@ Did you know? With the [thirdweb CLI](https://portal.thirdweb.com/cli){target=\_
 npx thirdweb generate INSERT_CHAIN_ID/INSERT_CONTRACT_ADDRESS
 ```
 
-Both the chain ID and the contract address are required. As an example, if you wanted to generate the functions for the [incrementer contract on the Tanssi demo EVM network](https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank} , you would use the following command:
+Both the chain ID and the contract address are required. As an example, if you wanted to generate the functions for the [incrementer contract on the Tanssi demo EVM network]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D?tab=contract){target=\_blank} , you would use the following command:
 
 ```bash
-npx thirdweb generate 5678/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D
+npx thirdweb generate {{ networks.dancelight.demo_evm_chain_id }}/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D
 ```
 
-The file generated with all of the corresponding methods will be placed in a directory labelled `thirdweb/CHAIN_ID/CONTRACT_ADDRESS`. In the example shown above, the output file is located at `thirdweb/5678/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D.ts`. For more information, see the [thirdweb's docs on the CLI](https://portal.thirdweb.com/cli/generate){target=\_blank}.
+The file generated with all of the corresponding methods will be placed in a directory labelled `thirdweb/CHAIN_ID/CONTRACT_ADDRESS`. In the example shown above, the output file is located at `thirdweb/{{ networks.dancelight.demo_evm_chain_id }}/0xC12f6fA2d1CA8f875bD25555e8883f1dDa40a93D.ts`. For more information, see the [thirdweb's docs on the CLI](https://portal.thirdweb.com/cli/generate){target=\_blank}.
 
 ### Sending a Transaction {: #sending-a-transaction }
 

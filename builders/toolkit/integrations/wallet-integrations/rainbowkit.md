@@ -166,10 +166,10 @@ To add the Tanssi demo EVM network to MetaMask:
 1. Open MetaMask and go to Settings > Networks > Add Network.
 2. Input the following information:
     - Network Name: `Demo EVM Chain`
-    - RPC URL: `{{ networks.dancebox.rpc_url }}`
-    - Chain ID: `{{ networks.dancebox.chain_id }}`
-    - Currency Symbol: `{{ networks.dancebox.token_symbol }}`
-    - Block Explorer URL: `{{ networks.dancebox.block_explorer_url }}`
+    - RPC URL: `{{ networks.dancelight.demo_evm_rpc_url }}`
+    - Chain ID: `{{ networks.dancelight.demo_evm_chain_id }}`
+    - Currency Symbol: `{{ networks.dancelight.demo_evm_token_symbol }}`
+    - Block Explorer URL: `{{ networks.dancelight.demo_evm_blockscout_url }}`
 
 For detailed instructions on connecting MetaMask to the Tanssi demo EVM network, refer to the guide [Connect MetaMask to your Tanssi EVM Network](https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/metamask/#connect-metamask-to-evm-network){target=\_blank}.
 
@@ -247,7 +247,7 @@ Once the development server is running, the home page will display a **Connect W
 
 The current configuration defaults to connecting to Demo EVM Chain and displays the current network, the native token balance, and the connected wallet address. If multiple networks are supported, selecting the arrow next to it will open the Switch Networks modal. This allows users to select another network and authorize the change.
 
-Once connected, users will see their {{ networks.dancebox.token_symbol }} token balance and wallet address.
+Once connected, users will see their {{ networks.dancelight.demo_evm_token_symbol }} token balance and wallet address.
 
 ## Customize RainbowKit
 
@@ -305,7 +305,7 @@ Some users prefer to disconnect from their wallet rather than use a button withi
 
 ## Final Result {: #final-result }
 
-The **Connect Wallet** button on the home page should now render in the color specified for `accentColor` during theme customization. After selecting **Connect Wallet**, the same accent color will be displayed in the modal. MetaMask can be chosen, and signing the transaction will authorize the connection. The Tanssi demo EVM network will appear as the connected network, along with the {{ networks.dancebox.token_symbol }} token balance, without the need for manual network switching.
+The **Connect Wallet** button on the home page should now render in the color specified for `accentColor` during theme customization. After selecting **Connect Wallet**, the same accent color will be displayed in the modal. MetaMask can be chosen, and signing the transaction will authorize the connection. The Tanssi demo EVM network will appear as the connected network, along with the {{ networks.dancelight.demo_evm_token_symbol }} token balance, without the need for manual network switching.
 
 
 ![Theme customization on the user modal](/images/builders/toolkit/integrations/wallet-integrations/rainbowkit/rainbowkit-3.webp)

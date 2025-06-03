@@ -43,10 +43,10 @@ from web3 import Web3
 
 # 2. Create web3.py provider
 # Insert your RPC URL here
-web3 = Web3(Web3.HTTPProvider('https://dancebox-3001.tanssi-api.network')) 
+web3 = Web3(Web3.HTTPProvider('{{ networks.dancelight.demo_evm_rpc_url }}')) 
 ```
 
-Save this code snippet as you'll need it for the scripts that are used in the following sections.
+Save this code snippet, as you'll need it for the scripts that are used in the following sections.
 
 ## Send a Transaction {: #send-a-transaction }
 
@@ -78,7 +78,7 @@ To run the script and fetch the account balances, you can run the following comm
 python3 balances.py
 ```
 
-If successful, the balances for the origin and receiving address will be displayed in your terminal in TANGO.
+If successful, the balances for the origin and receiving address will be displayed in your terminal in {{ networks.dancelight.demo_evm_token_symbol }}.
 
 ![Check Balance Ethers.js](/images/builders/toolkit/ethereum-api/libraries/web3py/web3py-1.webp)
 

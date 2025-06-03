@@ -97,7 +97,7 @@ To create a client for writing chain data, you can take the following steps:
 
 ## Send a Transaction {: #send-transaction }
 
-During this section, you'll be creating a couple of scripts. The first one will be to check the balances of your accounts before trying to send a transaction. The second script will actually send the transaction. You can also use the balance script to check the account balances after the transaction has been sent.
+During this section, you'll be creating a couple of scripts. The first one will check the balances of your accounts before trying to send a transaction. The second script will send the transaction. You can also use the balance script to check the account balances after the transaction has been sent.
 
 ### Check Balances Script {: #check-balances-script }
 
@@ -114,7 +114,7 @@ Next, you will create the script for this file and complete the following steps:
 3. [Set up a public viem client](#for-reading-chain-data), which can be used for reading chain data, such as account balances
 4. Define the `addressFrom` and `addressTo` variables
 5. Create the asynchronous `balances` function that wraps the `publicClient.getBalance` method
-6. Use the `publicClient.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `formatEther` function to transform the balance into a more readable number (in TANGO for the demo EVM network)
+6. Use the `publicClient.getBalance` function to fetch the balances for the `addressFrom` and `addressTo` addresses. You can also leverage the `formatEther` function to transform the balance into a more readable number (in {{ networks.dancelight.demo_evm_token_symbol }} for the demo EVM network)
 7. Lastly, run the `balances` function
 
 ???+ code "View balances.ts"
@@ -129,13 +129,13 @@ To run the script and fetch the account balances, you can run the following comm
 npx ts-node balances.ts
 ```
 
-If successful, the balances for the origin and receiving address will be displayed in your terminal in TANGO.
+If successful, the balances for the origin and receiving address will be displayed in your terminal in {{ networks.dancelight.demo_evm_token_symbol }}.
 
 ![The result of running the balances script in the terminal](/images/builders/toolkit/ethereum-api/libraries/viem/viem-1.webp)
 
 ### Send Transaction Script {: #send-transaction-script }
 
-You'll only need one file to execute a transaction between accounts. For this example, you'll be transferring 1 TANGO token from an origin address on the demo EVM network (from which you hold the private key) to another address. To get started, you can create a `transaction.ts` file by running:
+You'll only need one file to execute a transaction between accounts. For this example, you'll be transferring 1 {{ networks.dancelight.demo_evm_token_symbol }} token from an origin address on the demo EVM network (from which you hold the private key) to another address. To get started, you can create a `transaction.ts` file by running:
 
 ```bash
 touch transaction.ts

@@ -71,13 +71,13 @@ Next, go to the bottom of the page and click on **Add network manually**:
 
 Here, you can configure MetaMask for the following networks:
 
-|         Variable          |                           Value                           |
-|:-------------------------:|:---------------------------------------------------------:|
-|       Network Name        |                  `EVM Network Dancebox`                   |
-|          RPC URL          |        `https://dancebox-3001.tanssi-api.network`         |
-|         Chain ID          |                          `5678`                           |
-|     Symbol (Optional)     |                          `TANGO`                          |
-| Block Explorer (Optional) | `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/` |
+|         Variable          |                        Value                        |
+|:-------------------------:|:---------------------------------------------------:|
+|       Network Name        |               `EVM Network Dancebox`                |
+|          RPC URL          |    `{{ networks.dancelight.demo_evm_rpc_url }}`     |
+|         Chain ID          |    `{{ networks.dancelight.demo_evm_chain_id }}`    |
+|     Symbol (Optional)     |  `{{ networks.dancelight.demo_evm_token_symbol }}`  |
+| Block Explorer (Optional) | `{{ networks.dancelight.demo_evm_blockscout_url }}` |
 
 To do so, fill in the following information:
 
@@ -98,7 +98,7 @@ Once you've added the network, you'll be redirected to a screen stating that you
 
 Once you've [connected Metamask](#connect-metamask-to-evm-network) to your Tanssi EVM network, you can start using your wallet by:
 
-- Requesting TANGO tokens from the [demo EVM network faucet](/builders/tanssi-network/testnet/demo-evm-network/#faucet)
+- Requesting {{ networks.dancelight.demo_evm_token_symbol }} tokens from the [demo EVM network faucet](/builders/tanssi-network/testnet/demo-evm-network/#faucet)
 - Sending a token transfer to another address
 - Adding ERC-20s to Metamask and interacting with them
 - Adding ERC-721s to Metamask and interacting with them

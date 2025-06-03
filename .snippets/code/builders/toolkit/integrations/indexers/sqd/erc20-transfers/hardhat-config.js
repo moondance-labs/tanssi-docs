@@ -12,7 +12,7 @@ module.exports = {
   networks: {
     // 4. Add the network specification for your Tanssi EVM network
     demo: {
-      url: 'https://dancebox-3001.tanssi-api.network/',
+      url: 'https://dancelight-2001.tanssi-api.network/',
       chainId: 5678, // Fill in the EVM ChainID for your Tanssi-powered network
       accounts: [privateKey],
     },

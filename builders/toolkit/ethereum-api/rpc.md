@@ -74,7 +74,7 @@ Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and 
           "id": "1",
           "method": "frnt_isBlockFinalized",
           "params": ["INSERT_BLOCK_HASH"]
-        }' {{ networks.dancebox.rpc_url }}
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
         ```
 
 ???+ function "frnt_isTxFinalized - checks for the finality of a transaction given its EVM transaction hash"
@@ -95,5 +95,5 @@ Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and 
           "id": "1",
           "method": "frnt_isTxFinalized",
           "params": ["INSERT_TRANSACTION_HASH"]
-        }' {{ networks.dancebox.rpc_url }}
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
         ```

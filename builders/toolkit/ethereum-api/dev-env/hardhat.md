@@ -129,8 +129,8 @@ module.exports = {
   networks: {
     // 4. Add the network specification for your Tanssi EVM network
     dancebox: {
-      url: '{{ networks.dancebox.rpc_url }}',
-      chainId: {{ networks.dancebox.chain_id }}, // Fill in the EVM ChainID for your Tanssi network
+      url: '{{ networks.dancelight.demo_evm_rpc_url }}',
+      chainId: {{ networks.dancelight.demo_evm_chain_id }}, // Fill in the EVM ChainID for your Tanssi network
       accounts: [privateKey]
     }
   }

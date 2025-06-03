@@ -73,8 +73,8 @@ To configure Talisman for your Tanssi EVM network, open the Talisman extension a
 
 On the following page, you'll then be prompted to enter the network details for your Tanssi-powered network. For demonstration purposes, the demo EVM network is used here, but you can substitute these details for your own network. To add your network to Talisman, take the following steps:
 
-1. Paste in the RPC URL of your Tanssi-powered network. The demo EVM network's RPC URL is `https://dancebox-3001.tanssi-api.network/`. Other parameters will be autopopulated
-2. Paste in the block explorer URL of your Tanssi-powered network. The demo EVM network's block explorer URL is `https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/`
+1. Paste in the RPC URL of your Tanssi-powered network. The demo EVM network's RPC URL is `{{ networks.dancelight.demo_evm_rpc_url }}`. Other parameters will be autopopulated
+2. Paste in the block explorer URL of your Tanssi-powered network. The demo EVM network's block explorer URL is `{{ networks.dancelight.demo_evm_blockscout_url }}`
 3. Check the **This is a testnet** box if applicable
 4. Press **Add Network**
 

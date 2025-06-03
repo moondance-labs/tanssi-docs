@@ -10,10 +10,10 @@ export const demoEVMChain = {
   name: "Tanssi demo EVM Network",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://dancebox-3001.tanssi-api.network'] }
+    default: { http: ['https://dancelight-2001.tanssi-api.network'] }
   },
   blockExplorers: {
-    default: { name: 'Demo EVM Explorer', url: 'https://fra-dancebox-3001-bs.a.dancebox.tanssi.network/' }
+    default: { name: 'Demo EVM Explorer', url: 'https://dancelight-2001-blockscout.tanssi-chains.network/' }
   },
 } as const satisfies Chain
 
