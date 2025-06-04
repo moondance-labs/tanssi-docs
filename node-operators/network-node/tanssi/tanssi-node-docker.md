@@ -22,11 +22,9 @@ A Docker image combines the binary corresponding to the latest stable release of
 
 Run the following command to pull the Docker image:
 
-=== "Dancelight"
-
-    ```bash
-    docker pull {{ networks.dancelight.operator_docker_image }}
-    ```
+```bash
+docker pull {{ networks.dancelight.operator_docker_image }}
+```
 
 The command will download and extract the image and show the status upon execution:
 
@@ -38,27 +36,21 @@ Running a node requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
-=== "Dancelight"
-
-    ```bash
-    mkdir /var/lib/dancelight-data
-    ```
+```bash
+mkdir /var/lib/tanssi-data
+```
 
 Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
 
-=== "Dancelight"
-
-    ```bash
-    chown INSERT_DOCKER_USER /var/lib/dancelight-data
-    ```
+```bash
+chown INSERT_DOCKER_USER /var/lib/tanssi-data
+```
 
 Or run the following command if you want to run the node with the current logged-in user:
 
-=== "Dancelight"
-
-    ```bash
-    sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
-    ```
+```bash
+sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+```
 
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
@@ -67,13 +59,11 @@ Or run the following command if you want to run the node with the current logged
 
 To generate and store on disk the session keys that will be referenced in the start-up command, run the following command:
 
-=== "Dancelight"
-
-    ```bash
-    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
-    ```
+```bash
+docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+-u $(id -u ${USER}):$(id -g ${USER}) \
+{{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
@@ -85,27 +75,73 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain dancelight \
-    --base-path /data \
-    --name INSERT_YOUR_TANSSI_NODE_NAME \
-    --node-key-file /data/node-key \
-    --rpc-port 9944 \
-    --prometheus-port 9615 \
-    --prometheus-external \
-    --listen-addr /ip4/0.0.0.0/tcp/30333 \
-    --public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
-    --state-pruning archive \
-    --blocks-pruning archive \
-    --database paritydb \
-    --unsafe-rpc-external \
-    --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
-    ```
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/network-node/tanssi/docker-command.md'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/network-node/tanssi/docker-command.md'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/network-node/tanssi/docker-command.md'
+        ```
+
+=== "Dancelight TestNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/network-node/tanssi/docker-command.md'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/network-node/tanssi/docker-command.md'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/network-node/tanssi/docker-command.md'
+        ```
 
 ### Run Flags {: #run-flags }
 

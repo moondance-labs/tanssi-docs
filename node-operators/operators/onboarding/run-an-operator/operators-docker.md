@@ -77,7 +77,6 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-
 === "Tanssi MainNet"
 
     === "Generic"

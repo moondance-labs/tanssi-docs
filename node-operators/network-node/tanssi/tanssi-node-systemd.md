@@ -43,12 +43,30 @@ To get started, download the latest binary release and make it executable by run
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-=== "Dancelight"
+=== "Generic"
 
     ```bash
     wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay && \
     wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker && \
     wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker && \
+    chmod +x ./tanssi-relay*
+    ```
+
+=== "Intel Skylake"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay-prepare-worker && \
+    chmod +x ./tanssi-relay*
+    ```
+
+=== "AMD Zen3"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-znver3 -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
@@ -66,37 +84,29 @@ adduser tanssi_service --system --no-create-home
 
 2. Create a directory to store the required files and data:
 
-=== "Dancelight"
-
-    ```bash
-    mkdir /var/lib/dancelight-data
-    ```
+```bash
+mkdir /var/lib/tanssi-data
+```
 
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-=== "Dancelight"
-
-    ```bash
-    chown -R tanssi_service /var/lib/dancelight-data
-    ```
+```bash
+chown -R tanssi_service /var/lib/tanssi-data
+```
 
 4. Move the binaries to the folder:
 
-=== "Dancelight"
-
-    ```bash
-    mv ./tanssi-relay* /var/lib/dacelight-data
-    ```
+```bash
+mv ./tanssi-relay* /var/lib/dacelight-data
+```
 
 ### Generate the Node Key {: #generate-node-key }
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-=== "Dancelight"
-
-    ```bash
-    /var/lib/dancelight-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
-    ```
+```bash
+/var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
+```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
@@ -112,11 +122,12 @@ sudo touch /etc/systemd/system/tanssi.service
 
 Now you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
 
-=== "Dancelight"
+
+=== "Tanssi MainNet"
 
     ```bash
     [Unit]
-    Description="Tanssi Node systemd service"
+    Description="Tanssi systemd service"
     After=network.target
     StartLimitIntervalSec=0
 
@@ -129,20 +140,32 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
     SyslogFacility=local7
     KillSignal=SIGHUP
     LimitNOFILE=100000
-    ExecStart=/var/lib/dancelight-data/tanssi-relay --chain=dancelight \
-    --base-path=/var/lib/tanssi-data/ \
-    --node-key-file /var/lib/dancelight-data/node-key \
-    --rpc-port=9944 \
-    --prometheus-port=9615 \
-    --prometheus-external \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-    --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
-    --state-pruning=archive \
-    --blocks-pruning=archive \
-    --database=paritydb \
-    --unsafe-rpc-external \
-    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0'
+    ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=tanssi \
+    --8<-- 'code/node-operators/network-node/tanssi/systemd-command.md'
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    [Unit]
+    Description="Tanssi systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    User=tanssi_service
+    Type=simple
+    Restart=always
+    RestartSec=10
+    SyslogIdentifier=tanssi
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    LimitNOFILE=100000
+    ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
+    --8<-- 'code/node-operators/network-node/tanssi/systemd-command.md'
 
     [Install]
     WantedBy=multi-user.target
@@ -163,7 +186,7 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 You can view all available flags by running:
 
 ```bash
-/var/lib/dancelight-data/tanssi-relay --help
+/var/lib/tanssi-data/tanssi-relay --help
 ```
 
 ## Run the Service {: #run-the-service }
