@@ -1,5 +1,5 @@
---base-path=/data/ \
---node-key-file /data/node-key \
+--base-path=/var/lib/tanssi-data/ \
+--node-key-file /var/lib/tanssi-data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
 --prometheus-port=9615 \
@@ -7,7 +7,7 @@
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=2000 \
---blocks-pruning=2000 \
+--state-pruning=archive \
+--blocks-pruning=archive \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator

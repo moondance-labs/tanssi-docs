@@ -77,34 +77,74 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-=== "Generic"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.operator_docker_image }} \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-    ```
+=== "Tanssi MainNet"
 
-=== "Intel Skylake"
+    === "Generic"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-    ```
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
 
-=== "AMD Zen3"
+    === "Intel Skylake"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-    ```
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
+
+=== "Dancelight TestNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
 
 ### Run Flags {: #run-flags }
 
