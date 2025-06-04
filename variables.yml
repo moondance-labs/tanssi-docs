@@ -97,7 +97,7 @@ networks:
         operators_registry: '0xAd817a6Bc954F678451A71363f04150FDD81Af9F'
         network_registry: '0x7133415b33B438843D581013f98A08704316633c'
         vault_registry: '0xb361894bC06cbBA7Ea8098BF0e32EB1906A5F891'
-        tanssi_network: 'INSERT_TANSSI_NETWORK_ADDRESS'
+        tanssi_network: '0x8c1a46D032B7b30D9AB4F30e51D8139CC3E85Ce3'
       holesky:
         operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
         network_registry: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
