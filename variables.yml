@@ -1,4 +1,6 @@
 networks:
+  mainnet:
+    dns_name: tanssi.tanssi-api.network
   dancelight:
     operator_docker_image: moondancelabs/starlight
     dns_name: dancelight.tanssi-api.network
