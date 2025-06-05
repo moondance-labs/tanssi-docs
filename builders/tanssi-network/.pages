@@ -4,3 +4,4 @@ nav:
   - index.md
   - testnet
   - 'Network Endpoints': 'endpoints.md'
+  - 'Bridge Tokens': 'bridge.md'
