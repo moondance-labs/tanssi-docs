@@ -13,8 +13,8 @@ networks:
     subscan_url: https://dancelight.subscan.io/
   dancebox:
     docker_sequencer_image_name: moondancelabs/tanssi
-    client_version: v0.12.0
-    para_client_version: v0.12.0-para
+    client_version: v0.13.0
+    para_client_version: v0.13.0-para
     substrate_api_sidecar:
       stable_version: 17.1.2
     precompiles:
@@ -100,10 +100,6 @@ networks:
         network_registry: '0x7133415b33B438843D581013f98A08704316633c'
         vault_registry: '0xb361894bC06cbBA7Ea8098BF0e32EB1906A5F891'
         tanssi_network: '0x8c1a46D032B7b30D9AB4F30e51D8139CC3E85Ce3'
-      holesky:
-        operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
-        network_registry: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
-        vault_registry: '0x95CC0a052ae33941877c9619835A233D21D57351'
       sepolia:
         operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
         network_registry: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
@@ -112,4 +108,4 @@ networks:
         tanssi_network: '0xdaD051447C4452e15B35B7F831ceE8DEb890f1a4'
 repository:
   tanssi:
-    release_branch: tanssi-polkadot-v1.11.0
+    release_branch: tanssi-polkadot-stable2412
