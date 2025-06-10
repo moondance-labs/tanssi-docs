@@ -16,7 +16,7 @@ networks:
     client_version: v0.13.0
     para_client_version: v0.13.0-para
     substrate_api_sidecar:
-      stable_version: 17.1.2
+      stable_version: 20.2.2
     precompiles:
       erc20: '0x0000000000000000000000000000000000000800'
       batch: '0x0000000000000000000000000000000000000801'

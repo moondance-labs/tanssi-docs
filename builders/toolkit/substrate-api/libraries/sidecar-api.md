@@ -37,13 +37,19 @@ node_modules/.bin/substrate-api-sidecar --version
 
 In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network you want to connect to. For example, the WSS endpoint of your Tanssi network. Some examples:
 
-=== "Dancebox"
+=== "Tanssi MainNet"
+
+    ```bash
+    export SAS_SUBSTRATE_URL=wss://{{ networks.mainnet.dns_name }}
+    ```
+
+=== "Dancelight"
 
     ```bash
     export SAS_SUBSTRATE_URL=wss://{{ networks.dancelight.dns_name }}
     ```
 
-=== "Dancebox EVM Network"
+=== "Demo EVM Network"
 
     ```bash
     export SAS_SUBSTRATE_URL={{ networks.dancelight.demo_evm_rpc_wss_url }}
