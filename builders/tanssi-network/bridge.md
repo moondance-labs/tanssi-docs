@@ -1,7 +1,7 @@
 ---
 title: Bridging Tokens Using the Tanssi DApp
 description: Tanssi offers built-in trustless bridging capabilities to move liquidity to and from Ethereum with an easy-to-use user interface available on the Tanssi dApp.
-icon: octicons-share-android-24
+icon: octicons-arrow-switch-24
 ---
 
 # Bridging Tokens Using the Tanssi DApp

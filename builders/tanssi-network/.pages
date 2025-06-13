@@ -2,7 +2,7 @@ title: Network Essentials
 hide: false
 nav:
   - index.md
-  - 'Token': 'token.md'
+  - 'Utility Token': 'token.md'
   - 'Built-in Bridge': 'bridge.md'
   - testnet
   - 'Network Endpoints': 'endpoints.md'

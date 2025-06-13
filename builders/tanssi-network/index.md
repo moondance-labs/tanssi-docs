@@ -7,11 +7,11 @@ template: index-page.html
 
 # Network Essentials
 
-Learn about the Tanssi network, its testnets, and key functionalities and aspects to get started with development and interaction with it.
+Learn about the Tanssi network, the available testnets, and key functionalities and aspects to get started with development and interaction with it.
 
 ## Network Overview
 
-- **Token** - the utility token native to the Tanssi networks, and its ERC20 representation
+- **Utility token** - the utility token native to the Tanssi networks, and its ERC20 representation
 - **Built-in bridge** - the built-in trustless bridge to swap native tokens for the ERC20 representation, and vice versa 
 - **Dancebox** - the official Tanssi TestNet for rapid network deployment and experimentation
 - **Tanssi-powered networks** - networks built on the Tanssi platform, leveraging its capabilities to create custom blockchains
