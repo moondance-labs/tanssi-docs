@@ -2,4 +2,4 @@ title: Interoperability
 hide: false
 nav:
   - index.md
-  - 'Built-in Bridge': 'bridge.md'
+  - 'Bridge Tokens Using the Tanssi DApp': 'bridge.md'
