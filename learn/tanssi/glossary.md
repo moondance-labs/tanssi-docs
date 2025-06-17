@@ -1,18 +1,18 @@
 ---
 title: Glossary
 description: The Tanssi network's architecture is rich and complex. Here's a technical glossary for understanding Tanssi, including key terms, concepts, and definitions.
-icon: octicons-key-24
+icon: octicons-book-24
 ---
 
 # Glossary
 
 ## Introduction {: #introduction }
 
-The Tanssi protocol offers a wide range of features and a layered architecture, making it both rich and complex. There's a great deal of terminology specific to Tanssi, Appchains, Symbiotic, and the web3 space in general. We've compiled a list of terms you'll want to know as you review the Tanssi documentation.
+The Tanssi protocol offers a wide range of features and layered architecture, making it both rich and complex. There's a great deal of terminology specific to Tanssi, Appchains, Symbiotic, and the web3 space in general. We've compiled a list of terms you'll want to know as you review the Tanssi documentation.
 
 ## Appchain {: #appchain }
 
-A customizable application-specific blockchain deployed through Tanssi that goes live in minutes benefiting from shared security, block production services, built-in bridging, and other services.
+A customizable application-specific blockchain deployed through Tanssi that goes live in minutes, benefiting from shared security, block production services, built-in bridging, and other services.
 
 ## BEEFY {: #beefy }
 
@@ -48,7 +48,7 @@ One of the components of the Tanssi-Ethereum bridge, serving as an on-chain veri
 
 ## Merkle Root {: #merkle-root }
 
-A single cryptographic hash that allows to verify an entire set of data, such as all the transactions in a block on a blockchain.
+A single cryptographic hash that allows the verification of an entire set of data, such as all the transactions in a block.
 
 ## Operator {: #operator }
 
@@ -72,7 +72,7 @@ A period of time during which the same set of authorities (sequencers or validat
 
 ## Sr25519 {: #sr25519 }
 
-The primary signature scheme used for most user-facing operations within the Tanssi network.
+The primary signature scheme that is used for most user-facing operations within the Tanssi network.
 
 ## Substrate {: #substrate }
 
@@ -84,11 +84,11 @@ A restaking protocol based on Ethereum, providing restaking services and economi
 
 ## $TANSSI(Substrate) {: #tanssi-substrate }
 
-The native utility token of the Tanssi protocol used for staking, governance, network operations, and more.
+The native utility token of the Tanssi protocol. It is used for staking, governance, network operations, and more.
 
 ## $TANSSI(ERC20) {: #tanssi-erc20 }
 
-The ERC20 Ethereum representation of the Tanssi token, used for paying rewards to operators, and more.
+The ERC20 Ethereum representation of the Tanssi token. It is used for paying rewards to operators, and more.
 
 ## Trustless {: #trustless }
  
@@ -100,4 +100,4 @@ A Symbiotic component that receives and manages restaked collateral, delegating 
 
 ## Verifier {: #verifier }
 
-Component that validates cryptographic proofs, implemented as on-chain light clients.
+The component that validates cryptographic proofs.
