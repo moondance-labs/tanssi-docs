@@ -18,13 +18,15 @@ Tanssi is a decentralized infrastructure protocol that makes deploying appchains
 
 Running a healthy decentralized protocol not only requires a robust governance mechanism to ensure that decisions are made transparently but also aligning incentives and coordinating among several ecosystem actors, including appchain developers, node operators, sequencer operators, data availability and RPC providers, as well as general users. The Tanssi token serves as the backbone, providing the economic mechanisms necessary to coordinate, incentivize proper behavior, and secure the entire ecosystem, while allowing for a verifiable, and enforced-by-code protocol evolution through a fully on-chain decision-making process.
 
-The token has different utilities, depending on how you participate in the ecosystem:
+The token has several utilities:
 
-- **On-chain governance** - use the token to participate in governance decisions, such as software upgrades, how to spend treasury funds, change protocol rules, and more
-- **Appchain developers** - use the token to launch your network, and pay for block production services, keeping your network live
-- **Sequencer operators** - get tokens as rewards for your block production services, and use the tokens to self-stake the minimum required bond to participate in the protocol
-- **Node operators** - get tokens as rewards for your validation services
-- **General users** - use the token to stake on sequencers, stake on operators, or participate in governance decisions
+- **On-chain governance** - token holders can use the token to propose and vote in governance decisions, such as software upgrades, how to spend treasury funds, change protocol rules, and more
+- **Appchain deployment** - use the token to register and launch your appchain in minutes
+- **Block production services payment** - use the token to keep your appchain live
+- **Block production and operator services rewarding** - get tokens as rewards for your nodes' services
+- **Staking on sequencers** - token holders can stake on sequencers, getting rewards with no risk of slashing
+- **Staking on operators** - token holders can stake on operators, getting rewards for their validation services
+- **Fees payment** - use the token to pay the fees for interacting with the Tanssi network
 
 !!! note
     All transaction fees on Tanssi are paid using the token, with the full amount going directly to fund the Protocol's treasury account. These funds can only be spent via governance.
