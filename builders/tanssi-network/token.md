@@ -1,10 +1,10 @@
 ---
-title: Utility Token
+title: TANSSI Token
 description: Learn about the two versions of the Tanssi token - the native Substrate token and the ERC-20 representation on Ethereum, their utilities, and use cases.
 icon: octicons-ruby-24
 ---
 
-# Utility Token {: #utility-token }
+# TANSSI Token {: #tanssi-token }
 
 ## Introduction {: #introduction }
 
@@ -52,7 +52,7 @@ With this version of the token, you can:
 - Participate in governance decisions
 
 !!! note
-    This token has twelve decimal places.
+    This token has twelve (12) decimal places.
 
 ### Tanssi(ERC20) - Ethereum Representation {: #tanssi-erc20 }
 
@@ -66,4 +66,4 @@ With this version of the token, you can:
 - When enabled, stake on vaults accepting the token as valid collateral
 
 !!! note
-    This token has twelve decimal places, and not eighteen.
+    This token has twelve (12) decimal places.

@@ -2,6 +2,6 @@ title: Network Essentials
 hide: false
 nav:
   - index.md
-  - 'Utility Token': 'token.md'
+  - 'TANSSI Token': 'tanssi-token.md'
   - testnet
   - 'Network Endpoints': 'endpoints.md'

@@ -11,7 +11,7 @@ Learn about the Tanssi network, the available testnets, and key functionalities 
 
 ## Network Overview
 
-- **Utility token** - the utility token native to the Tanssi networks, and its ERC20 representation
+- **TANSSI token** - the utility token native to the Tanssi networks, and its ERC20 representation
 - **Dancebox** - the official Tanssi TestNet for rapid network deployment and experimentation
 - **Tanssi-powered networks** - networks built on the Tanssi platform, leveraging its capabilities to create custom blockchains
 - **Demo EVM network** - a sample Ethereum-compatible network that demonstrates a fully operational Tanssi-powered network
