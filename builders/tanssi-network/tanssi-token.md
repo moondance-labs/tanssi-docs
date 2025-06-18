@@ -45,12 +45,12 @@ This token uses as [Sr25519 subtrate-type account](/learn/tanssi/account-types/#
 
 With this version of the token, you can:
 
-- Pay fees when interacting with the Tanssi network
+- Participate in governance decisions
 - Pay to launch your network
 - Pay for block production services
+- Pay fees when interacting with the Tanssi network
 - Stake on sequencers to participate in the protocol
 - Get rewards for your block production services, should you run sequencers
-- Participate in governance decisions
 
 !!! note
     This token has twelve (12) decimal places.
