@@ -16,10 +16,11 @@ In this guide, the token's utility and the differences between its two represent
 
 Tanssi is a decentralized infrastructure protocol that makes deploying appchains with custom logic easy. It allows developers to focus on the use case instead of diverting time and energy to manage the [numerous components required](/learn/tanssi/overview/#what-tanssi-provides){target=\_blank} for a network to run smoothly.
 
-Running a healthy decentralized protocol requires aligning incentives and coordinating among several ecosystem actors, including appchain developers, node operators, sequencer operators, data availability and RPC providers, as well as general users. The Tanssi token serves as the backbone, providing the economic mechanisms necessary to coordinate, incentivize proper behavior, and secure the entire ecosystem.
+Running a healthy decentralized protocol not only requires a robust governance mechanism to ensure that decisions are made transparently but also aligning incentives and coordinating among several ecosystem actors, including appchain developers, node operators, sequencer operators, data availability and RPC providers, as well as general users. The Tanssi token serves as the backbone, providing the economic mechanisms necessary to coordinate, incentivize proper behavior, and secure the entire ecosystem, while allowing for a verifiable, and enforced-by-code protocol evolution through a fully on-chain decision-making process.
 
 The token has different utilities, depending on how you participate in the ecosystem:
 
+- **On-chain governance** - use the token to participate in governance decisions, such as software upgrades, how to spend treasury funds, change protocol rules, and more
 - **Appchain developers** - use the token to launch your network, and pay for block production services, keeping your network live
 - **Sequencer operators** - get tokens as rewards for your block production services, and use the tokens to self-stake the minimum required bond to participate in the protocol
 - **Node operators** - get tokens as rewards for your validation services
