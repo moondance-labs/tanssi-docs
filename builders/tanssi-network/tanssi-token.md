@@ -42,7 +42,7 @@ Leveraging Tanssi's [built-in bridging capabilities](/builders/tanssi-network/br
 ```mermaid
 flowchart LR
     subgraph Tanssi_Network ["Tanssi Network"]
-        Tanssi_Substrate["$TANSSI(Substrate)"]
+        Tanssi_Substrate["$TANSSI (Substrate)"]
         Tanssi_Substrate_Utility["✓ On-chain governance
         ✓ Appchain deployment
         ✓ Block production rewarding
@@ -53,7 +53,7 @@ flowchart LR
     end
 
     subgraph Ethereum_Network ["Ethereum"]
-        Tanssi_ERC20["$TANSSI(ERC20)"]
+        Tanssi_ERC20["$TANSSI (ERC20)"]
         Tanssi_ERC20_Utility["✓ Operator services rewarding
         ✓ Staking on operators
         <pre> </pre>
@@ -63,7 +63,7 @@ flowchart LR
 
     Bridge["Trustless Bridge"]
 
-    Tanssi_Network --> Bridge --> Ethereum_Network
+    Tanssi_Network <--> Bridge <--> Ethereum_Network
 
     %% Apply custom style to utility nodes
     classDef utility_style fill: transparent, stroke: transparent, text-align: start;
