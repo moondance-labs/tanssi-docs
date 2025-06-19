@@ -8,7 +8,7 @@ icon: octicons-code-24
 
 ## Introduction {: #introduction }
 
-[Polkadot.js](https://wiki.polkadot.network/docs/polkadotjs){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Tanssi-powered network! The [Polkadot.js API](https://polkadot.js.org/docs/api){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a network and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
+[Polkadot.js](https://wiki.polkadot.network/general/polkadotjs/){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Tanssi-powered network! The [Polkadot.js API](https://polkadot.js.org/docs/api){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a network and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
 
 You can use the Polkadot.js API to query on-chain data and send transactions from the Substrate side of your Tanssi network. You can query runtime constants, chain state, events, transaction (extrinsic) data, and more.
 

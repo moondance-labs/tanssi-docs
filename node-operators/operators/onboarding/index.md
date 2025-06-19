@@ -11,7 +11,7 @@ Your journey as an operator begins here. Follow these steps to set up your node 
 
 [timeline left (tanssi-docs/.snippets/text/node-operators/operators/onboarding/onboarding-timeline.json)]
 
-Once you've fully onboarded, check out the [operational tasks](/node-operators/validators/operational-tasks/){target=\_blank} related to the maintenance of your node.
+Once you've fully onboarded, check out the [operational tasks](/node-operators/operators/operational-tasks/){target=\_blank} related to the maintenance of your node.
 
 ## Explore This Section
 

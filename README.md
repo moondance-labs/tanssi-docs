@@ -20,5 +20,5 @@ You can also [open an issue](https://github.com/moondance-labs/tanssi-docs/issue
 - **Telegram** - general information and other non-technical topics can be discussed in our [Telegram group](https://t.me/tanssiofficial)
 - **Twitter** - follow us on Twitter for regular updates: [@TanssiNetwork](https://twitter.com/TanssiNetwork)
 - **YouTube** - for video-tutorials and related content, subscribe to our [YouTube channel](https://www.youtube.com/@TanssiNetwork?sub_confirmation=1)
-- **Newsletter** - Sign up for [our newsletter](https://www.tanssi.network/newsletter) to learn more about Tanssi
+- **Newsletter** - Sign up for [our newsletter](https://www.tanssi.network/community/newsletter) to learn more about Tanssi
 
