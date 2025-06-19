@@ -39,6 +39,40 @@ Additionally, the Tanssi protocol relies on [external security providers](/learn
 
 Leveraging Tanssi's [built-in bridging capabilities](/builders/tanssi-network/bridge/){target=\_blank}, the token can be converted to (and from) the ERC20  representation on Ethereum. When the token is bridged over to Ethereum, the tokens are locked in the bridge's sovereign account, and a message is sent to the Ethereum contract to mint the equivalent amount in ERC20. This means that the ERC20 version is created through the trustless bridging mechanism and maintains a 1:1 relationship with the native token.
 
+```mermaid
+flowchart LR
+    subgraph Tanssi_Network ["Tanssi Network"]
+        Tanssi_Substrate["$TANSSI(Substrate)"]
+        Tanssi_Substrate_Utility["✓ On-chain governance
+        ✓ Appchain deployment
+        ✓ Block production rewarding
+        ✓ Staking on sequencers
+        ✓ Fees payment
+        "]
+        Tanssi_Substrate --> Tanssi_Substrate_Utility
+    end
+
+    subgraph Ethereum_Network ["Ethereum"]
+        Tanssi_ERC20["$TANSSI(ERC20)"]
+        Tanssi_ERC20_Utility["✓ Operator services rewarding
+        ✓ Staking on operators
+        <pre> </pre>
+        "]
+        Tanssi_ERC20 --> Tanssi_ERC20_Utility
+    end
+
+    Bridge["Trustless Bridge"]
+
+    Tanssi_Network --> Bridge --> Ethereum_Network
+
+    %% Apply custom style to utility nodes
+    classDef utility_style fill: transparent, stroke: transparent, text-align: start;
+    class Tanssi_Substrate_Utility,Tanssi_ERC20_Utility utility_style;
+    %% Make utility arrows transparent
+    linkStyle 0 stroke:transparent,fill:transparent;
+    linkStyle 1 stroke:transparent,fill:transparent;
+```
+
 ### Tanssi(Substrate) - Native Token {: #tanssi-substrate }
 
 The native Tanssi token exists on the Tanssi network as a Substrate-based asset. This is the original form of the token that powers the core protocol operations.
