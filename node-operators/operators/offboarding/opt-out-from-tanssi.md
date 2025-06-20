@@ -148,7 +148,7 @@ After opting out from the network, notify the Tanssi team of your intention to s
 Upon receiving your request, your operator's removal will be scheduled. This step is semi-automated and may take time to complete. You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
 
 !!! note "Provide feedback"
-    Consider providing feedback in the offboarding [form](https://www.tanssi.network/https://www.tanssi.network/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network.
+    Consider providing feedback in the offboarding [form](https://www.tanssi.network/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network.
 
 ## Pause Operations (Optional) {: #pause-operations }
 

@@ -99,7 +99,7 @@ Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networ
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
 3. Enter your account, which is, again, the same account you are sending the transaction from and the account you want to become a sequencer
 4. Choose the target pool. The pool can either be the auto-compounding pool, which auto-compounds delegation rewards, or the manual rewards pool, in which all actions related to rewards are manual
-5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](hhttps://wiki.polkadot.network/learn/learn-dot/#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
+5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/learn/learn-dot/#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit a transaction to self-delegate on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-3.webp)
