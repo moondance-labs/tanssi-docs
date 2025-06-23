@@ -4021,8 +4021,8 @@ The token has several utilities:
 
 - **On-chain governance**: token holders can use the token to propose and vote in governance decisions, such as software upgrades, how to spend treasury funds, change protocol rules, and more.
 - **Appchain deployment**: use the token to register and launch your appchain in minutes.
-- **Block production services payment**: use the token to keep your appchain live.
-- **Block production and operator services rewarding**: get tokens as rewards for your nodes' services.
+- **Sequencing as a service payment**: use the token to keep your appchain live.
+- **Sequencing and operator services rewarding**: get tokens as rewards for your nodes' services.
 - **Staking on sequencers**: token holders can stake on sequencers, getting rewards with no risk of slashing.
 - **Staking on operators**: token holders can stake on operators, getting rewards for their validation services.
 - **Fees payment**: use the token to pay the fees for interacting with the Tanssi network.
@@ -4044,7 +4044,7 @@ flowchart LR
         Tanssi_Substrate["$TANSSI (Substrate)"]
         Tanssi_Substrate_Utility["✓ On-chain governance
         ✓ Appchain deployment
-        ✓ Block production rewarding
+        ✓ Sequencers rewarding
         ✓ Staking on sequencers
         ✓ Fees payment
         "]
@@ -4078,17 +4078,8 @@ The native Tanssi token exists on the Tanssi network as a Substrate-based asset 
 
 This token uses as [Sr25519 subtrate-type account](/learn/tanssi/account-types/#key-types-in-tanssi-protocol){target=\_blank}, so it requires a wallet such as [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank} or any other [substrate-compatible wallet](/builders/toolkit/substrate-api/wallets/){target=\_blank}.
 
-With this version of the token, you can do the following:
-
-- Participate in governance decisions.
-- Pay to launch your network.
-- Pay for block production services.
-- Pay fees when interacting with the Tanssi network.
-- Stake on sequencers to participate in the protocol.
-- Get rewards for your block production services should you run sequencers.
-
 !!! note
-    The Tanssi(Substrate) native token has twelve (12) decimal places.
+    The Tanssi (Substrate) native token has twelve (12) decimal places.
 
 ### Tanssi (ERC-20) - Ethereum Representation {: #tanssi-erc-20 }
 
@@ -4096,13 +4087,23 @@ Tanssi's ERC-20 version is a standard Ethereum token that represents the native 
 
 This token, like any other Ethereum asset, uses an [ECDSA account](/learn/tanssi/account-types/#key-types-in-tanssi-protocol){target=\_blank}, so it requires a wallet such as [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} or any other [Ethereum-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank}.
 
-With this version of the token, you can:
-
-- Get rewards for your validation services, should you run an operator
-- When enabled, stake on vaults accepting the token as valid collateral
-
 !!! note
-    This token has twelve (12) decimal places.
+    The Tanssi (ERC-20) has twelve (12) decimal places.
+
+### Tanssi (Substrate) and Tanssi (ERC-20) Comparison {: #substrate-erc-20-comparison }
+
+To better understand the differences between the two token representations, the following table provides a summary of their main features:
+
+| **Feature**            | **Tanssi (Substrate)**                                                                                                                                                                                                  | **Tanssi (ERC-20)**                                                                                                                                                                               |
+|------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Network**            | Tanssi Network                                                                                                                                                                                                          | Ethereum MainNet                                                                                                                                                                                  |
+| **Token Standard**     | Native Substrate asset                                                                                                                                                                                                  | ERC-20 standard token                                                                                                                                                                             |
+| **Decimal Places**     | Twelve (12) decimals                                                                                                                                                                                                    | Twelve (12) decimals                                                                                                                                                                              |
+| **Account Type**       | [Sr25519](https://wiki.polkadot.network/learn/learn-cryptography/#keypairs-and-signing){target=_blank}                                                                                                                  | [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm){target=_blank}                                                                                                  |
+| **Compatible Wallets** | [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}, [SubWallet](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}, and others                                              | [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}, [Talisman](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}, and other Ethereum-compatible wallets |
+| **Primary Utilities**  | - On-chain governance participation<br/>- Appchain registration and deployment<br/>- Sequencing services payment<br/>- Transaction fees on Tanssi network<br/>- Staking on sequencers<br/>- Sequencer operation rewards | - Operator validation rewards<br/>- Staking on operators                                                                                                                                          |
+| **Staking Options**    | Sequencer staking (for keeping appchain liveness)                                                                                                                                                                       | Operator staking (for validating/securing the entire Tanssi ecosystem)                                                                                                                            |
+| **Bridge Conversion**  | Can be bridged to ERC-20, paying fees in $TANSSI (Substrate)                                                                                                                                                            | Can be bridged to Substrate, paying fees in $ETH                                                                                                                                                  |
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox/

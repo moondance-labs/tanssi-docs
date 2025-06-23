@@ -93,7 +93,7 @@ This token, like any other Ethereum asset, uses an [ECDSA account](/learn/tanssi
 
 ### Tanssi (Substrate) and Tanssi (ERC-20) Comparison {: #substrate-erc-20-comparison }
 
-
+To better understand the differences between the two token representations, the following table provides a summary of their main features:
 
 | **Feature**            | **Tanssi (Substrate)**                                                                                                                                                                                                  | **Tanssi (ERC-20)**                                                                                                                                                                               |
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
