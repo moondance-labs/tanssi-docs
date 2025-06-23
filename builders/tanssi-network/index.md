@@ -7,7 +7,7 @@ template: index-page.html
 
 # Network Essentials
 
-Learn about the Tanssi network, the available testnets, and key functionalities and aspects to get started with development and interaction with it.
+Learn about the Tanssi network, the available TestNets, and key functionalities and aspects to get started with development and interaction with it.
 
 ## Network Overview
 
