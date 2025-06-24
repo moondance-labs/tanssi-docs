@@ -1,19 +1,20 @@
 ---
 title: Network Essentials
-description: Discover everything you need to know about the different networks in the Tanssi ecosystem and get started developing and interacting with each of them.
+description: Discover everything you need to know about the Tanssi ecosystem, its different networks, and its key aspects to get started developing and interacting with it.
 icon: octicons-star-24
 template: index-page.html
 ---
 
 # Network Essentials
 
-Learn about the key networks within the Tanssi ecosystem and how to get started with development and interaction on each of them.
+Learn about the Tanssi network, the available TestNets, and key functionalities and aspects to get started with development and interaction with it.
 
 ## Network Overview
 
-- **Dancebox** - the official Tanssi TestNet for rapid network deployment and experimentation
-- **Tanssi-powered networks** - networks built on the Tanssi platform, leveraging its capabilities to create custom blockchains
-- **Demo EVM network** - a sample Ethereum-compatible network that demonstrates a fully operational Tanssi-powered network
+- **TANSSI token**: the utility token native to the Tanssi networks, and its ERC-20 representation.
+- **Dancebox**: the official Tanssi TestNet for rapid network deployment and experimentation.
+- **Tanssi-powered networks**: networks built on the Tanssi platform, leveraging its capabilities to create custom blockchains.
+- **Demo EVM network**: a sample Ethereum-compatible network that demonstrates a fully operational Tanssi-powered network.
 
 ## Explore This Section
 

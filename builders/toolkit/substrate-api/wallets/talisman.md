@@ -69,11 +69,11 @@ Talisman already comes pre-configured with support for the Tanssi Dancebox TestN
 2. Select **Settings**
 3. Ensure that **Enable testnets** is checked
 
-![See your testnet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
+![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
 
 If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancebox tokens, the network will be omitted from your list of assets.
 
-![See your testnet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
+![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
 
 ## Connecting Talisman to Your Substrate Network {: #connecting-talisman-to-your-substrate-network }
 
