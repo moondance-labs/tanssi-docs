@@ -88,7 +88,7 @@ The native utility token of the Tanssi protocol. It is used for staking, governa
 
 ## $TANSSI(ERC20) {: #tanssi-erc20 }
 
-The ERC20 Ethereum representation of the Tanssi token. It is used for paying rewards to operators, and more.
+The ERC20 Ethereum representation of the Tanssi token. It is used for paying rewards to operators and more.
 
 ## Trustless {: #trustless }
  
