@@ -2,6 +2,7 @@
 title: How to use viem Ethereum Library
 description: In this tutorial use the viem TypeScript interface for Ethereum to send transactions and deploy Solidity smart contracts to your Tanssi-powered EVM network.
 icon: octicons-code-24
+categories: EVM
 ---
 
 # viem TypeScript Ethereum Library

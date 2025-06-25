@@ -1,6 +1,7 @@
 ---
 title: Native Cross-Chain Token Transfers
 description: Learn how to use the XCM interface precompile to transfer tokens from any Tanssi-powered EVM network, leveraging their inherent native cross-chain capabilities.
+categories: EVM
 ---
 
 # Native Cross-Chain Token Transfers

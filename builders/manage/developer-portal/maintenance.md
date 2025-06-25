@@ -2,6 +2,7 @@
 title: Enabling Maintenance Mode 
 description: Learn how to use Sudo to turn on and off maintenance mode, which effectively pauses your network while still producing blocks and allowing select calls.
 icon: octicons-stop-24
+categories: Appchain
 ---
 
 # Enabling Maintenance Mode

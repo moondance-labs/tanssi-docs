@@ -2,6 +2,7 @@
 title: EVM Transactions & Contracts with Web3.js
 description: Learn how to use the Ethereum Web3 JavaScript Library to send transactions and deploy Solidity smart contracts to your Tanssi-powered EVM-compatible network.
 icon: octicons-code-24
+categories: EVM
 ---
 
 # Web3.js JavaScript Library

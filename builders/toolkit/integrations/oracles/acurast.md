@@ -2,6 +2,7 @@
 title: Using Acurast for Price Feed Oracles
 description: Learn how to use Acurast's decentralized serverless cloud to get reliable price feed token asset data on your Tanssi EVM-compatible network.
 icon: octicons-eye-24
+categories: EVM
 ---
 
 # Accessing Price Feeds with Acurast

@@ -2,6 +2,7 @@
 title: Using Phala for Price Feed Oracles
 description: Learn how to use Phala's off-chain computing network to get reliable Ethereum Mainnet Chainlink Oracle token price feed data on your Tanssi-powered EVM network.
 icon: octicons-eye-24
+categories: EVM
 ---
 
 # Launching Price Feeds with Phala

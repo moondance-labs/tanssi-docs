@@ -2,6 +2,7 @@
 title: How to Connect SubWallet to Tanssi Substrate
 description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate network.
 icon: material-wallet-outline
+categories: Substrate
 ---
 
 # Interacting with Your Tanssi Substrate Network Using SubWallet
