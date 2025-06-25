@@ -1,3 +1,17 @@
+# Tanssi Developer Documentation (LLMS Format)
+
+This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
+It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
+
+This file includes documentation related to the category: Basics
+
+## List of doc pages:
+Doc-Page: https://docs.tanssi.network/learn/tanssi/account-types/ [type: learn]
+
+## Full content for each doc page
+
+Doc-Content: https://docs.tanssi.network/learn/tanssi/account-types/
+--- BEGIN CONTENT ---
 ---
 title: Accounts in the Tanssi Protocol
 description: Overview of the cryptographic keys essential for the Tanssi protocol, detailing the account types used and their general functions.
@@ -44,3 +58,4 @@ Within Tanssi's Substrate-based protocol, an operator’s primary _Sr25519_ iden
 ### Cross-Ecosystem Reward Mapping (_Sr25519_ and _ECDSA_)
 
 For rewards on Ethereum (e.g., via [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}), an operator's Tanssi _Sr25519_ identity maps to an Ethereum _ECDSA_ address. Operators inform both accounts, which are then linked through the Tanssi middleware. This trusted link ensures that rewards from the operator's node work on the Tanssi network are routed to the operator's designated Ethereum account.
+--- END CONTENT ---

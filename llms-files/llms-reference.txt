@@ -1,3 +1,17 @@
+# Tanssi Developer Documentation (LLMS Format)
+
+This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
+It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
+
+This file includes documentation related to the category: Reference
+
+## List of doc pages:
+Doc-Page: https://docs.tanssi.network/builders/tanssi-network/endpoints/ [type: builders]
+
+## Full content for each doc page
+
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/endpoints/
+--- BEGIN CONTENT ---
 ---
 title: Network Endpoints
 description: Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
@@ -40,3 +54,4 @@ The demo EVM network HTTPS and WSS endpoints are as follows:
     ```text
     {{ networks.dancelight.demo_evm_rpc_wss_url }}
     ```
+--- END CONTENT ---

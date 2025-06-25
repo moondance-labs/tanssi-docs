@@ -1,3 +1,80 @@
+# Tanssi Developer Documentation (LLMS Format)
+
+This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
+It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
+
+This file includes documentation related to the product: Operators
+
+## AI Prompt Template
+
+You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your task is to assist developers in understanding and using the product described in this file.
+- Provide accurate answers based on the included documentation.
+- Do not assume undocumented features, behaviors, or APIs.
+- If unsure, respond with “Not specified in the documentation.
+
+## List of doc pages:
+Doc-Page: https://docs.tanssi.network/node-operators/network-node/tanssi/ [type: node-operators]
+
+## Full content for each doc page
+
+Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi/
+--- BEGIN CONTENT ---
+---
+title: Run a Tanssi Node
+description: Learn how to set up and run a Tanssi node using Docker or Systemd to interact with the Tanssi network.
+icon: octicons-server-24
+template: index-page.html
+categories: Operators
+---
+
+# Run a Tanssi Node
+
+Setting up a Tanssi Node is an important step in interacting with and querying the Tanssi network. You have two options for configuration: using _Docker_ or _Systemd_. Whichever path you choose, we provide step-by-step tutorials to guide you through the process.
+
+## Hardware Requirements
+
+Appropriate hardware is essential for running a Tanssi node successfully. A performant setup ensures reliable service and quick response to queries.
+
+Recommended hardware:
+
+- **Recommended Configuration** - bare metal hardware running Linux Debian or Ubuntu
+- **Recommended CPUs** - Intel Ice Lake or newer (Xeon or Core series), AMD Zen3 or newer (EPYC or Ryzen). Eight Physical cores @ 3.4 GHz with hyperthreading disabled (SMT for AMD processors)
+- **Recommended NVMe** - 500 GB NVMe SSD
+- **Recommended RAM** - 32 GB ECC RAM
+- **Recommended Network** - 1 Gbps connection
+
+!!! warning
+    Maintaining your Tanssi Node's performance, keeping it updated, and ensuring its security are critical for reliable operation.
+
+### Required Network Ports
+
+To ensure proper communication with the Tanssi network, make sure the following port is open for incoming connections:
+
+| Network          | Port        |
+|------------------|-------------|
+| Tanssi Chain     | 30333 (TCP) |
+
+## Explore This Section
+
+:::INSERT_GENERATED_CARDS:::
+--- END CONTENT ---
+
+## Basics Concepts [shared: true]
+
+The following section contains foundational documentation shared across all Tanssi products.
+It describes the architecture and infrastructure that serve as the backbone for all integrations built with Tanssi.
+This includes the network development framework, Substrate and EVM development tools, templates, and guidance for node operators.
+This context is provided to help understand how the system works under the hood, but responses should stay focused on the specific product unless the user explicitly asks about the general architecture.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
+
+Doc-Content: https://docs.tanssi.network/learn/tanssi/account-types/
+--- BEGIN CONTENT ---
 ---
 title: Accounts in the Tanssi Protocol
 description: Overview of the cryptographic keys essential for the Tanssi protocol, detailing the account types used and their general functions.
@@ -44,3 +121,63 @@ Within Tanssi's Substrate-based protocol, an operator’s primary _Sr25519_ iden
 ### Cross-Ecosystem Reward Mapping (_Sr25519_ and _ECDSA_)
 
 For rewards on Ethereum (e.g., via [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}), an operator's Tanssi _Sr25519_ identity maps to an Ethereum _ECDSA_ address. Operators inform both accounts, which are then linked through the Tanssi middleware. This trusted link ensures that rewards from the operator's node work on the Tanssi network are routed to the operator's designated Ethereum account.
+--- END CONTENT ---
+
+## Reference Concepts [shared: true]
+
+The following section contains reference material for Tanssi.
+It includes network endpoints, JSON RPC methods, and contract or token addresses.
+While it may not be required for all use cases, it offers a deeper technical layer for advanced development work.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
+
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/endpoints/
+--- BEGIN CONTENT ---
+---
+title: Network Endpoints
+description: Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
+icon: octicons-share-android-24
+categories: Reference
+---
+
+## Network Endpoints
+
+Tanssi networks have two endpoints available for users to connect to: one for HTTPS and one for WSS.
+
+## Dancebox
+
+The Dancebox TestNet HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    https://{{ networks.dancelight.dns_name }}/
+    ```
+
+=== "WSS"
+
+    ```text
+    wss://{{ networks.dancelight.dns_name }}
+    ```
+
+### Demo EVM Network
+
+The demo EVM network HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_url }}
+    ```
+
+=== "WSS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_wss_url }}
+    ```
+--- END CONTENT ---
