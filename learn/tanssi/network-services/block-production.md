@@ -63,11 +63,18 @@ flowchart TB
 
 At any given time, all Tanssi networks require a certain number of sequencers, depending on the number of active networks and the current block production configuration set in Tanssi. The configuration sets the maximum number of total sequencers in the set and the number of sequencers each network has to have assigned.
 
-=== "Dancebox"
+
+=== "Tanssi MainNet"
     |          Variable          |                                       Value                                        |
     |:--------------------------:|:----------------------------------------------------------------------------------:|
-    |    Max. # of Sequencers    |     {{ networks.dancebox.block_producers.configuration.max_block_producers }}      |
-    | # of Sequencers (Networks) | {{ networks.dancebox.block_producers.configuration.block_producer_per_container }} |
+    |    Max. # of Sequencers    |     {{ networks.mainnet.sequencers.configuration.max_block_producers }}      |
+    | # of Sequencers (Networks) | {{ networks.mainnet.sequencers.configuration.block_producer_per_container }} |
+
+=== "Dancelight"
+    |          Variable          |                                       Value                                        |
+    |:--------------------------:|:----------------------------------------------------------------------------------:|
+    |    Max. # of Sequencers    |     {{ networks.dancelight.sequencers.configuration.max_block_producers }}      |
+    | # of Sequencers (Networks) | {{ networks.dancelight.sequencers.configuration.block_producer_per_container }} |
 
 Once the required number of sequencers for a given session is known, Tanssi uses two mechanisms to decide the set of sequencers distributed among all networks. 
 
@@ -122,23 +129,30 @@ As presented in the [Introduction](#introduction), Tanssi is an infrastructure p
 
 There are three main costs associated with block production as a service that any network must cover using Tanssi tokens to deploy successfully and get the block production services:
 
-- **Registration deposit** - the initial deposit that is locked from the account that signs the network registration transaction
+- **Registration deposit** - the initial deposit that is locked from the account that signs the network registration transaction. It is a variable amount depending on the appchain's runtime size
 - **Sequencers assignment** - every time the Tanssi protocol assigns sequencers, which happens once per session, a fixed fee is charged. This fee gives networks the right to be assigned sequencers and discourages networks whose runtime logic fails to produce valid transactions or blocks
 - **Block production** - networks must pay for each block produced on their behalf. Since the protocol selects and assigns the sequencers on a per-session basis, networks must have enough funds to cover all the blocks to be produced in an entire session to be served
 
 The current configuration is set as follows:
 
-=== "Dancebox"
-    |       Variable        |                                         Value                                         |
-    |:---------------------:|:-------------------------------------------------------------------------------------:|
-    | Registration deposit  |               {{ networks.dancebox.costs.registration_deposit }} DANCE                |
-    | Sequencers assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
-    |   Block production    |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
+=== "Tanssi MainNet"
+    |       Variable        |                                                Value                                                |
+    |:---------------------:|:---------------------------------------------------------------------------------------------------:|
+    | Registration deposit  | {{ networks.mainnet.costs.registration_deposit }} x 10<sup>-5</sup> {{ networks.mainnet.token_symbol }} per appchain runtime byte |
+    | Sequencers assignment |        {{ networks.mainnet.costs.cost_per_assignment }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per session         |
+    |   Block production    |            {{ networks.mainnet.costs.cost_per_block }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per block            |
 
-To ensure block production in the next session, the total balance must be at least enough to cover the sequencers assignment cost plus the cost to produce the {{ networks.dancebox.session.blocks }} blocks that comprise an entire session.
+=== "Dancelight"
+    |       Variable        |                                                Value                                                |
+    |:---------------------:|:---------------------------------------------------------------------------------------------------:|
+    | Registration deposit  | {{ networks.dancelight.costs.registration_deposit }} x 10<sup>-5</sup> {{ networks.dancelight.token_symbol }} per appchain runtime byte |
+    | Sequencers assignment |        {{ networks.dancelight.costs.cost_per_assignment }} x 10<sup>-6</sup> {{ networks.dancelight.token_symbol }} per session         |
+    |   Block production    |            {{ networks.dancelight.costs.cost_per_block }} x 10<sup>-6</sup> {{ networks.dancelight.token_symbol }} per block            |
+
+To ensure block production in the next session, the total balance must be at least enough to cover the sequencers assignment cost plus the cost to produce the {{ networks.mainnet.session.blocks }} blocks that comprise an entire session.
 
 !!! note
-    Although these costs are currently fixed, as protocol development progresses, they might become dynamic, varying in response to the network's workload.
+    Although the sequencers assignment and block production costs are currently fixed, as protocol development progresses, they might become dynamic, varying in response to the network's workload.
 
 ### Tipping {: #tipping }
 
