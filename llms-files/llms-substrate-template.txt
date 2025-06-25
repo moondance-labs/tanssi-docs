@@ -3,29 +3,3295 @@
 This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
 It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
 
-This file includes documentation related to the category: Basics
+This file includes documentation related to the product: Substrate-Template
+
+## AI Prompt Template
+
+You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your task is to assist developers in understanding and using the product described in this file.
+- Provide accurate answers based on the included documentation.
+- Do not assume undocumented features, behaviors, or APIs.
+- If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/included-templates/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/overview/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/runtime-features/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/tx-fees/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/architecture/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/modules/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/overview/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/xcm/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/account-types/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-features/staking/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-services/block-production/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/overview/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/tanssi-ethereum-bridge/ [type: learn]
-Doc-Page: https://docs.tanssi.network/builders/account-management/identity/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/account-management/proxy-accounts/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/build/templates/overview/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/tanssi-token/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/build/templates/substrate/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/subwallet/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/talisman/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/erc20-transfers/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/quick-start/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/chopsticks/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/polkadot-js-api/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/sidecar-api/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/subwallet/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/talisman/ [type: builders]
 
 ## Full content for each doc page
+
+Doc-Content: https://docs.tanssi.network/builders/build/templates/substrate/
+--- BEGIN CONTENT ---
+---
+title: Baseline Network Template
+description: The Tanssi repository includes a basic template that provides the necessary configuration to support the protocol and kick-start the development of a network.
+icon: simple-paritysubstrate
+categories: Substrate-Template
+---
+
+# Baseline Network Template {: #baseline-network-template }
+
+## Introduction {: #introduction }
+
+The Tanssi repository includes a bare minimum template that provides the necessary configuration to support the Tanssi protocol and some essential modules, such as the one that allows handling the Tanssi network's currency.
+
+This section covers this basic template, what it includes, and some aspects to consider when adding external dependencies.
+
+## Baseline Network Template {: #baseline-network-template }
+
+Developing a network runtime typically involves two primary steps:
+
+1. [Incorporating pre-existing built-in modules](/builders/build/customize/adding-built-in-module/){target=\_blank} into the runtime
+2. [Creating custom modules](/builders/build/customize/adding-custom-made-module/){target=\_blank} tailored to your specific application needs
+
+Since the provided template already includes the essential configurations for seamless integration with the Tanssi protocol and the security provider (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} on Ethereum), teams interested in constructing an innovative Tanssi-powered network can use this template as a starting point for adding their custom logic.
+
+Here are some of the features that come with this template:
+
+- Utilize Tanssi's [block production as a service](/learn/tanssi/network-services/block-production/){target=\_blank}
+- Choose the security provider that best fits your needs. For example, leverage Ethereum-grade security from [Symbiotic](https://symbiotic.fi/){target=\_blank}
+- Get deterministic transaction finality in seconds
+- Build dApps interacting with your network through an [API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}
+
+By leveraging these features in the template, you can kickstart your Tanssi network development and customize it to meet your specific requirements and innovations.
+
+## Adding Extra Dependencies {: #adding-extra-dependencies }
+
+The Substrate network template includes all the required modules and configurations that make it compatible with the Tanssi protocol, and also [many other modules](/builders/build/templates/overview/#included-modules){target=\_blank} that provide basic functionalities.
+
+This template is designed to serve as a foundation to build upon, as most use cases require expanded capabilities, adding existing or custom modules. To learn how to add new functionalities to your runtime, check the [customize runtime](/builders/build/customize/){target=\_blank} section.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/subwallet/
+--- BEGIN CONTENT ---
+---
+title: How to Connect SubWallet to Tanssi
+description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered EVM-compatible network.
+icon: material-wallet-outline
+categories: EVM-Template, Substrate-Template
+---
+
+# Interacting with Your Tanssi EVM Network Using SubWallet
+
+## Introduction {: #introduction }
+
+Developers and users of Tanssi-powered EVM networks have a variety of options when it comes to wallets. Thanks to their seamless Ethereum compatibility, Tanssi EVM networks support a great variety of popular wallets, including SubWallet.
+
+SubWallet is a comprehensive Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with SubWallet using the Substrate API](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}. The SubWallet wallet browser extension [can be downloaded](https://www.subwallet.app/download.html){target=\_blank} for all supported browsers, including Chrome, Brave, Firefox, and MS Edge. SubWallet also has a mobile app for both iOS and Android, but that is beyond the scope of this guide. A complete online asset dashboard is accessible at [web.subwallet.app](https://web.subwallet.app){target=\_blank}.
+
+This guide takes you through all the necessary steps, from installing SubWallet to setting up a wallet, connecting it to your Tanssi EVM network, and sending funds.
+
+## Creating Your First Ethereum Account {: #creating-your-first-ethereum-account }
+
+First, download and install the [SubWallet extension](https://www.subwallet.app/download.html){target=\_blank}. Creating a new account will generate a seed phrase that can derive multiple Ethereum and Substrate accounts. By default, SubWallet will generate a single Ethereum and a single Substrate account, but you can easily derive more from the same seed phrase. Click **Create a new account** to get started.
+
+![Get started with SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-1.webp)
+
+On the following screen, you'll be prompted to create a password to secure your new wallet.
+
+![Create a password for SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-2.webp)
+
+You'll then be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
+
+![Back up your seed phrase in SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-3.webp)
+
+!!! note
+    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
+
+## Importing an Existing EVM Account {: #importing-an-existing-evm-account }
+
+Of course, you can import an existing EVM account into SubWallet. To get started, take the following steps:
+
+1. Press the **All accounts** button at the top
+2. Press the **Import account** icon
+
+![Import account part 1](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-4.webp)
+
+On the following screen, select the method by which you would like to import the existing account.
+
+![Import existing account part 2](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-5.webp)
+
+On the following screen, you'll be able to provide the relevant seed phrase, private key, JSON file, or QR code, and you can begin using your new account right away.
+
+## Configuring SubWallet for Your EVM Network {: #configuring-subwallet-for-your-evm-network }
+
+To configure SubWallet for your Tanssi-powered EVM network, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the demo EVM network is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to SubWallet, take the following steps:
+
+1. Paste in the HTTPS RPC URL of your Tanssi network. The demo EVM network's RPC URL is `{{ networks.dancelight.demo_evm_rpc_url }}`. Other parameters will be auto-populated
+2. Paste in the block explorer URL of your Tanssi network. The demo EVM network's block explorer URL is `{{ networks.dancelight.demo_evm_blockscout_url }}`
+3. Press **Save**
+
+![Add your Tanssi-Powered Network Details in SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-6.webp)
+
+By default, all balances are hidden in SubWallet, but if you press the eye icon, you can toggle balance visibility.
+
+## Sending Assets on Your EVM Network {: #sending-assets-on-your-evm-network }
+
+To transfer the native token of your Tanssi network, take the following steps:
+
+1. Specify the asset to send
+2. Specify the destination chain (in this case, the same chain that you're sending from)
+3. Enter the destination address
+4. Enter the number of tokens to send
+5. Look over the transaction details, then press **Transfer** and subsequently **Approve**
+
+![Send funds on your Tanssi EVM Network](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-7.webp)
+
+This guide focused specifically on configuring SubWallet to work with your Tanssi EVM network, but SubWallet is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a [similar guide for configuring SubWallet for use with your Substrate network](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/talisman/
+--- BEGIN CONTENT ---
+---
+title: How to Connect Talisman to Tanssi
+description: This guide walks you through how to connect Talisman, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered EVM-compatible network.
+icon: material-wallet-outline
+categories: EVM-Template, Substrate-Template
+---
+
+# Interacting with Your Tanssi EVM Network Using Talisman
+
+## Introduction {: #introduction }
+
+Developers and users of Tanssi-powered EVM networks have a variety of options when it comes to wallets. Thanks to their seamless Ethereum compatibility, Tanssi EVM networks support a great variety of popular wallets, such as Talisman.
+
+Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with Talisman using the Substrate API](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+
+This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi EVM network, and sending funds.
+
+## Setting Up Talisman {: #setting-up-talisman }
+
+First, download and install the [Talisman extension](https://www.talisman.xyz){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
+
+![Get started with Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-1.webp)
+
+On the following screen, you'll be prompted to create a password to secure your new wallet.
+
+![Enter password for Talisman Wallet](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-2.webp)
+
+## Creating an Ethereum Account {: #creating-an-ethereum-account }
+
+To create your first Ethereum account, take the following steps:
+
+1. Select the **Ethereum** option
+2. Give your account a name
+3. Press **Create**
+
+![Create your first Ethereum account in Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-3.webp)
+
+After creating your first account, you'll be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
+
+![Back up your seed phrase](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-4.webp)
+
+!!! note
+    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
+
+## Importing an Existing EVM Account {: #importing-an-existing-evm-account }
+
+Of course, you can import an existing EVM account into Talisman. To do so, take the following steps:
+
+1. Press **Add Account**
+2. Press **Import**
+3. Select **Import via Recovery Phrase** (note, this works for both seeds and private keys)
+
+![Import existing account setup](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-9.webp)
+
+On the following screen, take the following steps:
+
+1. Select the **Ethereum** account type
+2. Provide a name for your account
+3. Paste in your seed or private key
+4. If you imported a mnenomic seed phrase in the prior step, select which accounts you'd like to import
+5. Press **Import**
+
+![Import existing account final steps](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-10.webp)
+
+## Configuring Talisman for Your EVM Network {: #configuring-talisman-for-your-evm-network }
+
+To configure Talisman for your Tanssi EVM network, open the Talisman extension and click on the **More Options** tab. Then, take the following steps:
+
+1. Select **Settings**
+2. Check the **Enable testnets** box
+3. Press **Add Network**
+
+![Add Network in Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-6.webp)
+
+On the following page, you'll then be prompted to enter the network details for your Tanssi-powered network. For demonstration purposes, the demo EVM network is used here, but you can substitute these details for your own network. To add your network to Talisman, take the following steps:
+
+1. Paste in the RPC URL of your Tanssi-powered network. The demo EVM network's RPC URL is `{{ networks.dancelight.demo_evm_rpc_url }}`. Other parameters will be autopopulated
+2. Paste in the block explorer URL of your Tanssi-powered network. The demo EVM network's block explorer URL is `{{ networks.dancelight.demo_evm_blockscout_url }}`
+3. Check the **This is a testnet** box if applicable
+4. Press **Add Network**
+
+![Add your Tanssi-Powered Network Details](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-7.webp)
+
+If you hold a balance of tokens in your newly created account for your network, you'll see the balance in the Talisman dashboard.
+
+## Sending Assets on Your EVM Network {: #sending-assets-on-your-evm-network }
+
+To transfer the native token of your Tanssi network, take the following steps:
+
+1. Click on the **Send** icon
+2. Click the desired **Send from** account
+3. Enter the destination address
+4. Enter the amount of tokens to send
+5. Look over the transaction details, then press **Review** and subsequently **Confirm**
+
+![Send funds on your EVM network](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-8.webp)
+
+This guide focused specifically on configuring Talisman to work with your Tanssi-powered EVM network, but Talisman is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Talisman to work with Substrate-based chains.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/erc20-transfers/
+--- BEGIN CONTENT ---
+---
+title: Index ERC-20 Transfers on an EVM Network
+description: Learn how to use the Squid SDK, a query node framework that can index both Substrate and EVM data, to process blockchain data for your Tanssi-powered network.
+icon: octicons-arrow-switch-24
+categories: EVM-Template, Substrate-Template
+---
+
+# Indexing ERC-20 Transfers on a Tanssi EVM Network
+
+## Introduction {: #introduction }
+
+[SQD](https://www.sqd.dev/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD’s decentralized data lake and open-source SDK. In very simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
+
+SQD has native and full support for both EVM and Substrate data. SQD offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi-powered network and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
+
+This tutorial is a step-by-step guide to building a Squid to index EVM data from start to finish. It's recommended that you follow along, taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial in the tanssiSquid GitHub repository](https://github.com/themacexpert/tanssiSquid){target=\_blank}.
+
+## Check Prerequisites {: #check-prerequisites }
+
+To follow along with this tutorial, you'll need to have:
+
+- [Docker installed](https://docs.docker.com/get-docker){target=\_blank}
+- [Docker Compose installed](https://docs.docker.com/compose/install){target=\_blank}
+- An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page
+
+!!! note
+    The examples in this guide are based on a MacOS or Ubuntu 20.04 environment. If you're using Windows, you'll need to adapt them accordingly.
+    
+    Furthermore, please ensure that you have Node.js and a package manager (such as npm or yarn) installed. To learn how to install Node.js, please check their [official documentation](https://nodejs.org/en/download){target=\blank}.
+    
+    Also, make sure you've initialized a `package.json` file for ES6 modules. You can initialize a default `package.json` file using npm by running the following command `npm init --yes`.
+
+## Deploy an ERC-20 with Hardhat {: #deploy-an-erc20-with-hardhat }
+
+Before we can index anything with SQD we need to make sure we have something to index! This section will walk through deploying an ERC-20 token to your Tanssi-powered network so you can get started indexing it. However, you can feel free to skip to [Create a Squid Project](#create-a-squid-project) if either of the two scenarios apply:
+
+- You have already deployed an ERC-20 token to your network (and made several transfers)
+- You would prefer to use an existing ERC-20 token deployed to the demo EVM network (of which there are already several transfer events)
+
+If you'd like to use an existing ERC-20 token on the demo EVM network, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
+
+In this section, we'll show you how to deploy an ERC-20 to your EVM network and we'll write a quick script to fire off a series of transfers that will be picked up by our SQD indexer. Ensure that you have initialized an empty Hardhat project via the instructions in the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page.
+
+Before we dive into creating our project, let's install a couple of dependencies that we'll need: the [Hardhat Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank} and [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x){target=\_blank}. The Hardhat Ethers plugin provides a convenient way to use the [Ethers](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. We'll use OpenZeppelin's base ERC-20 implementation to create an ERC-20. To install both of these dependencies, you can run:
+
+=== "npm"
+
+    ```bash
+    npm install @nomicfoundation/hardhat-ethers ethers @openzeppelin/contracts
+    ```
+
+=== "yarn"
+
+    ```bash
+    yarn add @nomicfoundation/hardhat-ethers ethers @openzeppelin/contracts
+    ```
+
+Now we can edit `hardhat.config.js` to include the following network and account configurations for our network. You can replace the demo EVM network values with the respective parameters for your own Tanssi-powered EVM network which can be found at [apps.tanssi.network](https://apps.tanssi.network){target=\_blank}.
+
+???+ code "hardhat.config.js"
+
+    ```js
+    // 1. Import the Ethers plugin required to interact with the contract
+require('@nomicfoundation/hardhat-ethers');
+
+// 2. Add your private key that is funded with tokens of your Tanssi-powered network
+// This is for example purposes only - **never store your private keys in a JavaScript file**
+const privateKey = 'INSERT_PRIVATE_KEY';
+
+/** @type import('hardhat/config').HardhatUserConfig */
+module.exports = {
+  // 3. Specify the Solidity version
+  solidity: '0.8.20',
+  networks: {
+    // 4. Add the network specification for your Tanssi EVM network
+    demo: {
+      url: 'https://dancelight-2001.tanssi-api.network/',
+      chainId: 5678, // Fill in the EVM ChainID for your Tanssi-powered network
+      accounts: [privateKey],
+    },
+  },
+};
+    ```
+
+!!! remember
+    You should never store your private keys in a JavaScript or Python file. It is done in this tutorial for ease of demonstration only. You should always manage your private keys with a designated secret manager or similar service.
+
+### Create an ERC-20 Contract {: #create-an-erc-20-contract }
+
+For the purposes of this tutorial, we'll be creating a simple ERC-20 contract. We'll rely on OpenZeppelin's ERC-20 base implementation. We'll start by creating a file for the contract and naming it `MyTok.sol`:
+
+```bash
+mkdir -p contracts && touch contracts/MyTok.sol
+```
+
+Now we can edit the `MyTok.sol` file to include the following contract, which will mint an initial supply of MYTOKs and allow only the owner of the contract to mint additional tokens:
+
+???+ code "MyTok.sol"
+
+    ```solidity
+    // SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract MyTok is ERC20, Ownable {
+    constructor() ERC20("MyToken", "MTK") Ownable(msg.sender) {
+        _mint(msg.sender, 50000 * 10 ** decimals());
+    }
+
+    function mint(address to, uint256 amount) public onlyOwner {
+        _mint(to, amount);
+    }
+}
+    ```
+
+### Deploy an ERC-20 Contract {: #deploy-erc-20-contract }
+
+Now that we have our contract set up, we can compile and deploy our contract.
+
+To compile the contract, you can run:
+
+```bash
+npx hardhat compile
+```
+
+![Compile contracts using Hardhat](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-1.webp)
+
+This command will compile our contract and generate an `artifacts` directory containing the ABI of the contract.
+
+To deploy our contract, we'll need to create a deployment script that deploys our ERC-20 contract and mints an initial supply of MYTOKs. We'll use Alith's account to deploy the contract, and we'll specify the initial supply to be 1000 MYTOK. The initial supply will be minted and sent to the contract owner, which is Alith.
+
+Let's take the following steps to deploy our contract:
+
+1. Create a directory and file for our script:
+
+    ```bash
+    mkdir -p scripts && touch scripts/deploy.js
+    ```
+
+2. In the `deploy.js` file, go ahead and add the following script:
+
+    ???+ code "deploy.js"
+
+        ```ts
+        // scripts/deploy.js
+const hre = require('hardhat');
+require('@nomicfoundation/hardhat-ethers');
+
+async function main() {
+  // Get ERC-20 contract
+  const MyTok = await hre.ethers.getContractFactory('MyTok');
+
+  // Define custom gas price and gas limit
+  // This is a temporary stopgap solution to a bug
+  const customGasPrice = 50000000000; // example for 50 gwei
+  const customGasLimit = 5000000; // example gas limit
+
+  // Deploy the contract providing a gas price and gas limit
+  const myTok = await MyTok.deploy({
+    gasPrice: customGasPrice,
+    gasLimit: customGasLimit,
+  });
+
+  // Wait for the deployment
+  await myTok.waitForDeployment();
+
+  console.log(`Contract deployed to ${myTok.target}`);
+}
+
+main().catch((error) =&gt; {
+  console.error(error);
+  process.exitCode = 1;
+});
+        ```
+
+3. Run the script using the `dev` network configurations we set up in the `hardhat.config.js` file:
+
+    ```bash
+    npx hardhat run scripts/deploy.js --network demo
+    ```
+
+The address of the deployed contract should be printed to the terminal. Save the address, as we'll need it to interact with the contract in the following section.
+
+### Transfer ERC-20s {: #transfer-erc-20s }
+
+Since we'll be indexing `Transfer` events for our ERC-20, we'll need to send a few transactions that transfer some tokens from Alith's account to our other test accounts. We'll do this by creating a simple script that transfers 10 MYTOKs to Baltathar, Charleth, Dorothy, and Ethan. We'll take the following steps:
+
+Create a new file script to send transactions:
+
+```bash
+touch scripts/transactions.js
+```
+
+In the `transactions.js` file, add the following script and insert the contract address of your deployed MyTok contract (output in the console in the prior step):
+
+???+ code "transactions.js"
+
+    ```ts
+    // We require the Hardhat Runtime Environment explicitly here. This is optional
+// but useful for running the script in a standalone fashion through `node <script></script>
+    ```
+
+Run the script to send the transactions:
+
+```bash
+npx hardhat run scripts/transactions.js --network demo
+```
+
+As each transaction is sent, you'll see a log printed to the terminal.
+
+![Send transactions using Hardhat](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-2.webp)
+
+Now we can move on to creating our Squid to index the data on our local development node.
+
+## Create a Squid Project {: #create-a-squid-project }
+
+Now we're going to create our Subquid project. First, we'll need to install the [Squid CLI](https://docs.sqd.dev/squid-cli/){target=\_blank}:
+
+```bash
+npm i -g @subsquid/cli@latest
+```
+
+To verify successful installation, you can run:
+
+```bash
+sqd --version
+```
+
+Now we'll be able to use the `sqd` command to interact with our Squid project. To create our project, we're going to use the `--template` (`-t`) flag, which will create a project from a template. We'll be using the EVM Squid template, which is a starter project for indexing EVM chains.
+
+You can run the following command to create an EVM Squid named `tanssi-squid`:
+
+```bash
+sqd init tanssi-squid --template evm
+```
+
+This will create a Squid with all of the necessary dependencies. You can go ahead and install the dependencies:
+
+```bash
+cd tanssi-squid && npm ci
+```
+
+Now that we have a starting point for our project, we'll need to configure our project to index ERC-20 `Transfer` events taking place on our Tanssi network.
+
+##  Set Up the Indexer for ERC-20 Transfers {: #set-up-the-indexer-for-erc-20-transfers}
+
+In order to index ERC-20 transfers, we'll need to take a series of actions:
+
+1. Define the database schema and generate the entity classes
+2. Use the `ERC20` contract's ABI to generate TypeScript interface classes
+3. Configure the processor by specifying exactly what data to ingest
+4. Transform the data and insert it into a TypeORM database in `main.ts`
+5. Run the indexer and query the squid
+
+As mentioned, we'll first need to define the database schema for the transfer data. To do so, we'll edit the `schema.graphql` file, which is located in the root directory, and create a `Transfer` entity and `Account` entity. You can copy and paste the below schema, ensuring that any existing schema is first removed.
+
+???+ code "schema.graphql"
+
+    ```graphql
+    type Account @entity {
+  "Account address"
+  id: ID!
+  transfersFrom: [Transfer!] @derivedFrom(field: "from")
+  transfersTo: [Transfer!] @derivedFrom(field: "to")
+}
+
+type Transfer @entity {
+  id: ID!
+  blockNumber: Int!
+  timestamp: DateTime!
+  txHash: String!
+  from: Account!
+  to: Account!
+  amount: BigInt!
+}
+    ```
+
+Now we can generate the entity classes from the schema, which we'll use when we process the transfer data. This will create new classes for each entity in the `src/model/generated` directory.
+
+```bash
+sqd codegen
+```
+
+In the next step, we'll use the ERC-20 ABI to automatically generate TypeScript interface classes. Below is a generic ERC-20 standard ABI. Copy and paste it into a file named `erc20.json` in the `abi` folder at the root level of the project.
+
+??? code "ERC-20 ABI"
+
+    ```json
+    [
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_spender",
+        "type": "address"
+      },
+      {
+        "name": "_value",
+        "type": "uint256"
+      }
+    ],
+    "name": "approve",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "totalSupply",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_from",
+        "type": "address"
+      },
+      {
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "name": "_value",
+        "type": "uint256"
+      }
+    ],
+    "name": "transferFrom",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "decimals",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_owner",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "name": "balance",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [
+      {
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "_to",
+        "type": "address"
+      },
+      {
+        "name": "_value",
+        "type": "uint256"
+      }
+    ],
+    "name": "transfer",
+    "outputs": [
+      {
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "name": "_owner",
+        "type": "address"
+      },
+      {
+        "name": "_spender",
+        "type": "address"
+      }
+    ],
+    "name": "allowance",
+    "outputs": [
+      {
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "payable": true,
+    "stateMutability": "payable",
+    "type": "fallback"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "owner",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "Approval",
+    "type": "event"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": true,
+        "name": "from",
+        "type": "address"
+      },
+      {
+        "indexed": true,
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "indexed": false,
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "Transfer",
+    "type": "event"
+  }
+]
+    ```
+
+Next, we can use our contract's ABI to generate TypeScript interface classes. We can do this by running:
+
+```bash
+sqd typegen
+```
+
+![Run Squid commands](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-3.webp)
+
+This will generate the related TypeScript interface classes in the `src/abi/erc20.ts` file. For this tutorial, we'll be accessing the `events` specifically.
+
+### Configure the Processor {: #configure-the-processor}
+
+The `processor.ts` file tells SQD exactly what data you'd like to ingest. Transforming that data into the exact desired format will take place at a later step. In `processor.ts`, we'll need to indicate a data source, a contract address, the event(s) to index, and a block range.
+
+Open up the `src` folder and head to the `processor.ts` file. First, we need to tell the SQD processor which contract we're interested in. Create a constant for the address in the following manner:
+
+```ts
+export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
+```
+
+The `.toLowerCase()` is critical because the SQD processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. SQD has [available archives for many chains](https://docs.sqd.dev/subsquid-network/reference/networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your network has a hosted archive already. But not to worry, SQD can easily get the data it needs via your network's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
+
+```ts
+.setDataSource({
+  chain: {
+    url: assertNotNull(
+      '{{ networks.dancelight.demo_evm_rpc_url }}'
+    ),
+    rateLimit: 300,
+  },
+})
+```
+
+The Squid template comes with a variable for your RPC URL defined in your `.env` file. You can replace that with the RPC URL for your network. For demonstration purposes, the RPC URL for the demo EVM network is hardcoded directly, as shown above. If you're setting the RPC URL in your `.env`, the respective line will look like this:
+
+```text
+RPC_ENDPOINT={{ networks.dancelight.demo_evm_rpc_url }}
+```
+
+Now, let's define the event that we want to index by adding the following:
+
+```ts
+.addLog({
+  address: [contractAddress],
+  topic0: [erc20.events.Transfer.topic],
+  transaction: true,
+})
+```
+
+The `Transfer` event is defined in `erc20.ts`, which was auto-generated when `sqd typegen` was run. The import `import * as erc20 from './abi/erc20'` is already included as part of the Squid EVM template.
+
+Block range is an important value to modify to narrow the scope of the blocks you're indexing. For example, if you launched your ERC-20 at block `650000`, there is no need to query the chain before that block for transfer events. Setting an accurate block range will improve the performance of your indexer. You can set the earliest block to begin indexing in the following manner:
+
+```ts
+.setBlockRange({from: 632400,})
+```
+
+The chosen start block here corresponds to the relevant block to begin indexing on the demo EVM network, but you should change it to one relevant to your Tanssi-powered network and indexer project.
+
+Change the `setFields` section to specify the following data for our processor to ingest:
+
+```ts
+.setFields({
+  log: {
+    topics: true,
+    data: true,
+  },
+  transaction: {
+    hash: true,
+  },
+})
+```
+
+We also need to add the following imports to our `processor.ts` file:
+
+```ts
+import { Store } from '@subsquid/typeorm-store';
+import * as erc20 from './abi/erc20';
+```
+
+Once you've completed the prior steps, your `processor.ts` file should look similar to this:
+
+???+ code "processor.ts"
+
+    ```ts
+    import { assertNotNull } from '@subsquid/util-internal';
+import {
+  BlockHeader,
+  DataHandlerContext,
+  EvmBatchProcessor,
+  EvmBatchProcessorFields,
+  Log as _Log,
+  Transaction as _Transaction,
+} from '@subsquid/evm-processor';
+import { Store } from '@subsquid/typeorm-store';
+import * as erc20 from './abi/erc20';
+
+// Here you'll need to import the contract
+export const contractAddress = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
+
+export const processor = new EvmBatchProcessor()
+  .setDataSource({
+    chain: {
+      url: assertNotNull(
+        'https://dancelight-2001.tanssi-api.network'
+      ),
+      rateLimit: 300,
+    },
+  })
+  .setFinalityConfirmation(10)
+  .setFields({
+    log: {
+      topics: true,
+      data: true,
+    },
+    transaction: {
+      hash: true,
+    },
+  })
+  .addLog({
+    address: [contractAddress],
+    topic0: [erc20.events.Transfer.topic],
+    transaction: true,
+  })
+  .setBlockRange({
+    from: INSERT_START_BLOCK, // Note the lack of quotes here
+  });
+
+export type Fields = EvmBatchProcessorFields<typeof processor="">;
+export type Block = BlockHeader<fields>;
+export type Log = _Log<fields>;
+export type Transaction = _Transaction<fields>;
+</fields></fields></fields></typeof>
+    ```
+
+### Transform and Save the Data {: #transform-and-save-the-data}
+
+While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the SQD processor and inserting the desired pieces into a TypeORM database. For more detailed information on how SQD works, be sure to check out the [SQD docs on Developing a Squid](https://docs.sqd.dev/sdk/how-to-start/squid-development/){target=\_blank}.
+
+Our `main.ts` file is going to scan through each processed block for the `Transfer` event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a TypeORM database, enabling them to be easily queried. Let's break down the code that comprises `main.ts` in order:
+
+1. The job of `main.ts` is to run the processor and refine the collected data. In `processor.run`, the processor will iterate through all selected blocks and look for `Transfer` event logs. Whenever it finds a `Transfer` event, it's going to store it in an array of transfer events where it awaits further processing
+2. The `transferEvent` interface is the type of structure that stores the data extracted from the event logs
+3. `getTransfer` is a helper function that extracts and decodes ERC-20 `Transfer` event data from a log entry. It constructs and returns a `TransferEvent` object, which includes details such as the transaction ID, block number, sender and receiver addresses, and the amount transferred. `getTransfer` is called at the time of storing the relevant transfer events into the array of transfers
+4. `processTransfers` enriches the transfer data and then inserts these records into a TypeORM database using the `ctx.store` methods. The account model, while not strictly necessary, allows us to introduce another entity in the schema to demonstrate working with multiple entities in your Squid
+5. `getAccount` is a helper function that manages the retrieval and creation of account objects. Given an account ID and a map of existing accounts, it returns the corresponding account object. If the account doesn't exist in the map, it creates a new one, adds it to the map, and then returns it
+
+We'll demo a sample query in a later section. You can copy and paste the below code into your `main.ts` file:
+
+???+ code "main.ts"
+
+    ```ts
+    import { In } from 'typeorm';
+import { assertNotNull } from '@subsquid/evm-processor';
+import { TypeormDatabase } from '@subsquid/typeorm-store';
+import * as erc20 from './abi/erc20';
+import { Account, Transfer } from './model';
+import {
+  Block,
+  contractAddress,
+  Log,
+  Transaction,
+  processor,
+} from './processor';
+
+// 1. Iterate through all selected blocks and look for transfer events,
+// storing the relevant events in an array of transfer events
+processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) =&gt; {
+  let transfers: TransferEvent[] = [];
+
+  for (let block of ctx.blocks) {
+    for (let log of block.logs) {
+      if (
+        log.address === contractAddress &amp;&amp;
+        log.topics[0] === erc20.events.Transfer.topic
+      ) {
+        transfers.push(getTransfer(ctx, log));
+      }
+    }
+  }
+
+  await processTransfers(ctx, transfers);
+});
+
+// 2. Define an interface to hold the data from the transfer events
+interface TransferEvent {
+  id: string;
+  block: Block;
+  transaction: Transaction;
+  from: string;
+  to: string;
+  amount: bigint;
+}
+
+// 3. Extract and decode ERC-20 transfer event data from a log entry
+function getTransfer(ctx: any, log: Log): TransferEvent {
+  let event = erc20.events.Transfer.decode(log);
+
+  let from = event.from.toLowerCase();
+  let to = event.to.toLowerCase();
+  let amount = event.value;
+
+  let transaction = assertNotNull(log.transaction, `Missing transaction`);
+
+  return {
+    id: log.id,
+    block: log.block,
+    transaction,
+    from,
+    to,
+    amount,
+  };
+}
+
+// 4. Enrich and insert data into typeorm database
+async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
+  let accountIds = new Set<string>();
+  for (let t of transfersData) {
+    accountIds.add(t.from);
+    accountIds.add(t.to);
+  }
+
+  let accounts = await ctx.store
+    .findBy(Account, { id: In([...accountIds]) })
+    .then((q: any[]) =&gt; new Map(q.map((i: any) =&gt; [i.id, i])));
+
+  let transfers: Transfer[] = [];
+
+  for (let t of transfersData) {
+    let { id, block, transaction, amount } = t;
+
+    let from = getAccount(accounts, t.from);
+    let to = getAccount(accounts, t.to);
+
+    transfers.push(
+      new Transfer({
+        id,
+        blockNumber: block.height,
+        timestamp: new Date(block.timestamp),
+        txHash: transaction.hash,
+        from,
+        to,
+        amount,
+      })
+    );
+  }
+
+  await ctx.store.upsert(Array.from(accounts.values()));
+  await ctx.store.insert(transfers);
+}
+
+// 5. Helper function to get account object
+function getAccount(m: Map<string, account="">, id: string): Account {
+  let acc = m.get(id);
+  if (acc == null) {
+    acc = new Account();
+    acc.id = id;
+    m.set(id, acc);
+  }
+  return acc;
+}
+</string,></string>
+    ```
+
+Now we've taken all of the steps necessary and are ready to run our indexer!
+
+### Run the Indexer {: #run-the-indexer }
+
+To run our indexer, we're going to run a series of `sqd` commands:
+
+Build our project:
+
+   ```bash
+   sqd build
+   ```
+
+Launch the database:
+
+   ```bash
+   sqd up
+   ```
+
+Remove the database migration file that comes with the EVM template and generate a new one for our new database schema:
+
+   ```bash
+   sqd migration:generate
+   ```
+
+   ```bash
+   sqd migration:apply
+   ```
+
+Launch the processor:
+
+   ```bash
+   sqd process
+   ```
+
+In your terminal, you should see your indexer starting to process blocks!
+
+![Get Squid running](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-4.webp)
+
+## Query Your Squid {: #query-your-squid }
+
+To query your squid, open up a new terminal window within your project and run the following command:
+
+```bash
+sqd serve
+```
+
+And that's it! You can now run queries against your Squid on the GraphQL playground at `http://localhost:4350/graphql`. Try crafting your own GraphQL query, or use the below one:
+
+???+ code "Example query"
+
+    ```ts
+    query {
+  accounts {
+    id
+    transfersFrom {
+      id
+      blockNumber
+      timestamp
+      txHash
+      to {
+        id
+      }
+      amount
+    }
+    transfersTo {
+      id
+      blockNumber
+      timestamp
+      txHash
+      from {
+        id
+      }
+      amount
+    }
+  }
+}
+    ```
+
+![Running queries in GraphQL playground](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-5.webp)
+
+## Debug Your Squid {: #debug-your-squid }
+
+It may seem tricky at first to debug errors when building your Squid, but fortunately, there are several techniques you can use to streamline this process. First and foremost, if you're facing errors with your Squid, you should enable debug mode in your `.env` file by uncommenting the debug mode line. This will trigger much more verbose logging and will help you locate the source of the error.
+
+```text
+# Uncommenting the below line enables debug mode
+SQD_DEBUG=*
+```
+
+You can also add logging statements directly to your `main.ts` file to indicate specific parameters like block height and more. For example, see this version of `main.ts`, which has been enhanced with detailed logging:
+
+??? code "main.ts"
+
+    ```ts
+    import { In } from 'typeorm';
+import { assertNotNull } from '@subsquid/evm-processor';
+import { TypeormDatabase } from '@subsquid/typeorm-store';
+import * as erc20 from './abi/erc20';
+import { Account, Transfer } from './model';
+import {
+  Block,
+  contractAddress,
+  Log,
+  Transaction,
+  processor,
+} from './processor';
+
+processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) =&gt; {
+  ctx.log.info('Processor started');
+  let transfers: TransferEvent[] = [];
+
+  ctx.log.info(`Processing ${ctx.blocks.length} blocks`);
+  for (let block of ctx.blocks) {
+    ctx.log.debug(`Processing block number ${block.header.height}`);
+    for (let log of block.logs) {
+      ctx.log.debug(`Processing log with address ${log.address}`);
+      if (
+        log.address === contractAddress &amp;&amp;
+        log.topics[0] === erc20.events.Transfer.topic
+      ) {
+        ctx.log.info(`Transfer event found in block ${block.header.height}`);
+        transfers.push(getTransfer(ctx, log));
+      }
+    }
+  }
+
+  ctx.log.info(`Found ${transfers.length} transfers, processing...`);
+  await processTransfers(ctx, transfers);
+  ctx.log.info('Processor finished');
+});
+
+interface TransferEvent {
+  id: string;
+  block: Block;
+  transaction: Transaction;
+  from: string;
+  to: string;
+  amount: bigint;
+}
+
+function getTransfer(ctx: any, log: Log): TransferEvent {
+  let event = erc20.events.Transfer.decode(log);
+
+  let from = event.from.toLowerCase();
+  let to = event.to.toLowerCase();
+  let amount = event.value;
+
+  let transaction = assertNotNull(log.transaction, `Missing transaction`);
+
+  ctx.log.debug(
+    `Decoded transfer event: from ${from} to ${to} amount ${amount.toString()}`
+  );
+  return {
+    id: log.id,
+    block: log.block,
+    transaction,
+    from,
+    to,
+    amount,
+  };
+}
+
+async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
+  ctx.log.info('Starting to process transfer data');
+  let accountIds = new Set<string>();
+  for (let t of transfersData) {
+    accountIds.add(t.from);
+    accountIds.add(t.to);
+  }
+
+  ctx.log.debug(`Fetching accounts for ${accountIds.size} addresses`);
+  let accounts = await ctx.store
+    .findBy(Account, { id: In([...accountIds]) })
+    .then((q: any[]) =&gt; new Map(q.map((i: any) =&gt; [i.id, i])));
+  ctx.log.info(
+    `Accounts fetched, processing ${transfersData.length} transfers`
+  );
+
+  let transfers: Transfer[] = [];
+
+  for (let t of transfersData) {
+    let { id, block, transaction, amount } = t;
+
+    let from = getAccount(accounts, t.from);
+    let to = getAccount(accounts, t.to);
+
+    transfers.push(
+      new Transfer({
+        id,
+        blockNumber: block.height,
+        timestamp: new Date(block.timestamp),
+        txHash: transaction.hash,
+        from,
+        to,
+        amount,
+      })
+    );
+  }
+
+  ctx.log.debug(`Upserting ${accounts.size} accounts`);
+  await ctx.store.upsert(Array.from(accounts.values()));
+  ctx.log.debug(`Inserting ${transfers.length} transfers`);
+  await ctx.store.insert(transfers);
+  ctx.log.info('Transfer data processing completed');
+}
+
+function getAccount(m: Map<string, account="">, id: string): Account {
+  let acc = m.get(id);
+  if (acc == null) {
+    acc = new Account();
+    acc.id = id;
+    m.set(id, acc);
+  }
+  return acc;
+}
+</string,></string>
+    ```
+
+See the [SQD guide to logging](https://docs.sqd.dev/sdk/reference/logger/){target=\_blank} for more information on debug mode.
+
+### Common Errors {: #common-errors }
+
+Below are some common errors you may face when building a project and how you can solve them.
+
+```text
+Error response from daemon: driver failed programming external connectivity on endpoint my-awesome-squid-db-1
+(49df671a7b0531abbb5dc5d2a4a3f5dc7e7505af89bf0ad1e5480bd1cdc61052):
+Bind for 0.0.0.0:23798 failed: port is already allocated
+```
+
+This error indicates that you have another instance of SQD running somewhere else. You can stop that gracefully with the command `sqd down` or by pressing the **Stop** button next to the container in Docker Desktop.
+
+```text
+Error: connect ECONNREFUSED 127.0.0.1:23798
+     at createConnectionError (node:net:1634:14)
+     at afterConnectMultiple (node:net:1664:40) {
+     errno: -61,code: 'ECONNREFUSED',syscall: 'connect',
+     address: '127.0.0.1',port: 23798}
+```
+
+To resolve this, run `sqd up` before you run `sqd migration:generate`
+
+Is your Squid error-free, yet you aren't seeing any transfers detected? Make sure your log events are consistent and identical to the ones your processor is looking for. Your contract address also needs to be lowercase, which you can be assured of by defining it as follows:
+
+```ts
+export const contractAddress = '0x37822de108AFFdd5cDCFDaAa2E32756Da284DB85'.toLowerCase();
+```
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/quick-start/
+--- BEGIN CONTENT ---
+---
+title: Index a Tanssi Network with SQD
+description: Learn how to use the Squid SDK, a query node framework for Substrate-based chains, to index and process data on a Tanssi-powered EVM or Substrate network.
+icon: octicons-rocket-24
+categories: EVM-Template, Substrate-Template
+---
+
+# Indexing a Tanssi Network with SQD
+
+## Introduction {: #introduction }
+
+[SQD](https://www.sqd.dev/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD's decentralized data lake and open-source SDK. In simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. SQD has native and full support for both EVM and Substrate data, even within the same project.
+
+This quick-start guide will show you how to create a Squid project and configure it to index data on a Tanssi-powered network. There is one section catered towards [Substrate networks](#index-substrate-networks) and another towards [EVM networks](#index-evm-networks). However, if you're building on an EVM network, you may also reference the Substrate section, if you also need to index Substrate data.
+
+For a more comprehensive end-to-end tutorial for EVM networks, be sure to check out the [Indexing ERC-20 Transfers on a Tanssi EVM Network](/builders/toolkit/integrations/indexers/sqd/erc20-transfers/){target=\_blank} tutorial.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+ - [Node.js](https://nodejs.org/en/download){target=\_blank} version 16 or newer
+ - [Docker](https://docs.docker.com/get-docker){target=\_blank}
+ - [Squid CLI](https://docs.sqd.dev/squid-cli/installation){target=\_blank}
+
+## Index a Tanssi Substrate Network {: #index-substrate-networks }
+
+To get started indexing Substrate data on your Tanssi-powered network, you'll need to create a Squid project and configure it for your network by taking the following steps:
+
+1. Create a Squid project based on the Substrate template by running
+
+    ```bash
+    sqd init INSERT_SQUID_NAME --template substrate
+    ```
+
+    For more information on getting started with this template, please check out the [Getting started: Substrate chains](https://docs.sqd.dev/sdk/how-to-start/squid-development/?template-tech=substrate){target=\_blank} guide on SQD's documentation site.
+
+2. Navigate into the root directory of your Squid project and install dependencies by running
+
+    ```bash
+    npm ci
+    ```
+
+3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your Tanssi network. Remove the `archive: lookupArchive` line as a Squid archive will not be used. Here, you'll need to specify the RPC URL of your Tanssi Substrate network, as the endpoint is used to ingest chain data
+
+    ```ts
+    const processor = new EvmBatchProcessor();
+    processor.setDataSource({
+      chain: 'INSERT_RPC_URL',
+    })
+    ```
+
+4. Launch Postgres by running
+
+    ```bash
+    sqd up
+    ```
+
+5. Inspect and run the processor
+
+    ```bash
+    sqd process
+    ```
+
+6. Open a separate terminal window in the same directory, then start the GraphQL server
+
+    ```bash
+    sqd serve
+    ```
+
+7. You can query your template Substrate Squid with the below sample query. If you've modified the template Substrate squid to index different data, you'll need to modify this query accordingly
+
+    ```graphql
+    query MyQuery {
+      accountsConnection(orderBy: id_ASC) {
+        totalCount
+      }
+    }
+    ```
+
+And that's all you have to do to configure your Squid project to index Substrate data on your Tanssi-powered Substrate network! Now you can update the `schema.graphql`, `src/main.ts`, `typegen.json`, and `src/processor.ts` files to index the data you need for your project!
+
+## Index a Tanssi EVM Network {: #index-evm-networks }
+
+To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to create a Squid project and configure it for your network by taking the following steps:
+
+1. You can create a Squid project for EVM data by using the generic [EVM template](https://github.com/subsquid-labs/squid-evm-template){target=\_blank} or you can use the [ABI template](https://github.com/subsquid-labs/squid-abi-template){target=\_blank} for indexing data related to a specific contract
+
+    === "EVM"
+
+        ```bash
+        sqd init INSERT_SQUID_NAME --template evm
+        ```
+
+    === "ABI"
+
+        ```bash
+        sqd init INSERT_SQUID_NAME --template abi
+        ```
+
+    For more information on getting started with both of these templates, please check out the following SQD docs:
+
+      - [Getting started: EVM chains](https://docs.sqd.dev/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
+      - [Quickstart: Squid generation tools](https://docs.sqd.dev/sdk/resources/tools/squid-gen/){target=\_blank}
+
+2. Navigate into the root directory of your Squid project and install dependencies by running
+
+    ```bash
+    npm ci
+    ```
+
+3. Modify the `src/processor.ts` file to set the data source to the RPC URL of your Tanssi network. Remove the `archive: lookupArchive('eth-mainnet')` line as a Squid archive will not be used. Here, the RPC URL of the demo EVM network is specified. The Squid project will use the RPC endpoint to ingest the relevant data
+
+    ```ts
+    const processor = new EvmBatchProcessor();
+    processor.setDataSource({
+      chain: 'INSERT_RPC_URL',
+    })
+    ```
+
+    !!! note
+        To try this out on the demo EVM network, you can use the following RPC URL:
+
+        ```text
+        {{ networks.dancelight.demo_evm_rpc_url }}
+        ```
+
+4. Launch Postgres by running
+
+    ```bash
+    sqd up
+    ```
+
+5. Inspect and run the processor
+
+    ```bash
+    sqd process
+    ```
+
+6. Open a separate terminal window in the same directory, then start the GraphQL server
+
+    ```bash
+    sqd serve
+    ```
+
+7. You can now run queries, such as the sample query below, against your Squid on the GraphQL playground at `http://localhost:4350/graphql`. If you've modified the template Substrate squid to index different data, you'll need to modify this query accordingly
+
+    ```graphql
+    query MyQuery {
+      burns(orderBy: value_DESC) {
+        address
+        block
+        id
+        txHash
+        value
+      }
+    }
+    ```
+
+And that's all you have to do to configure your Squid project to index EVM data on your Tanssi-powered EVM network! Now you can update the `schema.graphql`, `src/main.ts`, and `src/processor.ts` files to index the data you need for your project!
+
+If you're interested in a more comprehensive step-by-step tutorial to get started indexing data for your Tanssi network, you can check out the [Indexing ERC-20 Transfers on a Tanssi EVM Network](/builders/toolkit/integrations/indexers/sqd/erc20-transfers/){target=\_blank} tutorial!
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/chopsticks/
+--- BEGIN CONTENT ---
+---
+title: How to use Chopsticks to Fork Your Network
+description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi network.
+icon: octicons-code-square-24
+categories: Substrate-Template
+---
+
+# How to Use Chopsticks to Fork Your Network
+
+## Introduction {: #introduction }
+
+[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing [Substrate-based](/learn/framework/overview/){target=\_blank} chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Tanssi networks for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
+
+Overall, Chopsticks aims to simplify the process of building blockchain applications on Substrate and make it accessible to a wider range of developers.
+
+This article will cover using Chopsticks to fork and interact with the local copy of a Tanssi network.
+
+!!! note
+    Chopsticks currently does not support calls done via the Ethereum JSON-RPC. Consequently, you can't fork your chain using Chopsticks and connect Metamask to it.
+
+## Prerequisites {: #prerequisites }
+
+To follow along with this tutorial, you will need to clone the repository along with its submodules([Smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
+
+```bash
+git clone --recurse-submodules https://github.com/AcalaNetwork/chopsticks.git
+```
+
+Then, get into the folder and install the dependencies using [yarn](https://classic.yarnpkg.com/en/docs/install){target=\_blank}:
+
+```bash
+ cd chopsticks && yarn
+```
+
+Finally, build the project:
+
+```bash
+yarn build-wasm
+```
+
+Now the development environment is ready to start testing and debugging Tanssi-deployed networks.
+
+## Forking a Demo EVM Network with Chopsticks {: #forking-demo-chain }
+
+To fork a Tanssi network using Chopsticks, execute the command with only the RPC endpoint as a parameter:
+
+```bash
+yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}
+```
+
+This command will start a local clone of the chain as it was in the latest block.
+
+<div data-termynal="" id="termynal">
+<span data-ty="input"><span class="file-path"></span>
+    chopsticks % yarn start --endpoint wss://dancelight-2001.tanssi-api.network
+  </span>
+<span data-ty="">
+    [01:59:42.628] INFO (xcm/59650): Frontier Container 2001 RPC listening on port 8000
+  </span>
+</div>
+
+Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
+
+```yaml
+endpoint: {{ networks.dancelight.demo_evm_rpc_wss_url }}
+mock-signature-host: true
+allow-unresolved-imports: true
+db: ./tmp/db_ftrcon.sqlite
+
+import-storage:
+  System:
+    Account:
+      - - - "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac" # Alith
+        - providers: 1
+          sufficients: 1
+          consumers: 1
+          data:
+            free: "100000000000000000000000"
+  Sudo:
+    Key: "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac"
+```
+
+The configuration file accepts all of the following parameters:
+
+|           Option           |                                                 Description                                                  |
+|:--------------------------:|:------------------------------------------------------------------------------------------------------------:|
+|         `genesis`          |          The link to a parachain's raw genesis file to build the fork from, instead of an endpoint.          |
+|        `timestamp`         |                                     Timestamp of the block to fork from.                                     |
+|         `endpoint`         |                                    The endpoint of the parachain to fork.                                    |
+|          `block`           |                       Use to specify at which block hash or number to replay the fork.                       |
+|      `wasm-override`       |              Path of the Wasm to use as the parachain runtime instead of an endpoint's runtime.              |
+|            `db`            |               Path to the name of the file that stores or will store the parachain's database.               |
+|          `config`          |                                       Path or URL of the config file.                                        |
+|           `port`           |                                      The port to expose an endpoint on.                                      |
+|     `build-block-mode`     |                       How blocks should be built in the fork: batch, manual, instant.                        |
+|      `import-storage`      |              A pre-defined JSON/YAML storage file path to override in the parachain's storage.               |
+| `allow-unresolved-imports` |              Whether to allow Wasm unresolved imports when using a Wasm to build the parachain.              |
+|           `html`           |                           Include to generate storage diff preview between blocks.                           |
+|   `mock-signature-host`    | Mock signature host so that any signature starts with `0xdeadbeef` and filled by `0xcd` is considered valid. |
+
+You can run the command `yarn start` to fork chains by specifying a local configuration file. Alternatively, the name or the GitHub URL can be used if the chain is listed in the repository's `configs` folder.
+
+=== "Local File Path"
+
+    ```bash
+    yarn start --config=configs/polkadot.yml
+    ```
+
+=== "Chain Name"
+
+    ```bash
+    yarn start --config=polkadot
+    ```
+
+=== "GitHub URL"
+
+    ```bash
+    yarn start \
+    --config=https://github.com/AcalaNetwork/chopsticks.git/master/configs/polkadot.yml
+    ```
+
+All settings (except `genesis` and `timestamp`) can also be passed as flags to configure the environment completely in the command line. For example, the following command forks the demo EVM network at block 100.
+
+```bash
+yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }} --block 100
+```
+
+### Interacting with a Fork {: #interacting-with-a-fork }
+
+When running a fork, by default, it will be accessible at:
+
+```text
+ws://localhost:8000
+```
+
+You can interact with the parachain via libraries such as [Polkadot.js](https://github.com/polkadot-js/common){target=\_blank} and its [user interface, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}.
+
+![Polkadot Js](/images/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.webp)
+
+You should now be able to interact with the forked chain as you would with the real one.
+
+!!! note
+    If your browser cannot connect to the WebSocket endpoint provided by Chopsticks, you might need to allow insecure connections for the Polkadot.js Apps URL. Another solution is to run the [Docker version of Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
+
+## Replaying Blocks {: #replaying-blocks }
+
+If you would like to replay a block and retrieve its information to dissect the effects of an extrinsic, you can use the `yarn start run-block` command. Its following flags are:
+
+|            Flag            |                                      Description                                       |
+|:--------------------------:|:--------------------------------------------------------------------------------------:|
+|         `endpoint`         |                         The endpoint of the parachain to fork.                         |
+|          `block`           |            Use to specify at which block hash or number to replay the fork.            |
+|      `wasm-override`       |   Path of the Wasm to use as the parachain runtime instead of an endpoint's runtime.   |
+|            `db`            |    Path to the name of the file that stores or will store the parachain's database.    |
+|          `config`          |                            Path or URL of the config file.                             |
+| `output-path=/[file_path]` |   Use to print out results to a JSON file instead of printing it out in the console.   |
+|           `html`           | Include to generate an HTML representation of the storage diff preview between blocks. |
+|           `open`           |                        Whether to open the HTML representation.                        |
+
+For example, running the following command will re-run the demo EVM networks's block 1000 and write the storage diff and other data in a `chain-output.json` file:  
+
+```bash
+yarn start run-block  \
+--endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}  \
+--output-path=./chain-output.json  \
+--block 1000
+```
+
+## WebSocket Commands {: #websocket-commands }
+
+Chopstick's internal WebSocket server has special endpoints that allow the manipulation of the local Substrate chain.
+
+These are the methods that can be invoked and their parameters:
+
+???+ function "**dev_newBlock** (options) — Generates one or more new blocks"
+
+    === "Parameters"
+
+        - **options** - `{ "to": number, "count": number }` - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object
+
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api'
+        const ws = new WsProvider(`ws://localhost:8000`)
+        // Creates five new blocks
+        await ws.send('dev_newBlock', [{ count: 5 }])
+        ```
+
+??? function "**dev_setStorage** (values, blockHash) — Creates or overwrites the value of any storage"
+
+    === "Parameters"
+
+         - **values** - Object - a JSON object resembling the path to a storage value, similar to what you would retrieve via Polkadot.js  
+        - **blockHash** - String - optional, the block hash at which the storage value is changed  
+        
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Overwrites the sudo key
+        await ws.send('dev_setStorage', 
+            [{"Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" }}]
+        );
+        ```
+
+??? function "**dev_timeTravel** (date) — Sets the timestamp of the block to the date value"
+
+    === "Parameters"
+
+         - **date** - Date - a string compatible with the JavaScript Date library that will change the timestamp at which the next blocks being created will be. All future blocks will be sequentially created after that point in time  
+
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Sets the timestamp of the block to 15th August 2030
+        await ws.send('dev_timeTravel', ["2030-08-15T00:00:00"]);
+        ```
+
+??? function "**dev_setHead** (hashOrNumber) — Sets the head of the blockchain to a specific hash or number"
+
+    === "Parameters"
+
+         - **hashOrNumber** - number | string - if found, the chain head will be set to the block with the block number or block hash of this value
+        
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Sets the head to block number 500
+        await ws.send('dev_setHead', [500]);
+        ```
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/polkadot-js-api/
+--- BEGIN CONTENT ---
+---
+title: How to use the Polkadot.js API
+description: Learn how to use the Polkadot.js API to interact with a Tanssi-powered network to get chain data and send transactions (extrinsics) via the Substrate API.
+icon: octicons-code-24
+categories: Substrate-Template
+---
+
+# Polkadot.js API Library
+
+## Introduction {: #introduction }
+
+[Polkadot.js](https://wiki.polkadot.network/docs/polkadotjs){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Tanssi-powered network! The [Polkadot.js API](https://polkadot.js.org/docs/api){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a network and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
+
+You can use the Polkadot.js API to query on-chain data and send transactions from the Substrate side of your Tanssi network. You can query runtime constants, chain state, events, transaction (extrinsic) data, and more.
+
+Here you will find an overview of the available functionalities and some commonly used [TypeScript](https://www.typescriptlang.org){target=\_blank} code examples to get you started on interacting with your Tanssi network using the Polkadot.js API library.
+
+!!! note
+    The examples in this guide are based on a MacOS or Ubuntu 20.04 environment. If you're using Windows, you'll need to adapt them accordingly.
+    
+    Furthermore, please ensure that you have Node.js and a package manager (such as npm or yarn) installed. To learn how to install Node.js, please check their [official documentation](https://nodejs.org/en/download){target=\blank}.
+    
+    Also, make sure you've initialized a `package.json` file for ES6 modules. You can initialize a default `package.json` file using npm by running the following command `npm init --yes`.
+
+## Install Polkadot.js API {: #installing-polkadot.js-api-library }
+
+First, you need to install the Polkadot.js API library and the RLP library through a package manager such as `yarn`. Both dependencies are required to run the examples in this guide successfully.
+
+Install them in your project directory with the following command:
+
+=== "npm"
+
+    ```bash
+    npm i @polkadot/api
+    npm i @polkadot/util-rlp
+    ```
+
+=== "yarn"
+
+    ```bash
+    yarn add @polkadot/api
+    yarn add @polkadot/util-rlp
+    ```
+
+The library also includes other core components, like Keyring for account management or some utilities that are used throughout this guide.
+
+## Create an API Provider Instance {: #creating-an-API-provider-instance }
+
+To start interacting with your Tanssi network using the Polkadot.js API, you first need to create an instance of the Polkadot.js API. Create the `WsProvider` using the WebSocket endpoint of your Tanssi network.
+
+```typescript
+// Import
+import { ApiPromise, WsProvider } from '@polkadot/api';
+
+const main = async () => {
+  // Construct API provider
+  const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
+  const api = await ApiPromise.create({ provider: wsProvider });
+
+  // Code goes here
+
+  await api.disconnect();
+};
+
+main();
+```
+
+### Metadata and Dynamic API Decoration {: #metadata-and-dynamic-api-decoration }
+
+Before diving into the details of performing different tasks via the Polkadot.js API library, it's useful to understand some of the basic workings of the library.
+
+When the Polkadot.js API connects to a node, one of the first things it does is retrieve the metadata and decorate the API based on the metadata information. The metadata effectively provides data in the form of:
+
+```text
+api.<type>.<module>.<section>
+```
+
+Where `<type>` can be either:
+
+- `query` - for endpoints to read all the state queries
+- `tx` - for endpoints related to transactions
+- `rpc` - for endpoints specific to RPC calls
+- `consts` - for endpoints specific to runtime constants
+
+And therefore, none of the information contained in the `api.{query, tx, rpc, consts}.<module>.<method>` endpoints are hard-coded in the API. This allows the Polkadot.js API library to be modular and adapt to any Substrate-based chains with different [modules](/learn/framework/modules/){target=\_blank}, like your Tanssi network!
+
+## Query On-Chain Data {: #querying-for-information }
+
+In this section, you will learn how to query for on-chain information using the Polkadot.js API library.
+
+### Chain State Queries {: #state-queries }
+
+This category of queries retrieves information related to the current state of the chain. These endpoints are generally of the form `api.query.<module>.<method>`, where the module and method decorations are generated through metadata. You can see a list of all available endpoints by examining the `api.query` object, for example via:
+
+```typescript
+console.log(api.query);
+```
+
+For example, assuming you've [initialized the API](#creating-an-API-provider-instance), you can retrieve basic account information with the following snippet:
+
+```typescript
+// Define wallet address
+const addr = 'INSERT_ADDRESS';
+
+// Retrieve the last timestamp
+const now = await api.query.timestamp.now();
+
+// Retrieve the account balance & current nonce via the system module
+const { nonce, data: balance } = await api.query.system.account(addr);
+
+console.log(
+  `${now}: balance of ${balance.free} and a current nonce of ${nonce}`
+);
+```
+
+??? code "View the complete script"
+
+    ```typescript
+    import '@polkadot/api-augment';
+import { ApiPromise, WsProvider } from '@polkadot/api';
+
+const main = async () =&gt; {
+  // Construct API provider
+  const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
+  const api = await ApiPromise.create({ provider: wsProvider });
+
+  // Define wallet address
+  const addr = 'INSERT_ADDRESS';
+
+  // Retrieve the last timestamp via the timestamp module
+  const now = await api.query.timestamp.now();
+
+  // Retrieve the account balance &amp; current nonce via the system module
+  const { nonce, data: balance } = await api.query.system.account(addr);
+
+  console.log(
+    `${now}: balance of ${balance.free} and a current nonce of ${nonce}`
+  );
+
+  // Disconnect the API
+  await api.disconnect();
+};
+
+main();
+    ```
+
+### RPC Queries {: #rpc-queries }
+
+The RPC calls provide the backbone for the transmission of data to and from the node. This means that all API endpoints such as `api.query`, `api.tx` or `api.derive` just wrap RPC calls, providing information in the encoded format as expected by the node. You can see a list of all available endpoints by examining the `api.rpc` object, for example, via:
+
+```typescript
+console.log(api.rpc);
+```
+
+The `api.rpc` interface follows the a similar format to `api.query`. For instance, assuming you've [initialized the API](#creating-an-API-provider-instance), you can get chain data and latest header with the following snippet:
+
+```typescript
+// Retrieve the chain name
+const chain = await api.rpc.system.chain();
+
+// Retrieve the latest header
+const lastHeader = await api.rpc.chain.getHeader();
+
+// Log the information
+console.log(
+  `${chain}: last block #${lastHeader.number} has hash ${lastHeader.hash}`
+);
+```
+
+??? code "View the complete script"
+
+    ```typescript
+    import { ApiPromise, WsProvider } from '@polkadot/api';
+
+const main = async () =&gt; {
+  // Construct API provider
+  const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
+  const api = await ApiPromise.create({ provider: wsProvider });
+
+  // Retrieve the chain name
+  const chain = await api.rpc.system.chain();
+
+  // Retrieve the latest header
+  const lastHeader = await api.rpc.chain.getHeader();
+
+  // Log the information
+  console.log(
+    `${chain}: last block #${lastHeader.number} has hash ${lastHeader.hash}`
+  );
+
+  // Disconnect the API
+  await api.disconnect();
+};
+
+main();
+    ```
+
+### Query Subscriptions {: #query-subscriptions }
+
+The `rpc` API also provides endpoints for subscriptions. Assuming you've [initialized the API](#creating-an-API-provider-instance), you can adapt the previous example to start using subscriptions to listen to new blocks.
+
+```typescript
+// Retrieve the chain name
+const chain = await api.rpc.system.chain();
+
+// Subscribe to the new headers
+await api.rpc.chain.subscribeNewHeads((lastHeader) => {
+  console.log(
+    `${chain}: last block #${lastHeader.number} has hash ${lastHeader.hash}`
+  );
+});
+```
+
+The general pattern for `api.rpc.subscribe*` functions is to pass a callback into the subscription function, and this will be triggered on each new entry as they are imported.
+
+Other calls under `api.query.*` can be modified in a similar fashion to use subscription by providing a callback function, including calls that have parameters. Here is an example of how to subscribe to balance changes in an account:
+
+```typescript
+// Define wallet address
+const addr = 'INSERT_ADDRESS';
+
+// Subscribe to balance changes for a specified account
+await api.query.system.account(addr, ({ nonce, data: balance }) => {
+  console.log(
+    `Free balance is ${balance.free} with ${balance.reserved} reserved and a nonce of ${nonce}`
+  );
+});
+```
+
+??? code "View the complete script"
+
+    ```typescript
+    import '@polkadot/api-augment';
+import { ApiPromise, WsProvider } from '@polkadot/api';
+
+const main = async () =&gt; {
+  // Construct API provider
+  const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
+  const api = await ApiPromise.create({ provider: wsProvider });
+
+  // Retrieve the chain name
+  const chain = await api.rpc.system.chain();
+
+  // Subscribe to the new headers
+  await api.rpc.chain.subscribeNewHeads((lastHeader) =&gt; {
+    console.log(
+      `${chain}: last block #${lastHeader.number} has hash ${lastHeader.hash}`
+    );
+  });
+
+  // Define wallet address
+  const addr = 'INSERT_ADDRESS';
+
+  // Subscribe to balance changes for a specified account
+  await api.query.system.account(addr, ({ nonce, data: balance }) =&gt; {
+    console.log(
+      `Free balance is ${balance.free} with ${balance.reserved} reserved and a nonce of ${nonce}`
+    );
+
+    // Handle API disconnect here if needed
+  });
+};
+
+main();
+    ```
+
+## Create a Keyring for an Account {: #keyrings }
+
+The Keyring object is used for maintaining key pairs, and the signing of any data, whether it's a transfer, a message, or a contract interaction.  
+
+### Create a Keyring Instance {: #creating-a-keyring-instance }
+
+You can create an instance by just creating an instance of the Keyring class and specifying the default type of wallet address used. The default wallet type is `SR25519`, but for Tanssi EVM-compatible networks, the wallet type should be `ethereum`.
+
+```typescript
+// Import the keyring as required
+import Keyring from '@polkadot/keyring';
+
+// Create a keyring instance (ECDSA)
+const keyringECDSA = new Keyring({ type: 'ethereum' });
+
+// Create a keyring instance (SR25519)
+const keyring = new Keyring({ type: 'sr25519' });
+```
+
+### Add an Account to a Keyring {: #adding-accounts }
+
+There are a number of ways to add an account to the keyring instance, including from the mnemonic phrase and the short-form private key. The following sample code will provide some examples:
+
+=== "From Mnemonic (ECDSA)"
+
+    ```typescript
+    // Import the required packages
+import Keyring from '@polkadot/keyring';
+import { u8aToHex } from '@polkadot/util';
+import { mnemonicToLegacySeed, hdEthereum } from '@polkadot/util-crypto';
+
+// Import Ethereum account from mnemonic
+const keyringECDSA = new Keyring({ type: 'ethereum' });
+const mnemonic = 'INSERT_MNEMONIC';
+
+// Define index of the derivation path and the derivation path
+const index = 0;
+const ethDerPath = "m/44'/60'/0'/0/" + index;
+console.log(`Mnemonic: ${mnemonic}`);
+console.log(`--------------------------\n`);
+
+// Extract Ethereum address from mnemonic
+const newPairEth = keyringECDSA.addFromUri(`${mnemonic}/${ethDerPath}`);
+console.log(`Ethereum Derivation Path: ${ethDerPath}`);
+console.log(`Derived Ethereum Address from Mnemonic: ${newPairEth.address}`);
+
+// Extract private key from mnemonic
+const privateKey = u8aToHex(
+  hdEthereum(mnemonicToLegacySeed(mnemonic, '', false, 64), ethDerPath)
+    .secretKey
+);
+console.log(`Derived Private Key from Mnemonic: ${privateKey}`);
+    ```
+
+=== "From Private Key (ECDSA)"
+
+    ```typescript
+    // Import the required packages
+import Keyring from '@polkadot/keyring';
+
+// Import Ethereum account from private key
+const keyringECDSA = new Keyring({ type: 'ethereum' });
+const privateKeyInput = 'INSERT_PK';
+
+// Extract address from private key
+const otherPair = keyringECDSA.addFromUri(privateKeyInput);
+console.log(`Derived Address from provided Private Key: ${otherPair.address}`);
+    ```
+
+=== "From Mnemonic (SR25519)"
+
+    ```typescript
+    // Import the required packages
+import Keyring from '@polkadot/keyring';
+import { cryptoWaitReady } from '@polkadot/util-crypto';
+
+const main = async () =&gt; {
+  await cryptoWaitReady();
+
+  // Import SR25519 account from mnemonic
+  const keyring = new Keyring({ type: 'sr25519' });
+  const mnemonic = 'INSERT_MNEMONIC';
+
+  // Extract SR25519 address from mnemonic
+  const newPair = keyring.addFromUri(`${mnemonic}`);
+  console.log(`Derived SR25519 Address from Mnemonic: ${newPair.address}`);
+};
+
+main();
+    ```
+
+## Sending Transactions  {: #transactions }
+
+Transaction endpoints are exposed on endpoints generally of the form `api.tx.<module>.<method>`, where the module and method decorations are generated through metadata. These allow you to submit transactions for inclusion in blocks, be they transfers, interactions with pallets, or anything else Moonbeam supports. You can see a list of all available endpoints by examining the `api.tx` object, for example, via:
+
+```typescript
+console.log(api.tx);
+```
+
+### Send a Basic Transaction {: #sending-basic-transactions }
+
+The Polkadot.js API library can be used to send transactions to the network. For example, assuming you've [initialized the API](#creating-an-API-provider-instance) and a [keyring instance](#creating-a-keyring-instance), you can use the following snippet to send a basic transaction (this code sample will also retrieve the encoded calldata of the transaction as well as the transaction hash after submitting):
+
+```typescript
+// Initialize wallet key pairs
+const alice = keyring.addFromUri('INSERT_ALICES_PRIVATE_KEY');
+
+// Form the transaction
+const tx = await api.tx.balances.transferAllowDeath(
+  'INSERT_BOBS_ADDRESS',
+  BigInt(INSERT_VALUE)
+);
+
+// Retrieve the encoded calldata of the transaction
+const encodedCallData = tx.method.toHex()
+console.log(`Encoded calldata: ${encodedCallData}`);
+
+// Sign and send the transaction
+const txHash = await tx.signAndSend(alice);
+
+// Show the transaction hash
+console.log(`Submitted with hash ${txHash}`);
+```
+
+??? code "View the complete script"
+
+    ```typescript
+    import { ApiPromise, WsProvider } from '@polkadot/api';
+import Keyring from '@polkadot/keyring';
+
+const main = async () =&gt; {
+  // Construct API provider
+  const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
+  const api = await ApiPromise.create({ provider: wsProvider });
+
+  // Create a keyring instance (ECDSA)
+  const keyring = new Keyring({ type: 'ethereum' });
+
+  // Initialize wallet key pairs
+  const alice = keyring.addFromUri('INSERT_ALICES_PRIVATE_KEY');
+
+  // Form the transaction
+  const tx = await api.tx.balances.transferAllowDeath(
+    'INSERT_BOBS_ADDRESS',
+    BigInt(INSERT_VALUE)
+  );
+
+  // Retrieve the encoded calldata of the transaction
+  const encodedCalldata = tx.method.toHex();
+  console.log(`Encoded calldata: ${encodedCalldata}`);
+
+  // Sign and send the transaction
+  const txHash = await tx.signAndSend(alice);
+
+  // Show the transaction hash
+  console.log(`Submitted with hash ${txHash}`);
+
+  // Disconnect the API
+  await api.disconnect();
+};
+
+main();
+    ```
+
+Note that the `signAndSend` function can also accept optional parameters, such as the `nonce`. For example, `signAndSend(alice, { nonce: aliceNonce })`. You can use the [sample code from the State Queries](#state-queries){target=\_blank} section to retrieve the correct nonce, including transactions in the mempool.
+
+### Fee Information {: #fees}
+
+The transaction endpoint also offers a method to obtain weight information for a given `api.tx.<module>.<method>`. To do so, you'll need to use the `paymentInfo` function after having built the entire transaction with the specific `module` and `method`.
+
+The `paymentInfo` function returns weight information in terms of `refTime` and `proofSize`, which can be used to determine the transaction fee. This is extremely helpful when crafting remote execution calls via XCM.
+
+For example, assuming you've [initialized the API](#creating-an-API-provider-instance), the following snippet shows how you can get the weight info for a simple balance transfer between two accounts:
+
+```typescript
+// Transaction to get weight information
+const tx = api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(INSERT_VALUE));
+
+// Get weight info
+const { partialFee, weight } = await tx.paymentInfo('INSERT_SENDERS_ADDRESS');
+
+console.log(`Transaction weight: ${weight}`);
+console.log(`Transaction fee: ${partialFee.toHuman()}`);
+```
+
+??? code "View the complete script"
+    ```typescript
+    import { ApiPromise, WsProvider } from '@polkadot/api';
+
+const main = async () =&gt; {
+  // Construct API provider
+  const wsProvider = new WsProvider('INSERT_WSS_ENDPOINT');
+  const api = await ApiPromise.create({ provider: wsProvider });
+
+  // Transaction to get weight information
+  const tx = api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(INSERT_VALUE));
+
+  // Get weight info
+  const { partialFee, weight } = await tx.paymentInfo('INSERT_SENDERS_ADDRESS');
+
+  console.log(`Transaction weight: ${weight}`);
+  console.log(`Transaction fee: ${partialFee.toHuman()}`);
+
+  // Disconnect the API
+  await api.disconnect();
+};
+
+main();
+    ```
+
+
+### Transaction Events {: #transaction-events }
+
+Any transaction will emit events; at a bare minimum, this will always be a `system.ExtrinsicSuccess` or `system.ExtrinsicFailed` event for the specific transaction. These provide the overall execution result for the transaction, that is, whether the execution has succeeded or failed.
+
+Depending on the transaction sent, some other events may be emitted; for instance, for a balance transfer event, this could include one or more `balance.Transfer` events.
+
+### Batch Transactions {: #batching-transactions }
+
+The Polkadot.js API allows transactions to be batch processed via the `api.tx.utility.batch` method. The batched transactions are processed sequentially from a single sender. The transaction fee can be estimated using the `paymentInfo` helper method.
+
+For example, assuming you've [initialized the API](#creating-an-API-provider-instance), a [keyring instance](#creating-a-keyring-instance) and [added an account](#adding-accounts), the following example makes a couple of transfers in one transaction:
+
+```typescript
+// Construct a list of transactions to batch
+const txs = [
+  api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(INSERT_VALUE)),
+  api.tx.balances.transferAllowDeath('INSERT_CHARLEYS_ADDRESS', BigInt(INSERT_VALUE)),
+];
+
+// Estimate the fees as RuntimeDispatchInfo, using the signer (either
+// address or locked/unlocked keypair) 
+const info = await api.tx.utility
+  .batch(txs)
+  .paymentInfo(alice);
+
+console.log(`Estimated fees: ${info}`);
+
+// Construct the batch and send the transactions
+await api.tx.utility
+  .batch(txs)
+  .signAndSend(alice, ({ status }) => {
+    if (status.isInBlock) {
+      console.log(`included in ${status.asInBlock}`);
+
+      // Disconnect API here!
+    }
+  });
+```
+
+??? code "View the complete script"
+
+    ```typescript
+    import { ApiPromise, WsProvider } from '@polkadot/api';
+import Keyring from '@polkadot/keyring';
+
+const main = async () =&gt; {
+  // Construct API provider
+  const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
+  const api = await ApiPromise.create({ provider: wsProvider });
+
+  // Create a keyring instance (ECDSA)
+  const keyring = new Keyring({ type: 'ethereum' });
+
+  // Initialize wallet key pairs
+  const alice = keyring.addFromUri('INSERT_ALICES_PRIVATE_KEY');
+
+  // Construct a list of transactions to batch
+  const txs = [
+    api.tx.balances.transferAllowDeath('INSERT_BOBS_ADDRESS', BigInt(INSERT_VALUE)),
+    api.tx.balances.transferAllowDeath('INSERT_CHARLEYS_ADDRESS', BigInt(INSERT_VALUE)),
+  ];
+
+  // Estimate the fees as RuntimeDispatchInfo, using the signer (either
+  // address or locked/unlocked keypair)
+  const info = await api.tx.utility.batch(txs).paymentInfo(alice);
+
+  console.log(`Estimated fees: ${info}`);
+
+  // Construct the batch and send the transactions
+  await api.tx.utility.batch(txs).signAndSend(alice, async ({ status }) =&gt; {
+    if (status.isInBlock) {
+      console.log(`Included in ${status.asInBlock}`);
+
+      // Disconnect the API
+      await api.disconnect();
+    }
+  });
+};
+
+main();
+    ```
+
+## Sample Code for Monitoring Native Token Transfers { #sample-code-for-monitoring-native-token-transfers }
+
+The following code samples will demonstrate how to listen to both types of native token transfers, sent via Substrate or Ethereum API, using either the [Polkadot.js API library](https://polkadot.js.org/docs/api/start){target=\_blank} or [Substrate API Sidecar](https://github.com/paritytech/substrate-api-sidecar){target=\_blank}. The following code snippets are for demo purposes only and should not be used without modification and further testing in a production environment.
+
+The following code snippet uses [`subscribeFinalizedHeads`](https://polkadot.js.org/docs/substrate/rpc/#subscribefinalizedheads-header){target=\_blank} to subscribe to new finalized block headers, and loops through extrinsics fetched from the block, and retrieves the events of each extrinsic.
+
+Then, it checks if any event corresponds to a `balances.Transfer` event. If so, it will extract the `from`, `to`, `amount`, and the `tx hash` of the transfer and display it on the console. Note that the `amount` is shown in the smallest unit (Wei).  You can find all the available information about Polkadot.js and the Substrate JSON RPC in their [official documentation site](https://polkadot.js.org/docs/substrate/rpc){target=\_blank}.
+
+```typescript
+import '@polkadot/api-augment';
+import { ApiPromise, WsProvider } from '@polkadot/api';
+
+// This script will listen to all Native token transfers (Substrate &amp; Ethereum) and extract the tx hash
+// It can be adapted for any Tanssi-powered network
+
+const main = async () =&gt; {
+  // Define the provider
+  const wsProvider = new WsProvider('INSERT_WSS_ENDPOINT');
+  // Create the provider
+  const polkadotApi = await ApiPromise.create({
+    provider: wsProvider,
+  });
+
+  // Subscribe to finalized blocks
+  await polkadotApi.rpc.chain.subscribeFinalizedHeads(
+    async (lastFinalizedHeader) =&gt; {
+      const [{ block }, records] = await Promise.all([
+        polkadotApi.rpc.chain.getBlock(lastFinalizedHeader.hash),
+        (await polkadotApi.at(lastFinalizedHeader.hash)).query.system.events(),
+      ]);
+
+      block.extrinsics.forEach((extrinsic, index) =&gt; {
+        const {
+          method: { args, method, section },
+        } = extrinsic;
+
+        const isEthereum = section == 'ethereum' &amp;&amp; method == 'transact';
+
+        // Gets the transaction object
+        const tx = args[0] as any;
+
+        // Convert to the correct Ethereum Transaction format
+        const ethereumTx =
+          isEthereum &amp;&amp;
+          ((tx.isLegacy &amp;&amp; tx.asLegacy) ||
+            (tx.isEip1559 &amp;&amp; tx.asEip1559) ||
+            (tx.isEip2930 &amp;&amp; tx.asEip2930));
+
+        // Check if the transaction is a transfer
+        const isEthereumTransfer =
+          ethereumTx &amp;&amp;
+          ethereumTx.input.length === 0 &amp;&amp;
+          ethereumTx.action.isCall;
+
+        // Retrieve all events for this extrinsic
+        const events = records.filter(
+          ({ phase }) =&gt;
+            phase.isApplyExtrinsic &amp;&amp; phase.asApplyExtrinsic.eq(index)
+        );
+
+        // This hash will only exist if the transaction was executed through Ethereum.
+        let ethereumHash = '';
+
+        if (isEthereum) {
+          // Search for Ethereum execution
+          events.forEach(({ event }) =&gt; {
+            if (event.section == 'ethereum' &amp;&amp; event.method == 'Executed') {
+              ethereumHash = event.data[2].toString();
+            }
+          });
+        }
+
+        // Search if it is a transfer
+        events.forEach(({ event }) =&gt; {
+          if (event.section == 'balances' &amp;&amp; event.method == 'Transfer') {
+            const from = event.data[0].toString();
+            const to = event.data[1].toString();
+            const balance = (event.data[2] as any).toBigInt();
+
+            const substrateHash = extrinsic.hash.toString();
+
+            console.log(
+              `Transfer from ${from} to ${to} of ${balance} (block #${lastFinalizedHeader.number})`
+            );
+            console.log(`  - Triggered by extrinsic: ${substrateHash}`);
+            if (isEthereum) {
+              console.log(
+                `  - Ethereum (isTransfer: ${isEthereumTransfer}) hash: ${ethereumHash}`
+              );
+            }
+          }
+        });
+      });
+    }
+  );
+};
+
+main();
+```
+
+In addition, you can find more sample code snippets related to more specific cases around balance transfers at this [GitHub page](https://gist.github.com/crystalin/b2ce44a208af60d62b5ecd1bad513bce){target=\_blank}.
+
+## Utility Functions {: #utilities }
+
+The Polkadot.js API also includes a number of utility libraries for computing commonly used cryptographic primitives and hash functions.
+
+The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://eth.wiki/fundamentals/rlp){target=\_blank}) encoding and then hashing the result with keccak256.
+
+```typescript
+import { encode } from '@polkadot/util-rlp';
+import { keccakAsHex } from '@polkadot/util-crypto';
+import { numberToHex } from '@polkadot/util';
+
+// Set the key type to string
+type txType = {
+  [key: string]: any;
+};
+
+// Define the raw signed transaction
+const txData: txType = {
+  nonce: numberToHex(1),
+  gasPrice: numberToHex(21000000000),
+  gasLimit: numberToHex(21000),
+  to: '0xc390cC49a32736a58733Cf46bE42f734dD4f53cb',
+  value: numberToHex(1000000000000000000),
+  data: '',
+  v: '0507',
+  r: '0x5ab2f48bdc6752191440ce62088b9e42f20215ee4305403579aa2e1eba615ce8',
+  s: '0x3b172e53874422756d48b449438407e5478c985680d4aaa39d762fe0d1a11683',
+};
+
+// Extract the values to an array
+var txDataArray = Object.keys(txData).map(function (key) {
+  return txData[key];
+});
+
+// Calculate the RLP encoded transaction
+var encoded_tx = encode(txDataArray);
+
+// Hash the encoded transaction using keccak256
+console.log(keccakAsHex(encoded_tx));
+```
+
+You can check the respective [NPM repository page](https://www.npmjs.com/package/@polkadot/util-crypto){target=\_blank} for a list of available methods in the `@polkadot/util-crypto` library and their descriptions.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/sidecar-api/
+--- BEGIN CONTENT ---
+---
+title: Using Substrate API Sidecar
+description: Learn how to use Substrate-based REST service with Tanssi-powered networks to access blocks, account balance, compute gas used, and more.
+icon: octicons-code-24
+categories: Substrate-Template
+---
+
+# Using Substrate API Sidecar
+
+## Introduction {: #introduction }
+
+Substrate API Sidecar allows applications to access blocks, account balance, and other information of Substrate-based blockchains through a REST API. This can be useful for exchanges, wallets or other types of applications that need to keep track of account balance and other state changes on a Tanssi-powered network. This page will describe how to install and run a Substrate API Sidecar for a Tanssi network, and the commonly used API endpoints.
+
+## Installing and Running Substrate API Sidecar {: #installing-and-running-substrate-api-sidecar }
+
+There are multiple ways of installing and running the Substrate API Sidecar. This guide will describe the steps for installing and running it locally through NPM. For running Substrate API Sidecar through Docker, or building and running it from source, please refer to the [Substrate API Sidecar Github Repository](https://github.com/paritytech/substrate-api-sidecar#readme).
+
+!!! note
+    The examples in this guide are based on a MacOS or Ubuntu 20.04 environment. If you're using Windows, you'll need to adapt them accordingly.
+    
+    Furthermore, please ensure that you have Node.js and a package manager (such as npm or yarn) installed. To learn how to install Node.js, please check their [official documentation](https://nodejs.org/en/download){target=\blank}.
+    
+    Also, make sure you've initialized a `package.json` file for ES6 modules. You can initialize a default `package.json` file using npm by running the following command `npm init --yes`.
+
+### Installing the Substrate API Sidecar {: #installing-the-substrate-api-sidecar }
+
+To install the Substrate API Sidecar service locally in the current directory, run this from the command line:
+
+```bash
+npm install @substrate/api-sidecar@{{ networks.dancebox.substrate_api_sidecar.stable_version }}
+```
+
+!!! note
+    If the current folder does not already have a Node.js project structure, you need to manually created the `node_modules` directory by typing `mkdir node_modules`.
+
+Substrate API Sidecar v{{ networks.dancebox.substrate_api_sidecar.stable_version }} is the current stable version that has been tested to work with Tanssi networks. You can verify the installation was successful by typing from the installation directory root:
+
+```bash
+node_modules/.bin/substrate-api-sidecar --version
+```
+
+## Setting up the Substrate API Sidecar {: #setting-up-the-substrate-api-sidecar }
+
+In the terminal that Sidecar will run, export the environmental variable for the WS endpoint of the network you want to connect to. For example, the WSS endpoint of your Tanssi network. Some examples:
+
+=== "Dancebox"
+
+    ```bash
+    export SAS_SUBSTRATE_URL=wss://{{ networks.dancelight.dns_name }}
+    ```
+
+=== "Dancebox EVM Network"
+
+    ```bash
+    export SAS_SUBSTRATE_URL={{ networks.dancelight.demo_evm_rpc_wss_url }}
+    ```
+
+=== "Your Network"
+
+    ```bash
+    export SAS_SUBSTRATE_URL=INSERT_NETWORK_WSS_ENDPOINT
+    ```
+
+After setting the environmental variable, you can use the `echo` command to check that the environmental variable has been set correctly, by typing:
+
+```bash
+echo $SAS_SUBSTRATE_URL
+```
+
+And it should display the network endpoint you have just set.
+
+## Running Substrate API Sidecar {: #running-substrate-api-sidecar }
+
+With the network endpoint environmental variable set, and from the installation directory root, run:
+
+```bash
+node_modules/.bin/substrate-api-sidecar
+```
+
+If the installation and configuration are successful, you should see this output in the console:
+
+![Successful Output](/images/builders/toolkit/substrate-api/libraries/sidecar-api/sidecar-1.webp)
+
+## Substrate API Sidecar Endpoints {: #substrate-api-sidecar-endpoints }
+
+Some of the commonly used Substrate API Sidecar endpoints include:
+
+ - **GET /blocks​/head** — Get the most recently finalized block. The optional parameter `finalized` can be set to `false` to the get the newest known block, which may not be finalized
+ - **GET /blocks/head/header** — Get the most recently finalized block header. The optional parameter `finalized` can be set to `false` to the get the newest known block header, which may not be finalized
+ - **GET /blocks/{blockId}** — Get a block by its height or hash
+ - **GET /accounts/{accountId}/balance-info** — Get balance information for an account
+ - **GET /node/version** — Get information about the Substrates node's implementation and versioning
+ - **GET /runtime/metadata** — Get the runtime metadata in decoded, JSON form
+
+For a full list of API endpoints available on Substrate API Sidecar, please refer to the [official documentation](https://paritytech.github.io/substrate-api-sidecar/dist).
+
+## Field Mapping in Block JSON Object {: #fields-mapping-in-block-json-object }
+
+Substrate API Sidecar returns blocks as a JSON object. Part of this JSON object is a nesting structure for individual extrinsics processed in a specific block. Each extrinsic calls a specific method of a given module. Generally speaking, for individual extrinsics, the nesting structure is as following:
+
+```text
+RESPONSE JSON Block Object:
+    |--extrinsics
+        |--{extrinsic_number}
+            |--method
+                |--pallet: "MODULE_NAME"
+                |--method: "METHOD_NAME"
+            |--signature
+            |--nonce
+            |--args
+                |--transaction
+                    |--{transaction_type}
+            |--hash
+            |--events
+                |--{event_number}
+                    |--method
+                        |--pallet: "MODULE_NAME"
+                        |--method: "METHOD_EVENT_NAME"
+                    |--data
+                        |--0
+                        |--1
+                        |--2
+                        |--3
+    ...
+
+```
+
+Consequently, information from specific extrinsics (like balance transfers) can be extracted by knowing the module and method called by the extrinsic.
+
+## EVM Field Mapping in Block JSON Object {: #evm-fields-mapping-in-block-json-object }
+
+For Tanssi EVM networks, the information related to EVM execution of each Tanssi EVM network transaction can be identified by the `method` field under the current extrinsic object, where it is set to:
+
+```text
+{extrinsic_number}.method.pallet = "ethereum"
+{extrinsic_number}.method.method = "transact"
+```
+
+The nesting structure for EVM transactions is as following:
+
+```text
+RESPONSE JSON Block Object:
+    |--extrinsics
+        |--{extrinsic_number}
+            |--method
+                |--pallet: "ethereum"
+                |--method: "transact"
+            |--signature
+            |--nonce
+            |--args
+                |--transaction
+                    |--{transaction_type}
+            |--hash
+            |--events
+                |--{event_number}
+                    |--method
+                        |--pallet: "ethereum"
+                        |--method: "Executed"
+                    |--data
+                        |--0
+                        |--1
+                        |--2
+                        |--3
+    ...
+
+```
+
+For example, for Substrate transactions, the "Nonce" and "Signature" fields are under:
+
+```text
+extrinsics[extrinsic_number]
+```
+
+### EVM Transaction Types and Payload {: #transaction-types-and-payload }
+
+Tanssi EVM networks currently support three transaction standards: `legacy`, `eip1559`, and `eip2930`. These correspond to the `transaction type` field in the above JSON object diagram. For each transaction type, the transaction payload contains the following fields:
+
+=== "EIP1559"
+
+    ```text
+        ...
+        |--eip1559
+            |--chainId
+            |--nonce
+            |--maxPriorityFeePerGas
+            |--maxFeePerGas
+            |--gasLimit
+            |--action
+            |--value
+            |--input
+            |--accessList
+            |--oddYParity
+            |--r
+            |--s
+        ...
+    ```
+
+=== "Legacy"
+
+    ```text
+        ...
+        |--legacy
+            |--nonce
+            |--gasPrice
+            |--gasLimit
+            |--action
+            |--value
+            |--input
+            |--signature
+        ...
+    ```
+
+=== "EIP2930"
+
+    ```text
+        ...
+        |--eip2930
+            |--chainId
+            |--nonce
+            |--gasPrice
+            |--gasLimit
+            |--action
+            |--value
+            |--input
+            |--accessList
+            |--oddYParity
+            |--r
+            |--s
+        ...
+    ```
+
+For more information on the new [EIP1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} and [EIP2930](https://eips.ethereum.org/EIPS/eip-2930){target=\_blank} transaction types and what each field means, please refer to the respective official Ethereum proposal specs.
+
+### Transaction Field Mappings {: #transaction-field-mappings }
+
+To obtain the EVM sender address, recipient address, and EVM hash of any EVM transaction type, check the `events` field under the current extrinsic object, and identify the event where the `method` field is set to:
+
+```text
+{event_number}.method.pallet: "ethereum"
+{event_number}.method.method: "Executed"
+```
+
+The EVM field mappings are then summarized as the following:
+
+=== "EIP1559"
+    |        EVM Field         |                               Block JSON Field                               |
+    |:------------------------:|:----------------------------------------------------------------------------:|
+    |         Chain ID         |       `extrinsics[extrinsic_number].args.transaction.eip1559.chainId`        |
+    |          Nonce           |        `extrinsics[extrinsic_number].args.transaction.eip1559.nonce`         |
+    | Max priority fee per gas | `extrinsics[extrinsic_number].args.transaction.eip1559.maxPriorityFeePerGas` |
+    |     Max fee per gas      |     `extrinsics[extrinsic_number].args.transaction.eip1559.maxFeePerGas`     |
+    |        Gas limit         |       `extrinsics[extrinsic_number].args.transaction.eip1559.gasLimit`       |
+    |       Access list        |      `extrinsics[extrinsic_number].args.transaction.eip1559.accessList`      |
+    |        Signature         |    `extrinsics[extrinsic_number].args.transaction.eip1559.oddYParity/r/s`    |
+    |      Sender address      |         `extrinsics[extrinsic_number].events[event_number].data[0]`          |
+    |    Recipient address     |         `extrinsics[extrinsic_number].events[event_number].data[1]`          |
+    |         EVM hash         |         `extrinsics[extrinsic_number].events[event_number].data[2]`          |
+    |   EVM execution status   |         `extrinsics[extrinsic_number].events[event_number].data[3]`          |
+
+=== "Legacy"
+    |      EVM Field       |                         Block JSON Field                         |
+    |:--------------------:|:----------------------------------------------------------------:|
+    |        Nonce         |   `extrinsics[extrinsic_number].args.transaction.legacy.nonce`   |
+    |      Gas price       | `extrinsics[extrinsic_number].args.transaction.legacy.gasPrice`  |
+    |      Gas limit       | `extrinsics[extrinsic_number].args.transaction.legacy.gasLimit`  |
+    |        Value         |   `extrinsics[extrinsic_number].args.transaction.legacy.value`   |
+    |      Signature       | `extrinsics[extrinsic_number].args.transaction.legacy.signature` |
+    |    Sender address    |   `extrinsics[extrinsic_number].events[event_number].data[0]`    |
+    |  Recipient address   |   `extrinsics[extrinsic_number].events[event_number].data[1]`    |
+    |       EVM hash       |   `extrinsics[extrinsic_number].events[event_number].data[2]`    |
+    | EVM execution status |   `extrinsics[extrinsic_number].events[event_number].data[3]`    |
+
+=== "EIP2930"
+    |      EVM Field       |                            Block JSON Field                            |
+    |:--------------------:|:----------------------------------------------------------------------:|
+    |       Chain ID       |    `extrinsics[extrinsic_number].args.transaction.eip2930.chainId`     |
+    |        Nonce         |     `extrinsics[extrinsic_number].args.transaction.eip2930.nonce`      |
+    |      Gas price       |    `extrinsics[extrinsic_number].args.transaction.eip2930.gasPrice`    |
+    |      Gas limit       |    `extrinsics[extrinsic_number].args.transaction.eip2930.gasLimit`    |
+    |        Value         |     `extrinsics[extrinsic_number].args.transaction.eip2930.value`      |
+    |     Access list      |   `extrinsics[extrinsic_number].args.transaction.eip2930.accessList`   |
+    |      Signature       | `extrinsics[extrinsic_number].args.transaction.eip2930.oddYParity/r/s` |
+    |    Sender address    |      `extrinsics[extrinsic_number].events[event_number].data[0]`       |
+    |  Recipient address   |      `extrinsics[extrinsic_number].events[event_number].data[1]`       |
+    |       EVM hash       |      `extrinsics[extrinsic_number].events[event_number].data[2]`       |
+    | EVM execution status |      `extrinsics[extrinsic_number].events[event_number].data[3]`       |
+
+For example, for EVM transactions, the "Nonce" and "Signature" fields are under:
+
+```text
+extrinsics[extrinsic_number].args.transaction[transaction_type]
+```
+
+Consequently, this leaves the "Nonce" and "Signature" for the Substrate-level field `extrinsics[extrinsic_number]` to be `null`.
+
+A successfully executed EVM transaction will return either `succeed: "Stopped"` or `succeed: "Returned"` under the "EVM Execution Status" field.
+
+## Monitor Token Balance Transfers {: #monitor-transfers }
+
+The following code samples will demonstrate how to listen to both native token transfers, sent via Substrate or Ethereum API, and ERC-20 token transfers sent via the Ethereum API, using Substrate API Sidecar. Transfers via the Ethereum API are only applicable to Tanssi EVM networks.
+
+### Native Token Transfers { #native-token-transfers }
+
+Both Tanssi non-EVM networks and EVM networks can perform Substrate-based native token balance transfers.
+
+The following code snippet uses the Axios HTTP client to query the Sidecar endpoint [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist){target=\_blank} for the latest finalized block, and then decodes the block for the `from`, `to`, `value`, `tx hash` and `transaction status` of native token transfers at both the EVM and Substrate API level.
+
+```typescript
+import axios from 'axios';
+
+// This script will decode all native token transfers (Substrate &amp; Ethereum)
+// in a given Sidecar block, and extract the tx hash. It can be adapted for
+// any Tanssi-powered network.
+
+// Endpoint to retrieve the latest block
+const endpoint = 'http://127.0.0.1:8080/blocks/head';
+
+async function main() {
+  try {
+    // Retrieve the block from the Sidecar endpoint
+    const response = await axios.get(endpoint);
+    // Retrieve the block height of the current block
+    console.log('Block Height: ' + response.data.number);
+
+    // Iterate through all extrinsics in the block
+    response.data.extrinsics.forEach((extrinsic) =&gt; {
+      // Retrieve Ethereum Transfers
+      if (
+        extrinsic.method.pallet === 'ethereum' &amp;&amp;
+        extrinsic.method.method === 'transact'
+      ) {
+        // Get the value for any of the three EIP transaction standards supported
+        const value =
+          (extrinsic.args.transaction.legacy &amp;&amp;
+            extrinsic.args.transaction.legacy.value) ||
+          (extrinsic.args.transaction.eip1559 &amp;&amp;
+            extrinsic.args.transaction.eip1559.value) ||
+          (extrinsic.args.transaction.eip2930 &amp;&amp;
+            extrinsic.args.transaction.eip2930.value);
+
+        // Iterate through the events to get transaction details
+        extrinsic.events.forEach((event) =&gt; {
+          if (
+            event.method.pallet === 'ethereum' &amp;&amp;
+            event.method.method === 'Executed'
+          ) {
+            console.log('From: ' + event.data[0]);
+            console.log('To: ' + event.data[1]);
+            console.log('Tx Hash: ' + event.data[2]);
+            console.log('Value: ' + value);
+            // Check the execution status
+            if (event.data[3].succeed) {
+              console.log('Status: Success');
+            } else {
+              console.log('Status: Failed');
+            }
+          }
+        });
+      }
+
+      // Retrieve Substrate Transfers
+      if (
+        extrinsic.method.pallet === 'balances' &amp;&amp;
+        (extrinsic.method.method === 'transferKeepAlive' ||
+          extrinsic.method.method === 'transfer')
+      ) {
+        // Iterate through the events to get transaction details
+        extrinsic.events.forEach((event) =&gt; {
+          if (
+            event.method.pallet === 'balances' &amp;&amp;
+            event.method.method === 'Transfer'
+          ) {
+            console.log('From: ' + event.data[0]);
+            console.log('To: ' + event.data[1]);
+            console.log('Tx Hash: ' + extrinsic.hash);
+            console.log('Value: ' + event.data[2]);
+            // Check the execution status
+            if (extrinsic.success) {
+              console.log('Status: Success');
+            } else {
+              console.log('Status: Failed');
+            }
+          }
+        });
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+main();
+```
+
+### ERC-20 Token Transfers {: #erc-20-token-transfers }
+
+Events emitted by smart contracts such as an ERC-20 token contract deployed on Tanssi EVM networks can be decoded from Sidecar block JSON objects. The nesting structure is as following:
+
+```text
+RESPONSE JSON Block Object:
+    |--extrinsics
+        |--{extrinsic_number}
+            |--method
+                |--pallet: "ethereum"
+                |--method: "transact"
+            |--signature:
+            |--nonce:
+            |--args
+                |--transaction
+                    |--{transaction_type}
+            |--hash
+            |--events
+                |--{event_number}
+                    |--method
+                        |--pallet: "evm"
+                        |--method: "Log"
+                    |--data
+                        |--0
+                            |-- address
+                            |-- topics
+                                |--0
+                                |--1
+                                |--2
+					        |-- data
+            ...
+    ...
+
+```
+
+ERC-20 token transfers will emit the [`Transfer`](https://eips.ethereum.org/EIPS/eip-20){target=\_blank} event which can be decoded as the following:
+
+|     Tx Information      |                           Block JSON Field                            |
+|:-----------------------:|:---------------------------------------------------------------------:|
+| ERC-20 contract address |  `extrinsics[extrinsic_number].events[event_number].data[0].address`  |
+|  Event signature hash   | `extrinsics[extrinsic_number].events[event_number].data[0].topics[0]` |
+|     Sender address      | `extrinsics[extrinsic_number].events[event_number].data[0].topics[1]` |
+|    Recipient address    | `extrinsics[extrinsic_number].events[event_number].data[0].topics[2]` |
+|         Amount          |   `extrinsics[extrinsic_number].events[event_number].data[0].data`    |
+
+Other events emitted by EVM smart contracts can be decoded in a similar fashion, but the content of the topics and data fields will change depending on the definition of the specific event.
+
+!!! note
+    The amount transferred is given in accounting for decimals and in hexadecimal format.
+
+## Substrate API Transaction Fees {: #substrate-api-transaction-fees }
+
+For Tanssi non-EVM networks and EVM networks, all the information around fee data for transactions sent via the Substrate API can be extracted from the following block endpoint:
+
+```text
+GET /blocks/{blockId}
+```
+
+The block endpoints will return data relevant to one or more blocks. You can read more about the block endpoints on the [official Sidecar documentation](https://paritytech.github.io/substrate-api-sidecar/dist/#operations-tag-blocks){target=\_blank}.
+
+Read as a JSON object, for a given `pallet` (module) and `method`, the transaction fee is provided by an associated event with the following extructure:
+
+```text
+{event_number}.method.pallet: "transactionPayment"
+{event_number}.method.method: "TransactionFeePaid"
+```
+
+The relevant nesting structure is as follows:
+
+```text
+RESPONSE JSON Block Object:
+    ...
+    |--number
+    |--extrinsics
+        |--{extrinsic_number}
+            |--method
+            |--signature
+            |--nonce
+            |--args
+            |--tip
+            |--hash
+            |--info
+            |--era
+            |--events
+                |--{event_number}
+                    |--method
+                        |--pallet: "transactionPayment"
+                        |--method: "TransactionFeePaid"
+                    |--data
+                        |--0
+                        |--1
+                        |--2
+    ...
+
+```
+
+The object mappings are summarized as follows:
+
+|   Tx Information   |                      Block JSON Field                       |
+|:------------------:|:-----------------------------------------------------------:|
+| Fee paying account | `extrinsics[extrinsic_number].events[event_number].data[0]` |
+|  Total fees paid   | `extrinsics[extrinsic_number].events[event_number].data[1]` |
+|        Tip         | `extrinsics[extrinsic_number].events[event_number].data[2]` |
+
+Then, the total transaction fee paid for this extrinsic is mapped to the following field of the block JSON object:
+
+```text
+extrinsics[extrinsic_number].events[event_number].data[1]
+```
+
+## Ethereum API Transaction Fees {: #ethereum-api-transaction-fees }
+
+For Tanssi EVM networks, users could also send funds via the Ethereum API. To calculate the fee incurred on transactions sent via the Ethereum API, the following formula can be used:
+
+=== "EIP-1559"
+
+    ```text
+    GasPrice = BaseFee + MaxPriorityFeePerGas < MaxFeePerGas ?
+                BaseFee + MaxPriorityFeePerGas : 
+                MaxFeePerGas;
+    Transaction Fee = (GasPrice * TransactionWeight) / 25000
+    ```
+
+=== "Legacy"
+
+    ```text
+    Transaction Fee = (GasPrice * TransactionWeight) / 25000
+    ```
+
+=== "EIP-2930"
+
+    ```text
+    Transaction Fee = (GasPrice * TransactionWeight) / 25000
+    ```
+
+The following sections describe in more detail each of the components needed to calculate the transaction fee.
+
+### Base Fee {: #base-fee}
+
+The `BaseFee` is the minimum amount charged to send a transaction and is a value set by the network itself. It was introduced in [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. Tanssi EVM networks have a dynamic fee mechanism that aims to replicate the [EIP-1559 fee market mechanism](https://eips.ethereum.org/EIPS/eip-1559#specification){target=\_blank}, where the base fee is adjusted based on block congestion.
+
+For example, for the Tanssi EVM network template the minimum gas price is `1 GWei`.
+
+The `BaseFee` can be directly retrieved from the `baseFeePerGas` storage found in the `baseFee` module (pallet), using the following endpoint:
+
+```text
+GET /pallets/baseFee/storage/baseFeePerGas?at={blockId}
+```
+
+Read as a JSON object, the relevant nesting structure is as follows:
+
+```text
+RESPONSE JSON Storage Object:
+    |--at
+        |--hash
+        |--height
+    |--pallet
+    |--palletIndex
+    |--storageItem
+    |--keys
+    |--value
+```
+
+The relevant data will be stored in the `value` key of the JSON object. This value is a fixed point data type, hence the real value is found by dividing the `value` by the decimals.
+
+### GasPrice, MaxFeePerGas, and MaxPriorityFeePerGas {: #gasprice-maxfeepergas-maxpriorityfeepergas }
+
+The `GasPrice` is used to specify the gas price of legacy transactions prior to [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank}. The `MaxFeePerGas` and `MaxPriorityFeePerGas` were both introduced in EIP-1559 alongside the `BaseFee`. The `MaxFeePerGas` defines the maximum fee permitted to be paid per unit of gas and is the sum of the `BaseFee` and the `MaxPriorityFeePerGas`. The `MaxPriorityFeePerGas` is the maximum priority fee configured by the sender of a transaction that is used to incentive the prioritization of a transaction in a block.
+
+Although Tanssi EVM networks are Ethereum-compatible, they are also Substrate-based chains at their core, and priorities work differently in Substrate than in Ethereum. In Substrate, transactions are not prioritized by gas price. To address this, Tanssi EVM networks uses a modified prioritization system that reprioritizes Substrate transactions using an Ethereum-first solution. A Substrate transaction still goes through the validity process, where it is assigned transaction tags, longevity, and a priority. The original priority is then overwritten with a new priority based on the transaction's fee per gas, which is derived from the transaction's tip and weight. If the transaction is an Ethereum transaction, the priority is set according to the priority fee.
+
+It's important to note that priority is not the sole component responsible for determining the order of transactions in a block. Other components, such as the longevity of a transaction, also play a role in the sorting process.
+
+The values of `GasPrice`, `MaxFeePerGas` and `MaxPriorityFeePerGas` for the applicable transaction types can be read from the block JSON object according to the structure described in [the Sidecar API page](#evm-fields-mapping-in-block-json-object).
+
+The data for an Ethereum transaction in a particular block can be extracted from the following block endpoint:
+
+```text
+GET /blocks/{blockId}
+```
+
+The paths to the relevant values have also truncated and reproduced below:
+
+=== "EIP1559"
+    |      EVM Field       |                               Block JSON Field                               |
+    |:--------------------:|:----------------------------------------------------------------------------:|
+    |     MaxFeePerGas     |     `extrinsics[extrinsic_number].args.transaction.eip1559.maxFeePerGas`     |
+    | MaxPriorityFeePerGas | `extrinsics[extrinsic_number].args.transaction.eip1559.maxPriorityFeePerGas` |
+
+=== "Legacy"
+    | EVM Field |                        Block JSON Field                         |
+    |:---------:|:---------------------------------------------------------------:|
+    | GasPrice  | `extrinsics[extrinsic_number].args.transaction.legacy.gasPrice` |
+
+=== "EIP2930"
+    | EVM Field |                         Block JSON Field                         |
+    |:---------:|:----------------------------------------------------------------:|
+    | GasPrice  | `extrinsics[extrinsic_number].args.transaction.eip2930.gasPrice` |
+
+### Transaction Weight {: #transaction-weight}
+
+`TransactionWeight` is a Substrate mechanism used to measure the execution time a given transaction takes to be executed within a block. For all transactions types, `TransactionWeight` can be retrieved under the event of the relevant extrinsic where the `method` field is set to:
+
+```text
+pallet: "system", method: "ExtrinsicSuccess"
+```
+
+And then `TransactionWeight` is mapped to the following field of the block JSON object:
+
+```text
+extrinsics[extrinsic_number].events[event_number].data[0].weight
+```
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/subwallet/
+--- BEGIN CONTENT ---
+---
+title: How to Connect SubWallet to Tanssi Substrate
+description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate network.
+icon: material-wallet-outline
+categories: Substrate-Template
+---
+
+# Interacting with Your Tanssi Substrate Network Using SubWallet
+
+## Introduction {: #introduction }
+
+Developers and users of Tanssi-powered Substrate networks have a variety of options when it comes to wallets. SubWallet is a comprehensive Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Substrate API, but you can check out a similar [tutorial for interacting with SubWallet using the Ethereum API](/builders/toolkit/ethereum-api/wallets/subwallet/){target=\_blank}.
+
+The SubWallet wallet browser extension [can be downloaded](https://www.subwallet.app/download.html){target=\_blank} for all supported browsers, including Chrome, Brave, Firefox, and MS Edge. SubWallet also has a mobile app for both iOS and Android, but that is beyond the scope of this guide. A complete online asset dashboard is accessible at [web.subwallet.app](https://web.subwallet.app){target=\_blank}.
+
+This guide takes you through all the necessary steps, from installing SubWallet to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
+
+## Creating Your First Substrate Account {: #creating-your-first-substrate-account }
+
+First, download and install the [SubWallet extension](https://www.subwallet.app/download.html){target=\_blank}. Creating a new account will generate a seed phrase that can derive multiple Ethereum and Substrate accounts. By default, SubWallet will generate a single Ethereum and a single Substrate account, but you can easily derive more from the same seed phrase. Click **Create a new account** to get started.
+
+![Get started with SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-1.webp)
+
+On the following screen, you'll be prompted to create a password to secure your new wallet.
+
+![Create a password for SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-2.webp)
+
+You'll then be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
+
+![Back up your seed phrase in SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-3.webp)
+
+!!! note
+    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
+
+## Importing an Existing Substrate Account {: #importing-an-existing-substrate-account }
+
+Of course, you can import an existing Substrate account into SubWallet. To get started, take the following steps:
+
+1. Press the **All accounts** button at the top
+2. Press the **Import account** icon
+
+![Import account part 1](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-4.webp)
+
+On the following screen, select the method by which you would like to import the existing account. If you're importing a Substrate account, you can choose from the seed phrase, Polkadot.js (JSON), or QR code options.
+
+![Import existing account part 2](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-5.webp)
+
+On the following screen, you'll be able to provide the relevant seed phrase, JSON file, or QR code, and you can begin using your new account right away.
+
+## Connecting SubWallet to the Tanssi Dancebox TestNet {: #connecting-Subwallet-to-the-tanssi-dancebox-testnet }
+
+SubWallet comes pre-configured with support for the Tanssi Dancebox TestNet, but it may not be enabled by default. You just need to head to the **Manage networks** page to toggle it on. Remember that the Tanssi Dancebox TestNet itself is the Substrate-based network that orchestrates and manages the launch of Tanssi-powered networks. To configure your SubWallet to work with Dancebox, press the **More Options** icon in the upper left corner. Then click **Manage networks** and take the following steps:
+
+1. Search for `Dancebox`
+2. Toggle the slider on to enable support for Dancebox
+
+![Toggle support for the Dancebox TestNet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-6.webp)
+
+If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the SubWallet wallet. By default, all balances are hidden in SubWallet, but if you press the eye icon, you can toggle balance visibility.
+
+![See your TestNet account balances in SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-7.webp)
+
+## Connecting SubWallet to Your Substrate Network {: #connecting-Subwallet-to-your-substrate-network }
+
+To configure SubWallet for your Substrate network, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Tanssi Dancebox Parachain is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to SubWallet, take the following steps:
+
+1. Paste in the WSS URL of your Tanssi network. Other parameters like the parachain ID and token decimals may be auto-populated
+2. Provide a name for your Tanssi network
+3. Press **Save**
+
+![Add Network in SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-8.webp)
+
+## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
+
+To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
+
+![Connect to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-9.webp)
+
+The SubWallet extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the SubWallet extension and click on the **Connected** icon next to your account at the top. To configure SubWallet to correctly interface with your Tanssi network on Polkadot.js Apps, you should take the following steps:
+
+1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
+2. Press **Connect**
+
+![Connect SubWallet to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-10.webp)
+
+Your SubWallet wallet is now connected to Polkadot.js Apps. After refreshing Polkadot.js Apps, you should see your SubWallet account in the [Accounts page of Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} underneath the **extension** heading.
+
+## Sending a Transaction {: #sending-a-transaction}
+
+To send a transaction through the Substrate API, click **Send** next to your account on Polkadot.js Apps. Then, take the following steps:
+
+1. Input the **send to address**
+2. Enter the **amount**
+3. Press **Make Transfer** and confirm the transaction in the resulting Polkadot.js pop-up
+4. Press **View Details** if you'd like to inspect the contents of the transaction
+5. Press **Approve** to submit the transaction
+
+![Send funds through Substrate API with Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-11.webp)
+
+You can also send a transaction through the Substrate API directly from the SubWallet extension without using Polkadot.js Apps. To do so, press the **Send** icon and take the following steps:
+
+1. Specify the asset to send
+2. Specify the destination chain (in this case, the same chain that you're sending from)
+3. Enter the destination address
+4. Enter the number of tokens to send
+5. Look over the transaction details, then press **Transfer** and subsequently **Approve**
+
+![Send funds through Substrate API directly in SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-12.webp)
+
+This guide focused specifically on configuring SubWallet to work with your Tanssi Substrate network, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/subwallet/){target=\_blank}.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/talisman/
+--- BEGIN CONTENT ---
+---
+title: How to Connect Talisman to Tanssi
+description: This guide walks you through how to connect Talisman, a Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate decentralized network.
+icon: material-wallet-outline
+categories: Substrate-Template
+---
+
+# Interacting with your Tanssi Substrate Network Using Talisman
+
+## Introduction {: #introduction }
+
+Developers and users of Tanssi-powered Substrate networks have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
+
+Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+
+This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
+
+## Setting Up Talisman {: #setting-up-talisman }
+
+First, download and install the [Talisman extension](https://www.talisman.xyz){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
+
+![Get started with Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-1.webp)
+
+On the following screen, you'll be prompted to create a password to secure your new wallet.
+
+![Enter password for Talisman Wallet](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-2.webp)
+
+## Create a Substrate Account {: #create-a-substrate-account }
+
+To create your first Polkadot account in Talisman, take the following steps:
+
+1. Select the **Polkadot** option
+2. Give your account a name
+3. Press **Create**
+
+![Create your first Polkadot account in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-3.webp)
+
+After creating your first account, you'll be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
+
+![Back up your seed phrase](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-4.webp)
+
+!!! note
+    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
+
+## Importing an Existing Substrate Account {: #importing-an-existing-substrate-account }
+
+Of course, you can import an existing Substrate account into Talisman. To do so, take the following steps:
+
+1. Press **Add Account**
+2. Press **Import**
+3. Select **Import via Recovery Phrase**
+
+![Import existing account setup](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-12.webp)
+
+On the following screen, take the following steps:
+
+1. Select the **Polkadot** account type
+2. Provide a name for your account
+3. Paste in your seed
+4. Select which accounts you'd like to import
+5. Press **Import**
+
+![Import existing account final steps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-13.webp)
+
+## Connecting Talisman to the Tanssi Dancebox TestNet {: #connecting-talisman-to-the-tanssi-dancebox-testnet }
+
+Talisman already comes pre-configured with support for the Tanssi Dancebox TestNet. You just need to first ensure that you have enabled support for TestNets on Talisman. Remember that the Tanssi Dancebox TestNet itself is not a network; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi networks. To configure your Talisman to work with Dancebox, take the following steps:
+
+1. Open the Talisman extension and click on the Talisman logo
+2. Select **Settings**
+3. Ensure that **Enable testnets** is checked
+
+![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
+
+If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancebox tokens, the network will be omitted from your list of assets.
+
+![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
+
+## Connecting Talisman to Your Substrate Network {: #connecting-talisman-to-your-substrate-network }
+
+To configure Talisman for your Tanssi Substrate network, open the Talisman extension and click on the **More Options** tab. Click on **Settings** > **Networks & Tokens** > **Manage Networks**.
+
+1. Slide the network slider to **Polkadot**
+2. Check the **Enable testnets** box
+3. Press **Add Network**
+
+![Add Network in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-7.webp)
+
+On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Dancebox TestNet is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to Talisman, take the following steps:
+
+1. Paste in the RPC URL of your Tanssi network. Other parameters will be auto-populated
+2. Optionally, enter the block explorer URL of your Tanssi network, if applicable
+3. Check the **This is a testnet** box if applicable
+4. Press **Add Network**
+
+![Add your Tanssi-Powered Network Details](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-8.webp)
+
+## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
+
+To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
+
+![Connect to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-9.webp)
+
+The Talisman extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the Talisman extension and click on the **polkadot.js.org** heading at the top. To configure Talisman to correctly interface with your Tanssi network on Polkadot.js Apps, you should take the following steps:
+
+1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
+2. Press **Connect 1**. The value will change depending on the number of accounts you are connecting
+
+![Connect Talisman to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-10.webp)
+
+Your Talisman wallet is now connected to Polkadot.js Apps. After refreshing Polkadot.js Apps, you should see your Talisman account in the [Accounts page of Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} underneath the **extension** heading.
+
+## Sending a Transaction {: #sending-a-transaction}
+
+To send a transaction through the Substrate API, click **Send** next to your account on Polkadot.js Apps. Then, take the following steps:
+
+1. Input the **send to address**
+2. Enter the **amount**
+3. Press **Make Transfer** and confirm the transaction in the resulting Polkadot.js pop-up
+4. Press **View Details** if you'd like to inspect the contents of the transaction
+5. Press **Approve** to submit the transaction
+
+![Send funds through Substrate API with Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-11.webp)
+
+This guide focused specifically on configuring Talisman to work with your Tanssi Substrate network, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+## Basics Concepts [shared: true]
+
+The following section contains foundational documentation shared across all Tanssi products.
+It describes the architecture and infrastructure that serve as the backbone for all integrations built with Tanssi.
+This includes the network development framework, Substrate and EVM development tools, templates, and guidance for node operators.
+This context is provided to help understand how the system works under the hood, but responses should stay focused on the specific product unless the user explicitly asks about the general architecture.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
 
 Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/included-templates/
 --- BEGIN CONTENT ---
@@ -2127,4 +5393,167 @@ For Dancebox, you can use the following block explorer:
 - [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/explorer){target=\_blank}
 
 Support for additional block explorers is in the works and as more explorers support Dancebox, this section will be updated accordingly.
+--- END CONTENT ---
+
+## Reference Concepts [shared: true]
+
+The following section contains reference material for Tanssi.
+It includes network endpoints, JSON RPC methods, and contract or token addresses.
+While it may not be required for all use cases, it offers a deeper technical layer for advanced development work.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
+
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/endpoints/
+--- BEGIN CONTENT ---
+---
+title: Network Endpoints
+description: Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
+icon: octicons-share-android-24
+categories: Reference
+---
+
+## Network Endpoints
+
+Tanssi networks have two endpoints available for users to connect to: one for HTTPS and one for WSS.
+
+## Dancebox
+
+The Dancebox TestNet HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    https://{{ networks.dancelight.dns_name }}/
+    ```
+
+=== "WSS"
+
+    ```text
+    wss://{{ networks.dancelight.dns_name }}
+    ```
+
+### Demo EVM Network
+
+The demo EVM network HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_url }}
+    ```
+
+=== "WSS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_wss_url }}
+    ```
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc/
+--- BEGIN CONTENT ---
+---
+title: JSON-RPC API Methods
+description: Learn about the supported JSON-RPC API methods for querying your Tanssi EVM network, including standard Ethereum methods and custom methods unique to Tanssi.
+icon: material-code-json
+categories: Reference
+---
+
+# JSON-RPC API Methods
+
+## Standard Ethereum JSON-RPC Methods {: #standard-rpc-methods }
+
+As Tanssi's EVM Compatibility is derived from [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} and closely modeled after Moonbeam's Ethereum compatibility, Tanssi nodes support a wide variety of standard supported Ethereum JSON-RPC methods.
+
+Nevertheless, not all Ethereum JSON-RPC methods are supported; some of those supported return default values (those related to Ethereum's PoW consensus mechanism in particular). This guide provides a comprehensive list of supported Ethereum JSON-RPC methods on Tanssi. Developers can quickly reference this list to understand the available functionality for interfacing with Tanssi EVM networks.
+
+The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
+
+- **[eth_protocolVersion](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_protocolversion){target=\_blank}** — returns `1` by default
+- **[eth_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing){target=\_blank}** — returns an object with data about the sync status or `false`
+- **[eth_hashrate](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_hashrate){target=\_blank}** — returns `"0x0"` by default
+- **[eth_coinbase](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_coinbase){target=\_blank}** — returns the latest block author. Not necessarily a finalized block
+- **[eth_mining](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_mining){target=\_blank}** — returns `false` by default
+- **[eth_chainId](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_chainid){target=\_blank}** — returns the chain ID used for signing at the current block
+- **[eth_gasPrice](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gasprice){target=\_blank}** — returns the base fee per unit of gas used. This is currently the minimum gas price for each network
+- **[eth_accounts](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_accounts){target=\_blank}** — returns a list of addresses owned by the client
+- **[eth_blockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_blocknumber){target=\_blank}** — returns the highest available block number
+- **[eth_getBalance](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getbalance){target=\_blank}** — returns the balance of the given address
+- **[eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
+- **[eth_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
+- **[eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
+- **[eth_getBlockReceipts](https://docs.alchemy.com/reference/eth-getblockreceipts){target=\_blank}** — returns all transaction receipts for a given block
+- **[eth_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
+- **[eth_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
+- **[eth_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
+- **[eth_getUncleCountByBlockHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblockhash){target=\_blank}** —  returns `"0x0"` by default
+- **[eth_getUncleCountByBlockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblocknumber){target=\_blank}** — returns `"0x0"` by default
+- **[eth_getCode](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getcode){target=\_blank}** — returns the code at the given address at the given block number
+- **[eth_sendTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction){target=\_blank}** — creates a new message call transaction or a contract creation, if the data field contains code. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
+- **[eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
+- **[eth_feeHistory](https://docs.alchemy.com/reference/eth-feehistory){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
+- **[eth_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionReceipt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionreceipt){target=\_blank}** — returns the transaction receipt of a given transaction hash
+- **[eth_getUncleByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblockhashandindex){target=\_blank}** — returns `null` by default
+- **[eth_getUncleByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblocknumberandindex){target=\_blank}** — returns `null` by default
+- **[eth_getLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getlogs){target=\_blank}** — returns an array of all logs matching a given filter object
+- **[eth_newFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newfilter){target=\_blank}** — creates a filter object based on the input provided. Returns a filter ID
+- **[eth_newBlockFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newblockfilter){target=\_blank}** — creates a filter in the node to notify when a new block arrives. Returns a filter ID
+- **[eth_getFilterChanges](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterchanges){target=\_blank}** — polling method for filters (see methods above). Returns an array of logs that occurred since the last poll
+- **[eth_getFilterLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterlogs){target=\_blank}** — returns an array of all the logs matching the filter with a given ID
+- **[eth_uninstallFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_uninstallfilter){target=\_blank}** — uninstall a filter with a given ID. It should be used when polling is no longer needed. Filters timeout when they are not requested using `eth_getFilterChanges` after some time
+
+## Custom JSON-RPC Methods {: #custom-json-rpc-methods }
+
+Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and `frnt_isTxFinalized`. Tanssi features deterministic finality (as opposed to probabilistic like Bitcoin's finality), which means that at any point of time, the answer to whether a block or transaction is finalized or not can be answered with a definitive yes or no. Tanssi has built these two custom endpoints to provide valuable functionality for checking the finality of on-chain events.
+
+???+ function "frnt_isBlockFinalized - checks for the finality of the block given by its block hash"
+
+    === "Parameters"
+
+        - `block_hash` ++"string"++ - the hash of the block, accepts either Substrate-style or Ethereum-style block hash as its input
+
+    === "Returns"
+
+        ++"boolean"++ - `true` if the block is finalized, `false` if the block is not finalized or not found
+
+    === "Example"
+
+        ```bash
+        curl -H "Content-Type: application/json" -X POST --data '{
+          "jsonrpc": "2.0",
+          "id": "1",
+          "method": "frnt_isBlockFinalized",
+          "params": ["INSERT_BLOCK_HASH"]
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        ```
+
+???+ function "frnt_isTxFinalized - checks for the finality of a transaction given its EVM transaction hash"
+
+    === "Parameters"
+
+        - `tx_hash` ++"string"++ - the EVM transaction hash of the transaction 
+
+    === "Returns"
+
+        ++"boolean"++ - `true` if the transaction is finalized, `false` if the transaction is not finalized or not found
+
+    === "Example"
+
+        ```bash
+        curl -H "Content-Type: application/json" -X POST --data '{
+          "jsonrpc": "2.0",
+          "id": "1",
+          "method": "frnt_isTxFinalized",
+          "params": ["INSERT_TRANSACTION_HASH"]
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        ```
 --- END CONTENT ---

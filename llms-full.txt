@@ -156,6 +156,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/identity/
 title: Set an Account Identity
 description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
 icon: octicons-person-24
+categories: Basics
 ---
 
 # Set Up an Identity
@@ -336,6 +337,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/proxy-accou
 title: Set Up and Manage Proxy Accounts
 description: Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
 icon: octicons-shield-lock-24
+categories: Basics
 ---
 
 # Proxy Accounts
@@ -546,6 +548,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-built-i
 title: Adding Built-in Substrate Modules
 description: Learn how to leverage Substrate's pre-built, ready-to-use modules to efficiently add new features to your network without building from scratch.
 icon: octicons-package-24
+categories: EVM-Template
 ---
 
 # Adding a Built-in Module {: #adding-builtin-module }
@@ -820,6 +823,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-custom-
 title: Adding a Custom-Made Module
 description: Discover how to incorporate custom-made modules to add unique or specialized features to your network that go beyond the capabilities of the built-in modules.
 icon: octicons-terminal-24
+categories: Custom-Runtime
 ---
 
 # Adding a Custom-Made Module {: #adding-custom-made-module }
@@ -1533,6 +1537,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-externa
 title: Adding External Modules
 description: Learn how to resolve double reference issues of dependencies when customizing your Tanssi-powered network template with a Rust-based tool called Diener.
 icon: octicons-plug-24
+categories: Custom-Runtime
 ---
 
 # Adding an External Module {: #adding-external-module }
@@ -1726,6 +1731,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/customize/customizing-ch
 title: Customizing Chain Specifications
 description: Review the sections and attributes of a chain specification file and how to obtain it for launching your Tanssi-powered network with a customized specification.
 icon: octicons-link-24
+categories: Custom-Runtime
 ---
 
 # Customizing Chain Specifications {: #customizing-chain-specifications }
@@ -1974,6 +1980,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/customize/prerequisites/
 title: Prerequisites for Building a Network
 description: Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your appchain.
 icon: octicons-checkbox-24
+Categories: Basics
 ---
 
 # Prerequisites for Building a Network {: #prerequisites }
@@ -2140,6 +2147,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/templates/custom-runtime
 title: Custom Runtime
 description: Any custom runtime can be adapted to be deployed through Tanssi, provided that specific modules are implemented and the required configurations are set.
 icon: octicons-file-binary-24
+categories: Custom-Runtime
 ---
 
 # Custom Runtime
@@ -2259,6 +2267,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/templates/evm/
 title: Baseline EVM Template
 description: The Tanssi repository includes an EVM template that provides all the necessary configurations to launch a network that is fully compatible with Ethereum.
 icon: material-ethereum
+categories: EVM-Template
 ---
 
 # Baseline EVM Template {: #baseline-evm-template }
@@ -2341,6 +2350,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
 title: Requirements and Features of Templates
 description: Explore the foundational setup and key features included in each Tanssi template, designed to streamline the building and deployment of Tanssi networks.
 icon: octicons-home-24
+categories: Basics
 ---
 
 # Templates Overview {: #templates-overview }
@@ -2398,6 +2408,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/templates/substrate/
 title: Baseline Network Template
 description: The Tanssi repository includes a basic template that provides the necessary configuration to support the protocol and kick-start the development of a network.
 icon: simple-paritysubstrate
+categories: Substrate-Template
 ---
 
 # Baseline Network Template {: #baseline-network-template }
@@ -2439,6 +2450,7 @@ Doc-Content: https://docs.tanssi.network/builders/deploy/dapp/
 title: Deploy Your Appchain via the DApp
 description: Learn how to spin up and deploy an appchain on Tanssi using the Tanssi dApp, a no-code solution for onboarding and launching decentralized appchains in minutes.
 icon: octicons-browser-24
+categories: Appchain
 ---
 
 # Deploy Your Appchain via the Tanssi DApp
@@ -2829,6 +2841,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/dapp/manage-tokens/
 title: Manage Tokens
 description: Learn how the network governor can manage the token of a Tanssi-powered network using the dApp to mint them, configure the EIP-1559 fee market, and more.
 icon: octicons-database-24
+categories: Appchain
 ---
 
 # Manage Tokens
@@ -2956,6 +2969,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/dapp/register-external-
 ---
 title: Register External Assets
 description: Tanssi networks benefit from native cross-chain communication, enabling smooth and fast token transfers between the token’s native chain and other chains.
+categories: Appchain
 ---
 
 # Register External Assets
@@ -3031,6 +3045,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/dapp/services-payment/
 title: Block Production Services Payment
 description: Networks deployed through Tanssi benefit from block production services provided by a set of node operators, which are compensated with Tanssi tokens.
 icon: octicons-server-24
+categories: Appchain
 ---
 
 # Block Production Services Payment
@@ -3098,6 +3113,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/dapp/xcm-channels/
 ---
 title: Manage Cross-Chain Communication Channels
 description: Tanssi networks benefit from native cross-chain communication, which allows fast and secure bridging leveraging the architecture they are built on top of.
+categories: Appchain
 ---
 
 # Manage Cross-Chain Communication Channels
@@ -3184,6 +3200,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/impers
 title: Impersonating Other Accounts With Sudo 
 description: Learn how to use the Sudo key to dispatch calls by signing a transaction as if it came from a different account.
 icon: octicons-person-add-24
+categories: Appchain
 ---
 
 # Using Sudo to Impersonate Other Accounts
@@ -3308,6 +3325,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/mainte
 title: Enabling Maintenance Mode 
 description: Learn how to use Sudo to turn on and off maintenance mode, which effectively pauses your network while still producing blocks and allowing select calls.
 icon: octicons-stop-24
+categories: Appchain
 ---
 
 # Enabling Maintenance Mode
@@ -3380,6 +3398,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/mintin
 title: Minting Native Tokens with Sudo 
 description: Learn how to use the Sudo key to manage your Tanssi-powered network and perform the privileged action of minting native tokens, changing the total issuance.
 icon: material-creation-outline
+categories: Appchain
 ---
 
 # Using Sudo to Mint Native Tokens
@@ -3451,6 +3470,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/pause-
 title: Pausing Transactions
 description: Learn how to use Sudo to temporarily pause hand-picked transactions, preventing their execution while allowing all other transactions to proceed as usual.
 icon: octicons-stopwatch-24
+categories: Appchain
 ---
 
 # Pausing Transactions
@@ -3639,6 +3659,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/smart-
 title: Smart EVM - Whitelist Contract Deployments
 description: Learn how to use Sudo to whitelist smart contract deployers for your Smart EVM Tanssi-powered network, increasing overall security.
 icon: octicons-file-binary-24
+categories: Appchain
 ---
 
 # Smart EVM - Whitelist Contract Deployments
@@ -3730,6 +3751,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/sudo/
 title: Managing the Sudo Account
 description: Learn how to manage the Sudo account of your network, including viewing and importing the Sudo key into Polkadot.js Apps and changing the current Sudo key.
 icon: octicons-key-24
+categories: Appchain
 ---
 
 # Managing Your Network's Sudo Account
@@ -3803,6 +3825,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/upgrad
 title: Upgrade Your Network's Runtime
 description: Learn how to use the Sudo key to manage your network by performing the privileged action of upgrading the runtime of your Tanssi-powered network.
 icon: octicons-arrow-up-24
+categories: Appchain
 ---
 
 # Upgrading Your Network Runtime with Sudo
@@ -4006,6 +4029,7 @@ Doc-Content: https://docs.tanssi.network/builders/tanssi-network/tanssi-token/
 title: TANSSI Token
 description: Learn about the two versions of the Tanssi token - the native Substrate token and the ERC-20 representation on Ethereum, and their utilities and use cases.
 icon: octicons-ruby-24
+categories: Basics
 ---
 
 # TANSSI Token {: #tanssi-token }
@@ -4117,6 +4141,7 @@ Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebo
 title: Get Started with Dancebox
 description: Dancebox is the Tanssi TestNet, and it is the easiest way to get started with the Tanssi Network to deploy your Substrate or EVM-compatible network.
 icon: octicons-star-24
+categories: Basics
 ---
 
 # Get Started with Dancebox
@@ -4170,6 +4195,7 @@ Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/demo-ev
 title: Demo EVM Tanssi Network
 description: Test our demo EVM Tanssi network to discover the capabilities of a fully Ethereum-compatible network deployed through Tanssi in just a few minutes.
 icon: material-ethereum
+categories: EVM-Template
 ---
 
 ## Introduction
@@ -4298,6 +4324,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/f
 title: Deploy Contracts with Foundry
 description: Learn how to use Foundry, an Ethereum development environment, to compile, deploy, and interact with Solidity smart contracts on your Tanssi EVM network.
 icon: octicons-code-square-24
+categories: EVM-Template
 ---
 
 # Using Foundry to Deploy to Your EVM Network
@@ -4694,6 +4721,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/h
 title: Deploy Contracts with Hardhat
 description: Learn how to use Hardhat, an Ethereum development environment, to compile, deploy, and interact with Solidity smart contracts on your Tanssi EVM network.
 icon: octicons-code-square-24
+categories: EVM-Template
 ---
 
 # Using Hardhat to Deploy to Your EVM Network
@@ -5055,6 +5083,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/r
 title: Deploy Smart Contracts with Remix
 description: Learn how to use one of the most popular Ethereum developer tools, the Remix IDE, to interact with your Tanssi-powered EVM network.
 icon: octicons-code-square-24
+categories: EVM-Template
 ---
 
 # Using Remix to Deploy to Your Tanssi EVM Network
@@ -5198,6 +5227,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/dev-env/t
 title: How to use thirdweb
 description: This guide will show you some of thirdweb's features, including building, testing, and deploying smart contract templates to launch dApps on Tanssi.
 icon: octicons-code-square-24
+categories: EVM-Template
 ---
 
 # Using thirdweb on Tanssi
@@ -5675,6 +5705,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries
 title: EVM Transactions & Contracts with Ethers.js
 description: Learn how to use the Ethereum EtherJS Library to send transactions and deploy Solidity smart contracts to your Tanssi-powered Ethereum compatible network.
 icon: octicons-code-24
+categories: EVM-Template
 ---
 
 # Ethers.js JavaScript Library
@@ -6542,6 +6573,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries
 title: How to use viem Ethereum Library
 description: In this tutorial use the viem TypeScript interface for Ethereum to send transactions and deploy Solidity smart contracts to your Tanssi-powered EVM network.
 icon: octicons-code-24
+categories: EVM-Template
 ---
 
 # viem TypeScript Ethereum Library
@@ -7450,6 +7482,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries
 title: EVM Transactions & Contracts with Web3.js
 description: Learn how to use the Ethereum Web3 JavaScript Library to send transactions and deploy Solidity smart contracts to your Tanssi-powered EVM-compatible network.
 icon: octicons-code-24
+categories: EVM-Template
 ---
 
 # Web3.js JavaScript Library
@@ -8250,6 +8283,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/libraries
 title: EVM Transactions & Contracts with Web3.py
 description: Learn how to use the Ethereum Web3 Python Library to send transactions and deploy Solidity smart contracts to your Tanssi-powered Ethereum compatible network.
 icon: octicons-code-24
+categories: EVM-Template
 ---
 
 # Web3.py Python Library
@@ -8766,6 +8800,7 @@ title: Batch Precompile
 description: Learn how to combine multiple transfers and contract interactions together via a Solidity interface with Tanssi's Batch Precompile for your EVM network.
 keywords: solidity, ethereum, batch, transaction, moonbeam, precompiled, contracts
 icon: octicons-stack-24
+categories: EVM-Template
 ---
 
 # Interacting with the Batch Precompile
@@ -9184,6 +9219,7 @@ title:  Call Permit
 description: Learn how to use the Call Permit Precompile on Tanssi EVM networks to sign a permit for any EVM call that can be dispatched by anyone or any smart contract.
 keywords: solidity, ethereum, call permit, permit, gasless transaction, moonbeam, precompiled, contracts, tanssi
 icon: octicons-arrow-up-right-24
+categories: EVM-Template
 ---
 
 # Interacting with the Call Permit Precompile
@@ -9598,6 +9634,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompil
 ---
 title: Native Cross-Chain Token Transfers
 description: Learn how to use the XCM interface precompile to transfer tokens from any Tanssi-powered EVM network, leveraging their inherent native cross-chain capabilities.
+categories: EVM-Template
 ---
 
 # Native Cross-Chain Token Transfers
@@ -9940,6 +9977,7 @@ title:  Native Token ERC-20 Precompile
 description: Learn how to access and interact with an ERC-20 representation of the native token on Tanssi-powered EVM networks through the precompiled ERC-20 Interface.
 keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts
 icon: material-circle-outline
+categories: EVM-Template
 ---
 
 #  Native Token ERC-20 Precompile
@@ -10261,6 +10299,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/precompil
 title: External Assets as ERC-20
 description: Learn how to access and interact with an ERC-20 representation of any external assets on Tanssi EVM networks through the precompiled ERC-20 Interface.
 keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts, assets, erc20
+categories: EVM-Template
 ---
 
 # External Assets as ERC-20
@@ -10597,6 +10636,7 @@ title: The Proxy Precompile
 description: Learn how to interact with the Proxy precompile to add and remove proxy accounts that can execute specific transactions on behalf of other account.
 keywords: solidity, ethereum, proxy, moonbeam, precompiled, contracts, substrate
 icon: octicons-shield-lock-24
+categories: EVM-Template
 ---
 
 # Interacting with the Proxy Precompile
@@ -10888,6 +10928,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc/
 title: JSON-RPC API Methods
 description: Learn about the supported JSON-RPC API methods for querying your Tanssi EVM network, including standard Ethereum methods and custom methods unique to Tanssi.
 icon: material-code-json
+categories: Reference
 ---
 
 # JSON-RPC API Methods
@@ -11013,6 +11054,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/m
 title: How to Connect MetaMask
 description: This guide walks you through how to connect MetaMask, a browser-based Ethereum wallet, to your Tanssi-powered EVM-compatible network and how to transfer funds.
 icon: material-wallet-outline
+categories: EVM-Template
 ---
 
 # Interacting with your Tanssi EVM Network Using MetaMask
@@ -11125,6 +11167,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/s
 title: How to Connect SubWallet to Tanssi
 description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered EVM-compatible network.
 icon: material-wallet-outline
+categories: EVM-Template, Substrate-Template
 ---
 
 # Interacting with Your Tanssi EVM Network Using SubWallet
@@ -11206,6 +11249,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/t
 title: How to Connect Talisman to Tanssi
 description: This guide walks you through how to connect Talisman, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered EVM-compatible network.
 icon: material-wallet-outline
+categories: EVM-Template, Substrate-Template
 ---
 
 # Interacting with Your Tanssi EVM Network Using Talisman
@@ -11381,6 +11425,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/
 title: Index ERC-20 Transfers on an EVM Network
 description: Learn how to use the Squid SDK, a query node framework that can index both Substrate and EVM data, to process blockchain data for your Tanssi-powered network.
 icon: octicons-arrow-switch-24
+categories: EVM-Template, Substrate-Template
 ---
 
 # Indexing ERC-20 Transfers on a Tanssi EVM Network
@@ -12431,6 +12476,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/
 title: Index a Tanssi Network with SQD
 description: Learn how to use the Squid SDK, a query node framework for Substrate-based chains, to index and process data on a Tanssi-powered EVM or Substrate network.
 icon: octicons-rocket-24
+categories: EVM-Template, Substrate-Template
 ---
 
 # Indexing a Tanssi Network with SQD
@@ -12600,6 +12646,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/a
 title: Using Acurast for Price Feed Oracles
 description: Learn how to use Acurast's decentralized serverless cloud to get reliable price feed token asset data on your Tanssi EVM-compatible network.
 icon: octicons-eye-24
+categories: EVM-Template
 ---
 
 # Accessing Price Feeds with Acurast
@@ -12940,6 +12987,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/b
 title: Using Band Protocol for Price Feed Oracles
 description: Learn how to use the Band Protocol's descentralized oracle network to get reliable token prices enabling secure data access for your Tanssi EVM network.
 icon: octicons-eye-24
+categories: EVM-Template
 ---
 
 # Accesing Price Feeds with the Band Protocol
@@ -13089,6 +13137,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/oracles/p
 title: Using Phala for Price Feed Oracles
 description: Learn how to use Phala's off-chain computing network to get reliable Ethereum Mainnet Chainlink Oracle token price feed data on your Tanssi-powered EVM network.
 icon: octicons-eye-24
+categories: EVM-Template
 ---
 
 # Launching Price Feeds with Phala
@@ -13581,6 +13630,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/wallet-in
 title: How to Add RainbowKit to a Tanssi EVM Network 
 description: Learn how to integrate RainbowKit with an Ethereum-compatible network deployed through Tanssi, making adding a great wallet experience to your dApp easy.
 icon: material-wallet-outline
+categories: EVM-Template
 ---
 
 # Integrate RainbowKit with a Tanssi Network 
@@ -14054,6 +14104,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/
 title: How to use Chopsticks to Fork Your Network
 description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi network.
 icon: octicons-code-square-24
+categories: Substrate-Template
 ---
 
 # How to Use Chopsticks to Fork Your Network
@@ -14374,6 +14425,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/librarie
 title: How to use the Polkadot.js API
 description: Learn how to use the Polkadot.js API to interact with a Tanssi-powered network to get chain data and send transactions (extrinsics) via the Substrate API.
 icon: octicons-code-24
+categories: Substrate-Template
 ---
 
 # Polkadot.js API Library
@@ -15084,6 +15136,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/librarie
 title: Using Substrate API Sidecar
 description: Learn how to use Substrate-based REST service with Tanssi-powered networks to access blocks, account balance, compute gas used, and more.
 icon: octicons-code-24
+categories: Substrate-Template
 ---
 
 # Using Substrate API Sidecar
@@ -15717,6 +15770,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/
 title: How to Connect SubWallet to Tanssi Substrate
 description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate network.
 icon: material-wallet-outline
+categories: Substrate-Template
 ---
 
 # Interacting with Your Tanssi Substrate Network Using SubWallet
@@ -15833,7 +15887,8 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/
 ---
 title: How to Connect Talisman to Tanssi
 description: This guide walks you through how to connect Talisman, a Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate decentralized network.
-icon: material-wallet-outline 
+icon: material-wallet-outline
+categories: Substrate-Template
 ---
 
 # Interacting with your Tanssi Substrate Network Using Talisman
@@ -15966,6 +16021,7 @@ Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/included-t
 title: Network Templates Included in Tanssi
 description: Tanssi protocol provides useful templates to start building your decentralized network, including a ready-to-use EVM template for Ethereum compatibility.
 icon: octicons-copy-24
+categories: Basics
 ---
 
 # Network Templates Included in Tanssi {: #network-templates-included-in-tanssi }
@@ -16051,6 +16107,7 @@ Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/overview/
 title: Network Overview
 description: Learn the high-level definitions of how a Tanssi network works, its architecture, and its block production as a service mechanism with deterministic finality.
 icon: octicons-home-24
+categories: Basics
 ---
 
 # Tanssi Networks Overview {: #networks-tanssi-overview }
@@ -16120,6 +16177,7 @@ Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/runtime-fe
 title: Core Runtime Features
 description: Learn about the core features of a Tanssi network, the transactions types, how they are executed and included in a block, and the forkless runtime upgrades.
 icon: octicons-package-24
+categories: Basics
 ---
 
 # Core Runtime Features {: #core-runtime-features }
@@ -16201,6 +16259,7 @@ Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/tx-fees/
 title: Transaction Fees
 description: Learn about the transaction fee mechanism in Tanssi networks, how it works from a Substrate perspective, and in the Ethereum EVM emulation layer with EIP-1559.
 icon: material-piggy-bank-outline 
+categories: Basics
 ---
 
 # Transaction Fees {: #transaction-fees }
@@ -16324,6 +16383,7 @@ Doc-Content: https://docs.tanssi.network/learn/framework/architecture/
 title: Framework Architecture
 description: In a Substrate node, two main components are the runtime, which controls the blockchain's state transition, and the client, which manages everything else.
 icon: octicons-stack-24
+categories: Basics
 ---
 
 # Framework Architecture {: #framework-architecture }
@@ -16420,6 +16480,7 @@ Doc-Content: https://docs.tanssi.network/learn/framework/modules/
 title: Network Modules for your Runtime
 description: Substrate is a modular blockchain development framework with an extensive set of ready-to-use components to bundle with custom logic into the network Runtime.
 icon: material-puzzle-outline
+categories: Custom-Runtime, Basics
 ---
 
 # Network Framework Modules {: #network-framework-modules }
@@ -16701,6 +16762,7 @@ Doc-Content: https://docs.tanssi.network/learn/framework/overview/
 title: Network Development Framework Overview
 description: Substrate is a blockchain development framework built in Rust Programming Language that streamlines and speeds up the process of developing new networks.
 icon: octicons-home-24
+categories: Basics
 ---
 
 # Network Development Framework Overview {: #network-dev-framework-overview }
@@ -16773,6 +16835,7 @@ Doc-Content: https://docs.tanssi.network/learn/framework/xcm/
 ---
 title: Native Cross-Chain Communication
 description: Tanssi networks benefit from XCM, a native cross-chain communication language, which allows fast and secure bridging guaranteed by Polkadot's relay chain.
+categories: Basics
 ---
 
 # Native Cross-Chain Communication
@@ -16980,6 +17043,7 @@ Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-provider
 title: Ethereum with Symbiotic
 description: Tanssi's design allows developers to choose and connect to the Symbiotic restaking protocol, benefiting from Ethereum-grade security right from the start.
 icon: octicons-shield-check-24
+categories: EVM-Template
 ---
 
 # Ethereum with Symbiotic {: #ethereum-symbiotic }
@@ -17314,6 +17378,7 @@ Doc-Content: https://docs.tanssi.network/learn/tanssi/network-features/staking/
 title: Staking for Block Production
 description: Learn how Tanssi implements a novel Staking mechanism to provide liveness via a decentralized and trustless set of sequencers to all Tanssi-powered networks.
 icon: material-hand-coin-outline
+categories: Basics
 ---
 
 # Tanssi Staking for Block Production {: #tanssi-staking }
@@ -17444,6 +17509,7 @@ Doc-Content: https://docs.tanssi.network/learn/tanssi/network-services/block-pro
 title: Block Production Services
 description: Tanssi abstracts away infrastructure complexities, such as block production, allowing developers to launch decentralized networks with Ethereum-grade security.
 icon: octicons-container-24
+categories: Basics
 ---
 
 # Block Production Services {: #block-production-services }
@@ -17613,6 +17679,7 @@ Doc-Content: https://docs.tanssi.network/learn/tanssi/overview/
 title: Overview
 description: Tanssi is an infrastructure protocol that eases the process of deploying decentralized networks so that developers can focus on their custom application logic.
 icon: octicons-home-24
+categories: Basics
 ---
 
 # What is Tanssi? {: #what-is-tanssi }
@@ -17670,6 +17737,7 @@ Doc-Content: https://docs.tanssi.network/learn/tanssi/tanssi-ethereum-bridge/
 title: Tanssi-Ethereum Bridge
 description: Discover how Tanssi bridge enables secure, trustless cross-chain interoperability, facilitating asset and message transfers between Tanssi and Ethereum.
 icon: octicons-link-24
+categories: Basics
 ---
 
 # Tanssi-Ethereum Bridge {: #tanssi-ethereum-bridge }
@@ -17987,6 +18055,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi-powe
 title: Run a Network Node Using Docker
 description: Discover how to configure and operate a Tanssi-powered network node using Docker, enabling you to host your own RPC endpoint for interaction with your chain.
 icon: material-docker
+categories: Operators
 ---
 
 # Run a Network Node Using Docker
@@ -18227,6 +18296,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi-powe
 title: Run a Network Node Using Systemd
 description: Learn how to set up and run a Tanssi-powered network node using Systemd, which allows you to have your own RPC endpoint to interact with your chain.
 icon: simple-linux
+categories: Operators
 ---
 
 # Run a Network Node Using Systemd
@@ -18609,6 +18679,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi/tans
 title: Run a Tanssi Node Using Docker
 description: Learn how to set up and run a node for Tanssi network using Docker to provide API endpoints for applications and users.
 icon: simple-docker
+categories: Operators
 ---
 
 # Run a Tanssi Node Using Docker
@@ -18800,6 +18871,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi/tans
 title: Run a Tanssi Node Using Systemd
 description: Learn how to set up and run a Node for Tanssi networks using Systemd, allowing you to provide API endpoints for applications and users.
 icon: simple-linux
+categories: Operators
 ---
 
 # Run a Tanssi Node Using Systemd
@@ -19065,6 +19137,7 @@ title: Opt Out from Tanssi
 description: Learn how to initiate the offboarding process from a Tanssi network by opting out using various methods and how to verify your status.
 icon: octicons-sign-out-24
 template: main.html
+categories: Operators
 ---
 
 # Opt Out from Tanssi
@@ -19228,6 +19301,7 @@ title: Prerequisites for Offboarding
 description: Before offboarding your Tanssi operator, ensure you have wallet access and sufficient ETH for gas. This guide outlines crucial prerequisites.
 icon: octicons-arrow-down-right-24
 template: main.html
+categories: Operators
 ---
 
 # Prerequisites for Offboarding
@@ -19329,6 +19403,7 @@ title: Vault Opt Out
 description: Optionally opt out of a Tanssi vault. Learn how using CLI, Etherscan, or Safe, and verify your vault opt out status.
 icon: octicons-sign-out-24
 template: main.html
+categories: Operators
 ---
 
 # Vault Opt Out (Optional)
@@ -19469,6 +19544,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/operators/onboarding/acc
 title: Set Up an Operator Account
 description: Learn how to map your node's account with your stash account, making your node eligible to secure Tanssi and the Tanssi-powered networks and receive rewards.
 icon: octicons-tools-24
+categories: Operators
 ---
 
 # Set Up Your Account to Secure the Tanssi Ecosystem
@@ -19583,6 +19659,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/operators/onboarding/opt
 title: Opt In to Tanssi
 description: Learn how to opt in with your registered node to Tanssi-enabled Symbiotic vaults and the Tanssi network to participate in the protocol and earn rewards.
 icon: octicons-plus-circle-24
+categories: Operators
 ---
 
 # Opt In to Tanssi
@@ -19936,6 +20013,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/operators/onboarding/reg
 title: Register in Symbiotic
 description: Learn how to register your node in the Symbiotic registry as a first step to participate in the protocol, securing Tanssi-powered networks and earning rewards.
 icon: octicons-shield-check-24
+categories: Operators
 ---
 
 # Register in Symbiotic
@@ -20231,6 +20309,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/operators/onboarding/run
 title: Run an Operator Using Docker
 description: Learn how to set up and run an operator (aka validator) for Tanssi network using Docker to participate in the protocol, secure networks, and earn rewards.
 icon: simple-docker
+categories: Operators
 ---
 
 # Run an Operator in Tanssi Using Docker
@@ -20454,6 +20533,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/operators/onboarding/run
 title: Run a Tanssi Operator
 description: Learn how to set up and run an operator (validator) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 icon: simple-linux
+categories: Operators
 ---
 
 # Run an Operator Node Using Systemd
@@ -20698,6 +20778,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/operators/operational-ta
 title: Set Up an Operator Proxy Account
 description: Follow this step-by-step guide to enable proxy accounts to securely perform operational tasks (such as keys rotation) on behalf of your operator account.
 icon: octicons-shield-lock-24
+categories: Operators
 ---
 
 # Set Up an Operator Proxy Account
@@ -20861,6 +20942,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/operators/operational-ta
 title: Upgrade Your Sequencer Docker Node
 description: Follow these instructions to update your Tanssi sequencer node running via Docker to the latest version of the Tanssi client software.
 icon: simple-docker
+categories: Operators
 ---
 
 # Upgrade Your Node Running via Docker
@@ -20992,6 +21074,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/operators/operational-ta
 title: Upgrade Your Operator Systemd Node
 description: Follow these instructions to update your Tanssi operator node running via Systemd to the latest version of the Tanssi client software.
 icon: simple-linux
+categories: Operators
 ---
 
 # Upgrade Your Node Running via Systemd
@@ -21097,6 +21180,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/offboarding/a
 title: Decommissioning Your Sequencer
 description: In these step-by-step instructions, learn how to properly offboard as a Tanssi sequencer, including unmapping your session keys and unstaking your bond.
 icon: octicons-arrow-down-right-24
+categories: Sequencers
 ---
 
 # Offboard as a Tanssi Sequencer
@@ -21253,6 +21337,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/ac
 title: Setup an Account to Produce Blocks
 description: Follow these step-by-step instructions on becoming eligible to produce blocks on Tanssi-powered networks and setting up your account for rewards payouts.
 icon: octicons-person-add-24
+categories: Sequencers
 ---
 
 # Set Up Your Account to Produce Blocks on Tanssi
@@ -21490,6 +21575,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/ru
 title: Run a Sequencer Using Docker
 description: Learn how to set up and run a sequencer (aka block producer) for Tanssi-powered networks using Docker to participate in the protocol and earn rewards.
 icon: simple-docker
+categories: Sequencers
 ---
 
 # Run a Sequencer in Tanssi Using Docker
@@ -21807,6 +21893,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/ru
 title: Run a Tanssi Sequencer
 description: Learn how to set up and run a sequencer (block producer) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 icon: simple-linux
+categories: Sequencers
 ---
 
 # Run a Sequencer Node Using Systemd
@@ -22073,6 +22160,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-t
 title: Set Up a Sequencer Proxy Account
 description: Follow these step-by-step instructions to configure a proxy account to manage sequencer activities on behalf of your primary sequencer account.
 icon: octicons-shield-lock-24
+categories: Sequencers
 ---
 
 # Set Up a Proxy Account
@@ -22225,6 +22313,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-t
 title: Upgrade Your Sequencer Docker Node
 description: Follow these instructions to update your Tanssi sequencer node running via Docker to the latest version of the Tanssi client software.
 icon: simple-docker
+categories: Sequencers
 ---
 
 # Upgrade Your Node Running via Docker
@@ -22445,6 +22534,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-t
 title: Upgrade Your Sequencer Systemd Node
 description: Follow these instructions to update your Tanssi sequencer node running via Systemd to the latest version of the Tanssi client software.
 icon: simple-linux
+categories: Sequencers
 ---
 
 # Upgrade Your Node Running via Systemd

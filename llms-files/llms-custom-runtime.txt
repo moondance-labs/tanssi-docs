@@ -3,29 +3,1566 @@
 This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
 It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
 
-This file includes documentation related to the category: Basics
+This file includes documentation related to the product: Custom-Runtime
+
+## AI Prompt Template
+
+You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your task is to assist developers in understanding and using the product described in this file.
+- Provide accurate answers based on the included documentation.
+- Do not assume undocumented features, behaviors, or APIs.
+- If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/included-templates/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/overview/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/runtime-features/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/tx-fees/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/architecture/ [type: learn]
 Doc-Page: https://docs.tanssi.network/learn/framework/modules/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/overview/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/xcm/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/account-types/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-features/staking/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-services/block-production/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/overview/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/tanssi-ethereum-bridge/ [type: learn]
-Doc-Page: https://docs.tanssi.network/builders/account-management/identity/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/account-management/proxy-accounts/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/build/templates/overview/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/tanssi-token/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/build/customize/adding-custom-made-module/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/build/customize/adding-external-module/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/build/customize/customizing-chain-specs/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/build/templates/custom-runtime/ [type: builders]
 
 ## Full content for each doc page
+
+Doc-Content: https://docs.tanssi.network/learn/framework/modules/
+--- BEGIN CONTENT ---
+---
+title: Network Modules for your Runtime
+description: Substrate is a modular blockchain development framework with an extensive set of ready-to-use components to bundle with custom logic into the network Runtime.
+icon: material-puzzle-outline
+categories: Custom-Runtime, Basics
+---
+
+# Network Framework Modules {: #network-framework-modules }
+
+## Introduction {: #introduction }
+
+The Substrate framework provides complete and ready-to-use implementations of the main functions a Tanssi network needs to work properly, including cryptography, consensus, governance, and so on. These implementations are fully customizable and could be replaced with custom logic if needed.
+
+When building the Runtime, which defines the state transition rules between two blocks applied to a set of transactions, the intended behavior and features of the blockchain need to be set by determining the rules of the state transition.
+
+To build the Runtime, Substrate provides many built-in modules (also known as pallets) that can be freely used as building blocks to compose and interact with any other custom-made modules, allowing teams to create unique behaviors according to the specific requirements of their Tanssi network.
+
+![Built-in modules](/images/learn/framework/modules/modules-1.webp)
+
+## Built-in Modules {: #built-in-modules }
+
+When designing and writing the rules of a Tanssi network, the available set of functional modules brings a solution to many of the coding requirements that would otherwise need to be built from scratch.
+
+Here is a list of some of the most popular modules:
+
+- **[Balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - it provides functions for handling accounts and balances for the Tanssi network native currency
+- **[Assets](https://paritytech.github.io/substrate/master/pallet_assets/index.html){target=\_blank}** - it provides functions for handling any type of fungible tokens
+- **[NFTs](https://paritytech.github.io/substrate/master/pallet_nfts/index.html){target=\_blank}** - it provides functions for dealing with non-fungible tokens
+- **[Democracy](https://paritytech.github.io/substrate/master/pallet_democracy/index.html){target=\_blank}** - it provides functions to manage and administer general stakeholder voting
+- **[Multisig](https://paritytech.github.io/substrate/master/pallet_multisig/index.html){target=\_blank}** - it provides functions for multi-signature dispatch
+- **[Recovery](https://paritytech.github.io/substrate/master/pallet_recovery/index.html){target=\_blank}** - it provides functions to allow users to regain access to their accounts when the private key is lost. This works by granting other accounts the right to sign transactions on behalf of the lost account (note that it is necessary to have previously chosen the authorized accounts)
+- **[Staking](https://paritytech.github.io/substrate/master/pallet_staking/index.html){target=\_blank}** - it provides functions to administer staked tokens, support rewarding, slashing, depositing, withdrawing, and so on
+
+In addition to those previously listed, other modules like [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=\_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=\_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=\_blank}, and many others that are freely available can speed up the development of the Tanssi network and, consequently, the time to market.
+
+!!! note
+    The framework also includes other modules that provide core protocol functionality, such as consensus and low-level data encoding.
+
+## Custom-Made Modules {: #custom-modules }
+
+Developers creating new modules enjoy complete freedom to express any desired behavior in the core logic of the blockchain, like exposing new transactions, storing sensible information, and validating and enforcing business logic.
+
+As explained in the [Architecture](/learn/framework/architecture/#client-runtime-communication){target=\_blank} article, a module needs to be able to communicate with the core client by exposing and integrating with a very specific API that allows the runtime to expose transactions, access storage, and code and decode information stored on-chain. It also needs to include many other required wiring codes that make the module work in the node.
+
+To improve developer experience when writing modules, Substrate relies heavily on [Rust macros](https://doc.rust-lang.org/book/ch19-06-macros.html){target=\_blank}. Macros are special instructions that automatically expand to Rust code just before compile-time, allowing modules to keep up to seven times the amount of code out of sight of the developers. This allows developers to focus on the specific functional requirements when writing modules instead of dealing with technicalities and the necessary scaffolding code.
+
+All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
+
+- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+- **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
+- **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
+- **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
+- **`#[pallet::error]`** - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+- **`#[pallet::event]`** - events can be defined and used as a means to provide more information to the user
+- **`#[pallet::storage]`** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
+
+All these macros act as attributes that must be applied to the code just above Rust modules, functions, structures, enums, types, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world, as exposed in the following section.
+
+### Custom Module Example { #custom-module-example }
+
+As an example of a custom module, the following code (not intended for production use) showcases the use of the previously mentioned macros by presenting a simple lottery with minimal functionality, exposing two transactions:
+
+- **buy_ticket** - this transaction verifies that the user signing the request has not already bought a ticket and has enough funds to pay for it. If everything is fine, the module transfers the ticket price to a special account and registers the user as a participant for the prize
+
+- **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
+
+```rust
+#![cfg_attr(not(feature = "std"), no_std)]
+
+/// Learn more about FRAME and the core library of Substrate FRAME pallets:
+/// <https: docs.substrate.io="" frame-pallets="" reference=""></https:>
+pub use pallet::*;
+
+#[frame_support::pallet(dev_mode)]
+pub mod pallet {
+
+	use super::*;
+	use frame_support::pallet_prelude::{*, ValueQuery, OptionQuery};
+	use frame_system::pallet_prelude::*;
+	use scale_info::prelude::vec::Vec;
+
+	use frame_support::
+	{
+		sp_runtime::traits::AccountIdConversion,
+		traits:: {
+			Currency, ExistenceRequirement, Randomness
+		},
+		PalletId,
+	};
+
+	type BalanceOf<t> = 
+		&lt;<t as="" config="">::Currency as Currency&lt;<t as="" frame_system::config="">::AccountId&gt;&gt;::Balance;
+
+	#[pallet::pallet]
+	pub struct Pallet<t>(_);
+
+	/// Configure the module by specifying the parameters and types on which it depends.
+	#[pallet::config]
+	pub trait Config: frame_system::Config {
+
+		// Event definition
+		type RuntimeEvent: From<event<self>&gt; 
+			+ IsType&lt;<self as="" frame_system::config="">::RuntimeEvent&gt;;
+
+		// Currency 
+		type Currency: Currency<self::accountid>;
+
+		// Randomness
+		type MyRandomness: Randomness<self::hash, blocknumberfor<self="">&gt;;
+
+		// Ticket cost
+		#[pallet::constant]
+		type TicketCost: Get<balanceof<self>&gt;;
+
+		// Maximum number of participants
+		#[pallet::constant]
+		type MaxParticipants: Get<u32>;
+
+		// Module Id
+		#[pallet::constant]
+		type PalletId: Get<palletid>;
+	}
+
+	// The pallet's runtime storage items.
+	#[pallet::storage]
+	#[pallet::getter(fn get_participants)]
+	pub(super) type Participants<t: config=""> = StorageValue&lt;
+		_,
+		BoundedVec<t::accountid, t::maxparticipants="">,
+		OptionQuery
+	&gt;;
+
+	#[pallet::storage]
+	#[pallet::getter(fn get_nonce)]
+	pub(super) type Nonce<t: config=""> = StorageValue&lt;
+		_,
+		u64,
+		ValueQuery
+	&gt;;
+
+	// Pallets use events to inform users when important changes are made.
+	// https://docs.substrate.io/main-docs/build/events-errors/
+	#[pallet::event]
+	#[pallet::generate_deposit(pub(super) fn deposit_event)]
+	pub enum Event<t: config=""> {
+		/// Event emitted when a ticket is bought
+		TicketBought { who: T::AccountId },
+		/// Event emitted when the prize is awarded
+		PrizeAwarded { winner: T::AccountId },
+		/// Event emitted when the prize is to be awarded, but there are no participants
+		ThereAreNoParticipants,
+	}
+
+	// Errors inform users that something went wrong
+	#[pallet::error]
+	pub enum Error<t> {
+		NotEnoughCurrency,
+		AccountAlreadyParticipating,
+		CanNotAddParticipant,
+	}
+
+	#[pallet::call]
+	impl<t: config=""> Pallet<t> {
+
+		#[pallet::call_index(0)]
+		#[pallet::weight(0)]
+		pub fn buy_ticket(origin: OriginFor<t>) -&gt; DispatchResult {
+
+			// 1. Validates the origin signature
+			let buyer = ensure_signed(origin)?;
+
+			// 2. Checks that the user has enough balance to afford the ticket price
+			ensure!(
+				T::Currency::free_balance(&amp;buyer) &gt;= T::TicketCost::get(),
+				Error::<t>::NotEnoughCurrency
+			);
+
+			// 3. Checks that the user is not already participating
+			if let Some(participants) = Self::get_participants() {
+				ensure!(
+					!participants.contains(&amp;buyer),
+					Error::<t>::AccountAlreadyParticipating
+				);
+			}
+
+			// 4. Adds the user as a new participant for the prize
+			match Self::get_participants() {
+				Some(mut participants) =&gt; { 
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<t>::CanNotAddParticipant
+					);
+					Participants::<t>::set(Some(participants));
+				}, 
+				None =&gt; {
+					let mut participants = BoundedVec::new();
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<t>::CanNotAddParticipant
+					);
+					Participants::<t>::set(Some(participants));
+				}
+			};
+
+			// 5. Transfers the ticket cost to the module's account
+			// to be hold until transferred to the winner
+			T::Currency::transfer(
+				&amp;buyer, 
+				&amp;Self::get_pallet_account(), 
+				T::TicketCost::get(), 
+				ExistenceRequirement::KeepAlive)?;
+			
+			// 6. Notify the event
+			Self::deposit_event(Event::TicketBought { who: buyer });
+			Ok(())
+		}
+
+		#[pallet::call_index(1)]
+		#[pallet::weight(0)]
+		pub fn award_prize(origin: OriginFor<t>) -&gt; DispatchResult {
+
+			// 1. Validates the origin signature
+			let _who = ensure_root(origin)?;
+
+			match Self::get_participants() {
+				Some(participants) =&gt; { 
+					
+					// 2. Gets a random number from the randomness module
+					let nonce = Self::get_and_increment_nonce();
+					let (random_seed, _) = T::MyRandomness::random(&amp;nonce);
+					let random_number = <u32>::decode(&amp;mut random_seed.as_ref())
+						.expect("secure hashes should always be bigger than u32; qed");
+					
+					// 3. Selects the winner from the participants lit
+					let winner_index = random_number as usize % participants.len();
+					let winner = participants.as_slice().get(winner_index).unwrap();
+
+					// 4. Transfers the total prize to the winner's account
+					let prize = T::Currency::free_balance(&amp;Self::get_pallet_account());
+					T::Currency::transfer(
+						&amp;Self::get_pallet_account(), 
+						&amp;winner, 
+						prize, 
+						ExistenceRequirement::AllowDeath)?;
+
+					// 5. Resets the participants list, and gets ready for another lottery round
+					Participants::<t>::kill();
+
+					// 6. Notify the event
+					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
+				}, 
+				None =&gt; {
+					// Notify the event (No participants)
+					Self::deposit_event(Event::ThereAreNoParticipants);
+				}
+			};
+
+			Ok(())
+		}
+	}
+
+	impl<t: config=""> Pallet<t> {
+
+		fn get_pallet_account() -&gt; T::AccountId {
+			T::PalletId::get().into_account_truncating()
+		}
+
+		fn get_and_increment_nonce() -&gt; Vec<u8> {
+			let nonce = Nonce::<t>::get();
+			Nonce::<t>::put(nonce.wrapping_add(1));
+			nonce.encode()
+		}
+	}
+}
+</t></t></u8></t></t:></t></u32></t></t></t></t></t></t></t></t></t></t:></t></t:></t:></t::accountid,></t:></palletid></u32></balanceof<self></self::hash,></self::accountid></self></event<self></t></t></t></t>
+```
+
+For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-custom-made-module/
+--- BEGIN CONTENT ---
+---
+title: Adding a Custom-Made Module
+description: Discover how to incorporate custom-made modules to add unique or specialized features to your network that go beyond the capabilities of the built-in modules.
+icon: octicons-terminal-24
+categories: Custom-Runtime
+---
+
+# Adding a Custom-Made Module {: #adding-custom-made-module }
+
+## Introduction {: #introduction }
+
+By providing a comprehensive library of pre-built modules addressing many common requirements, the framework greatly simplifies the process of building a blockchain and accelerates the deployment and evolution into a Tanssi-powered network. However, addressing an innovative use case usually requires a development effort to fully meet the requirements, and, in Substrate, adding custom logic translates into writing and integrating runtime modules.
+
+The example presented in the [Modularity](/learn/framework/modules/#custom-module-example){target=\_blank} article shows a simple lottery module exposing two transactions:
+
+- **Buy tickets** - this function manages a user's entry into the lottery. In essence, it verifies that the participant has a sufficient balance, is not already participating, and takes care of transferring funds to register the user for the lottery
+- **Award prize** - this function that handles a user entering into the lottery. At a high level, it fetches a pseudo-random number to obtain a winner and handles the award distribution
+
+The implementation of those transactions also uses storage, emits events, defines custom errors, and relies on other modules to handle currency (to charge for the tickets and transfer the total amount to the winner) and randomize the winner selection.
+
+In this article, the following steps, necessary to build and add the example module to the runtime, will be covered:
+
+1. Create the lottery module files (package)
+2. Configure the module's dependencies
+3. Adding custom logic
+4. Configure the runtime with the new module
+
+It is important to note that none of the code presented in this article is intended for production use.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+To follow the steps in this guide, you will need to have the following:
+
+- Clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} from Github
+- Rust compiler and Cargo package manager
+
+You can read more about how to install Rust and Cargo is in the [prerequisites article](/builders/build/customize/prerequisites/#installing-rust){target=\_blank}.
+
+## Creating the Lottery Module Files {: #creating-lottery-module-files }
+
+Before starting your coding process, it's essential to create the files containing your logic. Substrate modules are abstract and intended for reuse across different runtimes with various customizations. To achieve this, you'll use Cargo, Rust's package manager, to create the module as a new package.
+
+As mentioned in the prerequisites section, the first step is to clone the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and, from the root folder, navigate to `pallets`, where the module will be created.
+
+```bash
+cd container-chains/pallets
+```
+
+Next, create the module package with Cargo:
+
+```bash
+cargo new lottery-example
+```
+
+By default, Cargo creates the new package in a folder with the provided name (`lottery-example`, in this case), containing a manifest file, `Cargo.toml`, and a `src` folder with a `main.rs` file. To respect the naming convention used in Substrate, the `main.rs` file is renamed to `lib.rs`:
+
+```bash
+mv lottery-example/src/main.rs lottery-example/src/lib.rs
+```
+
+Once you've executed all the commands, the module is created and ready to contain the custom logic that you'll be adding in the following sections.
+
+## Configure the Module's Dependencies {: #configure-module-dependencies}
+
+Since the module functions as an independent package, it has its own Cargo.toml file where you must specify the module's attributes and dependencies.
+
+For instance, you can use attributes to specify details like the module's name, version, authors, and other pertinent information. For example, in the the `lottery-example` module, the `Cargo.toml` file can be configured as follows:
+
+```toml
+[package]
+name = "module-lottery-example"
+version = "4.0.0-dev"
+description = "Simple module example"
+authors = [""]
+homepage = ""
+...
+```
+
+This file also defines the module's dependencies, such as the core functionality that allows seamless integration with the runtime and other modules, access to storage, event emission, and more.
+
+The full example of the `Cargo.toml` file sets, besides the attributes, the dependencies required by Substrate:
+
+??? code "View the complete Cargo.toml file"
+
+    ```rust
+    [package]
+name = "module-lottery-example"
+version = "4.0.0-dev"
+description = "Simple module example"
+authors = [""]
+homepage = ""
+edition = "2021"
+publish = false
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.6.1", default-features = false, features = [
+	"derive",
+] }
+scale-info = { version = "2.5.0", default-features = false, features = ["derive"] }
+frame-benchmarking = { 
+	version = "4.0.0-dev", 
+	default-features = false, 
+	optional = true, 
+	git = "https://github.com/paritytech/substrate.git", 
+	branch = "polkadot-v1.0.0" 
+}
+frame-support = { 
+	version = "4.0.0-dev", 
+	default-features = false, 
+	git = "https://github.com/paritytech/substrate.git", 
+	branch = "polkadot-v1.0.0" 
+}
+frame-system = { 
+	version = "4.0.0-dev", 
+	default-features = false, 
+	git = "https://github.com/paritytech/substrate.git", 
+	branch = "polkadot-v1.0.0" 
+}
+
+[dev-dependencies]
+sp-core = { version = "21.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+sp-io = { version = "23.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+sp-runtime = { version = "24.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"frame-benchmarking?/std",
+	"frame-support/std",
+	"frame-system/std",
+	"scale-info/std",
+]
+runtime-benchmarks = ["frame-benchmarking/runtime-benchmarks"]
+try-runtime = ["frame-support/try-runtime"]
+    ```
+
+## Adding Custom Logic {: #adding-custom-logic}
+
+As presented in the [custom-made module](/learn/framework/modules/#custom-modules){target=\_blank} section of the modularity article, creating a module involves implementing the following attribute macros, of which the first three are mandatory:
+
+- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+- **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
+- **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
+- **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
+- **`#[pallet::error]`** - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+- **`#[pallet::event]`** - events can be defined and used as a means to provide more information to the user
+- **`#[pallet::storage]`** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
+
+### Implementing the Module Basic Structure {: #implementing-basic-structure }
+
+The first two mandatory macros, `#[frame_support::pallet]` and `#[pallet::pallet]`, provide the basic structure of the module and are required to enable the module to be used in a Substrate runtime.
+
+The following snippet shows the general structure of a custom Substrate module.
+
+```rust
+#[frame_support::pallet(dev_mode)]
+pub mod pallet {
+    ...
+    #[pallet::pallet]
+    pub struct Pallet<T>(_);
+    
+    // All the logic goes here
+}
+```
+
+The next step would be to add the third mandatory macro (`#[pallet::config]`) and all the custom logic, as shown in the following sections.
+
+### Implementing the Module Configuration {: #implementing-module-configuration }
+
+To make the modules highly adaptable, their configuration is abstract enough to allow them to be adapted to the specific requirements of the use case the runtime implements.
+
+The implementation of the `#[pallet::config]` macro is mandatory and sets the module's dependency on other modules and the types and values specified by the runtime-specific settings. More about module dependencies is in the [Substrate documentation](https://docs.substrate.io/build/pallet-coupling){target=\_blank}.
+
+In the custom `lottery-example` module you are building, the module depends on other modules to manage the currency and the random function to select the winner. The module also reads and uses the ticket price and the maximum number of participants directly from the runtime settings.  Consequently, the configuration needs to include these dependencies:
+
+- **Events** - the module depends on the runtime's definition of an event to be able to emit them
+- **Currency** - the `lottery-example` module needs to be able to transfer funds, hence, it needs the definition of the currency system from the runtime
+- **Randomness** - this module is used to fairly select the winner of the prize from the list of participants. It generates the random numbers using the past block hashes and the current block's number as seed
+- **Ticket cost** - the price to charge the buyers that participate in the lottery
+- **Maximum number of participants** - the top limit of participants allowed in each lottery round
+- **Module Id** - the module unique identifier is required to access the module account to hold the participant's funds until transferred to the winner
+
+The implementation of the described configuration for this example is shown in the following code snippet:
+
+```rust
+#[pallet::config]
+pub trait Config: frame_system::Config {
+
+    // Event definition
+    type RuntimeEvent: From<Event<Self>> 
+        + IsType<<Self as frame_system::Config>::RuntimeEvent>;
+
+    // Currency 
+    type Currency: Currency<Self::AccountId>;
+
+    // Randomness
+    type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
+
+    // Ticket cost
+    #[pallet::constant]
+    type TicketCost: Get<BalanceOf<Self>>;
+
+    // Maximum number of participants
+    #[pallet::constant]
+    type MaxParticipants: Get<u32>;
+
+    // Module Id
+    #[pallet::constant]
+    type PalletId: Get<PalletId>;
+}
+```
+
+This abstract definition of dependencies is crucial to avoid coupling to a specific use case and to enable the modules to serve as basic building blocks for Substrate networks.
+
+### Implementing Transactions {: #implementing-transactions }
+
+Calls represent the behavior a runtime exposes in the form of transactions that can be dispatched for processing, exposing the custom logic added to the module.
+
+Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
+
+- **Call Index** - is a mandatory unique identifier for every dispatchable call
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}
+- **Origin** - identifies the signing account making the call
+- **Result** - the return value of the call, which might be an `Error` if anything goes wrong
+
+The following snippet presents the general structure of the mentioned macro implementation and the call elements:
+
+```rust
+#[pallet::call]
+impl<T: Config> Pallet<T> {
+    
+    #[pallet::call_index(0)]
+    #[pallet::weight(0)]
+    pub fn one_call(origin: OriginFor<T>) -> DispatchResult { }
+
+    #[pallet::call_index(1)]
+    #[pallet::weight(0)]
+    pub fn another_call(origin: OriginFor<T>) -> DispatchResult { }
+
+    // Other calls
+}
+```
+
+In this `lottery-example` module, we defined two calls with the following logic:
+
+```rust
+#[pallet::call]
+impl<T: Config> Pallet<T> {
+    
+    #[pallet::call_index(0)]
+    #[pallet::weight(0)]
+    pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
+
+        // 1. Validates the origin signature
+        // 2. Checks that the user has enough balance to afford the ticket price
+        // 3. Checks that the user is not already participating
+        // 4. Adds the user as a new participant for the prize
+        // 5. Transfers the ticket cost to the module's account, to be hold until transferred to the winner
+        // 6. Notify the event
+    
+    }
+
+    #[pallet::call_index(1)]
+    #[pallet::weight(0)]
+    pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
+
+        // 1. Validates the origin signature
+        // 2. Gets a random number from the randomness module
+        // 3. Selects the winner from the participants lit
+        // 4. Transfers the total prize to the winner's account
+        // 5. Resets the participants list, and gets ready for another lottery round
+
+    }
+}
+```
+
+These calls also emit events to keep the user informed and can return errors should any of the validations go wrong.
+
+Here is the complete implementation of the calls with the custom lottery logic:
+
+??? code "View the complete calls code"
+
+    ```rust
+    #[pallet::call]
+impl<t: config=""> Pallet<t> {
+
+    #[pallet::call_index(0)]
+    #[pallet::weight(0)]
+    pub fn buy_ticket(origin: OriginFor<t>) -&gt; DispatchResult {
+
+        // 1. Validates the origin signature
+        let buyer = ensure_signed(origin)?;
+
+        // 2. Checks that the user has enough balance to afford the ticket price
+        ensure!(
+            T::Currency::free_balance(&amp;buyer) &gt;= T::TicketCost::get(),
+            Error::<t>::NotEnoughCurrency
+        );
+
+        // 3. Checks that the user is not already participating
+        if let Some(participants) = Self::get_participants() {
+            ensure!(
+                !participants.contains(&amp;buyer),
+                Error::<t>::AccountAlreadyParticipating
+            );
+        }
+
+        // 4. Adds the user as a new participant for the prize
+        match Self::get_participants() {
+            Some(mut participants) =&gt; { 
+                ensure!(
+                    participants.try_push(buyer.clone()).is_ok(), 
+                    Error::<t>::CanNotAddParticipant
+                );
+                Participants::<t>::set(Some(participants));
+            }, 
+            None =&gt; {
+                let mut participants = BoundedVec::new();
+                ensure!(
+                    participants.try_push(buyer.clone()).is_ok(), 
+                    Error::<t>::CanNotAddParticipant
+                );
+                Participants::<t>::set(Some(participants));
+            }
+        };
+
+        // 5. Transfers the ticket cost to the module's account
+        // to be hold until transferred to the winner
+        T::Currency::transfer(
+            &amp;buyer, 
+            &amp;Self::get_pallet_account(), 
+            T::TicketCost::get(), 
+            ExistenceRequirement::KeepAlive)?;
+        
+        // 6. Notify the event
+        Self::deposit_event(Event::TicketBought { who: buyer });
+        Ok(())
+    }
+
+    #[pallet::call_index(1)]
+    #[pallet::weight(0)]
+    pub fn award_prize(origin: OriginFor<t>) -&gt; DispatchResult {
+
+        // 1. Validates the origin signature
+        let _who = ensure_root(origin)?;
+
+        match Self::get_participants() {
+            Some(participants) =&gt; { 
+                
+                // 2. Gets a random number from the randomness module
+                let nonce = Self::get_and_increment_nonce();
+                let (random_seed, _) = T::MyRandomness::random(&amp;nonce);
+                let random_number = <u32>::decode(&amp;mut random_seed.as_ref())
+                    .expect("secure hashes should always be bigger than u32; qed");
+                
+                // 3. Selects the winner from the participants lit
+                let winner_index = random_number as usize % participants.len();
+                let winner = participants.as_slice().get(winner_index).unwrap();
+
+                // 4. Transfers the total prize to the winner's account
+                let prize = T::Currency::free_balance(&amp;Self::get_pallet_account());
+                T::Currency::transfer(
+                    &amp;Self::get_pallet_account(), 
+                    &amp;winner, 
+                    prize, 
+                    ExistenceRequirement::AllowDeath)?;
+
+                // 5. Resets the participants list, and gets ready for another lottery round
+                Participants::<t>::kill();
+
+                // 6. Notify the event
+                Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
+            }, 
+            None =&gt; {
+                // Notify the event (No participants)
+                Self::deposit_event(Event::ThereAreNoParticipants);
+            }
+        };
+
+        Ok(())
+    }
+}
+</t></u32></t></t></t></t></t></t></t></t></t></t:>
+    ```
+
+### Implementing Custom Errors {: #implementing-custom-errors}
+
+The `#[pallet::error]` macro is used to annotate an enumeration of potential errors that could occur during execution. It is crucial for security to ensure that all error situations are handled gracefully without causing the runtime to crash.
+
+The following example of this macro implementation shows the errors that might occur in the lottery module:
+
+```rust
+// Errors inform users that something went wrong.
+#[pallet::error]
+pub enum Error<T> {
+    NotEnoughCurrency,
+    AccountAlreadyParticipating,
+    CanNotAddParticipant,
+}
+```
+
+### Implementing Events {: #implementing-events }
+
+The `#[pallet::event]` macro is applied to an enumeration of events to inform the user of any changes in the state or important actions that happened during the execution in the runtime.
+
+As an example, for the `lottery-example` module, this macro could be configured with the following events:
+
+```rust
+#[pallet::event]
+#[pallet::generate_deposit(pub(super) fn deposit_event)]
+pub enum Event<T: Config> {
+    /// Event emitted when a ticket is bought
+    TicketBought { who: T::AccountId },
+    /// Event emitted when the prize is awarded
+    PrizeAwarded { winner: T::AccountId },
+    /// Event emitted when there are no participants
+    ThereAreNoParticipants,
+}
+```
+
+### Implementing Storage for State Persistence {: #implementing-storage }
+
+The `#[pallet::storage]` macro initializes a runtime storage structure. In the heavily constrained environment of blockchains, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage){target=\_blank}.
+
+In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=\_blank}). This can be initialized as follows:
+
+```rust
+#[pallet::storage]
+#[pallet::getter(fn get_participants)]
+pub(super) type Participants<T: Config> = StorageValue<
+    _,
+    BoundedVec<T::AccountId, T::MaxParticipants>,
+    OptionQuery
+>;
+```
+
+### The Complete Module {: #complete-module }
+
+To put all the pieces together, after implementing all the required macros and adding the custom logic, the module is now complete and ready to be used in the runtime.
+
+??? code "View the complete module file"
+
+    ```rust
+    #![cfg_attr(not(feature = "std"), no_std)]
+
+/// Learn more about FRAME and the core library of Substrate FRAME pallets:
+/// <https: docs.substrate.io="" frame-pallets="" reference=""></https:>
+pub use pallet::*;
+
+#[frame_support::pallet(dev_mode)]
+pub mod pallet {
+
+	use super::*;
+	use frame_support::pallet_prelude::{*, ValueQuery, OptionQuery};
+	use frame_system::pallet_prelude::*;
+	use scale_info::prelude::vec::Vec;
+
+	use frame_support::
+	{
+		sp_runtime::traits::AccountIdConversion,
+		traits:: {
+			Currency, ExistenceRequirement, Randomness
+		},
+		PalletId,
+	};
+
+	type BalanceOf<t> = 
+		&lt;<t as="" config="">::Currency as Currency&lt;<t as="" frame_system::config="">::AccountId&gt;&gt;::Balance;
+
+	#[pallet::pallet]
+	pub struct Pallet<t>(_);
+
+	/// Configure the module by specifying the parameters and types on which it depends.
+	#[pallet::config]
+	pub trait Config: frame_system::Config {
+
+		// Event definition
+		type RuntimeEvent: From<event<self>&gt; 
+			+ IsType&lt;<self as="" frame_system::config="">::RuntimeEvent&gt;;
+
+		// Currency 
+		type Currency: Currency<self::accountid>;
+
+		// Randomness
+		type MyRandomness: Randomness<self::hash, blocknumberfor<self="">&gt;;
+
+		// Ticket cost
+		#[pallet::constant]
+		type TicketCost: Get<balanceof<self>&gt;;
+
+		// Maximum number of participants
+		#[pallet::constant]
+		type MaxParticipants: Get<u32>;
+
+		// Module Id
+		#[pallet::constant]
+		type PalletId: Get<palletid>;
+	}
+
+	// The pallet's runtime storage items.
+	#[pallet::storage]
+	#[pallet::getter(fn get_participants)]
+	pub(super) type Participants<t: config=""> = StorageValue&lt;
+		_,
+		BoundedVec<t::accountid, t::maxparticipants="">,
+		OptionQuery
+	&gt;;
+
+	#[pallet::storage]
+	#[pallet::getter(fn get_nonce)]
+	pub(super) type Nonce<t: config=""> = StorageValue&lt;
+		_,
+		u64,
+		ValueQuery
+	&gt;;
+
+	// Pallets use events to inform users when important changes are made.
+	// https://docs.substrate.io/main-docs/build/events-errors/
+	#[pallet::event]
+	#[pallet::generate_deposit(pub(super) fn deposit_event)]
+	pub enum Event<t: config=""> {
+		/// Event emitted when a ticket is bought
+		TicketBought { who: T::AccountId },
+		/// Event emitted when the prize is awarded
+		PrizeAwarded { winner: T::AccountId },
+		/// Event emitted when the prize is to be awarded, but there are no participants
+		ThereAreNoParticipants,
+	}
+
+	// Errors inform users that something went wrong
+	#[pallet::error]
+	pub enum Error<t> {
+		NotEnoughCurrency,
+		AccountAlreadyParticipating,
+		CanNotAddParticipant,
+	}
+
+	#[pallet::call]
+	impl<t: config=""> Pallet<t> {
+
+		#[pallet::call_index(0)]
+		#[pallet::weight(0)]
+		pub fn buy_ticket(origin: OriginFor<t>) -&gt; DispatchResult {
+
+			// 1. Validates the origin signature
+			let buyer = ensure_signed(origin)?;
+
+			// 2. Checks that the user has enough balance to afford the ticket price
+			ensure!(
+				T::Currency::free_balance(&amp;buyer) &gt;= T::TicketCost::get(),
+				Error::<t>::NotEnoughCurrency
+			);
+
+			// 3. Checks that the user is not already participating
+			if let Some(participants) = Self::get_participants() {
+				ensure!(
+					!participants.contains(&amp;buyer),
+					Error::<t>::AccountAlreadyParticipating
+				);
+			}
+
+			// 4. Adds the user as a new participant for the prize
+			match Self::get_participants() {
+				Some(mut participants) =&gt; { 
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<t>::CanNotAddParticipant
+					);
+					Participants::<t>::set(Some(participants));
+				}, 
+				None =&gt; {
+					let mut participants = BoundedVec::new();
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<t>::CanNotAddParticipant
+					);
+					Participants::<t>::set(Some(participants));
+				}
+			};
+
+			// 5. Transfers the ticket cost to the module's account
+			// to be hold until transferred to the winner
+			T::Currency::transfer(
+				&amp;buyer, 
+				&amp;Self::get_pallet_account(), 
+				T::TicketCost::get(), 
+				ExistenceRequirement::KeepAlive)?;
+			
+			// 6. Notify the event
+			Self::deposit_event(Event::TicketBought { who: buyer });
+			Ok(())
+		}
+
+		#[pallet::call_index(1)]
+		#[pallet::weight(0)]
+		pub fn award_prize(origin: OriginFor<t>) -&gt; DispatchResult {
+
+			// 1. Validates the origin signature
+			let _who = ensure_root(origin)?;
+
+			match Self::get_participants() {
+				Some(participants) =&gt; { 
+					
+					// 2. Gets a random number from the randomness module
+					let nonce = Self::get_and_increment_nonce();
+					let (random_seed, _) = T::MyRandomness::random(&amp;nonce);
+					let random_number = <u32>::decode(&amp;mut random_seed.as_ref())
+						.expect("secure hashes should always be bigger than u32; qed");
+					
+					// 3. Selects the winner from the participants lit
+					let winner_index = random_number as usize % participants.len();
+					let winner = participants.as_slice().get(winner_index).unwrap();
+
+					// 4. Transfers the total prize to the winner's account
+					let prize = T::Currency::free_balance(&amp;Self::get_pallet_account());
+					T::Currency::transfer(
+						&amp;Self::get_pallet_account(), 
+						&amp;winner, 
+						prize, 
+						ExistenceRequirement::AllowDeath)?;
+
+					// 5. Resets the participants list, and gets ready for another lottery round
+					Participants::<t>::kill();
+
+					// 6. Notify the event
+					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
+				}, 
+				None =&gt; {
+					// Notify the event (No participants)
+					Self::deposit_event(Event::ThereAreNoParticipants);
+				}
+			};
+
+			Ok(())
+		}
+	}
+
+	impl<t: config=""> Pallet<t> {
+
+		fn get_pallet_account() -&gt; T::AccountId {
+			T::PalletId::get().into_account_truncating()
+		}
+
+		fn get_and_increment_nonce() -&gt; Vec<u8> {
+			let nonce = Nonce::<t>::get();
+			Nonce::<t>::put(nonce.wrapping_add(1));
+			nonce.encode()
+		}
+	}
+}
+</t></t></u8></t></t:></t></u32></t></t></t></t></t></t></t></t></t></t:></t></t:></t:></t::accountid,></t:></palletid></u32></balanceof<self></self::hash,></self::accountid></self></event<self></t></t></t></t>
+    ```
+
+## Configure the Runtime {: #configure-runtime }
+
+Finally, with the module finished, it can be included in the runtime. By doing so, the transactions `buy_tickets` and `award_prize` will be callable by the users. This also means that the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} will be decorated with this module and all the available calls that it contains.
+
+To configure the runtime, open the `lib.rs` file, which contains the definition for the runtime of the included template and is located (in case of using the EVM-compatible) in the folder:
+
+```text
+*/container-chains/templates/frontier/runtime/src/
+```
+
+To add the lottery module, configure the modules as follows:
+
+```rust
+
+// Add the configuration for randomness module. No parameters needed.
+impl pallet_insecure_randomness_collective_flip::Config for Runtime {
+}
+
+// Custom module id
+parameter_types! {
+	pub const PalletId: PalletId = PalletId(*b"loex5678");
+}
+
+// Add configuration for the lottery module
+impl pallet_lottery_example::Config for Runtime {
+	type RuntimeEvent = RuntimeEvent;
+	type Currency = Balances;
+	type TicketCost = ConstU128<1000000000000000>;
+	type PalletId = PalletId;
+	type MaxParticipants = ConstU32<500>;
+	type MyRandomness = RandomCollectiveFlip;
+}
+```
+
+With the modules configured, add the macro `construct_runtime!` (that defines the modules that will be included when building the runtime) and the randomness and lottery modules.
+
+```rust
+construct_runtime!(
+	pub struct Runtime {
+        ...
+        // Include the custom logic from the pallet-template in the runtime.
+        RandomCollectiveFlip: pallet_insecure_randomness_collective_flip,
+        Lottery: pallet_lottery_example,
+        ...
+    }
+)
+```
+
+With everything set, the network now has support for a basic implementation of a lottery.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-external-module/
+--- BEGIN CONTENT ---
+---
+title: Adding External Modules
+description: Learn how to resolve double reference issues of dependencies when customizing your Tanssi-powered network template with a Rust-based tool called Diener.
+icon: octicons-plug-24
+categories: Custom-Runtime
+---
+
+# Adding an External Module {: #adding-external-module }
+
+## Introduction {: #introduction }
+
+Developers building on top of the [Templates offered by Tanssi](/builders/build/templates/){target=\_blank} might want to add some external modules/dependencies into their runtime to expand certain functionality.
+
+The Tanssi repository and the templates take all the dependencies from [a fork](https://github.com/moondance-labs/polkadot-sdk){target=\_blank} of the official Polkadot SDK repository. This fork is maintained by the Tanssi engineering team, which usually contributes actively to Substrate development by fixing issues and enhancing functionalities, and, as a result, the fork repository frequently stays temporarily ahead of the official one.
+
+A double reference issue may arise when adding an external dependency, such as a pallet from a third party. This happens if a Tanssi module references a dependency from the Polkadot SDK fork repository, and the third party references the same dependency from the official Polkadot SDK repository. To solve this issue, the references to the dependencies must be unified.
+
+## Solving Dependencies Conflicts with Diener {: #solving-dependencies-conflicts-diener }
+
+To efficiently handle the dependencies and their origins, you can check out the tool [diener](https://github.com/paritytech/diener){target=\_blank}.
+
+If the `diener` executable file, the cloned [Polkadot SDK repository](https://github.com/paritytech/polkadot-sdk){target=\_blank}, and your Tanssi fork are located in the same folder, step into the Tanssi fork folder and execute the following command:
+
+```bash
+../diener patch --crates-to-patch ../polkadot-sdk \
+    --target https://github.com/paritytech/polkadot-sdk \
+    --point-to-git https://github.com/moondance-labs/polkadot-sdk \
+    --point-to-git-branch {{ repository.tanssi.release_branch }}
+```
+
+This command applies the changes to the `Cargo.toml` file, patching the dependencies, and solving the double reference issues.
+
+You can visit the [diener documentation](https://docs.rs/crate/diener/latest){target=\_blank} to learn more about the tool and other extra functions it offers.
+
+## Example of the Double Reference Issue {: #double-reference-issue }
+
+To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} to a custom runtime based on the [baseline Tanssi-powered network template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
+
+This tutorial will generate a multiple reference compile-time error. Finally, the steps will show you how to fix the compile error by patching the dependencies with the tool `diener`, the runtime will compile successfully and work as intended.
+
+### Add a Third-Party Dependency {: #add-third-party-dependency }
+
+Similarly to what is described in the [built-in module](/builders/build/customize/adding-built-in-module/#adding-a-built-in-module-to-runtime){target=\_blank} article, adding a third-party module requires the following steps:
+
+1. Declare the dependency in the root `Cargo.toml` file
+2. Make the standard features available to the compiler
+3. Configure and add the module to the runtime
+
+Should the third-party module reference any dependency already referenced from a distinct source or version, compilation will fail.
+
+The following diagram shows how two different references to the same dependency are being included in the runtime, causing the compilation to fail:
+
+![Double reference](/images/builders/build/external-module/external-module-1.webp)
+
+To resolve this issue, it will be necessary to apply a patch so that the references for the dependency are unified:
+
+![Patched reference](/images/builders/build/external-module/external-module-2.webp)
+
+### Declaring the Dependency {: #declaring-dependency }
+
+The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} is used.
+
+This `toggle` module, built for testing and educational purposes, adds basic logic to the runtime, allowing users to switch a state between true and false.
+
+```toml
+[dependencies]
+...
+pallet-toggle = { 
+    git = "https://github.com/papermoonio/pallet-toggle.git", 
+    default-features = false 
+}
+...
+```
+
+### Make the Standard Features Available to the Compiler {: #add-standard-features }
+
+Having declared the module in the workspace `Cargo.toml` file, the dependency can now be added to the specific template `Cargo.toml` file, which, for this example that uses the Tanssi GitHub repo, is located in the folder `container-chains/templates/simple/runtime`.
+
+```toml
+[dependencies]
+...
+pallet-toggle = { workspace = true }
+...
+```
+
+In the same `Cargo.toml` file, add the following features.
+
+```toml
+[features]
+default = [
+	"std",
+]
+std = [
+	...,
+	"pallet-toggle/std",
+   ...
+]
+...
+runtime-benchmarks = [
+	...,
+	"pallet-toggle/runtime-benchmarks",
+]
+
+try-runtime = [
+	...,
+	"pallet-toggle/try-runtime",
+]
+```
+
+### Configure and Add the Module to the Runtime {: #configure-module-in-the-runtime }
+
+Next, add the following snippet to the `lib.rs` file inside the runtime folder. This configures the module and adds the module within the `construct_runtime!` macro.
+
+```rust
+...
+impl pallet_toggle::Config for Runtime {
+    type RuntimeEvent = RuntimeEvent;
+    type WeightInfo = pallet_toggle::weights::SubstrateWeight<Runtime>;
+}
+
+construct_runtime!(
+    pub enum Runtime
+    {
+        ...
+        ...
+        Toggle: pallet_toggle,
+    }
+);
+```
+
+### Compile Runtime {: #compile-runtime }
+
+After completing the preceding steps, the module is declared a dependency in the project, configured, and added to the runtime.
+
+Compile the template using the following command:
+
+```bash
+cargo build -p container-chain-simple-node --release
+```
+
+The terminal output will display an error, similar to the following, caused by different modules referencing different versions of the same dependency:
+
+```bash
+error: failed to select a version for `syn`.
+```
+
+### Patch Dependencies {: #patch-dependencies }
+
+Finally, executing the `diener` [command](#solving-dependencies-conflicts-diener) will add a `patch` section to your workspace `Cargo.toml` file, overriding the dependencies and unifying origins and versions.
+
+This is what the execution in the terminal looks like:
+
+<div data-termynal="" id="termynal">
+<span data-ty="input"><span class="file-path"></span>../diener patch --crates-to-patch ../polkadot-sdk \
+    <br/> --target https://github.com/paritytech/polkadot-sdk \
+    <br/> --point-to-git https://github.com/moondance-labs/polkadot-sdk \
+    <br/> --point-to-git-branch tanssi-polkadot-v1.3.0
+    </span>
+<span data-ty="">
+<br/> [2024-01-10T23:26:27Z INFO diener] Running diener v0.4.7 
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'bridge-runtime-common.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'bp-header-chain'
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'bp-runtime'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'frame-support.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'frame-support-procedural'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'frame-support-procedural-tools'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'frame-support-procedural-tools-derive'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-core-hashing'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-api'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-api-proc-macro' .
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-core'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-debug-derive'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-externalities'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-std'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-storage'.
+    <br/> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-runtime-interface'.
+  </span>
+</div>
+
+As shown in the terminal output, `diener` adds a patch for the dependencies, creating a `patch` section in your `toml` overriding their origin:
+
+```toml
+[patch."https://github.com/paritytech/polkadot-sdk"]
+bridge-runtime-common = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch = "tanssi-polkadot-v1.3.0" }
+bp-header-chain = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch = "tanssi-polkadot-v1.3.0" }
+bp-runtime = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch = "tanssi-polkadot-v1.3.0" }
+...
+```
+
+Finally, compiling will succeed, and the module will be built into your runtime.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/build/customize/customizing-chain-specs/
+--- BEGIN CONTENT ---
+---
+title: Customizing Chain Specifications
+description: Review the sections and attributes of a chain specification file and how to obtain it for launching your Tanssi-powered network with a customized specification.
+icon: octicons-link-24
+categories: Custom-Runtime
+---
+
+# Customizing Chain Specifications {: #customizing-chain-specifications }
+
+## Introduction {: #introduction }
+
+The chain specification refers to a set of parameters and configurations that define the characteristics and behavior of a new Tanssi-powered network. It defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks. Many initial settings cannot be changed after the network is launched without generating a completely different chain.
+
+The specification contains two main sections:
+
+- **The client specification** - includes the network parameters, for example, the boot nodes the client connects with when joining the network
+- **The genesis state** - represents the initial state upon which all transactions and state transitions take place. It includes details like the initial registered accounts and their balances, as well as the account with administrator privileges (sudo, if applicable), among other relevant information
+
+This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates/overview/){target=\_blank} included in the Tanssi repository) or in a JSON file.
+
+This article covers the sections and attributes within a chain specification file and explains how to obtain it, in case you want to launch your Tanssi network by uploading a customized specifications file.
+
+## The Client Specification {: #client-specification }
+
+The client specification contains the configuration of the network and other settings (excluding those related to the runtime state): 
+
+- **Name** - name for the specifications
+- **Id** - a unique simple id for the network used to define the storage path in the node
+- **Fork Id** - optional parameter for a network fork identifier
+- **Chain Type** - a parameter that can be set to define the chain type and display additional information or enable additional features (it can be set to Development, Local, Live, or a custom type)
+- **Boot Nodes** - set of boot nodes that will be used when the new node joins the network and syncs
+- **Telemetry Endpoints** - an optional list of endpoints to send information and monitor the operation of the network
+- **Protocol Id** - a unique name defining the network protocol
+- **Relay Chain** - defines the id of the orchestration chain the Tanssi network interacts with
+- **Parachain Id** - sets a unique id that identifies the Tanssi network
+- **Code Substitutes** - an emergency feature to replace the runtime when a Tanssi network is unable to perform a runtime upgrade
+- **Properties** - key-value properties that can be customized and are useful to improve the user experience
+
+In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
+
+- **Token Symbol** - a name for your Tanssi network's own token symbol
+- **SS58 Format** - an integer that uniquely identifies the accounts in your network. [SS58 encoding](https://docs.substrate.io/reference/address-formats){target=\_blank} transforms the underlying 32-byte account to a network-specific representation. This attribute doesn't apply nor interfere with the ECDSA Ethereum accounts on EVM-compatible networks
+- **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token. It's set to `18` for EVM-compatible networks
+- **Is Ethereum** - a boolean identifying the network as EVM compatible or not
+
+## The Genesis State {: #genesis-state }
+
+All the sequencers assigned to the Tanssi network must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
+
+This genesis state will define the starting point of the Tanssi network. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
+
+For example, in the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module. In addition, the template also has a sudo account (which **should be modified**) for the `Sudo` module, which provides unique priviledges to the given account, and that can be offboarded once an on-chain democracy module is plugged in.
+
+## Generating a JSON Chain Specification File {: #generating-json-chain-specs }
+
+The following commands will build and generate the chain specification for the EVM-compatible template based on the configuration expressed in the `chain_spec.rs`, located in the `*/container-chains/templates/frontier/node/src/chain_spec.rs`. This example can be adapted to any other template or custom runtime.
+
+To build and generate the chain specifications, take the following steps:
+
+1. Clone the Tanssi code hosted on GitHub
+
+    ```bash
+    git clone https://github.com/moondance-labs/tanssi
+    ```
+
+2. Step into the project folder
+
+    ```bash
+    cd tanssi
+    ```
+
+3. Build the Tanssi EVM-compatible network template
+
+    ```bash
+    cargo build -p container-chain-frontier-node --release
+    ```
+
+    This step is quite verbose and might take a while to complete. The following screenshot shows the terminal after successfully finishing the building process (note that the completion time is above 35 minutes):
+
+    ![Building the template](/images/builders/build/customize/customizing-chain-specs/customizing-chain-specs-1.webp)
+
+4. Generate the chain specification
+
+    ```bash
+    ./target/release/container-chain-frontier-node \
+        build-spec > chain_spec.json
+    ```
+
+After executing the last step, the terminal displays only a log line:
+
+![Generating the chain specification](/images/builders/build/customize/customizing-chain-specs/customizing-chain-specs-2.webp)
+
+And now the `chain_spec.json` file containing the client specification and the genesis state is created in the current folder.
+
+!!! note
+    The JSON chain specifications can be generated in two different versions: the human readable, which is the one generated following the previous steps, and the raw version, which is the one needed to deploy the network through Tanssi. More about how to generate the raw version [later](#generating-raw-specs-file) in this article.
+
+### Editing the JSON Chain Specification File {: #editing-json-chain-specs }
+
+The generated `chain_spec.json` file reflects the parameters set in the Rust chain specifications file. Being a JSON file, it is easy to read and, should any parameter need to be changed, easy to edit.
+
+For example, the following code snippet shows some of the attributes of the client specifications:
+
+```json
+{
+    // Set the name for the specification of this network
+    "name": "Frontier network 1000",
+    // Set an id for the specifications of this network
+    "id": "frontier_network_1000",
+    // Network will be live
+    "chainType": "Live",
+    "bootNodes": [
+        // boot nodes will be added automatically during deployment
+    ],
+    // Optional attribute, defaults to null
+    "telemetryEndpoints": null,
+    // Set a protocol identifier for this network
+    "protocolId": "network-chain-1000",
+    // Set properties to define the token and the ethereum compatibility
+    "properties": {
+        "isEthereum": true,
+        "ss58Format": 42,
+        "tokenDecimals": 18,
+        "tokenSymbol": "UNIT"
+    },
+    // Set the stagenet relay chain
+    "relay_chain": "westend_moonbase_relay_stagenet",
+    // Set the parachain id reserved in the relay chain
+    "para_id": 3333,
+    // No need
+    "codeSubstitutes": {},
+    "genesis": { 
+        ... 
+    }
+}
+```
+
+The other important section of the file is within the `genesis` attribute, which contains the genesis state. In the following JSON snippet, the default values and configuration for some modules are presented as an example:
+
+```json
+{
+    ...
+    "genesis": {
+        "runtime": {
+            ...
+            // Sets the account that will bear sudo privileges
+            "sudo": {
+                "key": "0xf24ff3a9cf04c71dbc94d0b566f7a27b94566cac"
+            },
+            // Sets the initial balances for some accounts
+            "balances": {
+                "balances": [
+                [
+                    "0x3cd0a705a2dc65e5b1e1205896baa2be8a07c6e0",
+                    1208925819614629174706176
+                ],
+                [
+                    "0x773539d4ac0e786233d90a233654ccee26a613d9",
+                    1208925819614629174706176
+                ],
+                [
+                    "0x798d4ba9baf0064ec19eb4f0a1a45785ae9d6dfc",
+                    1208925819614629174706176
+                ],
+                [
+                    "0xf24ff3a9cf04c71dbc94d0b566f7a27b94566cac",
+                    1208925819614629174706176
+                ]
+                ]
+            },
+            // Sets balances for EVM accounts
+            "evm": {
+                "accounts": {
+                "0x1000000000000000000000000000000000000001": {
+                    "nonce": "0x1",
+                    "balance": "0xd3c21bcecceda1000000",
+                    "storage": {},
+                    "code": [
+                    0
+                    ]
+                },
+                "0x6be02d1d3665660d22ff9624b7be0551ee1ac91b": {
+                    "nonce": "0x0",
+                    "balance": "0xffffffffffffffffffffffffffffffff",
+                    "storage": {},
+                    "code": []
+                },
+                "0xd43593c715fdd31c61141abd04a99fd6822c8558": {
+                    "nonce": "0x0",
+                    "balance": "0xffffffffffffffffffffffffffffffff",
+                    "storage": {},
+                    "code": []
+                }
+                }
+            },
+        }
+    }
+    ...
+}
+```
+
+An example of a non-manually editable attribute is the Wasm runtime (in the genesis state section), which is a hexadecimal representation of a binary blob generated by the compiler. Still, apart from this, most of the properties are easy to edit before launching the network.
+
+## Generating a Raw JSON Chain Specification File {: #generating-raw-specs-file }
+
+One final step before deploying the Tanssi network is converting the JSON specification file to a raw format, which is a compact, less-readable version of the same file, required to initialize a node.
+
+After going through the [steps to generate the JSON chain Specification File](#generating-json-chain-specs) and editing its values, the following command will convert the chain specs file into the required raw format:
+
+```bash
+./target/release/container-chain-frontier-node \
+    build-spec --chain=chain_spec.json --raw > raw_chain_spec.json
+```
+
+Now that this file has been configured and customized and is in the correct raw JSON format, it can be uploaded to initialize a new network in Tanssi.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/build/templates/custom-runtime/
+--- BEGIN CONTENT ---
+---
+title: Custom Runtime
+description: Any custom runtime can be adapted to be deployed through Tanssi, provided that specific modules are implemented and the required configurations are set.
+icon: octicons-file-binary-24
+categories: Custom-Runtime
+---
+
+# Custom Runtime
+
+## Introduction {: #introduction }
+
+For teams working on an existing Substrate framework project, it will be necessary to include some required modules and configurations into the runtime. This will ensure that the existing runtime can gracefully become a Tanssi network runtime, aligning with the [protocol rules](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank}.
+
+Failing to do so might lead to reduced interoperability and unnecessary exposure to vulnerabilities.
+
+## Minimum Requirements
+
+Already existing Substrate runtimes need to implement at least the [framework](#adding-cumulus-support) for communicating within the Tanssi ecosystem, along with [Tanssi-specific modules](#adding-tanssi-support).
+
+Nevertheless, teams might have already implemented certain modules that can collide with some functionalities related to Tanssi, for example, block production, block authority assignment, and consensus.
+
+The following modules are included by default in many popular templates and must be removed along with their configuration:
+
+```rust
+Authorship: pallet_authorship = 20,
+CollatorSelection: pallet_collator_selection = 21,
+Session: pallet_session = 22,
+Aura: pallet_aura = 23,
+AuraExt: cumulus_pallet_aura_ext = 24,
+```
+
+In any case, make sure to check your runtime and remove all the modules that might interfere with the block production as a service feature before starting the registration process.
+
+## Integrating Your Stand-Alone Chain {: #adding-cumulus-support }
+
+If your existing runtime is set up as a stand-alone chain, you'll need to add a consensus mechanism to integrate into the Tanssi ecosystem. Check any of the available templates in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} for a reference setup or the [framework documentation](https://paritytech.github.io/polkadot-sdk/master/polkadot_sdk_docs/polkadot_sdk/cumulus/index.html){target=\_blank}.
+
+## Adding Tanssi Protocol Support {: #adding-tanssi-support }
+
+To support the Tanssi protocol, it will be necessary to add [the modules](#base-setup-supporting-tanssi) through the following steps:
+
+1. Include the dependencies in the `Cargo.toml` manifesto (usually located in the root folder). Open the `Cargo.toml` file and add the modules in the `dependencies` section
+
+    ```toml
+    [dependencies]
+    ...
+    pallet-cc-authorities-noting = { 
+        git = "https://github.com/moondance-labs/tanssi", 
+        branch = "master", default-features = false 
+    }
+    pallet_authorities_noting = {
+        git = "https://github.com/moondance-labs/moonkit",
+        branch = "tanssi-polkadot-v0.9.43", default-features = false
+    }
+    ...
+    ```
+
+2. Configure the modules. Open the file `lib.rs` located in the folder `*/runtime/src` and add the configuration for both modules:
+
+    ```rust
+    impl pallet_author_inherent::Config for Runtime {
+        type AuthorId = NimbusId;
+        type AccountLookup = tp_consensus::NimbusLookUp;
+        type CanAuthor = pallet_cc_authorities_noting::CanAuthor<Runtime>;
+        type SlotBeacon = tp_consensus::AuraDigestSlotBeacon<Runtime>;
+        type WeightInfo = 
+            pallet_author_inherent::weights::SubstrateWeight<Runtime>;
+    }
+
+    impl pallet_cc_authorities_noting::Config for Runtime {
+        type RuntimeEvent = RuntimeEvent;
+        type SelfParaId = parachain_info::Pallet<Runtime>;
+        type RelayChainStateProvider = 
+            cumulus_pallet_parachain_system::RelaychainDataProvider<Self>;
+        type AuthorityId = NimbusId;
+        type WeightInfo = 
+            pallet_cc_authorities_noting::weights::SubstrateWeight<Runtime>;
+    }
+    ```
+
+    Note that this configuration is agnostic from the use case
+
+3. Declare the modules as part of the runtime. In the same `lib.rs` file, located in the folder `*/runtime/src`, add the modules to the construction of the runtime:
+
+    ```rust
+    construct_runtime!(
+    pub enum Runtime where
+        Block = Block,
+        NodeBlock = opaque::Block,
+        UncheckedExtrinsic = UncheckedExtrinsic,
+    {
+        ...
+        // Tanssi network
+        AuthoritiesNoting: pallet_cc_authorities_noting = 50,
+        AuthorInherent: pallet_author_inherent = 51,
+        ...
+    }
+    ```
+
+4. Make sure your Header is configured as follows:
+
+    ```rust
+    type Header = generic::Header<BlockNumber, BlakeTwo256>;
+    /// An index to a block.
+    pub type BlockNumber = u32; 
+    ```
+
+5. Add the block executor, to allow the operators in the Tanssi network to validate that the authors are the sequencers assigned by Tanssi (and not a malicious actor)
+
+    ```rust
+    cumulus_pallet_parachain_system::register_validate_block! {
+        Runtime = Runtime,
+        BlockExecutor = pallet_author_inherent::BlockExecutor::<Runtime, Executive>
+        CheckInherents = CheckInherents,
+    }
+    ```
+--- END CONTENT ---
+
+## Basics Concepts [shared: true]
+
+The following section contains foundational documentation shared across all Tanssi products.
+It describes the architecture and infrastructure that serve as the backbone for all integrations built with Tanssi.
+This includes the network development framework, Substrate and EVM development tools, templates, and guidance for node operators.
+This context is provided to help understand how the system works under the hood, but responses should stay focused on the specific product unless the user explicitly asks about the general architecture.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
 
 Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/included-templates/
 --- BEGIN CONTENT ---
@@ -2127,4 +3664,167 @@ For Dancebox, you can use the following block explorer:
 - [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/explorer){target=\_blank}
 
 Support for additional block explorers is in the works and as more explorers support Dancebox, this section will be updated accordingly.
+--- END CONTENT ---
+
+## Reference Concepts [shared: true]
+
+The following section contains reference material for Tanssi.
+It includes network endpoints, JSON RPC methods, and contract or token addresses.
+While it may not be required for all use cases, it offers a deeper technical layer for advanced development work.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
+
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/endpoints/
+--- BEGIN CONTENT ---
+---
+title: Network Endpoints
+description: Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
+icon: octicons-share-android-24
+categories: Reference
+---
+
+## Network Endpoints
+
+Tanssi networks have two endpoints available for users to connect to: one for HTTPS and one for WSS.
+
+## Dancebox
+
+The Dancebox TestNet HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    https://{{ networks.dancelight.dns_name }}/
+    ```
+
+=== "WSS"
+
+    ```text
+    wss://{{ networks.dancelight.dns_name }}
+    ```
+
+### Demo EVM Network
+
+The demo EVM network HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_url }}
+    ```
+
+=== "WSS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_wss_url }}
+    ```
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc/
+--- BEGIN CONTENT ---
+---
+title: JSON-RPC API Methods
+description: Learn about the supported JSON-RPC API methods for querying your Tanssi EVM network, including standard Ethereum methods and custom methods unique to Tanssi.
+icon: material-code-json
+categories: Reference
+---
+
+# JSON-RPC API Methods
+
+## Standard Ethereum JSON-RPC Methods {: #standard-rpc-methods }
+
+As Tanssi's EVM Compatibility is derived from [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} and closely modeled after Moonbeam's Ethereum compatibility, Tanssi nodes support a wide variety of standard supported Ethereum JSON-RPC methods.
+
+Nevertheless, not all Ethereum JSON-RPC methods are supported; some of those supported return default values (those related to Ethereum's PoW consensus mechanism in particular). This guide provides a comprehensive list of supported Ethereum JSON-RPC methods on Tanssi. Developers can quickly reference this list to understand the available functionality for interfacing with Tanssi EVM networks.
+
+The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
+
+- **[eth_protocolVersion](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_protocolversion){target=\_blank}** — returns `1` by default
+- **[eth_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing){target=\_blank}** — returns an object with data about the sync status or `false`
+- **[eth_hashrate](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_hashrate){target=\_blank}** — returns `"0x0"` by default
+- **[eth_coinbase](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_coinbase){target=\_blank}** — returns the latest block author. Not necessarily a finalized block
+- **[eth_mining](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_mining){target=\_blank}** — returns `false` by default
+- **[eth_chainId](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_chainid){target=\_blank}** — returns the chain ID used for signing at the current block
+- **[eth_gasPrice](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gasprice){target=\_blank}** — returns the base fee per unit of gas used. This is currently the minimum gas price for each network
+- **[eth_accounts](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_accounts){target=\_blank}** — returns a list of addresses owned by the client
+- **[eth_blockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_blocknumber){target=\_blank}** — returns the highest available block number
+- **[eth_getBalance](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getbalance){target=\_blank}** — returns the balance of the given address
+- **[eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
+- **[eth_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
+- **[eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
+- **[eth_getBlockReceipts](https://docs.alchemy.com/reference/eth-getblockreceipts){target=\_blank}** — returns all transaction receipts for a given block
+- **[eth_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
+- **[eth_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
+- **[eth_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
+- **[eth_getUncleCountByBlockHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblockhash){target=\_blank}** —  returns `"0x0"` by default
+- **[eth_getUncleCountByBlockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblocknumber){target=\_blank}** — returns `"0x0"` by default
+- **[eth_getCode](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getcode){target=\_blank}** — returns the code at the given address at the given block number
+- **[eth_sendTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction){target=\_blank}** — creates a new message call transaction or a contract creation, if the data field contains code. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
+- **[eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
+- **[eth_feeHistory](https://docs.alchemy.com/reference/eth-feehistory){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
+- **[eth_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionReceipt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionreceipt){target=\_blank}** — returns the transaction receipt of a given transaction hash
+- **[eth_getUncleByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblockhashandindex){target=\_blank}** — returns `null` by default
+- **[eth_getUncleByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblocknumberandindex){target=\_blank}** — returns `null` by default
+- **[eth_getLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getlogs){target=\_blank}** — returns an array of all logs matching a given filter object
+- **[eth_newFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newfilter){target=\_blank}** — creates a filter object based on the input provided. Returns a filter ID
+- **[eth_newBlockFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newblockfilter){target=\_blank}** — creates a filter in the node to notify when a new block arrives. Returns a filter ID
+- **[eth_getFilterChanges](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterchanges){target=\_blank}** — polling method for filters (see methods above). Returns an array of logs that occurred since the last poll
+- **[eth_getFilterLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterlogs){target=\_blank}** — returns an array of all the logs matching the filter with a given ID
+- **[eth_uninstallFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_uninstallfilter){target=\_blank}** — uninstall a filter with a given ID. It should be used when polling is no longer needed. Filters timeout when they are not requested using `eth_getFilterChanges` after some time
+
+## Custom JSON-RPC Methods {: #custom-json-rpc-methods }
+
+Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and `frnt_isTxFinalized`. Tanssi features deterministic finality (as opposed to probabilistic like Bitcoin's finality), which means that at any point of time, the answer to whether a block or transaction is finalized or not can be answered with a definitive yes or no. Tanssi has built these two custom endpoints to provide valuable functionality for checking the finality of on-chain events.
+
+???+ function "frnt_isBlockFinalized - checks for the finality of the block given by its block hash"
+
+    === "Parameters"
+
+        - `block_hash` ++"string"++ - the hash of the block, accepts either Substrate-style or Ethereum-style block hash as its input
+
+    === "Returns"
+
+        ++"boolean"++ - `true` if the block is finalized, `false` if the block is not finalized or not found
+
+    === "Example"
+
+        ```bash
+        curl -H "Content-Type: application/json" -X POST --data '{
+          "jsonrpc": "2.0",
+          "id": "1",
+          "method": "frnt_isBlockFinalized",
+          "params": ["INSERT_BLOCK_HASH"]
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        ```
+
+???+ function "frnt_isTxFinalized - checks for the finality of a transaction given its EVM transaction hash"
+
+    === "Parameters"
+
+        - `tx_hash` ++"string"++ - the EVM transaction hash of the transaction 
+
+    === "Returns"
+
+        ++"boolean"++ - `true` if the transaction is finalized, `false` if the transaction is not finalized or not found
+
+    === "Example"
+
+        ```bash
+        curl -H "Content-Type: application/json" -X POST --data '{
+          "jsonrpc": "2.0",
+          "id": "1",
+          "method": "frnt_isTxFinalized",
+          "params": ["INSERT_TRANSACTION_HASH"]
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        ```
 --- END CONTENT ---

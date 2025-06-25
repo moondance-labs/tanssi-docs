@@ -3,29 +3,1347 @@
 This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
 It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
 
-This file includes documentation related to the category: Basics
+This file includes documentation related to the product: Appchain
+
+## AI Prompt Template
+
+You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your task is to assist developers in understanding and using the product described in this file.
+- Provide accurate answers based on the included documentation.
+- Do not assume undocumented features, behaviors, or APIs.
+- If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/included-templates/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/overview/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/runtime-features/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/decentralized-networks/tx-fees/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/architecture/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/modules/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/overview/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/framework/xcm/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/account-types/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-features/staking/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/network-services/block-production/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/overview/ [type: learn]
-Doc-Page: https://docs.tanssi.network/learn/tanssi/tanssi-ethereum-bridge/ [type: learn]
-Doc-Page: https://docs.tanssi.network/builders/account-management/identity/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/account-management/proxy-accounts/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/build/templates/overview/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/tanssi-token/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/deploy/dapp/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/dapp/manage-tokens/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/dapp/register-external-assets/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/dapp/services-payment/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/dapp/xcm-channels/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/impersonate/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/maintenance/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/minting/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/pause-transactions/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/smart-contracts-creation-filter/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/sudo/ [type: builders]
+Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/upgrade/ [type: builders]
 
 ## Full content for each doc page
+
+Doc-Content: https://docs.tanssi.network/builders/deploy/dapp/
+--- BEGIN CONTENT ---
+---
+title: Deploy Your Appchain via the DApp
+description: Learn how to spin up and deploy an appchain on Tanssi using the Tanssi dApp, a no-code solution for onboarding and launching decentralized appchains in minutes.
+icon: octicons-browser-24
+categories: Appchain
+---
+
+# Deploy Your Appchain via the Tanssi DApp
+
+<style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/W40oqavpZJ8' frameborder='0' allowfullscreen></iframe></div>
+<style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
+
+## Introduction {: #introduction }
+
+Tanssi aims to lower the barrier to entry for building decentralized appchains by streamlining the onboarding process and abstracting away the technical details of launching a Tanssi-powered appchain. The [Tanssi dApp](https://apps.tanssi.network){target=\_blank} allows you to spin up an appchain in just minutes. This guide will walk you through the steps required to launch an appchain on Dancebox, the Tanssi TestNet, via the Tanssi dApp.
+
+## Quick Trials vs. Dedicated appchains {: #quick-trial-vs-dedicated-appchains }
+ 
+[The Tanssi dApp](https://apps.tanssi.network){target=\_blank} supports the creation of two different types of appchains, namely:
+
+- Quick trial - a temporary appchain that self-destructs after 48 hours
+- Dedicated - a long-lasting appchain for Tanssi ecosystem builders
+
+Both types of Tanssi appchains behave identically, with the only difference being the ephemeral nature of the quick trials. Generally speaking, quick trial appchains are best for most builders who want to test out a Tanssi-powered appchain. However, if you require a long-lasting test environment, the Tanssi team will happily assist you with setting up a dedicated appchain. 
+
+The screenshots and content in this guide will showcase quick trial appchains, but you can follow the same process to configure a dedicated Tanssi appchain.
+
+![A screenshot showing the initial dashboard of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.webp)
+
+## Prerequisites {: #prerequisites }
+
+### Supported Wallets {: #supported-wallets }
+
+Since Tanssi is built with Substrate, you'll need to use a Substrate-compatible wallet to deploy and manage your Tanssi appchain. Supported wallets include:
+
+- [Talisman](https://www.talisman.xyz){target=\_blank}
+- [SubWallet](https://www.subwallet.app){target=\_blank}
+- [Enkrypt](https://www.enkrypt.com){target=\_blank}
+- [Polkadot.js extension](https://polkadot.js.org/extension){target=\_blank}
+
+If you deploy a Tanssi-powered EVM appchain, your users won't need a Substrate wallet. They can interact with your Tanssi appchain using Ethereum-compatible wallets like [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+
+![Connection screen for various Substrate wallets](/images/builders/deploy/dapp/dapp-2.webp)
+
+### Connect Your Wallet to the DApp {: #connect-wallet }
+
+To connect your wallet to the Tanssi dApp, click **Connect Wallet** in the upper-right corner. Select the desired wallet type. Then, take the following steps:
+
+1. Choose your account from the dropdown
+2. You'll be prompted to sign a message to log you into the Tanssi dApp. Go ahead and sign the message
+
+![Click on the Connect Wallet button to connect your wallet to the Tanssi dApp.](/images/builders/deploy/dapp/dapp-3.webp)
+
+Once connected, you'll see your address in the top-right corner. If you've connected multiple accounts and want to switch accounts, you can click on your address and choose an account from the dropdown menu.
+
+## Configure Your Appchain {: #configure-your-appchain }
+
+On the dApp [Home page](https://apps.tanssi.network/){target=\_blank}, click the **Start Building** button in the **Launch Network** block to start configuring your Tanssi appchain immediately. You have to choose between a **Quick Trial** or a **Dedicated** appchain. You can read more about [the differences between these two available types on the Tanssi Testnet](#quick-trial-vs-dedicated-appchains).
+
+![A screenshot showing the Launch Network section of apps.tanssi.network.](/images/builders/deploy/dapp/dapp-1.webp)
+
+Next, select a template that best fits your use case and configure your Tanssi appchain's properties accordingly. You can choose from the EVM or Substrate template or upload a raw specification file. Please refer to the [Templates](/builders/build/templates/overview/){target=\_blank} documentation to learn more about the available templates.
+
+### EVM Template {: #evm-template }
+
+The [EVM template](/builders/build/templates/evm/){target=\_blank} provides all the necessary components to add an Ethereum compatibility layer to your Tanssi appchain. 
+
+As part of the setup process, you'll need a unique EVM chain ID ([EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md){target=\_blank}) that is distinct from all other EVM chains. You can verify that another chain does not already use your EVM chain ID on [Chainlist](https://chainid.network){target=\_blank}. When launching your Tanssi appchain in production, it's critical that you open a PR to reserve your chain ID on the [`ethereum-lists/chains` GitHub repository](https://github.com/ethereum-lists/chains){target=\_blank} immediately after your RPC endpoint spins up. This is part of the validation process and is required for the PR to be accepted and merged.
+
+!!! note
+    A registered EVM chain ID is only necessary for Tanssi appchains deployed on the MainNet. When testing or deploying on the TestNet, you can choose any available ID and move forward.
+
+To get started, select the **EVM** template from the left-side menu. Then take the following steps:
+
+1. In the **Network Details** section, provide your project's name, your unique EVM chain ID, and select the category that best fits your use case
+2. In the **Gas Token** section, enter the symbol of your appchain's native token. Decimal places are fixed to 18 digits, the same as Ether, to preserve compatibility across EVM tooling
+3. (Optional) You can adjust the [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} configurations in the **Advanced** settings. You can choose to change the **Base fee per gas** and **Max base fee change**
+4. In the **Accounts** section, provide the Ethereum-style address of the account you want to use as the sudo account and its corresponding initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the Tanssi appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
+5. (Optional) In the **Advanced** section, click on **Add** to add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
+6. (Optional) In the **Genesis Smart Contracts**, click on **Add** to add genesis smart contracts by providing an address to use and the bytecode for the smart contract. When providing the bytecode, you'll need to remove the `0x` from the beginning of the bytecode
+7. Once you have configured the template for your Tanssi appchain, select **Continue** and proceed to the [Check Balances section](#check-balances)
+
+![Create a Tanssi EVM Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-4.webp)
+
+### Substrate Template {: #substrate-template }
+
+The [Substrate template](/builders/build/templates/overview/#baseline-network-template){target=\_blank} includes all the configurations for seamless integration with Tanssi. It can be used as the baseline specification to build a custom Tanssi-powered appchain leveraging the modularity and scalability of the Substrate framework.
+
+To get started, select the **Substrate** template from the left-side menu. Then take the following steps:
+
+1. In the **Network Details** section, enter your project's name and select the category that best fits your use case
+2. In the **Gas Token** section, enter the token decimals, symbol, and the [SS58 address format](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=\_blank}
+3. In the **Accounts** section, provide the Substrate-style address of the account you want to use as the sudo account and its initial balance. This account will be able to dispatch privileged functions that require Root permissions. There can only be one sudo account at a time. The sudo account can be changed at any time to a new one by the current sudo account. Once the appchain is launched, you can easily migrate to a fully decentralized system using specific democracy-related modules
+4. (Optional) In the **Advanced** section, click on **Add** to add genesis accounts and balances. If you choose to skip this step, you can use the sudo account to create accounts and transfer funds at a later time
+5. Once you have configured the template for your Tanssi appchain, you can select **Continue** to proceed to the [Check Balances section](#check-balances)
+
+![Create a baseline Substrate Appchain with the Tanssi dApp.](/images/builders/deploy/dapp/dapp-5.webp)
+
+### Custom {: #custom }
+
+If you already have a Substrate runtime built and have chosen to upload your own custom specification file, there are some requirements you should be aware of to ensure the runtime can evolve into a Tanssi-powered appchain and run properly.
+
+Your runtime must implement the following:
+
+- The Cumulus SDK, as outlined in the [Base Setup to Connect to Polkadot](/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
+- Tanssi modules for block production, as outlined in the [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank} section of the [Templates](/builders/build/templates/overview/){target=\_blank} page
+
+Other required changes in the runtime include:
+
+- To verify the author's eligibility to produce a block, set the following type as shown in the snippet, in the `timestamp` module configuration section of the runtime:
+
+    ```rust
+    type OnTimestampSet = tp_consensus::OnTimestampSet<
+        <Self as pallet_author_inherent::Config>::SlotBeacon,
+        ConstU64<{ SLOT_DURATION }>,
+    >;
+    ```
+
+- Remove all the modules related to block production and consensus (such as `Aura` and `Grandpa`), leaving Tanssi to take over the burden. If the starting point for your project was the parachain template, the following modules are included by default in the runtime and must be removed:
+
+    ```rust
+    // Collator support. The order of these 4 are important and shall not change.
+	#[runtime::pallet_index(20)]
+	pub type Authorship = pallet_authorship;
+	#[runtime::pallet_index(21)]
+	pub type CollatorSelection = pallet_collator_selection;
+	#[runtime::pallet_index(22)]
+	pub type Session = pallet_session;
+	#[runtime::pallet_index(23)]
+	pub type Aura = pallet_aura;
+	#[runtime::pallet_index(24)]
+	pub type AuraExt = cumulus_pallet_aura_ext;
+    ```
+
+Finally, [generate and edit](/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs){target=\_blank} the chain specification paying special attention to:
+
+- `para_id` - within this custom flow, a pre-registered appchain id is required. You can get an appchain ID moving forward with the registration to the **Reserve your Network ID** step. After you reserve the ID, start over the process to get back to this point
+- `is_ethereum` - to `true` if exposing Ethereum compatible RPC endpoints is needed
+
+And, depending on whether you are deploying a quick trial appchain or a dedicated one, also adjust these attributes:
+
+=== "Quick Trial Appchain"
+
+    ```json
+    {
+        ...
+        "relay_chain": "rococo_flashbox_relay_testnet",
+        "chainType": "Live",
+        "genesis": {
+            "runtime": {
+                ...
+                "authoritiesNoting": {
+                    "orchestratorParaId": 1000
+                },
+                ...
+            }
+        }
+        ...
+    }
+    ```
+
+=== "Dedicated Appchain"
+
+    ```json
+    {
+        ...
+        "relay_chain": "rococo-local",
+        "chainType": "Live",
+        "genesis": {
+            "runtime": {
+                ...
+                "authoritiesNoting": {
+                    "orchestratorParaId": 0
+                },
+                ...
+            }
+        }
+        ...
+    }
+    ```
+
+Now, you can upload your custom raw specification file by selecting the **Custom** template and adding your JSON specification file.
+
+![Upload a custom raw specification file to the Tanssi dApp.](/images/builders/deploy/dapp/dapp-6.webp)
+
+!!! note
+    The size of a raw chain specifications file should not exceed 2MB.
+
+## Check Balances {: #check-balances }
+
+Next, you'll need to verify that you have sufficient balance. If you don't, you can press **Request Tokens** and complete the following login with GitHub or Google. You'll need to complete a few quick onboarding questions, and then you'll be able to press **Request Tokens** again, and they will be delivered to your connected wallet. 
+
+![Request tokens](/images/builders/deploy/dapp/dapp-7.webp)
+
+If you're setting up a dedicated Tanssi appchain, you'll need to fill out an [application form](https://www.tanssi.network/ecosystem/dedicated-chain-testnet-form){target=\_blank}. The Tanssi team will review your application and send the necessary tokens within one business day. 
+
+The required minimum balances to launch a Tanssi appchain are as follows:
+
+=== "Quick Trial Appchain"
+    |        Chain        | Balance Required |
+    |:-------------------:|:----------------:|
+    | Orchestration layer |     70 UNIT      |
+    |   Tanssi TestNet    |     100 SNAP     |
+
+=== "Dedicated Appchain"
+    |            Chain             | Balance Required |
+    |:----------------------------:|:----------------:|
+    |  Tanssi TestNet   |    100 STAR     |
+
+
+!!! note
+    Quick trial appchains use an additional orchestration layer, therefore two different tokens, SNAP and UNIT, will be sent to your account. For dedicated appchains only STAR tokens are required.
+
+## Reserve your Appchain ID {: #reserve-appchain-id }
+
+If you haven't already done so, you must to reserve your Tanssi appchain ID, which will identify your chain within the Tanssi ecosystem.
+
+To reserve your Tanssi appchain ID, you'll need to submit a transaction. Please make sure to use the account you plan to launch your Tanssi appchain with when submitting the transaction.
+
+1. To initiate the transaction, click on **Reserve Network ID**
+2. Your wallet will pop up, and you'll need to submit the transaction
+
+![Reserve your Tanssi-powered Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-8.webp)
+
+Once the transaction has successfully gone through, your Tanssi appchain ID will be displayed on the dApp, and you'll be able to click **Continue** to proceed to the next step. You'll notice that some of your UNIT (or STAR if registering a dedicated Appchain) tokens have been removed from your transferrable balance and are now reserved.
+
+![Successfully reserved your Tanssi-powered Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-9.webp)
+
+## Generate Your Appchain Files {: #generate-appchain-files }
+
+Before you can deploy your Tanssi appchain, you'll need to generate three configuration files:
+
+- [The raw chain specification](/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=\_blank} - a compact version of the JSON specification file, which defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks
+- [The genesis state header](/builders/build/customize/customizing-chain-specs/#genesis-state){target=\_blank} - defines the initial state upon which all transactions and state transitions are executed
+- [The genesis Wasm](/learn/framework/architecture/#runtime){target=\_blank} - a WebAssembly (Wasm) blob that defines the runtime logic
+
+These files will automatically be generated for you based on your Tanssi appchain ID and your customized template configurations. All you need to do is click **Generate**, and the dApp will generate the required files for you.
+
+![Generate your Tanssi-powered appchain files with the click of a button on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-10.webp)
+
+Once the files have been generated, please click **Continue** to go on to the final step.
+
+## Deploy Your appchain {: #deploy-your-appchain }
+
+You're finally ready to take your last step towards preparing your appchain as it evolves into a Tanssi-powered appchain! For this final step, when registering a quieck trial you'll need to submit two transactions: one to register your appchain on the orchestration layer and another to register your appchain on the Tanssi TestNet.
+
+To register your appchain on the orchestration layer, take the following steps:
+
+1. Click **Register** under the **Register Network in Relay** section
+2. Confirm the transaction in your wallet
+
+![Register your Tanssi-powered appchain on the orchestration layer.](/images/builders/deploy/dapp/dapp-11.webp)
+
+Once the transaction has gone through successfully, the dApp will update to show that you have successfully registered your Tanssi appchain under the **Register Network in Relay** section.
+
+Lastly, to register your appchain on Tanssi, take the following steps:
+
+1. Click **Register** under the **Register Network in Tanssi** section
+2. Confirm the transaction in your wallet
+
+![Register your appchain on Tanssi.](/images/builders/deploy/dapp/dapp-12.webp)
+
+Once the transaction has gone through successfully, the dApp will update to show that you have registered your Tanssi-powered appchain. Congratulations! On the dashboard, you can check the status of your deployment and view relevant information, such as the latest block information, RPC and WS endpoints, and more.
+
+![The appchain dashboard on the Tanssi dApp.](/images/builders/deploy/dapp/dapp-13.webp)
+
+And that's it! You've successfully registered your Tanssi appchain! The launch process will automatically begin once the Tanssi team has verified your registration. Once your appchain is live, you can return to the **Dashboard** to view the RPC URL and other pertinent chain information.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/dapp/manage-tokens/
+--- BEGIN CONTENT ---
+---
+title: Manage Tokens
+description: Learn how the network governor can manage the token of a Tanssi-powered network using the dApp to mint them, configure the EIP-1559 fee market, and more.
+icon: octicons-database-24
+categories: Appchain
+---
+
+# Manage Tokens
+
+## Introduction {: #introduction }
+
+Any network deployed through Tanssi is sovereign and free to define the governance model that best fits its use case. The network governor has superpowers over the chain administration. Consequently, they can call privileged functions, such as updating the runtime and managing native token-related operations, among other actions.
+
+There are some actions related to the native token management that are available to the network governor on the Tanssi dApp:
+
+- **Mint tokens** - mints new tokens, increasing the total supply
+- **Update balances** - increases or decreases the balance of an account, affecting the total supply
+- **Transfer tokens** - executes a forced token transfer from one account to another
+- **Configure gas dynamics** - only available on EVM-compatible networks, this action changes the [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank} configuration, affecting the transaction pricing mechanism
+
+In this guide, you'll learn how to execute the previously listed actions using the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+- A Tanssi-powered network (Quick Trial or Dedicated)
+- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+- Your network's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+
+!!! note
+    The network's registration account is always a Substrate one, whereas the network's Sudo account depends on the chain type. If the chain is EVM-compatible, then the Sudo account will be an Ethereum type and, otherwise, a Substrate type.
+
+### Retrieving the Registration Account {: #retrieving-registration-account }
+
+--8&lt;-- 'text/builders/manage/dapp/locate-registration-account.md'
+
+### Retrieving the Sudo Account {: #retrieving-sudo-account }
+
+--8&lt;-- 'text/builders/manage/locate-sudo-account.md'
+
+## Accessing the Token Management Panel {: #accesing-token-management-panel }
+
+The Tanssi dApp implements a smooth interface, allowing the network governor to access and execute privileged functions. To do so, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, and then:
+
+1. Click on the **Manage** button
+2. Click on the **Token Management** button.
+
+![Accessing the token management panel](/images/builders/manage/dapp/token-management/token-management-1.webp)
+
+Now you have direct access to the actions presented in the introduction:
+
+1. **Mint Tokens**
+2. **Update Balances**
+3. **Transfer Tokens**
+4. Configure **Gas Dynamics** 
+
+![The token management panel](/images/builders/manage/dapp/token-management/token-management-2.webp)
+
+!!! note
+    If you don't see your network's details on the dashboard, make sure to comply with the [prerequisites](#checking-prerequisites).
+
+### Minting Tokens {: #minting-tokens }
+
+The network governor can mint new tokens, increasing its total supply. To do so, in the **Token Management** panel, click on the **Mint tokens** button, and then:
+
+1. Insert the address that will hold the newly minted tokens
+
+    !!! note
+        The destination address must be Ethereum type if the chain is EVM-compatible and a Substrate type otherwise.
+
+2. Insert the amount of tokens to mint
+3. Click on **Mint**
+
+![Mint tokens](/images/builders/manage/dapp/token-management/token-management-3.webp)
+
+You'll be asked to sign the transaction with the network's governor account. Once the transaction has gone through, the destination account's balance will have been increased by the desired amount.
+
+### Updating Balances {: #updating-balances }
+
+The network governor can increase or decrease the balance of any account, thus affecting the total supply. To do so, in the **Token Management** panel, click on the **Update Balances** button, and then:
+
+1. Insert the address that will hold the newly minted tokens. Once you enter the address, its current balance will be displayed
+
+    !!! note
+        The destination address must be Ethereum type if the chain is EVM-compatible and a Substrate type otherwise.
+    
+2. Insert the new balance the address will hold
+3. Click on **Update**
+
+![Update Balances](/images/builders/manage/dapp/token-management/token-management-4.webp)
+
+You'll be asked to sign the transaction with the network's governor account. Once the transaction has gone through, the destination account's balance will reflect exactly the desired amount, regardless of previous holdings.
+
+### Executing Forced Transfers {: #forced-transfers }
+
+The network governor can reassign balances, forcing a token transfer from one account to another. To do so, in the **Token Management** panel, click on the **Transfer Tokens** button, and then:
+
+1. Insert the origin address that will transfer its tokens
+2. Insert the destination address that will receive the tokens
+
+    !!! note
+        The origin and destination addresses must be Ethereum type if the chain is EVM-compatible and Substrate type otherwise.
+
+3. Insert the amount of tokens to transfer
+4. Click on **Transfer**
+
+![Transfer Tokens](/images/builders/manage/dapp/token-management/token-management-5.webp)
+
+You'll be asked to sign the transaction with the network's governor account. Once the transaction has gone through, the destination account will have received the number of tokens from the origin address.
+
+### Setting Gas Dynamics {: #setting-gas }
+
+!!! note
+    This option only applies to EVM-compatible networks.
+
+The governor of a Tanssi-powered EVM-compatible network can change its [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank} configuration, affecting the transaction pricing mechanism. To do so, in the **Token Management** panel, click on the **Gas Dynamics** button, and then:
+
+1. Insert the new base fee, expressed in Wei units (10<sup>-18</sup>)
+2. Insert the elasticity value
+3. Click on **Update Dynamics**
+
+![Configure Gas Dynamics](/images/builders/manage/dapp/token-management/token-management-6.webp)
+
+You'll be asked to sign the transaction with the network's governor account. Once the transaction has gone through, the network's fee mechanism will run with the new transaction pricing parameters.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/dapp/register-external-assets/
+--- BEGIN CONTENT ---
+---
+title: Register External Assets
+description: Tanssi networks benefit from native cross-chain communication, enabling smooth and fast token transfers between the token’s native chain and other chains.
+categories: Appchain
+---
+
+# Register External Assets
+
+## Introduction {: #introduction }
+
+Cross-chain asset transfer is crucial because it enables the seamless movement of digital assets across different networks, enhancing interoperability, liquidity, and user experience. To enable asset transfers to and from two networks, first, a bidirectional channel must be open between them. Thanks to the Tanssi dApp, opening a channel is an easy and quick task. Please refer to the [Manage Cross-Chain Communication Channels](/builders/manage/dapp/xcm-channels/){target=\_blank} article to know how to do it.
+
+!!! note
+    Opening a bidirectional communication channel requires approval from both networks governors.
+
+Once your network's communication channels are established, you can register other chain's assets (external assets) to start operating. This guide will walk you through the process of registering external assets using the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+- A Tanssi-powered network (Dedicated) running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
+- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+- Your network's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+
+!!! note
+    The network's registration account is always a Substrate one, whereas the network's Sudo account depends on the chain type. If the chain is EVM-compatible, then the Sudo account will be an Ethereum type and, otherwise, a Substrate type.
+
+### Retrieving the Registration Account {: #retrieving-registration-account }
+
+--8&lt;-- 'text/builders/manage/dapp/locate-registration-account.md'
+
+### Retrieving the Sudo Account {: #retrieving-sudo-account }
+
+--8&lt;-- 'text/builders/manage/locate-sudo-account.md'
+
+## Accessing the External Assets Registration Panel {: #accesing-external-assets-management-panel }
+
+The Tanssi dApp makes it easy for the network governor to manage cross-chain communication configurations. It allows requesting new channels, accepting incoming channel opening requests, closing existing channels, managing external assets, and more. To access the cross-chain management panel, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, and then: 
+
+1. Click on the **Manage** button
+2. Click on the **XCM** button
+
+![Accessing the cross-chain management panel](/images/builders/manage/dapp/access-xcm-management-panel.webp)
+
+!!! note
+    If you don't see your network's details on the dashboard, make sure to comply with the [prerequisites](#checking-prerequisites).
+
+The panel will show your network's cross-chain configuration along with several available actions. Regarding external assets, the relevant elements you are presented with are:
+
+1. **Registered Assets panel** - this section will group and present to you all registered assets your network already has available
+2. **Registered Assets List** - already registered external assets will be displayed in this section, along with their associated information such as asset name, symbol, ID, total supply, and network ID where it is native
+3. **Asset Registration** - this option allows you to select other available external assets and register them. The [following section](#register-external-asset) explains how to do it
+
+![The cross-chain management panel](/images/builders/manage/dapp/register-external-assets/register-external-assets-1.webp)
+
+## Register an External Asset {: #register-external-asset }
+
+Provided your network has already established bidirectional communicaction channels with another network, the network governor can register external assets.
+
+To do so, click on **Asset Registration** and then:
+
+1. Select at least one of the available assets from the list
+2. Click on **Register**
+
+You'll be asked to sign the transaction, and once it's gone through, the external asset will be available locally. 
+
+![Asset registration](/images/builders/manage/dapp/register-external-assets/register-external-assets-2.webp)
+
+!!! note
+    The dApp only presents well-known assets from well-known networks of the ecosystem. If the asset you need to register is not listed, you'll have to do it using the developer portal.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/dapp/services-payment/
+--- BEGIN CONTENT ---
+---
+title: Block Production Services Payment
+description: Networks deployed through Tanssi benefit from block production services provided by a set of node operators, which are compensated with Tanssi tokens.
+icon: octicons-server-24
+categories: Appchain
+---
+
+# Block Production Services Payment
+
+## Introduction {: #introduction }
+
+As presented in the [Block Production as a Service](/learn/tanssi/network-services/block-production/#block-production-fees){target=_\blank} article, there are two main costs associated that the network governor must cover: 
+
+- **Sequencers assignment** - for the assignment of sequencers by the Tanssi protocol, which happens once per session
+- **Block production** - for each block that is produced on the network's behalf
+
+In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} to top-up your account and keep your network's liveness.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+- A Tanssi-powered network (Quick Trial or Dedicated)
+- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, and take the following steps:
+
+1. Select the **registrar** storage module
+2. Select **registrarDeposit**
+3. Insert your network ID
+4. Press **+** icon
+
+You'll see the registration account at the bottom.
+
+![Locating your registration account](/images/builders/manage/dapp/locate-registration-account.webp)
+
+!!! note
+    The dApp will show your network in the dashboard only if you have the registration account properly set.
+
+## Topping-Up Your Network's Credits {: #topping-up }
+
+Following a pay-as-you-go model, the networks must have funds allocated to pay for the services, which, over time, will be deducted and burned by the Tanssi protocol upon every session change for the cost of the sequencer's assignment and for every block for the cost of producing the block.
+
+You can check your network's current balance and top it up using the Tanssi dApp. To do so, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank} and connect the network's registration account to the dApp. The site will display a card showing your network status. This card includes the projected liveness forecast underneath the **Block Production** section and the **Top Up** button.
+
+![Top-up action button in the dApp](/images/builders/manage/dapp/services-payment/services-payment-1.webp)
+
+Clicking on the **Top Up** button displays a sidebar where the following information can be seen:
+
+- **Current balance** - the current balance allocated for the network's block production service
+- **Available balance** - the balance available in the network's registration account, which is connected to the dApp
+- **Current cost** - current cost per sequencer's assignment and cost per block
+- **Projected forecast** - the estimated day when the network runs out of funds and stops being served
+
+To extend the network's projected runway, take the following actions:
+
+1. Insert the amount of tokens to buy block production services
+2. Click **Top Up**
+
+![Top-up sidebar](/images/builders/manage/dapp/services-payment/services-payment-2.webp)
+
+You will be asked to sign the transaction, and after it's gone through, your network will benefit from an extended horizon of liveness.
+
+!!! warning
+    If your network doesn't have enough funds to cover the sequencer's assignment and one session's worth of blocks, it will stall.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/dapp/xcm-channels/
+--- BEGIN CONTENT ---
+---
+title: Manage Cross-Chain Communication Channels
+description: Tanssi networks benefit from native cross-chain communication, which allows fast and secure bridging leveraging the architecture they are built on top of.
+categories: Appchain
+---
+
+# Manage Cross-Chain Communication Channels
+
+## Introduction {: #introduction }
+
+As presented in the [Native Cross-Chain Communication](/learn/framework/xcm/){target=\_blank} article from the Learn section, all Tanssi-powered networks have an inherent capability to communicate and interoperate with any other network in the ecosystem. This native cross-chain communication feature is possible thanks to the unique infrastructure the networks are built on top of, leveraging the Cross-Consensus Message format (XCM for short), which facilitates communication between different consensus systems.
+
+The first step to enable communication between networks is [opening a channel](/learn/framework/xcm/#channel-registration){target=\_blank}. The process of opening a channel starts by sending a request to the network you want to establish communications with. Once the request has been accepted by the destination chain's governor, a channel will be opened. 
+
+In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} to manage your network's cross-chain communication channels.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+- A Tanssi-powered network (Dedicated) running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
+- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+- Your network's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+
+!!! note
+    The network's registration account is always a Substrate one, whereas the network's Sudo account depends on the chain type. If the chain is EVM-compatible, then the Sudo account will be an Ethereum type and, otherwise, a Substrate type.
+
+### Retrieving the Registration Account {: #retrieving-registration-account }
+
+--8&lt;-- 'text/builders/manage/dapp/locate-registration-account.md'
+
+### Retrieving the Sudo Account {: #retrieving-sudo-account }
+
+--8&lt;-- 'text/builders/manage/locate-sudo-account.md'
+
+## Accessing the Channel Management Panel {: #accesing-channel-management-panel }
+
+The Tanssi dApp makes it easy for the network governor to manage cross-chain communication configurations. It allows requesting new channels, accepting incoming channel opening requests, closing existing channels, managing external assets, and more. To access the cross-chain management panel, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, and then: 
+
+1. Click on the **Manage** button
+2. Click on the **XCM** button
+
+![Accessing the cross-chain management panel](/images/builders/manage/dapp/access-xcm-management-panel.webp)
+
+!!! note
+    If you don't see your network's details on the dashboard, make sure to comply with the [prerequisites](#checking-prerequisites).
+
+The panel will show your network's communication channels status along with several available actions. The elements you are presented with are:
+
+1. **Sovereign account** - is a keyless account that belongs to the network in a different consensus system, the relay chain in this case. It can only be used by the network's governor. 
+
+    Before opening a new channel, the network's sovereign account in the relay chain must be funded with enough tokens to be locked as a channel deposit.
+
+    In this section, you can see your network's sovereign account balance, copy its address, and deposit tokens
+
+    !!! note
+        Your network's sovereign account in the relay chain must be funded with relay chain tokens. On Dancebox, the relay chain uses UNIT tokens, and the required amount is currently configured to zero.
+
+2. **Incoming/Outgoing channel requests** - every channel request needs to be accepted by the counterpart before any message can be sent. 
+
+    In this section, you can see the list of pending outgoing requests and cancel them. You can also see any incoming channel requests your network might have received and accept the channel
+
+3. **Established channels** - Once the destination chain's governor has accepted the channel request, the channel becomes open and available for message transmission.
+
+    In this section, you can see the list of accepted channels your network has, the direction in which the messages flow through the channel, and cancel the channel
+
+4. **Request to open new channels** - this option allows you to select an existing network within the ecosystem and request a channel to be opened. The [next section](#request-new-channel) explains how to do it
+
+![The channel management panel](/images/builders/manage/dapp/xcm-channels/xcm-channels-1.webp)
+
+## Request to Open New Channel {: #request-new-channel }
+
+Provided that your network has enough funds for the deposit in its relay chain's sovereign account, the network governor can request to open a new channel with any other network. 
+
+To do so, click on **HRMP Channels** and then:
+
+1. Select the network you want to establish a channel with
+2. Click on **Request Channel**
+
+You'll be asked to sign the transaction, and once it's gone through, the destination chain will receive the request. 
+
+![Channel opening request](/images/builders/manage/dapp/xcm-channels/xcm-channels-2.webp)
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/impersonate/
+--- BEGIN CONTENT ---
+---
+title: Impersonating Other Accounts With Sudo 
+description: Learn how to use the Sudo key to dispatch calls by signing a transaction as if it came from a different account.
+icon: octicons-person-add-24
+categories: Appchain
+---
+
+# Using Sudo to Impersonate Other Accounts
+
+## Introduction {: #introduction }
+
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This allows you to perform privileged actions while managing your network, such as impersonating other accounts.
+
+In this guide, you'll learn how to use Sudo to impersonate other accounts. For example, this guide will use the Sudo account to pose as an arbitrary account and transfer funds from said account.
+
+!!! warning
+    The balance transfer demonstrated in this guide is dubious, and it is shown only as an example of using Sudo.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+ - A Tanssi-powered network (Quick Trial or Dedicated)
+ - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+
+If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
+
+!!! warning
+    It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi network.
+
+## Using the Sudo As Method {: #using-the-sudo-as-method }
+
+As you know, the Sudo account can perform privileged functions, including impersonating other accounts. When submitting a call via `sudoAs`, the runtime will first authenticate the Sudo key and then dispatch the desired function call with the `Signed` origin from a given account. In the following example, the `sudoAs` method will orchestrate sending some tokens to another account. While the result is similar to using Sudo with a `forceBalanceTransfer` call, the following example uses a regular balance transfer call where the origin is the sender's account rather than the Sudo account.
+
+To make a `sudoAs` call to impersonate another account, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi-powered network and click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Ensure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps. Then, take the following steps:
+
+1. Select the **Sudo** pallet
+2. Select the **sudoAs** method
+3. Select or paste in the desired account to impersonate
+4. Select the desired pallet for the call to submit. In this case, it is the **balances** pallet
+5. Select the **transferAllowDeath** method
+6. Specify the destination account for the balance transfer
+7. Specify the number of tokens to send
+8. Press **SubmitSudo** and confirm the resulting pop-up
+
+![Make a Sudo as call](/images/builders/manage/developer-portal/impersonate/impersonate-2.webp)
+
+The other account had a starting balance of `1,000` tokens before the call, and subsequently dropped to `995` as expected.
+
+![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-3.webp)
+
+## Using Sudo and the Dispatch As Utility {: #using-sudo-and-the-dispatch-as-utility }
+
+The following section will demonstrate using Sudo to dispatch calls from an arbitrary origin. When submitting a call in this manner, the runtime will first authenticate the Sudo key and then dispatch the call using the `utility` pallet and the `dispatchAs` function, allowing the transaction's origin to be exactly what you'd like.  
+
+To do so, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi-powered network and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Ensure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+
+1. Select the **Sudo** pallet
+2. Select the **Sudo** method
+4. Select the desired pallet for the call to submit. In this case, it is the **utility** pallet
+5. Select the **dispatchAs** method
+6. Select **system** from the dropdown
+7. Select the **signed** origin, which sets the origin of the transaction to be the specified account rather than root
+8. Select the desired pallet for the call to submit. In this case, it is the **balances** pallet
+9. Select the **transferAllowDeath** method
+10. Specify the destination account for the balance transfer
+11. Specify the number of tokens to send
+12. Press **SubmitSudo** and confirm the resulting pop-up
+
+![Use Sudo Dispatch As on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-4.webp)
+
+The other account had a starting balance of `995` tokens prior to the call and dropped to `990` as expected.
+
+![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-5.webp)
+
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/maintenance/
+--- BEGIN CONTENT ---
+---
+title: Enabling Maintenance Mode 
+description: Learn how to use Sudo to turn on and off maintenance mode, which effectively pauses your network while still producing blocks and allowing select calls.
+icon: octicons-stop-24
+categories: Appchain
+---
+
+# Enabling Maintenance Mode
+
+## Introduction {: #introduction }
+
+The [Maintenance pallet](https://moonbeam.network/blog/maintenance-mode){target=\_blank} is a module that is designed for use only in emergencies that present existential threats to the network. Enabling maintenance mode on your network will suspend the processing of all regular transactions, including EVM interactions. Block production continues at a regular cadence and allows governance and staking functions to continue. 
+
+Maintenance mode filters (ignores) all calls outside of governance and staking. Once maintenance mode is exited, your chain will process any pending transactions that queued up while your chain was in maintenance mode. Maintenance mode is intended to be used only as a temporary, emergency measure. 
+
+For example, imagine discovering a critical exploit on your network that could result in significant financial losses if malicious actors exploit it. While you can address the issue by implementing a runtime upgrade, the process takes time—precious time during which your network remains vulnerable to attack. One potential solution is to activate maintenance mode on your network, complete the runtime upgrade, and exit maintenance mode once the fix has been verified.
+
+!!! warning
+    Enabling maintenance mode on a production network can significantly impact the contracts on your chain. While maintenance mode is enabled, no smart contract transactions are processed, so it's critical to consider the potential ramifications before activating it. 
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+ - A Tanssi-powered network (Quick Trial or Dedicated)
+ - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+
+If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
+
+!!! warning
+    It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi network.
+
+## Enabling Maintenance Mode {: #enabling-maintenance-mode }
+
+As you know, the Sudo account can perform privileged functions, such as enabling and disabling maintenance mode. To enter maintenance mode and stop regular transaction processing, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi-powered network and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+
+1. Select the **maintenanceMode** pallet
+2. Select the **enterMaintenanceMode** method
+3. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
+
+![Enable maintenance mode](/images/builders/manage/developer-portal/maintenance/maintenance-2.webp)
+
+To verify that maintenance mode has been enabled, you can check the **Explorer** section under the **Network** tab and review the recent events. 
+
+![Check maintenance mode is enabled](/images/builders/manage/developer-portal/maintenance/maintenance-3.webp)
+
+## Exiting Maintenance Mode {: #exiting-maintenance-mode }
+
+To exit maintenance mode and return your network to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi-powered network and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+
+1. Select the **maintenanceMode** pallet
+2. Select the **resumeNormalOperation** method
+3. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
+
+![Exit maintenance mode](/images/builders/manage/developer-portal/maintenance/maintenance-4.webp)
+
+To verify that maintenance mode has been disabled, you can check in the **Explorer** section under the **Network** tab and review the recent events. 
+
+![Check maintenance mode is disabled](/images/builders/manage/developer-portal/maintenance/maintenance-5.webp)
+
+Remember that using maintenance mode is an emergency action that should only be activated when your chain is at dire risk. It may be worthwhile to establish a policy for your network that sets specific circuit breaker triggers to determine when maintenance mode will be enabled. Establishing a policy in advance will also streamline decision-making during a potential emergency.  
+
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi-powered network.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/minting/
+--- BEGIN CONTENT ---
+---
+title: Minting Native Tokens with Sudo 
+description: Learn how to use the Sudo key to manage your Tanssi-powered network and perform the privileged action of minting native tokens, changing the total issuance.
+icon: material-creation-outline
+categories: Appchain
+---
+
+# Using Sudo to Mint Native Tokens
+
+## Introduction {: #introduction }
+
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This enables you to perform privileged actions in the course of managing your network, such as minting new native tokens.
+
+In this guide, you'll learn how to use Sudo to properly mint new native tokens. This comprehensive guide shows how to check the balance of an existing account prior to assigning it a new balance with Sudo access.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+ - A Tanssi-powered network (Quick Trial or Dedicated)
+ - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+
+If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
+
+!!! warning
+    It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi network.
+
+## Minting Tokens {: #minting-tokens }
+
+As you know, the Sudo account has the ability to perform privileged functions, including minting additional tokens. When setting up your network on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}, you can specify genesis account balances. In other words, you have the ability to endow accounts with initial balances upon launching your Tanssi network. However, you can also mint new tokens after launch with the help of the Sudo account.
+
+!!! note
+    This tutorial demonstrates assigning arbitrary token balances on a TestNet network that has no value. You should carefully consider the ramifications of creating additional tokens on your own Tanssi-powered network.
+
+### Checking Existing Account Balance {: #checking-existing-account-balance }
+
+The next section will demonstrate how to assign arbitrary token balances to accounts using the Sudo account. This process will overwrite the specified account's existing balance, so verifying the account is empty is a good practice before continuing. To check an account's balance, take the following steps:
+
+1. Navigate to the **Developer** tab of [Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} and click on **Chain State**
+2. Select the **system** pallet to query
+3. Select **account**
+4. Paste in the account address or select it from the dropdown
+5. Press **+** icon
+6. You'll see the balance information returned at the bottom, including free, reserved, and frozen balances
+
+![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/minting/minting-2.webp)
+
+### Assigning Balances with Sudo {: #assigning-balances-with-sudo }  
+
+To assign an account balance to an account, make sure to have your Sudo account accessible in [Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+
+1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi network
+2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps
+3. Select the **balances** pallet
+4. Select the **forceSetBalance** method
+5. Paste in the account address to endow with tokens or select it from the dropdown
+6. Enter the amount of tokens to endow the account with. In this example, we specify `9000000000000000000` for nine native tokens. Remember that Tanssi-powered EVM networks have 18 decimals, while Substrate or custom networks configure the decimals when launching the chain. If you're unsure how many decimals your network has, navigate to the **Settings** tab and click on **Metadata**
+7. Press **Submit Sudo** and confirm the transaction in your wallet
+
+![Force assign balances on Polkadot.js Apps](/images/builders/manage/developer-portal/minting/minting-3.webp)
+
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/pause-transactions/
+--- BEGIN CONTENT ---
+---
+title: Pausing Transactions
+description: Learn how to use Sudo to temporarily pause hand-picked transactions, preventing their execution while allowing all other transactions to proceed as usual.
+icon: octicons-stopwatch-24
+categories: Appchain
+---
+
+# Pausing Transactions
+
+## Introduction {: #introduction }
+
+The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} is one of the [built-in modules](/learn/framework/modules/#built-in-modules){target=\_blank} included in the Polkadot SDK, and it is available in any Tanssi-powered network based on the [official templates](/builders/build/templates/overview/){target=\_blank} version [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} or higher.
+
+This module allows a network governor to temporarily avoid executing a set of hand-picked transactions while the rest of the transactions carry on as usual. This feature is helpful in several scenarios, such as disabling functionality in which a security threat has been discovered, enabling seasonal functionality only when needed, and enabling a set of transactions exactly on a launch date.
+
+In an emergency scenario, when a critical exploit is discovered, this module allows the network to isolate and stop only the affected functionality, effectively minimizing the overall impact. 
+
+!!! warning
+    At the time of this writing, this module hasn't yet been audited; therefore, it is not recommended for production use. 
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+ - A Tanssi-powered network (Quick Trial or Dedicated) featuring the Transaction Pause module. Any new network deployment based on one of the templates will do; otherwise, make sure to [include the module](/builders/build/customize/adding-built-in-module/){target=\_blank} in your custom-made network runtime
+ - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+
+If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
+
+!!! warning
+    It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi network.
+
+## Module and Transaction Names {: #modules-transaction-names }
+
+The [Transaction Pause module](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} works by filtering the execution of specific transactions contained in the modules included in the network runtime. To do so, it keeps an internal list of the banned transactions identified by module and transaction name. This list is case-sensitive and works only when there is an exact match between one item in the paused transactions list and the transaction being processed. Therefore, using the exact names of the modules and the transactions is crucial.
+
+To find out the names of the modules available in your runtime, you need to read the `construct_runtime!()` section in the `lib.rs` file of your network runtime in your project repository. If your network is based on one of the official templates, you'll find the file in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}:
+
+- For networks based on the EVM template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}
+- For networks based on the Substrate template: [the lib.rs file](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}
+
+The following snippet is an example of how the `construct_runtime!()` section looks like. The module names are those located to the left of the colon.
+
+```rust
+construct_runtime!(
+    pub enum Runtime
+    {
+        ...
+        Migrations: pallet_migrations = 7,
+        MaintenanceMode: pallet_maintenance_mode = 8,
+        TxPause: pallet_tx_pause = 9,
+        Balances: pallet_balances = 10,
+        Multisig: pallet_multisig = 16,      
+        ...
+   }
+```
+
+To identify the transaction names included in a module, you need to refer to its source code. Modules built in [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} identify their transactions using a macro `#[pallet::call_index(INDEX)]`, where `INDEX` is a number. In the case of a [built-in module](/builders/build/customize/adding-built-in-module/){target=\_blank}, the code is located within the [FRAME folder](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame){target=\_blank} of the Polkadot-SDK repository. For example, if you want to know about the transaction names in the `Balances` module, refer to its [lib.rs](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/balances/src/lib.rs){target=\_blank} file and look for the function names below the `#[pallet::call_index(INDEX)]` macros. The following snippet is the transaction `transfer_allow_death` of the module `Balances`, which is the one used as an example in this guide:
+
+```rust
+#[pallet::call_index(0)]
+pub fn transfer_allow_death(
+    origin: OriginFor<T>,
+    dest: AccountIdLookupOf<T>,
+    #[pallet::compact] value: T::Balance,
+) -> DispatchResult {
+    // Code
+    Ok(())
+}
+```
+
+### Some Frequently Used Modules and Transactions {: #frequently-used-modules-transactions }
+
+When using any of the built-in Substrate modules, the name with which it's referenced within the runtime is entirely up to the developer, but the transaction names aren't customizable. Here is a list of some of the most commonly used modules with the most commonly used transactions they contain. Those are the transaction names to be used in this Transaction Pause module.
+
+???+ function "[**pallet-ethereum**](https://github.com/polkadot-evm/frontier/blob/master/frame/ethereum/src/lib.rs){target=\_blank} — This module, along with the EVM module, provides full Ethereum compatibility to the network"
+
+    | Transaction Name |        Description        |
+    |:----------------:|:-------------------------:|
+    |    `transact`    | Executes an Ethereum call |
+
+??? function "[**pallet_balances**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/balances/src/lib.rs){target=\_blank} — This module provides functionality for handling accounts and balances for the network native currency"
+
+    |    Transaction Name    |                                                                 Description                                                                  |
+    |:----------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
+    | `transfer_allow_death` |      Executes a balance transfer, deleting the sender's account when its final balance goes below the minimal requirement for existence      |
+    | `transfer_keep_alive`  | Executes a balance transfer, keeping the sender's account alive even when its final balance goes below the minimal requirement for existence |
+    |     `transfer_all`     |                                              Transfer all non-locked balances to a destination                                               |
+    |         `burn`         |                                     Burns balance from the origin's account, reducing the total issuance                                     |
+
+??? function "[**pallet_assets**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/assets/src/lib.rs){target=\_blank} — This module provides functionality for handling fungible tokens"
+
+    |   Transaction Name    |                                                                Description                                                                 |
+    |:---------------------:|:------------------------------------------------------------------------------------------------------------------------------------------:|
+    |       `create`        |                                                   Issues a new class of fungible assets                                                    |
+    |    `start_destroy`    |                                          Starts the process of destroying a fungible asset class                                           |
+    |  `destroy_accounts`   |                       Destroys all accounts associated with a given asset for which the destroy process was started                        |
+    |  `destroy_approvals`  |                       Destroys all approvals associated with a given asset for which the destroy process was started                       |
+    |   `finish_destroy`    |                          Completes the destroy process of a given asset for which the destroy process was started                          |
+    |        `mint`         |                                                                Mints assets                                                                |
+    |        `burn`         |                                                                Burns assets                                                                |
+    |      `transfer`       |      Executes an asset transfer deleting the sender's account when its final balance goes below the minimal requirement for existence      |
+    | `transfer_keep_alive` | Executes an asset transfer keeping the sender's account alive even when its final balance goes below the minimal requirement for existence |
+    |       `freeze`        |                                          Disallows transfers of an asset from a specific account                                           |
+    |        `thaw`         |                                         Allows again transfers of an asset from a specific account                                         |
+    |    `freeze_asset`     |                                                      Disallows transfers of an asset                                                       |
+    |     `thaw_asset`      |                                                     Allows again transfers of an asset                                                     |
+    |    `set_metadata`     |                                                       Sets the metadata for an asset                                                       |
+    |   `clear_metadata`    |                                                      Clears the metadata for an asset                                                      |
+    
+??? function "[**pallet_nfts**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/nfts/src/lib.rs){target=\_blank} — This module provides functions for handling non-fungible tokens"
+
+    |      Transaction Name       |                        Description                         |
+    |:---------------------------:|:----------------------------------------------------------:|
+    |          `create`           |       Issues a new collection of non-fungible items        |
+    |          `destroy`          |        Destroys a collection of non-fungible items         |
+    |           `mint`            |            Mints an item in an NFT collection              |
+    |           `burn`            |          Destroys an item from an NFT collection           |
+    |         `transfer`          |                      Transfers an NFT                      |
+    |    `lock_item_transfer`     |              Disallow the transfer of an item              |
+    |   `unlock_item_transfer`    |         Allows again the transfer of a locked item         |
+    |       `set_attribute`       |     Sets an attribute for an NFT collection or an item     |
+    |      `clear_attribute`      |    Clears an attribute for an NFT collection or an item    |
+    |       `set_metadata`        |               Sets the metadata for an item                |
+    |      `clear_metadata`       |              Clears the metadata for an item               |
+    |  `set_collection_metadata`  |  Sets the metadata for a collection of non-fungible items  |
+    | `clear_collection_metadata` | Clears the metadata for a collection of non-fungible items |
+    |         `set_price`         |                 Sets the price for an item                 |
+    |         `buy_item`          |        Buy an item, provided that it's up for sale         |
+
+??? function "[**pallet_multisig**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/multisig/src/lib.rs){target=\_blank} — This module provides functions for dealing with multi-signature schemas"
+
+    |    Transaction Name    |                                                                 Description                                                                  |
+    |:----------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
+    | `as_multi_threshold_1` |                                           Registers a multi-signature call with a single approval                                            |
+    |       `as_multi`       | Registers a multi-signature call to be made from a composite account if approved by the specified minimum threshold of the other signatories |
+    |   `approve_as_multi`   |              Registers approval for a multi-signature call and dispatches the call when the threshold of signatories is reached              |
+    |   `cancel_as_multi`    |                                         Cancels a pre-existing, ongoing multi-signature transaction                                          |
+
+## Pausing Transactions {: #pausing-transactions }
+
+As you know, the Sudo account [can perform privileged actions](/builders/manage/developer-portal/sudo/){target=\_blank}, such as network upgrades, minting new tokens, and, in this case, pausing and unpausing transactions.
+
+To pause a transaction, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi-powered network and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+
+1. Select the **txPause** module
+2. Select the **pause** method
+3. Insert the **module** name that contains the transaction that will be paused
+4. Insert the **transaction** name that will be paused
+5. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
+
+In this example, the transaction paused is `transfer_allow_death` from the `Balances` module:
+
+![Pause transaction](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-2.webp)
+
+To verify that the transaction has been effectively paused, try executing it. You should get an error.
+
+![Check that the transaction is paused](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-3.webp)
+
+!!! warning
+    The `pause` transaction doesn't verify the module or transaction names and is case-sensitive, so any misspelling will go unnoticed, and the transaction will execute successfully. You should always verify that the transaction has been effectively paused.
+
+## Unpausing Transactions {: #unpausing-transactions }
+
+To unpause a transaction and return it to normal operation, navigate to the **Developer** tab of Polkadot.js Apps for your Tanssi-powered network and click on **Sudo**. If you do not see **Sudo** in this menu, you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Then, take the following steps:
+
+1. Select the **txPause** module
+2. Select the **unpause** method
+3. Insert the **module** name that contains the transaction that will be unpaused
+4. Insert the **transaction** name that will be unpaused
+5. Press **Submit Sudo** and confirm the transaction in the resulting pop-up
+
+In this example, the transaction to unpause is `transfer_allow_death` from the `Balances` module:
+
+![Unpause transaction](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-4.webp)
+
+The `unpause` transaction executes successfully only if the module and transaction parameters have been previously paused; otherwise, it fails. After the successful unpausing, the transaction can be called and executed again.
+
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/smart-contracts-creation-filter/
+--- BEGIN CONTENT ---
+---
+title: Smart EVM - Whitelist Contract Deployments
+description: Learn how to use Sudo to whitelist smart contract deployers for your Smart EVM Tanssi-powered network, increasing overall security.
+icon: octicons-file-binary-24
+categories: Appchain
+---
+
+# Smart EVM - Whitelist Contract Deployments
+
+## Introduction {: #introduction }
+
+EVM-compatible Tanssi-powered networks benefit from a unique feature: the network governor can define which accounts are authorized to deploy smart contracts, forbidding the action for any other non-whitelisted account.
+
+This feature brings several key benefits that might be a great fit for different use cases or contexts. Some of those benefits are:
+
+- **Enhanced Security** - by restricting deployment to trusted accounts, the risk of deploying malicious or vulnerable smart contracts is reduced
+- **Quality Assurance** - known and vetted accounts can be required to follow specific coding standards and undergo thorough testing before deployment
+- **Regulatory Compliance** - uses cases that are highly regulated can limit deployment to ensure that smart contracts meet legal and compliance requirements
+- **Spam and Abuse Prevention** - prevent bad actors from deploying large numbers of unnecessary or harmful contracts
+
+In this guide, you'll learn how to use the Sudo account to manage the whitelisted accounts that can deploy smart contracts on your network.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+ - An EVM-compatible Tanssi-powered network (Quick Trial or Dedicated) running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above. Any new network deployment based on the [EVM template](/builders/build/templates/evm/){target=\_blank} will do
+ - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+
+If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
+
+!!! warning
+    It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi network.
+
+## Getting Started {: #getting-started }
+
+To follow the next sections of this guide, head to Polkadot.js Apps for your Tanssi network. The Polkadot.js Apps link for your Tanssi network can be found in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Tooling** section.
+
+![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-1.webp)
+
+Once in Polkadot.js Apps, navigate to the **Developer** tab and click on **Sudo**.
+
+!!! note
+    If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}.
+
+## Whitelisting Accounts {: #whitelist-accounts }
+
+To define the accounts that will have authorization to deploy smart contracts, [get your Polkadot.js Apps started](#getting-started) and then take the following steps:
+
+1. Select the **parameters** pallet. **setParameter** will be automatically selected in the functions selector and **ContractDeployFilter** in the **keyValue** parameter
+2. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to whitelist the accounts for smart contract deployments and the latter to whitelist the accounts for indirect  (via a smart contract call) smart contract deployments
+3. Toggle the **Include option** switch
+4. Select the **Whitelisted** option
+5. Insert the whitelisted account
+6. If you need to insert more than one account, click on **Add item**
+7. Press **Submit Sudo** and confirm the transaction in your wallet
+
+![Whitelisting Accounts](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-2.webp)
+
+These same steps can be repeated at any moment to remove an account from the whitelist or to add new ones.
+
+## Restoring Permissions to Deploy Smart Contracts {: #restoring-permission}
+
+If you previously authorized some accounts to deploy smart contracts and want to allow any account to deploy smart contracts (as long as they can cover regular transaction fees), then [get your Polkadot.js Apps started](#getting-started) and take the following steps:
+
+1. Select the **parameters** pallet. **setParameter** will be automatically selected in the functions selector and **ContractDeployFilter** in the **keyValue** parameter
+2. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to clear the whitelist for smart contract deployments and the latter to clear the whitelist for indirect  (via a smart contract call) smart contract deployments
+3. Toggle the **Include option** switch
+4. Select the **All** option
+5. Press **Submit Sudo** and confirm the transaction in your wallet
+
+![Clearing the Whitelisted Accounts](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-3.webp)
+
+## Query the Whitelisted Accounts {: #query-whitelisted-accounts }
+
+To get the current configuration containing the whitelisted accounts that can deploy smart contracts, go to Polkadot.js Apps (as explained in the [Getting Started](#getting-started) section), navigate to the **Developer** tab, click on **Chain state**, and take the following steps:
+
+1. Select the **parameters** storage
+2. Select the **parameters(ContainerChainTemplateFrontierRuntimeParametersKey)** option
+3. Make sure that the **Include option** switch is on
+4. Make sure that the **ContractDeployFilter** option is selected
+5. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to query the whitelist for smart contract deployments and the latter to query the whitelist for indirect (via a smart contract call) smart contract deployments
+6. Click the **+** button
+7. The current configuration will be displayed
+
+![Query the Whitelists](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-4.webp)
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/sudo/
+--- BEGIN CONTENT ---
+---
+title: Managing the Sudo Account
+description: Learn how to manage the Sudo account of your network, including viewing and importing the Sudo key into Polkadot.js Apps and changing the current Sudo key.
+icon: octicons-key-24
+categories: Appchain
+---
+
+# Managing Your Network's Sudo Account
+
+## Introduction {: #introduction }
+
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. There can only be a single Sudo account at a time. However, the Sudo keys can be rotated to give Sudo privileges to a new account.
+
+All Tanssi-powered networks come with the Sudo pallet by default, and you're required to designate an account as the Sudo address when launching your network. This enables you to perform privileged actions to manage your chain, such as upgrading your runtime or minting new native tokens. While the Sudo pallet is required to launch your Tanssi network on the TestNet, you can decommission the Sudo pallet and transition to decentralized governance after the MainNet launch.
+
+In the following guide, you'll learn how to view the current Sudo account for your network and how to change it, alongside importing it into Polkadot.js Apps. There are similar guides in this section explaining how to use the Sudo account to perform privileged actions, such as [upgrading your runtime](/builders/manage/developer-portal/upgrade/){target=\_blank} and [minting native tokens](/builders/manage/developer-portal/minting/){target=\_blank}. 
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+ - A Tanssi-powered network (Quick Trial or Dedicated)
+ - Your network's Sudo account connected to your network's Polkadot.js Apps
+
+If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
+
+!!! warning
+    It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi network.
+
+### Configuring Polkadot.js Apps { : #configuring-polkadotjs-apps }
+
+After navigating to Polkadot.js Apps for your network, you'll need to add your Sudo account. Injecting your Sudo account into Polkadot.js Apps from a browser extension is considered safer than storing accounts directly in the browser. However, you can still import your Sudo account directly into the browser's cache. This method does not require the use of any extensions. To import an account into Polkadot.js in this manner, take the following steps:
+
+1. Click on **Settings**
+2. Under **in-browser account creation** select **Allow local in-browser account creation**
+3. Press **Save**
+
+![Allowing creation of in-browser storage](/images/builders/manage/developer-portal/sudo/sudo-2.webp)
+
+Then, head back to the accounts tab and press **Account**. You'll then be able to replace the pre-generated private key with that of your Sudo account.
+
+![Adding account on Polkadot.js Apps](/images/builders/manage/developer-portal/sudo/sudo-3.webp)
+
+!!! warning
+    In-browser key storage is not suitable for production environments. This example is provided for demonstration purposes only in a TestNet environment.
+
+## Changing the Sudo Account {: #changing-the-sudo-account }
+
+Changing your Tanssi-powered network's Sudo account is a straightforward process. Also known as rotating your Sudo keys, this process will remove Sudo access from the existing Sudo account and grant it to the new account. There can only be one Sudo account at any time. However, you are free to change the Sudo account as often as you would like.
+
+Prior to getting started, make sure that you have your existing Sudo account accessible in [Polkadot.js Apps](#configuring-polkadotjs-apps). Then, take the following steps:
+
+1. Navigate to the **Developer** Tab of Polkadot.js Apps for your network
+2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your Sudo account is injected by your wallet and connected to Polkadot.js Apps
+3. Select the **Set Sudo key** heading
+4. Select the new account you'll transfer Sudo privileges to
+5. Press **Reassign** and confirm the transaction in your wallet
+
+![Change Sudo account on Polkadot.js Apps](/images/builders/manage/developer-portal/sudo/sudo-4.webp)
+
+!!! note
+    Ensure that you have access to the new Sudo account. Once Sudo is transferred, it cannot be undone without access to the current Sudo key.
+
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/upgrade/
+--- BEGIN CONTENT ---
+---
+title: Upgrade Your Network's Runtime
+description: Learn how to use the Sudo key to manage your network by performing the privileged action of upgrading the runtime of your Tanssi-powered network.
+icon: octicons-arrow-up-24
+categories: Appchain
+---
+
+# Upgrading Your Network Runtime with Sudo
+
+## Introduction {: #introduction }
+
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This enables you to perform privileged actions in the course of managing your network, such as upgrading your Tanssi-powered network's runtime.
+
+In this guide, you'll learn how to use Sudo to upgrade your network's runtime. With Sudo access, upgrading your chain is a quick and easy process. Note that network teams in production will have the option to phase out Sudo access and rely on governance to process runtime upgrades.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the example in this guide, you will need to have the following:
+
+ - A Tanssi-powered network (Quick Trial or Dedicated)
+ - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+ - The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one
+
+If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
+
+!!! warning
+    It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi network.
+
+## Obtaining the Wasm Runtime {: #obtaining-wasm-runtime }
+
+If your chain is based on one of the official templates, you can download the official Wasm runtime binary file from the table below. The official releases are published in the [releases section](https://github.com/moondance-labs/tanssi/releases){target\_blank} in the Tanssi repository.
+
+|                                              Version                                               |                                                                            EVM Template                                                                            |                                                                           Substrate Template                                                                           |
+|:--------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|      [700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}      |      [Download EVM V700 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-700/frontier-template-runtime-700.wasm){target=\_blank}      |      [Download Substrate V700 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-700/simple-template-runtime-700.wasm){target=\_blank}      |
+|      [600](https://github.com/moondance-labs/tanssi/releases/tag/runtime-600){target=\_blank}      |      [Download EVM V600 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-600/frontier-template-runtime-600.wasm){target=\_blank}      |      [Download Substrate V600 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-600/simple-template-runtime-600.wasm){target=\_blank}      |
+|      [500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank}      |      [Download EVM V500 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-500/frontier-template-runtime-500.wasm){target=\_blank}      |      [Download Substrate V500 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-500/simple-template-runtime-500.wasm){target=\_blank}      |
+| [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} | [Download EVM V400 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-400-templates/frontier-template-runtime-400.wasm){target=\_blank} | [Download Substrate V400 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-400-templates/simple-template-runtime-400.wasm){target=\_blank} |
+| [300](https://github.com/moondance-labs/tanssi/releases/tag/templates-runtime-300){target=\_blank} | [Download EVM V300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/templates-runtime-300/frontier-template-runtime-300.wasm){target=\_blank} | [Download Substrate V300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/templates-runtime-300/simple-template-runtime-300.wasm){target=\_blank} |
+|      [200](https://github.com/moondance-labs/tanssi/releases/tag/runtime-200){target=\_blank}      |      [Download EVM V200 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-200/frontier-template-runtime-200.wasm){target=\_blank}      |      [Download Substrate V200 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-200/simple-template-runtime-200.wasm){target=\_blank}      |
+| [101](https://github.com/moondance-labs/tanssi/releases/tag/runtime-101-templates){target=\_blank} | [Download EVM V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/frontier-template-runtime-101.wasm){target=\_blank} | [Download Substrate V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/simple-template-runtime-101.wasm){target=\_blank} |
+| [100](https://github.com/moondance-labs/tanssi/releases/tag/runtime-100-templates){target=\_blank} | [Download EVM V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/frontier-template-runtime-100.wasm){target=\_blank} | [Download Substrate V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/simple-template-runtime-100.wasm){target=\_blank} |
+
+You should always upgrade the runtime following the releases in an orderly fashion, applying one release after another without skipping any of them. To do so, you need to know your network's current runtime version, which you'll find in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section. For example, if your runtime version is `300`, you should upgrade first to `400`, then `500`, then `600`, and so on until the latest available version.
+
+!!! warning
+    Applying the upgrades in order ensures that the changes (migrations) in the internal data structures are applied, preserving data consistency. Doing otherwise might **stall** your network.
+
+!!! note
+    If you are compiling the runtime manually, make sure to use the Wasm version `compact` and `compressed`, which is optimized and lighter.
+
+## Upgrading Your Runtime {: #upgrading-your-runtime }
+
+To get started, head to Polkadot.js Apps for your Tanssi network. The Polkadot.js Apps link for your Tanssi network can be found in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Tooling** section.
+
+![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/developer-portal/upgrade/upgrade-2.webp)
+
+!!! warning
+    If your network was deployed using an official template and the intended upgrade is a custom runtime, make sure to have changed the default spec name (*frontier-template* or *container-chain-template*) to a different one before building the Wasm file. You'll also need to execute the `setCodeWithoutChecks` extrinsic instead of `setCode`.
+
+With your [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload and your [Sudo account accessible in Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}, take the following steps:
+
+1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi network
+2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}
+3. Select the **system** pallet
+4. Select **setCode**
+5. Toggle the **fileUpload** switch to enable uploading your Wasm runtime file
+6. Upload your Wasm runtime
+7. Press **Submit Sudo** and confirm the transaction in your wallet
+
+![Upgrading your Runtime on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-3.webp)
+
+You can verify that your runtime upgrade was successful by checking the runtime version in the upper left-hand corner. In this case, we can see that the Tanssi-powered network's runtime was successfully upgraded to version `400`.
+
+![Check Runtime version on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-4.webp)
+
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+## Basics Concepts [shared: true]
+
+The following section contains foundational documentation shared across all Tanssi products.
+It describes the architecture and infrastructure that serve as the backbone for all integrations built with Tanssi.
+This includes the network development framework, Substrate and EVM development tools, templates, and guidance for node operators.
+This context is provided to help understand how the system works under the hood, but responses should stay focused on the specific product unless the user explicitly asks about the general architecture.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
 
 Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/included-templates/
 --- BEGIN CONTENT ---
@@ -2127,4 +3445,167 @@ For Dancebox, you can use the following block explorer:
 - [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/explorer){target=\_blank}
 
 Support for additional block explorers is in the works and as more explorers support Dancebox, this section will be updated accordingly.
+--- END CONTENT ---
+
+## Reference Concepts [shared: true]
+
+The following section contains reference material for Tanssi.
+It includes network endpoints, JSON RPC methods, and contract or token addresses.
+While it may not be required for all use cases, it offers a deeper technical layer for advanced development work.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
+
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/endpoints/
+--- BEGIN CONTENT ---
+---
+title: Network Endpoints
+description: Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
+icon: octicons-share-android-24
+categories: Reference
+---
+
+## Network Endpoints
+
+Tanssi networks have two endpoints available for users to connect to: one for HTTPS and one for WSS.
+
+## Dancebox
+
+The Dancebox TestNet HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    https://{{ networks.dancelight.dns_name }}/
+    ```
+
+=== "WSS"
+
+    ```text
+    wss://{{ networks.dancelight.dns_name }}
+    ```
+
+### Demo EVM Network
+
+The demo EVM network HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_url }}
+    ```
+
+=== "WSS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_wss_url }}
+    ```
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc/
+--- BEGIN CONTENT ---
+---
+title: JSON-RPC API Methods
+description: Learn about the supported JSON-RPC API methods for querying your Tanssi EVM network, including standard Ethereum methods and custom methods unique to Tanssi.
+icon: material-code-json
+categories: Reference
+---
+
+# JSON-RPC API Methods
+
+## Standard Ethereum JSON-RPC Methods {: #standard-rpc-methods }
+
+As Tanssi's EVM Compatibility is derived from [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} and closely modeled after Moonbeam's Ethereum compatibility, Tanssi nodes support a wide variety of standard supported Ethereum JSON-RPC methods.
+
+Nevertheless, not all Ethereum JSON-RPC methods are supported; some of those supported return default values (those related to Ethereum's PoW consensus mechanism in particular). This guide provides a comprehensive list of supported Ethereum JSON-RPC methods on Tanssi. Developers can quickly reference this list to understand the available functionality for interfacing with Tanssi EVM networks.
+
+The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
+
+- **[eth_protocolVersion](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_protocolversion){target=\_blank}** — returns `1` by default
+- **[eth_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing){target=\_blank}** — returns an object with data about the sync status or `false`
+- **[eth_hashrate](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_hashrate){target=\_blank}** — returns `"0x0"` by default
+- **[eth_coinbase](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_coinbase){target=\_blank}** — returns the latest block author. Not necessarily a finalized block
+- **[eth_mining](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_mining){target=\_blank}** — returns `false` by default
+- **[eth_chainId](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_chainid){target=\_blank}** — returns the chain ID used for signing at the current block
+- **[eth_gasPrice](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gasprice){target=\_blank}** — returns the base fee per unit of gas used. This is currently the minimum gas price for each network
+- **[eth_accounts](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_accounts){target=\_blank}** — returns a list of addresses owned by the client
+- **[eth_blockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_blocknumber){target=\_blank}** — returns the highest available block number
+- **[eth_getBalance](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getbalance){target=\_blank}** — returns the balance of the given address
+- **[eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
+- **[eth_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
+- **[eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
+- **[eth_getBlockReceipts](https://docs.alchemy.com/reference/eth-getblockreceipts){target=\_blank}** — returns all transaction receipts for a given block
+- **[eth_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
+- **[eth_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
+- **[eth_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
+- **[eth_getUncleCountByBlockHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblockhash){target=\_blank}** —  returns `"0x0"` by default
+- **[eth_getUncleCountByBlockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblocknumber){target=\_blank}** — returns `"0x0"` by default
+- **[eth_getCode](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getcode){target=\_blank}** — returns the code at the given address at the given block number
+- **[eth_sendTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction){target=\_blank}** — creates a new message call transaction or a contract creation, if the data field contains code. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
+- **[eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
+- **[eth_feeHistory](https://docs.alchemy.com/reference/eth-feehistory){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
+- **[eth_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionReceipt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionreceipt){target=\_blank}** — returns the transaction receipt of a given transaction hash
+- **[eth_getUncleByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblockhashandindex){target=\_blank}** — returns `null` by default
+- **[eth_getUncleByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblocknumberandindex){target=\_blank}** — returns `null` by default
+- **[eth_getLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getlogs){target=\_blank}** — returns an array of all logs matching a given filter object
+- **[eth_newFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newfilter){target=\_blank}** — creates a filter object based on the input provided. Returns a filter ID
+- **[eth_newBlockFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newblockfilter){target=\_blank}** — creates a filter in the node to notify when a new block arrives. Returns a filter ID
+- **[eth_getFilterChanges](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterchanges){target=\_blank}** — polling method for filters (see methods above). Returns an array of logs that occurred since the last poll
+- **[eth_getFilterLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterlogs){target=\_blank}** — returns an array of all the logs matching the filter with a given ID
+- **[eth_uninstallFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_uninstallfilter){target=\_blank}** — uninstall a filter with a given ID. It should be used when polling is no longer needed. Filters timeout when they are not requested using `eth_getFilterChanges` after some time
+
+## Custom JSON-RPC Methods {: #custom-json-rpc-methods }
+
+Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and `frnt_isTxFinalized`. Tanssi features deterministic finality (as opposed to probabilistic like Bitcoin's finality), which means that at any point of time, the answer to whether a block or transaction is finalized or not can be answered with a definitive yes or no. Tanssi has built these two custom endpoints to provide valuable functionality for checking the finality of on-chain events.
+
+???+ function "frnt_isBlockFinalized - checks for the finality of the block given by its block hash"
+
+    === "Parameters"
+
+        - `block_hash` ++"string"++ - the hash of the block, accepts either Substrate-style or Ethereum-style block hash as its input
+
+    === "Returns"
+
+        ++"boolean"++ - `true` if the block is finalized, `false` if the block is not finalized or not found
+
+    === "Example"
+
+        ```bash
+        curl -H "Content-Type: application/json" -X POST --data '{
+          "jsonrpc": "2.0",
+          "id": "1",
+          "method": "frnt_isBlockFinalized",
+          "params": ["INSERT_BLOCK_HASH"]
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        ```
+
+???+ function "frnt_isTxFinalized - checks for the finality of a transaction given its EVM transaction hash"
+
+    === "Parameters"
+
+        - `tx_hash` ++"string"++ - the EVM transaction hash of the transaction 
+
+    === "Returns"
+
+        ++"boolean"++ - `true` if the transaction is finalized, `false` if the transaction is not finalized or not found
+
+    === "Example"
+
+        ```bash
+        curl -H "Content-Type: application/json" -X POST --data '{
+          "jsonrpc": "2.0",
+          "id": "1",
+          "method": "frnt_isTxFinalized",
+          "params": ["INSERT_TRANSACTION_HASH"]
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        ```
 --- END CONTENT ---
