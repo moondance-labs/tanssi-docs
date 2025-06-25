@@ -2,6 +2,7 @@
 title: Run a Tanssi Node Using Systemd
 description: Learn how to set up and run a Node for Tanssi networks using Systemd, allowing you to provide API endpoints for applications and users.
 icon: simple-linux
+categories: Operators
 ---
 
 # Run a Tanssi Node Using Systemd

@@ -2,7 +2,7 @@
 title: Baseline EVM Template
 description: The Tanssi repository includes an EVM template that provides all the necessary configurations to launch a network that is fully compatible with Ethereum.
 icon: material-ethereum
-categories: EVM, Template
+categories: EVM-Template
 ---
 
 # Baseline EVM Template {: #baseline-evm-template }

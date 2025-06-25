@@ -2,7 +2,7 @@
 title: Index a Tanssi Network with SQD
 description: Learn how to use the Squid SDK, a query node framework for Substrate-based chains, to index and process data on a Tanssi-powered EVM or Substrate network.
 icon: octicons-rocket-24
-categories: EVM, Substrate
+categories: EVM-Template, Substrate-Template
 ---
 
 # Indexing a Tanssi Network with SQD

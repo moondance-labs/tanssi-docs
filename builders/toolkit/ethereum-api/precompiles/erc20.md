@@ -3,7 +3,7 @@ title:  Native Token ERC-20 Precompile
 description: Learn how to access and interact with an ERC-20 representation of the native token on Tanssi-powered EVM networks through the precompiled ERC-20 Interface.
 keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts
 icon: material-circle-outline
-categories: EVM
+categories: EVM-Template
 ---
 
 #  Native Token ERC-20 Precompile

@@ -2,6 +2,7 @@
 title: Setup an Account to Produce Blocks
 description: Follow these step-by-step instructions on becoming eligible to produce blocks on Tanssi-powered networks and setting up your account for rewards payouts.
 icon: octicons-person-add-24
+categories: Sequencers
 ---
 
 # Set Up Your Account to Produce Blocks on Tanssi

@@ -2,6 +2,7 @@
 title: Opt In to Tanssi
 description: Learn how to opt in with your registered node to Tanssi-enabled Symbiotic vaults and the Tanssi network to participate in the protocol and earn rewards.
 icon: octicons-plus-circle-24
+categories: Operators
 ---
 
 # Opt In to Tanssi

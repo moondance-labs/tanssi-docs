@@ -2,7 +2,7 @@
 title: How to use Chopsticks to Fork Your Network
 description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi network.
 icon: octicons-code-square-24
-categories: Substrate
+categories: Substrate-Template
 ---
 
 # How to Use Chopsticks to Fork Your Network

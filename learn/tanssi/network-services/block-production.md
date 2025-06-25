@@ -2,6 +2,7 @@
 title: Block Production Services
 description: Tanssi abstracts away infrastructure complexities, such as block production, allowing developers to launch decentralized networks with Ethereum-grade security.
 icon: octicons-container-24
+categories: Basics
 ---
 
 # Block Production Services {: #block-production-services }

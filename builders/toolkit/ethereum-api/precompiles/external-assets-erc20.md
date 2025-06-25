@@ -2,7 +2,7 @@
 title: External Assets as ERC-20
 description: Learn how to access and interact with an ERC-20 representation of any external assets on Tanssi EVM networks through the precompiled ERC-20 Interface.
 keywords: solidity, ethereum, native, token, moonbeam, precompiled, contracts, assets, erc20
-categories: EVM
+categories: EVM-Template
 ---
 
 # External Assets as ERC-20

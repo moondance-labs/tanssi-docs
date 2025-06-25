@@ -2,6 +2,7 @@
 title: How to Add RainbowKit to a Tanssi EVM Network 
 description: Learn how to integrate RainbowKit with an Ethereum-compatible network deployed through Tanssi, making adding a great wallet experience to your dApp easy.
 icon: material-wallet-outline
+categories: EVM-Template
 ---
 
 # Integrate RainbowKit with a Tanssi Network 
