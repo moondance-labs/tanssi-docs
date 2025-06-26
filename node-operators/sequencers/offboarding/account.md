@@ -14,7 +14,7 @@ This guide will show you how to wind down your operations as a Tanssi sequencer 
 
 ## Request Undelegation {: #request-undelegation }
 
-When you set up your Tanssi sequencer, you had to submit a delegation bond of at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. To get that back and remove your sequencer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
+When you set up your Tanssi sequencer, you had to submit a delegation bond (at least `{{ networks.mainnet.sequencers.minimum_self_delegation }}` {{ networks.mainnet.token_symbol }} for Tanssi MainNet). To get that back and remove your sequencer from the list of eligible candidates, you'll need to take steps similar to those in the onboarding process.
 
 ### View Existing Stake {: #viewing-existing-stake }
 
@@ -43,7 +43,7 @@ Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networ
 4. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to decommission as a sequencer
 5. Choose the target pool that you originally used when configuring your delegation (either **Autocompounding** or **Manual**)
 6. Select **Stake** or **Shares** from the dropdown
-7. Enter the amount to unstake. If you selected **Shares**, simply enter the number of Shares. If you selected **Stake**, you'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}. As a reminder, the minimum stake amount is `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. If you delegated the minimum amount and didn't accumulate additional rewards, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}` Planck
+7. Enter the amount to unstake. If you selected **Shares**, simply enter the number of Shares. If you selected **Stake**, you'll need to submit the value, including the twelve decimal places used by the Tanssi Network. As a reminder, the minimum stake amount is `{{ networks.mainnet.sequencers.minimum_self_delegation }}` {{ networks.mainnet.token_symbol }}. If you delegated the minimum amount and didn't accumulate additional rewards, you'll need to enter `{{ networks.mainnet.sequencers.minimum_self_delegation }}000000000000`
 8. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to un-delegate on the developer portal](/images/node-operators/sequencers/offboarding/account/account-2.webp)

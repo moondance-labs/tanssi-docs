@@ -67,39 +67,6 @@ networks:
       external_assets_erc20_example: '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0001'
       proxy: '0x0000000000000000000000000000000000000805'
     gas_to_weight: 25000
-    session:
-      blocks: 600
-      hours: 1
-      display: 'one'
-    costs:
-      registration_deposit: 100
-      cost_per_block: 1
-      cost_per_assignment: 100
-    block_producers:
-      appchain:
-        num: 2
-        display: 'two'
-      tanssi:
-        min:
-          num: 3
-          display: 'three'
-        max:
-          num: 5
-          display: 'five'
-      min_self_del:
-        dance: '100'
-        planck: 100000000000000
-    staking:
-      joining_delay_sessions: 2
-      joining_delay_sessions_text: 'two'
-      joining_delay_blocks: 1200
-      joining_delay_hours: 2
-      joining_delay_hours_text: 'two'
-      leaving_delay_sessions: 2
-      leaving_delay_sessions_text: 'two'
-      leaving_delay_blocks: 1200
-      leaving_delay_hours: 2
-      leaving_delay_hours_text: 'two'
     oracles:
       phala:
         aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'

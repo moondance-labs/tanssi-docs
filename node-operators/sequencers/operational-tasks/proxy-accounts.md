@@ -22,7 +22,7 @@ To follow along with this tutorial, you will need to have:
 
 - The [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
 - Create or have two accounts accessible in the developer portal
-- Both accounts will need to be funded with `DANCE` tokens, and the sequencer account will need at least `{{ networks.dancebox.block_producers.min_self_del.dance }}` `DANCE`
+- Both accounts will need to be funded, and the sequencer account will need at least the minimum self delegation required to become an active sequencer
 
 If you need help importing your accounts into the developer portal, please check out the [Connecting to the Developer Portal](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
@@ -109,7 +109,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 7. Choose the **requestDelegate** extrinsic
 8. Enter the **candidate** address, which is the sequencer account
 9. Select **AutoCompounding** or **ManualRewards** for the **pool** field
-10. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
+10. Enter the amount to stake. This amount must meet the minimum, which, for Tanssi MainNet, is {{ networks.mainnet.sequencers.minimum_self_delegation }} {{ networks.mainnet.token_symbol }} tokens. You'll need to submit the value including the twelve decimal places the Tanssi Network uses, so for a value of {{ networks.mainnet.sequencers.minimum_self_delegation }}, you'll need to enter `{{ networks.mainnet.sequencers.minimum_self_delegation }}000000000000`
 11. Click **Submit Transaction**
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-8.webp)
