@@ -11,7 +11,7 @@ icon: octicons-browser-24
 
 ## Introduction {: #introduction }
 
-Tanssi aims to lower the barrier to entry for building decentralized appchains by streamlining the onboarding process and abstracting away the technical details of launching a Tanssi-powered appchain. The [Tanssi dApp](https://apps.tanssi.network){target=\_blank} allows you to spin up an appchain in just minutes. This guide will walk you through the steps required to launch an appchain on Dancebox, the Tanssi TestNet, via the Tanssi dApp.
+Tanssi aims to lower the barrier to entry for building decentralized appchains by streamlining the onboarding process and abstracting away the technical details of launching a Tanssi-powered appchain. The [Tanssi dApp](https://apps.tanssi.network){target=\_blank} allows you to spin up an appchain in just minutes. This guide will walk you through the steps required to launch an appchain on Dancelight, the Tanssi TestNet, via the Tanssi dApp.
 
 ## Quick Trials vs. Dedicated appchains {: #quick-trial-vs-dedicated-appchains }
  

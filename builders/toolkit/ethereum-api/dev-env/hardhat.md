@@ -112,7 +112,7 @@ contract Box {
 
 Before you can deploy the contract to your Tanssi network, you'll need to modify the Hardhat configuration file and create a secure file to store your private key in.
 
-You can modify the `hardhat.config.js` file to use either the Tanssi Dancebox demo EVM network or your own Tanssi network:
+You can modify the `hardhat.config.js` file to use either the Tanssi demo EVM network or your own Tanssi network:
 
 ```js
 // 1. Import the Ethers and Hardhat Ignition plugins required to interact with the contract

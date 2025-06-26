@@ -12,7 +12,7 @@ icon: octicons-eye-24
 
 Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch.
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo Tanssi-powered EVM-compatible network. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible network](#launching-price-feeds-on-a-evm-network). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network){target=\_blank} as they can assist you with launching price feeds on a network to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo Tanssi-powered EVM-compatible network. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible network](#launching-price-feeds-on-an-evm-network). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network){target=\_blank} as they can assist you with launching price feeds on a network to ensure the integrity of the deployment process.
 
 ## How Phala Enables Price Feeds {: #how-phala-enables-price-feeds }
 
@@ -92,7 +92,7 @@ Note that to obtain a readable price, you must account for the decimals of the p
 
 ## Launching Price Feeds on an EVM Network {: #launching-price-feeds-on-an-evm-network }
 
-It's easy to launch price feeds on a Tanssi-powered EVM network! The following sections will walk through the process of launching a variety of price feeds. This process can be followed for quick Trial networks and dedicated networks on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network){target=\_blank} for assistance in any production scenarios.
+It's easy to launch price feeds on a Tanssi-powered EVM network! The following sections will walk through the process of launching a variety of price feeds. This process can be followed for quick Trial networks and dedicated networks on the Tanssi Dancelight TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network){target=\_blank} for assistance in any production scenarios.
 
 ### Setup {: #setup }
 

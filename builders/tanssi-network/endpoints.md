@@ -8,9 +8,9 @@ icon: octicons-share-android-24
 
 Tanssi networks have two endpoints available for users to connect to: one for HTTPS and one for WSS.
 
-## Dancebox
+## Dancelight
 
-The Dancebox TestNet HTTPS and WSS endpoints are as follows:
+The Dancelight TestNet HTTPS and WSS endpoints are as follows:
 
 === "HTTPS"
 

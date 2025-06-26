@@ -10,7 +10,7 @@ icon: octicons-star-24
 
 Dancelight is the first public Tanssi TestNet and is designed to streamline the deployment of decentralized networks. It allows teams to swiftly onboard and launch their appchains within minutes, providing a robust environment for testing and development.
 
-This quick reference page offers all the essentials you need to get started on Dancebox.
+This quick reference page offers all the essentials you need to get started on Dancelight.
 
 ## TestNet Tokens {: #testnet-tokens }
 
