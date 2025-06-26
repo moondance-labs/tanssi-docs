@@ -18,7 +18,7 @@ For example, Alice signs a call permit and Bob dispatches it and performs the ca
 The Call Permit Precompile is located at the following address:
 
 ```text
-{{ networks.dancebox.precompiles.call_permit }}
+{{ networks.demo_evm.precompiles.call_permit }}
 ```
 
 --8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
@@ -152,7 +152,7 @@ Then, instead of deploying the contract, you'll just need to access it given the
 1. Click on the **Deploy and Run** tab, directly below the **Compile** tab in Remix. Note: you are not deploying a contract here, instead you are accessing a precompiled contract that is already deployed
 2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** drop down
 3. Ensure **CallPermit.sol** is selected in the **CONTRACT** dropdown. Since this is a precompiled contract, there is no deployment step. Rather you'll provide the address of the precompile in the **At Address** field
-4. Provide the address of the Call Permit Precompile for Tanssi-powered EVM networks: `{{networks.dancebox.precompiles.call_permit}}` and click **At Address**
+4. Provide the address of the Call Permit Precompile for Tanssi-powered EVM networks: `{{networks.demo_evm.precompiles.call_permit}}` and click **At Address**
 5. The Call Permit Precompile will appear in the list of **Deployed Contracts**
 
 ![Provide the address](/images/builders/toolkit/ethereum-api/precompiles/call-permit/call-5.webp)

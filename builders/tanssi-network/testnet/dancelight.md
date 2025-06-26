@@ -23,9 +23,9 @@ This quick reference page offers all the essentials you need to get started on D
 !!! note
     {{ networks.dancelight.token_symbol }} tokens have no value. Please don't submit unnecessary requests.
 
-## Network Endpoints {: #dancebox-network-endpoints }
+## Network Endpoints {: #dancelight-network-endpoints }
 
-Dancelighht has two types of endpoints available for users to connect to: one for HTTPS and one for WSS.
+Dancelight has two types of endpoints available for users to connect to: one for HTTPS and one for WSS.
 
 === "HTTPS"
 

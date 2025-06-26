@@ -33,6 +33,8 @@ networks:
       max_fields: 100
       per_byte_deposit: 0.0001
       max_subaccounts: 100
+    substrate_api_sidecar:
+      stable_version: 20.2.2
   dancelight:
     operator_docker_image: moondancelabs/starlight
     dns_name: dancelight.tanssi-api.network
@@ -70,12 +72,7 @@ networks:
       max_fields: 100
       per_byte_deposit: 0.0001
       max_subaccounts: 100
-  dancebox:
-    docker_sequencer_image_name: moondancelabs/tanssi
-    client_version: v0.13.0
-    para_client_version: v0.13.0-para
-    substrate_api_sidecar:
-      stable_version: 20.2.2
+  demo_evm:
     precompiles:
       erc20: '0x0000000000000000000000000000000000000800'
       batch: '0x0000000000000000000000000000000000000801'
@@ -84,7 +81,6 @@ networks:
       external_assets_erc20: '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF____'
       external_assets_erc20_example: '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0001'
       proxy: '0x0000000000000000000000000000000000000805'
-    gas_to_weight: 25000
     oracles:
       phala:
         aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'
@@ -117,6 +113,13 @@ networks:
         vault_registry: '0x95CC0a052ae33941877c9619835A233D21D57351'
         vault: '0xB94f8852443FB4faB18363D22a45cA64a8CF4482'
         tanssi_network: '0xdaD051447C4452e15B35B7F831ceE8DEb890f1a4'
+templates:
+  evm:
+    gas_to_weight: 25000
 repository:
   tanssi:
     release_branch: tanssi-polkadot-stable2412
+node_versions:
+  docker_sequencer_image_name: moondancelabs/tanssi
+  client_version: v0.13.0
+  para_client_version: v0.13.0-para

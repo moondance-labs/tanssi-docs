@@ -20,7 +20,7 @@ This guide will show you how to interact with UNIT tokens, the native protocol t
 The precompile is located at the following address:
 
 ```text
-{{networks.dancebox.precompiles.erc20 }}
+{{networks.demo_evm.precompiles.erc20 }}
 ```
 
 --8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
@@ -57,7 +57,7 @@ To get started, open up MetaMask and make sure you are connected to your network
 
 Now, you can create a custom token:
 
-1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM networks is `18`, the same as Ethereum's token decimals
+1. Enter the precompile address for the token contract address - `{{networks.demo_evm.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM networks is `18`, the same as Ethereum's token decimals
 2. Click **Next**
 
 ![Add Custom Token](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-2.webp)
@@ -94,7 +94,7 @@ Instead of deploying the ERC-20 precompile, you will access the interface given 
 2. Make sure **Injected Web3** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Web3**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the ERC-20 precompile: `{{networks.dancebox.precompiles.erc20}}` and click **At Address**
+5. Provide the address of the ERC-20 precompile: `{{networks.demo_evm.precompiles.erc20}}` and click **At Address**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-5.webp)
 

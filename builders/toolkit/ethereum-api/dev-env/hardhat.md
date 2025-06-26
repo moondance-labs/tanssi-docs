@@ -128,7 +128,7 @@ module.exports = {
   solidity: '0.8.1',
   networks: {
     // 4. Add the network specification for your Tanssi EVM network
-    dancebox: {
+    dancelight: {
       url: '{{ networks.dancelight.demo_evm_rpc_url }}',
       chainId: {{ networks.dancelight.demo_evm_chain_id }}, // Fill in the EVM ChainID for your Tanssi network
       accounts: [privateKey]
@@ -177,7 +177,7 @@ Next, you can write your Hardhat Ignition module. To get started, take the follo
 To run the script and deploy the `Box.sol` contract, use the following command, which requires you to specify the network name as defined in your `hardhat.config.js`. Hardhat will deploy the contract to a local hardhat network by default if you don't specify a network.  
 
 ```sh
-npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox
+npx hardhat ignition deploy ./ignition/modules/Box.js --network dancelight
 ```
 
 You'll be prompted to confirm the network you wish to deploy to. After a few seconds after you confirm, the contract is deployed, and you'll see the contract address in the terminal. If you're deploying to another Tanssi network, make sure that you specify the correct network. The network name must match how it's defined in `hardhat.config.js`. After a few seconds, the contract is deployed, and you should see the address in the terminal.
@@ -191,7 +191,7 @@ Congratulations, your contract is live! Save the address, as you will use it to 
 To interact with your newly deployed contract on your Tanssi network, you can launch the Hardhat `console` by running:
 
 ```sh
-npx hardhat console --network dancebox
+npx hardhat console --network dancelight
 ```
 
 Next, you can take the following steps, entering one line at a time:

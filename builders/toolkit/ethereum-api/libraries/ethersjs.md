@@ -57,7 +57,7 @@ import { ethers } from "ethers";
 // 2. Define network configurations
 const providerRPC = {
   evmNetwork: {
-    name: 'dancebox-evm-network',
+    name: 'dancelight-evm-network',
     // Insert your RPC URL here
     rpc: '{{ networks.dancelight.demo_evm_rpc_url }}',
     chainId: {{ networks.dancelight.demo_evm_chain_id }}, // {{ networks.dancelight.demo_evm_chain_hex_id }} in hex,
