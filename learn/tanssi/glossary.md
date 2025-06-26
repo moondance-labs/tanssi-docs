@@ -20,9 +20,9 @@ BEEFY stands for _Bridge Efficiency Enabling Finality Yielder_. It is a consensu
 
 ## Bridge {: #bridge }
 
-A bridge in the web3 context connects two different blockchains. Tanssi offers a built-in bridge based on Snowbridge connecting the Tanssi network to Ethereum in a decentralized and trustless way.
+A bridge in the web3 context connects two different sovereign blockchains. Tanssi offers a built-in bridge based on Snowbridge connecting the Tanssi network to Ethereum in a decentralized and trustless way.
 
-## Dancebox {: #dancebox }
+## Dancelight {: #dancelight }
 
 Tanssi's official TestNet for rapid network deployment and experimentation.
 
@@ -45,6 +45,8 @@ One of the components of the Tanssi-Ethereum bridge, serving as Ethereum's centr
 ## Light Client {: #light-client }
 
 One of the components of the Tanssi-Ethereum bridge, serving as an on-chain verifier for data legitimacy in a network.
+
+A light client is a software that allows you to interact with a blockchain without having to download the entire data. It relies on a subset of information (such as block headers) and uses tools like Merkle proofs to verify transaction and data authenticity. This makes light clients more resource-efficient than full nodes.
 
 ## Merkle Root {: #merkle-root }
 
