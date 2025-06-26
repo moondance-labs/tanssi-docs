@@ -26,11 +26,19 @@ When establishing eligibility to produce blocks, there are a couple of variables
 - **Session** - a period that has a constant set of sequencers
 - **Network sequencers per session** - the number of sequencers assigned to a Tanssi-powered network per session
 
-|            Variable            |                              Value                               |
-|:------------------------------:|:----------------------------------------------------------------:|
-|    Minimum self-delegation     | {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE |
-|            Session             |          {{ networks.dancebox.session.blocks }} blocks           |
-| Network sequencers per session | {{ networks.dancebox.block_producers.appchain.num }} sequencers  |
+=== "Tanssi MainNet"
+    |            Variable            |                                             Value                                             |
+    |:------------------------------:|:---------------------------------------------------------------------------------------------:|
+    |    Minimum self-delegation     | {{ networks.mainnet.sequencers.minimum_self_delegation }} {{ networks.mainnet.token_symbol }} |
+    |            Session             |                         {{ networks.mainnet.session.blocks }} blocks                          |
+    | Network sequencers per session |    {{ networks.mainnet.sequencers.configuration.block_producer_per_container }} sequencers    |
+  
+=== "Dancelight"
+    |            Variable            |                                             Value                                             |
+    |:------------------------------:|:---------------------------------------------------------------------------------------------:|
+    |    Minimum self-delegation     | {{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} |
+    |            Session             |                         {{ networks.dancelight.session.blocks }} blocks                          |
+    | Network sequencers per session |    {{ networks.dancelight.sequencers.configuration.block_producer_per_container }} sequencers    |
 
 ## Map an Account to Your Sequencer Node {: #map-account }
 
@@ -85,11 +93,11 @@ Using the `session.keyOwner` method, you can verify that your session keys have 
 
 ## Submit Self-Delegation {: #submit-self-delegation }
 
-The next step towards becoming eligible to produce blocks on Tanssi-powered networks is to delegate to your own account. To do this, you'll be required to submit a minimum of {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
+The next step towards becoming eligible to produce blocks on Tanssi-powered networks is to delegate to your own account. To do this, you'll be required to submit a minimum of tokens, as listed in the [important variables](#important-variables) section.
 
-After you've submitted the request to delegate, you'll need to wait for a minimum of {{ networks.dancebox.staking.joining_delay_sessions_text }} sessions before you can execute the pending request. There are {{ networks.dancebox.session.blocks }} blocks in a session. So, {{ networks.dancebox.staking.joining_delay_sessions_text }} sessions are {{ networks.dancebox.staking.joining_delay_blocks }} blocks, which can take around {{ networks.dancebox.staking.joining_delay_hours_text }} hours.
+After you've submitted the request to delegate, you'll need to wait for a minimum of sessions before you can execute the pending request. In the case of Tanssi MainNet, the number of sessions is configured to {{ networks.mainnet.staking.joining_delay_sessions_text }}. There are {{ networks.mainnet.session.blocks }} blocks in a session. So, {{ networks.mainnet.staking.joining_delay_sessions_text }} sessions are {{ networks.mainnet.staking.joining_delay_blocks }} blocks, which can take around {{ networks.mainnet.staking.joining_delay_hours_text }} hours.
 
-Sequencers are assigned upon each session, requiring {{ networks.dancebox.block_producers.appchain.display }} per network and a minimum of {{ networks.dancebox.block_producers.tanssi.min.display }} to {{ networks.dancebox.block_producers.tanssi.max.display }} for Tanssi. The sequencers participating in the session are picked from the list of candidates ordered by total stake until the total number of sequencers required is covered. So, you'll need to ensure that your total stake is enough to fill one of the slots, which may require more than {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens.
+Sequencers are assigned upon each session. The sequencers participating in the session are picked from the list of candidates ordered by total stake until the total number of sequencers required is covered. So, you'll need to ensure that your total stake is enough to fill one of the slots, which may require more than the minimum self delegation.
 
 ### Request Delegate {: #request-delegate }
 
@@ -99,7 +107,7 @@ Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networ
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
 3. Enter your account, which is, again, the same account you are sending the transaction from and the account you want to become a sequencer
 4. Choose the target pool. The pool can either be the auto-compounding pool, which auto-compounds delegation rewards, or the manual rewards pool, in which all actions related to rewards are manual
-5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
+5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.mainnet.sequencers.minimum_self_delegation }} {{ networks.mainnet.token_symbol }} tokens for Tanssi MainNet. Tanssi Network uses twelve decimal places, so when submitting the value make sure you add the decimal places to the self delegation. For MainNet, the value would be `{{ networks.mainnet.sequencers.minimum_self_delegation }}000000000000`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit a transaction to self-delegate on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-3.webp)

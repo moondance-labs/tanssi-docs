@@ -5,14 +5,25 @@ networks:
     session:
       blocks: 3600
       hours: 6
+      display: 'six'
     sequencers:
       configuration:
         max_block_producers: 100
         block_producer_per_container: 5
+      minimum_self_delegation: 10000
     costs:
       registration_deposit: 3.3333333
       cost_per_block: 1
       cost_per_assignment: 100
+    staking:
+      joining_delay_sessions_text: 'two'
+      joining_delay_blocks: 7200
+      joining_delay_hours: 12
+      joining_delay_hours_text: 'twelve'
+      leaving_delay_sessions_text: 'two'
+      leaving_delay_blocks: 7200
+      leaving_delay_hours: 12
+      leaving_delay_hours_text: 'twelve'
   dancelight:
     operator_docker_image: moondancelabs/starlight
     dns_name: dancelight.tanssi-api.network
@@ -31,10 +42,16 @@ networks:
       configuration:
         max_block_producers: 100
         block_producer_per_container: 2
+      minimum_self_delegation: 10000
     costs:
       registration_deposit: 3.3333333
       cost_per_block: 1
       cost_per_assignment: 100
+    staking:
+      joining_delay_blocks: 7200
+      joining_delay_hours: 12
+      leaving_delay_blocks: 7200
+      leaving_delay_hours: 12
   dancebox:
     docker_sequencer_image_name: moondancelabs/tanssi
     client_version: v0.13.0

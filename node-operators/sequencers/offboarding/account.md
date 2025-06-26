@@ -50,7 +50,7 @@ Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networ
 
 ### Execute the Pending Request {: #execute-pending-request }
 
-You'll need to wait at least {{ networks.dancebox.staking.leaving_delay_sessions_text }} sessions before executing the pending request. Each session is comprised of `{{ networks.dancebox.session.blocks }}` blocks and translates to about {{ networks.dancebox.session.hours }} hour per session. So, {{ networks.dancebox.staking.leaving_delay_sessions_text }} sessions correspond to approximately {{ networks.dancebox.staking.leaving_delay_hours_text }} hours.
+You'll need to wait before executing the pending request. In the case of Tanssi MainNet, the waiting period is configured to at least {{ networks.mainnet.staking.leaving_delay_sessions_text }} sessions. Each session is comprised of `{{ networks.mainnet.session.blocks }}` blocks and translates to about {{ networks.mainnet.session.hours }} hour per session. So, {{ networks.mainnet.staking.leaving_delay_sessions_text }} sessions correspond to approximately {{ networks.mainnet.staking.leaving_delay_hours_text }} hours.
 
 Before executing the pending request, you'll need to retrieve the session at which you submitted the request to delegate. To do so, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
 
