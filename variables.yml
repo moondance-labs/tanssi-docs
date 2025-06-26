@@ -24,6 +24,10 @@ networks:
       leaving_delay_blocks: 7200
       leaving_delay_hours: 12
       leaving_delay_hours_text: 'twelve'
+    proxy:
+      deposit_base: 0.1008
+      deposit_factor: 0.0033
+      max_proxies: 32
   dancelight:
     operator_docker_image: moondancelabs/starlight
     dns_name: dancelight.tanssi-api.network
@@ -52,6 +56,10 @@ networks:
       joining_delay_hours: 12
       leaving_delay_blocks: 7200
       leaving_delay_hours: 12
+    proxy:
+      deposit_base: 0.1008
+      deposit_factor: 0.0033
+      max_proxies: 32
   dancebox:
     docker_sequencer_image_name: moondancelabs/tanssi
     client_version: v0.13.0
@@ -86,10 +94,6 @@ networks:
         usdt_usd: '0xf9c885E3A5846CEA887a0D69655BC08e52afe569'
       band:
         smart_contract: '0x8c064bCf7C0DA3B3b090BAbFE8f3323534D84d68'
-    proxy:
-      deposit_base: 10.08
-      deposit_factor: 0.33
-      max_proxies: 32
     identity:
       basic_deposit: 12.58
       max_fields: 100

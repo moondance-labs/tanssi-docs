@@ -41,11 +41,20 @@ deposit base + deposit factor * number of proxies
 
 You can find each of the relevant variables for the Dancebox TestNet below. Note that these values are subject to change for Tanssi MainNet.
 
-|    Variable    |                       Value                        |
-|:--------------:|:--------------------------------------------------:|
-|  Deposit base  |  {{ networks.dancebox.proxy.deposit_base }} DANCE  |
-| Deposit factor | {{ networks.dancebox.proxy.deposit_factor }} DANCE |
-|  Max proxies   | {{ networks.dancebox.proxy.max_proxies }} proxies  |
+
+=== "Tanssi MainNet"
+    |    Variable    |                                      Value                                       |
+    |:--------------:|:--------------------------------------------------------------------------------:|
+    |  Deposit base  |  {{ networks.mainnet.proxy.deposit_base }} {{ networks.mainnet.token_symbol }}  |
+    | Deposit factor | {{ networks.mainnet.proxy.deposit_factor }} {{ networks.mainnet.token_symbol }} |
+    |  Max proxies   |                 {{ networks.mainnet.proxy.max_proxies }} proxies                 |
+
+=== "Dancelight"
+    |    Variable    |                                         Value                                          |
+    |:--------------:|:--------------------------------------------------------------------------------------:|
+    |  Deposit base  |  {{ networks.dancelight.proxy.deposit_base }} {{ networks.dancelight.token_symbol }}  |
+    | Deposit factor | {{ networks.dancelight.proxy.deposit_factor }} {{ networks.dancelight.token_symbol }} |
+    |  Max proxies   |                  {{ networks.dancelight.proxy.max_proxies }} proxies                   |
 
 ## Proxy Types {: #proxy-types }
 
