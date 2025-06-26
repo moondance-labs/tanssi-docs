@@ -2,5 +2,6 @@ title: Network Essentials
 hide: false
 nav:
   - index.md
+  - 'Tanssi MainNet': 'mainnet.md'
   - testnet
   - 'Network Endpoints': 'endpoints.md'

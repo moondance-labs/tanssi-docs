@@ -1,6 +1,7 @@
 networks:
   mainnet:
     dns_name: tanssi.tanssi-mainnet.network
+    subscan_url: https://tanssi.subscan.io/
     token_symbol: 'TANSSI'
     session:
       blocks: 3600
