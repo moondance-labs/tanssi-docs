@@ -40,11 +40,11 @@ It is the cryptographic scheme for producing digital signatures used by node ope
 
 ## Gateway Contract {: #gateway }
 
-One of the components of the Tanssi-Ethereum bridge, serving as Ethereum's central messaging point that receives and validates messages from Tanssi.
+One of the components of the Tanssi-Ethereum bridge. It serves as Ethereum's central messaging point that receives and validates messages from Tanssi.
 
 ## Light Client {: #light-client }
 
-One of the components of the Tanssi-Ethereum bridge, serving as an on-chain verifier for data legitimacy in a network.
+One of the components of the Tanssi-Ethereum bridge. It serves as an on-chain verifier for data legitimacy in a network.
 
 A light client is a software that allows you to interact with a blockchain without having to download the entire data. It relies on a subset of information (such as block headers) and uses tools like Merkle proofs to verify transaction and data authenticity. This makes light clients more resource-efficient than full nodes.
 
