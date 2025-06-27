@@ -8,7 +8,7 @@ icon: octicons-rocket-24
 
 ## Introduction {: #introduction }
 
-[SQD](https://www.sqd.dev/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD's decentralized data lake and open-source SDK. In simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. SQD has native and full support for both EVM and Substrate data, even within the same project.
+[SQD](https://www.sqd.ai/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD's decentralized data lake and open-source SDK. In simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. SQD has native and full support for both EVM and Substrate data, even within the same project.
 
 This quick-start guide will show you how to create a Squid project and configure it to index data on a Tanssi-powered network. There is one section catered towards [Substrate networks](#index-substrate-networks) and another towards [EVM networks](#index-evm-networks). However, if you're building on an EVM network, you may also reference the Substrate section, if you also need to index Substrate data.
 
@@ -19,8 +19,8 @@ For a more comprehensive end-to-end tutorial for EVM networks, be sure to check 
 For the examples in this guide, you will need to have the following:
 
  - [Node.js](https://nodejs.org/en/download){target=\_blank} version 16 or newer
- - [Docker](https://docs.docker.com/get-docker){target=\_blank}
- - [Squid CLI](https://docs.sqd.dev/squid-cli/installation){target=\_blank}
+ - [Docker](https://docs.docker.com/get-started/get-docker/){target=\_blank}
+ - [Squid CLI](https://docs.sqd.ai/squid-cli/installation){target=\_blank}
 
 ## Index a Tanssi Substrate Network {: #index-substrate-networks }
 
@@ -32,7 +32,7 @@ To get started indexing Substrate data on your Tanssi-powered network, you'll ne
     sqd init INSERT_SQUID_NAME --template substrate
     ```
 
-    For more information on getting started with this template, please check out the [Getting started: Substrate chains](https://docs.sqd.dev/sdk/how-to-start/squid-development/?template-tech=substrate){target=\_blank} guide on SQD's documentation site.
+    For more information on getting started with this template, please check out the [Getting started: Substrate chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=substrate){target=\_blank} guide on SQD's documentation site.
 
 2. Navigate into the root directory of your Squid project and install dependencies by running
 
@@ -99,7 +99,7 @@ To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to
 
     For more information on getting started with both of these templates, please check out the following SQD docs:
 
-      - [Getting started: EVM chains](https://docs.sqd.dev/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
+      - [Getting started: EVM chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
       - [Quickstart: Squid generation tools](https://docs.sqd.dev/sdk/resources/tools/squid-gen/){target=\_blank}
 
 2. Navigate into the root directory of your Squid project and install dependencies by running

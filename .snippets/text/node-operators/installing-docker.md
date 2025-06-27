@@ -1,6 +1,6 @@
 ### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
 Run the following command to install Docker on a Linux Ubuntu platform:
 

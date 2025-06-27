@@ -12,10 +12,10 @@ icon: octicons-code-square-24
 
 There are four tools that make up Foundry:  
 
-- **[Forge](https://book.getfoundry.sh/forge){target=\_blank}** - compiles, tests, and deploys contracts
-- **[Cast](https://book.getfoundry.sh/cast){target=\_blank}** - a command line interface for interacting with contracts
-- **[Anvil](https://book.getfoundry.sh/anvil){target=\_blank}** - a local TestNet node for development purposes that can fork preexisting networks
-- **[Chisel](https://book.getfoundry.sh/chisel){target=\_blank}** - a Solidity REPL for quickly testing Solidity snippets
+- **[Forge](https://getfoundry.sh/forge/overview/){target=\_blank}** - compiles, tests, and deploys contracts
+- **[Cast](https://getfoundry.sh/cast/overview/){target=\_blank}** - a command line interface for interacting with contracts
+- **[Anvil](https://getfoundry.sh/anvil/overview/){target=\_blank}** - a local TestNet node for development purposes that can fork preexisting networks
+- **[Chisel](https://getfoundry.sh/chisel/overview/){target=\_blank}** - a Solidity REPL for quickly testing Solidity snippets
 
 This guide will cover how to use Foundry to compile, deploy, and debug Ethereum smart contracts on the demo EVM network. You can follow the same steps to perform these actions on your Tanssi EVM network by replacing the RPC URL and Chain ID shown in the examples.
 
@@ -24,7 +24,7 @@ This guide will cover how to use Foundry to compile, deploy, and debug Ethereum 
 To get started, you will need the following:
 
  - An account with funds
- - [Foundry installed](https://book.getfoundry.sh/getting-started/installation){target=\_blank}
+ - [Foundry installed](https://getfoundry.sh/introduction/installation/){target=\_blank}
 
 ## Creating a Foundry Project {: #creating-a-foundry-project }
 
@@ -128,7 +128,7 @@ Congratulations, your contract is live! Save the address, as you will use it to 
 
 ## Interacting with the Contract {: #interacting-with-the-contract }
 
-Foundry includes [Cast](https://book.getfoundry.sh/cast){target=\_blank}, a CLI for performing Ethereum RPC calls.
+Foundry includes [Cast](https://getfoundry.sh/cast/overview/){target=\_blank}, a CLI for performing Ethereum RPC calls.
 
 Try to retrieve your token's name using Cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
 
@@ -168,7 +168,7 @@ Congratulations, you have successfully deployed and interacted with a contract u
 
 ## Forking with Anvil {: #forking-with-anvil }
 
-As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil){target=\_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM network allows you to interact with live contracts deployed on the network.
+As previously mentioned, [Anvil](https://getfoundry.sh/anvil/overview/){target=\_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM network allows you to interact with live contracts deployed on the network.
 
 To fork the demo EVM network from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your Tanssi EVM network.
 
@@ -197,7 +197,7 @@ cast call INSERT_CONTRACT_ADDRESS  "balanceOf(address)(uint256)" \
 
 ## Using Chisel {: #using-chisel }
 
-[Chisel](https://book.getfoundry.sh/chisel){target=\_blank} is a Solidity REPL or shell. It allows a developer to write Solidity directly in the console for testing small snippets of code, letting developers skip the project setup and contract deployment steps for what should be a quick process.  
+[Chisel](https://getfoundry.sh/chisel/overview/){target=\_blank} is a Solidity REPL or shell. It allows a developer to write Solidity directly in the console for testing small snippets of code, letting developers skip the project setup and contract deployment steps for what should be a quick process.  
 
 Since Chisel is mainly useful for quick testing, it can be used outside of a Foundry project. But, if executed within a Foundry project, it will keep the configurations within `foundry.toml` when running.  
 
@@ -319,7 +319,7 @@ Then, for example, you can query the balance of the Alice account on the demo EV
 
 ![Forking in Chisel](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-10.webp)
 
-If you want to learn more about Chisel, download Foundry and refer to its [official reference page](https://book.getfoundry.sh/reference/chisel){target=\_blank}.
+If you want to learn more about Chisel, download Foundry and refer to its [official reference page](https://getfoundry.sh/chisel/reference/){target=\_blank}.
 
 ## Foundry with Hardhat {: #foundry-with-hardhat }  
 
@@ -375,6 +375,6 @@ npm run test
 
 Finally, while not necessary, it could be worthwhile to move all JavaScript scripts from the `scripts` folder into Foundry's `script` folder and delete the `scripts` folder so that you don't have two folders that serve the same purpose.
 
-Congratulations, you have successfully deployed and interacted with smart contracts on your Tanssi EVM network using Foundry! For more information, be sure to check out the [Foundry Book](https://book.getfoundry.sh){target=\_blank}.
+Congratulations, you have successfully deployed and interacted with smart contracts on your Tanssi EVM network using Foundry! For more information, be sure to check out the [Foundry Book](https://getfoundry.sh/){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

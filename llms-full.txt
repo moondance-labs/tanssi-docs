@@ -1039,7 +1039,7 @@ Calls represent the behavior a runtime exposes in the form of transactions that 
 Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an `Error` if anything goes wrong
 
@@ -1239,7 +1239,7 @@ pub enum Event<T: Config> {
 
 ### Implementing Storage for State Persistence {: #implementing-storage }
 
-The `#[pallet::storage]` macro initializes a runtime storage structure. In the heavily constrained environment of blockchains, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage){target=\_blank}.
+The `#[pallet::storage]` macro initializes a runtime storage structure. In the heavily constrained environment of blockchains, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.polkadot.com/develop/parachains/customize-parachain/make-custom-pallet/#pallet-storage){target=\_blank}.
 
 In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=\_blank}). This can be initialized as follows:
 
@@ -1561,7 +1561,7 @@ You can visit the [diener documentation](https://docs.rs/crate/diener/latest){ta
 
 ## Example of the Double Reference Issue {: #double-reference-issue }
 
-To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} to a custom runtime based on the [baseline Tanssi-powered network template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
+To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle){target=\_blank} to a custom runtime based on the [baseline Tanssi-powered network template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
 
 This tutorial will generate a multiple reference compile-time error. Finally, the steps will show you how to fix the compile error by patching the dependencies with the tool `diener`, the runtime will compile successfully and work as intended.
 
@@ -1585,7 +1585,7 @@ To resolve this issue, it will be necessary to apply a patch so that the referen
 
 ### Declaring the Dependency {: #declaring-dependency }
 
-The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} is used.
+The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle){target=\_blank} is used.
 
 This `toggle` module, built for testing and educational purposes, adds basic logic to the runtime, allowing users to switch a state between true and false.
 
@@ -1593,7 +1593,7 @@ This `toggle` module, built for testing and educational purposes, adds basic log
 [dependencies]
 ...
 pallet-toggle = { 
-    git = "https://github.com/papermoonio/pallet-toggle.git", 
+    git = "https://github.com/papermoonio/pallet-toggle", 
     default-features = false 
 }
 ...
@@ -1759,7 +1759,7 @@ The client specification contains the configuration of the network and other set
 In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
 
 - **Token Symbol** - a name for your Tanssi network's own token symbol
-- **SS58 Format** - an integer that uniquely identifies the accounts in your network. [SS58 encoding](https://docs.substrate.io/reference/address-formats){target=\_blank} transforms the underlying 32-byte account to a network-specific representation. This attribute doesn't apply nor interfere with the ECDSA Ethereum accounts on EVM-compatible networks
+- **SS58 Format** - an integer that uniquely identifies the accounts in your network. [SS58 encoding](https://docs.polkadot.com/polkadot-protocol/parachain-basics/accounts/#address-formats){target=\_blank} transforms the underlying 32-byte account to a network-specific representation. This attribute doesn't apply nor interfere with the ECDSA Ethereum accounts on EVM-compatible networks
 - **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token. It's set to `18` for EVM-compatible networks
 - **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 
@@ -1977,7 +1977,7 @@ icon: octicons-checkbox-24
 
 ## Introduction {: #introduction }
 
-Deploying a network through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.substrate.io/build/chain-spec){target=\_blank} to upload.
+Deploying a network through Tanssi is a fairly straightforward step, where the only requirement is to have a valid [chain specification](https://docs.polkadot.com/develop/parachains/deployment/generate-chain-specs/){target=\_blank} to upload.
 
 Even though Tanssi provides chain specifications for the [available templates](/learn/decentralized-networks/included-templates/), it could be necessary to generate a new one to match any changes the use case might need to be implemented in the runtime.
 
@@ -2265,7 +2265,7 @@ icon: material-ethereum
 Tanssi's EVM (Ethereum Virtual Machine) network template is designed for teams developing their applications on top of EVM smart contracts. It includes all the essential components needed for a full Ethereum-compatible network:
 
 - **EVM** - adds an Ethereum Virtual Machine execution layer for EVM-based smart contract applications
-- **Etherum JSON RPC Support** - Tanssi-powered EVM networks are fully [Ethereum JSON RPC](https://ethereum.org/en/developers/docs/apis/json-rpc){target=\_blank} compliant. Consequently, all Ethereum-based tools like [MetaMask](https://metamask.io){target=\_blank}, [Ethers.js](https://docs.ethers.org){target=\_blank}, [Viem](https://viem.sh){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Foundry](https://book.getfoundry.sh){target=\_blank} and more, work seamlessly out of the box
+- **Etherum JSON RPC Support** - Tanssi-powered EVM networks are fully [Ethereum JSON RPC](https://ethereum.org/en/developers/docs/apis/json-rpc){target=\_blank} compliant. Consequently, all Ethereum-based tools like [MetaMask](https://metamask.io){target=\_blank}, [Ethers.js](https://docs.ethers.org/v6/){target=\_blank}, [Viem](https://viem.sh){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Foundry](https://getfoundry.sh/){target=\_blank} and more, work seamlessly out of the box
 - **Unified Accounts** - allows Tanssi-powered EVM networks to feature Ethereum-styled ECDSA accounts
 
 ## EVM Network Template {: #evm-network-template }
@@ -2466,7 +2466,7 @@ The screenshots and content in this guide will showcase quick trial appchains, b
 
 Since Tanssi is built with Substrate, you'll need to use a Substrate-compatible wallet to deploy and manage your Tanssi appchain. Supported wallets include:
 
-- [Talisman](https://www.talisman.xyz){target=\_blank}
+- [Talisman](https://talisman.xyz/){target=\_blank}
 - [SubWallet](https://www.subwallet.app){target=\_blank}
 - [Enkrypt](https://www.enkrypt.com){target=\_blank}
 - [Polkadot.js extension](https://polkadot.js.org/extension){target=\_blank}
@@ -2625,7 +2625,7 @@ Next, you'll need to verify that you have sufficient balance. If you don't, you 
 
 ![Request tokens](/images/builders/deploy/dapp/dapp-7.webp)
 
-If you're setting up a dedicated Tanssi appchain, you'll need to fill out an [application form](https://www.tanssi.network/ecosystem/dedicated-chain-testnet-form){target=\_blank}. The Tanssi team will review your application and send the necessary tokens within one business day. 
+If you're setting up a dedicated Tanssi appchain, you'll need to fill out an [application form](https://www.tanssi.network/dedicated-chain-testnet-form){target=\_blank}. The Tanssi team will review your application and send the necessary tokens within one business day. 
 
 The required minimum balances to launch a Tanssi appchain are as follows:
 
@@ -4304,10 +4304,10 @@ icon: octicons-code-square-24
 
 There are four tools that make up Foundry:  
 
-- **[Forge](https://book.getfoundry.sh/forge){target=\_blank}** - compiles, tests, and deploys contracts
-- **[Cast](https://book.getfoundry.sh/cast){target=\_blank}** - a command line interface for interacting with contracts
-- **[Anvil](https://book.getfoundry.sh/anvil){target=\_blank}** - a local TestNet node for development purposes that can fork preexisting networks
-- **[Chisel](https://book.getfoundry.sh/chisel){target=\_blank}** - a Solidity REPL for quickly testing Solidity snippets
+- **[Forge](https://getfoundry.sh/forge/overview/){target=\_blank}** - compiles, tests, and deploys contracts
+- **[Cast](https://getfoundry.sh/cast/overview/){target=\_blank}** - a command line interface for interacting with contracts
+- **[Anvil](https://getfoundry.sh/anvil/overview/){target=\_blank}** - a local TestNet node for development purposes that can fork preexisting networks
+- **[Chisel](https://getfoundry.sh/chisel/overview/){target=\_blank}** - a Solidity REPL for quickly testing Solidity snippets
 
 This guide will cover how to use Foundry to compile, deploy, and debug Ethereum smart contracts on the demo EVM network. You can follow the same steps to perform these actions on your Tanssi EVM network by replacing the RPC URL and Chain ID shown in the examples.
 
@@ -4316,7 +4316,7 @@ This guide will cover how to use Foundry to compile, deploy, and debug Ethereum 
 To get started, you will need the following:
 
  - An account with funds
- - [Foundry installed](https://book.getfoundry.sh/getting-started/installation){target=\_blank}
+ - [Foundry installed](https://getfoundry.sh/introduction/installation/){target=\_blank}
 
 ## Creating a Foundry Project {: #creating-a-foundry-project }
 
@@ -4430,7 +4430,7 @@ Congratulations, your contract is live! Save the address, as you will use it to 
 
 ## Interacting with the Contract {: #interacting-with-the-contract }
 
-Foundry includes [Cast](https://book.getfoundry.sh/cast){target=\_blank}, a CLI for performing Ethereum RPC calls.
+Foundry includes [Cast](https://getfoundry.sh/cast/overview/){target=\_blank}, a CLI for performing Ethereum RPC calls.
 
 Try to retrieve your token's name using Cast, where `INSERT_YOUR_CONTRACT_ADDRESS` is the address of the contract that you deployed in the previous section:
 
@@ -4470,7 +4470,7 @@ Congratulations, you have successfully deployed and interacted with a contract u
 
 ## Forking with Anvil {: #forking-with-anvil }
 
-As previously mentioned, [Anvil](https://book.getfoundry.sh/anvil){target=\_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM network allows you to interact with live contracts deployed on the network.
+As previously mentioned, [Anvil](https://getfoundry.sh/anvil/overview/){target=\_blank} is a local TestNet node for development purposes that can fork preexisting networks. Forking the demo EVM network allows you to interact with live contracts deployed on the network.
 
 To fork the demo EVM network from the command line, you can run the following command from within your Foundry project directory. You can also replace the RPC URL with the RPC URL of your Tanssi EVM network.
 
@@ -4499,7 +4499,7 @@ cast call INSERT_CONTRACT_ADDRESS  "balanceOf(address)(uint256)" \
 
 ## Using Chisel {: #using-chisel }
 
-[Chisel](https://book.getfoundry.sh/chisel){target=\_blank} is a Solidity REPL or shell. It allows a developer to write Solidity directly in the console for testing small snippets of code, letting developers skip the project setup and contract deployment steps for what should be a quick process.  
+[Chisel](https://getfoundry.sh/chisel/overview/){target=\_blank} is a Solidity REPL or shell. It allows a developer to write Solidity directly in the console for testing small snippets of code, letting developers skip the project setup and contract deployment steps for what should be a quick process.  
 
 Since Chisel is mainly useful for quick testing, it can be used outside of a Foundry project. But, if executed within a Foundry project, it will keep the configurations within `foundry.toml` when running.  
 
@@ -4621,7 +4621,7 @@ Then, for example, you can query the balance of the Alice account on the demo EV
 
 ![Forking in Chisel](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-10.webp)
 
-If you want to learn more about Chisel, download Foundry and refer to its [official reference page](https://book.getfoundry.sh/reference/chisel){target=\_blank}.
+If you want to learn more about Chisel, download Foundry and refer to its [official reference page](https://getfoundry.sh/chisel/reference/){target=\_blank}.
 
 ## Foundry with Hardhat {: #foundry-with-hardhat }  
 
@@ -4677,7 +4677,7 @@ npm run test
 
 Finally, while not necessary, it could be worthwhile to move all JavaScript scripts from the `scripts` folder into Foundry's `script` folder and delete the `scripts` folder so that you don't have two folders that serve the same purpose.
 
-Congratulations, you have successfully deployed and interacted with smart contracts on your Tanssi EVM network using Foundry! For more information, be sure to check out the [Foundry Book](https://book.getfoundry.sh){target=\_blank}.
+Congratulations, you have successfully deployed and interacted with smart contracts on your Tanssi EVM network using Foundry! For more information, be sure to check out the [Foundry Book](https://getfoundry.sh/){target=\_blank}.
 
 <div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
@@ -5220,8 +5220,8 @@ To create a new smart contract using the [thirdweb CLI](https://portal.thirdweb.
     1. Give your project a name
     2. Choose your preferred framework: **Hardhat** or **Foundry**
     3. Name your smart contract
-    4. Choose the type of base contract: **Empty**, [**ERC20**](https://portal.thirdweb.com/solidity/base-contracts/erc20base){target=\_blank}, [**ERC721**](https://portal.thirdweb.com/solidity/base-contracts/erc721base){target=\_blank}, or [**ERC1155**](https://portal.thirdweb.com/solidity/base-contracts/erc1155base){target=\_blank}
-    5. Add any desired [extensions](https://portal.thirdweb.com/solidity/extensions){target=\_blank}
+    4. Choose the type of base contract: **Empty**, [**ERC20**](https://portal.thirdweb.com/contracts/build/base-contracts/erc-20/base){target=\_blank}, [**ERC721**](https://portal.thirdweb.com/contracts/build/base-contracts/erc-721/base){target=\_blank}, or [**ERC1155**](https://portal.thirdweb.com/contracts/build/base-contracts/erc-1155/base){target=\_blank}
+    5. Add any desired [extensions](https://portal.thirdweb.com/contracts/build/extensions){target=\_blank}
 3. Once created, navigate to your project’s directory and open in your preferred code editor
 4. If you open the `contracts` folder, you will find your smart contract; this is your smart contract written in Solidity
 
@@ -5594,7 +5594,7 @@ console.log('encoded data', data);
 
 ### ConnectButton {: #connect-button }
 
-Perhaps the first and most important interaction users will have with your dApp is connecting their wallet. thirdweb provides an easy and highly customizable way for you to enable this. thirdweb provides a highly customizable [`ConnectButton`](https://portal.thirdweb.com/typescript/v5/react/components/ConnectButton){target=\_blank} to tailor it to your desired wallets. The `ConnectButton` accepts an optional `wallets` parameter with an array of wallets. You can add or remove wallets from the `wallets` array to change the options available to users. thirdweb also offers a [`ConnectButton` Playground](https://thirdweb.com/dashboard/connect/playground){target=\_blank} to customize and view changes for the `ConnectButton` in real-time, given the button's high degree of flexibility.
+Perhaps the first and most important interaction users will have with your dApp is connecting their wallet. thirdweb provides an easy and highly customizable way for you to enable this. thirdweb provides a highly customizable [`ConnectButton`](https://portal.thirdweb.com/react/v5/components/ConnectButton){target=\_blank} to tailor it to your desired wallets. The `ConnectButton` accepts an optional `wallets` parameter with an array of wallets. You can add or remove wallets from the `wallets` array to change the options available to users. thirdweb also offers a [`ConnectButton` Playground](https://thirdweb.com/dashboard/connect/playground){target=\_blank} to customize and view changes for the `ConnectButton` in real-time, given the button's high degree of flexibility.
 
 ```typescript title="ConnectButton"
 import { ConnectButton } from 'thirdweb/react';
@@ -5679,7 +5679,7 @@ icon: octicons-code-24
 
 ## Introduction {: #introduction }
 
-The [Ethers.js](https://docs.ethers.org){target=\_blank} library provides a set of tools to interact with Ethereum nodes with JavaScript, similar to [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}. Tanssi-powered EVM networks have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM network node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6){target=\_blank}.
+The [Ethers.js](https://docs.ethers.org/v6/){target=\_blank} library provides a set of tools to interact with Ethereum nodes with JavaScript, similar to [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}. Tanssi-powered EVM networks have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM network node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6){target=\_blank}.
 
 In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM network. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancebox](/builders/tanssi-network/testnet/dancebox/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint. 
 
@@ -9403,7 +9403,7 @@ Then, instead of deploying the contract, you'll just need to access it given the
 
 ## Generate Call Permit Signature {: #generate-call-permit-signature}
 
-In order to interact with the Call Permit Precompile, you have to have or generate a signature to dispatch the call permit. There are several ways you can generate the signature. This guide will show how to generate the signature using [Ethers.js](https://docs.ethers.org/){target=\_blank}.
+In order to interact with the Call Permit Precompile, you have to have or generate a signature to dispatch the call permit. There are several ways you can generate the signature. This guide will show how to generate the signature using [Ethers.js](https://docs.ethers.org/v6/){target=\_blank}.
 
 Here's an overview of the steps that you'll need to take to obtain the signature:
 
@@ -9411,7 +9411,7 @@ Here's an overview of the steps that you'll need to take to obtain the signature
 2. A JSON structure of the data the user needs to sign will be assembled for the call permit and include all of the types for the `dispatch` arguments and the nonce. This will result in the `CallPermit` type and will be saved as the `primaryType`
 3. The domain separator will be created using `"Call Permit Precompile"` exactly for the name, the version of your dApp or platform, the chain ID of the network the signature is to be used on, and the address of the contract that will verify the signature. Note that you'll need to specify the chain ID of your network in the script to generate the correct signature
 4. All of the assembled data will be signed using Ethers.js
-5. The signature will be returned and you can use [Ethers.js](https://docs.ethers.org/){target=\_blank} [`Signature.from` method](https://docs.ethers.org/v6/api/crypto/#Signature_from){target=\_blank} to return the `v`, `r`, and `s` values of the signature
+5. The signature will be returned and you can use [Ethers.js](https://docs.ethers.org/v6/){target=\_blank} [`Signature.from` method](https://docs.ethers.org/v6/api/crypto/#Signature_from){target=\_blank} to return the `v`, `r`, and `s` values of the signature
 
 ### The Call Permit Arguments {: #call-permit-arguments }
 
@@ -9452,7 +9452,7 @@ You should now have a file where you can create the script to get the signature 
 "type": "module"
 ```
 
-Next, you can install [Ethers.js](https://docs.ethers.org/){target=\_blank}:
+Next, you can install [Ethers.js](https://docs.ethers.org/v6/){target=\_blank}:
 
 ```bash
 npm i ethers
@@ -10909,7 +10909,7 @@ The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 - **[eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
 - **[eth_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
 - **[eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
-- **[eth_getBlockReceipts](https://docs.alchemy.com/reference/eth-getblockreceipts){target=\_blank}** — returns all transaction receipts for a given block
+- **[eth_getBlockReceipts](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — returns all transaction receipts for a given block
 - **[eth_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
 - **[eth_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
 - **[eth_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
@@ -10920,7 +10920,7 @@ The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 - **[eth_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
 - **[eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
 - **[eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
-- **[eth_feeHistory](https://docs.alchemy.com/reference/eth-feehistory){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
+- **[eth_feeHistory](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
 - **[eth_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
 - **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
 - **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
@@ -11210,13 +11210,13 @@ icon: material-wallet-outline
 
 Developers and users of Tanssi-powered EVM networks have a variety of options when it comes to wallets. Thanks to their seamless Ethereum compatibility, Tanssi EVM networks support a great variety of popular wallets, such as Talisman.
 
-Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with Talisman using the Substrate API](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with Talisman using the Substrate API](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}. The Talisman wallet browser extension is available on [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
 This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi EVM network, and sending funds.
 
 ## Setting Up Talisman {: #setting-up-talisman }
 
-First, download and install the [Talisman extension](https://www.talisman.xyz){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
+First, download and install the [Talisman extension](https://talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
 
 ![Get started with Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-1.webp)
 
@@ -11383,7 +11383,7 @@ icon: octicons-arrow-switch-24
 
 ## Introduction {: #introduction }
 
-[SQD](https://www.sqd.dev/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD’s decentralized data lake and open-source SDK. In very simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
+[SQD](https://www.sqd.ai/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD’s decentralized data lake and open-source SDK. In very simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
 
 SQD has native and full support for both EVM and Substrate data. SQD offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi-powered network and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
 
@@ -11393,7 +11393,7 @@ This tutorial is a step-by-step guide to building a Squid to index EVM data from
 
 To follow along with this tutorial, you'll need to have:
 
-- [Docker installed](https://docs.docker.com/get-docker){target=\_blank}
+- [Docker installed](https://docs.docker.com/get-started/get-docker/){target=\_blank}
 - [Docker Compose installed](https://docs.docker.com/compose/install){target=\_blank}
 - An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page
 
@@ -11667,7 +11667,7 @@ Now we can move on to creating our Squid to index the data on our local developm
 
 ## Create a Squid Project {: #create-a-squid-project }
 
-Now we're going to create our Subquid project. First, we'll need to install the [Squid CLI](https://docs.sqd.dev/squid-cli/){target=\_blank}:
+Now we're going to create our Subquid project. First, we'll need to install the [Squid CLI](https://docs.sqd.ai/squid-cli/){target=\_blank}:
 
 ```bash
 npm i -g @subsquid/cli@latest
@@ -11983,7 +11983,7 @@ Open up the `src` folder and head to the `processor.ts` file. First, we need to 
 export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
 ```
 
-The `.toLowerCase()` is critical because the SQD processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. SQD has [available archives for many chains](https://docs.sqd.dev/subsquid-network/reference/networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your network has a hosted archive already. But not to worry, SQD can easily get the data it needs via your network's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
+The `.toLowerCase()` is critical because the SQD processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. SQD has [available archives for many chains](https://docs.sqd.ai/subsquid-network/reference/networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your network has a hosted archive already. But not to worry, SQD can easily get the data it needs via your network's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
 
 ```ts
 .setDataSource({
@@ -12099,7 +12099,7 @@ export type Transaction = _Transaction<Fields>;
 
 ### Transform and Save the Data {: #transform-and-save-the-data}
 
-While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the SQD processor and inserting the desired pieces into a TypeORM database. For more detailed information on how SQD works, be sure to check out the [SQD docs on Developing a Squid](https://docs.sqd.dev/sdk/how-to-start/squid-development/){target=\_blank}.
+While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the SQD processor and inserting the desired pieces into a TypeORM database. For more detailed information on how SQD works, be sure to check out the [SQD docs on Developing a Squid](https://docs.sqd.ai/sdk/how-to-start/squid-development/){target=\_blank}.
 
 Our `main.ts` file is going to scan through each processed block for the `Transfer` event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a TypeORM database, enabling them to be easily queried. Let's break down the code that comprises `main.ts` in order:
 
@@ -12442,7 +12442,7 @@ function getAccount(m: Map<string, Account>, id: string): Account {
 }
     ```
 
-See the [SQD guide to logging](https://docs.sqd.dev/sdk/reference/logger/){target=\_blank} for more information on debug mode.
+See the [SQD guide to logging](https://docs.sqd.ai/sdk/reference/logger/){target=\_blank} for more information on debug mode.
 
 ### Common Errors {: #common-errors }
 
@@ -12507,7 +12507,7 @@ icon: octicons-rocket-24
 
 ## Introduction {: #introduction }
 
-[SQD](https://www.sqd.dev/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD's decentralized data lake and open-source SDK. In simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. SQD has native and full support for both EVM and Substrate data, even within the same project.
+[SQD](https://www.sqd.ai/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD's decentralized data lake and open-source SDK. In simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. SQD has native and full support for both EVM and Substrate data, even within the same project.
 
 This quick-start guide will show you how to create a Squid project and configure it to index data on a Tanssi-powered network. There is one section catered towards [Substrate networks](#index-substrate-networks) and another towards [EVM networks](#index-evm-networks). However, if you're building on an EVM network, you may also reference the Substrate section, if you also need to index Substrate data.
 
@@ -12518,8 +12518,8 @@ For a more comprehensive end-to-end tutorial for EVM networks, be sure to check 
 For the examples in this guide, you will need to have the following:
 
  - [Node.js](https://nodejs.org/en/download){target=\_blank} version 16 or newer
- - [Docker](https://docs.docker.com/get-docker){target=\_blank}
- - [Squid CLI](https://docs.sqd.dev/squid-cli/installation){target=\_blank}
+ - [Docker](https://docs.docker.com/get-started/get-docker/){target=\_blank}
+ - [Squid CLI](https://docs.sqd.ai/squid-cli/installation){target=\_blank}
 
 ## Index a Tanssi Substrate Network {: #index-substrate-networks }
 
@@ -12531,7 +12531,7 @@ To get started indexing Substrate data on your Tanssi-powered network, you'll ne
     sqd init INSERT_SQUID_NAME --template substrate
     ```
 
-    For more information on getting started with this template, please check out the [Getting started: Substrate chains](https://docs.sqd.dev/sdk/how-to-start/squid-development/?template-tech=substrate){target=\_blank} guide on SQD's documentation site.
+    For more information on getting started with this template, please check out the [Getting started: Substrate chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=substrate){target=\_blank} guide on SQD's documentation site.
 
 2. Navigate into the root directory of your Squid project and install dependencies by running
 
@@ -12598,7 +12598,7 @@ To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to
 
     For more information on getting started with both of these templates, please check out the following SQD docs:
 
-      - [Getting started: EVM chains](https://docs.sqd.dev/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
+      - [Getting started: EVM chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
       - [Quickstart: Squid generation tools](https://docs.sqd.dev/sdk/resources/tools/squid-gen/){target=\_blank}
 
 2. Navigate into the root directory of your Squid project and install dependencies by running
@@ -13656,7 +13656,7 @@ icon: material-wallet-outline
 
 ## Introduction 
 
-[RainbowKit](https://www.rainbowkit.com/docs/introduction){target=\_blank} is a React library that adds wallet connection capabilities to a dApp. It supports numerous wallets and enables features such as switching connection chains, ENS address resolution, and balance display out-of-the-box. RainbowKit offers customization options for all EVM-compatible chains, making it possible to connect wallets to a network easily.
+[RainbowKit](https://rainbowkit.com/docs/introduction){target=\_blank} is a React library that adds wallet connection capabilities to a dApp. It supports numerous wallets and enables features such as switching connection chains, ENS address resolution, and balance display out-of-the-box. RainbowKit offers customization options for all EVM-compatible chains, making it possible to connect wallets to a network easily.
 
 
 RainbowKit bundles together multiple tools to simplify adding wallet connections to a dApp:
@@ -14010,7 +14010,7 @@ Once connected, users will see their {{ networks.dancelight.demo_evm_token_symbo
 
 ## Customize RainbowKit
 
-RainbowKit simplifies the complexities of managing wallet connections while offering various options for customizing UI and functionality to fit the needs of a dApp. A full list of customization options can be found in the RainbowKit [documentation](https://www.rainbowkit.com/docs/introduction){target=\_blank}. This section covers customizing the **Connect Wallet** button to connect initially to the Demo EVM Chain and render it in a custom color. 
+RainbowKit simplifies the complexities of managing wallet connections while offering various options for customizing UI and functionality to fit the needs of a dApp. A full list of customization options can be found in the RainbowKit [documentation](https://rainbowkit.com/docs/introduction){target=\_blank}. This section covers customizing the **Connect Wallet** button to connect initially to the Demo EVM Chain and render it in a custom color. 
 
 ### Set Custom Initial Chain
 
@@ -14117,7 +14117,7 @@ The **Connect Wallet** button on the home page should now render in the color sp
 
 ![Theme customization on the user modal](/images/builders/toolkit/integrations/wallet-integrations/rainbowkit/rainbowkit-3.webp)
 
-This guide includes only a few of the customization options available through RainbowKit. More information about the library's capabilities and options can be found in the [RainbowKit Docs](https://www.rainbowkit.com/docs/introduction){target=\_blank}.
+This guide includes only a few of the customization options available through RainbowKit. More information about the library's capabilities and options can be found in the [RainbowKit Docs](https://rainbowkit.com/docs/introduction){target=\_blank}.
 
 The complete example code is available in the [rainbow-manual-build-demo repository](https://github.com/papermoonio/rainbowkit-manual-build-demo){target=\_blank}.
 
@@ -14458,7 +14458,7 @@ icon: octicons-code-24
 
 ## Introduction {: #introduction }
 
-[Polkadot.js](https://wiki.polkadot.network/docs/polkadotjs){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Tanssi-powered network! The [Polkadot.js API](https://polkadot.js.org/docs/api){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a network and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
+[Polkadot.js](https://wiki.polkadot.network/general/polkadotjs/){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Tanssi-powered network! The [Polkadot.js API](https://polkadot.js.org/docs/api){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a network and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
 
 You can use the Polkadot.js API to query on-chain data and send transactions from the Substrate side of your Tanssi network. You can query runtime constants, chain state, events, transaction (extrinsic) data, and more.
 
@@ -15920,13 +15920,13 @@ icon: material-wallet-outline
 
 Developers and users of Tanssi-powered Substrate networks have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
 
-Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
 This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
 
 ## Setting Up Talisman {: #setting-up-talisman }
 
-First, download and install the [Talisman extension](https://www.talisman.xyz){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
+First, download and install the [Talisman extension](https://talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
 
 ![Get started with Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-1.webp)
 
@@ -16250,7 +16250,7 @@ During the block-building process, a sequencer uses a [priority system](https://
 
 ## Forkless Upgrades {: #forkless-upgrades}
 
-Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.substrate.io/maintain/runtime-upgrades){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
+Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.polkadot.com/develop/parachains/maintenance/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
 
 Forkless upgrades are made possible by storing the state transition function as a WebAssembly (Wasm) blob in both the Tanssi network itself and the Tanssi-powered network. When a new runtime is scheduled through a function call in the Tanssi-powered network, the Tanssi network validates this block, so it is notified and readies itself to validate incoming blocks using the most recent state transition function. Following a specified runtime upgrade delay period, a Tanssi sequencer on the Tanssi-powered network constructs a block that references a Tanssi network block, signaling to the Tanssi network that it can now apply the new runtime. Consequently, this new state transition function is utilized for that specific block. As all infrastructure participants at the network level employ the on-chain Wasm blob, every Tanssi network node operator can validate new blocks using the latest state transition function.
 
@@ -16285,9 +16285,9 @@ icon: material-piggy-bank-outline
 
 ## Introduction {: #introduction}
 
-Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://substrate.io){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
+Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://polkadot.com/platform/sdk/){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
 
-Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
+Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
 
 A transaction fee scheme is applied on top of the weight-based mechanism to ensure economic incentives are in line to limit the execution time, computation, and number of calls (database read/writes) to perform operations. Transaction fees are fundamental to preventing network spam, as they represent the cost of using the Tanssi network service. Consequently, a user interacting with the network through a specific function call will pay a transaction fee determined by a baseline fee algorithm.
 
@@ -16798,7 +16798,7 @@ Building a network from scratch is a very complex task that requires deep knowle
 
 - **Upgradeability** - it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
-Fortunately, there’s no need to build these blockchain components from scratch, thanks to an excellent open-source framework called [Substrate](https://substrate.io){target=\_blank}. Tanssi itself is built with this framework, leveraging its comprehensive base implementations, modularity, and flexibility to achieve a high level of customization.
+Fortunately, there’s no need to build these blockchain components from scratch, thanks to an excellent open-source framework called [Substrate](https://polkadot.com/platform/sdk/){target=\_blank}. Tanssi itself is built with this framework, leveraging its comprehensive base implementations, modularity, and flexibility to achieve a high level of customization.
 
 ## Substrate Framework {: #substrate-framework}
 
@@ -17221,7 +17221,7 @@ Well-behaved operators and restakers are rewarded for their participation with T
 The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
 
 1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
-2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.network/docs/learn/xcm/overview-summary){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://docs.snowbridge.network/){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
+2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.network/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://docs.snowbridge.network/){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
 3. **Ethereum Message Reception** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
 4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, which is responsible for various tasks, including passing the information to the `OperatorReward` contract
 5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
@@ -17718,7 +17718,7 @@ When a new session starts, the Tanssi protocol will put the queued assignment in
 
 As previously discussed, the Tanssi protocol assigns sequencers to the Tanssi networks, and the result of this assignment is stored within the chain state.  Besides running the network node, the sequencers also run the Tanssi one. Hence, by accessing the data stored in the finalized blocks of the Tanssi Network, they can learn their assignation for the session, and the Tanssi networks can confirm that a certain group of sequencers have been assigned to them. 
 
-As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
+As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.com/blog/the-path-of-a-parachain-block/#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
 
 Finally, Tanssi can verify that the author of a network block was the expected one and reward accordingly.
 
@@ -17828,7 +17828,7 @@ Tanssi addresses the most common network problems by:
 
 - **External Security Providers** -  networks deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of operators
 
-- **Modular Blockchain Framework** - networks built with Tanssi can use a modular blockchain framework called [Substrate](https://substrate.io){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their network's custom logic
+- **Modular Blockchain Framework** - networks built with Tanssi can use a modular blockchain framework called [Substrate](https://polkadot.com/platform/sdk/){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their network's custom logic
 
 - **Key Integrations** - networks built with Tanssi can access key infrastructural components alongside block production in a fully automated and standardized way. Tanssi-powered networks come with built-in support for crucial tools such as wallets, block explorers, indexers, RPC providers, and more, saving developers the effort of managing these integrations. Additionally, networks deployed through Tanssi can immediately leverage Cross-Consensus Messaging (XCM) upon launch, enabling instant bridging capabilities
 
@@ -18195,7 +18195,7 @@ In this guide, you'll learn how to quickly spin up a Tanssi network node using [
 
 ### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
 Run the following command to install Docker on a Linux Ubuntu platform:
 
@@ -18270,7 +18270,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 - `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi network bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_NETWORK_BOOTNODE` with the actual bootnode information
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "EVM-compatible Network"
 
@@ -18464,7 +18464,7 @@ Every new release includes two node binaries, one for EVM-compatible networks an
     ```
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 ## Download the Tanssi Network Specs File {: #download-tanssi-specs }
 
@@ -18805,7 +18805,7 @@ In this guide, you'll learn how to spin up a Tanssi node using the official imag
 
 ### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
 Run the following command to install Docker on a Linux Ubuntu platform:
 
@@ -18908,7 +18908,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Dancelight"
 
@@ -19027,7 +19027,7 @@ If Landlock is disabled in your system, upgrade the kernel to version 5.13 or ab
 To get started, download the latest binary release and make it executable by running the following command:
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Dancelight"
 
@@ -19323,7 +19323,7 @@ Make sure to select **Contract** and **Write Contract**, then click on **Connect
 ![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
 
 !!! warning
-    After submitting your opt out transaction, save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank}.
+    After submitting your opt out transaction, save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/operator-offboarding){target=_blank}.
 
 ### Using Safe for Multisig Setups {: #opt-out-network-with-safe }
 
@@ -19389,12 +19389,12 @@ The output will show `false` if you have successfully opted out and `true` if yo
 
 Following the network opt-out, the next stage of offboarding your Tanssi operator involves formally notifying the Tanssi team. This page guides you through submitting the required offboarding form and explaining what to expect during the final removal process.
 
-After opting out from the network, notify the Tanssi team of your intention to stop running an operator. To do so, complete the [operator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} and wait for confirmation of request completion from the Tanssi team.
+After opting out from the network, notify the Tanssi team of your intention to stop running an operator. To do so, complete the [operator offboarding form](https://www.tanssi.network/https://www.tanssi.network/operator-offboarding){target=_blank} and wait for confirmation of request completion from the Tanssi team.
 
 Upon receiving your request, your operator's removal will be scheduled. This step is semi-automated and may take time to complete. You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
 
 !!! note "Provide feedback"
-    Consider providing feedback in the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network.
+    Consider providing feedback in the offboarding [form](https://www.tanssi.network/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network.
 
 ## Pause Operations (Optional) {: #pause-operations }
 
@@ -19424,7 +19424,7 @@ Operators play a critical role in consensus and network operations. Abruptly shu
 
 This guide outlines the **prerequisites** for offboarding, and subsequent guides will walk you through the process.
 
-If you have questions during any part of the offboarding process, the Tanssi team can support you on [Discord](https://discord.gg/Jm2KH8xT7J){target=\_blank}.
+If you have questions during any part of the offboarding process, the Tanssi team can support you on [Discord](https://discord.com/invite/Jm2KH8xT7J){target=\_blank}.
 
 ## Prerequisites {: #prerequisites}
 
@@ -19754,7 +19754,7 @@ Your journey as an operator begins here. Follow these steps to set up your node 
 
 [timeline left (tanssi-docs/.snippets/text/node-operators/operators/onboarding/onboarding-timeline.json)]
 
-Once you've fully onboarded, check out the [operational tasks](/node-operators/validators/operational-tasks/){target=\_blank} related to the maintenance of your node.
+Once you've fully onboarded, check out the [operational tasks](/node-operators/operators/operational-tasks/){target=\_blank} related to the maintenance of your node.
 
 ## Explore This Section
 
@@ -20433,7 +20433,7 @@ In this guide, you'll learn how to spin up a Tanssi operator using the official 
 
 ### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
 Run the following command to install Docker on a Linux Ubuntu platform:
 
@@ -20526,7 +20526,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -20686,7 +20686,7 @@ If Landlock is disabled in your system, upgrade the kernel to version 5.13 or ab
 To get started, download the latest binary release and make it executable by running the following command:
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -21161,7 +21161,7 @@ To restart the node, you can use the same command you used when launching your n
     ```
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 ### Specify a Version Tag {: #specifying-a-version-tag }
 
@@ -21289,7 +21289,7 @@ icon: octicons-arrow-down-right-24
 
 As a sequencer, there may come a time when you need to gracefully exit the network. Decommissioning your account involves a two-step process to ensure that your node is properly disassociated from your account and that you receive your bond back.
 
-This guide will show you how to wind down your operations as a Tanssi sequencer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi sequencer with a [sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}.
+This guide will show you how to wind down your operations as a Tanssi sequencer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi sequencer with a [sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank}.
 
 ## Request Undelegation {: #request-undelegation }
 
@@ -21322,7 +21322,7 @@ Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networ
 4. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to decommission as a sequencer
 5. Choose the target pool that you originally used when configuring your delegation (either **Autocompounding** or **Manual**)
 6. Select **Stake** or **Shares** from the dropdown
-7. Enter the amount to unstake. If you selected **Shares**, simply enter the number of Shares. If you selected **Stake**, you'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}. As a reminder, the minimum stake amount is `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. If you delegated the minimum amount and didn't accumulate additional rewards, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}` Planck
+7. Enter the amount to unstake. If you selected **Shares**, simply enter the number of Shares. If you selected **Stake**, you'll need to submit the value in [Planck](https://wiki.polkadot.network/learn/learn-dot/#the-planck-unit){target=\_blank}. As a reminder, the minimum stake amount is `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. If you delegated the minimum amount and didn't accumulate additional rewards, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}` Planck
 8. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to un-delegate on the developer portal](/images/node-operators/sequencers/offboarding/account/account-2.webp)
@@ -21447,7 +21447,7 @@ Before you can start producing blocks on Tanssi-powered networks, you'll need to
 
 You must have spun up a [Sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} to tackle the account setup steps in this guide.
 
-You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
+You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
 
 To establish eligibility, you must delegate yourself as a sequencer and meet the minimum bond requirements.
 
@@ -21469,7 +21469,7 @@ When establishing eligibility to produce blocks, there are a couple of variables
 
 ## Map an Account to Your Sequencer Node {: #map-account }
 
-The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your sequencer.
+The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your sequencer.
 
 You will need to create session keys for your primary and backup servers. Each of your servers, your primary and backup, should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
 
@@ -21547,7 +21547,7 @@ Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networ
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
 3. Enter your account, which is, again, the same account you are sending the transaction from and the account you want to become a sequencer
 4. Choose the target pool. The pool can either be the auto-compounding pool, which auto-compounds delegation rewards, or the manual rewards pool, in which all actions related to rewards are manual
-5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
+5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/learn/learn-dot/#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit a transaction to self-delegate on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-3.webp)
@@ -21692,7 +21692,7 @@ In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the 
 
 ### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
 Run the following command to install Docker on a Linux Ubuntu platform:
 
@@ -21791,7 +21791,7 @@ Note that the command contains two sections, divided by `-- \`:
 Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -22019,7 +22019,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 To get started, download and make executable the latest binary release by running the following command:
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -22364,7 +22364,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 7. Choose the **requestDelegate** extrinsic
 8. Enter the **candidate** address, which is the sequencer account
 9. Select **AutoCompounding** or **ManualRewards** for the **pool** field
-10. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
+10. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/learn/learn-dot/#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 11. Click **Submit Transaction**
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-8.webp)
