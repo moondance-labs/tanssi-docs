@@ -32,7 +32,7 @@ The screenshots and content in this guide will showcase quick trial appchains, b
 
 Since Tanssi is built with Substrate, you'll need to use a Substrate-compatible wallet to deploy and manage your Tanssi appchain. Supported wallets include:
 
-- [Talisman](https://www.talisman.xyz){target=\_blank}
+- [Talisman](https://talisman.xyz/){target=\_blank}
 - [SubWallet](https://www.subwallet.app){target=\_blank}
 - [Enkrypt](https://www.enkrypt.com){target=\_blank}
 - [Polkadot.js extension](https://polkadot.js.org/extension){target=\_blank}
@@ -191,7 +191,7 @@ Next, you'll need to verify that you have sufficient balance. If you don't, you 
 
 ![Request tokens](/images/builders/deploy/dapp/dapp-7.webp)
 
-If you're setting up a dedicated Tanssi appchain, you'll need to fill out an [application form](https://www.tanssi.network/ecosystem/dedicated-chain-testnet-form){target=\_blank}. The Tanssi team will review your application and send the necessary tokens within one business day. 
+If you're setting up a dedicated Tanssi appchain, you'll need to fill out an [application form](https://www.tanssi.network/dedicated-chain-testnet-form){target=\_blank}. The Tanssi team will review your application and send the necessary tokens within one business day. 
 
 The required minimum balances to launch a Tanssi appchain are as follows:
 

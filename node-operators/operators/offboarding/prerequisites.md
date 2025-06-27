@@ -15,7 +15,7 @@ Operators play a critical role in consensus and network operations. Abruptly shu
 
 This guide outlines the **prerequisites** for offboarding, and subsequent guides will walk you through the process.
 
-If you have questions during any part of the offboarding process, the Tanssi team can support you on [Discord](https://discord.gg/Jm2KH8xT7J){target=\_blank}.
+If you have questions during any part of the offboarding process, the Tanssi team can support you on [Discord](https://discord.com/invite/Jm2KH8xT7J){target=\_blank}.
 
 ## Prerequisites {: #prerequisites}
 

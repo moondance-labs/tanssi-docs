@@ -12,7 +12,7 @@ Before you can start producing blocks on Tanssi-powered networks, you'll need to
 
 You must have spun up a [Sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} to tackle the account setup steps in this guide.
 
-You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
+You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
 
 To establish eligibility, you must delegate yourself as a sequencer and meet the minimum bond requirements.
 
@@ -34,7 +34,7 @@ When establishing eligibility to produce blocks, there are a couple of variables
 
 ## Map an Account to Your Sequencer Node {: #map-account }
 
-The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your sequencer.
+The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your sequencer.
 
 You will need to create session keys for your primary and backup servers. Each of your servers, your primary and backup, should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
 
@@ -99,7 +99,7 @@ Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networ
 2. Select the **pooledStaking** module and the **requestDelegate** extrinsic
 3. Enter your account, which is, again, the same account you are sending the transaction from and the account you want to become a sequencer
 4. Choose the target pool. The pool can either be the auto-compounding pool, which auto-compounds delegation rewards, or the manual rewards pool, in which all actions related to rewards are manual
-5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
+5. Enter the amount to stake. This amount must meet the minimum, which is {{ networks.dancebox.block_producers.min_self_del.dance }} DANCE tokens. You'll need to submit the value in [Planck](https://wiki.polkadot.network/learn/learn-dot/#the-planck-unit){target=\_blank}, so for {{ networks.dancebox.block_producers.min_self_del.dance }}, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}`
 6. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit a transaction to self-delegate on Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-3.webp)
