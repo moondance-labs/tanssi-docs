@@ -17718,7 +17718,7 @@ When a new session starts, the Tanssi protocol will put the queued assignment in
 
 As previously discussed, the Tanssi protocol assigns sequencers to the Tanssi networks, and the result of this assignment is stored within the chain state.  Besides running the network node, the sequencers also run the Tanssi one. Hence, by accessing the data stored in the finalized blocks of the Tanssi Network, they can learn their assignation for the session, and the Tanssi networks can confirm that a certain group of sequencers have been assigned to them. 
 
-As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.com/blog/the-path-of-a-parachain-block/#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
+As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.com/blog/the-path-of-a-parachain-block/#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
 
 Finally, Tanssi can verify that the author of a network block was the expected one and reward accordingly.
 
