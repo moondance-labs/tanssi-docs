@@ -7,8 +7,8 @@ jobs:
   check-docs-links:
     uses: papermoonio/workflows/.github/workflows/core-pr-link-checker.yml@main
     with:
-      mkdocs_repo: albertov19/tanssi-mkdocs
-      docs_repo: albertov19/tanssi-docs
+      mkdocs_repo: papermoonio/tanssi-mkdocs
+      docs_repo: moondance-labs/tanssi-docs
       mkdocs_repo_name: tanssi-mkdocs
       docs_repo_name: tanssi-docs
     secrets:
