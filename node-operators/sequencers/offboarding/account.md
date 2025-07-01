@@ -10,7 +10,7 @@ icon: octicons-arrow-down-right-24
 
 As a sequencer, there may come a time when you need to gracefully exit the network. Decommissioning your account involves a two-step process to ensure that your node is properly disassociated from your account and that you receive your bond back.
 
-This guide will show you how to wind down your operations as a Tanssi sequencer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi sequencer with a [sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}.
+This guide will show you how to wind down your operations as a Tanssi sequencer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi sequencer with a [sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank}.
 
 ## Request Undelegation {: #request-undelegation }
 

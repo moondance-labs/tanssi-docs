@@ -10,13 +10,13 @@ icon: material-wallet-outline
 
 Developers and users of Tanssi-powered Substrate networks have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
 
-Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
 This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
 
 ## Setting Up Talisman {: #setting-up-talisman }
 
-First, download and install the [Talisman extension](https://www.talisman.xyz){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
+First, download and install the [Talisman extension](https://talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
 
 ![Get started with Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-1.webp)
 
@@ -69,11 +69,11 @@ Talisman already comes pre-configured with support for the Tanssi Dancelight Tes
 2. Select **Settings**
 3. Ensure that **Enable testnets** is checked
 
-![See your testnet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
+![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
 
 If you have a balance of Dancelight tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancelight tokens, the network will be omitted from your list of assets.
 
-![See your testnet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
+![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
 
 ## Connecting Talisman to Your Substrate Network {: #connecting-talisman-to-your-substrate-network }
 
