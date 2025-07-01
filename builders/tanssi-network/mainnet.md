@@ -4,7 +4,7 @@ description: The Tanssi Network MainNet is live, allowing developers to leverage
 icon: octicons-star-24
 ---
 
-# Get Started with Dancelight
+# Get Started with the Tanssi Network MainNet
 
 ## Introduction
 
