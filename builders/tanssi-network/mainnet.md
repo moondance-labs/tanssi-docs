@@ -1,6 +1,6 @@
 ---
 title: Get Started with Tanssi MainNet
-description: The Tanssi Network MainNet is live, allowing developers to leverage the decentralized protocol to launch appchains with Ethereum-grade secutiry in minutes.
+description: The Tanssi Network MainNet is live, allowing developers to leverage the decentralized protocol to launch appchains with Ethereum-grade security in minutes.
 icon: octicons-star-24
 ---
 
