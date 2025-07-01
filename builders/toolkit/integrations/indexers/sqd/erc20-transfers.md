@@ -9,7 +9,7 @@ categories: EVM-Template, Substrate-Template
 
 ## Introduction {: #introduction }
 
-[SQD](https://www.sqd.dev/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD’s decentralized data lake and open-source SDK. In very simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
+[SQD](https://www.sqd.ai/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD’s decentralized data lake and open-source SDK. In very simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
 
 SQD has native and full support for both EVM and Substrate data. SQD offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi-powered network and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
 
@@ -19,7 +19,7 @@ This tutorial is a step-by-step guide to building a Squid to index EVM data from
 
 To follow along with this tutorial, you'll need to have:
 
-- [Docker installed](https://docs.docker.com/get-docker){target=\_blank}
+- [Docker installed](https://docs.docker.com/get-started/get-docker/){target=\_blank}
 - [Docker Compose installed](https://docs.docker.com/compose/install){target=\_blank}
 - An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page
 
@@ -149,7 +149,7 @@ Now we can move on to creating our Squid to index the data on our local developm
 
 ## Create a Squid Project {: #create-a-squid-project }
 
-Now we're going to create our Subquid project. First, we'll need to install the [Squid CLI](https://docs.sqd.dev/squid-cli/){target=\_blank}:
+Now we're going to create our Subquid project. First, we'll need to install the [Squid CLI](https://docs.sqd.ai/squid-cli/){target=\_blank}:
 
 ```bash
 npm i -g @subsquid/cli@latest
@@ -229,7 +229,7 @@ Open up the `src` folder and head to the `processor.ts` file. First, we need to 
 export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
 ```
 
-The `.toLowerCase()` is critical because the SQD processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. SQD has [available archives for many chains](https://docs.sqd.dev/subsquid-network/reference/networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your network has a hosted archive already. But not to worry, SQD can easily get the data it needs via your network's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
+The `.toLowerCase()` is critical because the SQD processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. SQD has [available archives for many chains](https://docs.sqd.ai/subsquid-network/reference/networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your network has a hosted archive already. But not to worry, SQD can easily get the data it needs via your network's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
 
 ```ts
 .setDataSource({
@@ -299,7 +299,7 @@ Once you've completed the prior steps, your `processor.ts` file should look simi
 
 ### Transform and Save the Data {: #transform-and-save-the-data}
 
-While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the SQD processor and inserting the desired pieces into a TypeORM database. For more detailed information on how SQD works, be sure to check out the [SQD docs on Developing a Squid](https://docs.sqd.dev/sdk/how-to-start/squid-development/){target=\_blank}.
+While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the SQD processor and inserting the desired pieces into a TypeORM database. For more detailed information on how SQD works, be sure to check out the [SQD docs on Developing a Squid](https://docs.sqd.ai/sdk/how-to-start/squid-development/){target=\_blank}.
 
 Our `main.ts` file is going to scan through each processed block for the `Transfer` event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a TypeORM database, enabling them to be easily queried. Let's break down the code that comprises `main.ts` in order:
 
@@ -390,7 +390,7 @@ You can also add logging statements directly to your `main.ts` file to indicate 
     --8<-- 'code/builders/toolkit/integrations/indexers/sqd/erc20-transfers/main-with-logging.ts'
     ```
 
-See the [SQD guide to logging](https://docs.sqd.dev/sdk/reference/logger/){target=\_blank} for more information on debug mode.
+See the [SQD guide to logging](https://docs.sqd.ai/sdk/reference/logger/){target=\_blank} for more information on debug mode.
 
 ### Common Errors {: #common-errors }
 

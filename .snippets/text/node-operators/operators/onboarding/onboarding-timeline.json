@@ -1,21 +1,21 @@
 [
     {
-      "title": "[Run an operator node](/node-operators/validators/onboarding/run-a-validator/){target=_blank}",
+      "title": "[Run an operator node](/node-operators/validators/onboarding/run-an-operator/){target=_blank}",
       "content": "Set up the actual node using Systemd or Docker.",
       "icon": ":fontawesome-solid-1:"
     },
     {
-      "title": "[Register in Symbiotic](/node-operators/validators/onboarding/register-in-symbiotic/){target=_blank}",
+      "title": "[Register in Symbiotic](/node-operators/operators/onboarding/register-in-symbiotic/){target=_blank}",
       "content": "Add your account to the Symbiotic operators registry. This registry is the central point for identifying operators within the Symbiotic ecosystem.",
       "icon": ":fontawesome-solid-2:"
     },
     {
-      "title": "[Opt in to Tanssi Network](/node-operators/validators/onboarding/opt-in-to-tanssi/#opt-in-tanssi){target=_blank}",
+      "title": "[Opt in to Tanssi Network](/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi){target=_blank}",
       "content": "Add your account to the Tanssi network operators registry. This registry is the central point for identifying operators participating in the Tanssi protocol.",
       "icon": ":fontawesome-solid-3:"
     },
     {
-        "title": "[Opt in to a Tanssi-enabled vault](/node-operators/validators/onboarding/opt-in-to-tanssi/#opt-in-tanssi-vaults){target=_blank}",
+        "title": "[Opt in to a Tanssi-enabled vault](/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi-vaults){target=_blank}",
         "content": "Add your account to a Tanssi-enabled vault. Operators must opt in (and be admitted) to a Tanssi-enabled vault that manages and delegates staked assets to operators.",
         "icon": ":fontawesome-solid-4:"
     },
@@ -25,7 +25,7 @@
       "icon": ":fontawesome-solid-5:"
     },
     {
-      "title": "[Set up your account](/node-operators/validators/onboarding/account-setup/){target=_blank}",
+      "title": "[Set up your account](/node-operators/operators/onboarding/account-setup/){target=_blank}",
       "content": "Map your account to your node to start validating in the Tanssi protocol.",
       "icon": ":fontawesome-solid-6:"
     }

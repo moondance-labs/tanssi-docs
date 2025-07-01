@@ -160,7 +160,7 @@ Then, instead of deploying the contract, you'll just need to access it given the
 
 ## Generate Call Permit Signature {: #generate-call-permit-signature}
 
-In order to interact with the Call Permit Precompile, you have to have or generate a signature to dispatch the call permit. There are several ways you can generate the signature. This guide will show how to generate the signature using [Ethers.js](https://docs.ethers.org/){target=\_blank}.
+In order to interact with the Call Permit Precompile, you have to have or generate a signature to dispatch the call permit. There are several ways you can generate the signature. This guide will show how to generate the signature using [Ethers.js](https://docs.ethers.org/v6/){target=\_blank}.
 
 Here's an overview of the steps that you'll need to take to obtain the signature:
 
@@ -168,7 +168,7 @@ Here's an overview of the steps that you'll need to take to obtain the signature
 2. A JSON structure of the data the user needs to sign will be assembled for the call permit and include all of the types for the `dispatch` arguments and the nonce. This will result in the `CallPermit` type and will be saved as the `primaryType`
 3. The domain separator will be created using `"Call Permit Precompile"` exactly for the name, the version of your dApp or platform, the chain ID of the network the signature is to be used on, and the address of the contract that will verify the signature. Note that you'll need to specify the chain ID of your network in the script to generate the correct signature
 4. All of the assembled data will be signed using Ethers.js
-5. The signature will be returned and you can use [Ethers.js](https://docs.ethers.org/){target=\_blank} [`Signature.from` method](https://docs.ethers.org/v6/api/crypto/#Signature_from){target=\_blank} to return the `v`, `r`, and `s` values of the signature
+5. The signature will be returned and you can use [Ethers.js](https://docs.ethers.org/v6/){target=\_blank} [`Signature.from` method](https://docs.ethers.org/v6/api/crypto/#Signature_from){target=\_blank} to return the `v`, `r`, and `s` values of the signature
 
 ### The Call Permit Arguments {: #call-permit-arguments }
 
@@ -209,7 +209,7 @@ You should now have a file where you can create the script to get the signature 
 "type": "module"
 ```
 
-Next, you can install [Ethers.js](https://docs.ethers.org/){target=\_blank}:
+Next, you can install [Ethers.js](https://docs.ethers.org/v6/){target=\_blank}:
 
 ```bash
 npm i ethers

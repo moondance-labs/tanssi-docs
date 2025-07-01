@@ -9,7 +9,7 @@ categories: EVM-Template
 
 ## Introduction 
 
-[RainbowKit](https://www.rainbowkit.com/docs/introduction){target=\_blank} is a React library that adds wallet connection capabilities to a dApp. It supports numerous wallets and enables features such as switching connection chains, ENS address resolution, and balance display out-of-the-box. RainbowKit offers customization options for all EVM-compatible chains, making it possible to connect wallets to a network easily.
+[RainbowKit](https://rainbowkit.com/docs/introduction){target=\_blank} is a React library that adds wallet connection capabilities to a dApp. It supports numerous wallets and enables features such as switching connection chains, ENS address resolution, and balance display out-of-the-box. RainbowKit offers customization options for all EVM-compatible chains, making it possible to connect wallets to a network easily.
 
 
 RainbowKit bundles together multiple tools to simplify adding wallet connections to a dApp:
@@ -252,7 +252,7 @@ Once connected, users will see their {{ networks.dancelight.demo_evm_token_symbo
 
 ## Customize RainbowKit
 
-RainbowKit simplifies the complexities of managing wallet connections while offering various options for customizing UI and functionality to fit the needs of a dApp. A full list of customization options can be found in the RainbowKit [documentation](https://www.rainbowkit.com/docs/introduction){target=\_blank}. This section covers customizing the **Connect Wallet** button to connect initially to the Demo EVM Chain and render it in a custom color. 
+RainbowKit simplifies the complexities of managing wallet connections while offering various options for customizing UI and functionality to fit the needs of a dApp. A full list of customization options can be found in the RainbowKit [documentation](https://rainbowkit.com/docs/introduction){target=\_blank}. This section covers customizing the **Connect Wallet** button to connect initially to the Demo EVM Chain and render it in a custom color. 
 
 ### Set Custom Initial Chain
 
@@ -311,7 +311,7 @@ The **Connect Wallet** button on the home page should now render in the color sp
 
 ![Theme customization on the user modal](/images/builders/toolkit/integrations/wallet-integrations/rainbowkit/rainbowkit-3.webp)
 
-This guide includes only a few of the customization options available through RainbowKit. More information about the library's capabilities and options can be found in the [RainbowKit Docs](https://www.rainbowkit.com/docs/introduction){target=\_blank}.
+This guide includes only a few of the customization options available through RainbowKit. More information about the library's capabilities and options can be found in the [RainbowKit Docs](https://rainbowkit.com/docs/introduction){target=\_blank}.
 
 The complete example code is available in the [rainbow-manual-build-demo repository](https://github.com/papermoonio/rainbowkit-manual-build-demo){target=\_blank}.
 

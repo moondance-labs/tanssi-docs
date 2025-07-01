@@ -11,7 +11,7 @@ categories: Sequencers
 
 As a sequencer, there may come a time when you need to gracefully exit the network. Decommissioning your account involves a two-step process to ensure that your node is properly disassociated from your account and that you receive your bond back.
 
-This guide will show you how to wind down your operations as a Tanssi sequencer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi sequencer with a [sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/docs/learn-keys#session-keys){target=\_blank}.
+This guide will show you how to wind down your operations as a Tanssi sequencer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi sequencer with a [sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank}.
 
 ## Request Undelegation {: #request-undelegation }
 
@@ -44,7 +44,7 @@ Head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networ
 4. Enter your account, which is, again, the same account you are sending the extrinsic from and the account you want to decommission as a sequencer
 5. Choose the target pool that you originally used when configuring your delegation (either **Autocompounding** or **Manual**)
 6. Select **Stake** or **Shares** from the dropdown
-7. Enter the amount to unstake. If you selected **Shares**, simply enter the number of Shares. If you selected **Stake**, you'll need to submit the value in [Planck](https://wiki.polkadot.network/docs/learn-DOT#the-planck-unit){target=\_blank}. As a reminder, the minimum stake amount is `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. If you delegated the minimum amount and didn't accumulate additional rewards, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}` Planck
+7. Enter the amount to unstake. If you selected **Shares**, simply enter the number of Shares. If you selected **Stake**, you'll need to submit the value in [Planck](https://wiki.polkadot.network/learn/learn-dot/#the-planck-unit){target=\_blank}. As a reminder, the minimum stake amount is `{{ networks.dancebox.block_producers.min_self_del.dance }}` DANCE. If you delegated the minimum amount and didn't accumulate additional rewards, you'll need to enter `{{ networks.dancebox.block_producers.min_self_del.planck }}` Planck
 8. Click **Submit Transaction** and sign and send the transaction from your wallet
 
 ![Create and submit an extrinsic to un-delegate on the developer portal](/images/node-operators/sequencers/offboarding/account/account-2.webp)

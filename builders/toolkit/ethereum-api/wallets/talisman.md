@@ -11,13 +11,13 @@ categories: EVM-Template, Substrate-Template
 
 Developers and users of Tanssi-powered EVM networks have a variety of options when it comes to wallets. Thanks to their seamless Ethereum compatibility, Tanssi EVM networks support a great variety of popular wallets, such as Talisman.
 
-Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with Talisman using the Substrate API](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with Talisman using the Substrate API](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}. The Talisman wallet browser extension is available on [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
 This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi EVM network, and sending funds.
 
 ## Setting Up Talisman {: #setting-up-talisman }
 
-First, download and install the [Talisman extension](https://www.talisman.xyz){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
+First, download and install the [Talisman extension](https://talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
 
 ![Get started with Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-1.webp)
 

@@ -165,7 +165,7 @@ Calls represent the behavior a runtime exposes in the form of transactions that 
 Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an `Error` if anything goes wrong
 
@@ -267,7 +267,7 @@ pub enum Event<T: Config> {
 
 ### Implementing Storage for State Persistence {: #implementing-storage }
 
-The `#[pallet::storage]` macro initializes a runtime storage structure. In the heavily constrained environment of blockchains, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage){target=\_blank}.
+The `#[pallet::storage]` macro initializes a runtime storage structure. In the heavily constrained environment of blockchains, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.polkadot.com/develop/parachains/customize-parachain/make-custom-pallet/#pallet-storage){target=\_blank}.
 
 In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=\_blank}). This can be initialized as follows:
 

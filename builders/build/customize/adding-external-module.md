@@ -34,7 +34,7 @@ You can visit the [diener documentation](https://docs.rs/crate/diener/latest){ta
 
 ## Example of the Double Reference Issue {: #double-reference-issue }
 
-To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} to a custom runtime based on the [baseline Tanssi-powered network template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
+To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle){target=\_blank} to a custom runtime based on the [baseline Tanssi-powered network template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
 
 This tutorial will generate a multiple reference compile-time error. Finally, the steps will show you how to fix the compile error by patching the dependencies with the tool `diener`, the runtime will compile successfully and work as intended.
 
@@ -58,7 +58,7 @@ To resolve this issue, it will be necessary to apply a patch so that the referen
 
 ### Declaring the Dependency {: #declaring-dependency }
 
-The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} is used.
+The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle){target=\_blank} is used.
 
 This `toggle` module, built for testing and educational purposes, adds basic logic to the runtime, allowing users to switch a state between true and false.
 
@@ -66,7 +66,7 @@ This `toggle` module, built for testing and educational purposes, adds basic log
 [dependencies]
 ...
 pallet-toggle = { 
-    git = "https://github.com/papermoonio/pallet-toggle.git", 
+    git = "https://github.com/papermoonio/pallet-toggle", 
     default-features = false 
 }
 ...

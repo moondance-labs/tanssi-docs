@@ -12,7 +12,7 @@ categories: EVM-Template
 Tanssi's EVM (Ethereum Virtual Machine) network template is designed for teams developing their applications on top of EVM smart contracts. It includes all the essential components needed for a full Ethereum-compatible network:
 
 - **EVM** - adds an Ethereum Virtual Machine execution layer for EVM-based smart contract applications
-- **Etherum JSON RPC Support** - Tanssi-powered EVM networks are fully [Ethereum JSON RPC](https://ethereum.org/en/developers/docs/apis/json-rpc){target=\_blank} compliant. Consequently, all Ethereum-based tools like [MetaMask](https://metamask.io){target=\_blank}, [Ethers.js](https://docs.ethers.org){target=\_blank}, [Viem](https://viem.sh){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Foundry](https://book.getfoundry.sh){target=\_blank} and more, work seamlessly out of the box
+- **Etherum JSON RPC Support** - Tanssi-powered EVM networks are fully [Ethereum JSON RPC](https://ethereum.org/en/developers/docs/apis/json-rpc){target=\_blank} compliant. Consequently, all Ethereum-based tools like [MetaMask](https://metamask.io){target=\_blank}, [Ethers.js](https://docs.ethers.org/v6/){target=\_blank}, [Viem](https://viem.sh){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Foundry](https://getfoundry.sh/){target=\_blank} and more, work seamlessly out of the box
 - **Unified Accounts** - allows Tanssi-powered EVM networks to feature Ethereum-styled ECDSA accounts
 
 ## EVM Network Template {: #evm-network-template }
