@@ -62,7 +62,7 @@ In this guide, you'll learn how to quickly spin up a Tanssi network node using [
 
 ### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
 Run the following command to install Docker on a Linux Ubuntu platform:
 
@@ -137,7 +137,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 - `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi network bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_NETWORK_BOOTNODE` with the actual bootnode information
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "EVM-compatible Network"
 
@@ -332,7 +332,7 @@ Every new release includes two node binaries, one for EVM-compatible networks an
     ```
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 ## Download the Tanssi Network Specs File {: #download-tanssi-specs }
 
@@ -675,7 +675,7 @@ In this guide, you'll learn how to spin up a Tanssi node using the official imag
 
 ### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
 Run the following command to install Docker on a Linux Ubuntu platform:
 
@@ -778,7 +778,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Dancelight"
 
@@ -898,7 +898,7 @@ If Landlock is disabled in your system, upgrade the kernel to version 5.13 or ab
 To get started, download the latest binary release and make it executable by running the following command:
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Dancelight"
 
@@ -1152,7 +1152,7 @@ Make sure to select **Contract** and **Write Contract**, then click on **Connect
 ![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
 
 !!! warning
-    After submitting your opt out transaction, save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank}.
+    After submitting your opt out transaction, save the transaction hash. You'll need this hash later for verification in the [operation offboarding form](https://www.tanssi.network/operator-offboarding){target=_blank}.
 
 ### Using Safe for Multisig Setups {: #opt-out-network-with-safe }
 
@@ -1218,12 +1218,12 @@ The output will show `false` if you have successfully opted out and `true` if yo
 
 Following the network opt-out, the next stage of offboarding your Tanssi operator involves formally notifying the Tanssi team. This page guides you through submitting the required offboarding form and explaining what to expect during the final removal process.
 
-After opting out from the network, notify the Tanssi team of your intention to stop running an operator. To do so, complete the [operator offboarding form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} and wait for confirmation of request completion from the Tanssi team.
+After opting out from the network, notify the Tanssi team of your intention to stop running an operator. To do so, complete the [operator offboarding form](https://www.tanssi.network/https://www.tanssi.network/operator-offboarding){target=_blank} and wait for confirmation of request completion from the Tanssi team.
 
 Upon receiving your request, your operator's removal will be scheduled. This step is semi-automated and may take time to complete. You will be notified by email when it is safe to decommission the node. Please do not decommission your node until you receive this notification.
 
 !!! note "Provide feedback"
-    Consider providing feedback in the offboarding [form](https://www.tanssi.network/ecosystem/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network.
+    Consider providing feedback in the offboarding [form](https://www.tanssi.network/operator-offboarding){target=_blank} about your experience to help improve the Tanssi network.
 
 ## Pause Operations (Optional) {: #pause-operations }
 
@@ -1254,7 +1254,7 @@ Operators play a critical role in consensus and network operations. Abruptly shu
 
 This guide outlines the **prerequisites** for offboarding, and subsequent guides will walk you through the process.
 
-If you have questions during any part of the offboarding process, the Tanssi team can support you on [Discord](https://discord.gg/Jm2KH8xT7J){target=\_blank}.
+If you have questions during any part of the offboarding process, the Tanssi team can support you on [Discord](https://discord.com/invite/Jm2KH8xT7J){target=\_blank}.
 
 ## Prerequisites {: #prerequisites}
 
@@ -2205,7 +2205,7 @@ In this guide, you'll learn how to spin up a Tanssi operator using the official 
 
 ### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/install/linux-install){target=\blank}.
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
 Run the following command to install Docker on a Linux Ubuntu platform:
 
@@ -2298,7 +2298,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -2459,7 +2459,7 @@ If Landlock is disabled in your system, upgrade the kernel to version 5.13 or ab
 To get started, download the latest binary release and make it executable by running the following command:
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -2895,7 +2895,7 @@ To restart the node, you can use the same command you used when launching your n
     ```
 
 !!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core){target=\_blank} architectures for better performance.
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 ### Specify a Version Tag {: #specifying-a-version-tag }
 
@@ -3197,7 +3197,7 @@ During the block-building process, a sequencer uses a [priority system](https://
 
 ## Forkless Upgrades {: #forkless-upgrades}
 
-Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.substrate.io/maintain/runtime-upgrades){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
+Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.polkadot.com/develop/parachains/maintenance/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
 
 Forkless upgrades are made possible by storing the state transition function as a WebAssembly (Wasm) blob in both the Tanssi network itself and the Tanssi-powered network. When a new runtime is scheduled through a function call in the Tanssi-powered network, the Tanssi network validates this block, so it is notified and readies itself to validate incoming blocks using the most recent state transition function. Following a specified runtime upgrade delay period, a Tanssi sequencer on the Tanssi-powered network constructs a block that references a Tanssi network block, signaling to the Tanssi network that it can now apply the new runtime. Consequently, this new state transition function is utilized for that specific block. As all infrastructure participants at the network level employ the on-chain Wasm blob, every Tanssi network node operator can validate new blocks using the latest state transition function.
 
@@ -3233,9 +3233,9 @@ categories: Basics
 
 ## Introduction {: #introduction}
 
-Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://substrate.io){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
+Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
 
-Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
+Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
 
 A transaction fee scheme is applied on top of the weight-based mechanism to ensure economic incentives are in line to limit the execution time, computation, and number of calls (database read/writes) to perform operations. Transaction fees are fundamental to preventing network spam, as they represent the cost of using the Tanssi network service. Consequently, a user interacting with the network through a specific function call will pay a transaction fee determined by a baseline fee algorithm.
 
@@ -3723,7 +3723,7 @@ Building a network from scratch is a very complex task that requires deep knowle
 
 - **Upgradeability** - it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
-Fortunately, there’s no need to build these blockchain components from scratch, thanks to an excellent open-source framework called [Substrate](https://substrate.io){target=\_blank}. Tanssi itself is built with this framework, leveraging its comprehensive base implementations, modularity, and flexibility to achieve a high level of customization.
+Fortunately, there’s no need to build these blockchain components from scratch, thanks to an excellent open-source framework called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. Tanssi itself is built with this framework, leveraging its comprehensive base implementations, modularity, and flexibility to achieve a high level of customization.
 
 ## Substrate Framework {: #substrate-framework}
 
@@ -4149,7 +4149,7 @@ When a new session starts, the Tanssi protocol will put the queued assignment in
 
 As previously discussed, the Tanssi protocol assigns sequencers to the Tanssi networks, and the result of this assignment is stored within the chain state.  Besides running the network node, the sequencers also run the Tanssi one. Hence, by accessing the data stored in the finalized blocks of the Tanssi Network, they can learn their assignation for the session, and the Tanssi networks can confirm that a certain group of sequencers have been assigned to them. 
 
-As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
+As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.com/blog/the-path-of-a-parachain-block/#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
 
 Finally, Tanssi can verify that the author of a network block was the expected one and reward accordingly.
 
@@ -4242,7 +4242,7 @@ Tanssi addresses the most common network problems by:
 
 - **External Security Providers** -  networks deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of operators
 
-- **Modular Blockchain Framework** - networks built with Tanssi can use a modular blockchain framework called [Substrate](https://substrate.io){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their network's custom logic
+- **Modular Blockchain Framework** - networks built with Tanssi can use a modular blockchain framework called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their network's custom logic
 
 - **Key Integrations** - networks built with Tanssi can access key infrastructural components alongside block production in a fully automated and standardized way. Tanssi-powered networks come with built-in support for crucial tools such as wallets, block explorers, indexers, RPC providers, and more, saving developers the effort of managing these integrations. Additionally, networks deployed through Tanssi can immediately leverage Cross-Consensus Messaging (XCM) upon launch, enabling instant bridging capabilities
 
@@ -5199,7 +5199,7 @@ The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 - **[eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
 - **[eth_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
 - **[eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
-- **[eth_getBlockReceipts](https://docs.alchemy.com/reference/eth-getblockreceipts){target=\_blank}** — returns all transaction receipts for a given block
+- **[eth_getBlockReceipts](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — returns all transaction receipts for a given block
 - **[eth_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
 - **[eth_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
 - **[eth_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
@@ -5210,7 +5210,7 @@ The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 - **[eth_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
 - **[eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
 - **[eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
-- **[eth_feeHistory](https://docs.alchemy.com/reference/eth-feehistory){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
+- **[eth_feeHistory](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
 - **[eth_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
 - **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
 - **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields

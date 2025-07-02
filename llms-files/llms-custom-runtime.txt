@@ -530,7 +530,7 @@ Calls represent the behavior a runtime exposes in the form of transactions that 
 Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an `Error` if anything goes wrong
 
@@ -731,7 +731,7 @@ pub enum Event<T: Config> {
 
 ### Implementing Storage for State Persistence {: #implementing-storage }
 
-The `#[pallet::storage]` macro initializes a runtime storage structure. In the heavily constrained environment of blockchains, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.substrate.io/build/runtime-storage){target=\_blank}.
+The `#[pallet::storage]` macro initializes a runtime storage structure. In the heavily constrained environment of blockchains, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.polkadot.com/develop/parachains/customize-parachain/make-custom-pallet/#pallet-storage){target=\_blank}.
 
 In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=\_blank}). This can be initialized as follows:
 
@@ -1055,7 +1055,7 @@ You can visit the [diener documentation](https://docs.rs/crate/diener/latest){ta
 
 ## Example of the Double Reference Issue {: #double-reference-issue }
 
-To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} to a custom runtime based on the [baseline Tanssi-powered network template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
+To illustrate the situation, the following steps add a demo [external module](https://github.com/papermoonio/pallet-toggle){target=\_blank} to a custom runtime based on the [baseline Tanssi-powered network template](/builders/build/templates/substrate/){target=\_blank}. One way to follow this tutorial is to clone the [Tanssi Github repository](https://github.com/moondance-labs/tanssi){target=\_blank}, which will act as the root repository of the project.
 
 This tutorial will generate a multiple reference compile-time error. Finally, the steps will show you how to fix the compile error by patching the dependencies with the tool `diener`, the runtime will compile successfully and work as intended.
 
@@ -1079,7 +1079,7 @@ To resolve this issue, it will be necessary to apply a patch so that the referen
 
 ### Declaring the Dependency {: #declaring-dependency }
 
-The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle.git){target=\_blank} is used.
+The first step to reproduce the double reference issue is to declare the dependency in the `Cargo.toml` file located in the repository's root folder, under the section `[dependencies]`. For this example, a simple [toggle module](https://github.com/papermoonio/pallet-toggle){target=\_blank} is used.
 
 This `toggle` module, built for testing and educational purposes, adds basic logic to the runtime, allowing users to switch a state between true and false.
 
@@ -1087,7 +1087,7 @@ This `toggle` module, built for testing and educational purposes, adds basic log
 [dependencies]
 ...
 pallet-toggle = { 
-    git = "https://github.com/papermoonio/pallet-toggle.git", 
+    git = "https://github.com/papermoonio/pallet-toggle", 
     default-features = false 
 }
 ...
@@ -1254,7 +1254,7 @@ The client specification contains the configuration of the network and other set
 In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
 
 - **Token Symbol** - a name for your Tanssi network's own token symbol
-- **SS58 Format** - an integer that uniquely identifies the accounts in your network. [SS58 encoding](https://docs.substrate.io/reference/address-formats){target=\_blank} transforms the underlying 32-byte account to a network-specific representation. This attribute doesn't apply nor interfere with the ECDSA Ethereum accounts on EVM-compatible networks
+- **SS58 Format** - an integer that uniquely identifies the accounts in your network. [SS58 encoding](https://docs.polkadot.com/polkadot-protocol/parachain-basics/accounts/#address-formats){target=\_blank} transforms the underlying 32-byte account to a network-specific representation. This attribute doesn't apply nor interfere with the ECDSA Ethereum accounts on EVM-compatible networks
 - **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token. It's set to `18` for EVM-compatible networks
 - **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 
@@ -1755,7 +1755,7 @@ During the block-building process, a sequencer uses a [priority system](https://
 
 ## Forkless Upgrades {: #forkless-upgrades}
 
-Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.substrate.io/maintain/runtime-upgrades){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
+Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.polkadot.com/develop/parachains/maintenance/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
 
 Forkless upgrades are made possible by storing the state transition function as a WebAssembly (Wasm) blob in both the Tanssi network itself and the Tanssi-powered network. When a new runtime is scheduled through a function call in the Tanssi-powered network, the Tanssi network validates this block, so it is notified and readies itself to validate incoming blocks using the most recent state transition function. Following a specified runtime upgrade delay period, a Tanssi sequencer on the Tanssi-powered network constructs a block that references a Tanssi network block, signaling to the Tanssi network that it can now apply the new runtime. Consequently, this new state transition function is utilized for that specific block. As all infrastructure participants at the network level employ the on-chain Wasm blob, every Tanssi network node operator can validate new blocks using the latest state transition function.
 
@@ -1791,9 +1791,9 @@ categories: Basics
 
 ## Introduction {: #introduction}
 
-Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://substrate.io){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
+Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
 
-Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
+Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
 
 A transaction fee scheme is applied on top of the weight-based mechanism to ensure economic incentives are in line to limit the execution time, computation, and number of calls (database read/writes) to perform operations. Transaction fees are fundamental to preventing network spam, as they represent the cost of using the Tanssi network service. Consequently, a user interacting with the network through a specific function call will pay a transaction fee determined by a baseline fee algorithm.
 
@@ -2281,7 +2281,7 @@ Building a network from scratch is a very complex task that requires deep knowle
 
 - **Upgradeability** - it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
-Fortunately, there’s no need to build these blockchain components from scratch, thanks to an excellent open-source framework called [Substrate](https://substrate.io){target=\_blank}. Tanssi itself is built with this framework, leveraging its comprehensive base implementations, modularity, and flexibility to achieve a high level of customization.
+Fortunately, there’s no need to build these blockchain components from scratch, thanks to an excellent open-source framework called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. Tanssi itself is built with this framework, leveraging its comprehensive base implementations, modularity, and flexibility to achieve a high level of customization.
 
 ## Substrate Framework {: #substrate-framework}
 
@@ -2707,7 +2707,7 @@ When a new session starts, the Tanssi protocol will put the queued assignment in
 
 As previously discussed, the Tanssi protocol assigns sequencers to the Tanssi networks, and the result of this assignment is stored within the chain state.  Besides running the network node, the sequencers also run the Tanssi one. Hence, by accessing the data stored in the finalized blocks of the Tanssi Network, they can learn their assignation for the session, and the Tanssi networks can confirm that a certain group of sequencers have been assigned to them. 
 
-As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
+As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.com/blog/the-path-of-a-parachain-block/#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
 
 Finally, Tanssi can verify that the author of a network block was the expected one and reward accordingly.
 
@@ -2800,7 +2800,7 @@ Tanssi addresses the most common network problems by:
 
 - **External Security Providers** -  networks deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of operators
 
-- **Modular Blockchain Framework** - networks built with Tanssi can use a modular blockchain framework called [Substrate](https://substrate.io){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their network's custom logic
+- **Modular Blockchain Framework** - networks built with Tanssi can use a modular blockchain framework called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their network's custom logic
 
 - **Key Integrations** - networks built with Tanssi can access key infrastructural components alongside block production in a fully automated and standardized way. Tanssi-powered networks come with built-in support for crucial tools such as wallets, block explorers, indexers, RPC providers, and more, saving developers the effort of managing these integrations. Additionally, networks deployed through Tanssi can immediately leverage Cross-Consensus Messaging (XCM) upon launch, enabling instant bridging capabilities
 
@@ -3757,7 +3757,7 @@ The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 - **[eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
 - **[eth_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
 - **[eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
-- **[eth_getBlockReceipts](https://docs.alchemy.com/reference/eth-getblockreceipts){target=\_blank}** — returns all transaction receipts for a given block
+- **[eth_getBlockReceipts](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — returns all transaction receipts for a given block
 - **[eth_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
 - **[eth_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
 - **[eth_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
@@ -3768,7 +3768,7 @@ The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 - **[eth_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
 - **[eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
 - **[eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
-- **[eth_feeHistory](https://docs.alchemy.com/reference/eth-feehistory){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
+- **[eth_feeHistory](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
 - **[eth_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
 - **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
 - **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields

@@ -165,13 +165,13 @@ categories: EVM-Template, Substrate-Template
 
 Developers and users of Tanssi-powered EVM networks have a variety of options when it comes to wallets. Thanks to their seamless Ethereum compatibility, Tanssi EVM networks support a great variety of popular wallets, such as Talisman.
 
-Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with Talisman using the Substrate API](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with Talisman using the Substrate API](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}. The Talisman wallet browser extension is available on [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
 This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi EVM network, and sending funds.
 
 ## Setting Up Talisman {: #setting-up-talisman }
 
-First, download and install the [Talisman extension](https://www.talisman.xyz){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
+First, download and install the [Talisman extension](https://talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
 
 ![Get started with Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-1.webp)
 
@@ -269,7 +269,7 @@ categories: EVM-Template, Substrate-Template
 
 ## Introduction {: #introduction }
 
-[SQD](https://www.sqd.dev/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD’s decentralized data lake and open-source SDK. In very simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
+[SQD](https://www.sqd.ai/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD’s decentralized data lake and open-source SDK. In very simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
 
 SQD has native and full support for both EVM and Substrate data. SQD offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi-powered network and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
 
@@ -279,7 +279,7 @@ This tutorial is a step-by-step guide to building a Squid to index EVM data from
 
 To follow along with this tutorial, you'll need to have:
 
-- [Docker installed](https://docs.docker.com/get-docker){target=\_blank}
+- [Docker installed](https://docs.docker.com/get-started/get-docker/){target=\_blank}
 - [Docker Compose installed](https://docs.docker.com/compose/install){target=\_blank}
 - An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page
 
@@ -476,7 +476,7 @@ Now we can move on to creating our Squid to index the data on our local developm
 
 ## Create a Squid Project {: #create-a-squid-project }
 
-Now we're going to create our Subquid project. First, we'll need to install the [Squid CLI](https://docs.sqd.dev/squid-cli/){target=\_blank}:
+Now we're going to create our Subquid project. First, we'll need to install the [Squid CLI](https://docs.sqd.ai/squid-cli/){target=\_blank}:
 
 ```bash
 npm i -g @subsquid/cli@latest
@@ -792,7 +792,7 @@ Open up the `src` folder and head to the `processor.ts` file. First, we need to 
 export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
 ```
 
-The `.toLowerCase()` is critical because the SQD processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. SQD has [available archives for many chains](https://docs.sqd.dev/subsquid-network/reference/networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your network has a hosted archive already. But not to worry, SQD can easily get the data it needs via your network's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
+The `.toLowerCase()` is critical because the SQD processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. SQD has [available archives for many chains](https://docs.sqd.ai/subsquid-network/reference/networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your network has a hosted archive already. But not to worry, SQD can easily get the data it needs via your network's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
 
 ```ts
 .setDataSource({
@@ -909,7 +909,7 @@ export type Transaction = _Transaction<fields>;
 
 ### Transform and Save the Data {: #transform-and-save-the-data}
 
-While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the SQD processor and inserting the desired pieces into a TypeORM database. For more detailed information on how SQD works, be sure to check out the [SQD docs on Developing a Squid](https://docs.sqd.dev/sdk/how-to-start/squid-development/){target=\_blank}.
+While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the SQD processor and inserting the desired pieces into a TypeORM database. For more detailed information on how SQD works, be sure to check out the [SQD docs on Developing a Squid](https://docs.sqd.ai/sdk/how-to-start/squid-development/){target=\_blank}.
 
 Our `main.ts` file is going to scan through each processed block for the `Transfer` event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a TypeORM database, enabling them to be easily queried. Let's break down the code that comprises `main.ts` in order:
 
@@ -1254,7 +1254,7 @@ function getAccount(m: Map<string, account="">, id: string): Account {
 </string,></string>
     ```
 
-See the [SQD guide to logging](https://docs.sqd.dev/sdk/reference/logger/){target=\_blank} for more information on debug mode.
+See the [SQD guide to logging](https://docs.sqd.ai/sdk/reference/logger/){target=\_blank} for more information on debug mode.
 
 ### Common Errors {: #common-errors }
 
@@ -1302,7 +1302,7 @@ categories: EVM-Template, Substrate-Template
 
 ## Introduction {: #introduction }
 
-[SQD](https://www.sqd.dev/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD's decentralized data lake and open-source SDK. In simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. SQD has native and full support for both EVM and Substrate data, even within the same project.
+[SQD](https://www.sqd.ai/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD's decentralized data lake and open-source SDK. In simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a GraphQL server included. It enables comprehensive filtering, pagination, and even full-text search capabilities. SQD has native and full support for both EVM and Substrate data, even within the same project.
 
 This quick-start guide will show you how to create a Squid project and configure it to index data on a Tanssi-powered network. There is one section catered towards [Substrate networks](#index-substrate-networks) and another towards [EVM networks](#index-evm-networks). However, if you're building on an EVM network, you may also reference the Substrate section, if you also need to index Substrate data.
 
@@ -1313,8 +1313,8 @@ For a more comprehensive end-to-end tutorial for EVM networks, be sure to check 
 For the examples in this guide, you will need to have the following:
 
  - [Node.js](https://nodejs.org/en/download){target=\_blank} version 16 or newer
- - [Docker](https://docs.docker.com/get-docker){target=\_blank}
- - [Squid CLI](https://docs.sqd.dev/squid-cli/installation){target=\_blank}
+ - [Docker](https://docs.docker.com/get-started/get-docker/){target=\_blank}
+ - [Squid CLI](https://docs.sqd.ai/squid-cli/installation){target=\_blank}
 
 ## Index a Tanssi Substrate Network {: #index-substrate-networks }
 
@@ -1326,7 +1326,7 @@ To get started indexing Substrate data on your Tanssi-powered network, you'll ne
     sqd init INSERT_SQUID_NAME --template substrate
     ```
 
-    For more information on getting started with this template, please check out the [Getting started: Substrate chains](https://docs.sqd.dev/sdk/how-to-start/squid-development/?template-tech=substrate){target=\_blank} guide on SQD's documentation site.
+    For more information on getting started with this template, please check out the [Getting started: Substrate chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=substrate){target=\_blank} guide on SQD's documentation site.
 
 2. Navigate into the root directory of your Squid project and install dependencies by running
 
@@ -1393,7 +1393,7 @@ To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to
 
     For more information on getting started with both of these templates, please check out the following SQD docs:
 
-      - [Getting started: EVM chains](https://docs.sqd.dev/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
+      - [Getting started: EVM chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
       - [Quickstart: Squid generation tools](https://docs.sqd.dev/sdk/resources/tools/squid-gen/){target=\_blank}
 
 2. Navigate into the root directory of your Squid project and install dependencies by running
@@ -1716,7 +1716,7 @@ categories: Substrate-Template
 
 ## Introduction {: #introduction }
 
-[Polkadot.js](https://wiki.polkadot.network/docs/polkadotjs){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Tanssi-powered network! The [Polkadot.js API](https://polkadot.js.org/docs/api){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a network and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
+[Polkadot.js](https://wiki.polkadot.network/general/polkadotjs/){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Tanssi-powered network! The [Polkadot.js API](https://polkadot.js.org/docs/api){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a network and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
 
 You can use the Polkadot.js API to query on-chain data and send transactions from the Substrate side of your Tanssi network. You can query runtime constants, chain state, events, transaction (extrinsic) data, and more.
 
@@ -3161,13 +3161,13 @@ categories: Substrate-Template
 
 Developers and users of Tanssi-powered Substrate networks have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
 
-Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chrome.google.com/webstore/detail/talisman-polkadot-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
 This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
 
 ## Setting Up Talisman {: #setting-up-talisman }
 
-First, download and install the [Talisman extension](https://www.talisman.xyz){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
+First, download and install the [Talisman extension](https://talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
 
 ![Get started with Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-1.webp)
 
@@ -3484,7 +3484,7 @@ During the block-building process, a sequencer uses a [priority system](https://
 
 ## Forkless Upgrades {: #forkless-upgrades}
 
-Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.substrate.io/maintain/runtime-upgrades){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
+Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.polkadot.com/develop/parachains/maintenance/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
 
 Forkless upgrades are made possible by storing the state transition function as a WebAssembly (Wasm) blob in both the Tanssi network itself and the Tanssi-powered network. When a new runtime is scheduled through a function call in the Tanssi-powered network, the Tanssi network validates this block, so it is notified and readies itself to validate incoming blocks using the most recent state transition function. Following a specified runtime upgrade delay period, a Tanssi sequencer on the Tanssi-powered network constructs a block that references a Tanssi network block, signaling to the Tanssi network that it can now apply the new runtime. Consequently, this new state transition function is utilized for that specific block. As all infrastructure participants at the network level employ the on-chain Wasm blob, every Tanssi network node operator can validate new blocks using the latest state transition function.
 
@@ -3520,9 +3520,9 @@ categories: Basics
 
 ## Introduction {: #introduction}
 
-Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://substrate.io){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
+Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
 
-Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.substrate.io/build/tx-weights-fees){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
+Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
 
 A transaction fee scheme is applied on top of the weight-based mechanism to ensure economic incentives are in line to limit the execution time, computation, and number of calls (database read/writes) to perform operations. Transaction fees are fundamental to preventing network spam, as they represent the cost of using the Tanssi network service. Consequently, a user interacting with the network through a specific function call will pay a transaction fee determined by a baseline fee algorithm.
 
@@ -4010,7 +4010,7 @@ Building a network from scratch is a very complex task that requires deep knowle
 
 - **Upgradeability** - it is necessary to clearly define how to upgrade, how modifications are implemented, and how conflicts are resolved within the network
 
-Fortunately, there’s no need to build these blockchain components from scratch, thanks to an excellent open-source framework called [Substrate](https://substrate.io){target=\_blank}. Tanssi itself is built with this framework, leveraging its comprehensive base implementations, modularity, and flexibility to achieve a high level of customization.
+Fortunately, there’s no need to build these blockchain components from scratch, thanks to an excellent open-source framework called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. Tanssi itself is built with this framework, leveraging its comprehensive base implementations, modularity, and flexibility to achieve a high level of customization.
 
 ## Substrate Framework {: #substrate-framework}
 
@@ -4436,7 +4436,7 @@ When a new session starts, the Tanssi protocol will put the queued assignment in
 
 As previously discussed, the Tanssi protocol assigns sequencers to the Tanssi networks, and the result of this assignment is stored within the chain state.  Besides running the network node, the sequencers also run the Tanssi one. Hence, by accessing the data stored in the finalized blocks of the Tanssi Network, they can learn their assignation for the session, and the Tanssi networks can confirm that a certain group of sequencers have been assigned to them. 
 
-As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.network/blog/the-path-of-a-parachain-block#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
+As the Tanssi networks produce blocks, those blocks need to be validated and finalized by an external security provider. Once an operator verifies a block, a small proof of validity is produced and stored in Tanssi, keeping track of the proofs for each block of each chain. This small representation of the proof of validity is called [candidate receipt](https://polkadot.com/blog/the-path-of-a-parachain-block/#candidate-receipts){target=\_blank} and is composed of a set of values, including the state root, which can be used to verify state proofs.
 
 Finally, Tanssi can verify that the author of a network block was the expected one and reward accordingly.
 
@@ -4529,7 +4529,7 @@ Tanssi addresses the most common network problems by:
 
 - **External Security Providers** -  networks deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of operators
 
-- **Modular Blockchain Framework** - networks built with Tanssi can use a modular blockchain framework called [Substrate](https://substrate.io){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their network's custom logic
+- **Modular Blockchain Framework** - networks built with Tanssi can use a modular blockchain framework called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their network's custom logic
 
 - **Key Integrations** - networks built with Tanssi can access key infrastructural components alongside block production in a fully automated and standardized way. Tanssi-powered networks come with built-in support for crucial tools such as wallets, block explorers, indexers, RPC providers, and more, saving developers the effort of managing these integrations. Additionally, networks deployed through Tanssi can immediately leverage Cross-Consensus Messaging (XCM) upon launch, enabling instant bridging capabilities
 
@@ -5486,7 +5486,7 @@ The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 - **[eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
 - **[eth_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
 - **[eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
-- **[eth_getBlockReceipts](https://docs.alchemy.com/reference/eth-getblockreceipts){target=\_blank}** — returns all transaction receipts for a given block
+- **[eth_getBlockReceipts](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — returns all transaction receipts for a given block
 - **[eth_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
 - **[eth_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
 - **[eth_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
@@ -5497,7 +5497,7 @@ The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 - **[eth_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
 - **[eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
 - **[eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
-- **[eth_feeHistory](https://docs.alchemy.com/reference/eth-feehistory){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
+- **[eth_feeHistory](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
 - **[eth_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
 - **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
 - **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
