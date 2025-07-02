@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pyyaml requests
+          pip install pyyaml requests beautifulsoup4
 
       - name: Get SHA256 hash of the PR's llms-full.txt file
         id: pr_llms_hash
