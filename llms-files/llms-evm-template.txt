@@ -536,18 +536,18 @@ impl pallet_assets::Config for Runtime {
     type AssetIdParameter = u64;
     // Defines the allowed origins to create assets
     type CreateOrigin = 
-        frame_support::traits::AsEnsureOriginWithArg<frame_system::ensuresigned<accountid>&gt;;
+        frame_support::traits::AsEnsureOriginWithArg<frame_system::EnsureSigned<AccountId>>;
     // Root can create assets
-    type ForceOrigin = EnsureRoot<accountid>;
-    type AssetAccountDeposit = frame_support::traits::ConstU128&lt;1&gt;;
+    type ForceOrigin = EnsureRoot<AccountId>;
+    type AssetAccountDeposit = frame_support::traits::ConstU128<1>;
     type Freezer = ();
     type Extra = ();
-    type WeightInfo = pallet_assets::weights::SubstrateWeight<runtime>;
-    type RemoveItemsLimit = frame_support::traits::ConstU32&lt;1000&gt;;
+    type WeightInfo = pallet_assets::weights::SubstrateWeight<Runtime>;
+    type RemoveItemsLimit = frame_support::traits::ConstU32<1000>;
     #[cfg(feature = "runtime-benchmarks")]
     type BenchmarkHelper = ();
     type CallbackHandle = ();
-}</runtime></accountid></frame_system::ensuresigned<accountid>
+}
     ```
 
 The complete configuration of the module contains more parameters, to view a detailed description of each of them, refer to the [official config trait for the Assets module documentation](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=\_blank}.
@@ -1221,25 +1221,25 @@ You must create a Hardhat project if you don't already have one. You can create 
 
 5. A menu will appear allowing you to create a new project or use a sample project. For this example, you can choose **Create an empty hardhat.config.js**
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>npx hardhat init</span>
-<span data-ty="">888    888                      888 888               888</span>
-<span data-ty="">888    888                      888 888               888</span>
-<span data-ty="">888    888                      888 888               888</span>
-<span data-ty="">8888888888  8888b.  888d888 .d88888 88888b.   8888b.  888888</span>
-<span data-ty="">888    888     "88b 888P"  d88" 888 888 "88b     "88b 888</span>
-<span data-ty="">888    888 .d888888 888    888  888 888  888 .d888888 888</span>
-<span data-ty="">888    888 888  888 888    Y88b 888 888  888 888  888 Y88b.</span>
-<span data-ty="">888    888 "Y888888 888     "Y88888 888  888 "Y888888  "Y888</span>
-<br/>
-<span data-ty="">👷 Welcome to Hardhat v2.22.2 👷‍</span>
-<br/>
-<span data-ty="input" data-ty-prompt="?"> What do you want to do? …</span>
-<span data-ty="">  Create a JavaScript project </span>
-<span data-ty="">  Create a TypeScript project </span>
-<span data-ty="">  Create a TypeScript project (with Viem) </span>
-<span data-ty="input" data-ty-prompt="❯ Create an empty hardhat.config.js"></span>
-<span data-ty="">  Quit </span>
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>npx hardhat init</span>
+  <span data-ty>888&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;888</span>
+  <span data-ty>888&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;888</span>
+  <span data-ty>888&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;888</span>
+  <span data-ty>8888888888&nbsp;&nbsp;8888b.&nbsp;&nbsp;888d888&nbsp;.d88888&nbsp;88888b.&nbsp;&nbsp;&nbsp;8888b.&nbsp;&nbsp;888888</span>
+  <span data-ty>888&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"88b&nbsp;888P"&nbsp;&nbsp;d88"&nbsp;888&nbsp;888&nbsp;"88b&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"88b&nbsp;888</span>
+  <span data-ty>888&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;.d888888&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;&nbsp;888&nbsp;888&nbsp;&nbsp;888&nbsp;.d888888&nbsp;888</span>
+  <span data-ty>888&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;888&nbsp;&nbsp;888&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;Y88b&nbsp;888&nbsp;888&nbsp;&nbsp;888&nbsp;888&nbsp;&nbsp;888&nbsp;Y88b.</span>
+  <span data-ty>888&nbsp;&nbsp;&nbsp;&nbsp;888&nbsp;"Y888888&nbsp;888&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Y88888&nbsp;888&nbsp;&nbsp;888&nbsp;"Y888888&nbsp;&nbsp;"Y888</span>
+    <br>
+  <span data-ty>👷 Welcome to Hardhat v2.22.2 👷‍</span>
+    <br>
+  <span data-ty="input" data-ty-prompt="?">&nbsp;What do you want to do? …</span>
+  <span data-ty>&nbsp;&nbsp;Create a JavaScript project </span>
+  <span data-ty>&nbsp;&nbsp;Create a TypeScript project </span>
+  <span data-ty>&nbsp;&nbsp;Create a TypeScript project (with Viem) </span>
+  <span data-ty="input" data-ty-prompt="❯ Create an empty hardhat.config.js"></span>
+  <span data-ty>&nbsp;&nbsp;Quit </span>
 </div>
 
 This will create a Hardhat config file (`hardhat.config.js`) in your project directory.
@@ -1335,10 +1335,10 @@ To compile the contract you can simply run:
 npx hardhat compile
 ```
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>npx hardhat compile</span>
-<span data-ty="">Compiled 8 Solidity files successfully (evm target: paris).</span>
-<span data-ty="input"><span class="file-path"></span></span>
+<div id="termynal" data-termynal>
+    <span data-ty="input"><span class="file-path"></span>npx hardhat compile</span>
+    <span data-ty>Compiled 8 Solidity files successfully (evm target: paris).</span>
+    <span data-ty="input"><span class="file-path"></span></span>
 </div>
 
 After compilation, an `artifacts` directory is created: it holds the bytecode and metadata of the contract, which are `.json` files. Adding this directory to your `.gitignore` is a good idea.
@@ -1367,7 +1367,7 @@ Next, you can write your Hardhat Ignition module. To get started, take the follo
 const { buildModule } = require('@nomicfoundation/hardhat-ignition/modules');
 
 // 2. Export a module using `buildModule`
-module.exports = buildModule('BoxModule', (m) =&gt; {
+module.exports = buildModule('BoxModule', (m) => {
   // 3. Use the `getAccount` method to select the deployer account
   const deployer = m.getAccount(0);
 
@@ -1395,23 +1395,23 @@ npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox
 
 You'll be prompted to confirm the network you wish to deploy to. After a few seconds after you confirm, the contract is deployed, and you'll see the contract address in the terminal. If you're deploying to another Tanssi network, make sure that you specify the correct network. The network name must match how it's defined in `hardhat.config.js`. After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span> npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox</span>
-<br/>
-<span data-ty="">✅ Confirm deploy to network dancebox (5678)? … yes</span>
-<span data-ty="">Hardhat Ignition 🚀</span>
-<br/>
-<span data-ty="">Deploying [ BoxModule ]</span>
-<br/>
-<span data-ty="">Batch #1</span>
-<span data-ty="">Executed BoxModule#Box</span>
-<br/>
-<span data-ty="">[ BoxModule ] successfully deployed 🚀</span>
-<br/>
-<span data-ty="">Deployed Addresses</span>
-<br/>
-<span data-ty="">BoxModule#Box - 0xa84caB60db6541573a091e5C622fB79e175E17be</span>
-<span data-ty="input"><span class="file-path"></span></span>
+<div id="termynal" data-termynal>
+    <span data-ty="input"><span class="file-path"></span> npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox</span>
+    <br>
+    <span data-ty>✅ Confirm deploy to network dancebox (5678)? … yes</span>
+    <span data-ty>Hardhat Ignition 🚀</span>
+    <br>
+    <span data-ty>Deploying [ BoxModule ]</span>
+    <br>
+    <span data-ty>Batch #1</span>
+    <span data-ty>Executed BoxModule#Box</span>
+    <br>
+    <span data-ty>[ BoxModule ] successfully deployed 🚀</span>
+    <br>
+    <span data-ty>Deployed Addresses</span>
+    <br>
+    <span data-ty>BoxModule#Box - 0xa84caB60db6541573a091e5C622fB79e175E17be</span>
+    <span data-ty="input"><span class="file-path"></span></span>
 </div>
 
 Congratulations, your contract is live! Save the address, as you will use it to interact with this contract instance in the next step.
@@ -1446,42 +1446,42 @@ Next, you can take the following steps, entering one line at a time:
 
 Your EVM account will sign the transaction and broadcast it to the network. The output should look similar to:
 
-<div data-termynal="" id="termynal">
-<span data-ty="input">npx hardhat console --network dancebox</span>
-<br/>
-<span data-ty="">Welcome to Node.js v20.9.0.</span>
-<span data-ty="">Type ".help" for more information.</span>
-<span data-ty="input" data-ty-prompt="&gt;"> const Box = await ethers.getContractFactory('Box');</span>
-<span data-ty="">undefined</span>
-<br/>
-<span data-ty="input" data-ty-prompt="&gt;"> const box = await Box.attach('0xa84caB60db6541573a091e5C622fB79e175E17be');</span>
-<span data-ty="">undefined</span>
-<br/>
-<span data-ty="input" data-ty-prompt="&gt;"> await box.store(5);</span>
-<span data-ty="">ContractTransactionResponse {<br/>
-    provider: HardhatEthersProvider { ... },<br/>
-    blockNumber: null,<br/>
-    blockHash: null,<br/>
-    index: undefined,<br/>
-    hash: '0x1c49a64a601fc5dd184f0a368a91130cb49203ec0f533c6fcf20445c68e20264',<br/>
-    type: 2,<br/>
-    to: '0xa84caB60db6541573a091e5C622fB79e175E17be',<br/>
-    from: '0x3B939FeaD1557C741Ff06492FD0127bd287A421e',<br/>
-    nonce: 87,<br/>
-    gasLimit: 45881n,<br/>
-    gasPrice: 1107421875n,<br/>
-    maxPriorityFeePerGas: 1n,<br/>
-    maxFeePerGas: 1107421875n,<br/>
-    data: '0x6057361d0000000000000000000000000000000000000000000000000000000000000005',<br/>
-    value: 0n,<br/>
-    chainId: 5678n,<br/>
-    signature: Signature { r: "0x9233b9cc4ae6879b7e08b9f1a4bfb175c8216eee0099966eca4a305c7f369ecc", s: "0x7663688633006b5a449d02cb08311569fadf2f9696bd7fe65417860a3b5fc57d", yParity: 0, networkV: null },<br/>
-    accessList: [],<br/>
-    blobVersionedHashes: null<br/>
+<div id="termynal" data-termynal>
+    <span data-ty="input">npx hardhat console --network dancebox</span>
+    <br>
+    <span data-ty>Welcome to Node.js v20.9.0.</span>
+    <span data-ty>Type ".help" for more information.</span>
+    <span data-ty="input" data-ty-prompt=">"> const Box = await ethers.getContractFactory('Box');</span>
+    <span data-ty>undefined</span>
+    <br>
+    <span data-ty="input" data-ty-prompt=">"> const box = await Box.attach('0xa84caB60db6541573a091e5C622fB79e175E17be');</span>
+    <span data-ty>undefined</span>
+    <br>
+    <span data-ty="input" data-ty-prompt=">"> await box.store(5);</span>
+    <span data-ty>ContractTransactionResponse {<br>
+    provider: HardhatEthersProvider { ... },<br>
+    blockNumber: null,<br>
+    blockHash: null,<br>
+    index: undefined,<br>
+    hash: '0x1c49a64a601fc5dd184f0a368a91130cb49203ec0f533c6fcf20445c68e20264',<br>
+    type: 2,<br>
+    to: '0xa84caB60db6541573a091e5C622fB79e175E17be',<br>
+    from: '0x3B939FeaD1557C741Ff06492FD0127bd287A421e',<br>
+    nonce: 87,<br>
+    gasLimit: 45881n,<br>
+    gasPrice: 1107421875n,<br>
+    maxPriorityFeePerGas: 1n,<br>
+    maxFeePerGas: 1107421875n,<br>
+    data: '0x6057361d0000000000000000000000000000000000000000000000000000000000000005',<br>
+    value: 0n,<br>
+    chainId: 5678n,<br>
+    signature: Signature { r: "0x9233b9cc4ae6879b7e08b9f1a4bfb175c8216eee0099966eca4a305c7f369ecc", s: "0x7663688633006b5a449d02cb08311569fadf2f9696bd7fe65417860a3b5fc57d", yParity: 0, networkV: null },<br>
+    accessList: [],<br>
+    blobVersionedHashes: null<br>
     }</span>
-<span data-ty="input" data-ty-prompt="&gt;"> await box.retrieve();</span>
-<span data-ty="">5n</span>
-<br/>
+    <span data-ty="input" data-ty-prompt=">"> await box.retrieve();</span>
+    <span data-ty>5n</span>
+    <br>
 </div>
 
 Notice your address labeled `from`, the contract's address, and the `data` being passed. Now, you can retrieve the value by running:
@@ -2252,7 +2252,7 @@ const addressFrom = 'INSERT_ADDRESS_FROM';
 const addressTo = 'INSERT_ADDRESS_TO';
 
 // Create balances function
-const balances = async () =&gt; {
+const balances = async () => {
   // Fetch balances
   const balanceFrom = ethers.formatEther(
     await provider.getBalance(addressFrom)
@@ -2275,10 +2275,10 @@ node balances.js
 
 If successful, the balances for the origin and receiving address will be displayed in your terminal in {{ networks.dancelight.demo_evm_token_symbol }}.
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>node balances.js</span>
-<span data-ty="">The balance of 0x44236223aB4291b93EEd10E4B511B37a398DEE55 is: 20.0 TANGO
-    <br/> The balance of 0x8841701Dba3639B254D9CEe712E49D188A1e941e is: 1.0 TANGO
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>node balances.js</span>
+  <span data-ty>The balance of 0x44236223aB4291b93EEd10E4B511B37a398DEE55 is: 20.0 TANGO
+    <br> The balance of 0x8841701Dba3639B254D9CEe712E49D188A1e941e is: 1.0 TANGO
   </span>
 </div>
 
@@ -2362,7 +2362,7 @@ const addressTo = 'INSERT_ADDRESS_TO';
 const wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
 // Create send function
-const send = async () =&gt; {
+const send = async () => {
   console.log(
     `Attempting to send transaction from ${wallet.address} to ${addressTo}`
   );
@@ -2393,14 +2393,14 @@ If the transaction was succesful, in your terminal you'll see the transaction ha
 
 You can also use the `balances.js` script to check that the balances for the origin and receiving accounts have changed. The entire workflow would look like this:
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>node transaction.js</span>
-<span data-ty="">Attempting to send transaction from 0x44236223aB4291b93EEd10E4B511B37a398DEE55 to 0x8841701 Dba3639B254D9CEe712E49D188A1e941e
-    <br/> Transaction successful with hash: 0x29d87c00704b949cb4cc04fdc6c98d53b3c0ec4fb3ffe0c52864a73 b586f563c
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>node transaction.js</span>
+  <span data-ty>Attempting to send transaction from 0x44236223aB4291b93EEd10E4B511B37a398DEE55 to 0x8841701 Dba3639B254D9CEe712E49D188A1e941e
+    <br> Transaction successful with hash: 0x29d87c00704b949cb4cc04fdc6c98d53b3c0ec4fb3ffe0c52864a73 b586f563c
   </span>
-<span data-ty="input"><span class="file-path"></span>node balances.js</span>
-<span data-ty="">The balance of 0x44236223aB4291b93EEd10E4B511B37a398DEE55 is: 18.999958 TANGO
-    <br/> The balance of 0x8841701Dba3639B254D9CEe712E49D188A1e941e is: 2.0 TANGO
+  <span data-ty="input"><span class="file-path"></span>node balances.js</span>
+  <span data-ty>The balance of 0x44236223aB4291b93EEd10E4B511B37a398DEE55 is: 18.999958 TANGO
+    <br> The balance of 0x8841701Dba3639B254D9CEe712E49D188A1e941e is: 2.0 TANGO
   </span>
 </div>
 
@@ -2415,7 +2415,7 @@ touch Incrementer.sol
 Next, you can add the Solidity code to the file:
 
 ```solidity
---8&lt;-- 'code/builders/toolkit/ethereum-api/Incrementer.sol'
+--8<-- 'code/builders/toolkit/ethereum-api/Incrementer.sol'
 ```
 
 The `constructor` function, which runs when the contract is deployed, sets the initial value of the number variable stored on-chain (default is 0). The `increment` function adds the `_value` provided to the current number, but a transaction needs to be sent, which modifies the stored data. Lastly, the `reset` function resets the stored value to zero.
@@ -2440,7 +2440,7 @@ Next, you will create the script for this file and complete the following steps:
 5. Extract the compiled contract file and export it to be used in the deployment script
 
 ```js
---8&lt;-- 'code/builders/toolkit/ethereum-api/compile.js'
+--8<-- 'code/builders/toolkit/ethereum-api/compile.js'
 ```
 
 ### Deploy Contract Script {: #deploy-contract-script }
@@ -2536,7 +2536,7 @@ const abi = contractFile.abi;
 const incrementer = new ethers.ContractFactory(abi, bytecode, wallet);
 
 // Create deploy function
-const deploy = async () =&gt; {
+const deploy = async () => {
   console.log(`Attempting to deploy from account: ${wallet.address}`);
 
   // Send tx (initial value set to 5) and wait for receipt
@@ -2558,10 +2558,10 @@ node deploy.js
 
 If successful, the contract's address will be displayed in the terminal.
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>node deploy.js</span>
-<span data-ty="">Attempting to deploy from account: 0x44236223aB4291b93EEd10E4B511B37a398DEE55
-    <br/> Contract deployed at address: 0x2EF0C649C08D55637dec9fCcebCFeD27F2F2a5F2
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>node deploy.js</span>
+  <span data-ty>Attempting to deploy from account: 0x44236223aB4291b93EEd10E4B511B37a398DEE55
+    <br> Contract deployed at address: 0x2EF0C649C08D55637dec9fCcebCFeD27F2F2a5F2
   </span>
 </div>
 
@@ -2649,7 +2649,7 @@ const incrementer = new ethers.Contract(
 );
 
 // Create get function
-const get = async () =&gt; {
+const get = async () => {
   console.log(`Making a call to contract at address: ${contractAddress}`);
 
   // Call contract
@@ -2670,10 +2670,10 @@ node get.js
 
 If successful, the value will be displayed in the terminal.
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>node get.js</span>
-<span data-ty="">Making a call to contract at address: 0x2EF0C649C08D55637dec9fCcebCFeD27F2F2a5F2
-    <br/> The current number stored is: 5
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>node get.js</span>
+  <span data-ty>Making a call to contract at address: 0x2EF0C649C08D55637dec9fCcebCFeD27F2F2a5F2
+    <br> The current number stored is: 5
   </span>
 </div>
 
@@ -2777,7 +2777,7 @@ const incrementer = new ethers.Contract(
 );
 
 // Create increment function
-const increment = async () =&gt; {
+const increment = async () => {
   console.log(
     `Calling the increment by ${_value} function in contract at address: ${contractAddress}`
   );
@@ -2801,14 +2801,14 @@ node increment.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `increment.js` script to make sure that the value is changing as expected:
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>node increment.js</span>
-<span data-ty="">Calling the increment by 3 function in contract at address: 0x2EF0C649C08D55637dec9fCcebCFe D27F2F2a5F2
-    <br/> Tx successful with hash: 0x8aa7ccb4613ac92713bcc6ff064f1b0c978e24b3f6acb6d6bfa730a10af522bb
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>node increment.js</span>
+  <span data-ty>Calling the increment by 3 function in contract at address: 0x2EF0C649C08D55637dec9fCcebCFe D27F2F2a5F2
+    <br> Tx successful with hash: 0x8aa7ccb4613ac92713bcc6ff064f1b0c978e24b3f6acb6d6bfa730a10af522bb
   </span>
-<span data-ty="input"><span class="file-path"></span>node get.js</span>
-<span data-ty="">Making a call to contract at address: 0x2EF0C649C08D55637dec9fCcebCFeD27F2F2a5F2
-    <br/> The current number stored is: 8
+  <span data-ty="input"><span class="file-path"></span>node get.js</span>
+  <span data-ty>Making a call to contract at address: 0x2EF0C649C08D55637dec9fCcebCFeD27F2F2a5F2
+    <br> The current number stored is: 8
   </span>
 </div>
 
@@ -2900,7 +2900,7 @@ const incrementer = new ethers.Contract(
 );
 
 // Create reset function
-const reset = async () =&gt; {
+const reset = async () => {
   console.log(
     `Calling the reset function in contract at address: ${contractAddress}`
   );
@@ -2924,14 +2924,14 @@ node reset.js
 
 If successful, the transaction hash will be displayed in the terminal. You can use the `get.js` script alongside the `reset.js` script to make sure that value is changing as expected:
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>node increment.js</span>
-<span data-ty="">Calling the reset function in contract at address: 0x2EF0C649C08D55637dec9fCcebCFe D27F2F2a5F2
-    <br/> Tx successful with hash: 0xb689da50a43e98b5a83ff64757afbf100be12e2db6ff4d0504168f262cc08fb0
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>node increment.js</span>
+  <span data-ty>Calling the reset function in contract at address: 0x2EF0C649C08D55637dec9fCcebCFe D27F2F2a5F2
+    <br> Tx successful with hash: 0xb689da50a43e98b5a83ff64757afbf100be12e2db6ff4d0504168f262cc08fb0
   </span>
-<span data-ty="input"><span class="file-path"></span>node get.js</span>
-<span data-ty="">Making a call to contract at address: 0x2EF0C649C08D55637dec9fCcebCFeD27F2F2a5F2
-    <br/> The current number stored is: 0
+  <span data-ty="input"><span class="file-path"></span>node get.js</span>
+  <span data-ty>Making a call to contract at address: 0x2EF0C649C08D55637dec9fCcebCFeD27F2F2a5F2
+    <br> The current number stored is: 0
   </span>
 </div>
 
@@ -3197,7 +3197,7 @@ const addressFrom = 'INSERT_ADDRESS_FROM';
 const addressTo = 'INSERT_ADDRESS_TO';
 
 // 5. Create balances function
-const balances = async () =&gt; {
+const balances = async () => {
   // 6. Fetch balances
   const balanceFrom = formatEther(
     await publicClient.getBalance({ address: addressFrom })
@@ -3305,7 +3305,7 @@ const publicClient = createPublicClient({
 const addressTo = 'INSERT_ADDRESS_TO';
 
 // 6. Create send function
-const send = async () =&gt; {
+const send = async () => {
   console.log(
     `Attempting to send transaction from ${account.address} to ${addressTo}`
   );
@@ -3349,7 +3349,7 @@ touch Incrementer.sol
 Next, you can add the Solidity code to the file:
 
 ```solidity
---8&lt;-- 'code/builders/toolkit/ethereum-api/Incrementer.sol'
+--8<-- 'code/builders/toolkit/ethereum-api/Incrementer.sol'
 ```
 
 The `constructor` function, which runs when the contract is deployed, sets the initial value of the number variable stored on-chain (default is 0). The `increment` function adds the `_value` provided to the current number, but a transaction needs to be sent, which modifies the stored data. Lastly, the `reset` function resets the stored value to zero.
@@ -3488,7 +3488,7 @@ const abi = contractFile.abi;
 const _initialNumber = 5;
 
 // 6. Create deploy function
-const deploy = async () =&gt; {
+const deploy = async () => {
   console.log(`Attempting to deploy from account: ${account.address}`);
 
   // 7. Send transaction (initial value set to 5)
@@ -3588,7 +3588,7 @@ const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 const abi = contractFile.abi;
 
 // 5. Create get function
-const get = async () =&gt; {
+const get = async () => {
   console.log(`Making a call to contract at address: ${contractAddress}`);
 
   // 6. Call contract
@@ -3699,7 +3699,7 @@ const abi = contractFile.abi;
 const _value = 3;
 
 // 6. Create increment function
-const increment = async () =&gt; {
+const increment = async () => {
   console.log(
     `Calling the increment by ${_value} function in contract at address: ${contractAddress}`
   );
@@ -3808,7 +3808,7 @@ const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 const abi = contractFile.abi;
 
 // 6. Create reset function
-const reset = async () =&gt; {
+const reset = async () => {
   console.log(
     `Calling the reset function in contract at address: ${contractAddress}`
   );
@@ -3983,7 +3983,7 @@ const addressFrom = 'INSERT_ADDRESS_FROM';
 const addressTo = 'INSERT_ADDRESS_TO';
 
 // Create balances function
-const balances = async () =&gt; {
+const balances = async () => {
   // Fetch balance info
   const balanceFrom = web3.utils.fromWei(
     await web3.eth.getBalance(addressFrom),
@@ -4089,7 +4089,7 @@ const accountFrom = {
 const addressTo = 'INSERT_ADDRESS_TO';
 
 // Create send function
-const send = async () =&gt; {
+const send = async () => {
   console.log(
     `Attempting to send transaction from ${accountFrom.address} to ${addressTo}`
   );
@@ -4140,7 +4140,7 @@ touch Incrementer.sol
 Next, you can add the Solidity code to the file:
 
 ```solidity
---8&lt;-- 'code/builders/toolkit/ethereum-api/Incrementer.sol'
+--8<-- 'code/builders/toolkit/ethereum-api/Incrementer.sol'
 ```
 
 The `constructor` function, which runs when the contract is deployed, sets the initial value of the number variable stored on-chain (default is 0). The `increment` function adds the `_value` provided to the current number, but a transaction needs to be sent, which modifies the stored data. Lastly, the `reset` function resets the stored value to zero.
@@ -4165,7 +4165,7 @@ Next, you will create the script for this file and complete the following steps:
 5. Extract the compiled contract file and export it to be used in the deployment script
 
 ```js
---8&lt;-- 'code/builders/toolkit/ethereum-api/compile.js'
+--8<-- 'code/builders/toolkit/ethereum-api/compile.js'
 ```
 
 ### Deploy Contract Script {: #deploy-contract-script }
@@ -4263,7 +4263,7 @@ const bytecode = contractFile.evm.bytecode.object;
 const abi = contractFile.abi;
 
 // Create deploy function
-const deploy = async () =&gt; {
+const deploy = async () => {
   console.log(`Attempting to deploy from account ${accountFrom.address}`);
 
   // Create contract instance
@@ -4372,7 +4372,7 @@ const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 const incrementer = new web3.eth.Contract(abi, contractAddress);
 
 // Create get function
-const get = async () =&gt; {
+const get = async () => {
   console.log(`Making a call to contract at address: ${contractAddress}`);
 
   // Call contract
@@ -4489,7 +4489,7 @@ const incrementer = new web3.eth.Contract(abi, contractAddress);
 const incrementTx = incrementer.methods.increment(_value);
 
 // Create increment function
-const increment = async () =&gt; {
+const increment = async () => {
   console.log(
     `Calling the increment by ${_value} function in contract at address: ${contractAddress}`
   );
@@ -4609,7 +4609,7 @@ const incrementer = new web3.eth.Contract(abi, contractAddress);
 const resetTx = incrementer.methods.reset();
 
 // Create reset function
-const reset = async () =&gt; {
+const reset = async () => {
   console.log(
     `Calling the reset function in contract at address: ${contractAddress}`
   );
@@ -4851,7 +4851,7 @@ touch Incrementer.sol
 Next, you can add the Solidity code to the file:
 
 ```solidity
---8&lt;-- 'code/builders/toolkit/ethereum-api/Incrementer.sol'
+--8<-- 'code/builders/toolkit/ethereum-api/Incrementer.sol'
 ```
 
 The `constructor` function, which runs when the contract is deployed, sets the initial value of the number variable stored on-chain (default is 0). The `increment` function adds the `_value` provided to the current number, but a transaction needs to be sent, which modifies the stored data. Lastly, the `reset` function resets the stored value to zero.
@@ -5203,7 +5203,7 @@ The Batch Precompile is located at the following address:
 
     ```solidity
     // SPDX-License-Identifier: GPL-3.0-only
-pragma solidity &gt;=0.8.3;
+pragma solidity >=0.8.3;
 
 /// @dev The Batch contract's address.
 address constant BATCH_ADDRESS = 0x0000000000000000000000000000000000000801;
@@ -5332,10 +5332,10 @@ The contract `SimpleContract.sol` will be used as an example of batching contrac
 
 ```solidity
 // SPDX-License-Identifier: GPL-3.0-only
-pragma solidity &gt;=0.8.0;
+pragma solidity >=0.8.0;
 
 contract SimpleContract {
-    mapping(uint256 =&gt; string) public messages;
+    mapping(uint256 => string) public messages;
 
     function setMessage(uint256 id, string calldata message) external {
         messages[id] = message;
@@ -5622,7 +5622,7 @@ The Call Permit Precompile is located at the following address:
 
     ```solidity
     // SPDX-License-Identifier: GPL-3.0-only
-pragma solidity &gt;=0.8.3;
+pragma solidity >=0.8.3;
 
 /// @dev The CallPermit contract's address.
 address constant CALL_PERMIT_ADDRESS = 0x0000000000000000000000000000000000000802;
@@ -5890,7 +5890,7 @@ const gaslimit = 100000;
 const nonce = 'INSERT_SIGNERS_NONCE';
 const deadline = 'INSERT_DEADLINE';
 
-const createPermitMessageData = () =&gt; {
+const createPermitMessageData = () => {
   const message = {
     from: from,
     to: to,
@@ -6039,7 +6039,7 @@ The [`XCMInterface.sol`](https://github.com/moondance-labs/tanssi/blob/master/te
 
     ```solidity
     // SPDX-License-Identifier: GPL-3.0-only
-pragma solidity &gt;=0.8.3;
+pragma solidity >=0.8.3;
 
 /// @dev The XCM contract's address.
 address constant XCM_CONTRACT_ADDRESS = 0x0000000000000000000000000000000000000804;
@@ -6382,7 +6382,7 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 
     ```solidity
     / SPDX-License-Identifier: GPL-3.0-only
-pragma solidity &gt;=0.8.3;
+pragma solidity >=0.8.3;
 
 /// @dev The IERC20 contract's address.
 address constant IERC20_ADDRESS = 0x0000000000000000000000000000000000000800;
@@ -6720,7 +6720,7 @@ The [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/cont
 
     ```solidity
     / SPDX-License-Identifier: GPL-3.0-only
-pragma solidity &gt;=0.8.3;
+pragma solidity >=0.8.3;
 
 /// @dev The IERC20 contract's address.
 address constant IERC20_ADDRESS = 0x0000000000000000000000000000000000000800;
@@ -7003,7 +7003,7 @@ The Proxy Precompile is located at the following address:
 
     ```solidity
     // SPDX-License-Identifier: GPL-3.0-only
-pragma solidity &gt;=0.8.3;
+pragma solidity >=0.8.3;
 
 /// @author The Moonsong Labs Team
 /// @title Pallet Proxy Interface
@@ -7721,7 +7721,7 @@ async function main() {
   console.log(`Contract deployed to ${myTok.target}`);
 }
 
-main().catch((error) =&gt; {
+main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
@@ -7751,7 +7751,84 @@ In the `transactions.js` file, add the following script and insert the contract 
 
     ```ts
     // We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script></script>
+// but useful for running the script in a standalone fashion through `node <script>`.
+//
+// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
+// will compile your contracts, add the Hardhat Runtime Environment's members to the
+// global scope, and execute the script.
+const hre = require('hardhat');
+
+async function main() {
+  // Get Contract ABI
+  const MyTok = await hre.ethers.getContractFactory('MyTok');
+
+  // Define custom gas price and gas limit
+  // Gas price is typically specified in 'wei' and gas limit is just a number
+  // You can use Ethers.js utility functions to convert from gwei or ether if needed
+  const customGasPrice = 50000000000; // example for 50 gwei
+  const customGasLimit = 5000000; // example gas limit
+
+  // Plug ABI to address
+  const myTok = await MyTok.attach('INSERT_CONTRACT_ADDRESS');
+
+  const value = 100000000000000000n;
+
+  let tx;
+  // Transfer to Baltathar
+  tx = await myTok.transfer(
+    '0x3Cd0A705a2DC65e5b1E1205896BaA2be8A07c6e0',
+    value,
+    {
+      gasPrice: customGasPrice,
+      gasLimit: customGasLimit,
+    }
+  );
+  await tx.wait();
+  console.log(`Transfer to Baltathar with TxHash ${tx.hash}`);
+
+  // Transfer to Charleth
+  tx = await myTok.transfer(
+    '0x798d4Ba9baf0064Ec19eB4F0a1a45785ae9D6DFc',
+    value,
+    {
+      gasPrice: customGasPrice,
+      gasLimit: customGasLimit,
+    }
+  );
+  await tx.wait();
+  console.log(`Transfer to Charleth with TxHash ${tx.hash}`);
+
+  // Transfer to Dorothy
+  tx = await myTok.transfer(
+    '0x773539d4Ac0e786233D90A233654ccEE26a613D9',
+    value,
+    {
+      gasPrice: customGasPrice,
+      gasLimit: customGasLimit,
+    }
+  );
+  await tx.wait();
+  console.log(`Transfer to Dorothy with TxHash ${tx.hash}`);
+
+  // Transfer to Ethan
+  tx = await myTok.transfer(
+    '0xFf64d3F6efE2317EE2807d223a0Bdc4c0c49dfDB',
+    value,
+    {
+      gasPrice: customGasPrice,
+      gasLimit: customGasLimit,
+    }
+  );
+  await tx.wait();
+  console.log(`Transfer to Ethan with TxHash ${tx.hash}`);
+}
+
+// We recommend this pattern to be able to use async/await everywhere
+// and properly handle errors.
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
     ```
 
 Run the script to send the transactions:
@@ -8192,11 +8269,10 @@ export const processor = new EvmBatchProcessor()
     from: INSERT_START_BLOCK, // Note the lack of quotes here
   });
 
-export type Fields = EvmBatchProcessorFields<typeof processor="">;
-export type Block = BlockHeader<fields>;
-export type Log = _Log<fields>;
-export type Transaction = _Transaction<fields>;
-</fields></fields></fields></typeof>
+export type Fields = EvmBatchProcessorFields<typeof processor>;
+export type Block = BlockHeader<Fields>;
+export type Log = _Log<Fields>;
+export type Transaction = _Transaction<Fields>;
     ```
 
 ### Transform and Save the Data {: #transform-and-save-the-data}
@@ -8231,13 +8307,13 @@ import {
 
 // 1. Iterate through all selected blocks and look for transfer events,
 // storing the relevant events in an array of transfer events
-processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) =&gt; {
+processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) => {
   let transfers: TransferEvent[] = [];
 
   for (let block of ctx.blocks) {
     for (let log of block.logs) {
       if (
-        log.address === contractAddress &amp;&amp;
+        log.address === contractAddress &&
         log.topics[0] === erc20.events.Transfer.topic
       ) {
         transfers.push(getTransfer(ctx, log));
@@ -8288,7 +8364,7 @@ async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
 
   let accounts = await ctx.store
     .findBy(Account, { id: In([...accountIds]) })
-    .then((q: any[]) =&gt; new Map(q.map((i: any) =&gt; [i.id, i])));
+    .then((q: any[]) => new Map(q.map((i: any) => [i.id, i])));
 
   let transfers: Transfer[] = [];
 
@@ -8316,7 +8392,7 @@ async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
 }
 
 // 5. Helper function to get account object
-function getAccount(m: Map<string, account="">, id: string): Account {
+function getAccount(m: Map<string, Account>, id: string): Account {
   let acc = m.get(id);
   if (acc == null) {
     acc = new Account();
@@ -8325,7 +8401,6 @@ function getAccount(m: Map<string, account="">, id: string): Account {
   }
   return acc;
 }
-</string,></string>
     ```
 
 Now we've taken all of the steps necessary and are ready to run our indexer!
@@ -8435,7 +8510,7 @@ import {
   processor,
 } from './processor';
 
-processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) =&gt; {
+processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) => {
   ctx.log.info('Processor started');
   let transfers: TransferEvent[] = [];
 
@@ -8445,7 +8520,7 @@ processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) =&gt;
     for (let log of block.logs) {
       ctx.log.debug(`Processing log with address ${log.address}`);
       if (
-        log.address === contractAddress &amp;&amp;
+        log.address === contractAddress &&
         log.topics[0] === erc20.events.Transfer.topic
       ) {
         ctx.log.info(`Transfer event found in block ${block.header.height}`);
@@ -8501,7 +8576,7 @@ async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
   ctx.log.debug(`Fetching accounts for ${accountIds.size} addresses`);
   let accounts = await ctx.store
     .findBy(Account, { id: In([...accountIds]) })
-    .then((q: any[]) =&gt; new Map(q.map((i: any) =&gt; [i.id, i])));
+    .then((q: any[]) => new Map(q.map((i: any) => [i.id, i])));
   ctx.log.info(
     `Accounts fetched, processing ${transfersData.length} transfers`
   );
@@ -8534,7 +8609,7 @@ async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
   ctx.log.info('Transfer data processing completed');
 }
 
-function getAccount(m: Map<string, account="">, id: string): Account {
+function getAccount(m: Map<string, Account>, id: string): Account {
   let acc = m.get(id);
   if (acc == null) {
     acc = new Account();
@@ -8543,7 +8618,6 @@ function getAccount(m: Map<string, account="">, id: string): Account {
   }
   return acc;
 }
-</string,></string>
     ```
 
 See the [SQD guide to logging](https://docs.sqd.ai/sdk/reference/logger/){target=\_blank} for more information on debug mode.
@@ -8860,11 +8934,11 @@ curl "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT"
 
 Upon running the above command in your terminal, you'll see a result that resembles the following:
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>curl "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT" </span>
-<span data-ty=""> </span>
-<span data-ty="">{"symbol":"BTCUSDT","price":"51917.61000000"}</span>
-<span data-ty="input"><span class="file-path"></span> </span>
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>curl "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT" </span>
+  <span data-ty> </span>
+  <span data-ty>{"symbol":"BTCUSDT","price":"51917.61000000"}</span>
+  <span data-ty="input"><span class="file-path"></span> </span>
 </div>
 
 !!! note
@@ -9027,7 +9101,7 @@ const EVM_RPC_NODE = 'INSERT_NETWORK_RPC_URL';
 httpGET(
   'https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT',
   {},
-  (response, certificate) =&gt; {
+  (response, certificate) => {
     if (
       certificate ===
       '4795062d13e1ed971c6b6e5699764681e4d090bad39a7ef367cc9cb705652384'
@@ -9046,16 +9120,16 @@ httpGET(
           maxFeePerGas: '2550000000',
           maxPriorityFeePerGas: '2550000000',
         },
-        (opHash) =&gt; {
+        (opHash) => {
           console.log('Succeeded: ' + opHash);
         },
-        (err) =&gt; {
+        (err) => {
           console.log('Failed: ' + err);
         }
       );
     }
   },
-  (err) =&gt; {
+  (err) => {
     console.log('Failed: ' + err);
   }
 );
@@ -9512,7 +9586,7 @@ async function getRoundDataFromAggregator(pair: string, roundId: number) {
 }
 
 async function updateFeed(
-  walletClient: ReturnType<createwalletclient>,
+  walletClient: ReturnType<createWalletClient>,
   pair: string
 ) {
   if (!aggregatorContracts[pair]) {
@@ -9520,7 +9594,7 @@ async function updateFeed(
   }
   const [roundId, answer, startedAt, updatedAt, answeredInRound] =
     await getLatestRoundData(pair);
-  const aggregatorRoundId = Number(roundId &amp; BigInt('0xFFFFFFFFFFFFFFFF'));
+  const aggregatorRoundId = Number(roundId & BigInt('0xFFFFFFFFFFFFFFFF'));
   const data = await getRoundDataFromAggregator(pair, aggregatorRoundId);
   if (data[1] === answer) {
     console.info(
@@ -9555,12 +9629,11 @@ async function main() {
 }
 
 main()
-  .then(() =&gt; process.exit(0))
-  .catch((err) =&gt; {
+  .then(() => process.exit(0))
+  .catch((err) => {
     console.error(err);
     process.exit(1);
   });
-</createwalletclient>
     ```
 
 ### Build and Test {: #build-and-test }
@@ -9577,26 +9650,26 @@ yarn test
 
 If everything was successful, you'll see output like the following:
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>yarn build</span>
-<span data-ty="">yarn run v1.22.10</span>
-<span data-ty="input" data-ty-prompt="$"> forge build</span>
-<span data-ty="">[.] compiling</span>
-<span data-ty="">No files changed, compilation skipped</span>
-<span data-ty="">✨ Done in 0.765.</span>
-<span data-ty=""> </span>
-<span data-ty="input"><span class="file-path"></span>yarn test</span>
-<span data-ty="">yarn run v1.22.10</span>
-<span data-ty="input" data-ty-prompt="$"> forge test</span>
-<span data-ty="">[.] compiling</span>
-<span data-ty="">No files changed, compilation skipped</span>
-<span data-ty=""> </span>
-<span data-ty="">Running 1 test for test/OffchainAggregator.t.sol:OffchainAggregatorTest</span>
-<span data-ty="">[PASS] test_transmit() (gas: 60497)</span>
-<span data-ty="">Test result: ok. 1 passed; 0 failed; 0 skipped; finished in 4.96ms</span>
-<span data-ty="">Ran 1 test suites: 1 tests passed, 0 failed, 0 skipped (1 total tests)</span>
-<span data-ty="">✨ Done in 0.765.</span>
-<span data-ty="input"><span class="file-path"></span> </span>
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>yarn build</span>
+  <span data-ty>yarn run v1.22.10</span>
+  <span data-ty="input" data-ty-prompt="$"> forge build</span>
+  <span data-ty>[.] compiling</span>
+  <span data-ty>No files changed, compilation skipped</span>
+  <span data-ty>✨ Done in 0.765.</span>
+  <span data-ty> </span>
+  <span data-ty="input"><span class="file-path"></span>yarn test</span>
+  <span data-ty>yarn run v1.22.10</span>
+  <span data-ty="input" data-ty-prompt="$"> forge test</span>
+  <span data-ty>[.] compiling</span>
+  <span data-ty>No files changed, compilation skipped</span>
+  <span data-ty> </span>
+  <span data-ty>Running 1 test for test/OffchainAggregator.t.sol:OffchainAggregatorTest</span>
+  <span data-ty>[PASS] test_transmit() (gas: 60497)</span>
+  <span data-ty>Test result: ok. 1 passed; 0 failed; 0 skipped; finished in 4.96ms</span>
+  <span data-ty>Ran 1 test suites: 1 tests passed, 0 failed, 0 skipped (1 total tests)</span>
+  <span data-ty>✨ Done in 0.765.</span>
+  <span data-ty="input"><span class="file-path"></span> </span>
 </div>
 
 ### Deploy {: #deploy }
@@ -9609,29 +9682,29 @@ yarn deploy
 
 You'll get a transaction status as well as a contract address. Copy this contract address, as you'll need to refer to it in the following steps.
 
-<div data-termynal="" id="termynal">
-<span data-ty="">Waiting for receipts.</span>
-<span data-ty="">[O0:00:18]【######################################################】 1/1 receipts CO.0s)</span>
-<span data-ty="">#####7796</span>
-<span data-ty="">✅ [Success]Hash: Oxfb2f2dc6a35286c4595ce6e2bb64c93425b14c310a53f8224df0520666329fd</span>
-<span data-ty="">✅ Contract Address: OxBc788db88C3344a24706754c1203a267790D626</span>
-<span data-ty="">Block: 4049</span>
-<span data-ty="">Paid: 0.002392252 ETH (598063 gas * 4 gwei)</span>
-<span data-ty=""></span>
-<span data-ty="">Transactions saved to: /Users/tanssi/workspace/phalaMirrored/mirrored-price-feed/broadcast/OffchainAggregator.s.sol/7796/run-latest.json</span>
-<span data-ty="">Sensitive values saved to: /Users/tanssi/workspace/phalaMirrored/mirrored-price-feed/cache/OffchainAggregator.s.sol/7796/run-latest.json</span>
-<span data-ty=""></span>
-<span data-ty="">==========================</span>
-<span data-ty="">ONCHAIN EXECUTION COMPLETE &amp; SUCCESSFUL.</span>
-<span data-ty=""></span>
-<span data-ty="">Total Paid: 0.002392252 ETH (598063 gas * avg 4 gwei)</span>
-<span data-ty=""></span>
-<span data-ty="">Transactions saved to: /Users/tanssi/workspace/phalaMirrored/mirrored-price-feed/broadcast/OffchainAggregator.s.sol/7796/run-latest.json</span>
-<span data-ty=""></span>
-<span data-ty="">Sensitive values saved to: /Users/kevin/workspace/phalaMirrored/mirrored-price-feed/cache/OffchainAggregator.s.sol/7796/run-latest.json</span>
-<span data-ty=""></span>
-<span data-ty="">✨ Done in 30.765s.</span>
-<span data-ty="input"><span class="file-path"></span> </span>
+<div id="termynal" data-termynal>
+  <span data-ty>Waiting for receipts.</span>
+  <span data-ty>[O0:00:18]【######################################################】 1/1 receipts CO.0s)</span>
+  <span data-ty>#####7796</span>
+  <span data-ty>✅ [Success]Hash: Oxfb2f2dc6a35286c4595ce6e2bb64c93425b14c310a53f8224df0520666329fd</span>
+  <span data-ty>✅ Contract Address: OxBc788db88C3344a24706754c1203a267790D626</span>
+  <span data-ty>Block: 4049</span>
+  <span data-ty>Paid: 0.002392252 ETH (598063 gas * 4 gwei)</span>
+  <span data-ty></span>
+  <span data-ty>Transactions saved to: /Users/tanssi/workspace/phalaMirrored/mirrored-price-feed/broadcast/OffchainAggregator.s.sol/7796/run-latest.json</span>
+  <span data-ty>Sensitive values saved to: /Users/tanssi/workspace/phalaMirrored/mirrored-price-feed/cache/OffchainAggregator.s.sol/7796/run-latest.json</span>
+  <span data-ty></span>
+  <span data-ty>==========================</span>
+  <span data-ty>ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.</span>
+  <span data-ty></span>
+  <span data-ty>Total Paid: 0.002392252 ETH (598063 gas * avg 4 gwei)</span>
+  <span data-ty></span>
+  <span data-ty>Transactions saved to: /Users/tanssi/workspace/phalaMirrored/mirrored-price-feed/broadcast/OffchainAggregator.s.sol/7796/run-latest.json</span>
+  <span data-ty></span>
+  <span data-ty>Sensitive values saved to: /Users/kevin/workspace/phalaMirrored/mirrored-price-feed/cache/OffchainAggregator.s.sol/7796/run-latest.json</span>
+  <span data-ty></span>
+  <span data-ty>✨ Done in 30.765s.</span>
+  <span data-ty="input"><span class="file-path"></span> </span>
 </div>
 
 ### Access Aggregator Contract {: #access-aggregator-contract }
@@ -9669,10 +9742,10 @@ Then, from the command line, run the following command:
 npx tsx feeder.ts 
 ```
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>npx tsx feeder.ts</span>
-<span data-ty="">BTC-USD updated, transmit tx hash: Oxf1797cfc5bd71e2d848b099cae197ff30dafb5f6947481a5ef6c69271e059a96</span>
-<span data-ty="input"><span class="file-path"></span> </span>
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>npx tsx feeder.ts</span>
+  <span data-ty>BTC-USD updated, transmit tx hash: Oxf1797cfc5bd71e2d848b099cae197ff30dafb5f6947481a5ef6c69271e059a96</span>
+  <span data-ty="input"><span class="file-path"></span> </span>
 </div>
 
 Upon returning to Remix, click **latestRoundData** once more, and after waiting a moment, you should see an accurate value returned.
@@ -9734,17 +9807,17 @@ To start a new project, RainbowKit can scaffold a project using the CLI, combini
 
 The script will prompt for a project name, generate a new directory with the boilerplate starter code, and install all required dependencies. 
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>npm init @rainbow-me/rainbowkit@latest
+<div id="termynal" data-termynal>
+    <span data-ty="input"><span class="file-path"></span>npm init @rainbow-me/rainbowkit@latest
 </span>
-<span data-ty="input" data-ty-prompt=""> 🌈 Welcome to RainbowKit!</span>
-<span data-ty="input" data-ty-prompt="✔ What is the name of your project?"> rainbow-demo</span>
-<span data-ty="input" data-ty-prompt=""> 🚀 Creating a new RainbowKit app in /Users/papermoon/Documents/papermoon_builds/RainbowKit/add-rainbow-kit/rainbow-demo</span>
-<span data-ty="input" data-ty-prompt=""> 📦 Installing dependencies with npm. This could take a while.</span>
-<span data-ty="input" data-ty-prompt="">📚 Initializing git repository</span>
-<span data-ty="input" data-ty-prompt=""> 🌈 Done! Thanks for using RainbowKit 🙏</span>
-<span data-ty="input" data-ty-prompt=""> 👉 To get started, run cd rainbow-demo and then npm run dev</span>
-<span data-ty="input"><span class="file-path"></span></span>
+    <span data-ty="input" data-ty-prompt=""> 🌈 Welcome to RainbowKit!</span>
+    <span data-ty="input" data-ty-prompt="✔ What is the name of your project?"> rainbow-demo</span>
+    <span data-ty="input" data-ty-prompt=""> 🚀 Creating a new RainbowKit app in /Users/papermoon/Documents/papermoon_builds/RainbowKit/add-rainbow-kit/rainbow-demo</span>
+    <span data-ty="input" data-ty-prompt=""> 📦 Installing dependencies with npm. This could take a while.</span>
+    <span data-ty="input" data-ty-prompt="">📚 Initializing git repository</span>
+    <span data-ty="input" data-ty-prompt=""> 🌈 Done! Thanks for using RainbowKit 🙏</span>
+    <span data-ty="input" data-ty-prompt=""> 👉 To get started, run cd rainbow-demo and then npm run dev</span>
+    <span data-ty="input"><span class="file-path"></span></span>
 </div>
 
 Navigate to the project directory, start the development server, and open `http://localhost:3000` to view the project locally:
@@ -9988,11 +10061,11 @@ const queryClient = new QueryClient();
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <wagmiprovider config="{config}">
-<queryclientprovider client="{queryClient}">
-<rainbowkitprovider>{children}</rainbowkitprovider>
-</queryclientprovider>
-</wagmiprovider>
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>{children}</RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
 }
 ```
@@ -10019,11 +10092,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-<body>
-<providers>{children}</providers>
-</body>
-</html>
+    <html lang='en'>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
+    </html>
   );
 }
 ```
@@ -10038,9 +10111,9 @@ import { ConnectButton } from '@rainbow-me/rainbowkit';
 
 export default function Home() {
   return (
-    <div classname="flex h-screen items-center justify-center">
-<connectbutton></connectbutton>
-</div>
+    <div className="flex h-screen items-center justify-center">
+      <ConnectButton />
+    </div>
   );
 }
 ```
@@ -10073,13 +10146,13 @@ const queryClient = new QueryClient();
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <wagmiprovider config="{config}">
-<queryclientprovider client="{queryClient}">
-<rainbowkitprovider initialchain="{demoEVMChain}">
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider initialChain={demoEVMChain}>
           {children}
-        </rainbowkitprovider>
-</queryclientprovider>
-</wagmiprovider>
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
 
 }
@@ -10103,13 +10176,22 @@ const queryClient = new QueryClient();
 
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <wagmiprovider config="{config}">
-<queryclientprovider client="{queryClient}">
-<rainbowkitprovider '#189b9b',="" 'medium',="" 'small'="" 'system',="" 'white',="" accent="" accentcolor:="" accentcolorforeground:="" borderradius:="" color="" fontstack:="" initialchain="{demoEVMChain}" overlayblur:="" tanssi="" theme="{darkTheme({" })}="">
+    <WagmiProvider config={config}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider
+          initialChain={demoEVMChain}
+          theme={darkTheme({
+            accentColor: '#189B9B', // Tanssi accent color
+            accentColorForeground: 'white',
+            borderRadius: 'medium',
+            fontStack: 'system',
+            overlayBlur: 'small'
+          })}
+        >
           {children}
-        </rainbowkitprovider>
-</queryclientprovider>
-</wagmiprovider>
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
 }
 ```
@@ -10654,7 +10736,7 @@ As an example of a custom module, the following code (not intended for productio
 #![cfg_attr(not(feature = "std"), no_std)]
 
 /// Learn more about FRAME and the core library of Substrate FRAME pallets:
-/// <https: docs.substrate.io="" frame-pallets="" reference=""></https:>
+/// <https://docs.substrate.io/reference/frame-pallets/>
 pub use pallet::*;
 
 #[frame_support::pallet(dev_mode)]
@@ -10674,29 +10756,29 @@ pub mod pallet {
 		PalletId,
 	};
 
-	type BalanceOf<t> = 
-		&lt;<t as="" config="">::Currency as Currency&lt;<t as="" frame_system::config="">::AccountId&gt;&gt;::Balance;
+	type BalanceOf<T> = 
+		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
 
 	#[pallet::pallet]
-	pub struct Pallet<t>(_);
+	pub struct Pallet<T>(_);
 
 	/// Configure the module by specifying the parameters and types on which it depends.
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
 
 		// Event definition
-		type RuntimeEvent: From<event<self>&gt; 
-			+ IsType&lt;<self as="" frame_system::config="">::RuntimeEvent&gt;;
+		type RuntimeEvent: From<Event<Self>> 
+			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
 
 		// Currency 
-		type Currency: Currency<self::accountid>;
+		type Currency: Currency<Self::AccountId>;
 
 		// Randomness
-		type MyRandomness: Randomness<self::hash, blocknumberfor<self="">&gt;;
+		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
 
 		// Ticket cost
 		#[pallet::constant]
-		type TicketCost: Get<balanceof<self>&gt;;
+		type TicketCost: Get<BalanceOf<Self>>;
 
 		// Maximum number of participants
 		#[pallet::constant]
@@ -10704,31 +10786,31 @@ pub mod pallet {
 
 		// Module Id
 		#[pallet::constant]
-		type PalletId: Get<palletid>;
+		type PalletId: Get<PalletId>;
 	}
 
 	// The pallet's runtime storage items.
 	#[pallet::storage]
 	#[pallet::getter(fn get_participants)]
-	pub(super) type Participants<t: config=""> = StorageValue&lt;
+	pub(super) type Participants<T: Config> = StorageValue<
 		_,
-		BoundedVec<t::accountid, t::maxparticipants="">,
+		BoundedVec<T::AccountId, T::MaxParticipants>,
 		OptionQuery
-	&gt;;
+	>;
 
 	#[pallet::storage]
 	#[pallet::getter(fn get_nonce)]
-	pub(super) type Nonce<t: config=""> = StorageValue&lt;
+	pub(super) type Nonce<T: Config> = StorageValue<
 		_,
 		u64,
 		ValueQuery
-	&gt;;
+	>;
 
 	// Pallets use events to inform users when important changes are made.
 	// https://docs.substrate.io/main-docs/build/events-errors/
 	#[pallet::event]
 	#[pallet::generate_deposit(pub(super) fn deposit_event)]
-	pub enum Event<t: config=""> {
+	pub enum Event<T: Config> {
 		/// Event emitted when a ticket is bought
 		TicketBought { who: T::AccountId },
 		/// Event emitted when the prize is awarded
@@ -10739,60 +10821,60 @@ pub mod pallet {
 
 	// Errors inform users that something went wrong
 	#[pallet::error]
-	pub enum Error<t> {
+	pub enum Error<T> {
 		NotEnoughCurrency,
 		AccountAlreadyParticipating,
 		CanNotAddParticipant,
 	}
 
 	#[pallet::call]
-	impl<t: config=""> Pallet<t> {
+	impl<T: Config> Pallet<T> {
 
 		#[pallet::call_index(0)]
 		#[pallet::weight(0)]
-		pub fn buy_ticket(origin: OriginFor<t>) -&gt; DispatchResult {
+		pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
 
 			// 1. Validates the origin signature
 			let buyer = ensure_signed(origin)?;
 
 			// 2. Checks that the user has enough balance to afford the ticket price
 			ensure!(
-				T::Currency::free_balance(&amp;buyer) &gt;= T::TicketCost::get(),
-				Error::<t>::NotEnoughCurrency
+				T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
+				Error::<T>::NotEnoughCurrency
 			);
 
 			// 3. Checks that the user is not already participating
 			if let Some(participants) = Self::get_participants() {
 				ensure!(
-					!participants.contains(&amp;buyer),
-					Error::<t>::AccountAlreadyParticipating
+					!participants.contains(&buyer),
+					Error::<T>::AccountAlreadyParticipating
 				);
 			}
 
 			// 4. Adds the user as a new participant for the prize
 			match Self::get_participants() {
-				Some(mut participants) =&gt; { 
+				Some(mut participants) => { 
 					ensure!(
 						participants.try_push(buyer.clone()).is_ok(), 
-						Error::<t>::CanNotAddParticipant
+						Error::<T>::CanNotAddParticipant
 					);
-					Participants::<t>::set(Some(participants));
+					Participants::<T>::set(Some(participants));
 				}, 
-				None =&gt; {
+				None => {
 					let mut participants = BoundedVec::new();
 					ensure!(
 						participants.try_push(buyer.clone()).is_ok(), 
-						Error::<t>::CanNotAddParticipant
+						Error::<T>::CanNotAddParticipant
 					);
-					Participants::<t>::set(Some(participants));
+					Participants::<T>::set(Some(participants));
 				}
 			};
 
 			// 5. Transfers the ticket cost to the module's account
 			// to be hold until transferred to the winner
 			T::Currency::transfer(
-				&amp;buyer, 
-				&amp;Self::get_pallet_account(), 
+				&buyer, 
+				&Self::get_pallet_account(), 
 				T::TicketCost::get(), 
 				ExistenceRequirement::KeepAlive)?;
 			
@@ -10803,18 +10885,18 @@ pub mod pallet {
 
 		#[pallet::call_index(1)]
 		#[pallet::weight(0)]
-		pub fn award_prize(origin: OriginFor<t>) -&gt; DispatchResult {
+		pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
 
 			// 1. Validates the origin signature
 			let _who = ensure_root(origin)?;
 
 			match Self::get_participants() {
-				Some(participants) =&gt; { 
+				Some(participants) => { 
 					
 					// 2. Gets a random number from the randomness module
 					let nonce = Self::get_and_increment_nonce();
-					let (random_seed, _) = T::MyRandomness::random(&amp;nonce);
-					let random_number = <u32>::decode(&amp;mut random_seed.as_ref())
+					let (random_seed, _) = T::MyRandomness::random(&nonce);
+					let random_number = <u32>::decode(&mut random_seed.as_ref())
 						.expect("secure hashes should always be bigger than u32; qed");
 					
 					// 3. Selects the winner from the participants lit
@@ -10822,20 +10904,20 @@ pub mod pallet {
 					let winner = participants.as_slice().get(winner_index).unwrap();
 
 					// 4. Transfers the total prize to the winner's account
-					let prize = T::Currency::free_balance(&amp;Self::get_pallet_account());
+					let prize = T::Currency::free_balance(&Self::get_pallet_account());
 					T::Currency::transfer(
-						&amp;Self::get_pallet_account(), 
-						&amp;winner, 
+						&Self::get_pallet_account(), 
+						&winner, 
 						prize, 
 						ExistenceRequirement::AllowDeath)?;
 
 					// 5. Resets the participants list, and gets ready for another lottery round
-					Participants::<t>::kill();
+					Participants::<T>::kill();
 
 					// 6. Notify the event
 					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
 				}, 
-				None =&gt; {
+				None => {
 					// Notify the event (No participants)
 					Self::deposit_event(Event::ThereAreNoParticipants);
 				}
@@ -10845,20 +10927,19 @@ pub mod pallet {
 		}
 	}
 
-	impl<t: config=""> Pallet<t> {
+	impl<T: Config> Pallet<T> {
 
-		fn get_pallet_account() -&gt; T::AccountId {
+		fn get_pallet_account() -> T::AccountId {
 			T::PalletId::get().into_account_truncating()
 		}
 
-		fn get_and_increment_nonce() -&gt; Vec<u8> {
-			let nonce = Nonce::<t>::get();
-			Nonce::<t>::put(nonce.wrapping_add(1));
+		fn get_and_increment_nonce() -> Vec<u8> {
+			let nonce = Nonce::<T>::get();
+			Nonce::<T>::put(nonce.wrapping_add(1));
 			nonce.encode()
 		}
 	}
 }
-</t></t></u8></t></t:></t></u32></t></t></t></t></t></t></t></t></t></t:></t></t:></t:></t::accountid,></t:></palletid></u32></balanceof<self></self::hash,></self::accountid></self></event<self></t></t></t></t>
 ```
 
 For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.

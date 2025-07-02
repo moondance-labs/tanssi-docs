@@ -7,7 +7,6 @@ import os
 import re
 import requests
 import json
-from transform_tables import transform_html_tables_to_markdown
 
 # Load configuration from llms_config.json
 config_path = os.path.join(os.path.dirname(__file__), 'llms_config.json')
@@ -113,7 +112,6 @@ def fetch_local_snippet(snippet_ref, snippet_directory):
 
     with open(absolute_snippet_path, 'r', encoding='utf-8') as snippet_file:
         snippet_content = snippet_file.read()
-        snippet_content = transform_html_tables_to_markdown(snippet_content)
 
     if line_start is not None and line_end is not None:
         lines = snippet_content.split('\n')

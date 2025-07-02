@@ -429,7 +429,7 @@ async function main() {
   console.log(`Contract deployed to ${myTok.target}`);
 }
 
-main().catch((error) =&gt; {
+main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
@@ -459,7 +459,84 @@ In the `transactions.js` file, add the following script and insert the contract 
 
     ```ts
     // We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script></script>
+// but useful for running the script in a standalone fashion through `node <script>`.
+//
+// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
+// will compile your contracts, add the Hardhat Runtime Environment's members to the
+// global scope, and execute the script.
+const hre = require('hardhat');
+
+async function main() {
+  // Get Contract ABI
+  const MyTok = await hre.ethers.getContractFactory('MyTok');
+
+  // Define custom gas price and gas limit
+  // Gas price is typically specified in 'wei' and gas limit is just a number
+  // You can use Ethers.js utility functions to convert from gwei or ether if needed
+  const customGasPrice = 50000000000; // example for 50 gwei
+  const customGasLimit = 5000000; // example gas limit
+
+  // Plug ABI to address
+  const myTok = await MyTok.attach('INSERT_CONTRACT_ADDRESS');
+
+  const value = 100000000000000000n;
+
+  let tx;
+  // Transfer to Baltathar
+  tx = await myTok.transfer(
+    '0x3Cd0A705a2DC65e5b1E1205896BaA2be8A07c6e0',
+    value,
+    {
+      gasPrice: customGasPrice,
+      gasLimit: customGasLimit,
+    }
+  );
+  await tx.wait();
+  console.log(`Transfer to Baltathar with TxHash ${tx.hash}`);
+
+  // Transfer to Charleth
+  tx = await myTok.transfer(
+    '0x798d4Ba9baf0064Ec19eB4F0a1a45785ae9D6DFc',
+    value,
+    {
+      gasPrice: customGasPrice,
+      gasLimit: customGasLimit,
+    }
+  );
+  await tx.wait();
+  console.log(`Transfer to Charleth with TxHash ${tx.hash}`);
+
+  // Transfer to Dorothy
+  tx = await myTok.transfer(
+    '0x773539d4Ac0e786233D90A233654ccEE26a613D9',
+    value,
+    {
+      gasPrice: customGasPrice,
+      gasLimit: customGasLimit,
+    }
+  );
+  await tx.wait();
+  console.log(`Transfer to Dorothy with TxHash ${tx.hash}`);
+
+  // Transfer to Ethan
+  tx = await myTok.transfer(
+    '0xFf64d3F6efE2317EE2807d223a0Bdc4c0c49dfDB',
+    value,
+    {
+      gasPrice: customGasPrice,
+      gasLimit: customGasLimit,
+    }
+  );
+  await tx.wait();
+  console.log(`Transfer to Ethan with TxHash ${tx.hash}`);
+}
+
+// We recommend this pattern to be able to use async/await everywhere
+// and properly handle errors.
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
     ```
 
 Run the script to send the transactions:
@@ -900,11 +977,10 @@ export const processor = new EvmBatchProcessor()
     from: INSERT_START_BLOCK, // Note the lack of quotes here
   });
 
-export type Fields = EvmBatchProcessorFields<typeof processor="">;
-export type Block = BlockHeader<fields>;
-export type Log = _Log<fields>;
-export type Transaction = _Transaction<fields>;
-</fields></fields></fields></typeof>
+export type Fields = EvmBatchProcessorFields<typeof processor>;
+export type Block = BlockHeader<Fields>;
+export type Log = _Log<Fields>;
+export type Transaction = _Transaction<Fields>;
     ```
 
 ### Transform and Save the Data {: #transform-and-save-the-data}
@@ -939,13 +1015,13 @@ import {
 
 // 1. Iterate through all selected blocks and look for transfer events,
 // storing the relevant events in an array of transfer events
-processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) =&gt; {
+processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) => {
   let transfers: TransferEvent[] = [];
 
   for (let block of ctx.blocks) {
     for (let log of block.logs) {
       if (
-        log.address === contractAddress &amp;&amp;
+        log.address === contractAddress &&
         log.topics[0] === erc20.events.Transfer.topic
       ) {
         transfers.push(getTransfer(ctx, log));
@@ -996,7 +1072,7 @@ async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
 
   let accounts = await ctx.store
     .findBy(Account, { id: In([...accountIds]) })
-    .then((q: any[]) =&gt; new Map(q.map((i: any) =&gt; [i.id, i])));
+    .then((q: any[]) => new Map(q.map((i: any) => [i.id, i])));
 
   let transfers: Transfer[] = [];
 
@@ -1024,7 +1100,7 @@ async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
 }
 
 // 5. Helper function to get account object
-function getAccount(m: Map<string, account="">, id: string): Account {
+function getAccount(m: Map<string, Account>, id: string): Account {
   let acc = m.get(id);
   if (acc == null) {
     acc = new Account();
@@ -1033,7 +1109,6 @@ function getAccount(m: Map<string, account="">, id: string): Account {
   }
   return acc;
 }
-</string,></string>
     ```
 
 Now we've taken all of the steps necessary and are ready to run our indexer!
@@ -1143,7 +1218,7 @@ import {
   processor,
 } from './processor';
 
-processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) =&gt; {
+processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) => {
   ctx.log.info('Processor started');
   let transfers: TransferEvent[] = [];
 
@@ -1153,7 +1228,7 @@ processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) =&gt;
     for (let log of block.logs) {
       ctx.log.debug(`Processing log with address ${log.address}`);
       if (
-        log.address === contractAddress &amp;&amp;
+        log.address === contractAddress &&
         log.topics[0] === erc20.events.Transfer.topic
       ) {
         ctx.log.info(`Transfer event found in block ${block.header.height}`);
@@ -1209,7 +1284,7 @@ async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
   ctx.log.debug(`Fetching accounts for ${accountIds.size} addresses`);
   let accounts = await ctx.store
     .findBy(Account, { id: In([...accountIds]) })
-    .then((q: any[]) =&gt; new Map(q.map((i: any) =&gt; [i.id, i])));
+    .then((q: any[]) => new Map(q.map((i: any) => [i.id, i])));
   ctx.log.info(
     `Accounts fetched, processing ${transfersData.length} transfers`
   );
@@ -1242,7 +1317,7 @@ async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
   ctx.log.info('Transfer data processing completed');
 }
 
-function getAccount(m: Map<string, account="">, id: string): Account {
+function getAccount(m: Map<string, Account>, id: string): Account {
   let acc = m.get(id);
   if (acc == null) {
     acc = new Account();
@@ -1251,7 +1326,6 @@ function getAccount(m: Map<string, account="">, id: string): Account {
   }
   return acc;
 }
-</string,></string>
     ```
 
 See the [SQD guide to logging](https://docs.sqd.ai/sdk/reference/logger/){target=\_blank} for more information on debug mode.
@@ -1513,11 +1587,11 @@ yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}
 
 This command will start a local clone of the chain as it was in the latest block.
 
-<div data-termynal="" id="termynal">
-<span data-ty="input"><span class="file-path"></span>
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>
     chopsticks % yarn start --endpoint wss://dancelight-2001.tanssi-api.network
   </span>
-<span data-ty="">
+  <span data-ty>
     [01:59:42.628] INFO (xcm/59650): Frontier Container 2001 RPC listening on port 8000
   </span>
 </div>
@@ -1826,7 +1900,7 @@ console.log(
     import '@polkadot/api-augment';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
-const main = async () =&gt; {
+const main = async () => {
   // Construct API provider
   const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
   const api = await ApiPromise.create({ provider: wsProvider });
@@ -1837,7 +1911,7 @@ const main = async () =&gt; {
   // Retrieve the last timestamp via the timestamp module
   const now = await api.query.timestamp.now();
 
-  // Retrieve the account balance &amp; current nonce via the system module
+  // Retrieve the account balance & current nonce via the system module
   const { nonce, data: balance } = await api.query.system.account(addr);
 
   console.log(
@@ -1879,7 +1953,7 @@ console.log(
     ```typescript
     import { ApiPromise, WsProvider } from '@polkadot/api';
 
-const main = async () =&gt; {
+const main = async () => {
   // Construct API provider
   const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
   const api = await ApiPromise.create({ provider: wsProvider });
@@ -1940,7 +2014,7 @@ await api.query.system.account(addr, ({ nonce, data: balance }) => {
     import '@polkadot/api-augment';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
-const main = async () =&gt; {
+const main = async () => {
   // Construct API provider
   const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
   const api = await ApiPromise.create({ provider: wsProvider });
@@ -1949,7 +2023,7 @@ const main = async () =&gt; {
   const chain = await api.rpc.system.chain();
 
   // Subscribe to the new headers
-  await api.rpc.chain.subscribeNewHeads((lastHeader) =&gt; {
+  await api.rpc.chain.subscribeNewHeads((lastHeader) => {
     console.log(
       `${chain}: last block #${lastHeader.number} has hash ${lastHeader.hash}`
     );
@@ -1959,7 +2033,7 @@ const main = async () =&gt; {
   const addr = 'INSERT_ADDRESS';
 
   // Subscribe to balance changes for a specified account
-  await api.query.system.account(addr, ({ nonce, data: balance }) =&gt; {
+  await api.query.system.account(addr, ({ nonce, data: balance }) => {
     console.log(
       `Free balance is ${balance.free} with ${balance.reserved} reserved and a nonce of ${nonce}`
     );
@@ -2047,7 +2121,7 @@ console.log(`Derived Address from provided Private Key: ${otherPair.address}`);
 import Keyring from '@polkadot/keyring';
 import { cryptoWaitReady } from '@polkadot/util-crypto';
 
-const main = async () =&gt; {
+const main = async () => {
   await cryptoWaitReady();
 
   // Import SR25519 account from mnemonic
@@ -2101,7 +2175,7 @@ console.log(`Submitted with hash ${txHash}`);
     import { ApiPromise, WsProvider } from '@polkadot/api';
 import Keyring from '@polkadot/keyring';
 
-const main = async () =&gt; {
+const main = async () => {
   // Construct API provider
   const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
   const api = await ApiPromise.create({ provider: wsProvider });
@@ -2160,7 +2234,7 @@ console.log(`Transaction fee: ${partialFee.toHuman()}`);
     ```typescript
     import { ApiPromise, WsProvider } from '@polkadot/api';
 
-const main = async () =&gt; {
+const main = async () => {
   // Construct API provider
   const wsProvider = new WsProvider('INSERT_WSS_ENDPOINT');
   const api = await ApiPromise.create({ provider: wsProvider });
@@ -2227,7 +2301,7 @@ await api.tx.utility
     import { ApiPromise, WsProvider } from '@polkadot/api';
 import Keyring from '@polkadot/keyring';
 
-const main = async () =&gt; {
+const main = async () => {
   // Construct API provider
   const wsProvider = new WsProvider('INSERT_NETWORK_WSS_ENDPOINT');
   const api = await ApiPromise.create({ provider: wsProvider });
@@ -2251,7 +2325,7 @@ const main = async () =&gt; {
   console.log(`Estimated fees: ${info}`);
 
   // Construct the batch and send the transactions
-  await api.tx.utility.batch(txs).signAndSend(alice, async ({ status }) =&gt; {
+  await api.tx.utility.batch(txs).signAndSend(alice, async ({ status }) => {
     if (status.isInBlock) {
       console.log(`Included in ${status.asInBlock}`);
 
@@ -2276,10 +2350,10 @@ Then, it checks if any event corresponds to a `balances.Transfer` event. If so, 
 import '@polkadot/api-augment';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 
-// This script will listen to all Native token transfers (Substrate &amp; Ethereum) and extract the tx hash
+// This script will listen to all Native token transfers (Substrate & Ethereum) and extract the tx hash
 // It can be adapted for any Tanssi-powered network
 
-const main = async () =&gt; {
+const main = async () => {
   // Define the provider
   const wsProvider = new WsProvider('INSERT_WSS_ENDPOINT');
   // Create the provider
@@ -2289,39 +2363,39 @@ const main = async () =&gt; {
 
   // Subscribe to finalized blocks
   await polkadotApi.rpc.chain.subscribeFinalizedHeads(
-    async (lastFinalizedHeader) =&gt; {
+    async (lastFinalizedHeader) => {
       const [{ block }, records] = await Promise.all([
         polkadotApi.rpc.chain.getBlock(lastFinalizedHeader.hash),
         (await polkadotApi.at(lastFinalizedHeader.hash)).query.system.events(),
       ]);
 
-      block.extrinsics.forEach((extrinsic, index) =&gt; {
+      block.extrinsics.forEach((extrinsic, index) => {
         const {
           method: { args, method, section },
         } = extrinsic;
 
-        const isEthereum = section == 'ethereum' &amp;&amp; method == 'transact';
+        const isEthereum = section == 'ethereum' && method == 'transact';
 
         // Gets the transaction object
         const tx = args[0] as any;
 
         // Convert to the correct Ethereum Transaction format
         const ethereumTx =
-          isEthereum &amp;&amp;
-          ((tx.isLegacy &amp;&amp; tx.asLegacy) ||
-            (tx.isEip1559 &amp;&amp; tx.asEip1559) ||
-            (tx.isEip2930 &amp;&amp; tx.asEip2930));
+          isEthereum &&
+          ((tx.isLegacy && tx.asLegacy) ||
+            (tx.isEip1559 && tx.asEip1559) ||
+            (tx.isEip2930 && tx.asEip2930));
 
         // Check if the transaction is a transfer
         const isEthereumTransfer =
-          ethereumTx &amp;&amp;
-          ethereumTx.input.length === 0 &amp;&amp;
+          ethereumTx &&
+          ethereumTx.input.length === 0 &&
           ethereumTx.action.isCall;
 
         // Retrieve all events for this extrinsic
         const events = records.filter(
-          ({ phase }) =&gt;
-            phase.isApplyExtrinsic &amp;&amp; phase.asApplyExtrinsic.eq(index)
+          ({ phase }) =>
+            phase.isApplyExtrinsic && phase.asApplyExtrinsic.eq(index)
         );
 
         // This hash will only exist if the transaction was executed through Ethereum.
@@ -2329,16 +2403,16 @@ const main = async () =&gt; {
 
         if (isEthereum) {
           // Search for Ethereum execution
-          events.forEach(({ event }) =&gt; {
-            if (event.section == 'ethereum' &amp;&amp; event.method == 'Executed') {
+          events.forEach(({ event }) => {
+            if (event.section == 'ethereum' && event.method == 'Executed') {
               ethereumHash = event.data[2].toString();
             }
           });
         }
 
         // Search if it is a transfer
-        events.forEach(({ event }) =&gt; {
-          if (event.section == 'balances' &amp;&amp; event.method == 'Transfer') {
+        events.forEach(({ event }) => {
+          if (event.section == 'balances' && event.method == 'Transfer') {
             const from = event.data[0].toString();
             const to = event.data[1].toString();
             const balance = (event.data[2] as any).toBigInt();
@@ -2726,7 +2800,7 @@ The following code snippet uses the Axios HTTP client to query the Sidecar endpo
 ```typescript
 import axios from 'axios';
 
-// This script will decode all native token transfers (Substrate &amp; Ethereum)
+// This script will decode all native token transfers (Substrate & Ethereum)
 // in a given Sidecar block, and extract the tx hash. It can be adapted for
 // any Tanssi-powered network.
 
@@ -2741,25 +2815,25 @@ async function main() {
     console.log('Block Height: ' + response.data.number);
 
     // Iterate through all extrinsics in the block
-    response.data.extrinsics.forEach((extrinsic) =&gt; {
+    response.data.extrinsics.forEach((extrinsic) => {
       // Retrieve Ethereum Transfers
       if (
-        extrinsic.method.pallet === 'ethereum' &amp;&amp;
+        extrinsic.method.pallet === 'ethereum' &&
         extrinsic.method.method === 'transact'
       ) {
         // Get the value for any of the three EIP transaction standards supported
         const value =
-          (extrinsic.args.transaction.legacy &amp;&amp;
+          (extrinsic.args.transaction.legacy &&
             extrinsic.args.transaction.legacy.value) ||
-          (extrinsic.args.transaction.eip1559 &amp;&amp;
+          (extrinsic.args.transaction.eip1559 &&
             extrinsic.args.transaction.eip1559.value) ||
-          (extrinsic.args.transaction.eip2930 &amp;&amp;
+          (extrinsic.args.transaction.eip2930 &&
             extrinsic.args.transaction.eip2930.value);
 
         // Iterate through the events to get transaction details
-        extrinsic.events.forEach((event) =&gt; {
+        extrinsic.events.forEach((event) => {
           if (
-            event.method.pallet === 'ethereum' &amp;&amp;
+            event.method.pallet === 'ethereum' &&
             event.method.method === 'Executed'
           ) {
             console.log('From: ' + event.data[0]);
@@ -2778,14 +2852,14 @@ async function main() {
 
       // Retrieve Substrate Transfers
       if (
-        extrinsic.method.pallet === 'balances' &amp;&amp;
+        extrinsic.method.pallet === 'balances' &&
         (extrinsic.method.method === 'transferKeepAlive' ||
           extrinsic.method.method === 'transfer')
       ) {
         // Iterate through the events to get transaction details
-        extrinsic.events.forEach((event) =&gt; {
+        extrinsic.events.forEach((event) => {
           if (
-            event.method.pallet === 'balances' &amp;&amp;
+            event.method.pallet === 'balances' &&
             event.method.method === 'Transfer'
           ) {
             console.log('From: ' + event.data[0]);
@@ -3773,7 +3847,7 @@ As an example of a custom module, the following code (not intended for productio
 #![cfg_attr(not(feature = "std"), no_std)]
 
 /// Learn more about FRAME and the core library of Substrate FRAME pallets:
-/// <https: docs.substrate.io="" frame-pallets="" reference=""></https:>
+/// <https://docs.substrate.io/reference/frame-pallets/>
 pub use pallet::*;
 
 #[frame_support::pallet(dev_mode)]
@@ -3793,29 +3867,29 @@ pub mod pallet {
 		PalletId,
 	};
 
-	type BalanceOf<t> = 
-		&lt;<t as="" config="">::Currency as Currency&lt;<t as="" frame_system::config="">::AccountId&gt;&gt;::Balance;
+	type BalanceOf<T> = 
+		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
 
 	#[pallet::pallet]
-	pub struct Pallet<t>(_);
+	pub struct Pallet<T>(_);
 
 	/// Configure the module by specifying the parameters and types on which it depends.
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
 
 		// Event definition
-		type RuntimeEvent: From<event<self>&gt; 
-			+ IsType&lt;<self as="" frame_system::config="">::RuntimeEvent&gt;;
+		type RuntimeEvent: From<Event<Self>> 
+			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
 
 		// Currency 
-		type Currency: Currency<self::accountid>;
+		type Currency: Currency<Self::AccountId>;
 
 		// Randomness
-		type MyRandomness: Randomness<self::hash, blocknumberfor<self="">&gt;;
+		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
 
 		// Ticket cost
 		#[pallet::constant]
-		type TicketCost: Get<balanceof<self>&gt;;
+		type TicketCost: Get<BalanceOf<Self>>;
 
 		// Maximum number of participants
 		#[pallet::constant]
@@ -3823,31 +3897,31 @@ pub mod pallet {
 
 		// Module Id
 		#[pallet::constant]
-		type PalletId: Get<palletid>;
+		type PalletId: Get<PalletId>;
 	}
 
 	// The pallet's runtime storage items.
 	#[pallet::storage]
 	#[pallet::getter(fn get_participants)]
-	pub(super) type Participants<t: config=""> = StorageValue&lt;
+	pub(super) type Participants<T: Config> = StorageValue<
 		_,
-		BoundedVec<t::accountid, t::maxparticipants="">,
+		BoundedVec<T::AccountId, T::MaxParticipants>,
 		OptionQuery
-	&gt;;
+	>;
 
 	#[pallet::storage]
 	#[pallet::getter(fn get_nonce)]
-	pub(super) type Nonce<t: config=""> = StorageValue&lt;
+	pub(super) type Nonce<T: Config> = StorageValue<
 		_,
 		u64,
 		ValueQuery
-	&gt;;
+	>;
 
 	// Pallets use events to inform users when important changes are made.
 	// https://docs.substrate.io/main-docs/build/events-errors/
 	#[pallet::event]
 	#[pallet::generate_deposit(pub(super) fn deposit_event)]
-	pub enum Event<t: config=""> {
+	pub enum Event<T: Config> {
 		/// Event emitted when a ticket is bought
 		TicketBought { who: T::AccountId },
 		/// Event emitted when the prize is awarded
@@ -3858,60 +3932,60 @@ pub mod pallet {
 
 	// Errors inform users that something went wrong
 	#[pallet::error]
-	pub enum Error<t> {
+	pub enum Error<T> {
 		NotEnoughCurrency,
 		AccountAlreadyParticipating,
 		CanNotAddParticipant,
 	}
 
 	#[pallet::call]
-	impl<t: config=""> Pallet<t> {
+	impl<T: Config> Pallet<T> {
 
 		#[pallet::call_index(0)]
 		#[pallet::weight(0)]
-		pub fn buy_ticket(origin: OriginFor<t>) -&gt; DispatchResult {
+		pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
 
 			// 1. Validates the origin signature
 			let buyer = ensure_signed(origin)?;
 
 			// 2. Checks that the user has enough balance to afford the ticket price
 			ensure!(
-				T::Currency::free_balance(&amp;buyer) &gt;= T::TicketCost::get(),
-				Error::<t>::NotEnoughCurrency
+				T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
+				Error::<T>::NotEnoughCurrency
 			);
 
 			// 3. Checks that the user is not already participating
 			if let Some(participants) = Self::get_participants() {
 				ensure!(
-					!participants.contains(&amp;buyer),
-					Error::<t>::AccountAlreadyParticipating
+					!participants.contains(&buyer),
+					Error::<T>::AccountAlreadyParticipating
 				);
 			}
 
 			// 4. Adds the user as a new participant for the prize
 			match Self::get_participants() {
-				Some(mut participants) =&gt; { 
+				Some(mut participants) => { 
 					ensure!(
 						participants.try_push(buyer.clone()).is_ok(), 
-						Error::<t>::CanNotAddParticipant
+						Error::<T>::CanNotAddParticipant
 					);
-					Participants::<t>::set(Some(participants));
+					Participants::<T>::set(Some(participants));
 				}, 
-				None =&gt; {
+				None => {
 					let mut participants = BoundedVec::new();
 					ensure!(
 						participants.try_push(buyer.clone()).is_ok(), 
-						Error::<t>::CanNotAddParticipant
+						Error::<T>::CanNotAddParticipant
 					);
-					Participants::<t>::set(Some(participants));
+					Participants::<T>::set(Some(participants));
 				}
 			};
 
 			// 5. Transfers the ticket cost to the module's account
 			// to be hold until transferred to the winner
 			T::Currency::transfer(
-				&amp;buyer, 
-				&amp;Self::get_pallet_account(), 
+				&buyer, 
+				&Self::get_pallet_account(), 
 				T::TicketCost::get(), 
 				ExistenceRequirement::KeepAlive)?;
 			
@@ -3922,18 +3996,18 @@ pub mod pallet {
 
 		#[pallet::call_index(1)]
 		#[pallet::weight(0)]
-		pub fn award_prize(origin: OriginFor<t>) -&gt; DispatchResult {
+		pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
 
 			// 1. Validates the origin signature
 			let _who = ensure_root(origin)?;
 
 			match Self::get_participants() {
-				Some(participants) =&gt; { 
+				Some(participants) => { 
 					
 					// 2. Gets a random number from the randomness module
 					let nonce = Self::get_and_increment_nonce();
-					let (random_seed, _) = T::MyRandomness::random(&amp;nonce);
-					let random_number = <u32>::decode(&amp;mut random_seed.as_ref())
+					let (random_seed, _) = T::MyRandomness::random(&nonce);
+					let random_number = <u32>::decode(&mut random_seed.as_ref())
 						.expect("secure hashes should always be bigger than u32; qed");
 					
 					// 3. Selects the winner from the participants lit
@@ -3941,20 +4015,20 @@ pub mod pallet {
 					let winner = participants.as_slice().get(winner_index).unwrap();
 
 					// 4. Transfers the total prize to the winner's account
-					let prize = T::Currency::free_balance(&amp;Self::get_pallet_account());
+					let prize = T::Currency::free_balance(&Self::get_pallet_account());
 					T::Currency::transfer(
-						&amp;Self::get_pallet_account(), 
-						&amp;winner, 
+						&Self::get_pallet_account(), 
+						&winner, 
 						prize, 
 						ExistenceRequirement::AllowDeath)?;
 
 					// 5. Resets the participants list, and gets ready for another lottery round
-					Participants::<t>::kill();
+					Participants::<T>::kill();
 
 					// 6. Notify the event
 					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
 				}, 
-				None =&gt; {
+				None => {
 					// Notify the event (No participants)
 					Self::deposit_event(Event::ThereAreNoParticipants);
 				}
@@ -3964,20 +4038,19 @@ pub mod pallet {
 		}
 	}
 
-	impl<t: config=""> Pallet<t> {
+	impl<T: Config> Pallet<T> {
 
-		fn get_pallet_account() -&gt; T::AccountId {
+		fn get_pallet_account() -> T::AccountId {
 			T::PalletId::get().into_account_truncating()
 		}
 
-		fn get_and_increment_nonce() -&gt; Vec<u8> {
-			let nonce = Nonce::<t>::get();
-			Nonce::<t>::put(nonce.wrapping_add(1));
+		fn get_and_increment_nonce() -> Vec<u8> {
+			let nonce = Nonce::<T>::get();
+			Nonce::<T>::put(nonce.wrapping_add(1));
 			nonce.encode()
 		}
 	}
 }
-</t></t></u8></t></t:></t></u32></t></t></t></t></t></t></t></t></t></t:></t></t:></t:></t::accountid,></t:></palletid></u32></balanceof<self></self::hash,></self::accountid></self></event<self></t></t></t></t>
 ```
 
 For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.

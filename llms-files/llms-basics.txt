@@ -507,7 +507,7 @@ As an example of a custom module, the following code (not intended for productio
 #![cfg_attr(not(feature = "std"), no_std)]
 
 /// Learn more about FRAME and the core library of Substrate FRAME pallets:
-/// <https: docs.substrate.io="" frame-pallets="" reference=""></https:>
+/// <https://docs.substrate.io/reference/frame-pallets/>
 pub use pallet::*;
 
 #[frame_support::pallet(dev_mode)]
@@ -527,29 +527,29 @@ pub mod pallet {
 		PalletId,
 	};
 
-	type BalanceOf<t> = 
-		&lt;<t as="" config="">::Currency as Currency&lt;<t as="" frame_system::config="">::AccountId&gt;&gt;::Balance;
+	type BalanceOf<T> = 
+		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
 
 	#[pallet::pallet]
-	pub struct Pallet<t>(_);
+	pub struct Pallet<T>(_);
 
 	/// Configure the module by specifying the parameters and types on which it depends.
 	#[pallet::config]
 	pub trait Config: frame_system::Config {
 
 		// Event definition
-		type RuntimeEvent: From<event<self>&gt; 
-			+ IsType&lt;<self as="" frame_system::config="">::RuntimeEvent&gt;;
+		type RuntimeEvent: From<Event<Self>> 
+			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
 
 		// Currency 
-		type Currency: Currency<self::accountid>;
+		type Currency: Currency<Self::AccountId>;
 
 		// Randomness
-		type MyRandomness: Randomness<self::hash, blocknumberfor<self="">&gt;;
+		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
 
 		// Ticket cost
 		#[pallet::constant]
-		type TicketCost: Get<balanceof<self>&gt;;
+		type TicketCost: Get<BalanceOf<Self>>;
 
 		// Maximum number of participants
 		#[pallet::constant]
@@ -557,31 +557,31 @@ pub mod pallet {
 
 		// Module Id
 		#[pallet::constant]
-		type PalletId: Get<palletid>;
+		type PalletId: Get<PalletId>;
 	}
 
 	// The pallet's runtime storage items.
 	#[pallet::storage]
 	#[pallet::getter(fn get_participants)]
-	pub(super) type Participants<t: config=""> = StorageValue&lt;
+	pub(super) type Participants<T: Config> = StorageValue<
 		_,
-		BoundedVec<t::accountid, t::maxparticipants="">,
+		BoundedVec<T::AccountId, T::MaxParticipants>,
 		OptionQuery
-	&gt;;
+	>;
 
 	#[pallet::storage]
 	#[pallet::getter(fn get_nonce)]
-	pub(super) type Nonce<t: config=""> = StorageValue&lt;
+	pub(super) type Nonce<T: Config> = StorageValue<
 		_,
 		u64,
 		ValueQuery
-	&gt;;
+	>;
 
 	// Pallets use events to inform users when important changes are made.
 	// https://docs.substrate.io/main-docs/build/events-errors/
 	#[pallet::event]
 	#[pallet::generate_deposit(pub(super) fn deposit_event)]
-	pub enum Event<t: config=""> {
+	pub enum Event<T: Config> {
 		/// Event emitted when a ticket is bought
 		TicketBought { who: T::AccountId },
 		/// Event emitted when the prize is awarded
@@ -592,60 +592,60 @@ pub mod pallet {
 
 	// Errors inform users that something went wrong
 	#[pallet::error]
-	pub enum Error<t> {
+	pub enum Error<T> {
 		NotEnoughCurrency,
 		AccountAlreadyParticipating,
 		CanNotAddParticipant,
 	}
 
 	#[pallet::call]
-	impl<t: config=""> Pallet<t> {
+	impl<T: Config> Pallet<T> {
 
 		#[pallet::call_index(0)]
 		#[pallet::weight(0)]
-		pub fn buy_ticket(origin: OriginFor<t>) -&gt; DispatchResult {
+		pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
 
 			// 1. Validates the origin signature
 			let buyer = ensure_signed(origin)?;
 
 			// 2. Checks that the user has enough balance to afford the ticket price
 			ensure!(
-				T::Currency::free_balance(&amp;buyer) &gt;= T::TicketCost::get(),
-				Error::<t>::NotEnoughCurrency
+				T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
+				Error::<T>::NotEnoughCurrency
 			);
 
 			// 3. Checks that the user is not already participating
 			if let Some(participants) = Self::get_participants() {
 				ensure!(
-					!participants.contains(&amp;buyer),
-					Error::<t>::AccountAlreadyParticipating
+					!participants.contains(&buyer),
+					Error::<T>::AccountAlreadyParticipating
 				);
 			}
 
 			// 4. Adds the user as a new participant for the prize
 			match Self::get_participants() {
-				Some(mut participants) =&gt; { 
+				Some(mut participants) => { 
 					ensure!(
 						participants.try_push(buyer.clone()).is_ok(), 
-						Error::<t>::CanNotAddParticipant
+						Error::<T>::CanNotAddParticipant
 					);
-					Participants::<t>::set(Some(participants));
+					Participants::<T>::set(Some(participants));
 				}, 
-				None =&gt; {
+				None => {
 					let mut participants = BoundedVec::new();
 					ensure!(
 						participants.try_push(buyer.clone()).is_ok(), 
-						Error::<t>::CanNotAddParticipant
+						Error::<T>::CanNotAddParticipant
 					);
-					Participants::<t>::set(Some(participants));
+					Participants::<T>::set(Some(participants));
 				}
 			};
 
 			// 5. Transfers the ticket cost to the module's account
 			// to be hold until transferred to the winner
 			T::Currency::transfer(
-				&amp;buyer, 
-				&amp;Self::get_pallet_account(), 
+				&buyer, 
+				&Self::get_pallet_account(), 
 				T::TicketCost::get(), 
 				ExistenceRequirement::KeepAlive)?;
 			
@@ -656,18 +656,18 @@ pub mod pallet {
 
 		#[pallet::call_index(1)]
 		#[pallet::weight(0)]
-		pub fn award_prize(origin: OriginFor<t>) -&gt; DispatchResult {
+		pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
 
 			// 1. Validates the origin signature
 			let _who = ensure_root(origin)?;
 
 			match Self::get_participants() {
-				Some(participants) =&gt; { 
+				Some(participants) => { 
 					
 					// 2. Gets a random number from the randomness module
 					let nonce = Self::get_and_increment_nonce();
-					let (random_seed, _) = T::MyRandomness::random(&amp;nonce);
-					let random_number = <u32>::decode(&amp;mut random_seed.as_ref())
+					let (random_seed, _) = T::MyRandomness::random(&nonce);
+					let random_number = <u32>::decode(&mut random_seed.as_ref())
 						.expect("secure hashes should always be bigger than u32; qed");
 					
 					// 3. Selects the winner from the participants lit
@@ -675,20 +675,20 @@ pub mod pallet {
 					let winner = participants.as_slice().get(winner_index).unwrap();
 
 					// 4. Transfers the total prize to the winner's account
-					let prize = T::Currency::free_balance(&amp;Self::get_pallet_account());
+					let prize = T::Currency::free_balance(&Self::get_pallet_account());
 					T::Currency::transfer(
-						&amp;Self::get_pallet_account(), 
-						&amp;winner, 
+						&Self::get_pallet_account(), 
+						&winner, 
 						prize, 
 						ExistenceRequirement::AllowDeath)?;
 
 					// 5. Resets the participants list, and gets ready for another lottery round
-					Participants::<t>::kill();
+					Participants::<T>::kill();
 
 					// 6. Notify the event
 					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
 				}, 
-				None =&gt; {
+				None => {
 					// Notify the event (No participants)
 					Self::deposit_event(Event::ThereAreNoParticipants);
 				}
@@ -698,20 +698,19 @@ pub mod pallet {
 		}
 	}
 
-	impl<t: config=""> Pallet<t> {
+	impl<T: Config> Pallet<T> {
 
-		fn get_pallet_account() -&gt; T::AccountId {
+		fn get_pallet_account() -> T::AccountId {
 			T::PalletId::get().into_account_truncating()
 		}
 
-		fn get_and_increment_nonce() -&gt; Vec<u8> {
-			let nonce = Nonce::<t>::get();
-			Nonce::<t>::put(nonce.wrapping_add(1));
+		fn get_and_increment_nonce() -> Vec<u8> {
+			let nonce = Nonce::<T>::get();
+			Nonce::<T>::put(nonce.wrapping_add(1));
 			nonce.encode()
 		}
 	}
 }
-</t></t></u8></t></t:></t></u32></t></t></t></t></t></t></t></t></t></t:></t></t:></t:></t::accountid,></t:></palletid></u32></balanceof<self></self::hash,></self::accountid></self></event<self></t></t></t></t>
 ```
 
 For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.
