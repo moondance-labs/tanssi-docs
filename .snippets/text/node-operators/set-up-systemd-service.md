@@ -6,56 +6,56 @@ The following commands configure a new account, create the directory, and move t
 
 1. Create a new account to run the service:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    adduser tanssi_service --system --no-create-home
-    ```
+        ```bash
+        adduser tanssi_service --system --no-create-home
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    adduser dancelight_service --system --no-create-home
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        adduser dancelight_service --system --no-create-home
+        ```
 
 2. Create a directory to store the required files and data:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    mkdir /var/lib/tanssi-data
-    ```
+        ```bash
+        mkdir /var/lib/tanssi-data
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    mkdir /var/lib/dancelight-data
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        mkdir /var/lib/dancelight-data
+        ```
 
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    chown -R tanssi_service /var/lib/tanssi-data
-    ```
+        ```bash
+        chown -R tanssi_service /var/lib/tanssi-data
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    chown -R tanssi_service /var/lib/dancelight-data
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        chown -R tanssi_service /var/lib/dancelight-data
+        ```
 
 4. Move the binaries to the folder:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    mv ./tanssi-relay* /var/lib/tanssi-data
-    ```
+        ```bash
+        mv ./tanssi-relay* /var/lib/tanssi-data
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    mv ./tanssi-relay* /var/lib/dacelight-data
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        mv ./tanssi-relay* /var/lib/dacelight-data
+        ```
