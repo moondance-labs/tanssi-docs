@@ -200,7 +200,7 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 For this guide, you will need the following:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Danclight TestNet
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
 - At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
@@ -3069,7 +3069,7 @@ For the examples in this guide, you will need to have the following:
 - A Tanssi-powered network (Quick Trial or Dedicated)
 - The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -3949,7 +3949,7 @@ The Tanssi Network MainNet HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://{{ networks.mainnet.dns_name }}/
+    https://{{ networks.mainnet.dns_name }}
     ```
 
 === "WSS"
@@ -3965,7 +3965,7 @@ The Dancelight TestNet HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://{{ networks.dancelight.dns_name }}/
+    https://{{ networks.dancelight.dns_name }}
     ```
 
 === "WSS"
@@ -18937,9 +18937,17 @@ A Docker image combines the binary corresponding to the latest stable release of
 
 Run the following command to pull the Docker image:
 
-```bash
-docker pull {{ networks.dancelight.operator_docker_image }}
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
 
 The command will download and extract the image and show the status upon execution:
 
@@ -18965,21 +18973,45 @@ Running a node requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
-```bash
-mkdir /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
 
-```bash
-chown INSERT_DOCKER_USER /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/dancelight-data
+    ```
 
 Or run the following command if you want to run the node with the current logged-in user:
 
-```bash
-sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
+    ```
 
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
@@ -18988,11 +19020,21 @@ sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
 
 To generate and store on disk the session keys that will be referenced in the start-up command, run the following command:
 
-```bash
-docker run --network="host" -v "/var/lib/tanssi-data:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
 
 !!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
@@ -19087,7 +19129,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     === "Generic"
 
         ```bash
-        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         {{ networks.dancelight.operator_docker_image }} \
         --chain=dancelight \
@@ -19111,7 +19153,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     === "Intel Skylake"
 
         ```bash
-        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
         {{ networks.dancelight.operator_docker_image }} \
@@ -19136,7 +19178,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     === "AMD Zen3"
 
         ```bash
-        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
         {{ networks.dancelight.operator_docker_image }} \
@@ -19172,8 +19214,14 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 You can view all available flags by running:
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
+    
+=== "Dancelight TestNet"
+    
     ```bash
     docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
     ```
@@ -19290,35 +19338,75 @@ The following commands configure a new account, create the directory, and move t
 
 1. Create a new account to run the service:
 
-```bash
-adduser tanssi_service --system --no-create-home
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    adduser tanssi_service --system --no-create-home
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    adduser dancelight_service --system --no-create-home
+    ```
 
 2. Create a directory to store the required files and data:
 
-```bash
-mkdir /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-```bash
-chown -R tanssi_service /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    chown -R tanssi_service /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    chown -R tanssi_service /var/lib/dancelight-data
+    ```
 
 4. Move the binaries to the folder:
 
-```bash
-mv ./tanssi-relay* /var/lib/dacelight-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mv ./tanssi-relay* /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    mv ./tanssi-relay* /var/lib/dacelight-data
+    ```
 
 ### Generate the Node Key {: #generate-node-key }
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-/var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
+    ```
 
 !!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
@@ -19329,12 +19417,19 @@ The next step is to create the Systemd configuration file.
 
 You can create the file by running the following command:
 
-```bash
-sudo touch /etc/systemd/system/tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo touch /etc/systemd/system/tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo touch /etc/systemd/system/dancelight.service
+    ```
 
 Now you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
-
 
 === "Tanssi MainNet"
 
@@ -19378,20 +19473,20 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
 
     ```bash
     [Unit]
-    Description="Tanssi systemd service"
+    Description="Dancelight systemd service"
     After=network.target
     StartLimitIntervalSec=0
 
     [Service]
-    User=tanssi_service
+    User=dancelight_service
     Type=simple
     Restart=always
     RestartSec=10
-    SyslogIdentifier=tanssi
+    SyslogIdentifier=dancelight
     SyslogFacility=local7
     KillSignal=SIGHUP
     LimitNOFILE=100000
-    ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
+    ExecStart=/var/lib/dancelight-data/tanssi-relay --chain=dancelight \
     --base-path /var/lib/tanssi-data/ \
 --name INSERT_YOUR_TANSSI_NODE_NAME \
 --node-key-file /var/lib/tanssi-data/node-key \
@@ -19426,24 +19521,49 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 
 You can view all available flags by running:
 
-```bash
-/var/lib/tanssi-data/tanssi-relay --help
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay --help
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay --help
+    ```
 
 ## Run the Service {: #run-the-service }
 
 Finally, enable the service and start it for the first time:
 
-```bash
-systemctl enable tanssi.service && \
-systemctl start tanssi.service
-```
+=== "Tanssi MainNet"
 
-You can verify that the service is up and running correctly:
+    ```bash
+    systemctl enable tanssi.service && \
+    systemctl start tanssi.service
+    ```
 
-```bash
-systemctl status tanssi.service
-```
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl enable dancelight.service && \
+    systemctl start dancelight.service
+    ```
+
+You can verify that the service is up and running correctly by executing the following command:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    systemctl status tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl status dancelight.service
+    ```
 
 <div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
@@ -19461,9 +19581,17 @@ systemctl status tanssi.service
 
 Check the logs, if needed, with the following command:
 
-```bash
-journalctl -f -u tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    journalctl -f -u tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    journalctl -f -u dancelight.service
+    ```
 
 ## Testing Your Node {: #testing-your-rpc-node }
 
@@ -20758,9 +20886,17 @@ A Docker image combines the binary corresponding to the latest stable release of
 
 The following command to pull the Docker image:
 
-```bash
-docker pull {{ networks.dancelight.operator_docker_image }}
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
 
 The command will download and extract the image and show the status upon execution:
 
@@ -20782,25 +20918,49 @@ The command will download and extract the image and show the status upon executi
 
 ### Set Up the Data Directory {: #set-up-data-directory }
 
-Running an operator requires syncing with the Tanssi chain and storing its state.
+Running a node requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
-```bash
-mkdir /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
 
-```bash
-chown INSERT_DOCKER_USER /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/dancelight-data
+    ```
 
 Or run the following command if you want to run the node with the current logged-in user:
 
-```bash
-sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
+    ```
 
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
@@ -20809,11 +20969,21 @@ sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-docker run --network="host" -v "/var/lib/tanssi-data:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
 
 !!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
@@ -20902,7 +21072,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     === "Generic"
 
         ```bash
-        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         {{ networks.dancelight.operator_docker_image }} \
         --chain=dancelight \
@@ -20924,7 +21094,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     === "Intel Skylake"
 
         ```bash
-        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
         {{ networks.dancelight.operator_docker_image }} \
@@ -20947,7 +21117,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     === "AMD Zen3"
 
         ```bash
-        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
         {{ networks.dancelight.operator_docker_image }} \
@@ -20983,9 +21153,17 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
-```bash
-docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
 
 ## Syncing Your Node {: #syncing-your-node }
 
@@ -21094,35 +21272,75 @@ The following commands configure a new account, create the directory, and move t
 
 1. Create a new account to run the service:
 
+=== "Tanssi MainNet"
+
     ```bash
     adduser tanssi_service --system --no-create-home
     ```
 
+=== "Dancelight TestNet"
+    
+    ```bash
+    adduser dancelight_service --system --no-create-home
+    ```
+
 2. Create a directory to store the required files and data:
+
+=== "Tanssi MainNet"
 
     ```bash
     mkdir /var/lib/tanssi-data
     ```
 
+=== "Dancelight TestNet"
+    
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
+
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
+
+=== "Tanssi MainNet"
 
     ```bash
     chown -R tanssi_service /var/lib/tanssi-data
     ```
 
+=== "Dancelight TestNet"
+    
+    ```bash
+    chown -R tanssi_service /var/lib/dancelight-data
+    ```
+
 4. Move the binaries to the folder:
+
+=== "Tanssi MainNet"
 
     ```bash
     mv ./tanssi-relay* /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    mv ./tanssi-relay* /var/lib/dacelight-data
     ```
 
 ### Generate the Node Key {: #generate-node-key }
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-/var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
+    ```
 
 !!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
@@ -21133,11 +21351,19 @@ The next step is to create the Systemd configuration file.
 
 You can create the file by running the following command:
 
-```bash
-sudo touch /etc/systemd/system/tanssi.service
-```
+=== "Tanssi MainNet"
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
+    ```bash
+    sudo touch /etc/systemd/system/tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo touch /etc/systemd/system/dancelight.service
+    ```
+
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
 
 === "Tanssi MainNet"
 
@@ -21227,24 +21453,49 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
-```bash
-/var/lib/tanssi-data/tanssi-relay  --help
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay --help
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay --help
+    ```
 
 ## Run the Service {: #run-the-service }
 
 Finally, enable the service and start it for the first time:
 
-```bash
-systemctl enable tanssi.service && \
-systemctl start tanssi.service
-```
+=== "Tanssi MainNet"
 
-You can verify that the service is up and running correctly running:
+    ```bash
+    systemctl enable tanssi.service && \
+    systemctl start tanssi.service
+    ```
 
-```bash
-systemctl status tanssi.service
-```
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl enable dancelight.service && \
+    systemctl start dancelight.service
+    ```
+
+You can verify that the service is up and running correctly by executing the following command:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    systemctl status tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl status dancelight.service
+    ```
 
 <div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
@@ -21262,9 +21513,17 @@ systemctl status tanssi.service
 
 Check the logs, if needed, with the following command:
 
-```bash
-journalctl -f -u tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    journalctl -f -u tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    journalctl -f -u dancelight.service
+    ```
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/operators/operational-tasks/
