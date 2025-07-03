@@ -2,6 +2,7 @@
 title: Adding a Custom-Made Module
 description: Discover how to incorporate custom-made modules to add unique or specialized features to your network that go beyond the capabilities of the built-in modules.
 icon: octicons-terminal-24
+categories: Custom-Runtime
 ---
 
 # Adding a Custom-Made Module {: #adding-custom-made-module }

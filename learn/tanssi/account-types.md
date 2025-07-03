@@ -2,6 +2,7 @@
 title: Accounts in the Tanssi Protocol
 description: Overview of the cryptographic keys essential for the Tanssi protocol, detailing the account types used and their general functions.
 icon: octicons-key-24
+categories: Basics
 ---
 
 # Accounts in the Tanssi Protocol

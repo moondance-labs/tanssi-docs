@@ -3,6 +3,7 @@ title: Opt Out from Tanssi
 description: Learn how to initiate the offboarding process from a Tanssi network by opting out using various methods and how to verify your status.
 icon: octicons-sign-out-24
 template: main.html
+categories: Operators
 ---
 
 # Opt Out from Tanssi

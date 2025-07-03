@@ -2,6 +2,7 @@
 title: Register in Symbiotic
 description: Learn how to register your node in the Symbiotic registry as a first step to participate in the protocol, securing Tanssi-powered networks and earning rewards.
 icon: octicons-shield-check-24
+categories: Operators
 ---
 
 # Register in Symbiotic

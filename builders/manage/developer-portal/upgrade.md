@@ -2,6 +2,7 @@
 title: Upgrade Your Network's Runtime
 description: Learn how to use the Sudo key to manage your network by performing the privileged action of upgrading the runtime of your Tanssi-powered network.
 icon: octicons-arrow-up-24
+categories: Appchain
 ---
 
 # Upgrading Your Network Runtime with Sudo
