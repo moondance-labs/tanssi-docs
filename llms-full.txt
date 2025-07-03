@@ -4117,7 +4117,7 @@ The Tanssi network is built using the Substrate framework, leveraging its modula
 
 Additionally, the Tanssi protocol relies on [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}, to secure the ecosystem through restaked assets. This restaking mechanism is implemented on Ethereum; therefore, an ERC-20 version of the token also exists to cover user cases on the Ethereum side.
 
-Leveraging Tanssi's [built-in bridging capabilities](/builders/tanssi-network/bridge/){target=\_blank}, the token can be converted to (and from) the ERC-20  representation on Ethereum. When the token is bridged to Ethereum, the tokens are locked in the bridge's sovereign account, and a message is sent to the Ethereum contract to mint the equivalent amount in ERC-20. This lock-and-mint mechanism ensures the ERC-20 version is created through a trustless bridging mechanism, maintaining a 1:1 relationship with the native token.
+Leveraging Tanssi's [built-in bridging capabilities](/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}, the token can be converted to (and from) the ERC-20  representation on Ethereum. When the token is bridged to Ethereum, the tokens are locked in the bridge's sovereign account, and a message is sent to the Ethereum contract to mint the equivalent amount in ERC-20. This lock-and-mint mechanism ensures the ERC-20 version is created through a trustless bridging mechanism, maintaining a 1:1 relationship with the native token.
 
 ```mermaid
 flowchart LR
