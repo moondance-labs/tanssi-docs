@@ -24,9 +24,17 @@ A Docker image combines the binary corresponding to the latest stable release of
 
 The following command to pull the Docker image:
 
-```bash
-docker pull {{ networks.dancelight.operator_docker_image }}
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
 
 The command will download and extract the image and show the status upon execution:
 
