@@ -71,57 +71,13 @@ To get started, download the latest binary release and make it executable by run
     chmod +x ./tanssi-relay*
     ```
 
-## Set Up the Systemd Service {: #set-up-systemd-service }
+--8<-- 'text/node-operators/set-up-systemd-service.md'
 
-[Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
-
-The following commands configure a new account, create the directory, and move the previously downloaded files to the right location.
-
-1. Create a new account to run the service:
-
-    ```bash
-    adduser tanssi_service --system --no-create-home
-    ```
-
-2. Create a directory to store the required files and data:
-
-    ```bash
-    mkdir /var/lib/tanssi-data
-    ```
-
-3. Set the folder's ownership to the account that will run the service to ensure writing permission:
-
-    ```bash
-    chown -R tanssi_service /var/lib/tanssi-data
-    ```
-
-4. Move the binaries to the folder:
-
-    ```bash
-    mv ./tanssi-relay* /var/lib/tanssi-data
-    ```
-
-### Generate the Node Key {: #generate-node-key }
-
-To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
-
-```bash
-/var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
-```
+--8<-- 'text/node-operators/generate-node-keys-systemd.md'
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
-### Create the Systemd Service Configuration File {: #create-systemd-configuration }
-
-The next step is to create the Systemd configuration file.
-
-You can create the file by running the following command:
-
-```bash
-sudo touch /etc/systemd/system/tanssi.service
-```
-
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
+--8<-- 'text/node-operators/create-systemd-config-file.md'
 
 === "Tanssi MainNet"
 
@@ -177,29 +133,20 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
-```bash
-/var/lib/tanssi-data/tanssi-relay  --help
-```
+=== "Tanssi MainNet"
 
-## Run the Service {: #run-the-service }
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay --help
+    ```
 
-Finally, enable the service and start it for the first time:
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay --help
+    ```
 
-```bash
-systemctl enable tanssi.service && \
-systemctl start tanssi.service
-```
-
-You can verify that the service is up and running correctly running:
-
-```bash
-systemctl status tanssi.service
-```
+--8<-- 'text/node-operators/run-the-service-systemd.md'
 
 --8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
-Check the logs, if needed, with the following command:
-
-```bash
-journalctl -f -u tanssi.service
-```
+--8<-- 'text/node-operators/check-logs-systemd.md'

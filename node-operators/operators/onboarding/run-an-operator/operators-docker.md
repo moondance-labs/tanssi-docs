@@ -40,40 +40,27 @@ The command will download and extract the image and show the status upon executi
 
 --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/terminal/pulling-docker-image.md'
 
-### Set Up the Data Directory {: #set-up-data-directory }
-
-Running an operator requires syncing with the Tanssi chain and storing its state.
-
-Run the following command to create the directory where your node will store the databases containing blocks and chain states:
-
-```bash
-mkdir /var/lib/tanssi-data
-```
-
-Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
-
-```bash
-chown INSERT_DOCKER_USER /var/lib/tanssi-data
-```
-
-Or run the following command if you want to run the node with the current logged-in user:
-
-```bash
-sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
-```
-
-!!! note
-    The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
+--8<-- 'text/node-operators/set-up-data-directory.md'
 
 ### Generate the Node Key {: #generate-node-key }
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-docker run --network="host" -v "/var/lib/tanssi-data:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
@@ -124,7 +111,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     === "Generic"
 
         ```bash
-        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         {{ networks.dancelight.operator_docker_image }} \
         --chain=dancelight \
@@ -134,7 +121,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     === "Intel Skylake"
 
         ```bash
-        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
         {{ networks.dancelight.operator_docker_image }} \
@@ -145,7 +132,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     === "AMD Zen3"
 
         ```bash
-        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
         {{ networks.dancelight.operator_docker_image }} \
@@ -159,9 +146,17 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
-```bash
-docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
 
 ## Syncing Your Node {: #syncing-your-node }
 
