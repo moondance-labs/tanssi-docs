@@ -31,7 +31,7 @@ The Dancelight TestNet HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://{{ networks.dancelight.dns_name }}/
+    https://{{ networks.dancelight.dns_name }}
     ```
 
 === "WSS"
