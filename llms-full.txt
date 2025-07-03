@@ -185,7 +185,7 @@ To store your information on-chain, you must bond some funds, which will eventua
     |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.mainnet.identity.basic_deposit }} {{ networks.mainnet.token_symbol }}   |
     |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.mainnet.identity.per_byte_deposit }} {{ networks.mainnet.token_symbol }} |
     | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                      {{ networks.mainnet.identity.max_fields }}                      |
-    |    Max Subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                   {{ networks.mainnet.identity.max_subaccounts }}                    |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                   {{ networks.mainnet.identity.max_subaccounts }}                    |
 
 === "Dancelight TestNet"
 
@@ -194,7 +194,7 @@ To store your information on-chain, you must bond some funds, which will eventua
     |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.dancelight.identity.basic_deposit }} {{ networks.dancelight.token_symbol }}   |
     |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.dancelight.identity.per_byte_deposit }} {{ networks.dancelight.token_symbol }} |
     | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                       {{ networks.dancelight.identity.max_fields }}                        |
-    |    Max Subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
 
 ## Checking Prerequisites { : #checking-prerequisites }
 
@@ -4044,7 +4044,7 @@ icon: octicons-star-24
 
 Tanssi Network MainNet is live, allowing developers to swiftly onboard and launch their appchains within minutes.
 
-This quick reference page offers all the essentials you need to get started on Tanssi Network.
+This quick reference page offers all the essentials you need to get started on the Tanssi Network.
 
 ## TANSSI Token {: #tanssi-token }
 
@@ -4207,9 +4207,9 @@ This quick reference page offers all the essentials you need to get started on D
 
 {{ networks.dancelight.token_symbol }} tokens serve as the native currency within the Dancelight Network. To initiate the deployment of a network on Dancelight, you'll need to obtain {{ networks.dancelight.token_symbol }} tokens. Follow these steps:
 
-1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank} website
-2. Complete the form by providing basic information and your Substrate-based address
-3. Within one business day of submitting the form, you'll receive {{ networks.dancelight.token_symbol }} tokens for testing
+1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank} website.
+2. Complete the form by providing basic information and your Substrate-based address.
+3. Within one business day of submitting the form, you'll receive {{ networks.dancelight.token_symbol }} tokens for testing.
 
 !!! note
     {{ networks.dancelight.token_symbol }} tokens have no value. Please don't submit unnecessary requests.
@@ -5142,7 +5142,7 @@ icon: octicons-code-square-24
 
 Developers building dApps on top of Tanssi-powered EVM networks can use [Remix](https://remix.ethereum.org){target=\_blank}, one of the most popular Ethereum development environments, to build, compile, and deploy their smart contracts. Remix can be used with any EVM network, thanks to the seamless compatibility of Tanssi-powered EVM networks.
 
-This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi demo EVM TestNet using the Remix IDE. This guide can be adapted for your own Tanssi EVM network by simply adding the RPC URL of your network to your EVM Wallet and switching networks to it.
+This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi demo EVM network using the Remix IDE. This guide can be adapted for your own Tanssi EVM network by simply adding the RPC URL of your network to your EVM Wallet and switching networks to it.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -17782,7 +17782,6 @@ flowchart TB
 
 At any given time, all Tanssi networks require a certain number of sequencers, depending on the number of active networks and the current block production configuration set in Tanssi. The configuration sets the maximum number of total sequencers in the set and the number of sequencers each network has to have assigned.
 
-
 === "Tanssi MainNet"
     |          Variable          |                                       Value                                        |
     |:--------------------------:|:----------------------------------------------------------------------------------:|
@@ -19338,59 +19337,59 @@ The following commands configure a new account, create the directory, and move t
 
 1. Create a new account to run the service:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    adduser tanssi_service --system --no-create-home
-    ```
+        ```bash
+        adduser tanssi_service --system --no-create-home
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    adduser dancelight_service --system --no-create-home
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        adduser dancelight_service --system --no-create-home
+        ```
 
 2. Create a directory to store the required files and data:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    mkdir /var/lib/tanssi-data
-    ```
+        ```bash
+        mkdir /var/lib/tanssi-data
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    mkdir /var/lib/dancelight-data
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        mkdir /var/lib/dancelight-data
+        ```
 
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    chown -R tanssi_service /var/lib/tanssi-data
-    ```
+        ```bash
+        chown -R tanssi_service /var/lib/tanssi-data
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    chown -R tanssi_service /var/lib/dancelight-data
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        chown -R tanssi_service /var/lib/dancelight-data
+        ```
 
 4. Move the binaries to the folder:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    mv ./tanssi-relay* /var/lib/tanssi-data
-    ```
+        ```bash
+        mv ./tanssi-relay* /var/lib/tanssi-data
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    mv ./tanssi-relay* /var/lib/dacelight-data
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        mv ./tanssi-relay* /var/lib/dacelight-data
+        ```
 
 ### Generate the Node Key {: #generate-node-key }
 
@@ -21272,59 +21271,59 @@ The following commands configure a new account, create the directory, and move t
 
 1. Create a new account to run the service:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    adduser tanssi_service --system --no-create-home
-    ```
+        ```bash
+        adduser tanssi_service --system --no-create-home
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    adduser dancelight_service --system --no-create-home
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        adduser dancelight_service --system --no-create-home
+        ```
 
 2. Create a directory to store the required files and data:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    mkdir /var/lib/tanssi-data
-    ```
+        ```bash
+        mkdir /var/lib/tanssi-data
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    mkdir /var/lib/dancelight-data
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        mkdir /var/lib/dancelight-data
+        ```
 
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    chown -R tanssi_service /var/lib/tanssi-data
-    ```
+        ```bash
+        chown -R tanssi_service /var/lib/tanssi-data
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    chown -R tanssi_service /var/lib/dancelight-data
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        chown -R tanssi_service /var/lib/dancelight-data
+        ```
 
 4. Move the binaries to the folder:
 
-=== "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-    ```bash
-    mv ./tanssi-relay* /var/lib/tanssi-data
-    ```
+        ```bash
+        mv ./tanssi-relay* /var/lib/tanssi-data
+        ```
 
-=== "Dancelight TestNet"
-    
-    ```bash
-    mv ./tanssi-relay* /var/lib/dacelight-data
-    ```
+    === "Dancelight TestNet"
+        
+        ```bash
+        mv ./tanssi-relay* /var/lib/dacelight-data
+        ```
 
 ### Generate the Node Key {: #generate-node-key }
 
