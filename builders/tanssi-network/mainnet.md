@@ -10,7 +10,7 @@ icon: octicons-star-24
 
 Tanssi Network MainNet is live, allowing developers to swiftly onboard and launch their appchains within minutes.
 
-This quick reference page offers all the essentials you need to get started on Tanssi Network.
+This quick reference page offers all the essentials you need to get started on the Tanssi Network.
 
 ## TANSSI Token {: #tanssi-token }
 

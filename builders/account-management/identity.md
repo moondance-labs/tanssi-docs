@@ -31,7 +31,7 @@ To store your information on-chain, you must bond some funds, which will eventua
     |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.mainnet.identity.basic_deposit }} {{ networks.mainnet.token_symbol }}   |
     |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.mainnet.identity.per_byte_deposit }} {{ networks.mainnet.token_symbol }} |
     | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                      {{ networks.mainnet.identity.max_fields }}                      |
-    |    Max Subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                   {{ networks.mainnet.identity.max_subaccounts }}                    |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                   {{ networks.mainnet.identity.max_subaccounts }}                    |
 
 === "Dancelight TestNet"
 
@@ -40,7 +40,7 @@ To store your information on-chain, you must bond some funds, which will eventua
     |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.dancelight.identity.basic_deposit }} {{ networks.dancelight.token_symbol }}   |
     |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.dancelight.identity.per_byte_deposit }} {{ networks.dancelight.token_symbol }} |
     | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                       {{ networks.dancelight.identity.max_fields }}                        |
-    |    Max Subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
 
 ## Checking Prerequisites { : #checking-prerequisites }
 

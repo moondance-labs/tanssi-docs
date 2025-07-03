@@ -16,9 +16,9 @@ This quick reference page offers all the essentials you need to get started on D
 
 {{ networks.dancelight.token_symbol }} tokens serve as the native currency within the Dancelight Network. To initiate the deployment of a network on Dancelight, you'll need to obtain {{ networks.dancelight.token_symbol }} tokens. Follow these steps:
 
-1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank} website
-2. Complete the form by providing basic information and your Substrate-based address
-3. Within one business day of submitting the form, you'll receive {{ networks.dancelight.token_symbol }} tokens for testing
+1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank} website.
+2. Complete the form by providing basic information and your Substrate-based address.
+3. Within one business day of submitting the form, you'll receive {{ networks.dancelight.token_symbol }} tokens for testing.
 
 !!! note
     {{ networks.dancelight.token_symbol }} tokens have no value. Please don't submit unnecessary requests.
