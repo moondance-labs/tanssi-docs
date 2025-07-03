@@ -50,7 +50,7 @@ On the following screen, you'll be able to provide the relevant seed phrase, JSO
 
 SubWallet comes pre-configured with support for the Tanssi Dancelight TestNet, but it may not be enabled by default. You just need to head to the **Manage networks** page to toggle it on. Remember that the Tanssi Dancelight TestNet itself is the Substrate-based network that orchestrates and manages the launch of Tanssi-powered networks. To configure your SubWallet to work with Dancelight, press the **More Options** icon in the upper left corner. Then click **Manage networks** and take the following steps:
 
-1. Search for `Dancelight`
+1. Search for **Dancelight**
 2. Toggle the slider on to enable support for Dancelight
 
 ![Toggle support for the Dancelight TestNet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-6.webp)
