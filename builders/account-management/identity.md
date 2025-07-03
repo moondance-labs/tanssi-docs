@@ -46,7 +46,7 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 For this guide, you will need the following:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Danclight TestNet
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
 - At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
