@@ -25,10 +25,10 @@ yaml_dir = os.path.join(base_dir, docs_repo, 'variables.yml')
 output_file = os.path.join(docs_dir, 'llms-full.txt')
 snippet_dir = os.path.join(docs_dir, '.snippets')
 # GitHub raw URL base (instead of website)
-raw_base_url = "https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main"
+raw_base_url = f"https://raw.githubusercontent.com/moondance-labs/{docs_repo}/refs/heads/main"
 
 # Regex to find lines like: --8<-- 'code/build/applications/...' and --8<-- 'http....'
-SNIPPET_REGEX = r"--8<--\s*['\"](https?://[^'\"]+|[^'\"]+)['\"]"
+SNIPPET_REGEX = r"--8<--\s*['\"]([^'\"]+)['\"]"
 
 def get_all_markdown_files(directory):
     """
@@ -94,11 +94,10 @@ def replace_snippet_placeholders(markdown, snippet_directory, yaml_file):
     def replacement(match):
         snippet_ref = match.group(1)
 
-        # Handle local file or remote GitHub snippet
         if snippet_ref.startswith("http"):
-            return fetch_remote_snippet(snippet_ref, yaml_file)
+            snippet_content = fetch_remote_snippet(snippet_ref, yaml_file)
         else:
-            return fetch_local_snippet(snippet_ref, snippet_directory)
+            snippet_content = fetch_local_snippet(snippet_ref, snippet_directory)
 
     return re.sub(SNIPPET_REGEX, replacement, markdown)
 
@@ -116,6 +115,9 @@ def fetch_local_snippet(snippet_ref, snippet_directory):
     if line_start is not None and line_end is not None:
         lines = snippet_content.split('\n')
         snippet_content = '\n'.join(lines[line_start:line_end])
+
+    # 🚀 Recursively process the snippet content for any nested --8<--
+    snippet_content = replace_snippet_placeholders(snippet_content, snippet_directory, {})
 
     return snippet_content.strip()
 

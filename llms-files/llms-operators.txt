@@ -45,13 +45,7 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-Running a Tanssi-powered network node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols.
 
-Nodes store block data and network state. However, developers can run different kinds of nodes:
-
- - **Full Archive Node** - a node storing the entire block data and network state at all block heights. Such nodes are helpful when querying historical data from old blocks. However, a full archive node takes up a lot of space
-
-  - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
 
 In this guide, you'll learn how to quickly spin up a Tanssi network node using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
@@ -60,25 +54,7 @@ In this guide, you'll learn how to quickly spin up a Tanssi network node using [
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
-
-Run the following command to install Docker on a Linux Ubuntu platform:
-
-```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
-
-And the following command to check the installation:
-
-```bash
-sudo docker run hello-world
-```
-
-This is what a successful execution in the terminal looks like:
-
---8<-- 'code/node-operators/terminal/hello-world.md'
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
@@ -102,20 +78,7 @@ If the Tanssi network was registered in the dApp choosing the EVM template or up
 
 The command will download and extract the image and show the status upon execution:
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/dancelight-container-chain-evm-templates</span>
-  <span data-ty>
-    <br> 
-    <br> Using default tag: latest
-    <br> latest: Pulling from moondancelabs/dancelight-container-chain-evm-templates
-    <br> 31ad3619f756: Already exists 
-    <br> 8f3d9759dcde: Pull complete 
-    <br> de5eaba9b289: Pull complete 
-    <br> Digest: sha256:4930d631a8ac7f7852754d4cf77bb3317229d768f44092a00295ba50641b2a33
-    <br> Status: Downloaded newer image for moondancelabs/dancelight-container-chain-evm-templates
-    <br> docker.io/moondancelabs/dancelight-container-chain-evm-templates:latest
-  </span>
-</div>
+
 
 ### Simple Substrate Networks {: #pulling-substrate-docker-image }
 
@@ -134,33 +97,16 @@ The command will download and extract the image and show the status upon executi
 To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
 
 - `Network ID` - replace `YOUR_NETWORK_ID` with your Tanssi network ID within the `--chain` command. This ID was obtained during the [third step of the network deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network){target=\_blank}. For example, `2001`
-- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi network bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_NETWORK_BOOTNODE` with the actual bootnode information
 
-!!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
+
 
 === "EVM-compatible Network"
 
     ```bash
     docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
     /chain-network/container-chain-frontier-node \
-    --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
---rpc-port=9944 \
---name=para \
---state-pruning=archive \
---blocks-pruning=archive \
---database=paritydb \
---unsafe-rpc-external \
---bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
--- \
---name=relay \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
---rpc-port=9945 \
---sync=fast \
---database=paritydb \
---bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
---bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
---bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+    
     ```
 
 === "Simple Substrate Network"
@@ -168,40 +114,13 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     ```bash
     docker run -ti moondancelabs/dancelight-container-chain-simple-templates \
     /chain-network/container-chain-simple-node \
-    --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
---rpc-port=9944 \
---name=para \
---state-pruning=archive \
---blocks-pruning=archive \
---database=paritydb \
---unsafe-rpc-external \
---bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
--- \
---name=relay \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
---rpc-port=9945 \
---sync=fast \
---database=paritydb \
---bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
---bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
---bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+    
     ```
 
 !!! note
     Only the historical state of the last 256 finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
 
-### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
-
-To do so, take the following steps:
-
-1. Select **dataPreservers** as the module to query
-2. Set the storage query to **bootNodes**
-3. Provide your Tanssi network ID
-4. Click on the **+** sign
-
-![Getting the bootnode](/images/node-operators/network-node/rpc-docker-systemd-1.webp)
 
 ### Full Node Example for Demo EVM Network {: #example-demo-evm-network }
 
@@ -236,17 +155,7 @@ The following example spins up a full archive RPC node for the [demo EVM network
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
-- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
-- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
-- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
-- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
-- `--detailed-log-output` - enables detailed log output
 
-!!! warning
-    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
-
-For a complete list of available flags, their description, and possible values, run the following command:
 
 === "Dancelight"
 
@@ -260,14 +169,7 @@ For a complete list of available flags, their description, and possible values, 
 
 Once your node spins up, the syncing process displays a lot of log information from both the node and the Tanssi network. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker run ....</span>
-  <span data-ty>
-    <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
-    <br> 2024-02-08 18:30:06.368  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #14139635 (0x8c41…8df6)    
-    <br> 2024-02-08 18:30:08.809  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #14139635 (0x8c41…8df6), finalized #14139632 (0xa9a8…cab9), ⬇ 32.7kiB/s ⬆
-  </span>
-</div>
+
 
 !!! note
     The length of the syncing process is directly proportional to the size of the chain you are syncing to.
@@ -286,13 +188,7 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-Running a Tanssi-powered network node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols.
 
-Nodes store block data and network state. However, developers can run different kinds of nodes:
-
- - **Full Archive Node** - a node storing the entire block data and network state at all block heights. Such nodes are helpful when querying historical data from old blocks. However, a full archive node takes up a lot of space
-
-  - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
 
 In this guide, you'll learn how to spin up a Tanssi network node using a binary executable file and manage the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
@@ -331,8 +227,7 @@ Every new release includes two node binaries, one for EVM-compatible networks an
     chmod +x ./container-chain-simple-node
     ```
 
-!!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
 
 ## Download the Tanssi Network Specs File {: #download-tanssi-specs }
 
@@ -399,7 +294,7 @@ Now, you can open the file using your favorite text editor (vim, emacs, nano, et
 Note that the `ExecStart` command  has some parameters that need to be changed to match your specific network:
 
 - `Specification file` - replace `YOUR_NETWORK_SPECS_FILE_LOCATION` with your network's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/dancelight-data/YOUR_FILENAME.json`, e.g., `/var/lib/dancelight-data/spec-raw.json`
-- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi network bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_NETWORK_BOOTNODE` with the actual bootnode information
+
 
 === "EVM-Compatible Network"
 
@@ -476,18 +371,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
     WantedBy=multi-user.target
     ```
 
-### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
-
-To do so, take the following steps:
-
-1. Select **dataPreservers** as the module to query
-2. Set the storage query to **bootNodes**
-3. Provide your Tanssi network ID
-4. Click on the **+** sign
-
-![Getting the bootnode](/images/node-operators/network-node/rpc-docker-systemd-1.webp)
 
 ### Full Node Configuration Example for the Demo EVM Network {: #example-demo-evm-network}
 
@@ -537,17 +421,7 @@ The raw chain specification file for the demo network is required to run the nod
 
 The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
-- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
-- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
-- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
-- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
-- `--detailed-log-output` - enables detailed log output
 
-!!! warning
-    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
-
-For a complete list of available flags, their description, and possible values, run the following command:
 
 === "EVM-compatible Network"
 
@@ -576,42 +450,13 @@ You can verify that the service is up and running correctly running:
 systemctl status network.service
 ```
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
-  <span data-ty>
-    <br> ● network.service - "Network systemd service"
-    <br>&nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/network.service; enabled; vendor preset: enabled)
-    <br>&nbsp;&nbsp;&nbsp;Active: active (running) since Sun 2024-02-18 18:16:40 EST; 14min ago
-    <br>&nbsp;&nbsp;Main PID: 4045278 (container-chain)
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;Tasks: 44 (limit: 9462)
-    <br>&nbsp;&nbsp;&nbsp;Memory: 6.5G
-    <br>&nbsp;&nbsp;&nbsp;CGroup: /system.slice/network.service
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─4045278 4045278 /var/lib/network-data/container-chain- ...
-  </span>
-</div>
+
 
 And check the logs, if needed, with the following command:
 
 ```bash
 journalctl -f -u network.service
 ```
-
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>journalctl -f -u network.service</span>
-  <span data-ty>
-    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 Parachain Collator Template
-    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 ✌️  version 0.1.0-3b1fbbfdfe7
-    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 ❤️  by Moondance Labs,     <br> 2020-2024
-    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 📋 Chain specification: Frontier Container 2001
-    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 🏷  Node name: para
-    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 👤 Role: FULL
-    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 💾 Database: RocksDb at /var/lib/network-data/chains/frontier_container_2001/db/full
-    <br> Feb 19 20:05:57 tutorials network[4066765]: 2024-02-19 20:05:57 Parachain id: Id(2001)
-    <br> Feb 19 20:05:57 tutorials network[4066765]: 2024-02-19 20:05:57 Parachain Account: 5Ec4AhPQLGvfWywVhJZwufTDvknLT3BVPQcbV977JmBDUsHP
-    <br> Feb 19 20:05:57 tutorials network[4066765]: 2024-02-19 20:05:57 Parachain genesis state V0: 0x000000000000000000000000000000000000000000000000000000000000000000e1324cc53e66
-    <br> Feb 19 20:05:57 tutorials network[4066765]: 2024-02-19 20:05:57 Parachain genesis state V1: 0x000000000000000000000000000000000000000000000000000000000000000000327cfde8482b
-  </span>
-</div>
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi/
@@ -673,25 +518,7 @@ In this guide, you'll learn how to spin up a Tanssi node using the official imag
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
-
-Run the following command to install Docker on a Linux Ubuntu platform:
-
-```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
-
-And the following command to check the installation:
-
-```bash
-sudo docker run hello-world
-```
-
-This is what a successful execution in the terminal looks like:
-
---8<-- 'code/node-operators/terminal/hello-world.md'
 
 ### Pull the Docker Image {: #pull-docker-image }
 
@@ -709,21 +536,7 @@ Run the following command to pull the Docker image:
 
 The command will download and extract the image and show the status upon execution:
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker moondancelabs/starlight</span>
-  <span data-ty>
-    <br> 
-    <br> Using default tag: latest
-    <br> latest: Pulling from moondancelabs/starlight
-    <br> e1caac4eb9d2: Pull complete 
-    <br> 1d4409959e6d: Pull complete 
-    <br> b8beed19c122: Pull complete 
-    <br> c0fab1f18601: Pull complete 
-    <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
-    <br> Status: Downloaded newer image for moondancelabs/starlight
-    <br> docker.io/moondancelabs/starlight
-  </span>
-</div>
+
 
 ### Set Up the Data Directory {: #set-up-data-directory }
 
@@ -768,8 +581,7 @@ To generate and store on disk the session keys that will be referenced in the st
     {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
     ```
 
-!!! note
-    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
+
 
 ## Start Your Node {: #start-your-node }
 
@@ -777,8 +589,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
 
-!!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
 
 === "Dancelight"
 
@@ -826,14 +637,7 @@ You can view all available flags by running:
 
 The first time your node spins up, the syncing process displays lots of log information from the node configuration and the chain blocks being synced. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker run ....</span>
-  <span data-ty>
-    <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
-    <br> 2024-02-08 18:30:06.368  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #14139635 (0x8c41…8df6)    
-    <br> 2024-02-08 18:30:08.809  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #14139635 (0x8c41…8df6), finalized #14139632 (0xa9a8…cab9), ⬇ 32.7kiB/s ⬆
-  </span>
-</div>
+
 
 When the syncing process is finished, your node is ready to serve API requests.
 
@@ -886,10 +690,7 @@ sudo dmesg | grep landlock || journalctl -kg landlock
 
 The output should look like:
 
-<div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>sudo dmesg | grep landlock || journalctl -kg landlock</span>
-    <span data-ty>[    0.240344] landlock: Up and running.</span>
-</div>
+
 
 If Landlock is disabled in your system, upgrade the kernel to version 5.13 or above.
 
@@ -897,8 +698,7 @@ If Landlock is disabled in your system, upgrade the kernel to version 5.13 or ab
 
 To get started, download the latest binary release and make it executable by running the following command:
 
-!!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
 
 === "Dancelight"
 
@@ -955,8 +755,7 @@ To generate and store on disk the session keys that will be referenced on the st
     /var/lib/dancelight-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
     ```
 
-!!! note
-    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
+
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
@@ -1039,19 +838,7 @@ You can verify that the service is up and running correctly:
 systemctl status tanssi.service
 ```
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
-  <span data-ty>
-    <br> ● network.service - "Network systemd service"
-    <br>&nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/network.service; enabled; vendor preset: enabled)
-    <br>&nbsp;&nbsp;&nbsp;Active: active (running) since Sun 2024-02-18 18:16:40 EST; 14min ago
-    <br>&nbsp;&nbsp;Main PID: 4045278 (container-chain)
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;Tasks: 44 (limit: 9462)
-    <br>&nbsp;&nbsp;&nbsp;Memory: 6.5G
-    <br>&nbsp;&nbsp;&nbsp;CGroup: /system.slice/network.service
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─4045278 4045278 /var/lib/network-data/container-chain- ...
-  </span>
-</div>
+
 
 Check the logs, if needed, with the following command:
 
@@ -1269,71 +1056,6 @@ Like many decentralized systems, the Tanssi protocol utilizes smart contracts on
 Key offboarding steps, such as signaling your intent to exit or formally unregistering, involve transactions that update the state recorded in these smart contracts.
 
 ### Interaction Methods
-
-There are several ways to interact with the smart contracts:
-
-- Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
-- Using [Etherscan](https://etherscan.io/){target=\_blank}
-- Using [Safe](https://safe.global/){target=\_blank} for multisig setups
-
-In any case, you'll need to sign the transaction using the account you intend to use for the node. You can choose between different options to do so:
-
-- Using the account's private key directly (although this method is not recommended)
-- Using a hot wallet, such as [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
-- Using a cold wallet, such as [Ledger](https://www.ledger.com/){target=\_blank}
-
-The following section outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
-
-### Set Up the Symbiotic CLI {: #set-up-the-cli }
-
-The [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank} is a tool for interacting with Symbiotic's core smart contracts. It is written in [Python](https://www.python.org/){target=\_blank}, so you'll need to install the Python interpreter and [pip](https://pypi.org/project/pip/){target=\_blank}, Python's package installer:
-
-=== "Linux (Ubuntu/Debian)"
-
-    ```bash
-     sudo apt-get install python3 && \
-     sudo apt install python3-pip
-    ```
-
-=== "MacOS"
-
-    ```bash
-    brew install python3
-    ```
-
-Now, with Python installed, download the Symbiotic CLI and its dependencies:
-
-```bash
-git clone https://github.com/symbioticfi/cli.git && \
-cd cli && \
-pip3 install -r requirements.txt
-```
-
-Run the following command to check if the installation was successful:
-
-```bash
-python3 symb.py --help
-```
-
-The terminal should show a long list of the CLI available commands:
-
-<div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py --help</span>
-    <span data-ty>Usage: symb.py [OPTIONS] COMMAND [ARGS]...</span>
-    <br>
-<span data-ty>Options:</></span>
-  <span data-ty>&emsp;--chain CHAIN    Chain ID to use.  [default: mainnet]</span>
-  <span data-ty>&emsp;--provider TEXT  Ethereum provider URL [http(s)].</span>
-  <span data-ty>&emsp;--help           Show this message and exit.</span>
-  <br>
-<span data-ty>Commands:
-<span data-ty>&emsp;active-balance-of&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Get an active balance of a given account...</span>
-<span data-ty>&emsp;check-opt-in-network&emsp;&emsp;&ensp; Check if operator is opted in to a network.</span>
-<span data-ty>&emsp;check-opt-in-vault&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Check if operator is opted in to a vault.</span>
-<span data-ty>&emsp;claim&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Claim a withdrawal for some epoch at the...</span>
-<span data-ty>&emsp;deposit&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Deposit to the vault.</span>
-<span data-ty>&emsp;.......&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;..........</span>
-</div>
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/operators/offboarding/vault-opt-out/
@@ -1528,20 +1250,7 @@ curl http://127.0.0.1:9944 -H \
 
 Your hex-encoded session keys will be printed to the terminal in the `"result"` field.
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>curl http://127.0.0.1:9944 -H \
-    <br>  "Content-Type:application/json;charset=utf-8" -d \
-    <br>    '{
-    <br>        "jsonrpc":"2.0",
-    <br>        "id":1,
-    <br>        "method":"author_rotateKeys",
-    <br>        "params": []
-    <br>    }'
-  </span>
-  <span data-ty>{"jsonrpc":"2.0","id":1,"result":</span>
-  <span data-ty>
-  "0xca17757962a065eeebec2c6e0d2dc7fb24b56967fd9003e4d22bf4981da86fd4ac7cd701462730a76ab539d5a48f4fd2821acf07743335e56eef84d1544686480ada0ff0f38dfccee43515e619e03b0de95a08c74fcbb2da26af55ad144d5f54829a57d7d77bb9333cf9301eaa5d20c384f67388f36b402e33a03b949148325e80b812699fb22d9e4b4976e1d0e9964034489cb0b5b6b70c37d227fb54ffe50b444434b488361038b8b6949c36f0073c6bd52f2907c0991e32257d96bb946c590320539c343fc1f2e1dd1951a0ff38c6c9ea2f93a263e81ee95da1de0697e47e32"}</span>
-</div>
+
 
 !!! note
     Make sure you write down your session keys. In the next section, you'll need to map them to your account.
@@ -1584,11 +1293,7 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
-The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
-
-In every session, the Tanssi protocol determines the number of operators required to support the entire ecosystem. Knowing this number, the protocol picks those with the highest delegated stake from the allow-listed ones.
 
 This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
 
@@ -1601,70 +1306,7 @@ Before opting into a Tanssi-enabled vault and the Tanssi network, make sure that
 
 To follow this guide, you must interact with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
 
-There are several ways to interact with the smart contracts:
 
-- Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
-- Using [Etherscan](https://etherscan.io/){target=\_blank}
-- Using [Safe](https://safe.global/){target=\_blank} for multisig setups
-
-In any case, you'll need to sign the transaction using the account you intend to use for the node. You can choose between different options to do so:
-
-- Using the account's private key directly (although this method is not recommended)
-- Using a hot wallet, such as [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
-- Using a cold wallet, such as [Ledger](https://www.ledger.com/){target=\_blank}
-
-The following section outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
-
-### Set Up the Symbiotic CLI {: #set-up-the-cli }
-
-The [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank} is a tool for interacting with Symbiotic's core smart contracts. It is written in [Python](https://www.python.org/){target=\_blank}, so you'll need to install the Python interpreter and [pip](https://pypi.org/project/pip/){target=\_blank}, Python's package installer:
-
-=== "Linux (Ubuntu/Debian)"
-
-    ```bash
-     sudo apt-get install python3 && \
-     sudo apt install python3-pip
-    ```
-
-=== "MacOS"
-
-    ```bash
-    brew install python3
-    ```
-
-Now, with Python installed, download the Symbiotic CLI and its dependencies:
-
-```bash
-git clone https://github.com/symbioticfi/cli.git && \
-cd cli && \
-pip3 install -r requirements.txt
-```
-
-Run the following command to check if the installation was successful:
-
-```bash
-python3 symb.py --help
-```
-
-The terminal should show a long list of the CLI available commands:
-
-<div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py --help</span>
-    <span data-ty>Usage: symb.py [OPTIONS] COMMAND [ARGS]...</span>
-    <br>
-<span data-ty>Options:</></span>
-  <span data-ty>&emsp;--chain CHAIN    Chain ID to use.  [default: mainnet]</span>
-  <span data-ty>&emsp;--provider TEXT  Ethereum provider URL [http(s)].</span>
-  <span data-ty>&emsp;--help           Show this message and exit.</span>
-  <br>
-<span data-ty>Commands:
-<span data-ty>&emsp;active-balance-of&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Get an active balance of a given account...</span>
-<span data-ty>&emsp;check-opt-in-network&emsp;&emsp;&ensp; Check if operator is opted in to a network.</span>
-<span data-ty>&emsp;check-opt-in-vault&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Check if operator is opted in to a vault.</span>
-<span data-ty>&emsp;claim&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Claim a withdrawal for some epoch at the...</span>
-<span data-ty>&emsp;deposit&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Deposit to the vault.</span>
-<span data-ty>&emsp;.......&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;..........</span>
-</div>
 
 ## Opt In to Tanssi-Enabled Vaults {: #opt-in-tanssi-vaults }
 
@@ -1938,11 +1580,7 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
-The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
-
-In every session, the Tanssi protocol determines the number of operators required to support the entire ecosystem. Knowing this number, the protocol picks those with the highest delegated stake from the allow-listed ones.
 
 This guide will walk you through the steps to successfully register your node as a Symbiotic operator.
 
@@ -1951,70 +1589,7 @@ This guide will walk you through the steps to successfully register your node as
 Before registering as an operator, ensure you have already [set up the node](/node-operators/operators/onboarding/run-an-operator/){target=\_blank} and it is running.
 
 To follow this guide, you must interact with smart contracts.
-There are several ways to interact with the smart contracts:
 
-- Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
-- Using [Etherscan](https://etherscan.io/){target=\_blank}
-- Using [Safe](https://safe.global/){target=\_blank} for multisig setups
-
-In any case, you'll need to sign the transaction using the account you intend to use for the node. You can choose between different options to do so:
-
-- Using the account's private key directly (although this method is not recommended)
-- Using a hot wallet, such as [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}
-- Using a cold wallet, such as [Ledger](https://www.ledger.com/){target=\_blank}
-
-The following section outlines the steps for installing the Symbiotic CLI, if that's your method of preference.
-
-### Set Up the Symbiotic CLI {: #set-up-the-cli }
-
-The [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank} is a tool for interacting with Symbiotic's core smart contracts. It is written in [Python](https://www.python.org/){target=\_blank}, so you'll need to install the Python interpreter and [pip](https://pypi.org/project/pip/){target=\_blank}, Python's package installer:
-
-=== "Linux (Ubuntu/Debian)"
-
-    ```bash
-     sudo apt-get install python3 && \
-     sudo apt install python3-pip
-    ```
-
-=== "MacOS"
-
-    ```bash
-    brew install python3
-    ```
-
-Now, with Python installed, download the Symbiotic CLI and its dependencies:
-
-```bash
-git clone https://github.com/symbioticfi/cli.git && \
-cd cli && \
-pip3 install -r requirements.txt
-```
-
-Run the following command to check if the installation was successful:
-
-```bash
-python3 symb.py --help
-```
-
-The terminal should show a long list of the CLI available commands:
-
-<div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>python3 symb.py --help</span>
-    <span data-ty>Usage: symb.py [OPTIONS] COMMAND [ARGS]...</span>
-    <br>
-<span data-ty>Options:</></span>
-  <span data-ty>&emsp;--chain CHAIN    Chain ID to use.  [default: mainnet]</span>
-  <span data-ty>&emsp;--provider TEXT  Ethereum provider URL [http(s)].</span>
-  <span data-ty>&emsp;--help           Show this message and exit.</span>
-  <br>
-<span data-ty>Commands:
-<span data-ty>&emsp;active-balance-of&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Get an active balance of a given account...</span>
-<span data-ty>&emsp;check-opt-in-network&emsp;&emsp;&ensp; Check if operator is opted in to a network.</span>
-<span data-ty>&emsp;check-opt-in-vault&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Check if operator is opted in to a vault.</span>
-<span data-ty>&emsp;claim&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Claim a withdrawal for some epoch at the...</span>
-<span data-ty>&emsp;deposit&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Deposit to the vault.</span>
-<span data-ty>&emsp;.......&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;..........</span>
-</div>
 
 ## Register as an Operator {: #registering-operator }
 
@@ -2193,35 +1768,13 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
-The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
-
-In every session, the Tanssi protocol determines the number of operators required to support the entire ecosystem. Knowing this number, the protocol picks those with the highest delegated stake from the allow-listed ones.
 
 In this guide, you'll learn how to spin up a Tanssi operator using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-### Installing Docker {: #installing-docker}
 
-To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
-
-Run the following command to install Docker on a Linux Ubuntu platform:
-
-```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-```
-
-And the following command to check the installation:
-
-```bash
-sudo docker run hello-world
-```
-
-This is what a successful execution in the terminal looks like:
-
---8<-- 'code/node-operators/terminal/hello-world.md'
 
 ### Pull the Docker Image {: #pull-docker-image }
 
@@ -2237,21 +1790,7 @@ docker pull {{ networks.dancelight.operator_docker_image }}
 
 The command will download and extract the image and show the status upon execution:
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker moondancelabs/starlight</span>
-  <span data-ty>
-    <br> 
-    <br> Using default tag: latest
-    <br> latest: Pulling from moondancelabs/starlight
-    <br> e1caac4eb9d2: Pull complete 
-    <br> 1d4409959e6d: Pull complete 
-    <br> b8beed19c122: Pull complete 
-    <br> c0fab1f18601: Pull complete 
-    <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
-    <br> Status: Downloaded newer image for moondancelabs/starlight
-    <br> docker.io/moondancelabs/starlight
-  </span>
-</div>
+
 
 ### Set Up the Data Directory {: #set-up-data-directory }
 
@@ -2288,8 +1827,7 @@ docker run --network="host" -v "/var/lib/tanssi-data:/data" \
 {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
 ```
 
-!!! note
-    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
+
 
 ## Start Your Node {: #start-your-node }
 
@@ -2297,8 +1835,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
 
-!!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
 
 === "Generic"
 
@@ -2306,20 +1843,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
---node-key-file /data/node-key \
---database=paritydb \
---rpc-port=9944 \
---prometheus-port=9615 \
---prometheus-external \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---listen-addr=/ip4/0.0.0.0/tcp/30333 \
---public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---validator
+    
     ```
 
 === "Intel Skylake"
@@ -2329,20 +1853,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
     {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
---node-key-file /data/node-key \
---database=paritydb \
---rpc-port=9944 \
---prometheus-port=9615 \
---prometheus-external \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---listen-addr=/ip4/0.0.0.0/tcp/30333 \
---public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---validator
+    
     ```
 
 === "AMD Zen3"
@@ -2352,37 +1863,14 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
     {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
---node-key-file /data/node-key \
---database=paritydb \
---rpc-port=9944 \
---prometheus-port=9615 \
---prometheus-external \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---listen-addr=/ip4/0.0.0.0/tcp/30333 \
---public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---validator
+    
     ```
 
 ### Run Flags {: #run-flags }
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
-- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
-- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
-- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
-- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
-- `--detailed-log-output` - enables detailed log output
 
-!!! warning
-    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
-
-For a complete list of available flags, their description, and possible values, run the following command:
 
 ```bash
 docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
@@ -2392,14 +1880,7 @@ docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.o
 
 The first time your node spins up, the syncing process displays lots of log information from the node configuration and the chain blocks being synced. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker run ....</span>
-  <span data-ty>
-    <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
-    <br> 2024-02-08 18:30:06.368  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #14139635 (0x8c41…8df6)    
-    <br> 2024-02-08 18:30:08.809  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #14139635 (0x8c41…8df6), finalized #14139632 (0xa9a8…cab9), ⬇ 32.7kiB/s ⬆
-  </span>
-</div>
+
 
 When the syncing process is finished, your node is ready for the next steps.
 --- END CONTENT ---
@@ -2417,11 +1898,7 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
-The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
-
-In every session, the Tanssi protocol determines the number of operators required to support the entire ecosystem. Knowing this number, the protocol picks those with the highest delegated stake from the allow-listed ones.
 
 In this guide, you'll learn how to spin up a Tanssi operator using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
@@ -2447,10 +1924,7 @@ sudo dmesg | grep landlock || journalctl -kg landlock
 
 The output should look like:
 
-<div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span>sudo dmesg | grep landlock || journalctl -kg landlock</span>
-    <span data-ty>[    0.240344] landlock: Up and running.</span>
-</div>
+
 
 If Landlock is disabled in your system, upgrade the kernel to version 5.13 or above.
 
@@ -2458,8 +1932,7 @@ If Landlock is disabled in your system, upgrade the kernel to version 5.13 or ab
 
 To get started, download the latest binary release and make it executable by running the following command:
 
-!!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
 
 === "Generic"
 
@@ -2526,8 +1999,7 @@ To generate and store on disk the session keys that will be referenced on the st
 /var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
 ```
 
-!!! note
-    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
+
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
@@ -2579,17 +2051,7 @@ WantedBy=multi-user.target
 
 The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
-- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
-- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
-- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
-- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
-- `--detailed-log-output` - enables detailed log output
 
-!!! warning
-    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
-
-For a complete list of available flags, their description, and possible values, run the following command:
 
 ```bash
 /var/lib/tanssi-data/tanssi-relay  --help
@@ -2610,19 +2072,7 @@ You can verify that the service is up and running correctly running:
 systemctl status tanssi.service
 ```
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
-  <span data-ty>
-    <br> ● network.service - "Network systemd service"
-    <br>&nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/network.service; enabled; vendor preset: enabled)
-    <br>&nbsp;&nbsp;&nbsp;Active: active (running) since Sun 2024-02-18 18:16:40 EST; 14min ago
-    <br>&nbsp;&nbsp;Main PID: 4045278 (container-chain)
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;Tasks: 44 (limit: 9462)
-    <br>&nbsp;&nbsp;&nbsp;Memory: 6.5G
-    <br>&nbsp;&nbsp;&nbsp;CGroup: /system.slice/network.service
-    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─4045278 4045278 /var/lib/network-data/container-chain- ...
-  </span>
-</div>
+
 
 Check the logs, if needed, with the following command:
 
@@ -2766,10 +2216,6 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 A pop-up will appear asking you to authorize and sign the transaction; click on **Sign and Submit**.
 
 That's it! You've successfully executed a transaction using a proxy account on behalf of your primary operator account.
-
-<div class="page-disclaimer">
-  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
-</div>
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/operators/operational-tasks/upgrade-your-node/upgrade-docker/
@@ -2789,10 +2235,7 @@ Keeping your node up-to-date is an important part of being a Tanssi operator. No
 
 This tutorial covers upgrading your Tanssi operator node that was configured using Docker. It assumes you have already set up your account and launched an [operator node using Systemd](/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
-!!! tip "Subscribe to Release Notifications" 
-    Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
-    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
 ## Upgrade Docker Nodes {: #upgrading-docker-nodes }
 
@@ -2812,17 +2255,7 @@ docker stop INSERT_YOUR_CONTAINER_ID
 
 Your terminal interaction will resemble the following:
 
-<div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker ps -a</span>
-  <span data-ty>
-    <br> 
-    <br> CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS  PORTS    NAMES
-    <br> aa751703d6aa moondancelabs/dancelight-chain:2 "/chain-network/tans…" 56 seconds ago  Up 56 seconds             determined_darwin
-    <br> 
-    <span data-ty="input"><span class="file-path"></span>docker stop aa751703d6aa</span>
-    <br> aa751703d6aa
-  </span>
-</div>
+
 
 To restart the node, you can use the same command you used when launching your node the first time. The command pulls the image and the node will resume syncing blocks from where it left off when the Docker process was stopped.
 
@@ -2832,20 +2265,7 @@ To restart the node, you can use the same command you used when launching your n
     docker run --network="host" -v "/var/lib/tanssi-data:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
---node-key-file /data/node-key \
---database=paritydb \
---rpc-port=9944 \
---prometheus-port=9615 \
---prometheus-external \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---listen-addr=/ip4/0.0.0.0/tcp/30333 \
---public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---validator
+    
     ```
 
 === "Intel Skylake"
@@ -2855,20 +2275,7 @@ To restart the node, you can use the same command you used when launching your n
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
     {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
---node-key-file /data/node-key \
---database=paritydb \
---rpc-port=9944 \
---prometheus-port=9615 \
---prometheus-external \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---listen-addr=/ip4/0.0.0.0/tcp/30333 \
---public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---validator
+    
     ```
 
 === "AMD Zen3"
@@ -2878,24 +2285,10 @@ To restart the node, you can use the same command you used when launching your n
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
     {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
---node-key-file /data/node-key \
---database=paritydb \
---rpc-port=9944 \
---prometheus-port=9615 \
---prometheus-external \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---listen-addr=/ip4/0.0.0.0/tcp/30333 \
---public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---validator
+    
     ```
 
-!!! note
-    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
 
 ### Specify a Version Tag {: #specifying-a-version-tag }
 
@@ -2921,10 +2314,7 @@ Keeping your node up-to-date is an important part of being a Tanssi operator. No
 
 This tutorial covers upgrading your Tanssi operator node that was configured using Systemd. It assumes you have already set up your account and launched a [operator node using Systemd](/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
-!!! tip "Subscribe to Release Notifications" 
-    Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
-    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
@@ -3464,13 +2854,7 @@ To improve developer experience when writing modules, Substrate relies heavily o
 
 All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
 
-- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
-- **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
-- **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
-- **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
-- **`#[pallet::error]`** - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
-- **`#[pallet::event]`** - events can be defined and used as a means to provide more information to the user
-- **`#[pallet::storage]`** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
+
 
 All these macros act as attributes that must be applied to the code just above Rust modules, functions, structures, enums, types, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world, as exposed in the following section.
 
@@ -3483,213 +2867,7 @@ As an example of a custom module, the following code (not intended for productio
 - **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
 
 ```rust
-#![cfg_attr(not(feature = "std"), no_std)]
 
-/// Learn more about FRAME and the core library of Substrate FRAME pallets:
-/// <https://docs.substrate.io/reference/frame-pallets/>
-pub use pallet::*;
-
-#[frame_support::pallet(dev_mode)]
-pub mod pallet {
-
-	use super::*;
-	use frame_support::pallet_prelude::{*, ValueQuery, OptionQuery};
-	use frame_system::pallet_prelude::*;
-	use scale_info::prelude::vec::Vec;
-
-	use frame_support::
-	{
-		sp_runtime::traits::AccountIdConversion,
-		traits:: {
-			Currency, ExistenceRequirement, Randomness
-		},
-		PalletId,
-	};
-
-	type BalanceOf<T> = 
-		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
-
-	#[pallet::pallet]
-	pub struct Pallet<T>(_);
-
-	/// Configure the module by specifying the parameters and types on which it depends.
-	#[pallet::config]
-	pub trait Config: frame_system::Config {
-
-		// Event definition
-		type RuntimeEvent: From<Event<Self>> 
-			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
-
-		// Currency 
-		type Currency: Currency<Self::AccountId>;
-
-		// Randomness
-		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
-
-		// Ticket cost
-		#[pallet::constant]
-		type TicketCost: Get<BalanceOf<Self>>;
-
-		// Maximum number of participants
-		#[pallet::constant]
-		type MaxParticipants: Get<u32>;
-
-		// Module Id
-		#[pallet::constant]
-		type PalletId: Get<PalletId>;
-	}
-
-	// The pallet's runtime storage items.
-	#[pallet::storage]
-	#[pallet::getter(fn get_participants)]
-	pub(super) type Participants<T: Config> = StorageValue<
-		_,
-		BoundedVec<T::AccountId, T::MaxParticipants>,
-		OptionQuery
-	>;
-
-	#[pallet::storage]
-	#[pallet::getter(fn get_nonce)]
-	pub(super) type Nonce<T: Config> = StorageValue<
-		_,
-		u64,
-		ValueQuery
-	>;
-
-	// Pallets use events to inform users when important changes are made.
-	// https://docs.substrate.io/main-docs/build/events-errors/
-	#[pallet::event]
-	#[pallet::generate_deposit(pub(super) fn deposit_event)]
-	pub enum Event<T: Config> {
-		/// Event emitted when a ticket is bought
-		TicketBought { who: T::AccountId },
-		/// Event emitted when the prize is awarded
-		PrizeAwarded { winner: T::AccountId },
-		/// Event emitted when the prize is to be awarded, but there are no participants
-		ThereAreNoParticipants,
-	}
-
-	// Errors inform users that something went wrong
-	#[pallet::error]
-	pub enum Error<T> {
-		NotEnoughCurrency,
-		AccountAlreadyParticipating,
-		CanNotAddParticipant,
-	}
-
-	#[pallet::call]
-	impl<T: Config> Pallet<T> {
-
-		#[pallet::call_index(0)]
-		#[pallet::weight(0)]
-		pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
-
-			// 1. Validates the origin signature
-			let buyer = ensure_signed(origin)?;
-
-			// 2. Checks that the user has enough balance to afford the ticket price
-			ensure!(
-				T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
-				Error::<T>::NotEnoughCurrency
-			);
-
-			// 3. Checks that the user is not already participating
-			if let Some(participants) = Self::get_participants() {
-				ensure!(
-					!participants.contains(&buyer),
-					Error::<T>::AccountAlreadyParticipating
-				);
-			}
-
-			// 4. Adds the user as a new participant for the prize
-			match Self::get_participants() {
-				Some(mut participants) => { 
-					ensure!(
-						participants.try_push(buyer.clone()).is_ok(), 
-						Error::<T>::CanNotAddParticipant
-					);
-					Participants::<T>::set(Some(participants));
-				}, 
-				None => {
-					let mut participants = BoundedVec::new();
-					ensure!(
-						participants.try_push(buyer.clone()).is_ok(), 
-						Error::<T>::CanNotAddParticipant
-					);
-					Participants::<T>::set(Some(participants));
-				}
-			};
-
-			// 5. Transfers the ticket cost to the module's account
-			// to be hold until transferred to the winner
-			T::Currency::transfer(
-				&buyer, 
-				&Self::get_pallet_account(), 
-				T::TicketCost::get(), 
-				ExistenceRequirement::KeepAlive)?;
-			
-			// 6. Notify the event
-			Self::deposit_event(Event::TicketBought { who: buyer });
-			Ok(())
-		}
-
-		#[pallet::call_index(1)]
-		#[pallet::weight(0)]
-		pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
-
-			// 1. Validates the origin signature
-			let _who = ensure_root(origin)?;
-
-			match Self::get_participants() {
-				Some(participants) => { 
-					
-					// 2. Gets a random number from the randomness module
-					let nonce = Self::get_and_increment_nonce();
-					let (random_seed, _) = T::MyRandomness::random(&nonce);
-					let random_number = <u32>::decode(&mut random_seed.as_ref())
-						.expect("secure hashes should always be bigger than u32; qed");
-					
-					// 3. Selects the winner from the participants lit
-					let winner_index = random_number as usize % participants.len();
-					let winner = participants.as_slice().get(winner_index).unwrap();
-
-					// 4. Transfers the total prize to the winner's account
-					let prize = T::Currency::free_balance(&Self::get_pallet_account());
-					T::Currency::transfer(
-						&Self::get_pallet_account(), 
-						&winner, 
-						prize, 
-						ExistenceRequirement::AllowDeath)?;
-
-					// 5. Resets the participants list, and gets ready for another lottery round
-					Participants::<T>::kill();
-
-					// 6. Notify the event
-					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
-				}, 
-				None => {
-					// Notify the event (No participants)
-					Self::deposit_event(Event::ThereAreNoParticipants);
-				}
-			};
-
-			Ok(())
-		}
-	}
-
-	impl<T: Config> Pallet<T> {
-
-		fn get_pallet_account() -> T::AccountId {
-			T::PalletId::get().into_account_truncating()
-		}
-
-		fn get_and_increment_nonce() -> Vec<u8> {
-			let nonce = Nonce::<T>::get();
-			Nonce::<T>::put(nonce.wrapping_add(1));
-			nonce.encode()
-		}
-	}
-}
 ```
 
 For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.
@@ -4877,10 +4055,6 @@ On the transaction confirmation screen, take the following steps:
 ![Remove a proxy account from the Accounts page of Polkadot.js Apps, confirmation](/images/builders/account-management/proxy/proxy-13.webp)
 
 Once the transaction has successfully been submitted, you can review your current proxies, or if you removed all proxies, you will notice the proxy icon is no longer being displayed next to the primary account. And that's it! You've successfully created a proxy, reviewed all proxy accounts associated with your primary account, executed a proxy transaction, and removed a proxy account!
-
-<div class="page-disclaimer">
-  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
-</div>
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
