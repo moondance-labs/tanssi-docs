@@ -13,18 +13,18 @@ You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your
 - If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
-Doc-Page: https://docs.tanssi.network/builders/deploy/dapp/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/dapp/manage-tokens/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/dapp/register-external-assets/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/dapp/services-payment/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/dapp/xcm-channels/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/impersonate/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/maintenance/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/minting/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/pause-transactions/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/smart-contracts-creation-filter/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/sudo/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/manage/developer-portal/upgrade/ [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/deploy/dapp.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/dapp/manage-tokens.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/dapp/register-external-assets.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/dapp/services-payment.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/dapp/xcm-channels.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/impersonate.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/maintenance.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/minting.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/pause-transactions.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/smart-contracts-creation-filter.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/sudo.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/upgrade.md [type: builders]
 
 ## Full content for each doc page
 

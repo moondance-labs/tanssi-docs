@@ -13,16 +13,16 @@ You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your
 - If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
-Doc-Page: https://docs.tanssi.network/builders/build/templates/substrate/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/subwallet/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/talisman/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/erc20-transfers/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/quick-start/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/chopsticks/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/polkadot-js-api/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/libraries/sidecar-api/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/subwallet/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/talisman/ [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/build/templates/substrate.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/wallets/subwallet.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/wallets/talisman.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/integrations/indexers/sqd/erc20-transfers.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/integrations/indexers/sqd/quick-start.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/dev-env/chopsticks.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/libraries/polkadot-js-api.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/libraries/sidecar-api.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/wallets/subwallet.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/wallets/talisman.md [type: builders]
 
 ## Full content for each doc page
 

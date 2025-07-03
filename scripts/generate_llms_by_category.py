@@ -2,6 +2,10 @@ import re
 import os
 import json
 
+# Project-specific input
+docs_repo = 'tanssi-docs'
+docs_url = 'https://docs.tanssi.network/'
+
 # Load configuration from llms_config.json
 config_path = os.path.join(os.path.dirname(__file__), 'llms_config.json')
 with open(config_path, 'r', encoding='utf-8') as f:
@@ -18,7 +22,8 @@ CORE_CONTEXT_DESCRIPTION = config["coreContextDescription"].format(PROJECT_NAME=
 REFERENCE_CONTEXT_DESCRIPTION = config["referenceContextDescription"].format(PROJECT_NAME=PROJECT_NAME)
 
 # Use raw GitHub links for source URLs
-RAW_BASE_URL = "https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main"
+RAW_BASE_URL = f"https://raw.githubusercontent.com/moondance-labs/{docs_repo}/refs/heads/main"
+
 
 docs_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..')) # path to docs directory 
 llms_input_path = os.path.join(docs_dir, 'llms-full.txt') # points to the full llms-full.txt
@@ -59,13 +64,9 @@ def extract_category(category, shared_data=None):
         tags = [tag.strip().lower() for tag in category_line.group(1).split(',')] # splits tags by comma 
         if category.lower() in tags:
             section_label = infer_section_label(url)
-            #raw_url = f"{RAW_BASE_URL}{url}"  # `url` already includes a leading slash
-            # Fix: Convert /docs/.../page -> relative GitHub path
-            if "/docs/" in url:
-                rel_path = url.split("/docs/")[1].rstrip("/") + ".md"
-                raw_url = f"{RAW_BASE_URL}/{rel_path}"
-            else:
-                raw_url = url  # fallback
+            parsed_path = url.replace(docs_url, "").lstrip("/").rstrip("/")
+            rel_path = parsed_path + ".md"
+            raw_url = f"{RAW_BASE_URL}/{rel_path}"
             index_lines.append(f"Doc-Page: {raw_url} [type: {section_label}]")
             content_blocks.append(f"Doc-Content: {url}\n--- BEGIN CONTENT ---\n{content.strip()}\n--- END CONTENT ---") # store full page
 

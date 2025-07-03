@@ -13,22 +13,22 @@ You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your
 - If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
-Doc-Page: https://docs.tanssi.network/node-operators/network-node/tanssi-powered-network/rpc-docker/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/network-node/tanssi-powered-network/rpc-systemd/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/network-node/tanssi/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/network-node/tanssi/tanssi-node-docker/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/network-node/tanssi/tanssi-node-systemd/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/offboarding/opt-out-from-tanssi/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/offboarding/prerequisites/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/offboarding/vault-opt-out/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/onboarding/account-setup/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/onboarding/opt-in-to-tanssi/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/onboarding/register-in-symbiotic/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/onboarding/run-an-operator/operators-docker/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/onboarding/run-an-operator/operators-systemd/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/operational-tasks/proxy-accounts/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/operational-tasks/upgrade-your-node/upgrade-docker/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/operators/operational-tasks/upgrade-your-node/upgrade-systemd/ [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi-powered-network/rpc-docker.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi-powered-network/rpc-systemd.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi/tanssi-node-docker.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi/tanssi-node-systemd.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/offboarding/opt-out-from-tanssi.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/offboarding/prerequisites.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/offboarding/vault-opt-out.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/onboarding/account-setup.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/onboarding/opt-in-to-tanssi.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/onboarding/register-in-symbiotic.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/onboarding/run-an-operator/operators-docker.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/onboarding/run-an-operator/operators-systemd.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/operational-tasks/proxy-accounts.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/operational-tasks/upgrade-your-node/upgrade-docker.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/operators/operational-tasks/upgrade-your-node/upgrade-systemd.md [type: node-operators]
 
 ## Full content for each doc page
 

@@ -13,13 +13,13 @@ You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your
 - If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/offboarding/account/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/account-setup/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/proxy-accounts/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/ [type: node-operators]
-Doc-Page: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd/ [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/sequencers/offboarding/account.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/sequencers/onboarding/account-setup.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/sequencers/operational-tasks/proxy-accounts.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-systemd.md [type: node-operators]
 
 ## Full content for each doc page
 

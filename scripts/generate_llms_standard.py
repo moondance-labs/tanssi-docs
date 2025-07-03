@@ -1,4 +1,4 @@
-# Wormhole-specific input
+# Project-specific input
 docs_repo = 'tanssi-docs'
 docs_url = 'https://docs.tanssi.network/'
 

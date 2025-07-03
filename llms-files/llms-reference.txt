@@ -6,8 +6,8 @@ It is intended for use with large language models (LLMs) to support developers w
 This file includes documentation related to the category: Reference
 
 ## List of doc pages:
-Doc-Page: https://docs.tanssi.network/builders/tanssi-network/endpoints/ [type: builders]
-Doc-Page: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc/ [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/tanssi-network/endpoints.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/rpc.md [type: builders]
 
 ## Full content for each doc page
 
