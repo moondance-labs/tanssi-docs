@@ -15,7 +15,7 @@ The Tanssi Network MainNet HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://{{ networks.mainnet.dns_name }}/
+    https://{{ networks.mainnet.dns_name }}
     ```
 
 === "WSS"
