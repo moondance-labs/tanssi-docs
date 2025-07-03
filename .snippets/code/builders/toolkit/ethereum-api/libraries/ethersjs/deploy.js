@@ -5,7 +5,7 @@ import contractFile from './compile.js';
 // Define network configurations
 const providerRPC = {
   evmNetwork: {
-    name: 'dancebox-evm-network',
+    name: 'dancelight-evm-network',
     rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },

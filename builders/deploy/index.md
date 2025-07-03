@@ -22,7 +22,7 @@ Deploying a Tanssi-powered appchain via the [Tanssi dApp](https://apps.tanssi.ne
 ![A diagram mapping out the steps for deploying a Tanssi appchain with the Tanssi dApp.](/images/builders/deploy/deploy-1.webp)
 
 !!! note
-    For _Quick Trial appchains_ and _Dedicated appchains_ on the [Tanssi TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your quick trial appchain to be ready and about two hours for a dedicated one. For Tanssi MainNet, the process will be fully decentralized and permissionless.
+    For _Quick Trial appchains_ and _Dedicated appchains_ on the [Tanssi TestNet](/builders/tanssi-network/testnet/dancelight/){target=\_blank}, the Tanssi team will manually complete verification. After verification, it typically takes about ten minutes for your quick trial appchain to be ready and about two hours for a dedicated one. For Tanssi MainNet, the process will be fully decentralized and permissionless.
 
 To get started, visit [Using the Tanssi DApp](/builders/deploy/dapp/).
 

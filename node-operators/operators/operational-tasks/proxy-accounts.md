@@ -18,9 +18,18 @@ This tutorial will walk you through configuring a `SessionKeyManagement` proxy a
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have:
+To follow along with this tutorial, you will need to:
 
-- The [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi TestNet
+- Open the developer portal
+
+    === "Tanssi MainNet"
+
+        [Mainnet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/){target=\_blank}
+
+    === "Dancelight TestNet"
+
+        [TestNet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/){target=\_blank}
+
 - Create or have two accounts accessible in the developer portal
 - Both accounts will need to be funded with tokens
 
@@ -28,13 +37,13 @@ If you need help importing your accounts into the developer portal, please check
 
 ## Create a Proxy Account {: #create-a-proxy-account }
 
-There are a couple of ways you can create proxy accounts in the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, you must use the **Extrinsics** page to create a time-delayed proxy. The delay provides an additional layer of security for proxies by specifying a delay period based on the number of blocks. This setting prevents the proxy account from executing a transaction until the delay period ends, allowing the primary account that controls the proxy to review or cancel pending transactions.
+There are a couple of ways you can create proxy accounts in the developer portal, either from the **Extrinsics** page or the **Accounts** page. However, you must use the **Extrinsics** page to create a time-delayed proxy. The delay provides an additional layer of security for proxies by specifying a delay period based on the number of blocks. This setting prevents the proxy account from executing a transaction until the delay period ends, allowing the primary account that controls the proxy to review or cancel pending transactions.
 
 You can also create a proxy of type `Any`, which grants the proxy account full and unrestricted control over the primary account. The proxy account can transfer funds and perform any arbitrary action. The following demo will showcase how to configure a `SessionKeyManagement` proxy, which is more restrictive than an `Any` proxy, as it limits functionality to activities that pertain to mapping session keys.
 
 ### Using the Extrinsics Section {: #creating-proxy-account-using-extrinsics }
 
-To start creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
+To start creating your proxy account, head to the **Developer** tab and select **Extrinsics** from the dropdown. Next, you will need to take the following steps:
 
 1. Select the primary account
 2. From the **submit the following extrinsic** dropdown, select **proxy**
@@ -81,7 +90,7 @@ You can verify that your proxy account has been successfully set up in two ways:
 
 ### Using the Chain State Section {: #verifying-your-proxy-account-chain-state }
 
-To check your proxy accounts from the [**Chain state** section](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank} of the developer portal, you can take the following steps:
+To check your proxy accounts from the **Chain state** section of the developer portal, you can take the following steps:
 
 1. From the **selected state query** dropdown, select **proxy**
 2. Choose the **proxies** entry from the list
@@ -112,7 +121,7 @@ A pop-up will appear where you can see an overview of your proxy accounts.
 
 Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the proxy on behalf of your primary account. The following example will set keys for a node. The proxy configuration shown is a realistic example of how you might have your own proxy configured for your developer portal primary account.
 
-To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} and take the following steps:
+To execute a transaction, you can navigate back to the **Extrinsics** page and take the following steps:
 
 1. Select the proxy account to submit the transaction from the **using the select account** dropdown
 2. From the **submit the following extrinsic** menu, select **proxy**

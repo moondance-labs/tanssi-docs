@@ -3,5 +3,6 @@ hide: false
 nav:
   - index.md
   - 'TANSSI Token': 'tanssi-token.md'
+  - 'Tanssi MainNet': 'mainnet.md'
   - testnet
   - 'Network Endpoints': 'endpoints.md'

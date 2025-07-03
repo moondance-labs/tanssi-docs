@@ -1,7 +1,7 @@
 <div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span> npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox</span>
+    <span data-ty="input"><span class="file-path"></span> npx hardhat ignition deploy ./ignition/modules/Box.js --network dancelight</span>
     <br>
-    <span data-ty>✅ Confirm deploy to network dancebox (5678)? … yes</span>
+    <span data-ty>✅ Confirm deploy to network dancelight (5678)? … yes</span>
     <span data-ty>Hardhat Ignition 🚀</span>
     <br>
     <span data-ty>Deploying [ BoxModule ]</span>

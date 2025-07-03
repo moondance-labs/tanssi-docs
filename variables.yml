@@ -1,7 +1,48 @@
 networks:
+  mainnet:
+    dns_name: tanssi.tanssi-mainnet.network
+    subscan_url: https://tanssi.subscan.io/
+    token_symbol: 'TANSSI'
+    session:
+      blocks: 3600
+      hours: 6
+      display: 'six'
+    sequencers:
+      configuration:
+        max_block_producers: 100
+        block_producer_per_container: 5
+      minimum_self_delegation: 10000
+    costs:
+      registration_deposit: 3.3333333
+      cost_per_block: 1
+      cost_per_assignment: 100
+    staking:
+      joining_delay_sessions_text: 'two'
+      joining_delay_blocks: 7200
+      joining_delay_hours: 12
+      joining_delay_hours_text: 'twelve'
+      leaving_delay_sessions_text: 'two'
+      leaving_delay_blocks: 7200
+      leaving_delay_hours: 12
+      leaving_delay_hours_text: 'twelve'
+    proxy:
+      deposit_base: 0.1008
+      deposit_factor: 0.0033
+      max_proxies: 32
+    identity:
+      basic_deposit: 0.33333333
+      max_fields: 100
+      per_byte_deposit: 0.0001
+      max_subaccounts: 100
+    substrate_api_sidecar:
+      stable_version: 20.2.2
   dancelight:
     operator_docker_image: moondancelabs/starlight
     dns_name: dancelight.tanssi-api.network
+    token_symbol: 'STAR'
+    session:
+      blocks: 3600
+      hours: 6
     demo_evm_rpc_url: https://dancelight-2001.tanssi-api.network/
     demo_evm_rpc_wss_url: wss://dancelight-2001.tanssi-api.network/
     demo_evm_blockscout_url: https://dancelight-2001-blockscout.tanssi-chains.network/
@@ -9,12 +50,30 @@ networks:
     demo_evm_chain_hex_id: "0x162E"
     demo_evm_token_symbol: 'TANGO'
     subscan_url: https://dancelight.subscan.io/
-  dancebox:
-    docker_sequencer_image_name: moondancelabs/tanssi
-    client_version: v0.12.0
-    para_client_version: v0.12.0-para
-    substrate_api_sidecar:
-      stable_version: 17.1.2
+    sequencers:
+      configuration:
+        max_block_producers: 100
+        block_producer_per_container: 2
+      minimum_self_delegation: 10000
+    costs:
+      registration_deposit: 3.3333333
+      cost_per_block: 1
+      cost_per_assignment: 100
+    staking:
+      joining_delay_blocks: 7200
+      joining_delay_hours: 12
+      leaving_delay_blocks: 7200
+      leaving_delay_hours: 12
+    proxy:
+      deposit_base: 0.1008
+      deposit_factor: 0.0033
+      max_proxies: 32
+    identity:
+      basic_deposit: 0.33333333
+      max_fields: 100
+      per_byte_deposit: 0.0001
+      max_subaccounts: 100
+  demo_evm:
     precompiles:
       erc20: '0x0000000000000000000000000000000000000800'
       batch: '0x0000000000000000000000000000000000000801'
@@ -23,46 +82,6 @@ networks:
       external_assets_erc20: '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF____'
       external_assets_erc20_example: '0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF0001'
       proxy: '0x0000000000000000000000000000000000000805'
-    gas_to_weight: 25000
-    session:
-      blocks: 600
-      hours: 1
-      display: 'one'
-    costs:
-      registration_deposit: 100
-      cost_per_block: 1
-      cost_per_assignment: 100
-    block_producers:
-      configuration:
-        max_block_producers: 200
-        min_orchestrator_block_producers: 3
-        max_orchestrator_block_producers: 5
-        block_producer_per_container: 3
-        full_rotation_period: 12
-      appchain:
-        num: 2
-        display: 'two'
-      tanssi:
-        min:
-          num: 3
-          display: 'three'
-        max:
-          num: 5
-          display: 'five'
-      min_self_del:
-        dance: '100'
-        planck: 100000000000000
-    staking:
-      joining_delay_sessions: 2
-      joining_delay_sessions_text: 'two'
-      joining_delay_blocks: 1200
-      joining_delay_hours: 2
-      joining_delay_hours_text: 'two'
-      leaving_delay_sessions: 2
-      leaving_delay_sessions_text: 'two'
-      leaving_delay_blocks: 1200
-      leaving_delay_hours: 2
-      leaving_delay_hours_text: 'two'
     oracles:
       phala:
         aave_usd: '0x2E1640853bB2dD9f47831582665477865F9240DB'
@@ -82,32 +101,26 @@ networks:
         usdt_usd: '0xf9c885E3A5846CEA887a0D69655BC08e52afe569'
       band:
         smart_contract: '0x8c064bCf7C0DA3B3b090BAbFE8f3323534D84d68'
-    proxy:
-      deposit_base: 10.08
-      deposit_factor: 0.33
-      max_proxies: 32
-    identity:
-      basic_deposit: 12.58
-      max_fields: 100
-      per_byte_deposit: 0.1
-      max_subaccounts: 100
   symbiotic:
     contracts:
       mainnet:
         operators_registry: '0xAd817a6Bc954F678451A71363f04150FDD81Af9F'
         network_registry: '0x7133415b33B438843D581013f98A08704316633c'
         vault_registry: '0xb361894bC06cbBA7Ea8098BF0e32EB1906A5F891'
-        tanssi_network: 'INSERT_TANSSI_NETWORK_ADDRESS'
-      holesky:
-        operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
-        network_registry: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
-        vault_registry: '0x95CC0a052ae33941877c9619835A233D21D57351'
+        tanssi_network: '0x8c1a46D032B7b30D9AB4F30e51D8139CC3E85Ce3'
       sepolia:
         operators_registry: '0x6F75a4ffF97326A00e52662d82EA4FdE86a2C548'
         network_registry: '0x58973d16FFA900D11fC22e5e2B6840d9f7e13401'
         vault_registry: '0x95CC0a052ae33941877c9619835A233D21D57351'
         vault: '0xB94f8852443FB4faB18363D22a45cA64a8CF4482'
         tanssi_network: '0xdaD051447C4452e15B35B7F831ceE8DEb890f1a4'
+templates:
+  evm:
+    gas_to_weight: 25000
 repository:
   tanssi:
-    release_branch: tanssi-polkadot-v1.11.0
+    release_branch: tanssi-polkadot-stable2412
+node_versions:
+  docker_sequencer_image_name: moondancelabs/tanssi
+  client_version: v0.13.0
+  para_client_version: v0.13.0-para

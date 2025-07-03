@@ -37,7 +37,7 @@ As seen above in the interface, there are five functions for fetching data: `dec
 This tutorial will showcase interacting with a sample BTC/USDT price feed contract on the demo EVM network, but you can interact any of the price feeds listed in [Supported Assets](#supported-assets). The BTC/USDT price feed is [deployed on the demo EVM network]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}, so you can interact with it by accessing the aggregator contract at the below contract address:
 
 ```text
-{{ networks.dancebox.oracles.acurast.btc_usd }}
+{{ networks.demo_evm.oracles.acurast.btc_usd }}
 ```
 
 For a refresher on setting up Remix to interface with the demo EVM network, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM network.
@@ -51,7 +51,7 @@ Then, take the following steps:
 1. Head to the **Deploy and Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
 3. Select the **AggregatorV3Interface** contract from the **CONTRACT** dropdown
-4. Enter the sample price feed contract address for `BTC to USD`, which is `{{ networks.dancebox.oracles.acurast.btc_usd }}` on the demo EVM network in the **At Address** field and click the **At Address** button
+4. Enter the sample price feed contract address for `BTC to USD`, which is `{{ networks.demo_evm.oracles.acurast.btc_usd }}` on the demo EVM network in the **At Address** field and click the **At Address** button
 
 ![Access aggregator contract](/images/builders/toolkit/integrations/oracles/acurast/acurast-2.webp)
 
@@ -83,15 +83,15 @@ Upon running the above command in your terminal, you'll see a result that resemb
 
 The Acurast team has deployed the below price feeds on the Tanssi demo EVM network:
 
-| Asset & Base Pair |                                                                                                   Aggregator Contract                                                                                                   |
-|:-----------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|   AAVE to USDT    | [{{ networks.dancebox.oracles.acurast.aave_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42){target=\_blank} |
-|    BTC to USDT    | [{{ networks.dancebox.oracles.acurast.btc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}  |
-|    CRV to USDT    | [{{ networks.dancebox.oracles.acurast.crv_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x01F143dfd745861902dA396ad7dfca962e5C83cA){target=\_blank}  |
-|    DAI to USDT    | [{{ networks.dancebox.oracles.acurast.dai_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92){target=\_blank}  |
-|    ETH to USDT    | [{{ networks.dancebox.oracles.acurast.eth_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x007c3F3cc99302c19792F73b7434E3eCbbC3db25){target=\_blank}  |
-|   USDC to USDT    | [{{ networks.dancebox.oracles.acurast.usdc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xe4a46ef4cFbf87D026C3eB293b7672998d932F62){target=\_blank} |
-|    USDT to USD    | [{{ networks.dancebox.oracles.acurast.usdt_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xf9c885E3A5846CEA887a0D69655BC08e52afe569){target=\_blank} |
+| Asset & Base Pair |                                                                           Aggregator Contract                                                                           |
+|:-----------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|   AAVE to USDT    | [{{ networks.demo_evm.oracles.acurast.aave_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42){target=\_blank} |
+|    BTC to USDT    | [{{ networks.demo_evm.oracles.acurast.btc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}  |
+|    CRV to USDT    | [{{ networks.demo_evm.oracles.acurast.crv_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x01F143dfd745861902dA396ad7dfca962e5C83cA){target=\_blank}  |
+|    DAI to USDT    | [{{ networks.demo_evm.oracles.acurast.dai_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92){target=\_blank}  |
+|    ETH to USDT    | [{{ networks.demo_evm.oracles.acurast.eth_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x007c3F3cc99302c19792F73b7434E3eCbbC3db25){target=\_blank}  |
+|   USDC to USDT    | [{{ networks.demo_evm.oracles.acurast.usdc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xe4a46ef4cFbf87D026C3eB293b7672998d932F62){target=\_blank} |
+|    USDT to USD    | [{{ networks.demo_evm.oracles.acurast.usdt_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xf9c885E3A5846CEA887a0D69655BC08e52afe569){target=\_blank} |
 
 ## Designing and Launching Your Own Price Feed {: #designing-and-launching-your-own-price-feed }
 

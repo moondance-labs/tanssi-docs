@@ -13,7 +13,7 @@ icon: octicons-code-square-24
 
 Developers building dApps on top of Tanssi-powered EVM networks can use [Remix](https://remix.ethereum.org){target=\_blank}, one of the most popular Ethereum development environments, to build, compile, and deploy their smart contracts. Remix can be used with any EVM network, thanks to the seamless compatibility of Tanssi-powered EVM networks.
 
-This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi Dancebox TestNet using the Remix IDE. This guide can be adapted for your own Tanssi EVM network by simply adding the RPC URL of your network to your EVM Wallet and switching networks to it.
+This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi demo EVM network using the Remix IDE. This guide can be adapted for your own Tanssi EVM network by simply adding the RPC URL of your network to your EVM Wallet and switching networks to it.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 

@@ -6,7 +6,7 @@ icon: material-ethereum
 
 ## Introduction
 
-Explore the functionalities of a fully Ethereum-compatible network deployed through Tanssi by interacting with the demo EVM network on Dancebox.
+Explore the functionalities of a fully Ethereum-compatible network deployed through Tanssi by interacting with the demo EVM network on Dancelight.
 
 This quick reference page offers all the essentials you need to interact with this demo network.
 
@@ -70,7 +70,7 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
 
     const providerRPC = {
       evmNetwork: {
-        name: 'dancebox-evm-network',
+        name: 'dancelight-evm-network',
         // Insert your RPC URL here
         rpc: '{{ networks.dancelight.demo_evm_rpc_url }}', 
         chainId: {{ networks.dancelight.demo_evm_chain_id }}, // {{ networks.dancelight.demo_evm_chain_hex_id }} in hex,

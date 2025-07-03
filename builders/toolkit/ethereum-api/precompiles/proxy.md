@@ -21,7 +21,7 @@ To learn more about proxy accounts and how to set them up for your own purposes 
 The Proxy Precompile is located at the following address:
 
 ```text
-{{networks.dancebox.precompiles.proxy}}
+{{networks.demo_evm.precompiles.proxy}}
 ```
 
 --8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
@@ -151,7 +151,7 @@ Instead of deploying the smart contract, you will access the interface through i
 2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** dropdown. You may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the priimary account is displayed under **ACCOUNT**
 4. Ensure **Proxy - Proxy.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the Proxy precompile (which is `{{networks.dancebox.precompiles.proxy}}` in this example) and click **At Address**
+5. Provide the address of the Proxy precompile (which is `{{networks.demo_evm.precompiles.proxy}}` in this example) and click **At Address**
 6. The **Proxy** precompile will appear in the list of **Deployed Contracts**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/proxy/proxy-2.webp)
