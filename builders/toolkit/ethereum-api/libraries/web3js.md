@@ -43,7 +43,7 @@ Throughout this guide, you'll be creating a bunch of scripts that provide differ
 To set up a Web3 provider, you can take the following steps:
 
 1. Import the `Web3` library.
-2. Create the Web3 provider and specify the RPC url. You can configure Web3.js to work with a Tanssi demo EVM network running in Tanssi's Dancelight TestNet, or your own Tanssi EVM network by simply changing the endpoint.
+2. Create the Web3 provider and specify the RPC url. You can configure Web3.js to work with the Tanssi demo EVM network running in Tanssi's Dancelight, or your own Tanssi EVM network by simply changing the endpoint.
 
 ```js
 // 1. Import Web3
