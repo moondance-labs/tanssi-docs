@@ -10,7 +10,7 @@ icon: octicons-arrow-switch-24
 
 The Tanssi protocol orchestrates infrastructure components, allowing developers to launch their customized appchains in minutes and providing them with out-of-the-box Ethereum-grade economic security. To make the whole process easy for developers, a [top-of-class architecture](/learn/tanssi/overview/#tanssi-architecture){target=\_blank} was designed and implemented.
 
-The [TANSSI token](/builders/tanssi-network/tanssi-token/){target=\_blank} is the engine that enables the integration of different infrastructural components with [external security providers](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}, such as Symbiotic on Ethereum, and aligns incentives across various actors, including token holders, node operators, and appchain builders. To serve different use cases, the token has two versions: the Tanssi network's native currency, TANSSI (Substrate), and its ERC-20 version, on Ethereum.
+The [TANSSI token](/builders/tanssi-network/tanssi-token/){target=\_blank} is the engine that enables the integration of different infrastructural components with [external security providers](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} and aligns incentives across various actors, including token holders, node operators, and appchain builders. To serve different use cases, the token has two versions: the Tanssi network's native currency, TANSSI (Substrate), and its ERC-20 version, on Ethereum.
 
 Users can convert from one version to the other of the token using a [Tanssi built-in trustless bridge](/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
 
@@ -41,7 +41,7 @@ If you want to convert your TANSSI (Substrate) tokens to TANSSI (ERC-20) on Ethe
 2. Click on **Connect Wallet**, select your preferred Substrate wallet, and choose the account.
 3. Select the destination account from the **Select recipient address** dropdown, or choose the **Enter a custom address** item and enter the account where you want to receive the ERC-20 tokens manually.
 4. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
-5. Click on **Send** and sign the transaction
+5. Click on **Send** and sign the transaction.
 
 And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
 
@@ -53,9 +53,9 @@ If you want to convert your TANSSI (ERC-20) tokens to TANSSI (Substrate) native 
 2. Click on **Connect Wallet**, select your preferred Ethereum wallet, and choose the account.
 3. Enter the Substrate destination account in the **Recipient** field.
 4. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
-5. Click on **Send** and sign the transaction
+5. Click on **Send** and sign the transaction.
 
-And that's it! Your tokens will be bridged when next the session starts. You can see how much time remains in the current session in the progress bar.
+And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
 
 !!! note
     Fees might fluctuate over time and must be paid using ETH.
