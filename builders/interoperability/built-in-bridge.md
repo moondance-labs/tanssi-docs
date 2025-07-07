@@ -38,10 +38,17 @@ For bridging from Ethereum to Tanssi:
 If you want to convert your TANSSI (Substrate) tokens to TANSSI (ERC-20) on Ethereum, head to the Tanssi dApp, open the [bridge section](https://apps.tanssi.network/bridge){target=\_blank}, and then follow these steps:
 
 1. Select **Tanssi Network** from the **From** dropdown.
-2. Click on **Connect Wallet**, select your preferred Substrate wallet, and choose the account.
-3. Select the destination account from the **Select recipient address** dropdown, or choose the **Enter a custom address** item and enter the account where you want to receive the ERC-20 tokens manually.
-4. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
-5. Click on **Send** and sign the transaction.
+2. Click on **Connect Wallet**. A pop-up will appear, allowing you to select your preferred Substrate wallet and choose the corresponding account.
+
+![Select Tanssi Network and Connect the Wallet](/images/builders/interoperability/built-in-bridge/built-in-bridge-1.webp)
+
+Now with your wallet connected:
+
+1. Select the destination account from the **Select recipient address** dropdown, or choose the **Enter a custom address** item and enter the account where you want to receive the ERC-20 tokens manually.
+2. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
+3. Click on **Send** and sign the transaction.
+
+![Execute the Transaction](/images/builders/interoperability/built-in-bridge/built-in-bridge-2.webp)
 
 And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
 
@@ -51,9 +58,16 @@ If you want to convert your TANSSI (ERC-20) tokens to TANSSI (Substrate) native 
 
 1. Select **Ethereum** from the **From** dropdown.
 2. Click on **Connect Wallet**, select your preferred Ethereum wallet, and choose the account.
-3. Enter the Substrate destination account in the **Recipient** field.
-4. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
-5. Click on **Send** and sign the transaction.
+
+![Select Ethereum and Connect the Wallet](/images/builders/interoperability/built-in-bridge/built-in-bridge-3.webp)
+
+Now with your wallet connected:
+
+1. Enter the Substrate destination account in the **Recipient** field.
+2. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
+3. Click on **Send** and sign the transaction.
+
+![Execute the Transaction](/images/builders/interoperability/built-in-bridge/built-in-bridge-4.webp)
 
 And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
 
