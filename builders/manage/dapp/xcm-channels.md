@@ -32,9 +32,6 @@ The panel will show your network's communication channels status along with seve
 
     In this section, you can see your network's sovereign account balance, copy its address, and deposit tokens
 
-    !!! note
-        Your network's sovereign account in the relay chain must be funded with relay chain tokens. On Dancebox, the relay chain uses UNIT tokens, and the required amount is currently configured to zero.
-
 2. **Incoming/Outgoing channel requests** - every channel request needs to be accepted by the counterpart before any message can be sent. 
 
     In this section, you can see the list of pending outgoing requests and cancel them. You can also see any incoming channel requests your network might have received and accept the channel

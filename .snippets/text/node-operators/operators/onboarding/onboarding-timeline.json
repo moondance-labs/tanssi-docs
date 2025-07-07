@@ -1,6 +1,6 @@
 [
     {
-      "title": "[Run an operator node](/node-operators/validators/onboarding/run-an-operator/){target=_blank}",
+      "title": "[Run an operator node](/node-operators/operators/onboarding/run-an-operator/){target=_blank}",
       "content": "Set up the actual node using Systemd or Docker.",
       "icon": ":fontawesome-solid-1:"
     },

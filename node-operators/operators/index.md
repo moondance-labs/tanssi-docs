@@ -7,7 +7,7 @@ template: index-page.html
 
 # Tanssi Operators
 
-Operators (also known as validators) are responsible for maintaining security within all the Tanssi-powered networks, verifying the integrity and validity of their transactions. They participate in a NPoS (Nominated Proof-of-Stake) consensus mechanism, which improves decentralization and fosters good behavior via economic incentives.
+Operators (also known as validators) are responsible for maintaining security within all the Tanssi-powered networks, verifying the integrity and validity of their transactions. They participate in a DPoS (Delegated Proof-of-Stake) consensus mechanism, which improves decentralization and fosters good behavior via economic incentives.
 
 This section provides everything you need to get started, from initial setup to operational best practices and account management.
 

@@ -36,34 +36,73 @@ Your terminal interaction will resemble the following:
 
 To restart the node, you can use the same command you used when launching your node the first time. The command pulls the image and the node will resume syncing blocks from where it left off when the Docker process was stopped.
 
-=== "Generic"
+=== "Tanssi MainNet"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.operator_docker_image }} \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-    ```
+    === "Generic"
 
-=== "Intel Skylake"
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-    ```
+    === "Intel Skylake"
 
-=== "AMD Zen3"
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-    ```
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
+
+=== "Dancelight TestNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
