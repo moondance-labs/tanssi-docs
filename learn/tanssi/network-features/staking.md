@@ -42,11 +42,17 @@ The following diagram summarizes the high-level flow of a delegator delegating a
 
 ## Staking Parameters {: #staking-parameters }
 
-=== "Dancebox"
-    |   Variable    |                                                          Value                                                          |
-    |:-------------:|:-----------------------------------------------------------------------------------------------------------------------:|
-    | Joining Delay | {{ networks.dancebox.staking.joining_delay_blocks }} blocks ({{ networks.dancebox.staking.joining_delay_hours }} hours) |
-    | Leaving Delay | {{ networks.dancebox.staking.leaving_delay_blocks }} blocks ({{ networks.dancebox.staking.leaving_delay_hours }} hours) |
+=== "Tanssi MainNet"
+    |   Variable    |                                                         Value                                                         |
+    |:-------------:|:---------------------------------------------------------------------------------------------------------------------:|
+    | Joining Delay | {{ networks.mainnet.staking.joining_delay_blocks }} blocks ({{ networks.mainnet.staking.joining_delay_hours }} hours) |
+    | Leaving Delay | {{ networks.mainnet.staking.leaving_delay_blocks }} blocks ({{ networks.mainnet.staking.leaving_delay_hours }} hours) |
+  
+=== "Dancelight"
+    |   Variable    |                                                            Value                                                            |
+    |:-------------:|:---------------------------------------------------------------------------------------------------------------------------:|
+    | Joining Delay | {{ networks.dancelight.staking.joining_delay_blocks }} blocks ({{ networks.dancelight.staking.joining_delay_hours }} hours) |
+    | Leaving Delay | {{ networks.dancelight.staking.leaving_delay_blocks }} blocks ({{ networks.dancelight.staking.leaving_delay_hours }} hours) |
 
 ## Staking Pools {: #staking-pools}
 

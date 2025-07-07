@@ -17,7 +17,7 @@ The [ERC-20 assets precompile](https://github.com/moondance-labs/tanssi/blob/mas
 The address representing the ERC-20 contract is formed with the first thirty-six positions (eighteen bytes) set to the maximum value and the last four positions (two bytes) replaced with the hexadecimal representation of the registered asset identifier:
 
 ```text
-{{networks.dancebox.precompiles.external_assets_erc20}}
+{{networks.demo_evm.precompiles.external_assets_erc20}}
 ```
 
 For example, for the asset whose ID is `1`, the last four positions must be replaced with `0001`, and for an asset with an ID of `10`, those four positions must be replaced with `000A`.
@@ -67,7 +67,7 @@ To get started, open up MetaMask and make sure you are connected to your network
 Before continuing, you'll need the token's address, which, considering that in this example the external asset has an ID of `1`, will be:
 
 ```text
-{{networks.dancebox.precompiles.external_assets_erc20_example}}
+{{networks.demo_evm.precompiles.external_assets_erc20_example}}
 ```
 
 1. Enter the precompile address for the token contract address. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `12` for the decimal places
@@ -109,7 +109,7 @@ Instead of deploying the smart contract, you will access the interface through t
 2. Make sure **Injected Web3** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Web3**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the ERC-20 precompile (which is `{{networks.dancebox.precompiles.external_assets_erc20_example}}` in this example) and click **At Address**
+5. Provide the address of the ERC-20 precompile (which is `{{networks.demo_evm.precompiles.external_assets_erc20_example}}` in this example) and click **At Address**
 6. The **IERC20** precompile will appear in the list of **Deployed Contracts**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-6.webp)

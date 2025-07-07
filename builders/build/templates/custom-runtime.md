@@ -36,7 +36,7 @@ If your existing runtime is set up as a stand-alone chain, you'll need to add a 
 
 ## Adding Tanssi Protocol Support {: #adding-tanssi-support }
 
-To support the Tanssi protocol, it will be necessary to add [the modules](#base-setup-supporting-tanssi) through the following steps:
+To support the Tanssi protocol, it will be necessary to add two modules through the following steps:
 
 1. Include the dependencies in the `Cargo.toml` manifesto (usually located in the root folder). Open the `Cargo.toml` file and add the modules in the `dependencies` section
 
