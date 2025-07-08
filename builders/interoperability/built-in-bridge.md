@@ -2,6 +2,7 @@
 title: Using the Built-In Tanssi Bridge
 description: Learn how to use the built-in Tanssi bridge that connects Tanssi and Ethereum to convert TANSSI tokens between their native form and ERC-20 and vice versa.
 icon: octicons-arrow-switch-24
+categories: Basics
 ---
 
 # Using the Built-In Tanssi Bridge
