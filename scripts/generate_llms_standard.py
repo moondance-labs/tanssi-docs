@@ -99,6 +99,8 @@ def replace_snippet_placeholders(markdown, snippet_directory, yaml_file):
         else:
             snippet_content = fetch_local_snippet(snippet_ref, snippet_directory)
 
+        return snippet_content
+    
     return re.sub(SNIPPET_REGEX, replacement, markdown)
 
 def fetch_local_snippet(snippet_ref, snippet_directory):

@@ -216,7 +216,20 @@ curl http://127.0.0.1:9944 -H \
 
 Your hex-encoded session keys will be printed to the terminal in the `"result"` field.
 
-
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>curl http://127.0.0.1:9944 -H \
+    <br>  "Content-Type:application/json;charset=utf-8" -d \
+    <br>    '{
+    <br>        "jsonrpc":"2.0",
+    <br>        "id":1,
+    <br>        "method":"author_rotateKeys",
+    <br>        "params": []
+    <br>    }'
+  </span>
+  <span data-ty>{"jsonrpc":"2.0","result":</span>
+  <span data-ty>
+  "0x76afaf334bd33b82d0b8fbd6a2845cb3b9b785edf1dce4ccefd4973fa79fed2b","id":1}</span>
+</div>
 
 Make sure you write down your session keys; you'll need to map your session keys to your account in the next section.
 
@@ -327,13 +340,60 @@ categories: Sequencers
 
 ## Introduction {: #introduction }
 
+One of Tanssi's core propositions is that it provides decentralized and trustless block production for its networks. Tanssi's runtime handles sequencer assignments to all the active networks in the Tanssi ecosystem.
 
+Each time, the assignment algorithm distributes the available set of sequencers per session, assigning them to a random chain. Consequently, they would be producing blocks for the same network only for a relatively short period, increasing the overall security of the ecosystem.
+
+To this end, Tanssi's binary file (the software used to run nodes) already has an embedded mechanism to switch block production automatically to the assigned chain without requiring the node operator to make any changes. The binary includes the logic to sync the new chain and produce blocks when the session changes. Consequently, sequencers need to run the Tanssi binary file, and not that of the networks (like full nodes do).
 
 In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the shared pool of sequencers using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
+### Installing Docker {: #installing-docker}
 
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
+
+Run the following command to install Docker on a Linux Ubuntu platform:
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+And the following command to check the installation:
+
+```bash
+sudo docker run hello-world
+```
+
+This is what a successful execution in the terminal looks like:
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>sudo docker run hello-world</span>
+  <span data-ty>
+    <br> 
+    <br> Hello from Docker!
+    <br> This message shows that your installation appears to be working correctly.
+    <br> 
+    <br> To generate this message, Docker took the following steps:
+    <br> 1. The Docker client contacted the Docker daemon.
+    <br> 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    <br>     (amd64)
+    <br> 3. The Docker daemon created a new container from that image which runs the
+    <br>     executable that produces the output you are currently reading.
+    <br> 4. The Docker daemon streamed that output to the Docker client, which sent it
+    <br>     to your terminal.
+    <br>
+    <br> To try something more ambitious, you can run an Ubuntu container with:
+    <br> $ docker run -it ubuntu bash
+    <br>
+    <br> Share images, automate workflows, and more with a free Docker ID:
+    <br> https://hub.docker.com/
+    <br>
+    <br> For more examples and ideas, visit:
+    <br>  https://docs.docker.com/get-started/
+  </span>
+</div>
 
 ### Pulling the Docker Image {: #pulling-docker-image }
 
@@ -349,7 +409,22 @@ docker pull {{ networks.dancebox.docker_sequencer_image_name }}
 
 The command will download and extract the image and show the status upon execution:
 
-
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/dancelight-collators:2</span>
+  <span data-ty>
+    <br> 
+    <br> Using default tag: latest
+    <br> latest: Pulling from moondancelabs/dancelight-collators:2
+    <br> e1caac4eb9d2: Pull complete 
+    <br> 1d4409959e6d: Pull complete 
+    <br> b8beed19c122: Pull complete 
+    <br> c0fab1f18601: Pull complete 
+    <br> d9dcf3cddfc5: Pull complete 
+    <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
+    <br> Status: Downloaded newer image for moondancelabs/dancelight-collators:2
+    <br> docker.io/moondancelabs/dancelight-collators:2
+  </span>
+</div>
 
 ### Setup the Data Directory {: #setup-data-directory }
 
@@ -378,7 +453,7 @@ sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
 
 ### Generate the Node Key {: #generate-node-key }
 
-
+Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
 ```bash
 docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
@@ -386,7 +461,8 @@ docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
 {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node key generate-node-key --file /data/node-key"
 ```
 
-
+!!! note
+    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
 
 ## Start-Up Command {: #start-up-command }
 
@@ -399,7 +475,8 @@ Note that the command contains two sections, divided by `-- \`:
 
 Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
-
+!!! note
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -407,7 +484,51 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
-    
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 
 === "Intel Skylake"
@@ -416,20 +537,118 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-skylake solo-chain \
-    
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 === "AMD Zen3"
 
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-znver3 solo-chain \
-    
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
 
 ### Run Flags {: #run-flags }
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
+- `--name INSERT_NAME` - a human-readable name for this node
+- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
+- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
+- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
+- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
+- `--detailed-log-output` - enables detailed log output
 
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
+
+For a complete list of available flags, their description, and possible values, run the following command:
 
 ```bash
 docker run --entrypoint bash {{ networks.dancebox.docker_sequencer_image_name }} -c "/chain-network/tanssi-node --help"
@@ -439,7 +658,14 @@ docker run --entrypoint bash {{ networks.dancebox.docker_sequencer_image_name }}
 
 The first time your node spins up, the syncing process displays lots of log information from the node configuration and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
-
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker run ....</span>
+  <span data-ty>
+    <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
+    <br> 2024-02-08 18:30:06.368  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #14139635 (0x8c41…8df6)    
+    <br> 2024-02-08 18:30:08.809  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #14139635 (0x8c41…8df6), finalized #14139632 (0xa9a8…cab9), ⬇ 32.7kiB/s ⬆
+  </span>
+</div>
 
 When the syncing with the Tanssi orchestrator is finished, the node will still need to sync with the network it has been assigned to. The syncing with the chain served by the sequencer node will happen every time the sequencer is rotated.
 --- END CONTENT ---
@@ -457,7 +683,11 @@ categories: Sequencers
 
 ## Introduction {: #introduction }
 
+One of Tanssi's core propositions is that it provides decentralized and trustless block production for its networks. Tanssi's runtime handles sequencer assignments to all the active networks in the Tanssi ecosystem.
 
+Each time, the assignment algorithm distributes the available set of sequencers per session, assigning them to a random chain. Consequently, they would be producing blocks for the same network only for a relatively short period, increasing the overall security of the ecosystem.
+
+To this end, Tanssi's binary file (the software used to run nodes) already has an embedded mechanism to switch block production automatically to the assigned chain without requiring the node operator to make any changes. The binary includes the logic to sync the new chain and produce blocks when the session changes. Consequently, sequencers need to run the Tanssi binary file, and not that of the networks (like full nodes do).
 
 In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the shared pool of sequencers using the latest stable binary file release and managing the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
@@ -474,7 +704,8 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 To get started, download and make executable the latest binary release by running the following command:
 
-
+!!! note
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 === "Generic"
 
@@ -545,13 +776,14 @@ mv ./tanssi-node /var/lib/tanssi-data
 
 ### Generate the Node Key {: #generate-node-key }
 
-
+Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
 ```bash
 /var/lib/tanssi-data/tanssi-node key generate-node-key --file /var/lib/tanssi-data/node-key
 ```
 
-
+!!! note
+    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
@@ -634,7 +866,17 @@ WantedBy=multi-user.target
 
 The flags used in the ExecStart command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
+- `--name INSERT_NAME` - a human-readable name for this node
+- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
+- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
+- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
+- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
+- `--detailed-log-output` - enables detailed log output
 
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
+
+For a complete list of available flags, their description, and possible values, run the following command:
 
 ```bash
 /var/lib/tanssi-data/tanssi-node  --help
@@ -655,7 +897,19 @@ You can verify that the service is up and running correctly running:
 systemctl status tanssi.service
 ```
 
-
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
+  <span data-ty>
+    <br> ● network.service - "Network systemd service"
+    <br>&nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/network.service; enabled; vendor preset: enabled)
+    <br>&nbsp;&nbsp;&nbsp;Active: active (running) since Sun 2024-02-18 18:16:40 EST; 14min ago
+    <br>&nbsp;&nbsp;Main PID: 4045278 (container-chain)
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;Tasks: 44 (limit: 9462)
+    <br>&nbsp;&nbsp;&nbsp;Memory: 6.5G
+    <br>&nbsp;&nbsp;&nbsp;CGroup: /system.slice/network.service
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─4045278 4045278 /var/lib/network-data/container-chain- ...
+  </span>
+</div>
 
 And check the logs, if needed, with the following command:
 
@@ -788,6 +1042,10 @@ A pop-up will appear for you to authorize and sign the transaction. Enter your p
 After you've mapped your session keys and executed the pending delegation request, you can [verify that your sequencer is in the list of eligible candidates](/node-operators/sequencers/onboarding/account-setup/#verify){target=\_blank}.
 
 That's it! You've successfully executed a transaction using a proxy account on behalf of your primary sequencer account.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/
@@ -807,7 +1065,10 @@ Keeping your node up-to-date is an important part of being a Tanssi sequencer. N
 
 This tutorial covers upgrading your Tanssi sequencer that was configured using Docker. It assumes you have already set up your account and launched a [sequencer using Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
 
+!!! tip "Subscribe to Release Notifications" 
+    Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
+    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
 ## Upgrading Docker Nodes {: #upgrading-docker-nodes }
 
@@ -827,7 +1088,17 @@ docker stop INSERT_YOUR_CONTAINER_ID
 
 Your terminal interaction will resemble the following:
 
-
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker ps -a</span>
+  <span data-ty>
+    <br> 
+    <br> CONTAINER ID    IMAGE    COMMAND    CREATED    STATUS  PORTS    NAMES
+    <br> aa751703d6aa moondancelabs/tanssi:v0.6.1 "/tanssi/tanssi-node…" 56 seconds ago  Up 56 seconds             focused_chaum
+    <br> 
+    <span data-ty="input"><span class="file-path"></span>docker stop aa751703d6aa</span>
+    <br> aa751703d6aa
+  </span>
+</div>
 
 To restart the node, you can use the same command you used when launching your node the first time. The command pulls the image and the node will resume syncing blocks from where it left off when the Docker process was stopped.
 
@@ -837,7 +1108,51 @@ To restart the node, you can use the same command you used when launching your n
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     {{ networks.dancebox.docker_sequencer_image_name }} \
-    
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 
 === "Intel Skylake"
@@ -847,7 +1162,51 @@ To restart the node, you can use the same command you used when launching your n
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     {{ networks.dancebox.docker_sequencer_image_name }} \
-    
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 === "AMD Zen3"
 
@@ -856,7 +1215,51 @@ To restart the node, you can use the same command you used when launching your n
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     {{ networks.dancebox.docker_sequencer_image_name }} \
-    
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--rpc-cors=all \
+--rpc-max-connections 100 \
+--unsafe-rpc-external \
+--rpc-methods=unsafe \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \      
+--node-key-file=/data/node-key \
+--database=paritydb \
+--rpc-port=9945 \
+--rpc-cors=all \
+--rpc-methods=safe \
+--unsafe-rpc-external \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
     ```
 
 ### Specifying a Version Tag {: #specifying-a-version-tag }
@@ -883,7 +1286,10 @@ Keeping your node up-to-date is an important part of being a Tanssi sequencer. N
 
 This tutorial covers upgrading your Tanssi sequencer node that was configured using Systemd. It assumes you have already set up your account and launched a [sequencer node using Systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/){target=\_blank}.
 
+!!! tip "Subscribe to Release Notifications" 
+    Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
+    To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
 
 ## Upgrading Your Systemd Node {: #upgrading-your-systemd-node }
 
@@ -1417,7 +1823,13 @@ To improve developer experience when writing modules, Substrate relies heavily o
 
 All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
 
-
+- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+- **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
+- **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
+- **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
+- **`#[pallet::error]`** - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+- **`#[pallet::event]`** - events can be defined and used as a means to provide more information to the user
+- **`#[pallet::storage]`** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
 
 All these macros act as attributes that must be applied to the code just above Rust modules, functions, structures, enums, types, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world, as exposed in the following section.
 
@@ -1430,7 +1842,213 @@ As an example of a custom module, the following code (not intended for productio
 - **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
 
 ```rust
+#![cfg_attr(not(feature = "std"), no_std)]
 
+/// Learn more about FRAME and the core library of Substrate FRAME pallets:
+/// <https://docs.substrate.io/reference/frame-pallets/>
+pub use pallet::*;
+
+#[frame_support::pallet(dev_mode)]
+pub mod pallet {
+
+	use super::*;
+	use frame_support::pallet_prelude::{*, ValueQuery, OptionQuery};
+	use frame_system::pallet_prelude::*;
+	use scale_info::prelude::vec::Vec;
+
+	use frame_support::
+	{
+		sp_runtime::traits::AccountIdConversion,
+		traits:: {
+			Currency, ExistenceRequirement, Randomness
+		},
+		PalletId,
+	};
+
+	type BalanceOf<T> = 
+		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
+
+	#[pallet::pallet]
+	pub struct Pallet<T>(_);
+
+	/// Configure the module by specifying the parameters and types on which it depends.
+	#[pallet::config]
+	pub trait Config: frame_system::Config {
+
+		// Event definition
+		type RuntimeEvent: From<Event<Self>> 
+			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
+
+		// Currency 
+		type Currency: Currency<Self::AccountId>;
+
+		// Randomness
+		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
+
+		// Ticket cost
+		#[pallet::constant]
+		type TicketCost: Get<BalanceOf<Self>>;
+
+		// Maximum number of participants
+		#[pallet::constant]
+		type MaxParticipants: Get<u32>;
+
+		// Module Id
+		#[pallet::constant]
+		type PalletId: Get<PalletId>;
+	}
+
+	// The pallet's runtime storage items.
+	#[pallet::storage]
+	#[pallet::getter(fn get_participants)]
+	pub(super) type Participants<T: Config> = StorageValue<
+		_,
+		BoundedVec<T::AccountId, T::MaxParticipants>,
+		OptionQuery
+	>;
+
+	#[pallet::storage]
+	#[pallet::getter(fn get_nonce)]
+	pub(super) type Nonce<T: Config> = StorageValue<
+		_,
+		u64,
+		ValueQuery
+	>;
+
+	// Pallets use events to inform users when important changes are made.
+	// https://docs.substrate.io/main-docs/build/events-errors/
+	#[pallet::event]
+	#[pallet::generate_deposit(pub(super) fn deposit_event)]
+	pub enum Event<T: Config> {
+		/// Event emitted when a ticket is bought
+		TicketBought { who: T::AccountId },
+		/// Event emitted when the prize is awarded
+		PrizeAwarded { winner: T::AccountId },
+		/// Event emitted when the prize is to be awarded, but there are no participants
+		ThereAreNoParticipants,
+	}
+
+	// Errors inform users that something went wrong
+	#[pallet::error]
+	pub enum Error<T> {
+		NotEnoughCurrency,
+		AccountAlreadyParticipating,
+		CanNotAddParticipant,
+	}
+
+	#[pallet::call]
+	impl<T: Config> Pallet<T> {
+
+		#[pallet::call_index(0)]
+		#[pallet::weight(0)]
+		pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
+			let buyer = ensure_signed(origin)?;
+
+			// 2. Checks that the user has enough balance to afford the ticket price
+			ensure!(
+				T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
+				Error::<T>::NotEnoughCurrency
+			);
+
+			// 3. Checks that the user is not already participating
+			if let Some(participants) = Self::get_participants() {
+				ensure!(
+					!participants.contains(&buyer),
+					Error::<T>::AccountAlreadyParticipating
+				);
+			}
+
+			// 4. Adds the user as a new participant for the prize
+			match Self::get_participants() {
+				Some(mut participants) => { 
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<T>::CanNotAddParticipant
+					);
+					Participants::<T>::set(Some(participants));
+				}, 
+				None => {
+					let mut participants = BoundedVec::new();
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<T>::CanNotAddParticipant
+					);
+					Participants::<T>::set(Some(participants));
+				}
+			};
+
+			// 5. Transfers the ticket cost to the module's account
+			// to be hold until transferred to the winner
+			T::Currency::transfer(
+				&buyer, 
+				&Self::get_pallet_account(), 
+				T::TicketCost::get(), 
+				ExistenceRequirement::KeepAlive)?;
+			
+			// 6. Notify the event
+			Self::deposit_event(Event::TicketBought { who: buyer });
+			Ok(())
+		}
+
+		#[pallet::call_index(1)]
+		#[pallet::weight(0)]
+		pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
+			let _who = ensure_root(origin)?;
+
+			match Self::get_participants() {
+				Some(participants) => { 
+					
+					// 2. Gets a random number from the randomness module
+					let nonce = Self::get_and_increment_nonce();
+					let (random_seed, _) = T::MyRandomness::random(&nonce);
+					let random_number = <u32>::decode(&mut random_seed.as_ref())
+						.expect("secure hashes should always be bigger than u32; qed");
+					
+					// 3. Selects the winner from the participants lit
+					let winner_index = random_number as usize % participants.len();
+					let winner = participants.as_slice().get(winner_index).unwrap();
+
+					// 4. Transfers the total prize to the winner's account
+					let prize = T::Currency::free_balance(&Self::get_pallet_account());
+					T::Currency::transfer(
+						&Self::get_pallet_account(), 
+						&winner, 
+						prize, 
+						ExistenceRequirement::AllowDeath)?;
+
+					// 5. Resets the participants list, and gets ready for another lottery round
+					Participants::<T>::kill();
+
+					// 6. Notify the event
+					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
+				}, 
+				None => {
+					// Notify the event (No participants)
+					Self::deposit_event(Event::ThereAreNoParticipants);
+				}
+			};
+
+			Ok(())
+		}
+	}
+
+	impl<T: Config> Pallet<T> {
+
+		fn get_pallet_account() -> T::AccountId {
+			T::PalletId::get().into_account_truncating()
+		}
+
+		fn get_and_increment_nonce() -> Vec<u8> {
+			let nonce = Nonce::<T>::get();
+			Nonce::<T>::put(nonce.wrapping_add(1));
+			nonce.encode()
+		}
+	}
+}
 ```
 
 For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.
@@ -2618,6 +3236,10 @@ On the transaction confirmation screen, take the following steps:
 ![Remove a proxy account from the Accounts page of Polkadot.js Apps, confirmation](/images/builders/account-management/proxy/proxy-13.webp)
 
 Once the transaction has successfully been submitted, you can review your current proxies, or if you removed all proxies, you will notice the proxy icon is no longer being displayed next to the primary account. And that's it! You've successfully created a proxy, reviewed all proxy accounts associated with your primary account, executed a proxy transaction, and removed a proxy account!
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
@@ -2720,7 +3342,7 @@ The Tanssi network is built using the Substrate framework, leveraging its modula
 
 Additionally, the Tanssi protocol relies on [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}, to secure the ecosystem through restaked assets. This restaking mechanism is implemented on Ethereum; therefore, an ERC-20 version of the token also exists to cover user cases on the Ethereum side.
 
-Leveraging Tanssi's [built-in bridging capabilities](/builders/tanssi-network/bridge/){target=\_blank}, the token can be converted to (and from) the ERC-20  representation on Ethereum. When the token is bridged to Ethereum, the tokens are locked in the bridge's sovereign account, and a message is sent to the Ethereum contract to mint the equivalent amount in ERC-20. This lock-and-mint mechanism ensures the ERC-20 version is created through a trustless bridging mechanism, maintaining a 1:1 relationship with the native token.
+Leveraging Tanssi's [built-in bridging capabilities](/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}, the token can be converted to (and from) the ERC-20  representation on Ethereum. When the token is bridged to Ethereum, the tokens are locked in the bridge's sovereign account, and a message is sent to the Ethereum contract to mint the equivalent amount in ERC-20. This lock-and-mint mechanism ensures the ERC-20 version is created through a trustless bridging mechanism, maintaining a 1:1 relationship with the native token.
 
 ```mermaid
 flowchart LR

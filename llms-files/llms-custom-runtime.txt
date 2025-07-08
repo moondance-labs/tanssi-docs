@@ -71,7 +71,13 @@ To improve developer experience when writing modules, Substrate relies heavily o
 
 All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
 
-
+- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+- **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
+- **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
+- **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
+- **`#[pallet::error]`** - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+- **`#[pallet::event]`** - events can be defined and used as a means to provide more information to the user
+- **`#[pallet::storage]`** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
 
 All these macros act as attributes that must be applied to the code just above Rust modules, functions, structures, enums, types, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world, as exposed in the following section.
 
@@ -84,7 +90,213 @@ As an example of a custom module, the following code (not intended for productio
 - **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
 
 ```rust
+#![cfg_attr(not(feature = "std"), no_std)]
 
+/// Learn more about FRAME and the core library of Substrate FRAME pallets:
+/// <https://docs.substrate.io/reference/frame-pallets/>
+pub use pallet::*;
+
+#[frame_support::pallet(dev_mode)]
+pub mod pallet {
+
+	use super::*;
+	use frame_support::pallet_prelude::{*, ValueQuery, OptionQuery};
+	use frame_system::pallet_prelude::*;
+	use scale_info::prelude::vec::Vec;
+
+	use frame_support::
+	{
+		sp_runtime::traits::AccountIdConversion,
+		traits:: {
+			Currency, ExistenceRequirement, Randomness
+		},
+		PalletId,
+	};
+
+	type BalanceOf<T> = 
+		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
+
+	#[pallet::pallet]
+	pub struct Pallet<T>(_);
+
+	/// Configure the module by specifying the parameters and types on which it depends.
+	#[pallet::config]
+	pub trait Config: frame_system::Config {
+
+		// Event definition
+		type RuntimeEvent: From<Event<Self>> 
+			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
+
+		// Currency 
+		type Currency: Currency<Self::AccountId>;
+
+		// Randomness
+		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
+
+		// Ticket cost
+		#[pallet::constant]
+		type TicketCost: Get<BalanceOf<Self>>;
+
+		// Maximum number of participants
+		#[pallet::constant]
+		type MaxParticipants: Get<u32>;
+
+		// Module Id
+		#[pallet::constant]
+		type PalletId: Get<PalletId>;
+	}
+
+	// The pallet's runtime storage items.
+	#[pallet::storage]
+	#[pallet::getter(fn get_participants)]
+	pub(super) type Participants<T: Config> = StorageValue<
+		_,
+		BoundedVec<T::AccountId, T::MaxParticipants>,
+		OptionQuery
+	>;
+
+	#[pallet::storage]
+	#[pallet::getter(fn get_nonce)]
+	pub(super) type Nonce<T: Config> = StorageValue<
+		_,
+		u64,
+		ValueQuery
+	>;
+
+	// Pallets use events to inform users when important changes are made.
+	// https://docs.substrate.io/main-docs/build/events-errors/
+	#[pallet::event]
+	#[pallet::generate_deposit(pub(super) fn deposit_event)]
+	pub enum Event<T: Config> {
+		/// Event emitted when a ticket is bought
+		TicketBought { who: T::AccountId },
+		/// Event emitted when the prize is awarded
+		PrizeAwarded { winner: T::AccountId },
+		/// Event emitted when the prize is to be awarded, but there are no participants
+		ThereAreNoParticipants,
+	}
+
+	// Errors inform users that something went wrong
+	#[pallet::error]
+	pub enum Error<T> {
+		NotEnoughCurrency,
+		AccountAlreadyParticipating,
+		CanNotAddParticipant,
+	}
+
+	#[pallet::call]
+	impl<T: Config> Pallet<T> {
+
+		#[pallet::call_index(0)]
+		#[pallet::weight(0)]
+		pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
+			let buyer = ensure_signed(origin)?;
+
+			// 2. Checks that the user has enough balance to afford the ticket price
+			ensure!(
+				T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
+				Error::<T>::NotEnoughCurrency
+			);
+
+			// 3. Checks that the user is not already participating
+			if let Some(participants) = Self::get_participants() {
+				ensure!(
+					!participants.contains(&buyer),
+					Error::<T>::AccountAlreadyParticipating
+				);
+			}
+
+			// 4. Adds the user as a new participant for the prize
+			match Self::get_participants() {
+				Some(mut participants) => { 
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<T>::CanNotAddParticipant
+					);
+					Participants::<T>::set(Some(participants));
+				}, 
+				None => {
+					let mut participants = BoundedVec::new();
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<T>::CanNotAddParticipant
+					);
+					Participants::<T>::set(Some(participants));
+				}
+			};
+
+			// 5. Transfers the ticket cost to the module's account
+			// to be hold until transferred to the winner
+			T::Currency::transfer(
+				&buyer, 
+				&Self::get_pallet_account(), 
+				T::TicketCost::get(), 
+				ExistenceRequirement::KeepAlive)?;
+			
+			// 6. Notify the event
+			Self::deposit_event(Event::TicketBought { who: buyer });
+			Ok(())
+		}
+
+		#[pallet::call_index(1)]
+		#[pallet::weight(0)]
+		pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
+			let _who = ensure_root(origin)?;
+
+			match Self::get_participants() {
+				Some(participants) => { 
+					
+					// 2. Gets a random number from the randomness module
+					let nonce = Self::get_and_increment_nonce();
+					let (random_seed, _) = T::MyRandomness::random(&nonce);
+					let random_number = <u32>::decode(&mut random_seed.as_ref())
+						.expect("secure hashes should always be bigger than u32; qed");
+					
+					// 3. Selects the winner from the participants lit
+					let winner_index = random_number as usize % participants.len();
+					let winner = participants.as_slice().get(winner_index).unwrap();
+
+					// 4. Transfers the total prize to the winner's account
+					let prize = T::Currency::free_balance(&Self::get_pallet_account());
+					T::Currency::transfer(
+						&Self::get_pallet_account(), 
+						&winner, 
+						prize, 
+						ExistenceRequirement::AllowDeath)?;
+
+					// 5. Resets the participants list, and gets ready for another lottery round
+					Participants::<T>::kill();
+
+					// 6. Notify the event
+					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
+				}, 
+				None => {
+					// Notify the event (No participants)
+					Self::deposit_event(Event::ThereAreNoParticipants);
+				}
+			};
+
+			Ok(())
+		}
+	}
+
+	impl<T: Config> Pallet<T> {
+
+		fn get_pallet_account() -> T::AccountId {
+			T::PalletId::get().into_account_truncating()
+		}
+
+		fn get_and_increment_nonce() -> Vec<u8> {
+			let nonce = Nonce::<T>::get();
+			Nonce::<T>::put(nonce.wrapping_add(1));
+			nonce.encode()
+		}
+	}
+}
 ```
 
 For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.
@@ -119,7 +331,7 @@ In this article, the following steps, necessary to build and add the example mod
 3. Adding custom logic
 4. Configure the runtime with the new module
 
-
+It is important to note that none of the code presented in this article is intended for production use.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -177,14 +389,72 @@ The full example of the `Cargo.toml` file sets, besides the attributes, the depe
 ??? code "View the complete Cargo.toml file"
 
     ```rust
-    
+    [package]
+name = "module-lottery-example"
+version = "4.0.0-dev"
+description = "Simple module example"
+authors = [""]
+homepage = ""
+edition = "2021"
+publish = false
+
+[package.metadata.docs.rs]
+targets = ["x86_64-unknown-linux-gnu"]
+
+[dependencies]
+codec = { package = "parity-scale-codec", version = "3.6.1", default-features = false, features = [
+	"derive",
+] }
+scale-info = { version = "2.5.0", default-features = false, features = ["derive"] }
+frame-benchmarking = { 
+	version = "4.0.0-dev", 
+	default-features = false, 
+	optional = true, 
+	git = "https://github.com/paritytech/substrate.git", 
+	branch = "polkadot-v1.0.0" 
+}
+frame-support = { 
+	version = "4.0.0-dev", 
+	default-features = false, 
+	git = "https://github.com/paritytech/substrate.git", 
+	branch = "polkadot-v1.0.0" 
+}
+frame-system = { 
+	version = "4.0.0-dev", 
+	default-features = false, 
+	git = "https://github.com/paritytech/substrate.git", 
+	branch = "polkadot-v1.0.0" 
+}
+
+[dev-dependencies]
+sp-core = { version = "21.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+sp-io = { version = "23.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+sp-runtime = { version = "24.0.0", git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v1.0.0" }
+
+[features]
+default = ["std"]
+std = [
+	"codec/std",
+	"frame-benchmarking?/std",
+	"frame-support/std",
+	"frame-system/std",
+	"scale-info/std",
+]
+runtime-benchmarks = ["frame-benchmarking/runtime-benchmarks"]
+try-runtime = ["frame-support/try-runtime"]
     ```
 
 ## Adding Custom Logic {: #adding-custom-logic}
 
 As presented in the [custom-made module](/learn/framework/modules/#custom-modules){target=\_blank} section of the modularity article, creating a module involves implementing the following attribute macros, of which the first three are mandatory:
 
-
+- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+- **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
+- **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
+- **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
+- **`#[pallet::error]`** - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+- **`#[pallet::event]`** - events can be defined and used as a means to provide more information to the user
+- **`#[pallet::storage]`** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
 
 ### Implementing the Module Basic Structure {: #implementing-basic-structure }
 
@@ -321,7 +591,105 @@ Here is the complete implementation of the calls with the custom lottery logic:
 ??? code "View the complete calls code"
 
     ```rust
-    
+    #[pallet::call]
+impl<T: Config> Pallet<T> {
+
+    #[pallet::call_index(0)]
+    #[pallet::weight(0)]
+    pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
+
+        // 1. Validates the origin signature
+        let buyer = ensure_signed(origin)?;
+
+        // 2. Checks that the user has enough balance to afford the ticket price
+        ensure!(
+            T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
+            Error::<T>::NotEnoughCurrency
+        );
+
+        // 3. Checks that the user is not already participating
+        if let Some(participants) = Self::get_participants() {
+            ensure!(
+                !participants.contains(&buyer),
+                Error::<T>::AccountAlreadyParticipating
+            );
+        }
+
+        // 4. Adds the user as a new participant for the prize
+        match Self::get_participants() {
+            Some(mut participants) => { 
+                ensure!(
+                    participants.try_push(buyer.clone()).is_ok(), 
+                    Error::<T>::CanNotAddParticipant
+                );
+                Participants::<T>::set(Some(participants));
+            }, 
+            None => {
+                let mut participants = BoundedVec::new();
+                ensure!(
+                    participants.try_push(buyer.clone()).is_ok(), 
+                    Error::<T>::CanNotAddParticipant
+                );
+                Participants::<T>::set(Some(participants));
+            }
+        };
+
+        // 5. Transfers the ticket cost to the module's account
+        // to be hold until transferred to the winner
+        T::Currency::transfer(
+            &buyer, 
+            &Self::get_pallet_account(), 
+            T::TicketCost::get(), 
+            ExistenceRequirement::KeepAlive)?;
+        
+        // 6. Notify the event
+        Self::deposit_event(Event::TicketBought { who: buyer });
+        Ok(())
+    }
+
+    #[pallet::call_index(1)]
+    #[pallet::weight(0)]
+    pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
+
+        // 1. Validates the origin signature
+        let _who = ensure_root(origin)?;
+
+        match Self::get_participants() {
+            Some(participants) => { 
+                
+                // 2. Gets a random number from the randomness module
+                let nonce = Self::get_and_increment_nonce();
+                let (random_seed, _) = T::MyRandomness::random(&nonce);
+                let random_number = <u32>::decode(&mut random_seed.as_ref())
+                    .expect("secure hashes should always be bigger than u32; qed");
+                
+                // 3. Selects the winner from the participants lit
+                let winner_index = random_number as usize % participants.len();
+                let winner = participants.as_slice().get(winner_index).unwrap();
+
+                // 4. Transfers the total prize to the winner's account
+                let prize = T::Currency::free_balance(&Self::get_pallet_account());
+                T::Currency::transfer(
+                    &Self::get_pallet_account(), 
+                    &winner, 
+                    prize, 
+                    ExistenceRequirement::AllowDeath)?;
+
+                // 5. Resets the participants list, and gets ready for another lottery round
+                Participants::<T>::kill();
+
+                // 6. Notify the event
+                Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
+            }, 
+            None => {
+                // Notify the event (No participants)
+                Self::deposit_event(Event::ThereAreNoParticipants);
+            }
+        };
+
+        Ok(())
+    }
+}
     ```
 
 ### Implementing Custom Errors {: #implementing-custom-errors}
@@ -382,7 +750,213 @@ To put all the pieces together, after implementing all the required macros and a
 ??? code "View the complete module file"
 
     ```rust
-    
+    #![cfg_attr(not(feature = "std"), no_std)]
+
+/// Learn more about FRAME and the core library of Substrate FRAME pallets:
+/// <https://docs.substrate.io/reference/frame-pallets/>
+pub use pallet::*;
+
+#[frame_support::pallet(dev_mode)]
+pub mod pallet {
+
+	use super::*;
+	use frame_support::pallet_prelude::{*, ValueQuery, OptionQuery};
+	use frame_system::pallet_prelude::*;
+	use scale_info::prelude::vec::Vec;
+
+	use frame_support::
+	{
+		sp_runtime::traits::AccountIdConversion,
+		traits:: {
+			Currency, ExistenceRequirement, Randomness
+		},
+		PalletId,
+	};
+
+	type BalanceOf<T> = 
+		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
+
+	#[pallet::pallet]
+	pub struct Pallet<T>(_);
+
+	/// Configure the module by specifying the parameters and types on which it depends.
+	#[pallet::config]
+	pub trait Config: frame_system::Config {
+
+		// Event definition
+		type RuntimeEvent: From<Event<Self>> 
+			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
+
+		// Currency 
+		type Currency: Currency<Self::AccountId>;
+
+		// Randomness
+		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
+
+		// Ticket cost
+		#[pallet::constant]
+		type TicketCost: Get<BalanceOf<Self>>;
+
+		// Maximum number of participants
+		#[pallet::constant]
+		type MaxParticipants: Get<u32>;
+
+		// Module Id
+		#[pallet::constant]
+		type PalletId: Get<PalletId>;
+	}
+
+	// The pallet's runtime storage items.
+	#[pallet::storage]
+	#[pallet::getter(fn get_participants)]
+	pub(super) type Participants<T: Config> = StorageValue<
+		_,
+		BoundedVec<T::AccountId, T::MaxParticipants>,
+		OptionQuery
+	>;
+
+	#[pallet::storage]
+	#[pallet::getter(fn get_nonce)]
+	pub(super) type Nonce<T: Config> = StorageValue<
+		_,
+		u64,
+		ValueQuery
+	>;
+
+	// Pallets use events to inform users when important changes are made.
+	// https://docs.substrate.io/main-docs/build/events-errors/
+	#[pallet::event]
+	#[pallet::generate_deposit(pub(super) fn deposit_event)]
+	pub enum Event<T: Config> {
+		/// Event emitted when a ticket is bought
+		TicketBought { who: T::AccountId },
+		/// Event emitted when the prize is awarded
+		PrizeAwarded { winner: T::AccountId },
+		/// Event emitted when the prize is to be awarded, but there are no participants
+		ThereAreNoParticipants,
+	}
+
+	// Errors inform users that something went wrong
+	#[pallet::error]
+	pub enum Error<T> {
+		NotEnoughCurrency,
+		AccountAlreadyParticipating,
+		CanNotAddParticipant,
+	}
+
+	#[pallet::call]
+	impl<T: Config> Pallet<T> {
+
+		#[pallet::call_index(0)]
+		#[pallet::weight(0)]
+		pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
+			let buyer = ensure_signed(origin)?;
+
+			// 2. Checks that the user has enough balance to afford the ticket price
+			ensure!(
+				T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
+				Error::<T>::NotEnoughCurrency
+			);
+
+			// 3. Checks that the user is not already participating
+			if let Some(participants) = Self::get_participants() {
+				ensure!(
+					!participants.contains(&buyer),
+					Error::<T>::AccountAlreadyParticipating
+				);
+			}
+
+			// 4. Adds the user as a new participant for the prize
+			match Self::get_participants() {
+				Some(mut participants) => { 
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<T>::CanNotAddParticipant
+					);
+					Participants::<T>::set(Some(participants));
+				}, 
+				None => {
+					let mut participants = BoundedVec::new();
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<T>::CanNotAddParticipant
+					);
+					Participants::<T>::set(Some(participants));
+				}
+			};
+
+			// 5. Transfers the ticket cost to the module's account
+			// to be hold until transferred to the winner
+			T::Currency::transfer(
+				&buyer, 
+				&Self::get_pallet_account(), 
+				T::TicketCost::get(), 
+				ExistenceRequirement::KeepAlive)?;
+			
+			// 6. Notify the event
+			Self::deposit_event(Event::TicketBought { who: buyer });
+			Ok(())
+		}
+
+		#[pallet::call_index(1)]
+		#[pallet::weight(0)]
+		pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
+			let _who = ensure_root(origin)?;
+
+			match Self::get_participants() {
+				Some(participants) => { 
+					
+					// 2. Gets a random number from the randomness module
+					let nonce = Self::get_and_increment_nonce();
+					let (random_seed, _) = T::MyRandomness::random(&nonce);
+					let random_number = <u32>::decode(&mut random_seed.as_ref())
+						.expect("secure hashes should always be bigger than u32; qed");
+					
+					// 3. Selects the winner from the participants lit
+					let winner_index = random_number as usize % participants.len();
+					let winner = participants.as_slice().get(winner_index).unwrap();
+
+					// 4. Transfers the total prize to the winner's account
+					let prize = T::Currency::free_balance(&Self::get_pallet_account());
+					T::Currency::transfer(
+						&Self::get_pallet_account(), 
+						&winner, 
+						prize, 
+						ExistenceRequirement::AllowDeath)?;
+
+					// 5. Resets the participants list, and gets ready for another lottery round
+					Participants::<T>::kill();
+
+					// 6. Notify the event
+					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
+				}, 
+				None => {
+					// Notify the event (No participants)
+					Self::deposit_event(Event::ThereAreNoParticipants);
+				}
+			};
+
+			Ok(())
+		}
+	}
+
+	impl<T: Config> Pallet<T> {
+
+		fn get_pallet_account() -> T::AccountId {
+			T::PalletId::get().into_account_truncating()
+		}
+
+		fn get_and_increment_nonce() -> Vec<u8> {
+			let nonce = Nonce::<T>::get();
+			Nonce::<T>::put(nonce.wrapping_add(1));
+			nonce.encode()
+		}
+	}
+}
     ```
 
 ## Configure the Runtime {: #configure-runtime }
@@ -434,6 +1008,10 @@ construct_runtime!(
 ```
 
 With everything set, the network now has support for a basic implementation of a lottery.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-external-module/
@@ -590,7 +1168,32 @@ Finally, executing the `diener` [command](#solving-dependencies-conflicts-diener
 
 This is what the execution in the terminal looks like:
 
-
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>../diener patch --crates-to-patch ../polkadot-sdk \
+    <br> --target https://github.com/paritytech/polkadot-sdk \
+    <br> --point-to-git https://github.com/moondance-labs/polkadot-sdk \
+    <br> --point-to-git-branch tanssi-polkadot-v1.3.0
+    </span>
+  <span data-ty>
+    <br> [2024-01-10T23:26:27Z INFO diener] Running diener v0.4.7 
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'bridge-runtime-common.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'bp-header-chain'
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'bp-runtime'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'frame-support.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'frame-support-procedural'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'frame-support-procedural-tools'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'frame-support-procedural-tools-derive'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-core-hashing'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-api'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-api-proc-macro' .
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-core'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-debug-derive'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-externalities'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-std'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-storage'.
+    <br> [2024-01-10T23:26:42Z INFO diener::patch] Adding patch for 'sp-runtime-interface'.
+  </span>
+</div>
 
 As shown in the terminal output, `diener` adds a patch for the dependencies, creating a `patch` section in your `toml` overriding their origin:
 
@@ -1416,7 +2019,13 @@ To improve developer experience when writing modules, Substrate relies heavily o
 
 All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
 
-
+- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+- **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
+- **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
+- **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
+- **`#[pallet::error]`** - as transactions may not be successful (insufficient funds, as an error example), and for security reasons, a custom module can never end up throwing an exception, all the possible errors are to be identified and listed in an enum to be returned upon an unsuccessful execution
+- **`#[pallet::event]`** - events can be defined and used as a means to provide more information to the user
+- **`#[pallet::storage]`** - this macro is used to define elements that will be persisted in storage. As resources are scarce in a blockchain, it should be used wisely to store only sensible information
 
 All these macros act as attributes that must be applied to the code just above Rust modules, functions, structures, enums, types, etc., allowing the module to be built and added to the runtime, which, in time, will expose the custom logic to the outer world, as exposed in the following section.
 
@@ -1429,7 +2038,213 @@ As an example of a custom module, the following code (not intended for productio
 - **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
 
 ```rust
+#![cfg_attr(not(feature = "std"), no_std)]
 
+/// Learn more about FRAME and the core library of Substrate FRAME pallets:
+/// <https://docs.substrate.io/reference/frame-pallets/>
+pub use pallet::*;
+
+#[frame_support::pallet(dev_mode)]
+pub mod pallet {
+
+	use super::*;
+	use frame_support::pallet_prelude::{*, ValueQuery, OptionQuery};
+	use frame_system::pallet_prelude::*;
+	use scale_info::prelude::vec::Vec;
+
+	use frame_support::
+	{
+		sp_runtime::traits::AccountIdConversion,
+		traits:: {
+			Currency, ExistenceRequirement, Randomness
+		},
+		PalletId,
+	};
+
+	type BalanceOf<T> = 
+		<<T as Config>::Currency as Currency<<T as frame_system::Config>::AccountId>>::Balance;
+
+	#[pallet::pallet]
+	pub struct Pallet<T>(_);
+
+	/// Configure the module by specifying the parameters and types on which it depends.
+	#[pallet::config]
+	pub trait Config: frame_system::Config {
+
+		// Event definition
+		type RuntimeEvent: From<Event<Self>> 
+			+ IsType<<Self as frame_system::Config>::RuntimeEvent>;
+
+		// Currency 
+		type Currency: Currency<Self::AccountId>;
+
+		// Randomness
+		type MyRandomness: Randomness<Self::Hash, BlockNumberFor<Self>>;
+
+		// Ticket cost
+		#[pallet::constant]
+		type TicketCost: Get<BalanceOf<Self>>;
+
+		// Maximum number of participants
+		#[pallet::constant]
+		type MaxParticipants: Get<u32>;
+
+		// Module Id
+		#[pallet::constant]
+		type PalletId: Get<PalletId>;
+	}
+
+	// The pallet's runtime storage items.
+	#[pallet::storage]
+	#[pallet::getter(fn get_participants)]
+	pub(super) type Participants<T: Config> = StorageValue<
+		_,
+		BoundedVec<T::AccountId, T::MaxParticipants>,
+		OptionQuery
+	>;
+
+	#[pallet::storage]
+	#[pallet::getter(fn get_nonce)]
+	pub(super) type Nonce<T: Config> = StorageValue<
+		_,
+		u64,
+		ValueQuery
+	>;
+
+	// Pallets use events to inform users when important changes are made.
+	// https://docs.substrate.io/main-docs/build/events-errors/
+	#[pallet::event]
+	#[pallet::generate_deposit(pub(super) fn deposit_event)]
+	pub enum Event<T: Config> {
+		/// Event emitted when a ticket is bought
+		TicketBought { who: T::AccountId },
+		/// Event emitted when the prize is awarded
+		PrizeAwarded { winner: T::AccountId },
+		/// Event emitted when the prize is to be awarded, but there are no participants
+		ThereAreNoParticipants,
+	}
+
+	// Errors inform users that something went wrong
+	#[pallet::error]
+	pub enum Error<T> {
+		NotEnoughCurrency,
+		AccountAlreadyParticipating,
+		CanNotAddParticipant,
+	}
+
+	#[pallet::call]
+	impl<T: Config> Pallet<T> {
+
+		#[pallet::call_index(0)]
+		#[pallet::weight(0)]
+		pub fn buy_ticket(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
+			let buyer = ensure_signed(origin)?;
+
+			// 2. Checks that the user has enough balance to afford the ticket price
+			ensure!(
+				T::Currency::free_balance(&buyer) >= T::TicketCost::get(),
+				Error::<T>::NotEnoughCurrency
+			);
+
+			// 3. Checks that the user is not already participating
+			if let Some(participants) = Self::get_participants() {
+				ensure!(
+					!participants.contains(&buyer),
+					Error::<T>::AccountAlreadyParticipating
+				);
+			}
+
+			// 4. Adds the user as a new participant for the prize
+			match Self::get_participants() {
+				Some(mut participants) => { 
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<T>::CanNotAddParticipant
+					);
+					Participants::<T>::set(Some(participants));
+				}, 
+				None => {
+					let mut participants = BoundedVec::new();
+					ensure!(
+						participants.try_push(buyer.clone()).is_ok(), 
+						Error::<T>::CanNotAddParticipant
+					);
+					Participants::<T>::set(Some(participants));
+				}
+			};
+
+			// 5. Transfers the ticket cost to the module's account
+			// to be hold until transferred to the winner
+			T::Currency::transfer(
+				&buyer, 
+				&Self::get_pallet_account(), 
+				T::TicketCost::get(), 
+				ExistenceRequirement::KeepAlive)?;
+			
+			// 6. Notify the event
+			Self::deposit_event(Event::TicketBought { who: buyer });
+			Ok(())
+		}
+
+		#[pallet::call_index(1)]
+		#[pallet::weight(0)]
+		pub fn award_prize(origin: OriginFor<T>) -> DispatchResult {
+
+			// 1. Validates the origin signature
+			let _who = ensure_root(origin)?;
+
+			match Self::get_participants() {
+				Some(participants) => { 
+					
+					// 2. Gets a random number from the randomness module
+					let nonce = Self::get_and_increment_nonce();
+					let (random_seed, _) = T::MyRandomness::random(&nonce);
+					let random_number = <u32>::decode(&mut random_seed.as_ref())
+						.expect("secure hashes should always be bigger than u32; qed");
+					
+					// 3. Selects the winner from the participants lit
+					let winner_index = random_number as usize % participants.len();
+					let winner = participants.as_slice().get(winner_index).unwrap();
+
+					// 4. Transfers the total prize to the winner's account
+					let prize = T::Currency::free_balance(&Self::get_pallet_account());
+					T::Currency::transfer(
+						&Self::get_pallet_account(), 
+						&winner, 
+						prize, 
+						ExistenceRequirement::AllowDeath)?;
+
+					// 5. Resets the participants list, and gets ready for another lottery round
+					Participants::<T>::kill();
+
+					// 6. Notify the event
+					Self::deposit_event(Event::PrizeAwarded { winner: winner.clone() } );
+				}, 
+				None => {
+					// Notify the event (No participants)
+					Self::deposit_event(Event::ThereAreNoParticipants);
+				}
+			};
+
+			Ok(())
+		}
+	}
+
+	impl<T: Config> Pallet<T> {
+
+		fn get_pallet_account() -> T::AccountId {
+			T::PalletId::get().into_account_truncating()
+		}
+
+		fn get_and_increment_nonce() -> Vec<u8> {
+			let nonce = Nonce::<T>::get();
+			Nonce::<T>::put(nonce.wrapping_add(1));
+			nonce.encode()
+		}
+	}
+}
 ```
 
 For more information about the step-by-step process of creating a custom-made module to the runtime, please refer to the [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} in the Builder's section.
@@ -2617,6 +3432,10 @@ On the transaction confirmation screen, take the following steps:
 ![Remove a proxy account from the Accounts page of Polkadot.js Apps, confirmation](/images/builders/account-management/proxy/proxy-13.webp)
 
 Once the transaction has successfully been submitted, you can review your current proxies, or if you removed all proxies, you will notice the proxy icon is no longer being displayed next to the primary account. And that's it! You've successfully created a proxy, reviewed all proxy accounts associated with your primary account, executed a proxy transaction, and removed a proxy account!
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
@@ -2719,7 +3538,7 @@ The Tanssi network is built using the Substrate framework, leveraging its modula
 
 Additionally, the Tanssi protocol relies on [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}, to secure the ecosystem through restaked assets. This restaking mechanism is implemented on Ethereum; therefore, an ERC-20 version of the token also exists to cover user cases on the Ethereum side.
 
-Leveraging Tanssi's [built-in bridging capabilities](/builders/tanssi-network/bridge/){target=\_blank}, the token can be converted to (and from) the ERC-20  representation on Ethereum. When the token is bridged to Ethereum, the tokens are locked in the bridge's sovereign account, and a message is sent to the Ethereum contract to mint the equivalent amount in ERC-20. This lock-and-mint mechanism ensures the ERC-20 version is created through a trustless bridging mechanism, maintaining a 1:1 relationship with the native token.
+Leveraging Tanssi's [built-in bridging capabilities](/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}, the token can be converted to (and from) the ERC-20  representation on Ethereum. When the token is bridged to Ethereum, the tokens are locked in the bridge's sovereign account, and a message is sent to the Ethereum contract to mint the equivalent amount in ERC-20. This lock-and-mint mechanism ensures the ERC-20 version is created through a trustless bridging mechanism, maintaining a 1:1 relationship with the native token.
 
 ```mermaid
 flowchart LR
