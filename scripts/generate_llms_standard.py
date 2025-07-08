@@ -114,9 +114,14 @@ def fetch_local_snippet(snippet_ref, snippet_directory):
     with open(absolute_snippet_path, 'r', encoding='utf-8') as snippet_file:
         snippet_content = snippet_file.read()
 
+    lines = snippet_content.split('\n')
+
     if line_start is not None and line_end is not None:
-        lines = snippet_content.split('\n')
-        snippet_content = '\n'.join(lines[line_start:line_end])
+        # If start == end, return just that line
+        if line_start == line_end:
+            snippet_content = lines[line_start - 1]
+        else:
+            snippet_content = '\n'.join(lines[line_start - 1 : line_end])
 
     # 🚀 Recursively process the snippet content for any nested --8<--
     snippet_content = replace_snippet_placeholders(snippet_content, snippet_directory, {})
