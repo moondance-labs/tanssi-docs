@@ -1,6 +1,6 @@
 ---
 title: Using the Built-In Tanssi Bridge
-description: Learn how to use the built-in Tanssi bridge that connects Tanssi and Ethereum to convert TANSSI tokens from their native form to the ERC-20, and vice versa.
+description: Learn how to use the built-in Tanssi bridge that connects Tanssi and Ethereum to convert TANSSI tokens between their native form and ERC-20 and vice versa.
 icon: octicons-arrow-switch-24
 ---
 
@@ -22,7 +22,7 @@ Before using the Tanssi bridge, ensure you have:
 
 For bridging from Tanssi to Ethereum:
 
-- A [Substrate-compatible wallet](/toolkit/substrate-api/wallets/){target=\_blank}, such as [Talisman](/toolkit/substrate-api/wallets/talisman/){target=\_blank}.
+- A [Substrate-compatible wallet](/builders/toolkit/substrate-api/wallets/){target=\_blank}, such as [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}.
 - TANSSI (Substrate) balance to transfer and pay the bridging fees.
 - The Ethereum-type destination account.
 
@@ -42,7 +42,7 @@ If you want to convert your TANSSI (Substrate) tokens to TANSSI (ERC-20) on Ethe
 
 ![Select Tanssi Network and Connect the Wallet](/images/builders/interoperability/built-in-bridge/built-in-bridge-1.webp)
 
-Now with your wallet connected:
+Now, with your wallet connected:
 
 1. Select the destination account from the **Select recipient address** dropdown, or choose the **Enter a custom address** item and enter the account where you want to receive the ERC-20 tokens manually.
 2. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
@@ -61,7 +61,7 @@ If you want to convert your TANSSI (ERC-20) tokens to TANSSI (Substrate) native 
 
 ![Select Ethereum and Connect the Wallet](/images/builders/interoperability/built-in-bridge/built-in-bridge-3.webp)
 
-Now with your wallet connected:
+Now, with your wallet connected:
 
 1. Enter the Substrate destination account in the **Recipient** field.
 2. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
