@@ -74,7 +74,7 @@ Here, you can configure MetaMask for the following networks:
 
 |         Variable          |                        Value                        |
 |:-------------------------:|:---------------------------------------------------:|
-|       Network Name        |               `EVM Network Dancebox`                |
+|       Network Name        |             `Tanssi demo EVM appchain`              |
 |          RPC URL          |    `{{ networks.dancelight.demo_evm_rpc_url }}`     |
 |         Chain ID          |    `{{ networks.dancelight.demo_evm_chain_id }}`    |
 |     Symbol (Optional)     |  `{{ networks.dancelight.demo_evm_token_symbol }}`  |
@@ -91,7 +91,7 @@ To do so, fill in the following information:
 
 ![Add network in Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-8.webp)
 
-Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted to **Switch to EVM Network Dancebox**, the network added in this example.
+Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted to **Switch to Tanssi demo EVM appchain**, the network added in this example.
 
 ![Successfully added a network in Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-9.webp)
 

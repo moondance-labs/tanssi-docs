@@ -30,7 +30,7 @@ Using a Ledger device:
 === "MainNet"
 
     ```bash
-    python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --ledger --ledger-account INSERT_OPERATOR_ADDRESS
+    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.mainnet.tanssi_network }}  --ledger --ledger-account INSERT_OPERATOR_ADDRESS
     ```
 
 === "TestNet (Sepolia)"
@@ -44,7 +44,7 @@ For signing with a private key:
 === "MainNet"
 
     ```bash
-    python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --private-key INSERT_PRIVATE_KEY
+    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.mainnet.tanssi_network }} --private-key INSERT_PRIVATE_KEY
     ```
 
 === "TestNet (Sepolia)"
@@ -72,7 +72,7 @@ Make sure to select **Contract** and **Write Contract**, then click on **Connect
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-1.webp)
 
 1. Expand the **optOut** function
-2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field. If you are opting out of Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. For TestNet use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 3. Click **Write** and sign the transaction
 
 ![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
@@ -92,7 +92,7 @@ For [Safe](https://app.safe.global/){target=\_blank} accounts, use the **Transac
 
     {{ networks.symbiotic.contracts.sepolia.network_registry }}
 
-Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which your node is currently registered (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
+Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which your node is currently registered (`{{ networks.symbiotic.contracts.mainnet.tanssi_network }}` for Tanssi MainNet and `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` for TestNet), and sign the transaction.
 
 ## Verifying Your Opt-Out Status {: #verify-opt-out-status }
 
@@ -115,7 +115,7 @@ On the contract's page:
 1. Make sure to select the **Read Contract** tab
 2. Locate and expand the **isOptedIn** function
 3. Paste your operator's account address in the **who** field.
-4. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+4. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field. If you are opting out of Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. For TestNet use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 5. Click on **Query**
 
 ![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-3.webp)

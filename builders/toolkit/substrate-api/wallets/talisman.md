@@ -62,9 +62,9 @@ On the following screen, take the following steps:
 
 ![Import existing account final steps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-13.webp)
 
-## Connecting Talisman to the Tanssi Dancebox TestNet {: #connecting-talisman-to-the-tanssi-dancebox-testnet }
+## Connecting Talisman to the Tanssi Dancelight TestNet {: #connecting-talisman-to-the-tanssi-dancelight-testnet }
 
-Talisman already comes pre-configured with support for the Tanssi Dancebox TestNet. You just need to first ensure that you have enabled support for TestNets on Talisman. Remember that the Tanssi Dancebox TestNet itself is not a network; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi networks. To configure your Talisman to work with Dancebox, take the following steps:
+Talisman already comes pre-configured with support for the Tanssi Dancelight TestNet. You just need to first ensure that you have enabled support for TestNets on Talisman. Remember that the Tanssi Dancelight TestNet itself is not a network; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi networks. To configure your Talisman to work with Dancelight, take the following steps:
 
 1. Open the Talisman extension and click on the Talisman logo
 2. Select **Settings**
@@ -72,7 +72,7 @@ Talisman already comes pre-configured with support for the Tanssi Dancebox TestN
 
 ![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
 
-If you have a balance of Dancebox tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancebox tokens, the network will be omitted from your list of assets.
+If you have a balance of Dancelight tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancelight tokens, the network will be omitted from your list of assets.
 
 ![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
 
@@ -86,7 +86,7 @@ To configure Talisman for your Tanssi Substrate network, open the Talisman exten
 
 ![Add Network in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-7.webp)
 
-On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Dancebox TestNet is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to Talisman, take the following steps:
+On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Dancelight TestNet is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to Talisman, take the following steps:
 
 1. Paste in the RPC URL of your Tanssi network. Other parameters will be auto-populated
 2. Optionally, enter the block explorer URL of your Tanssi network, if applicable
@@ -97,7 +97,7 @@ On the following page, you'll then be prompted to enter the network details for 
 
 ## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
 
-To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancebox TestNet, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
+To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancelight TestNet, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
 
 ![Connect to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-9.webp)
 

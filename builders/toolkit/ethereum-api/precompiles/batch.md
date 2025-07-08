@@ -19,7 +19,7 @@ The precompile interacts directly with [Substrate's EVM pallet](https://polkadot
 The Batch Precompile is located at the following address:
 
 ```text
-{{ networks.dancebox.precompiles.batch }}
+{{ networks.demo_evm.precompiles.batch }}
 ```
 
 --8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
@@ -110,7 +110,7 @@ Instead of deploying the Batch Precompile, you will access the interface given t
 2. Make sure **Injected Provider - MetaMask** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Provider - MetaMask**, you might be prompted by MetaMask to connect your account to Remix
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **Batch.sol** is selected in the **CONTRACT** dropdown. Since this is a precompiled contract, there is no need to deploy any code. Instead, we are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the Batch Precompile: `{{networks.dancebox.precompiles.batch}}` and click **At Address**
+5. Provide the address of the Batch Precompile: `{{networks.demo_evm.precompiles.batch}}` and click **At Address**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/batch/batch-2.webp)
 

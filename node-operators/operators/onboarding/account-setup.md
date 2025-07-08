@@ -53,7 +53,17 @@ Your hex-encoded session keys will be printed to the terminal in the `"result"` 
 
 ### Map Session Keys {: #map-session-keys }
 
-To perform the next step and map your session keys to your account, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+To perform the next step and map your session keys to your account, open the developer portal and head to the **Developer** tab, **Extrinsics** section. The following link will take you right there:
+
+=== "Tanssi MainNet"
+
+    [Mainnet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/extrinsics){target=\_blank}
+
+=== "Dancelight TestNet"
+
+    [TestNet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}
+
+Now, take the following steps:
 
 1. Select your account, which should be the same account that you previously registered with Tanssi
 2. Select the **session** module and the **setKeys** extrinsic
@@ -63,7 +73,19 @@ To perform the next step and map your session keys to your account, head to the 
 
 ![Create and submit a transaction to set session keys on Polkadot.js Apps](/images/node-operators/operators/onboarding/account-setup/account-setup-1.webp)
 
-Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+## Verify the Keys Mapping {: #verify-keys-mapping }
+
+Using the `session.keyOwner` method allows you to verify that your session keys have been mapped to your account as expected. This method is accessible through the developer portal, in the **Developer** tab, **Chain state** section. The following link will take you right there:
+
+=== "Tanssi MainNet"
+
+    [Mainnet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/chainstate){target=\_blank}
+
+=== "Dancelight TestNet"
+
+    [TestNet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}
+
+Now, take the following steps:
 
 1. Select the **session** module and the **keyOwner** query
 2. Enter `gran` in the **SpCoreCryptoKeyTypeId** field

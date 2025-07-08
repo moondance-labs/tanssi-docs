@@ -117,4 +117,4 @@ Ultimately, the transaction fee and weight associated to an EVM call in a Tanssi
     Transaction Weight = GasUsed * GasToWeight
     ```
 
-`GasToWeight` is a constant value set to `{{ networks.dancebox.gas_to_weight }}`.
+`GasToWeight` is a constant value set to `{{ templates.evm.gas_to_weight }}`.

@@ -29,7 +29,7 @@ The Band Protocol oracle is already deployed on the Tanssi demo EVM network and 
 The price feeds are pushed regularly to a smart contract that is accessible at the following address:
 
 ```text
-{{ networks.dancebox.oracles.band.smart_contract }}
+{{ networks.demo_evm.oracles.band.smart_contract }}
 ```
 
 The smart can be interacted with using the interface:
@@ -85,7 +85,7 @@ Then, take the following steps:
 1. Head to the **Deploy & Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
 3. Select the `IStdReference.sol` contract from the **CONTRACT** dropdown
-4. Enter the data feed contract address, which is `{{ networks.dancebox.oracles.band.smart_contract }}` on the demo EVM network in the **At Address** field and click the **At Address** button
+4. Enter the data feed contract address, which is `{{ networks.demo_evm.oracles.band.smart_contract }}` on the demo EVM network in the **At Address** field and click the **At Address** button
 
 ![Access Interface contract](/images/builders/toolkit/integrations/oracles/band/band-2.webp)
 

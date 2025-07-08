@@ -11,7 +11,7 @@ categories: EVM-Template
 
 [Web3.js](https://web3js.readthedocs.io){target=\_blank} is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with JavaScript. Tanssi-powered EVM networks have an Ethereum-like API that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Web3.js library to interact with a Tanssi EVM network node as if they were doing so on Ethereum. For more information on Web3.js, check out their [documentation site](https://web3js.readthedocs.io/en/v1.10.0){target=\_blank}.
 
-In this guide, you'll learn how to set up the Web3.js library for your Tanssi EVM network. Next, to showcase the library in action, you'll use the Web3.js library to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancebox](/builders/tanssi-network/testnet/dancebox/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint.
+In this guide, you'll learn how to set up the Web3.js library for your Tanssi EVM network. Next, to showcase the library in action, you'll use the Web3.js library to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint.
 
 --8<-- 'text/_common/general-js-tutorial-check.md'
 
@@ -44,7 +44,7 @@ Throughout this guide, you'll be creating a bunch of scripts that provide differ
 To set up a Web3 provider, you can take the following steps:
 
 1. Import the `Web3` library.
-2. Create the Web3 provider and specify the RPC url. You can configure Web3.js to work with a Tanssi EVM network running in Tanssi's Dancebox TestNet, or your own Tanssi EVM network by simply changing the endpoint.
+2. Create the Web3 provider and specify the RPC url. You can configure Web3.js to work with the Tanssi demo EVM network running in Tanssi's Dancelight, or your own Tanssi EVM network by simply changing the endpoint.
 
 ```js
 // 1. Import Web3
@@ -134,7 +134,7 @@ touch transaction.js
 
 Next, you will create the script for this file and complete the following steps:
 
-1. [Set up the Web3 provider](#setup-web3-with-tanssi)
+1. [Set up the Web3 provider](#setting-up-the-web3-provider)
 2. Define the `addressFrom`, including the `privateKey`, and the `addressTo` variables. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 3. Create the asynchronous `send` function, which wraps the transaction object, and the sign and send transaction functions
 4. Create and sign the transaction using the `web3.eth.accounts.signTransaction` function. Pass in the `gas`, `addressTo`, and `value` for the transaction along with the sender's `privateKey`
@@ -218,7 +218,7 @@ touch deploy.js
 Next, you will create the script for this file and complete the following steps:
 
 1. Import the contract file from `compile.js`
-2. [Set up the Web3 provider](#setup-web3-with-tanssi)
+2. [Set up the Web3 provider](#setting-up-the-web3-provider)
 3. Define the `addressFrom`, including the `privateKey`, and the `addressTo` variables. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 4. Save the `bytecode` and `abi` for the compiled contract
 5. Create the asynchronous `deploy` function that will be used to deploy the contract
@@ -307,7 +307,7 @@ touch get.js
 Then you can take the following steps to create the script:
 
 1. Import the `abi` from the `compile.js` file
-2. [Set up the Web3 provider](#setup-web3-with-tanssi)
+2. [Set up the Web3 provider](#setting-up-the-web3-provider)
 3. Create the `contractAddress` variable using the address of the deployed contract
 4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and `contractAddress`
 5. Create the asynchronous `get` function
@@ -368,7 +368,7 @@ touch increment.js reset.js
 Open the `increment.js` file and take the following steps to create the script:
 
 1. Import the `abi` from the `compile.js` file
-2. [Set up the Web3 provider](#setup-web3-with-tanssi)
+2. [Set up the Web3 provider](#setting-up-the-web3-provider)
 3. Define the `privateKey` for the origin account, the `contractAddress` of the deployed contract, and the `_value` to increment by. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and `contractAddress`
 5. Use the contract instance to build the increment transaction using the `methods.increment` function and passing in the `_value` as an input
@@ -443,7 +443,7 @@ If successful, the transaction hash will be displayed in the terminal. You can u
 Next you can open the `reset.js` file and take the following steps to create the script:
 
 1. Import the `abi` from the `compile.js` file
-2. [Set up the Web3 provider](#setup-web3-with-moonbeam)
+2. [Set up the Web3 provider](#setting-up-the-web3-provider)
 3. Define the `privateKey` for the origin account and the `contractAddress` of the deployed contract. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and `contractAddress`
 5. Use the contract instance to build the reset transaction using the `methods.reset` function

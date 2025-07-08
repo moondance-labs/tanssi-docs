@@ -19,7 +19,7 @@ This guide will show you how to interact with the [XCM Interface](https://github
 The XCM precompile is located at the following address:
 
 ```text
-{{networks.dancebox.precompiles.xcm_interface }}
+{{networks.demo_evm.precompiles.xcm_interface }}
 ```
 
 --8<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
@@ -140,7 +140,7 @@ Instead of deploying the precompile, you will access the interface given the add
 2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Provider - Metamask**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **XCM - XCMInterface.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the precompile: `{{networks.dancebox.precompiles.xcm_interface}}` and click **At Address**
+5. Provide the address of the precompile: `{{networks.demo_evm.precompiles.xcm_interface}}` and click **At Address**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-2.webp)
 
