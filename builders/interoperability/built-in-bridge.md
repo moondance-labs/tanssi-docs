@@ -38,7 +38,7 @@ For bridging from Ethereum to Tanssi:
 
 If you want to convert your TANSSI (Substrate) tokens to TANSSI (ERC-20) on Ethereum, head to the Tanssi dApp, open the [bridge section](https://apps.tanssi.network/bridge){target=\_blank}, and then follow these steps:
 
-1. Select **Tanssi Network** from the **From** dropdown.
+1. Select **Mainnet** from the **From** dropdown.
 2. Click on **Connect Wallet**. A pop-up will appear, allowing you to select your preferred Substrate wallet and choose the corresponding account.
 
 ![Select Tanssi Network and Connect the Wallet](/images/builders/interoperability/built-in-bridge/built-in-bridge-1.webp)
@@ -52,6 +52,9 @@ Now, with your wallet connected:
 ![Execute the Transaction](/images/builders/interoperability/built-in-bridge/built-in-bridge-2.webp)
 
 And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
+
+!!! note
+    You can easily add the TANSSI ERC-20 contract address to your wallet by clicking the **+** icon shown next to your balance.
 
 ## Bridging ERC-20 TANSSI to Tanssi Network {: #bridge-to-tanssi }
 
