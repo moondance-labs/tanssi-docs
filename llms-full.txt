@@ -2883,7 +2883,8 @@ Now, with your wallet connected:
 And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
 
 !!! note
-    You can easily add the TANSSI ERC-20 contract address to your wallet by clicking the **+** icon shown next to your balance.
+    - You can easily add the TANSSI ERC-20 contract address to your wallet by clicking the **+** icon shown next to your balance.
+    - Fees to convert your TANSSI (Substrate) tokens to TANSSI (ERC-20) might fluctuate over time and must be paid using TANSSI.
 
 ## Bridging ERC-20 TANSSI to Tanssi Network {: #bridge-to-tanssi }
 
@@ -2905,7 +2906,7 @@ Now, with your wallet connected:
 And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
 
 !!! note
-    Fees might fluctuate over time and must be paid using ETH.
+    Fees to convert your TANSSI (ERC-20) tokens to TANSSI (Substrate) native on the Tanssi network might fluctuate over time and must be paid using ETH.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/interoperability/
