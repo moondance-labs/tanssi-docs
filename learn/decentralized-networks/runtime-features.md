@@ -2,6 +2,7 @@
 title: Core Runtime Features
 description: Learn about the core features of a Tanssi network, the transactions types, how they are executed and included in a block, and the forkless runtime upgrades.
 icon: octicons-package-24
+categories: Basics
 ---
 
 # Core Runtime Features {: #core-runtime-features }

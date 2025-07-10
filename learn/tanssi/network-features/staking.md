@@ -2,6 +2,7 @@
 title: Staking for Block Production
 description: Learn how Tanssi implements a novel Staking mechanism to provide liveness via a decentralized and trustless set of sequencers to all Tanssi-powered networks.
 icon: material-hand-coin-outline
+categories: Basics
 ---
 
 # Tanssi Staking for Block Production {: #tanssi-staking }

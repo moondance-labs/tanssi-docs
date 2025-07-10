@@ -2,6 +2,7 @@
 title: Run an Operator Using Docker
 description: Learn how to set up and run an operator (aka validator) for Tanssi network using Docker to participate in the protocol, secure networks, and earn rewards.
 icon: simple-docker
+categories: Operators
 ---
 
 # Run an Operator in Tanssi Using Docker

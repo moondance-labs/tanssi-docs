@@ -2,6 +2,7 @@
 title: Upgrade Your Operator Systemd Node
 description: Follow these instructions to update your Tanssi operator node running via Systemd to the latest version of the Tanssi client software.
 icon: simple-linux
+categories: Operators
 ---
 
 # Upgrade Your Node Running via Systemd

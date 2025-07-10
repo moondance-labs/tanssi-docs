@@ -2,6 +2,7 @@
 title: Overview
 description: Tanssi is an infrastructure protocol that eases the process of deploying decentralized networks so that developers can focus on their custom application logic.
 icon: octicons-home-24
+categories: Basics
 ---
 
 # What is Tanssi? {: #what-is-tanssi }

@@ -2,6 +2,7 @@
 title: Upgrade Your Sequencer Docker Node
 description: Follow these instructions to update your Tanssi sequencer node running via Docker to the latest version of the Tanssi client software.
 icon: simple-docker
+categories: Sequencers
 ---
 
 # Upgrade Your Node Running via Docker

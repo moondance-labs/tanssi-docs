@@ -2,6 +2,7 @@
 title: Deploy Your Appchain via the DApp
 description: Learn how to spin up and deploy an appchain on Tanssi using the Tanssi dApp, a no-code solution for onboarding and launching decentralized appchains in minutes.
 icon: octicons-browser-24
+categories: Appchain
 ---
 
 # Deploy Your Appchain via the Tanssi DApp
