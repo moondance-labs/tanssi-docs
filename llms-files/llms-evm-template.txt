@@ -669,7 +669,7 @@ categories: EVM-Template
 
 ## Introduction
 
-Explore the functionalities of a fully Ethereum-compatible network deployed through Tanssi by interacting with the demo EVM network on Dancebox.
+Explore the functionalities of a fully Ethereum-compatible network deployed through Tanssi by interacting with the demo EVM network on Dancelight.
 
 This quick reference page offers all the essentials you need to interact with this demo network.
 
@@ -733,7 +733,7 @@ You can interact with a Tanssi-powered EVM network using standard Ethereum libra
 
     const providerRPC = {
       evmNetwork: {
-        name: 'dancebox-evm-network',
+        name: 'dancelight-evm-network',
         // Insert your RPC URL here
         rpc: '{{ networks.dancelight.demo_evm_rpc_url }}', 
         chainId: {{ networks.dancelight.demo_evm_chain_id }}, // {{ networks.dancelight.demo_evm_chain_hex_id }} in hex,
@@ -1300,7 +1300,7 @@ contract Box {
 
 Before you can deploy the contract to your Tanssi network, you'll need to modify the Hardhat configuration file and create a secure file to store your private key in.
 
-You can modify the `hardhat.config.js` file to use either the Tanssi Dancebox demo EVM network or your own Tanssi network:
+You can modify the `hardhat.config.js` file to use either the Tanssi demo EVM network or your own Tanssi network:
 
 ```js
 // 1. Import the Ethers and Hardhat Ignition plugins required to interact with the contract
@@ -1316,7 +1316,7 @@ module.exports = {
   solidity: '0.8.1',
   networks: {
     // 4. Add the network specification for your Tanssi EVM network
-    dancebox: {
+    dancelight: {
       url: '{{ networks.dancelight.demo_evm_rpc_url }}',
       chainId: {{ networks.dancelight.demo_evm_chain_id }}, // Fill in the EVM ChainID for your Tanssi network
       accounts: [privateKey]
@@ -1390,15 +1390,15 @@ module.exports = buildModule('BoxModule', (m) => {
 To run the script and deploy the `Box.sol` contract, use the following command, which requires you to specify the network name as defined in your `hardhat.config.js`. Hardhat will deploy the contract to a local hardhat network by default if you don't specify a network.  
 
 ```sh
-npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox
+npx hardhat ignition deploy ./ignition/modules/Box.js --network dancelight
 ```
 
 You'll be prompted to confirm the network you wish to deploy to. After a few seconds after you confirm, the contract is deployed, and you'll see the contract address in the terminal. If you're deploying to another Tanssi network, make sure that you specify the correct network. The network name must match how it's defined in `hardhat.config.js`. After a few seconds, the contract is deployed, and you should see the address in the terminal.
 
 <div id="termynal" data-termynal>
-    <span data-ty="input"><span class="file-path"></span> npx hardhat ignition deploy ./ignition/modules/Box.js --network dancebox</span>
+    <span data-ty="input"><span class="file-path"></span> npx hardhat ignition deploy ./ignition/modules/Box.js --network dancelight</span>
     <br>
-    <span data-ty>✅ Confirm deploy to network dancebox (5678)? … yes</span>
+    <span data-ty>✅ Confirm deploy to network dancelight (5678)? … yes</span>
     <span data-ty>Hardhat Ignition 🚀</span>
     <br>
     <span data-ty>Deploying [ BoxModule ]</span>
@@ -1421,7 +1421,7 @@ Congratulations, your contract is live! Save the address, as you will use it to 
 To interact with your newly deployed contract on your Tanssi network, you can launch the Hardhat `console` by running:
 
 ```sh
-npx hardhat console --network dancebox
+npx hardhat console --network dancelight
 ```
 
 Next, you can take the following steps, entering one line at a time:
@@ -1447,7 +1447,7 @@ Next, you can take the following steps, entering one line at a time:
 Your EVM account will sign the transaction and broadcast it to the network. The output should look similar to:
 
 <div id="termynal" data-termynal>
-    <span data-ty="input">npx hardhat console --network dancebox</span>
+    <span data-ty="input">npx hardhat console --network dancelight</span>
     <br>
     <span data-ty>Welcome to Node.js v20.9.0.</span>
     <span data-ty>Type ".help" for more information.</span>
@@ -1520,7 +1520,7 @@ categories: EVM-Template
 
 Developers building dApps on top of Tanssi-powered EVM networks can use [Remix](https://remix.ethereum.org){target=\_blank}, one of the most popular Ethereum development environments, to build, compile, and deploy their smart contracts. Remix can be used with any EVM network, thanks to the seamless compatibility of Tanssi-powered EVM networks.
 
-This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi Dancebox TestNet using the Remix IDE. This guide can be adapted for your own Tanssi EVM network by simply adding the RPC URL of your network to your EVM Wallet and switching networks to it.
+This guide walks through the process of creating and deploying a Solidity-based smart contract to the Tanssi demo EVM network using the Remix IDE. This guide can be adapted for your own Tanssi EVM network by simply adding the RPC URL of your network to your EVM Wallet and switching networks to it.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -2115,7 +2115,7 @@ categories: EVM-Template
 
 The [Ethers.js](https://docs.ethers.org/v6/){target=\_blank} library provides a set of tools to interact with Ethereum nodes with JavaScript, similar to [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}. Tanssi-powered EVM networks have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM network node as if they were doing so on Ethereum. For more information on Ethers.js, check their [documentation site](https://docs.ethers.org/v6){target=\_blank}.
 
-In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM network. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancebox](/builders/tanssi-network/testnet/dancebox/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint. 
+In this guide, you'll learn how to use the Ethers.js library for your Tanssi EVM network. Next, to showcase the library in action, you'll use Ethers.js to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint. 
 
 If you prefer video tutorials, you can follow along with the corresponding videos at the top of this page for [Sending Transactions with Ethers.js](#send-a-transaction) and [Deploying Contracts with Ethers.js](#deploy-a-contract).
 
@@ -2165,7 +2165,7 @@ import { ethers } from "ethers";
 // 2. Define network configurations
 const providerRPC = {
   evmNetwork: {
-    name: 'dancebox-evm-network',
+    name: 'dancelight-evm-network',
     // Insert your RPC URL here
     rpc: '{{ networks.dancelight.demo_evm_rpc_url }}',
     chainId: {{ networks.dancelight.demo_evm_chain_id }}, // {{ networks.dancelight.demo_evm_chain_hex_id }} in hex,
@@ -2236,7 +2236,7 @@ import { ethers } from 'ethers';
 // Define network configurations
 const providerRPC = {
   evmNetwork: {
-    name: 'dancebox-evm-network',
+    name: 'dancelight-evm-network',
     rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
@@ -2342,7 +2342,7 @@ import { ethers } from 'ethers';
 // Define network configurations
 const providerRPC = {
   evmNetwork: {
-    name: 'dancebox-evm-network',
+    name: 'dancelight-evm-network',
     rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
@@ -2556,7 +2556,7 @@ import contractFile from './compile.js';
 // Define network configurations
 const providerRPC = {
   evmNetwork: {
-    name: 'dancebox-evm-network',
+    name: 'dancelight-evm-network',
     rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
@@ -2672,7 +2672,7 @@ import contractFile from './compile.js';
 // Define network configurations
 const providerRPC = {
   evmNetwork: {
-    name: 'dancebox-evm-network',
+    name: 'dancelight-evm-network',
     rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
@@ -2793,7 +2793,7 @@ import contractFile from './compile.js';
 // Define network configurations
 const providerRPC = {
   evmNetwork: {
-    name: 'dancebox-evm-network',
+    name: 'dancelight-evm-network',
     rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
@@ -2917,7 +2917,7 @@ import contractFile from './compile.js';
 // Define network configurations
 const providerRPC = {
   evmNetwork: {
-    name: 'dancebox-evm-network',
+    name: 'dancelight-evm-network',
     rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
@@ -3928,7 +3928,7 @@ categories: EVM-Template
 
 [Web3.js](https://web3js.readthedocs.io){target=\_blank} is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with JavaScript. Tanssi-powered EVM networks have an Ethereum-like API that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Web3.js library to interact with a Tanssi EVM network node as if they were doing so on Ethereum. For more information on Web3.js, check out their [documentation site](https://web3js.readthedocs.io/en/v1.10.0){target=\_blank}.
 
-In this guide, you'll learn how to set up the Web3.js library for your Tanssi EVM network. Next, to showcase the library in action, you'll use the Web3.js library to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancebox](/builders/tanssi-network/testnet/dancebox/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint.
+In this guide, you'll learn how to set up the Web3.js library for your Tanssi EVM network. Next, to showcase the library in action, you'll use the Web3.js library to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint.
 
 !!! note
     The examples in this guide are based on a MacOS or Ubuntu 20.04 environment. If you're using Windows, you'll need to adapt them accordingly.
@@ -3966,7 +3966,7 @@ Throughout this guide, you'll be creating a bunch of scripts that provide differ
 To set up a Web3 provider, you can take the following steps:
 
 1. Import the `Web3` library.
-2. Create the Web3 provider and specify the RPC url. You can configure Web3.js to work with a Tanssi EVM network running in Tanssi's Dancebox TestNet, or your own Tanssi EVM network by simply changing the endpoint.
+2. Create the Web3 provider and specify the RPC url. You can configure Web3.js to work with the Tanssi demo EVM network running in Tanssi's Dancelight, or your own Tanssi EVM network by simply changing the endpoint.
 
 ```js
 // 1. Import Web3
@@ -4086,7 +4086,7 @@ touch transaction.js
 
 Next, you will create the script for this file and complete the following steps:
 
-1. [Set up the Web3 provider](#setup-web3-with-tanssi)
+1. [Set up the Web3 provider](#setting-up-the-web3-provider)
 2. Define the `addressFrom`, including the `privateKey`, and the `addressTo` variables. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 3. Create the asynchronous `send` function, which wraps the transaction object, and the sign and send transaction functions
 4. Create and sign the transaction using the `web3.eth.accounts.signTransaction` function. Pass in the `gas`, `addressTo`, and `value` for the transaction along with the sender's `privateKey`
@@ -4289,7 +4289,7 @@ touch deploy.js
 Next, you will create the script for this file and complete the following steps:
 
 1. Import the contract file from `compile.js`
-2. [Set up the Web3 provider](#setup-web3-with-tanssi)
+2. [Set up the Web3 provider](#setting-up-the-web3-provider)
 3. Define the `addressFrom`, including the `privateKey`, and the `addressTo` variables. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 4. Save the `bytecode` and `abi` for the compiled contract
 5. Create the asynchronous `deploy` function that will be used to deploy the contract
@@ -4428,7 +4428,7 @@ touch get.js
 Then you can take the following steps to create the script:
 
 1. Import the `abi` from the `compile.js` file
-2. [Set up the Web3 provider](#setup-web3-with-tanssi)
+2. [Set up the Web3 provider](#setting-up-the-web3-provider)
 3. Create the `contractAddress` variable using the address of the deployed contract
 4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and `contractAddress`
 5. Create the asynchronous `get` function
@@ -4516,7 +4516,7 @@ touch increment.js reset.js
 Open the `increment.js` file and take the following steps to create the script:
 
 1. Import the `abi` from the `compile.js` file
-2. [Set up the Web3 provider](#setup-web3-with-tanssi)
+2. [Set up the Web3 provider](#setting-up-the-web3-provider)
 3. Define the `privateKey` for the origin account, the `contractAddress` of the deployed contract, and the `_value` to increment by. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and `contractAddress`
 5. Use the contract instance to build the increment transaction using the `methods.increment` function and passing in the `_value` as an input
@@ -4638,7 +4638,7 @@ If successful, the transaction hash will be displayed in the terminal. You can u
 Next you can open the `reset.js` file and take the following steps to create the script:
 
 1. Import the `abi` from the `compile.js` file
-2. [Set up the Web3 provider](#setup-web3-with-moonbeam)
+2. [Set up the Web3 provider](#setting-up-the-web3-provider)
 3. Define the `privateKey` for the origin account and the `contractAddress` of the deployed contract. The private key is required to create a wallet instance. **Note: This is for example purposes only. Never store your private keys in a JavaScript file**
 4. Create an instance of the contract using the `web3.eth.Contract` function and passing in the `abi` and `contractAddress`
 5. Use the contract instance to build the reset transaction using the `methods.reset` function
@@ -4775,7 +4775,7 @@ categories: EVM-Template
 
 [Web3.py](https://web3py.readthedocs.io/en/stable/){target=\_blank} is a set of libraries that allow developers to interact with Ethereum nodes using HTTP, IPC, or WebSocket protocols with Python. Tanssi EVM networks have an Ethereum-like API available that is fully compatible with Ethereum-style JSON RPC invocations. Therefore, developers can leverage this compatibility and use the Ethers.js library to interact with a Tanssi EVM network node as if they were doing so on Ethereum. For more information on Web3.py, check their [documentation site](https://web3py.readthedocs.io/en/stable/){target=\_blank}.
 
-In this guide, you'll learn how to use setup the Web3.py library for your Tanssi-powered EVM network. Next, to showcase the library in action, you'll use Web3.py to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancebox](/builders/tanssi-network/testnet/dancebox/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint.
+In this guide, you'll learn how to use setup the Web3.py library for your Tanssi-powered EVM network. Next, to showcase the library in action, you'll use Web3.py to send a transaction and deploy a contract on a Tanssi EVM network running in Tanssi's [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank} TestNet. This guide can be adapted for your own Tanssi EVM network by simply changing the endpoint.
 
 !!! note
     The examples in this guide are based on a MacOS or Ubuntu 20.04 environment. If you're using Windows, you'll need to adapt them accordingly.
@@ -5317,7 +5317,7 @@ The precompile interacts directly with [Substrate's EVM pallet](https://polkadot
 The Batch Precompile is located at the following address:
 
 ```text
-{{ networks.dancebox.precompiles.batch }}
+{{ networks.demo_evm.precompiles.batch }}
 ```
 
 !!! note
@@ -5499,7 +5499,7 @@ Instead of deploying the Batch Precompile, you will access the interface given t
 2. Make sure **Injected Provider - MetaMask** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Provider - MetaMask**, you might be prompted by MetaMask to connect your account to Remix
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **Batch.sol** is selected in the **CONTRACT** dropdown. Since this is a precompiled contract, there is no need to deploy any code. Instead, we are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the Batch Precompile: `{{networks.dancebox.precompiles.batch}}` and click **At Address**
+5. Provide the address of the Batch Precompile: `{{networks.demo_evm.precompiles.batch}}` and click **At Address**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/batch/batch-2.webp)
 
@@ -5736,7 +5736,7 @@ For example, Alice signs a call permit and Bob dispatches it and performs the ca
 The Call Permit Precompile is located at the following address:
 
 ```text
-{{ networks.dancebox.precompiles.call_permit }}
+{{ networks.demo_evm.precompiles.call_permit }}
 ```
 
 !!! note
@@ -5855,7 +5855,7 @@ The parameters of the hash can be broken down as follows:
 
 When `dispatch` is called, the permit needs to be verified before the call is dispatched. The first step is to [compute the domain separator](https://github.com/moonbeam-foundation/moonbeam/blob/ae705bb2e9652204ace66c598a00dcd92445eb81/precompiles/call-permit/src/lib.rs#L138){target=\_blank}. The calculation can be seen in [Moonbeam's implementation](https://github.com/moonbeam-foundation/moonbeam/blob/ae705bb2e9652204ace66c598a00dcd92445eb81/precompiles/call-permit/src/lib.rs#L112-L126){target=\_blank} or you can check out a practical example in [OpenZeppelin's EIP712 contract](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/4a9cc8b4918ef3736229a5cc5a310bdc17bf759f/contracts/utils/cryptography/draft-EIP712.sol#L70-L84){target=\_blank}.
 
-From there, a [hash of the signature and the given arguments](https://github.com/moonbeam-foundation/moonbeam/blob/ae705bb2e9652204ace66c598a00dcd92445eb81/precompiles/call-permit/src/lib.rs#L140-L151){target=\_blank} is generated which guarantees that the signature can only be used for the call permit. It uses a given nonce to ensure the signature is not subject to a replay attack. It is similar to [OpenZeppelin's `ERC20Permit` contract](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/4a9cc8b4918ef3736229a5cc5a310bdc17bf759f/contracts/token/ERC20/extensions/draft-ERC20Permit.sol#L52){target=\_blank}, except the `PERMIT_TYPEHASH` is for a call permit, and the arguments match that of the [dispatch function](#:~:text=The interface includes the following functions) plus the nonce.
+From there, a [hash of the signature and the given arguments](https://github.com/moonbeam-foundation/moonbeam/blob/ae705bb2e9652204ace66c598a00dcd92445eb81/precompiles/call-permit/src/lib.rs#L140-L151){target=\_blank} is generated which guarantees that the signature can only be used for the call permit. It uses a given nonce to ensure the signature is not subject to a replay attack. It is similar to [OpenZeppelin's `ERC20Permit` contract](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/4a9cc8b4918ef3736229a5cc5a310bdc17bf759f/contracts/token/ERC20/extensions/draft-ERC20Permit.sol#L52){target=\_blank}, except the `PERMIT_TYPEHASH` is for a call permit, and the arguments match that of the dispatch function plus the nonce.
 
 The domain separator and the hash struct can be used to build the [final hash](https://github.com/moonbeam-foundation/moonbeam/blob/ae705bb2e9652204ace66c598a00dcd92445eb81/precompiles/call-permit/src/lib.rs#L153-L157){target=\_blank} of the fully encoded message. A practical example is shown in [OpenZeppelin's EIP712 contract](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/4a9cc8b4918ef3736229a5cc5a310bdc17bf759f/contracts/utils/cryptography/draft-EIP712.sol#L101){target=\_blank}.
 
@@ -5937,7 +5937,7 @@ Then, instead of deploying the contract, you'll just need to access it given the
 1. Click on the **Deploy and Run** tab, directly below the **Compile** tab in Remix. Note: you are not deploying a contract here, instead you are accessing a precompiled contract that is already deployed
 2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** drop down
 3. Ensure **CallPermit.sol** is selected in the **CONTRACT** dropdown. Since this is a precompiled contract, there is no deployment step. Rather you'll provide the address of the precompile in the **At Address** field
-4. Provide the address of the Call Permit Precompile for Tanssi-powered EVM networks: `{{networks.dancebox.precompiles.call_permit}}` and click **At Address**
+4. Provide the address of the Call Permit Precompile for Tanssi-powered EVM networks: `{{networks.demo_evm.precompiles.call_permit}}` and click **At Address**
 5. The Call Permit Precompile will appear in the list of **Deployed Contracts**
 
 ![Provide the address](/images/builders/toolkit/ethereum-api/precompiles/call-permit/call-5.webp)
@@ -6153,7 +6153,7 @@ This guide will show you how to interact with the [XCM Interface](https://github
 The XCM precompile is located at the following address:
 
 ```text
-{{networks.dancebox.precompiles.xcm_interface }}
+{{networks.demo_evm.precompiles.xcm_interface }}
 ```
 
 !!! note
@@ -6376,7 +6376,7 @@ Instead of deploying the precompile, you will access the interface given the add
 2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Provider - Metamask**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **XCM - XCMInterface.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the precompile: `{{networks.dancebox.precompiles.xcm_interface}}` and click **At Address**
+5. Provide the address of the precompile: `{{networks.demo_evm.precompiles.xcm_interface}}` and click **At Address**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/xcm-interface/xcm-interface-2.webp)
 
@@ -6491,12 +6491,12 @@ One of the main benefits of this precompile is that it removes the necessity of 
 
 Under the hood, the [ERC-20 precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} executes specific Substrate actions related to the Substrate balances module, which is coded in Rust. The balances module provides functionality for handling the various types of balances.
 
-This guide will show you how to interact with UNIT tokens, the native protocol tokens for quick trial networks on the Tanssi Dancebox TestNet, via the ERC-20 precompile. You can follow along and adapt this guide to interacting with your own network.
+This guide will show you how to interact with UNIT tokens, the native protocol tokens for quick trial networks on the Tanssi Dancelight TestNet, via the ERC-20 precompile. You can follow along and adapt this guide to interacting with your own network.
 
 The precompile is located at the following address:
 
 ```text
-{{networks.dancebox.precompiles.erc20 }}
+{{networks.demo_evm.precompiles.erc20 }}
 ```
 
 !!! note
@@ -6655,7 +6655,7 @@ To get started, open up MetaMask and make sure you are connected to your network
 
 Now, you can create a custom token:
 
-1. Enter the precompile address for the token contract address - `{{networks.dancebox.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM networks is `18`, the same as Ethereum's token decimals
+1. Enter the precompile address for the token contract address - `{{networks.demo_evm.precompiles.erc20 }}`. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `18` for the decimal places. Recall that the default number of decimals for Tanssi EVM networks is `18`, the same as Ethereum's token decimals
 2. Click **Next**
 
 ![Add Custom Token](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-2.webp)
@@ -6692,7 +6692,7 @@ Instead of deploying the ERC-20 precompile, you will access the interface given 
 2. Make sure **Injected Web3** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Web3**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the ERC-20 precompile: `{{networks.dancebox.precompiles.erc20}}` and click **At Address**
+5. Provide the address of the ERC-20 precompile: `{{networks.demo_evm.precompiles.erc20}}` and click **At Address**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-5.webp)
 
@@ -6816,7 +6816,7 @@ The [ERC-20 assets precompile](https://github.com/moondance-labs/tanssi/blob/mas
 The address representing the ERC-20 contract is formed with the first thirty-six positions (eighteen bytes) set to the maximum value and the last four positions (two bytes) replaced with the hexadecimal representation of the registered asset identifier:
 
 ```text
-{{networks.dancebox.precompiles.external_assets_erc20}}
+{{networks.demo_evm.precompiles.external_assets_erc20}}
 ```
 
 For example, for the asset whose ID is `1`, the last four positions must be replaced with `0001`, and for an asset with an ID of `10`, those four positions must be replaced with `000A`.
@@ -6988,7 +6988,7 @@ To get started, open up MetaMask and make sure you are connected to your network
 Before continuing, you'll need the token's address, which, considering that in this example the external asset has an ID of `1`, will be:
 
 ```text
-{{networks.dancebox.precompiles.external_assets_erc20_example}}
+{{networks.demo_evm.precompiles.external_assets_erc20_example}}
 ```
 
 1. Enter the precompile address for the token contract address. When you enter the address, the **Token Symbol** and **Token Decimal** fields should automatically populate. If they do not, you can enter `UNIT` for the symbol and `12` for the decimal places
@@ -7030,7 +7030,7 @@ Instead of deploying the smart contract, you will access the interface through t
 2. Make sure **Injected Web3** is selected in the **ENVIRONMENT** dropdown. Once you select **Injected Web3**, you may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the correct account is displayed under **ACCOUNT**
 4. Ensure **IERC20 - IERC20.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the ERC-20 precompile (which is `{{networks.dancebox.precompiles.external_assets_erc20_example}}` in this example) and click **At Address**
+5. Provide the address of the ERC-20 precompile (which is `{{networks.demo_evm.precompiles.external_assets_erc20_example}}` in this example) and click **At Address**
 6. The **IERC20** precompile will appear in the list of **Deployed Contracts**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-6.webp)
@@ -7108,7 +7108,7 @@ To learn more about proxy accounts and how to set them up for your own purposes 
 The Proxy Precompile is located at the following address:
 
 ```text
-{{networks.dancebox.precompiles.proxy}}
+{{networks.demo_evm.precompiles.proxy}}
 ```
 
 !!! note
@@ -7324,7 +7324,7 @@ Instead of deploying the smart contract, you will access the interface through i
 2. Make sure **Injected Provider - Metamask** is selected in the **ENVIRONMENT** dropdown. You may be prompted by MetaMask to connect your account to Remix if it's not already connected
 3. Make sure the priimary account is displayed under **ACCOUNT**
 4. Ensure **Proxy - Proxy.sol** is selected in the **CONTRACT** dropdown. Given that it is a precompiled contract, there is no deployment step. Instead, you are going to provide the address of the precompile in the **At Address** field
-5. Provide the address of the Proxy precompile (which is `{{networks.dancebox.precompiles.proxy}}` in this example) and click **At Address**
+5. Provide the address of the Proxy precompile (which is `{{networks.demo_evm.precompiles.proxy}}` in this example) and click **At Address**
 6. The **Proxy** precompile will appear in the list of **Deployed Contracts**
 
 ![Access the address](/images/builders/toolkit/ethereum-api/precompiles/proxy/proxy-2.webp)
@@ -7453,7 +7453,7 @@ Here, you can configure MetaMask for the following networks:
 
 |         Variable          |                        Value                        |
 |:-------------------------:|:---------------------------------------------------:|
-|       Network Name        |               `EVM Network Dancebox`                |
+|       Network Name        |             `Tanssi demo EVM appchain`              |
 |          RPC URL          |    `{{ networks.dancelight.demo_evm_rpc_url }}`     |
 |         Chain ID          |    `{{ networks.dancelight.demo_evm_chain_id }}`    |
 |     Symbol (Optional)     |  `{{ networks.dancelight.demo_evm_token_symbol }}`  |
@@ -7470,7 +7470,7 @@ To do so, fill in the following information:
 
 ![Add network in Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-8.webp)
 
-Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted to **Switch to EVM Network Dancebox**, the network added in this example.
+Once you've added the network, you'll be redirected to a screen stating that you've successfully added a network. Furthermore, you'll be prompted to **Switch to Tanssi demo EVM appchain**, the network added in this example.
 
 ![Successfully added a network in Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-9.webp)
 
@@ -9023,7 +9023,7 @@ As seen above in the interface, there are five functions for fetching data: `dec
 This tutorial will showcase interacting with a sample BTC/USDT price feed contract on the demo EVM network, but you can interact any of the price feeds listed in [Supported Assets](#supported-assets). The BTC/USDT price feed is [deployed on the demo EVM network]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}, so you can interact with it by accessing the aggregator contract at the below contract address:
 
 ```text
-{{ networks.dancebox.oracles.acurast.btc_usd }}
+{{ networks.demo_evm.oracles.acurast.btc_usd }}
 ```
 
 For a refresher on setting up Remix to interface with the demo EVM network, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM network.
@@ -9037,7 +9037,7 @@ Then, take the following steps:
 1. Head to the **Deploy and Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
 3. Select the **AggregatorV3Interface** contract from the **CONTRACT** dropdown
-4. Enter the sample price feed contract address for `BTC to USD`, which is `{{ networks.dancebox.oracles.acurast.btc_usd }}` on the demo EVM network in the **At Address** field and click the **At Address** button
+4. Enter the sample price feed contract address for `BTC to USD`, which is `{{ networks.demo_evm.oracles.acurast.btc_usd }}` on the demo EVM network in the **At Address** field and click the **At Address** button
 
 ![Access aggregator contract](/images/builders/toolkit/integrations/oracles/acurast/acurast-2.webp)
 
@@ -9074,15 +9074,15 @@ Upon running the above command in your terminal, you'll see a result that resemb
 
 The Acurast team has deployed the below price feeds on the Tanssi demo EVM network:
 
-| Asset & Base Pair |                                                                                                   Aggregator Contract                                                                                                   |
-|:-----------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|   AAVE to USDT    | [{{ networks.dancebox.oracles.acurast.aave_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42){target=\_blank} |
-|    BTC to USDT    | [{{ networks.dancebox.oracles.acurast.btc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}  |
-|    CRV to USDT    | [{{ networks.dancebox.oracles.acurast.crv_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x01F143dfd745861902dA396ad7dfca962e5C83cA){target=\_blank}  |
-|    DAI to USDT    | [{{ networks.dancebox.oracles.acurast.dai_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92){target=\_blank}  |
-|    ETH to USDT    | [{{ networks.dancebox.oracles.acurast.eth_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x007c3F3cc99302c19792F73b7434E3eCbbC3db25){target=\_blank}  |
-|   USDC to USDT    | [{{ networks.dancebox.oracles.acurast.usdc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xe4a46ef4cFbf87D026C3eB293b7672998d932F62){target=\_blank} |
-|    USDT to USD    | [{{ networks.dancebox.oracles.acurast.usdt_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xf9c885E3A5846CEA887a0D69655BC08e52afe569){target=\_blank} |
+| Asset & Base Pair |                                                                           Aggregator Contract                                                                           |
+|:-----------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|   AAVE to USDT    | [{{ networks.demo_evm.oracles.acurast.aave_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x6239Ff749De3a21DC219bcFeF9d27B0dfE171F42){target=\_blank} |
+|    BTC to USDT    | [{{ networks.demo_evm.oracles.acurast.btc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x02093b190D9462d964C11587f7DedD92718D7B56){target=\_blank}  |
+|    CRV to USDT    | [{{ networks.demo_evm.oracles.acurast.crv_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x01F143dfd745861902dA396ad7dfca962e5C83cA){target=\_blank}  |
+|    DAI to USDT    | [{{ networks.demo_evm.oracles.acurast.dai_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x73aF6b14b73059686a9B93Cd28b2dEABF76AeC92){target=\_blank}  |
+|    ETH to USDT    | [{{ networks.demo_evm.oracles.acurast.eth_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x007c3F3cc99302c19792F73b7434E3eCbbC3db25){target=\_blank}  |
+|   USDC to USDT    | [{{ networks.demo_evm.oracles.acurast.usdc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xe4a46ef4cFbf87D026C3eB293b7672998d932F62){target=\_blank} |
+|    USDT to USD    | [{{ networks.demo_evm.oracles.acurast.usdt_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xf9c885E3A5846CEA887a0D69655BC08e52afe569){target=\_blank} |
 
 ## Designing and Launching Your Own Price Feed {: #designing-and-launching-your-own-price-feed }
 
@@ -9327,7 +9327,7 @@ The Band Protocol oracle is already deployed on the Tanssi demo EVM network and 
 The price feeds are pushed regularly to a smart contract that is accessible at the following address:
 
 ```text
-{{ networks.dancebox.oracles.band.smart_contract }}
+{{ networks.demo_evm.oracles.band.smart_contract }}
 ```
 
 The smart can be interacted with using the interface:
@@ -9400,7 +9400,7 @@ Then, take the following steps:
 1. Head to the **Deploy & Run Transactions** tab
 2. Set the **ENVIRONMENT** to **Injected Provider -- MetaMask**
 3. Select the `IStdReference.sol` contract from the **CONTRACT** dropdown
-4. Enter the data feed contract address, which is `{{ networks.dancebox.oracles.band.smart_contract }}` on the demo EVM network in the **At Address** field and click the **At Address** button
+4. Enter the data feed contract address, which is `{{ networks.demo_evm.oracles.band.smart_contract }}` on the demo EVM network in the **At Address** field and click the **At Address** button
 
 ![Access Interface contract](/images/builders/toolkit/integrations/oracles/band/band-2.webp)
 
@@ -9437,7 +9437,7 @@ categories: EVM-Template
 
 Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch.
 
-This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo Tanssi-powered EVM-compatible network. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible network](#launching-price-feeds-on-a-evm-network). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network){target=\_blank} as they can assist you with launching price feeds on a network to ensure the integrity of the deployment process.
+This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Phat contracts on the demo Tanssi-powered EVM-compatible network. Next, you'll learn how to [deploy price feeds to your Tanssi EVM-compatible network](#launching-price-feeds-on-an-evm-network). Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you [contact the Phala team directly](https://dashboard.phala.network){target=\_blank} as they can assist you with launching price feeds on a network to ensure the integrity of the deployment process.
 
 ## How Phala Enables Price Feeds {: #how-phala-enables-price-feeds }
 
@@ -9494,13 +9494,13 @@ Phala sources its price feed data by mirroring Chainlink's price feeds from Ethe
 === "Tanssi Demo EVM Network"
     | Asset & Base Pair |                                                                          Aggregator Contract                                                                          |
     |:-----------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-    |    AAVE to USD    | [{{ networks.dancebox.oracles.phala.aave_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x2E1640853bB2dD9f47831582665477865F9240DB){target=\_blank} |
-    |    BTC to USD     | [{{ networks.dancebox.oracles.phala.btc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x89BC5048d634859aef743fF2152363c0e83a6a49){target=\_blank}  |
-    |    CRV to USD     | [{{ networks.dancebox.oracles.phala.crv_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xf38b25b79A72393Fca2Af88cf948D98c64726273){target=\_blank}  |
-    |    DAI to USD     | [{{ networks.dancebox.oracles.phala.dai_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B){target=\_blank}  |
-    |    ETH to USD     | [{{ networks.dancebox.oracles.phala.eth_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x739d71fC66397a28B3A3b7d40eeB865CA05f0185){target=\_blank}  |
-    |    USDC to USD    | [{{ networks.dancebox.oracles.phala.usdc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252){target=\_blank} |
-    |    USDT to USD    | [{{ networks.dancebox.oracles.phala.usdt_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x5018c16707500D2C89a0446C08f347A024f55AE3){target=\_blank} |
+    |    AAVE to USD    | [{{ networks.demo_evm.oracles.phala.aave_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x2E1640853bB2dD9f47831582665477865F9240DB){target=\_blank} |
+    |    BTC to USD     | [{{ networks.demo_evm.oracles.phala.btc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x89BC5048d634859aef743fF2152363c0e83a6a49){target=\_blank}  |
+    |    CRV to USD     | [{{ networks.demo_evm.oracles.phala.crv_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0xf38b25b79A72393Fca2Af88cf948D98c64726273){target=\_blank}  |
+    |    DAI to USD     | [{{ networks.demo_evm.oracles.phala.dai_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x1f56d8c7D72CE2210Ef340E00119CDac2b05449B){target=\_blank}  |
+    |    ETH to USD     | [{{ networks.demo_evm.oracles.phala.eth_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x739d71fC66397a28B3A3b7d40eeB865CA05f0185){target=\_blank}  |
+    |    USDC to USD    | [{{ networks.demo_evm.oracles.phala.usdc_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x4b8331Ce5Ae6cd33bE669c10Ded9AeBA774Bf252){target=\_blank} |
+    |    USDT to USD    | [{{ networks.demo_evm.oracles.phala.usdt_usd }}]({{ networks.dancelight.demo_evm_blockscout_url }}address/0x5018c16707500D2C89a0446C08f347A024f55AE3){target=\_blank} |
 
 === "Ethereum MainNet"
     | Asset & Base Pair |                                                          Aggregator Contract                                                           |
@@ -9545,7 +9545,7 @@ Note that to obtain a readable price, you must account for the decimals of the p
 
 ## Launching Price Feeds on an EVM Network {: #launching-price-feeds-on-an-evm-network }
 
-It's easy to launch price feeds on a Tanssi-powered EVM network! The following sections will walk through the process of launching a variety of price feeds. This process can be followed for quick Trial networks and dedicated networks on the Tanssi Dancebox TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network){target=\_blank} for assistance in any production scenarios.
+It's easy to launch price feeds on a Tanssi-powered EVM network! The following sections will walk through the process of launching a variety of price feeds. This process can be followed for quick Trial networks and dedicated networks on the Tanssi Dancelight TestNet. Please be advised that these instructions are for demonstration purposes only, and it's highly recommended that you [contact the Phala Team](https://dashboard.phala.network){target=\_blank} for assistance in any production scenarios.
 
 ### Setup {: #setup }
 
@@ -9606,7 +9606,7 @@ There are a few more changes that you need to make in `feeder.ts`, the file that
 ```typescript
 const chain = defineChain({
   id: INSERT_EVM_CHAIN_ID,
-  name: 'dancebox-evm-network',
+  name: 'dancelight-evm-network',
   rpcUrls: {
     default: {
       http: ['INSERT_RPC_URL'],
@@ -9659,7 +9659,7 @@ const abi = parseAbi([
 // Insert your network details here
 const chain = defineChain({
   id: INSERT_EVM_CHAIN_ID,
-  name: 'dancebox-evm-network',
+  name: 'dancelight-evm-network',
   rpcUrls: {
     default: {
       http: ['INSERT_RPC_URL'],
@@ -10719,7 +10719,7 @@ Ultimately, the transaction fee and weight associated to an EVM call in a Tanssi
     Transaction Weight = GasUsed * GasToWeight
     ```
 
-`GasToWeight` is a constant value set to `{{ networks.dancebox.gas_to_weight }}`.
+`GasToWeight` is a constant value set to `{{ templates.evm.gas_to_weight }}`.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/learn/framework/architecture/
@@ -11346,11 +11346,17 @@ The following diagram summarizes the high-level flow of a delegator delegating a
 
 ## Staking Parameters {: #staking-parameters }
 
-=== "Dancebox"
-    |   Variable    |                                                          Value                                                          |
-    |:-------------:|:-----------------------------------------------------------------------------------------------------------------------:|
-    | Joining Delay | {{ networks.dancebox.staking.joining_delay_blocks }} blocks ({{ networks.dancebox.staking.joining_delay_hours }} hours) |
-    | Leaving Delay | {{ networks.dancebox.staking.leaving_delay_blocks }} blocks ({{ networks.dancebox.staking.leaving_delay_hours }} hours) |
+=== "Tanssi MainNet"
+    |   Variable    |                                                         Value                                                         |
+    |:-------------:|:---------------------------------------------------------------------------------------------------------------------:|
+    | Joining Delay | {{ networks.mainnet.staking.joining_delay_blocks }} blocks ({{ networks.mainnet.staking.joining_delay_hours }} hours) |
+    | Leaving Delay | {{ networks.mainnet.staking.leaving_delay_blocks }} blocks ({{ networks.mainnet.staking.leaving_delay_hours }} hours) |
+  
+=== "Dancelight"
+    |   Variable    |                                                            Value                                                            |
+    |:-------------:|:---------------------------------------------------------------------------------------------------------------------------:|
+    | Joining Delay | {{ networks.dancelight.staking.joining_delay_blocks }} blocks ({{ networks.dancelight.staking.joining_delay_hours }} hours) |
+    | Leaving Delay | {{ networks.dancelight.staking.leaving_delay_blocks }} blocks ({{ networks.dancelight.staking.leaving_delay_hours }} hours) |
 
 ## Staking Pools {: #staking-pools}
 
@@ -11498,11 +11504,17 @@ flowchart TB
 
 At any given time, all Tanssi networks require a certain number of sequencers, depending on the number of active networks and the current block production configuration set in Tanssi. The configuration sets the maximum number of total sequencers in the set and the number of sequencers each network has to have assigned.
 
-=== "Dancebox"
+=== "Tanssi MainNet"
     |          Variable          |                                       Value                                        |
     |:--------------------------:|:----------------------------------------------------------------------------------:|
-    |    Max. # of Sequencers    |     {{ networks.dancebox.block_producers.configuration.max_block_producers }}      |
-    | # of Sequencers (Networks) | {{ networks.dancebox.block_producers.configuration.block_producer_per_container }} |
+    |    Max. # of Sequencers    |     {{ networks.mainnet.sequencers.configuration.max_block_producers }}      |
+    | # of Sequencers (Networks) | {{ networks.mainnet.sequencers.configuration.block_producer_per_container }} |
+
+=== "Dancelight"
+    |          Variable          |                                       Value                                        |
+    |:--------------------------:|:----------------------------------------------------------------------------------:|
+    |    Max. # of Sequencers    |     {{ networks.dancelight.sequencers.configuration.max_block_producers }}      |
+    | # of Sequencers (Networks) | {{ networks.dancelight.sequencers.configuration.block_producer_per_container }} |
 
 Once the required number of sequencers for a given session is known, Tanssi uses two mechanisms to decide the set of sequencers distributed among all networks. 
 
@@ -11514,7 +11526,7 @@ The second mechanism is through the [Tanssi staking module](/learn/tanssi/networ
 
 Once the sequencer set that will participate in the next session is known, Tanssi shuffles the list and assigns them to provide block production services to the active Tanssi networks.
 
-The assignment algorithm will start distributing the sequencers serving the networks by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of sequencers. In Dancebox, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
+The assignment algorithm will start distributing the sequencers serving the networks by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of sequencers. In Tanssi MainNet, the default session duration is set to {{ networks.mainnet.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.mainnet.session.display }} hours.
 
 Every new assignment works intentionally with a one-session delay, so the sequencers know in advance which one of the networks they are assigned to. Sequencers will start syncing the new network they'll have to serve in the next session with a special syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the sequencers to swiftly sync the new network without acting as an archive node.
 
@@ -11557,23 +11569,30 @@ As presented in the [Introduction](#introduction), Tanssi is an infrastructure p
 
 There are three main costs associated with block production as a service that any network must cover using Tanssi tokens to deploy successfully and get the block production services:
 
-- **Registration deposit** - the initial deposit that is locked from the account that signs the network registration transaction
+- **Registration deposit** - the initial deposit that is locked from the account that signs the network registration transaction. It is a variable amount depending on the appchain's runtime size
 - **Sequencers assignment** - every time the Tanssi protocol assigns sequencers, which happens once per session, a fixed fee is charged. This fee gives networks the right to be assigned sequencers and discourages networks whose runtime logic fails to produce valid transactions or blocks
 - **Block production** - networks must pay for each block produced on their behalf. Since the protocol selects and assigns the sequencers on a per-session basis, networks must have enough funds to cover all the blocks to be produced in an entire session to be served
 
 The current configuration is set as follows:
 
-=== "Dancebox"
-    |       Variable        |                                         Value                                         |
-    |:---------------------:|:-------------------------------------------------------------------------------------:|
-    | Registration deposit  |               {{ networks.dancebox.costs.registration_deposit }} DANCE                |
-    | Sequencers assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
-    |   Block production    |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
+=== "Tanssi MainNet"
+    |       Variable        |                                                Value                                                |
+    |:---------------------:|:---------------------------------------------------------------------------------------------------:|
+    | Registration deposit  | {{ networks.mainnet.costs.registration_deposit }} x 10<sup>-5</sup> {{ networks.mainnet.token_symbol }} per appchain runtime byte |
+    | Sequencers assignment |        {{ networks.mainnet.costs.cost_per_assignment }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per session         |
+    |   Block production    |            {{ networks.mainnet.costs.cost_per_block }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per block            |
 
-To ensure block production in the next session, the total balance must be at least enough to cover the sequencers assignment cost plus the cost to produce the {{ networks.dancebox.session.blocks }} blocks that comprise an entire session.
+=== "Dancelight"
+    |       Variable        |                                                Value                                                |
+    |:---------------------:|:---------------------------------------------------------------------------------------------------:|
+    | Registration deposit  | {{ networks.dancelight.costs.registration_deposit }} x 10<sup>-5</sup> {{ networks.dancelight.token_symbol }} per appchain runtime byte |
+    | Sequencers assignment |        {{ networks.dancelight.costs.cost_per_assignment }} x 10<sup>-6</sup> {{ networks.dancelight.token_symbol }} per session         |
+    |   Block production    |            {{ networks.dancelight.costs.cost_per_block }} x 10<sup>-6</sup> {{ networks.dancelight.token_symbol }} per block            |
+
+To ensure block production in the next session, the total balance must be at least enough to cover the sequencers assignment cost plus the cost to produce the {{ networks.mainnet.session.blocks }} blocks that comprise an entire session.
 
 !!! note
-    Although these costs are currently fixed, as protocol development progresses, they might become dynamic, varying in response to the network's workload.
+    Although the sequencers assignment and block production costs are currently fixed, as protocol development progresses, they might become dynamic, varying in response to the network's workload.
 
 ### Tipping {: #tipping }
 
@@ -11902,7 +11921,7 @@ categories: Basics
 
 ## Introduction {: #introduction }
 
-The [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}.
+The [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}.
 
 The identity you configure goes beyond a simple display name. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, and Riot (now known as Element) name. You can also use custom fields to include any other relevant information.
 
@@ -11918,19 +11937,30 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 - **Subaccounts** - You can link subaccounts underneath a primary account. As an example, a sequencer service that's running multiple different sequencer nodes can establish subaccounts to demonstrate an official link between the nodes
 
-    |       Variable        |                               Definition                                |                      Value                      |
-    |:---------------------:|:-----------------------------------------------------------------------:|:-----------------------------------------------:|
-    |     Basic deposit     |           The amount held on deposit for setting an identity            | {{ networks.dancebox.identity.basic_deposit }} DANCE |
-    |     Deposit per byte     | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.dancebox.identity.per_byte_deposit }} DANCE |
-    | Max additional fields |     Maximum number of additional fields that may be stored in an ID     |   {{ networks.dancebox.identity.max_fields }}   |
-    | Max Subaccounts |     Maximum number of subaccounts that can be defined under an account identity    |   {{ networks.dancebox.identity.max_subaccounts }}   |
+=== "Tanssi MainNet"
+
+    |       Variable        |                                    Definition                                    |                                        Value                                         |
+    |:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
+    |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.mainnet.identity.basic_deposit }} {{ networks.mainnet.token_symbol }}   |
+    |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.mainnet.identity.per_byte_deposit }} {{ networks.mainnet.token_symbol }} |
+    | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                      {{ networks.mainnet.identity.max_fields }}                      |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                   {{ networks.mainnet.identity.max_subaccounts }}                    |
+
+=== "Dancelight TestNet"
+
+    |       Variable        |                                    Definition                                    |                                           Value                                            |
+    |:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------:|
+    |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.dancelight.identity.basic_deposit }} {{ networks.dancelight.token_symbol }}   |
+    |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.dancelight.identity.per_byte_deposit }} {{ networks.dancelight.token_symbol }} |
+    | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                       {{ networks.dancelight.identity.max_fields }}                        |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
 
 ## Checking Prerequisites { : #checking-prerequisites }
 
 For this guide, you will need the following:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
-- At least one account funded with `DANCE` tokens
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
+- At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
@@ -11947,7 +11977,7 @@ If you want to add custom fields beyond the default fields, follow the instructi
 
 ### Set an Identity {: #set-identity-accounts }
 
-To get started with setting an identity using the Accounts UI, head to the [**Accounts** tab](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} on the Polkadot.js Apps explorer.
+To get started with setting an identity using the Accounts UI, head to the [**Accounts** tab](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} on the Polkadot.js Apps explorer.
 
 You should already have an account connected, so you can click on your account name to verify and note your balances. After you send the transaction to set an identity, the deposit(s) you submitted will be moved from your transferable balance to your reserved balance.
 
@@ -11984,7 +12014,7 @@ Once you clear your identity, the deposit in your reserved balance will get tran
 
 ### Set an Identity {: #set-identity-extrinsics }
 
-To register an identity using the extrinsics UI, navigate to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} on Polkadot.js Apps. Please ensure your input does not exceed 32 characters for each identity field. To complete your identity, take the following steps:
+To register an identity using the extrinsics UI, navigate to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} on Polkadot.js Apps. Please ensure your input does not exceed 32 characters for each identity field. To complete your identity, take the following steps:
 
 1. Select your account
 2. Select identity from the **submit the following extrinsic** dropdown
@@ -12019,7 +12049,7 @@ You should see status notifications pop up in the top right-hand corner confirmi
 
 ### Confirm an Identity {: #confirm-identity-extrinsics }
 
-To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [**Chain state**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
+To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [**Chain state**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}.
 
 On the **Chain State** UI, make sure **Storage** is selected. Then you can start to request your identity information:
 
@@ -12067,15 +12097,15 @@ Proxy accounts can be set up to perform a limited number of actions on behalf of
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum level of access required to carry out their duties via a specific type of proxy account. 
 
-This tutorial will walk you through configuring a proxy account on the Tanssi Dancebox TestNet specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
+This tutorial will walk you through configuring a proxy account on the Tanssi TestNet specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 To follow along with this tutorial, you will need to have:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
 - Create or have two accounts accessible in Polkadot.js Apps
-- At least one of the accounts will need to be funded with `DANCE` tokens
+- At least one of the accounts will need to be funded with `{{ networks.dancelight.token_symbol }}` tokens
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
@@ -12094,13 +12124,22 @@ The equation for calculating the deposit is:
 deposit base + deposit factor * number of proxies
 ```
 
-You can find each of the relevant variables for the Dancebox TestNet below. Note that these values are subject to change for Tanssi MainNet.
+You can find each of the relevant variables for the Dancelight TestNet below. Note that these values are subject to change for Tanssi MainNet.
 
-|    Variable    |                       Value                        |
-|:--------------:|:--------------------------------------------------:|
-|  Deposit base  |  {{ networks.dancebox.proxy.deposit_base }} DANCE  |
-| Deposit factor | {{ networks.dancebox.proxy.deposit_factor }} DANCE |
-|  Max proxies   | {{ networks.dancebox.proxy.max_proxies }} proxies  |
+
+=== "Tanssi MainNet"
+    |    Variable    |                                      Value                                       |
+    |:--------------:|:--------------------------------------------------------------------------------:|
+    |  Deposit base  |  {{ networks.mainnet.proxy.deposit_base }} {{ networks.mainnet.token_symbol }}  |
+    | Deposit factor | {{ networks.mainnet.proxy.deposit_factor }} {{ networks.mainnet.token_symbol }} |
+    |  Max proxies   |                 {{ networks.mainnet.proxy.max_proxies }} proxies                 |
+
+=== "Dancelight"
+    |    Variable    |                                         Value                                          |
+    |:--------------:|:--------------------------------------------------------------------------------------:|
+    |  Deposit base  |  {{ networks.dancelight.proxy.deposit_base }} {{ networks.dancelight.token_symbol }}  |
+    | Deposit factor | {{ networks.dancelight.proxy.deposit_factor }} {{ networks.dancelight.token_symbol }} |
+    |  Max proxies   |                  {{ networks.dancelight.proxy.max_proxies }} proxies                   |
 
 ## Proxy Types {: #proxy-types }
 
@@ -12120,11 +12159,11 @@ For this guide, you will be setting up a proxy account using the balances proxy 
 
 ## Creating a Proxy Account {: #creating-a-proxy-account }
 
-There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions, potentially for malicious actions, and cancel if necessary before execution.
+There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions, potentially for malicious actions, and cancel if necessary before execution.
 
 The following demo will showcase configuring a Balances proxy, which allows for transferring funds, making it perfect for demonstration purposes. After configuring your Balances proxy you can try transferring funds from the primary account via proxy. 
 
-To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
+To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
 
 1. Select the primary account
 2. From the **submit the following extrinsic** dropdown, select **proxy**
@@ -12167,7 +12206,7 @@ In the next section, you will learn how to verify that your proxy account was se
 
 You can verify that your proxy account has been successfully set up in a couple of ways: either through the **Accounts** page or via the **Chain state** page.
 
-To check your proxy accounts from the [**Chain state** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, you can take the following steps:
+To check your proxy accounts from the [**Chain state** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}, you can take the following steps:
 
 1. From the **selected state query** dropdown, select **proxy**
 2. Choose the **proxies** extrinsic
@@ -12190,7 +12229,7 @@ A pop-up will appear where you can see an overview of all of your proxy accounts
 
 Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the proxy account on behalf of the primary account.
 
-To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} and take the following steps:
+To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} and take the following steps:
 
 1. Select the proxy account to submit the transaction from the **using the select account** dropdown
 2. From the **submit the following extrinsic** menu, select **proxy**
@@ -12201,7 +12240,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 7. Choose the **transferKeepAlive** extrinsic
 8. Choose **Id** from the **AccountIdLookupOf** dropdown
 9. In the **dest** field, enter the address you would like to send funds to
-10. In the **value** field, enter the amount of Dancebox tokens to send. For this example, you can send `2` Dancebox tokens
+10. In the **value** field, enter the amount of Dancelight tokens to send. For this example, you can send `2` Dancelight tokens
 11. Click **Submit Transaction**
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-8.webp)
@@ -12218,7 +12257,7 @@ That's it! You've successfully executed a transaction using a proxy account on b
 
 Similarly to adding a proxy account, there are a couple of ways that you can remove a proxy account, either from the **Extrinsics** page or the **Accounts** page. Regardless of which page you use, you can elect to remove a single proxy account or all proxies associated with your primary account.
 
-To remove a proxy from the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, you can take the following steps:
+To remove a proxy from the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, you can take the following steps:
 
 1. From the **using the selected account** dropdown, select your primary account
 2. Then select **proxy**
@@ -12317,6 +12356,90 @@ This approach comes with some advantages, such as:
 - Run a complete local environment with the included [Zombienet](https://paritytech.github.io/zombienet){target=\_blank} configuration
 
 If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy Your Network via the Tanssi DApp](/builders/deploy/dapp/){target=\_blank} article to know how to use the Tanssi dApp to register and get your chain up and running.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/interoperability/built-in-bridge/
+--- BEGIN CONTENT ---
+---
+title: Using the Built-In Tanssi Bridge
+description: Learn how to use the built-in Tanssi bridge that connects Tanssi and Ethereum to convert TANSSI tokens between their native form and ERC-20 and vice versa.
+icon: octicons-arrow-switch-24
+categories: Basics
+---
+
+# Using the Built-In Tanssi Bridge
+
+## Introduction {: #introduction }
+
+The Tanssi protocol orchestrates infrastructure components, allowing developers to launch their customized appchains in minutes and providing them with out-of-the-box Ethereum-grade economic security. To make the whole process easy for developers, a [top-of-class architecture](/learn/tanssi/overview/#tanssi-architecture){target=\_blank} was designed and implemented.
+
+The [TANSSI token](/builders/tanssi-network/tanssi-token/){target=\_blank} is the engine that enables the integration of different infrastructural components with [external security providers](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} and aligns incentives across various actors, including token holders, node operators, and appchain builders. To serve different use cases, the token has two versions: the Tanssi network's native currency, TANSSI (Substrate), and its ERC-20 version, on Ethereum.
+
+Users can convert from one version to the other of the token using a [Tanssi built-in trustless bridge](/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
+
+In this guide, you'll learn how to move your assets from Tanssi to Ethereum and vice versa through a secure and user-friendly web interface available at the [Tanssi dApp](https://apps.tanssi.network/bridge){target=\_blank}, making cross-chain transfers accessible for everyone.
+
+## Prerequisites {: #prerequisites }
+
+Before using the Tanssi bridge, ensure you have:
+
+For bridging from Tanssi to Ethereum:
+
+- A [Substrate-compatible wallet](/builders/toolkit/substrate-api/wallets/){target=\_blank}, such as [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}.
+- TANSSI (Substrate) balance to transfer and pay the bridging fees.
+- The Ethereum-type destination account.
+
+For bridging from Ethereum to Tanssi:
+
+- An [Ethereum-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank}, such as [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+- TANSSI (ERC-20) balance to transfer.
+- ETH balance to pay the bridging fees.
+- The Substrate-type destination account.
+
+## Bridging TANSSI Tokens to Ethereum {: #bridge-to-ethereum }
+
+If you want to convert your TANSSI (Substrate) tokens to TANSSI (ERC-20) on Ethereum, head to the Tanssi dApp, open the [bridge section](https://apps.tanssi.network/bridge){target=\_blank}, and then follow these steps:
+
+1. Select **Mainnet** from the **From** dropdown.
+2. Click on **Connect Wallet**. A pop-up will appear, allowing you to select your preferred Substrate wallet and choose the corresponding account.
+
+![Select Tanssi Network and Connect the Wallet](/images/builders/interoperability/built-in-bridge/built-in-bridge-1.webp)
+
+Now, with your wallet connected:
+
+1. Select the destination account from the **Select recipient address** dropdown, or choose the **Enter a custom address** item and enter the account where you want to receive the ERC-20 tokens manually.
+2. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
+3. Click on **Send** and sign the transaction.
+
+![Execute the Transaction](/images/builders/interoperability/built-in-bridge/built-in-bridge-2.webp)
+
+And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
+
+!!! note
+    - You can easily add the TANSSI ERC-20 contract address to your wallet by clicking the **+** icon shown next to your balance.
+    - Fees to convert your TANSSI (Substrate) tokens to TANSSI (ERC-20) might fluctuate over time and must be paid using TANSSI.
+
+## Bridging ERC-20 TANSSI to Tanssi Network {: #bridge-to-tanssi }
+
+If you want to convert your TANSSI (ERC-20) tokens to TANSSI (Substrate) native on the Tanssi network, head to the Tanssi dApp, open the [bridge section](https://apps.tanssi.network/bridge){target=\_blank}, and then follow these steps:
+
+1. Select **Ethereum** from the **From** dropdown.
+2. Click on **Connect Wallet**, select your preferred Ethereum wallet, and choose the account.
+
+![Select Ethereum and Connect the Wallet](/images/builders/interoperability/built-in-bridge/built-in-bridge-3.webp)
+
+Now, with your wallet connected:
+
+1. Enter the Substrate destination account in the **Recipient** field.
+2. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
+3. Click on **Send** and sign the transaction.
+
+![Execute the Transaction](/images/builders/interoperability/built-in-bridge/built-in-bridge-4.webp)
+
+And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
+
+!!! note
+    Fees to convert your TANSSI (ERC-20) tokens to TANSSI (Substrate) native on the Tanssi network might fluctuate over time and must be paid using ETH.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/tanssi-network/tanssi-token/
@@ -12431,60 +12554,6 @@ To better understand the differences between the two token representations, the 
 | **Bridge Conversion**  | Can be bridged to ERC-20, paying fees in $TANSSI (Substrate)                                                                                                                                                            | Can be bridged to Substrate, paying fees in $ETH                                                                                                                                                  |
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox/
---- BEGIN CONTENT ---
----
-title: Get Started with Dancebox
-description: Dancebox is the Tanssi TestNet, and it is the easiest way to get started with the Tanssi Network to deploy your Substrate or EVM-compatible network.
-icon: octicons-star-24
-categories: Basics
----
-
-# Get Started with Dancebox
-
-## Introduction
-
-Dancebox is the first public Tanssi TestNet and is designed to streamline the deployment of decentralized networks. It allows teams to swiftly onboard and launch their networks within minutes, providing a robust environment for testing and development.
-
-This quick reference page offers all the essentials you need to get started on Dancebox.
-
-## TestNet Tokens {: #testnet-tokens }
-
-DANCE tokens serve as the native currency within the Dancebox Network. To initiate the deployment of a network on Dancebox, you'll need to obtain DANCE tokens. Follow these steps:
-
-1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank} website
-2. Complete the form by providing basic information and your Substrate-based address
-3. Within one business day of submitting the form, you'll receive DANCE tokens for testing
-
-!!! note
-    DANCE tokens have no value. Please don't submit unnecessary requests.
-
-## Network Endpoints {: #dancebox-network-endpoints }
-
-Dancebox has two types of endpoints available for users to connect to: one for HTTPS and one for WSS.
-
-=== "HTTPS"
-
-    ```text
-    https://{{ networks.dancelight.dns_name }}/
-    ```
-
-=== "WSS"
-
-    ```text
-    wss://{{ networks.dancelight.dns_name }}
-    ```
-
-## Block Explorers {: #dancebox-block-explorers }
-
-For Dancebox, you can use the following block explorer:
-
-- [Dancebox Subscan]({{ networks.dancelight.subscan_url }}){target=\_blank}
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/explorer){target=\_blank}
-
-Support for additional block explorers is in the works and as more explorers support Dancebox, this section will be updated accordingly.
---- END CONTENT ---
-
 ## Reference Concepts [shared: true]
 
 The following section contains reference material for Tanssi.
@@ -12511,14 +12580,30 @@ categories: Reference
 
 Tanssi networks have two endpoints available for users to connect to: one for HTTPS and one for WSS.
 
-## Dancebox
+## Tanssi MainNet
 
-The Dancebox TestNet HTTPS and WSS endpoints are as follows:
+The Tanssi Network MainNet HTTPS and WSS endpoints are as follows:
 
 === "HTTPS"
 
     ```text
-    https://{{ networks.dancelight.dns_name }}/
+    https://{{ networks.mainnet.dns_name }}
+    ```
+
+=== "WSS"
+
+    ```text
+    wss://{{ networks.mainnet.dns_name }}
+    ```
+
+## Dancelight
+
+The Dancelight TestNet HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    https://{{ networks.dancelight.dns_name }}
     ```
 
 === "WSS"

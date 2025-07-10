@@ -217,7 +217,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancelight TestNet](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
 
 To do so, take the following steps:
 
@@ -503,7 +503,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancebox TestNet](/builders/tanssi-network/testnet/dancebox/){target=\_blank}.
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancelight TestNet](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
 
 To do so, take the following steps:
 
@@ -751,8 +751,14 @@ A Docker image combines the binary corresponding to the latest stable release of
 
 Run the following command to pull the Docker image:
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
+    
+=== "Dancelight TestNet"
+    
     ```bash
     docker pull {{ networks.dancelight.operator_docker_image }}
     ```
@@ -781,24 +787,42 @@ Running a node requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
     ```bash
     mkdir /var/lib/dancelight-data
     ```
 
 Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
     ```bash
     chown INSERT_DOCKER_USER /var/lib/dancelight-data
     ```
 
 Or run the following command if you want to run the node with the current logged-in user:
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
     ```bash
     sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
     ```
@@ -810,7 +834,15 @@ Or run the following command if you want to run the node with the current logged
 
 To generate and store on disk the session keys that will be referenced in the start-up command, run the following command:
 
-=== "Dancelight"
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
+
+=== "Dancelight TestNet"
 
     ```bash
     docker run --network="host" -v "/var/lib/dancelight-data:/data" \
@@ -830,27 +862,157 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain dancelight \
-    --base-path /data \
-    --name INSERT_YOUR_TANSSI_NODE_NAME \
-    --node-key-file /data/node-key \
-    --rpc-port 9944 \
-    --prometheus-port 9615 \
-    --prometheus-external \
-    --listen-addr /ip4/0.0.0.0/tcp/30333 \
-    --public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
-    --state-pruning archive \
-    --blocks-pruning archive \
-    --database paritydb \
-    --unsafe-rpc-external \
-    --telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
-    ```
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+=== "Dancelight TestNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
 
 ### Run Flags {: #run-flags }
 
@@ -866,8 +1028,14 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 You can view all available flags by running:
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
+    
+=== "Dancelight TestNet"
+    
     ```bash
     docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
     ```
@@ -950,12 +1118,30 @@ To get started, download the latest binary release and make it executable by run
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
-=== "Dancelight"
+=== "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker && \
+    chmod +x ./tanssi-relay*
+    ```
+
+=== "Intel Skylake"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay-prepare-worker && \
+    chmod +x ./tanssi-relay*
+    ```
+
+=== "AMD Zen3"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-znver3 -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
@@ -967,40 +1153,72 @@ The following commands configure a new account, create the directory, and move t
 
 1. Create a new account to run the service:
 
-```bash
-adduser tanssi_service --system --no-create-home
-```
+    === "Tanssi MainNet"
+
+        ```bash
+        adduser tanssi_service --system --no-create-home
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        adduser dancelight_service --system --no-create-home
+        ```
 
 2. Create a directory to store the required files and data:
 
-=== "Dancelight"
+    === "Tanssi MainNet"
 
-    ```bash
-    mkdir /var/lib/dancelight-data
-    ```
+        ```bash
+        mkdir /var/lib/tanssi-data
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        mkdir /var/lib/dancelight-data
+        ```
 
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-=== "Dancelight"
+    === "Tanssi MainNet"
 
-    ```bash
-    chown -R tanssi_service /var/lib/dancelight-data
-    ```
+        ```bash
+        chown -R tanssi_service /var/lib/tanssi-data
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        chown -R tanssi_service /var/lib/dancelight-data
+        ```
 
 4. Move the binaries to the folder:
 
-=== "Dancelight"
+    === "Tanssi MainNet"
 
-    ```bash
-    mv ./tanssi-relay* /var/lib/dacelight-data
-    ```
+        ```bash
+        mv ./tanssi-relay* /var/lib/tanssi-data
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        mv ./tanssi-relay* /var/lib/dacelight-data
+        ```
 
 ### Generate the Node Key {: #generate-node-key }
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
+    ```
+
+=== "Dancelight TestNet"
+    
     ```bash
     /var/lib/dancelight-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
     ```
@@ -1014,17 +1232,25 @@ The next step is to create the Systemd configuration file.
 
 You can create the file by running the following command:
 
-```bash
-sudo touch /etc/systemd/system/tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo touch /etc/systemd/system/tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo touch /etc/systemd/system/dancelight.service
+    ```
 
 Now you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
     ```bash
     [Unit]
-    Description="Tanssi Node systemd service"
+    Description="Tanssi systemd service"
     After=network.target
     StartLimitIntervalSec=0
 
@@ -1037,20 +1263,60 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
     SyslogFacility=local7
     KillSignal=SIGHUP
     LimitNOFILE=100000
+    ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=tanssi \
+    --base-path /var/lib/tanssi-data/ \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /var/lib/tanssi-data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    [Unit]
+    Description="Dancelight systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    User=dancelight_service
+    Type=simple
+    Restart=always
+    RestartSec=10
+    SyslogIdentifier=dancelight
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    LimitNOFILE=100000
     ExecStart=/var/lib/dancelight-data/tanssi-relay --chain=dancelight \
-    --base-path=/var/lib/tanssi-data/ \
-    --node-key-file /var/lib/dancelight-data/node-key \
-    --rpc-port=9944 \
-    --prometheus-port=9615 \
-    --prometheus-external \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-    --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
-    --state-pruning=archive \
-    --blocks-pruning=archive \
-    --database=paritydb \
-    --unsafe-rpc-external \
-    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0'
+    --base-path /var/lib/tanssi-data/ \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /var/lib/tanssi-data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
 
     [Install]
     WantedBy=multi-user.target
@@ -1070,24 +1336,49 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 
 You can view all available flags by running:
 
-```bash
-/var/lib/dancelight-data/tanssi-relay --help
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay --help
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay --help
+    ```
 
 ## Run the Service {: #run-the-service }
 
 Finally, enable the service and start it for the first time:
 
-```bash
-systemctl enable tanssi.service && \
-systemctl start tanssi.service
-```
+=== "Tanssi MainNet"
 
-You can verify that the service is up and running correctly:
+    ```bash
+    systemctl enable tanssi.service && \
+    systemctl start tanssi.service
+    ```
 
-```bash
-systemctl status tanssi.service
-```
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl enable dancelight.service && \
+    systemctl start dancelight.service
+    ```
+
+You can verify that the service is up and running correctly by executing the following command:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    systemctl status tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl status dancelight.service
+    ```
 
 <div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
@@ -1105,9 +1396,17 @@ systemctl status tanssi.service
 
 Check the logs, if needed, with the following command:
 
-```bash
-journalctl -f -u tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    journalctl -f -u tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    journalctl -f -u dancelight.service
+    ```
 
 ## Testing Your Node {: #testing-your-rpc-node }
 
@@ -1154,7 +1453,7 @@ Using a Ledger device:
 === "MainNet"
 
     ```bash
-    python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --ledger --ledger-account INSERT_OPERATOR_ADDRESS
+    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.mainnet.tanssi_network }}  --ledger --ledger-account INSERT_OPERATOR_ADDRESS
     ```
 
 === "TestNet (Sepolia)"
@@ -1168,7 +1467,7 @@ For signing with a private key:
 === "MainNet"
 
     ```bash
-    python3 symb.py opt-out-network INSERT_NETWORK_ADDRESS --private-key INSERT_PRIVATE_KEY
+    python3 symb.py opt-out-network {{ networks.symbiotic.contracts.mainnet.tanssi_network }} --private-key INSERT_PRIVATE_KEY
     ```
 
 === "TestNet (Sepolia)"
@@ -1196,7 +1495,7 @@ Make sure to select **Contract** and **Write Contract**, then click on **Connect
 ![Connect to Web3 step](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-1.webp)
 
 1. Expand the **optOut** function
-2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+2. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field. If you are opting out of Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. For TestNet use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 3. Click **Write** and sign the transaction
 
 ![Opt out operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
@@ -1216,7 +1515,7 @@ For [Safe](https://app.safe.global/){target=\_blank} accounts, use the **Transac
 
     {{ networks.symbiotic.contracts.sepolia.network_registry }}
 
-Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which your node is currently registered (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
+Finally, pick the optOut function, insert the `TANSSI_NETWORK_ADDRESS` to which your node is currently registered (`{{ networks.symbiotic.contracts.mainnet.tanssi_network }}` for Tanssi MainNet and `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` for TestNet), and sign the transaction.
 
 ## Verifying Your Opt-Out Status {: #verify-opt-out-status }
 
@@ -1239,7 +1538,7 @@ On the contract's page:
 1. Make sure to select the **Read Contract** tab
 2. Locate and expand the **isOptedIn** function
 3. Paste your operator's account address in the **who** field.
-4. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (e.g., `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+4. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field. If you are opting out of Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. For TestNet use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 5. Click on **Query**
 
 ![Check the registration status](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-3.webp)
@@ -1598,7 +1897,17 @@ Your hex-encoded session keys will be printed to the terminal in the `"result"` 
 
 ### Map Session Keys {: #map-session-keys }
 
-To perform the next step and map your session keys to your account, head to the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Extrinsics** from the dropdown, and take the following steps:
+To perform the next step and map your session keys to your account, open the developer portal and head to the **Developer** tab, **Extrinsics** section. The following link will take you right there:
+
+=== "Tanssi MainNet"
+
+    [Mainnet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/extrinsics){target=\_blank}
+
+=== "Dancelight TestNet"
+
+    [TestNet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}
+
+Now, take the following steps:
 
 1. Select your account, which should be the same account that you previously registered with Tanssi
 2. Select the **session** module and the **setKeys** extrinsic
@@ -1608,7 +1917,19 @@ To perform the next step and map your session keys to your account, head to the 
 
 ![Create and submit a transaction to set session keys on Polkadot.js Apps](/images/node-operators/operators/onboarding/account-setup/account-setup-1.webp)
 
-Using the `session.keyOwner` method, you can verify that your session keys have been mapped to your account as expected. To do this on the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, click on the **Developer** tab, select **Chain state** from the dropdown, and take the following steps:
+## Verify the Keys Mapping {: #verify-keys-mapping }
+
+Using the `session.keyOwner` method allows you to verify that your session keys have been mapped to your account as expected. This method is accessible through the developer portal, in the **Developer** tab, **Chain state** section. The following link will take you right there:
+
+=== "Tanssi MainNet"
+
+    [Mainnet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/chainstate){target=\_blank}
+
+=== "Dancelight TestNet"
+
+    [TestNet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}
+
+Now, take the following steps:
 
 1. Select the **session** module and the **keyOwner** query
 2. Enter `gran` in the **SpCoreCryptoKeyTypeId** field
@@ -1906,7 +2227,7 @@ Click on **Connect to Web3**, and select your preferred wallet (e.g. MetaMask):
 Once connected:
 
 1. Expand the **`optin`** function
-2. Insert the `TANSSI_NETWORK_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+2. Insert the `TANSSI_NETWORK_ADDRESS`. If you are opting in for Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. For TestNet use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 3. Click on **Write**, and sign the transaction
 
 ![Register the operator](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
@@ -1923,7 +2244,7 @@ If you have a [Safe](https://app.safe.global/){target=\_blank} account, then ope
 
     {{ networks.symbiotic.contracts.sepolia.network_registry }}
 
-Finally, pick the **`optin`** function, insert the  (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet), and sign the transaction.
+Finally, pick the **`optin`** function, insert Tanssi Network's address (`{{ networks.symbiotic.contracts.mainnet.tanssi_network }}` for Tanssi MainNet and `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` for TestNet), and sign the transaction.
 
 ### Check the Registration Status {: #check-tanssi-registration }
 
@@ -1941,7 +2262,7 @@ On the contract's page:
 
 1. Select the **`isOptedIn`** function
 2. Paste your operator's account in the **who** field
-3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field (`{{ networks.symbiotic.contracts.sepolia.tanssi_network }}` on Sepolia TestNet)
+3. Insert the `TANSSI_NETWORK_ADDRESS` in the **where** field. If you are opting in for Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. For TestNet use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 4. Click on **Query**
 
 You'll get a `true` result if your operator was registered correctly and `false` otherwise.
@@ -2306,9 +2627,17 @@ A Docker image combines the binary corresponding to the latest stable release of
 
 The following command to pull the Docker image:
 
-```bash
-docker pull {{ networks.dancelight.operator_docker_image }}
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
 
 The command will download and extract the image and show the status upon execution:
 
@@ -2330,25 +2659,49 @@ The command will download and extract the image and show the status upon executi
 
 ### Set Up the Data Directory {: #set-up-data-directory }
 
-Running an operator requires syncing with the Tanssi chain and storing its state.
+Running a node requires syncing with the Tanssi chain and storing its state.
 
 Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
-```bash
-mkdir /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
 
-```bash
-chown INSERT_DOCKER_USER /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/dancelight-data
+    ```
 
 Or run the following command if you want to run the node with the current logged-in user:
 
-```bash
-sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
+    ```
 
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
@@ -2357,11 +2710,21 @@ sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-docker run --network="host" -v "/var/lib/tanssi-data:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
 
 !!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
@@ -2375,14 +2738,16 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
-=== "Generic"
+=== "Tanssi MainNet"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -2391,21 +2756,21 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
-    ```
+        ```
 
-=== "Intel Skylake"
+    === "Intel Skylake"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -2414,21 +2779,21 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
-    ```
+        ```
 
-=== "AMD Zen3"
+    === "AMD Zen3"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -2437,11 +2802,81 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
-    ```
+        ```
+
+=== "Dancelight TestNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--validator
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--validator
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--validator
+        ```
 
 ### Run Flags {: #run-flags }
 
@@ -2459,9 +2894,17 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
-```bash
-docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
 
 ## Syncing Your Node {: #syncing-your-node }
 
@@ -2539,27 +2982,27 @@ To get started, download the latest binary release and make it executable by run
 === "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
 === "Intel Skylake"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay-execute-worker && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay-prepare-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-znver3 -O tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-relay-execute-worker && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-relay-prepare-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-znver3 -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
@@ -2571,35 +3014,75 @@ The following commands configure a new account, create the directory, and move t
 
 1. Create a new account to run the service:
 
-    ```bash
-    adduser tanssi_service --system --no-create-home
-    ```
+    === "Tanssi MainNet"
+
+        ```bash
+        adduser tanssi_service --system --no-create-home
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        adduser dancelight_service --system --no-create-home
+        ```
 
 2. Create a directory to store the required files and data:
 
-    ```bash
-    mkdir /var/lib/tanssi-data
-    ```
+    === "Tanssi MainNet"
+
+        ```bash
+        mkdir /var/lib/tanssi-data
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        mkdir /var/lib/dancelight-data
+        ```
 
 3. Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-    ```bash
-    chown -R tanssi_service /var/lib/tanssi-data
-    ```
+    === "Tanssi MainNet"
+
+        ```bash
+        chown -R tanssi_service /var/lib/tanssi-data
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        chown -R tanssi_service /var/lib/dancelight-data
+        ```
 
 4. Move the binaries to the folder:
 
-    ```bash
-    mv ./tanssi-relay* /var/lib/tanssi-data
-    ```
+    === "Tanssi MainNet"
+
+        ```bash
+        mv ./tanssi-relay* /var/lib/tanssi-data
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        mv ./tanssi-relay* /var/lib/dacelight-data
+        ```
 
 ### Generate the Node Key {: #generate-node-key }
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-/var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
+    ```
 
 !!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
@@ -2610,45 +3093,91 @@ The next step is to create the Systemd configuration file.
 
 You can create the file by running the following command:
 
-```bash
-sudo touch /etc/systemd/system/tanssi.service
-```
+=== "Tanssi MainNet"
 
-Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
+    ```bash
+    sudo touch /etc/systemd/system/tanssi.service
+    ```
 
-```bash
-[Unit]
-Description="Tanssi systemd service"
-After=network.target
-StartLimitIntervalSec=0
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo touch /etc/systemd/system/dancelight.service
+    ```
 
-[Service]
-User=tanssi_service
-Type=simple
-Restart=always
-RestartSec=10
-SyslogIdentifier=tanssi
-SyslogFacility=local7
-KillSignal=SIGHUP
-LimitNOFILE=100000
-ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
-  --base-path=/var/lib/tanssi-data/ \
-  --node-key-file /var/lib/tanssi-data/node-key \
-  --database=paritydb \
-  --rpc-port=9944 \
-  --prometheus-port=9615 \
-  --prometheus-external \
-  --name=INSERT_YOUR_TANSSI_NODE_NAME \
-  --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-  --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
-  --state-pruning=archive \
-  --blocks-pruning=archive \
-  --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
-  --validator
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
 
-[Install]
-WantedBy=multi-user.target
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    [Unit]
+    Description="Tanssi systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    User=tanssi_service
+    Type=simple
+    Restart=always
+    RestartSec=10
+    SyslogIdentifier=tanssi
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    LimitNOFILE=100000
+    ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=tanssi \
+    --base-path=/var/lib/tanssi-data/ \
+--node-key-file /var/lib/tanssi-data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--validator
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    [Unit]
+    Description="Tanssi systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    User=tanssi_service
+    Type=simple
+    Restart=always
+    RestartSec=10
+    SyslogIdentifier=tanssi
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    LimitNOFILE=100000
+    ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
+    --base-path=/var/lib/tanssi-data/ \
+--node-key-file /var/lib/tanssi-data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--validator
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
 
 ### Run Flags {: #run-flags }
 
@@ -2666,24 +3195,49 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
-```bash
-/var/lib/tanssi-data/tanssi-relay  --help
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay --help
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay --help
+    ```
 
 ## Run the Service {: #run-the-service }
 
 Finally, enable the service and start it for the first time:
 
-```bash
-systemctl enable tanssi.service && \
-systemctl start tanssi.service
-```
+=== "Tanssi MainNet"
 
-You can verify that the service is up and running correctly running:
+    ```bash
+    systemctl enable tanssi.service && \
+    systemctl start tanssi.service
+    ```
 
-```bash
-systemctl status tanssi.service
-```
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl enable dancelight.service && \
+    systemctl start dancelight.service
+    ```
+
+You can verify that the service is up and running correctly by executing the following command:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    systemctl status tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl status dancelight.service
+    ```
 
 <div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
@@ -2701,9 +3255,17 @@ systemctl status tanssi.service
 
 Check the logs, if needed, with the following command:
 
-```bash
-journalctl -f -u tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    journalctl -f -u tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    journalctl -f -u dancelight.service
+    ```
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/operators/operational-tasks/proxy-accounts/
@@ -2729,9 +3291,18 @@ This tutorial will walk you through configuring a `SessionKeyManagement` proxy a
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-To follow along with this tutorial, you will need to have:
+To follow along with this tutorial, you will need to:
 
-- The [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi TestNet
+- Open the developer portal
+
+    === "Tanssi MainNet"
+
+        [Mainnet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/){target=\_blank}
+
+    === "Dancelight TestNet"
+
+        [TestNet developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/){target=\_blank}
+
 - Create or have two accounts accessible in the developer portal
 - Both accounts will need to be funded with tokens
 
@@ -2739,13 +3310,13 @@ If you need help importing your accounts into the developer portal, please check
 
 ## Create a Proxy Account {: #create-a-proxy-account }
 
-There are a couple of ways you can create proxy accounts in the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, you must use the **Extrinsics** page to create a time-delayed proxy. The delay provides an additional layer of security for proxies by specifying a delay period based on the number of blocks. This setting prevents the proxy account from executing a transaction until the delay period ends, allowing the primary account that controls the proxy to review or cancel pending transactions.
+There are a couple of ways you can create proxy accounts in the developer portal, either from the **Extrinsics** page or the **Accounts** page. However, you must use the **Extrinsics** page to create a time-delayed proxy. The delay provides an additional layer of security for proxies by specifying a delay period based on the number of blocks. This setting prevents the proxy account from executing a transaction until the delay period ends, allowing the primary account that controls the proxy to review or cancel pending transactions.
 
 You can also create a proxy of type `Any`, which grants the proxy account full and unrestricted control over the primary account. The proxy account can transfer funds and perform any arbitrary action. The following demo will showcase how to configure a `SessionKeyManagement` proxy, which is more restrictive than an `Any` proxy, as it limits functionality to activities that pertain to mapping session keys.
 
 ### Using the Extrinsics Section {: #creating-proxy-account-using-extrinsics }
 
-To start creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
+To start creating your proxy account, head to the **Developer** tab and select **Extrinsics** from the dropdown. Next, you will need to take the following steps:
 
 1. Select the primary account
 2. From the **submit the following extrinsic** dropdown, select **proxy**
@@ -2792,7 +3363,7 @@ You can verify that your proxy account has been successfully set up in two ways:
 
 ### Using the Chain State Section {: #verifying-your-proxy-account-chain-state }
 
-To check your proxy accounts from the [**Chain state** section](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank} of the developer portal, you can take the following steps:
+To check your proxy accounts from the **Chain state** section of the developer portal, you can take the following steps:
 
 1. From the **selected state query** dropdown, select **proxy**
 2. Choose the **proxies** entry from the list
@@ -2823,7 +3394,7 @@ A pop-up will appear where you can see an overview of your proxy accounts.
 
 Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the proxy on behalf of your primary account. The following example will set keys for a node. The proxy configuration shown is a realistic example of how you might have your own proxy configured for your developer portal primary account.
 
-To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} and take the following steps:
+To execute a transaction, you can navigate back to the **Extrinsics** page and take the following steps:
 
 1. Select the proxy account to submit the transaction from the **using the select account** dropdown
 2. From the **submit the following extrinsic** menu, select **proxy**
@@ -2901,14 +3472,16 @@ Your terminal interaction will resemble the following:
 
 To restart the node, you can use the same command you used when launching your node the first time. The command pulls the image and the node will resume syncing blocks from where it left off when the Docker process was stopped.
 
-=== "Generic"
+=== "Tanssi MainNet"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -2917,21 +3490,21 @@ To restart the node, you can use the same command you used when launching your n
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
-    ```
+        ```
 
-=== "Intel Skylake"
+    === "Intel Skylake"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -2940,21 +3513,21 @@ To restart the node, you can use the same command you used when launching your n
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
-    ```
+        ```
 
-=== "AMD Zen3"
+    === "AMD Zen3"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
---base-path=/data/ \
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -2963,11 +3536,81 @@ To restart the node, you can use the same command you used when launching your n
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
-    ```
+        ```
+
+=== "Dancelight TestNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--validator
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--validator
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path=/data/ \
+--node-key-file /data/node-key \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--validator
+        ```
 
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
@@ -3028,27 +3671,27 @@ To download the latest release and change permissions on it so the Tanssi servic
 === "Generic"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
 === "Intel Skylake"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay-execute-worker && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay-prepare-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
 === "AMD Zen3"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-znver3 -O tanssi-relay && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-relay-execute-worker && \
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ networks.dancebox.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-relay-prepare-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-znver3 -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-relay-prepare-worker && \
     chmod +x ./tanssi-relay*
     ```
 
@@ -3416,7 +4059,7 @@ Ultimately, the transaction fee and weight associated to an EVM call in a Tanssi
     Transaction Weight = GasUsed * GasToWeight
     ```
 
-`GasToWeight` is a constant value set to `{{ networks.dancebox.gas_to_weight }}`.
+`GasToWeight` is a constant value set to `{{ templates.evm.gas_to_weight }}`.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/learn/framework/architecture/
@@ -4043,11 +4686,17 @@ The following diagram summarizes the high-level flow of a delegator delegating a
 
 ## Staking Parameters {: #staking-parameters }
 
-=== "Dancebox"
-    |   Variable    |                                                          Value                                                          |
-    |:-------------:|:-----------------------------------------------------------------------------------------------------------------------:|
-    | Joining Delay | {{ networks.dancebox.staking.joining_delay_blocks }} blocks ({{ networks.dancebox.staking.joining_delay_hours }} hours) |
-    | Leaving Delay | {{ networks.dancebox.staking.leaving_delay_blocks }} blocks ({{ networks.dancebox.staking.leaving_delay_hours }} hours) |
+=== "Tanssi MainNet"
+    |   Variable    |                                                         Value                                                         |
+    |:-------------:|:---------------------------------------------------------------------------------------------------------------------:|
+    | Joining Delay | {{ networks.mainnet.staking.joining_delay_blocks }} blocks ({{ networks.mainnet.staking.joining_delay_hours }} hours) |
+    | Leaving Delay | {{ networks.mainnet.staking.leaving_delay_blocks }} blocks ({{ networks.mainnet.staking.leaving_delay_hours }} hours) |
+  
+=== "Dancelight"
+    |   Variable    |                                                            Value                                                            |
+    |:-------------:|:---------------------------------------------------------------------------------------------------------------------------:|
+    | Joining Delay | {{ networks.dancelight.staking.joining_delay_blocks }} blocks ({{ networks.dancelight.staking.joining_delay_hours }} hours) |
+    | Leaving Delay | {{ networks.dancelight.staking.leaving_delay_blocks }} blocks ({{ networks.dancelight.staking.leaving_delay_hours }} hours) |
 
 ## Staking Pools {: #staking-pools}
 
@@ -4195,11 +4844,17 @@ flowchart TB
 
 At any given time, all Tanssi networks require a certain number of sequencers, depending on the number of active networks and the current block production configuration set in Tanssi. The configuration sets the maximum number of total sequencers in the set and the number of sequencers each network has to have assigned.
 
-=== "Dancebox"
+=== "Tanssi MainNet"
     |          Variable          |                                       Value                                        |
     |:--------------------------:|:----------------------------------------------------------------------------------:|
-    |    Max. # of Sequencers    |     {{ networks.dancebox.block_producers.configuration.max_block_producers }}      |
-    | # of Sequencers (Networks) | {{ networks.dancebox.block_producers.configuration.block_producer_per_container }} |
+    |    Max. # of Sequencers    |     {{ networks.mainnet.sequencers.configuration.max_block_producers }}      |
+    | # of Sequencers (Networks) | {{ networks.mainnet.sequencers.configuration.block_producer_per_container }} |
+
+=== "Dancelight"
+    |          Variable          |                                       Value                                        |
+    |:--------------------------:|:----------------------------------------------------------------------------------:|
+    |    Max. # of Sequencers    |     {{ networks.dancelight.sequencers.configuration.max_block_producers }}      |
+    | # of Sequencers (Networks) | {{ networks.dancelight.sequencers.configuration.block_producer_per_container }} |
 
 Once the required number of sequencers for a given session is known, Tanssi uses two mechanisms to decide the set of sequencers distributed among all networks. 
 
@@ -4211,7 +4866,7 @@ The second mechanism is through the [Tanssi staking module](/learn/tanssi/networ
 
 Once the sequencer set that will participate in the next session is known, Tanssi shuffles the list and assigns them to provide block production services to the active Tanssi networks.
 
-The assignment algorithm will start distributing the sequencers serving the networks by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of sequencers. In Dancebox, the Tanssi TestNet, the default session duration is set to {{ networks.dancebox.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.dancebox.session.display }} hour.
+The assignment algorithm will start distributing the sequencers serving the networks by the registration date on a first-come, first-served basis. Once the assignment is made, it will be upheld for at least one session, representing a period measured in blocks with a constant set of sequencers. In Tanssi MainNet, the default session duration is set to {{ networks.mainnet.session.blocks }} blocks, which, with an average block time of six seconds, translates to (roughly) {{ networks.mainnet.session.display }} hours.
 
 Every new assignment works intentionally with a one-session delay, so the sequencers know in advance which one of the networks they are assigned to. Sequencers will start syncing the new network they'll have to serve in the next session with a special syncing mechanism called [warp sync](https://spec.polkadot.network/chap-sync#sect-sync-warp){target=\_blank}. Warp sync allows the sequencers to swiftly sync the new network without acting as an archive node.
 
@@ -4254,23 +4909,30 @@ As presented in the [Introduction](#introduction), Tanssi is an infrastructure p
 
 There are three main costs associated with block production as a service that any network must cover using Tanssi tokens to deploy successfully and get the block production services:
 
-- **Registration deposit** - the initial deposit that is locked from the account that signs the network registration transaction
+- **Registration deposit** - the initial deposit that is locked from the account that signs the network registration transaction. It is a variable amount depending on the appchain's runtime size
 - **Sequencers assignment** - every time the Tanssi protocol assigns sequencers, which happens once per session, a fixed fee is charged. This fee gives networks the right to be assigned sequencers and discourages networks whose runtime logic fails to produce valid transactions or blocks
 - **Block production** - networks must pay for each block produced on their behalf. Since the protocol selects and assigns the sequencers on a per-session basis, networks must have enough funds to cover all the blocks to be produced in an entire session to be served
 
 The current configuration is set as follows:
 
-=== "Dancebox"
-    |       Variable        |                                         Value                                         |
-    |:---------------------:|:-------------------------------------------------------------------------------------:|
-    | Registration deposit  |               {{ networks.dancebox.costs.registration_deposit }} DANCE                |
-    | Sequencers assignment | {{ networks.dancebox.costs.cost_per_assignment }} x 10<sup>-6</sup> DANCE per session |
-    |   Block production    |    {{ networks.dancebox.costs.cost_per_block }} x 10<sup>-6</sup> DANCE per block     |
+=== "Tanssi MainNet"
+    |       Variable        |                                                Value                                                |
+    |:---------------------:|:---------------------------------------------------------------------------------------------------:|
+    | Registration deposit  | {{ networks.mainnet.costs.registration_deposit }} x 10<sup>-5</sup> {{ networks.mainnet.token_symbol }} per appchain runtime byte |
+    | Sequencers assignment |        {{ networks.mainnet.costs.cost_per_assignment }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per session         |
+    |   Block production    |            {{ networks.mainnet.costs.cost_per_block }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per block            |
 
-To ensure block production in the next session, the total balance must be at least enough to cover the sequencers assignment cost plus the cost to produce the {{ networks.dancebox.session.blocks }} blocks that comprise an entire session.
+=== "Dancelight"
+    |       Variable        |                                                Value                                                |
+    |:---------------------:|:---------------------------------------------------------------------------------------------------:|
+    | Registration deposit  | {{ networks.dancelight.costs.registration_deposit }} x 10<sup>-5</sup> {{ networks.dancelight.token_symbol }} per appchain runtime byte |
+    | Sequencers assignment |        {{ networks.dancelight.costs.cost_per_assignment }} x 10<sup>-6</sup> {{ networks.dancelight.token_symbol }} per session         |
+    |   Block production    |            {{ networks.dancelight.costs.cost_per_block }} x 10<sup>-6</sup> {{ networks.dancelight.token_symbol }} per block            |
+
+To ensure block production in the next session, the total balance must be at least enough to cover the sequencers assignment cost plus the cost to produce the {{ networks.mainnet.session.blocks }} blocks that comprise an entire session.
 
 !!! note
-    Although these costs are currently fixed, as protocol development progresses, they might become dynamic, varying in response to the network's workload.
+    Although the sequencers assignment and block production costs are currently fixed, as protocol development progresses, they might become dynamic, varying in response to the network's workload.
 
 ### Tipping {: #tipping }
 
@@ -4599,7 +5261,7 @@ categories: Basics
 
 ## Introduction {: #introduction }
 
-The [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}.
+The [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}.
 
 The identity you configure goes beyond a simple display name. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, and Riot (now known as Element) name. You can also use custom fields to include any other relevant information.
 
@@ -4615,19 +5277,30 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 - **Subaccounts** - You can link subaccounts underneath a primary account. As an example, a sequencer service that's running multiple different sequencer nodes can establish subaccounts to demonstrate an official link between the nodes
 
-    |       Variable        |                               Definition                                |                      Value                      |
-    |:---------------------:|:-----------------------------------------------------------------------:|:-----------------------------------------------:|
-    |     Basic deposit     |           The amount held on deposit for setting an identity            | {{ networks.dancebox.identity.basic_deposit }} DANCE |
-    |     Deposit per byte     | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.dancebox.identity.per_byte_deposit }} DANCE |
-    | Max additional fields |     Maximum number of additional fields that may be stored in an ID     |   {{ networks.dancebox.identity.max_fields }}   |
-    | Max Subaccounts |     Maximum number of subaccounts that can be defined under an account identity    |   {{ networks.dancebox.identity.max_subaccounts }}   |
+=== "Tanssi MainNet"
+
+    |       Variable        |                                    Definition                                    |                                        Value                                         |
+    |:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
+    |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.mainnet.identity.basic_deposit }} {{ networks.mainnet.token_symbol }}   |
+    |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.mainnet.identity.per_byte_deposit }} {{ networks.mainnet.token_symbol }} |
+    | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                      {{ networks.mainnet.identity.max_fields }}                      |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                   {{ networks.mainnet.identity.max_subaccounts }}                    |
+
+=== "Dancelight TestNet"
+
+    |       Variable        |                                    Definition                                    |                                           Value                                            |
+    |:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------:|
+    |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.dancelight.identity.basic_deposit }} {{ networks.dancelight.token_symbol }}   |
+    |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.dancelight.identity.per_byte_deposit }} {{ networks.dancelight.token_symbol }} |
+    | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                       {{ networks.dancelight.identity.max_fields }}                        |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
 
 ## Checking Prerequisites { : #checking-prerequisites }
 
 For this guide, you will need the following:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
-- At least one account funded with `DANCE` tokens
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
+- At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
@@ -4644,7 +5317,7 @@ If you want to add custom fields beyond the default fields, follow the instructi
 
 ### Set an Identity {: #set-identity-accounts }
 
-To get started with setting an identity using the Accounts UI, head to the [**Accounts** tab](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} on the Polkadot.js Apps explorer.
+To get started with setting an identity using the Accounts UI, head to the [**Accounts** tab](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} on the Polkadot.js Apps explorer.
 
 You should already have an account connected, so you can click on your account name to verify and note your balances. After you send the transaction to set an identity, the deposit(s) you submitted will be moved from your transferable balance to your reserved balance.
 
@@ -4681,7 +5354,7 @@ Once you clear your identity, the deposit in your reserved balance will get tran
 
 ### Set an Identity {: #set-identity-extrinsics }
 
-To register an identity using the extrinsics UI, navigate to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} on Polkadot.js Apps. Please ensure your input does not exceed 32 characters for each identity field. To complete your identity, take the following steps:
+To register an identity using the extrinsics UI, navigate to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} on Polkadot.js Apps. Please ensure your input does not exceed 32 characters for each identity field. To complete your identity, take the following steps:
 
 1. Select your account
 2. Select identity from the **submit the following extrinsic** dropdown
@@ -4716,7 +5389,7 @@ You should see status notifications pop up in the top right-hand corner confirmi
 
 ### Confirm an Identity {: #confirm-identity-extrinsics }
 
-To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [**Chain state**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}.
+To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [**Chain state**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}.
 
 On the **Chain State** UI, make sure **Storage** is selected. Then you can start to request your identity information:
 
@@ -4764,15 +5437,15 @@ Proxy accounts can be set up to perform a limited number of actions on behalf of
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum level of access required to carry out their duties via a specific type of proxy account. 
 
-This tutorial will walk you through configuring a proxy account on the Tanssi Dancebox TestNet specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
+This tutorial will walk you through configuring a proxy account on the Tanssi TestNet specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 To follow along with this tutorial, you will need to have:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank} open and connected to the Tanssi Dancebox TestNet
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
 - Create or have two accounts accessible in Polkadot.js Apps
-- At least one of the accounts will need to be funded with `DANCE` tokens
+- At least one of the accounts will need to be funded with `{{ networks.dancelight.token_symbol }}` tokens
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
@@ -4791,13 +5464,22 @@ The equation for calculating the deposit is:
 deposit base + deposit factor * number of proxies
 ```
 
-You can find each of the relevant variables for the Dancebox TestNet below. Note that these values are subject to change for Tanssi MainNet.
+You can find each of the relevant variables for the Dancelight TestNet below. Note that these values are subject to change for Tanssi MainNet.
 
-|    Variable    |                       Value                        |
-|:--------------:|:--------------------------------------------------:|
-|  Deposit base  |  {{ networks.dancebox.proxy.deposit_base }} DANCE  |
-| Deposit factor | {{ networks.dancebox.proxy.deposit_factor }} DANCE |
-|  Max proxies   | {{ networks.dancebox.proxy.max_proxies }} proxies  |
+
+=== "Tanssi MainNet"
+    |    Variable    |                                      Value                                       |
+    |:--------------:|:--------------------------------------------------------------------------------:|
+    |  Deposit base  |  {{ networks.mainnet.proxy.deposit_base }} {{ networks.mainnet.token_symbol }}  |
+    | Deposit factor | {{ networks.mainnet.proxy.deposit_factor }} {{ networks.mainnet.token_symbol }} |
+    |  Max proxies   |                 {{ networks.mainnet.proxy.max_proxies }} proxies                 |
+
+=== "Dancelight"
+    |    Variable    |                                         Value                                          |
+    |:--------------:|:--------------------------------------------------------------------------------------:|
+    |  Deposit base  |  {{ networks.dancelight.proxy.deposit_base }} {{ networks.dancelight.token_symbol }}  |
+    | Deposit factor | {{ networks.dancelight.proxy.deposit_factor }} {{ networks.dancelight.token_symbol }} |
+    |  Max proxies   |                  {{ networks.dancelight.proxy.max_proxies }} proxies                   |
 
 ## Proxy Types {: #proxy-types }
 
@@ -4817,11 +5499,11 @@ For this guide, you will be setting up a proxy account using the balances proxy 
 
 ## Creating a Proxy Account {: #creating-a-proxy-account }
 
-There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions, potentially for malicious actions, and cancel if necessary before execution.
+There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions, potentially for malicious actions, and cancel if necessary before execution.
 
 The following demo will showcase configuring a Balances proxy, which allows for transferring funds, making it perfect for demonstration purposes. After configuring your Balances proxy you can try transferring funds from the primary account via proxy. 
 
-To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
+To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
 
 1. Select the primary account
 2. From the **submit the following extrinsic** dropdown, select **proxy**
@@ -4864,7 +5546,7 @@ In the next section, you will learn how to verify that your proxy account was se
 
 You can verify that your proxy account has been successfully set up in a couple of ways: either through the **Accounts** page or via the **Chain state** page.
 
-To check your proxy accounts from the [**Chain state** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/chainstate){target=\_blank}, you can take the following steps:
+To check your proxy accounts from the [**Chain state** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}, you can take the following steps:
 
 1. From the **selected state query** dropdown, select **proxy**
 2. Choose the **proxies** extrinsic
@@ -4887,7 +5569,7 @@ A pop-up will appear where you can see an overview of all of your proxy accounts
 
 Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the proxy account on behalf of the primary account.
 
-To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank} and take the following steps:
+To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} and take the following steps:
 
 1. Select the proxy account to submit the transaction from the **using the select account** dropdown
 2. From the **submit the following extrinsic** menu, select **proxy**
@@ -4898,7 +5580,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 7. Choose the **transferKeepAlive** extrinsic
 8. Choose **Id** from the **AccountIdLookupOf** dropdown
 9. In the **dest** field, enter the address you would like to send funds to
-10. In the **value** field, enter the amount of Dancebox tokens to send. For this example, you can send `2` Dancebox tokens
+10. In the **value** field, enter the amount of Dancelight tokens to send. For this example, you can send `2` Dancelight tokens
 11. Click **Submit Transaction**
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-8.webp)
@@ -4915,7 +5597,7 @@ That's it! You've successfully executed a transaction using a proxy account on b
 
 Similarly to adding a proxy account, there are a couple of ways that you can remove a proxy account, either from the **Extrinsics** page or the **Accounts** page. Regardless of which page you use, you can elect to remove a single proxy account or all proxies associated with your primary account.
 
-To remove a proxy from the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffraa-dancebox-rpc.a.dancebox.tanssi.network#/extrinsics){target=\_blank}, you can take the following steps:
+To remove a proxy from the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, you can take the following steps:
 
 1. From the **using the selected account** dropdown, select your primary account
 2. Then select **proxy**
@@ -5014,6 +5696,90 @@ This approach comes with some advantages, such as:
 - Run a complete local environment with the included [Zombienet](https://paritytech.github.io/zombienet){target=\_blank} configuration
 
 If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy Your Network via the Tanssi DApp](/builders/deploy/dapp/){target=\_blank} article to know how to use the Tanssi dApp to register and get your chain up and running.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/interoperability/built-in-bridge/
+--- BEGIN CONTENT ---
+---
+title: Using the Built-In Tanssi Bridge
+description: Learn how to use the built-in Tanssi bridge that connects Tanssi and Ethereum to convert TANSSI tokens between their native form and ERC-20 and vice versa.
+icon: octicons-arrow-switch-24
+categories: Basics
+---
+
+# Using the Built-In Tanssi Bridge
+
+## Introduction {: #introduction }
+
+The Tanssi protocol orchestrates infrastructure components, allowing developers to launch their customized appchains in minutes and providing them with out-of-the-box Ethereum-grade economic security. To make the whole process easy for developers, a [top-of-class architecture](/learn/tanssi/overview/#tanssi-architecture){target=\_blank} was designed and implemented.
+
+The [TANSSI token](/builders/tanssi-network/tanssi-token/){target=\_blank} is the engine that enables the integration of different infrastructural components with [external security providers](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} and aligns incentives across various actors, including token holders, node operators, and appchain builders. To serve different use cases, the token has two versions: the Tanssi network's native currency, TANSSI (Substrate), and its ERC-20 version, on Ethereum.
+
+Users can convert from one version to the other of the token using a [Tanssi built-in trustless bridge](/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
+
+In this guide, you'll learn how to move your assets from Tanssi to Ethereum and vice versa through a secure and user-friendly web interface available at the [Tanssi dApp](https://apps.tanssi.network/bridge){target=\_blank}, making cross-chain transfers accessible for everyone.
+
+## Prerequisites {: #prerequisites }
+
+Before using the Tanssi bridge, ensure you have:
+
+For bridging from Tanssi to Ethereum:
+
+- A [Substrate-compatible wallet](/builders/toolkit/substrate-api/wallets/){target=\_blank}, such as [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}.
+- TANSSI (Substrate) balance to transfer and pay the bridging fees.
+- The Ethereum-type destination account.
+
+For bridging from Ethereum to Tanssi:
+
+- An [Ethereum-compatible wallet](/builders/toolkit/ethereum-api/wallets/){target=\_blank}, such as [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+- TANSSI (ERC-20) balance to transfer.
+- ETH balance to pay the bridging fees.
+- The Substrate-type destination account.
+
+## Bridging TANSSI Tokens to Ethereum {: #bridge-to-ethereum }
+
+If you want to convert your TANSSI (Substrate) tokens to TANSSI (ERC-20) on Ethereum, head to the Tanssi dApp, open the [bridge section](https://apps.tanssi.network/bridge){target=\_blank}, and then follow these steps:
+
+1. Select **Mainnet** from the **From** dropdown.
+2. Click on **Connect Wallet**. A pop-up will appear, allowing you to select your preferred Substrate wallet and choose the corresponding account.
+
+![Select Tanssi Network and Connect the Wallet](/images/builders/interoperability/built-in-bridge/built-in-bridge-1.webp)
+
+Now, with your wallet connected:
+
+1. Select the destination account from the **Select recipient address** dropdown, or choose the **Enter a custom address** item and enter the account where you want to receive the ERC-20 tokens manually.
+2. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
+3. Click on **Send** and sign the transaction.
+
+![Execute the Transaction](/images/builders/interoperability/built-in-bridge/built-in-bridge-2.webp)
+
+And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
+
+!!! note
+    - You can easily add the TANSSI ERC-20 contract address to your wallet by clicking the **+** icon shown next to your balance.
+    - Fees to convert your TANSSI (Substrate) tokens to TANSSI (ERC-20) might fluctuate over time and must be paid using TANSSI.
+
+## Bridging ERC-20 TANSSI to Tanssi Network {: #bridge-to-tanssi }
+
+If you want to convert your TANSSI (ERC-20) tokens to TANSSI (Substrate) native on the Tanssi network, head to the Tanssi dApp, open the [bridge section](https://apps.tanssi.network/bridge){target=\_blank}, and then follow these steps:
+
+1. Select **Ethereum** from the **From** dropdown.
+2. Click on **Connect Wallet**, select your preferred Ethereum wallet, and choose the account.
+
+![Select Ethereum and Connect the Wallet](/images/builders/interoperability/built-in-bridge/built-in-bridge-3.webp)
+
+Now, with your wallet connected:
+
+1. Enter the Substrate destination account in the **Recipient** field.
+2. Enter the amount to bridge in the **Balance** field. The estimated bridge and transaction fees will be displayed along with the amount the destination account will receive.
+3. Click on **Send** and sign the transaction.
+
+![Execute the Transaction](/images/builders/interoperability/built-in-bridge/built-in-bridge-4.webp)
+
+And that's it! Your tokens will be bridged when the next session starts. You can see how much time remains in the current session in the progress bar.
+
+!!! note
+    Fees to convert your TANSSI (ERC-20) tokens to TANSSI (Substrate) native on the Tanssi network might fluctuate over time and must be paid using ETH.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/tanssi-network/tanssi-token/
@@ -5128,60 +5894,6 @@ To better understand the differences between the two token representations, the 
 | **Bridge Conversion**  | Can be bridged to ERC-20, paying fees in $TANSSI (Substrate)                                                                                                                                                            | Can be bridged to Substrate, paying fees in $ETH                                                                                                                                                  |
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/dancebox/
---- BEGIN CONTENT ---
----
-title: Get Started with Dancebox
-description: Dancebox is the Tanssi TestNet, and it is the easiest way to get started with the Tanssi Network to deploy your Substrate or EVM-compatible network.
-icon: octicons-star-24
-categories: Basics
----
-
-# Get Started with Dancebox
-
-## Introduction
-
-Dancebox is the first public Tanssi TestNet and is designed to streamline the deployment of decentralized networks. It allows teams to swiftly onboard and launch their networks within minutes, providing a robust environment for testing and development.
-
-This quick reference page offers all the essentials you need to get started on Dancebox.
-
-## TestNet Tokens {: #testnet-tokens }
-
-DANCE tokens serve as the native currency within the Dancebox Network. To initiate the deployment of a network on Dancebox, you'll need to obtain DANCE tokens. Follow these steps:
-
-1. Visit the [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank} website
-2. Complete the form by providing basic information and your Substrate-based address
-3. Within one business day of submitting the form, you'll receive DANCE tokens for testing
-
-!!! note
-    DANCE tokens have no value. Please don't submit unnecessary requests.
-
-## Network Endpoints {: #dancebox-network-endpoints }
-
-Dancebox has two types of endpoints available for users to connect to: one for HTTPS and one for WSS.
-
-=== "HTTPS"
-
-    ```text
-    https://{{ networks.dancelight.dns_name }}/
-    ```
-
-=== "WSS"
-
-    ```text
-    wss://{{ networks.dancelight.dns_name }}
-    ```
-
-## Block Explorers {: #dancebox-block-explorers }
-
-For Dancebox, you can use the following block explorer:
-
-- [Dancebox Subscan]({{ networks.dancelight.subscan_url }}){target=\_blank}
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/explorer){target=\_blank}
-
-Support for additional block explorers is in the works and as more explorers support Dancebox, this section will be updated accordingly.
---- END CONTENT ---
-
 ## Reference Concepts [shared: true]
 
 The following section contains reference material for Tanssi.
@@ -5208,14 +5920,30 @@ categories: Reference
 
 Tanssi networks have two endpoints available for users to connect to: one for HTTPS and one for WSS.
 
-## Dancebox
+## Tanssi MainNet
 
-The Dancebox TestNet HTTPS and WSS endpoints are as follows:
+The Tanssi Network MainNet HTTPS and WSS endpoints are as follows:
 
 === "HTTPS"
 
     ```text
-    https://{{ networks.dancelight.dns_name }}/
+    https://{{ networks.mainnet.dns_name }}
+    ```
+
+=== "WSS"
+
+    ```text
+    wss://{{ networks.mainnet.dns_name }}
+    ```
+
+## Dancelight
+
+The Dancelight TestNet HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    https://{{ networks.dancelight.dns_name }}
     ```
 
 === "WSS"
