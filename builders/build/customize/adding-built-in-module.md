@@ -2,7 +2,7 @@
 title: Adding Built-in Substrate Modules
 description: Learn how to leverage Substrate's pre-built, ready-to-use modules to efficiently add new features to your network without building from scratch.
 icon: octicons-package-24
-categories: EVM-Template
+categories: Custom-Runtime
 ---
 
 # Adding a Built-in Module {: #adding-builtin-module }

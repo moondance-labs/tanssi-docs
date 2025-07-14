@@ -2,7 +2,7 @@
 title: Set an Account Identity
 description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
 icon: octicons-person-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Set Up an Identity

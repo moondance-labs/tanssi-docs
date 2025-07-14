@@ -3,7 +3,7 @@ title: Run a Tanssi Node
 description: Learn how to set up and run a Tanssi node using Docker or Systemd to interact with the Tanssi network.
 icon: octicons-server-24
 template: index-page.html
-categories: Operators
+categories: RPC-Data-Preservers
 ---
 
 # Run a Tanssi Node

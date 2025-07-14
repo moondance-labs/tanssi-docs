@@ -2,7 +2,7 @@
 title: Run a Tanssi Node Using Docker
 description: Learn how to set up and run a node for Tanssi network using Docker to provide API endpoints for applications and users.
 icon: simple-docker
-categories: Operators
+categories: RPC-Data-Preservers
 ---
 
 # Run a Tanssi Node Using Docker

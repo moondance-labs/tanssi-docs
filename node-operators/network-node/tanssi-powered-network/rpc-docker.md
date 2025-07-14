@@ -2,7 +2,7 @@
 title: Run a Network Node Using Docker
 description: Discover how to configure and operate a Tanssi-powered network node using Docker, enabling you to host your own RPC endpoint for interaction with your chain.
 icon: material-docker
-categories: Operators
+categories: RPC-Data-Preservers
 ---
 
 # Run a Network Node Using Docker

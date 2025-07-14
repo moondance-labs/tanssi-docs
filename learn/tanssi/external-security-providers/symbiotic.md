@@ -2,7 +2,7 @@
 title: Ethereum with Symbiotic
 description: Tanssi's design allows developers to choose and connect to the Symbiotic restaking protocol, benefiting from Ethereum-grade security right from the start.
 icon: octicons-shield-check-24
-categories: EVM-Template
+categories: Basics
 ---
 
 # Ethereum with Symbiotic {: #ethereum-symbiotic }
