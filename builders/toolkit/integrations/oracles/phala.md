@@ -66,7 +66,7 @@ Next, this tutorial will showcase interacting with the price feed contracts on t
 
 For a refresher on setting up Remix to interface with the demo EVM network, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM network.
 
-Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
+Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
 ![Compile aggregator contract](/images/builders/toolkit/integrations/oracles/phala/phala-1.webp)
 
@@ -175,7 +175,7 @@ You'll get a transaction status as well as a contract address. Copy this contrac
 
 Next, this tutorial will demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM network. You can add your network to your MetaMask by pressing **Add to MetaMask** on your dashboard on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}.
 
-Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
+Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
 Then, take the following steps:
 
