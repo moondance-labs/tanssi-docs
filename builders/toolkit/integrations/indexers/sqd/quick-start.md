@@ -20,7 +20,7 @@ For the examples in this guide, you will need to have the following:
 
  - [Node.js](https://nodejs.org/en/download){target=\_blank} version 16 or newer
  - [Docker](https://docs.docker.com/get-started/get-docker/){target=\_blank}
- - [Squid CLI](https://docs.sqd.ai/squid-cli/installation){target=\_blank}
+ - [Squid CLI](https://docs.sqd.ai/squid-cli/installation/){target=\_blank}
 
 ## Index a Tanssi Substrate Network {: #index-substrate-networks }
 
@@ -100,7 +100,7 @@ To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to
     For more information on getting started with both of these templates, please check out the following SQD docs:
 
       - [Getting started: EVM chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
-      - [Quickstart: Squid generation tools](https://docs.sqd.dev/sdk/resources/tools/squid-gen/){target=\_blank}
+      - [Quickstart: Squid generation tools](https://docs.sqd.ai/sdk/resources/tools/squid-gen/){target=\_blank}
 
 2. Navigate into the root directory of your Squid project and install dependencies by running
 
