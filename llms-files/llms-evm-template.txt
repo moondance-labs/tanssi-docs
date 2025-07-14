@@ -1,6 +1,6 @@
 # Tanssi Developer Documentation (LLMS Format)
 
-This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
+This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
 It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
 
 This file includes documentation related to the product: EVM-Template
@@ -13,9 +13,8 @@ You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your
 - If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/tanssi/external-security-providers/symbiotic.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/build/customize/adding-built-in-module.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/build/templates/evm.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/smart-contracts-creation-filter.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/tanssi-network/testnet/demo-evm-network.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/dev-env/foundry.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/dev-env/hardhat.md [type: builders]
@@ -40,578 +39,11 @@ Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/head
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/integrations/oracles/band.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/integrations/oracles/phala.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/integrations/wallet-integrations/rainbowkit.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/dev-env/chopsticks.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/wallets/subwallet.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/wallets/talisman.md [type: builders]
 
 ## Full content for each doc page
-
-Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-providers/symbiotic/
---- BEGIN CONTENT ---
----
-title: Ethereum with Symbiotic
-description: Tanssi's design allows developers to choose and connect to the Symbiotic restaking protocol, benefiting from Ethereum-grade security right from the start.
-icon: octicons-shield-check-24
-categories: EVM-Template
----
-
-# Ethereum with Symbiotic {: #ethereum-symbiotic }
-
-## Introduction {: #introduction }
-
-The Tanssi protocol takes care of critical infrastructural components, making it easy for developers to launch their networks in a few minutes. In addition to block production, data retrievability, and integrations with essential tools such as wallets, RPC endpoints, block explorers, and others, another major task to tackle is providing security to the network.
-
-Tanssi is designed to offer developers a shared security model, alleviating them from having to source enough economic security or negotiating with operators to run nodes opting-in for their networks. By deploying networks through Tanssi, and by choosing [Symbiotic](https://symbiotic.fi/){target=\_blank} as a security provider, developers benefit from Ethereum-grade security, tapping into billions of dollars in shared security from staked ETH.
-
-The following sections describe how the Symbiotic protocol works and how Tanssi networks can leverage it as their consensus mechanism.
-
-## Ethereum-Grade Security with Symbiotic {: #symbiotic }
-
-[Symbiotic](https://symbiotic.fi/){target=\_blank} is a shared security protocol designed to be permissionless, multi-asset, and network-agnostic. It fosters capital efficiency by allowing users to extend the functionality of their staked assets to secure other networks while providing additional utility.
-
-The protocol provides a coordination layer for its main components and participants, aligning incentives among parties while minimizing execution layer risks by deploying non-upgradeable core contracts on Ethereum. The following diagram resumes all the components and actors participating in the protocol:
-
-```mermaid
-flowchart TD
-    %% Vaults subgraph
-    subgraph Ethereum["Ethereum/Symbiotic"]
-        slash[/Slashing Events/]
-        Restakers -- Deposit Assets --> Vaults
-        manager["Vault managers"] -- Manage --> Vaults
-        Resolvers -- Decide On --> slash
-        slash -- Executes On --> Vaults
-    end
-
-    %% Operators subgraph
-    subgraph Operators
-        direction BT
-        operators["Operators (Validators)"]
-        node_operators["Node Operators"]
-        node_operators -- Run --> operators
-    end
-
-    %% Networks subgraph
-    subgraph Networks
-        direction BT
-        developers["Developers"]
-        networks["Decentralized Networks"]
-        developers -- Launch --> networks
-    end
-
-    Vaults <--> Tanssi
-    Tanssi <--> Operators
-    Tanssi <--> Networks
-```
-
-Symbiotic's flexible design allows every party to decide on setups that best fit their use cases. For example, vaults can choose what forms of collateral they accept, operators can determine which networks they want to provide services to, and decentralized networks can customize their use case and define the level of security (which collaterals are accepted, for example) they need.
-
-The following sections describe the protocol's main components.
-
-### Vaults {: #vaults }
-
-[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, and set up delegation strategies.
-
-Each vault is bound to a specific token that satisfies the [IERC20](https://github.com/ethereum/ercs/blob/master/ERCS/erc-20.md){target=\_blank} interface and is accepted as collateral. Internally, the funds within the vault are represented as shares, which provide a mechanism for tracking ownership and distributing rewards. However, the reward token may differ from the collateral token.
-
-A vault comprises three key modules, each serving a distinct function: the slasher, the delegator, and the accounting module. The implementation of these modules can vary depending on the vault manager's decisions.
-
-- **Slasher module** - implements the [slashing](#slashing-process) logic, which penalizes bad actors
-- **Delegator module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator){target=\_blank} are available, allowing the vault manager to select which operators and networks they want to work with
-- **Accounting module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/){target=\_blank}, which provides a vault with a shares system included
-
-Since the operators get delegated stake from the vault and could potentially get slashed, they must be approved by the vault managers beforehand. On a similar note, vault managers analyze and authorize each network the vault will secure, considering, for example, the rewards the network offers.
-
-Vault managers also designate [resolvers](https://docs.symbiotic.fi/modules/counterparties/resolvers){target=\_blank}, responsible for approving or vetoing [slashing events](https://docs.symbiotic.fi/modules/vault/slasher){target=\_blank} caused by operators on networks with [veto-slashing](https://docs.symbiotic.fi/modules/vault/slasher#veto-slashing){target=\_blank} support, like the Tanssi Network.
-
-### Operators {: #operators }
-
-[Node operators](/node-operators/){target=\_blank} are entities or individuals responsible for running the [nodes (also known as operators or validators)](https://docs.symbiotic.fi/modules/counterparties/operators){target=\_blank}, which are the computational components validating the networks' transactions. They are responsible for the nodes' configuration, hardware setup, uptime, and performance.
-
-Node operators opt-in to provide services to networks, which must accept their request. Also, they opt-in to provide services in vaults, which must accept their request.
-
-Once an operator has been accepted by a vault and a network connected to that vault, the node can start providing validation services to that network, receiving rewards in exchange.
-
-### Networks {: #networks }
-
-[Networks](https://docs.symbiotic.fi/modules/counterparties/networks){target=\_blank} are the actively validated services or networks. These application-specific blockchains can be a use case from a wide range of industries, such as Gaming, Defi, RWAs, and others, and are the platforms that, through dApps, the end users interact with.
-
-Since operators opt-in to provide services to networks and the vault managers must accept the networks, the developers are responsible for defining, controlling, and adapting their methodology for onboarding, rewarding, and slashing operators.
-
-!!! note
-    Networks deployed through Tanssi don't need to work on the relation with vaults and operators since the Tanssi protocol deals with those complexities.
-
-## Tanssi with Symbiotic {: #tanssi-symbiotic }
-
-Developers launching networks through Tanssi benefit from [block production services](/learn/tanssi/network-services/block-production/){target=\_blank}, data retrievability as a service, and the shared security model derived from every vault opting-in to support the Tanssi protocol. This eliminates the hurdle of dealing with infrastructural and security components developers would need to take on otherwise.
-
-Vault managers running vaults can apply to offer the restaked collaterals as economic security for the Tanssi Network. Since Tanssi networks run in a sandbox-like environment, and the Tanssi protocol manages all the networks-related responsibilities, vault managers only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of networks that are running through the Tanssi protocol at any given moment.
-
-Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi Network and, consequently, to every network deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi network is launched or decommissioned.
-
-!!! note
-    The Tanssi protocol effectively abstracts the details of the active set of networks away from vault managers and operators. Networks particularities don't require any additional setup from operators nor pose risks to vault assets.
-
-All things combined shape a functional and elegant ecosystem where developers can focus on creating and innovating. Tanssi handles the infrastructural components, guaranteeing liveness and performance, and Symbiotic provides the economic safeguards to ensure the validity of the operations.
-
-```mermaid
-flowchart LR
-    subgraph Symbiotic
-        direction LR
-        Operators
-        Vaults
-    end
-    Symbiotic  -- Validates/Secures --> tanssi["Tanssi Network"]
-    tanssi -- Block Production Services--> Networks
-    tanssi -- Security--> Networks
-    tanssi -- Data Retrievability--> Networks
-
-    class Symbiotic custom-container
-```
-
-### Tanssi-Ethereum Communication {: #tanssi-ethereum-communication }
-
-It is important to learn how Tanssi and Ethereum exchange data to understand the mechanics of the protocol. They connect through a two-way bridge that lets them communicate with each other. Each protocol has a specific job in making cross-chain operations possible.
-
-There are three key components between Symbiotic and Tanssi:
-
-```mermaid
-flowchart LR
-
-Tanssi["Tanssi"] <--> Relayer 
-Relayer <--> Gateway 
-Gateway["Gateway"] <--> Middleware
-Middleware <--> Symbiotic["Symbiotic"]
-
-class Tanssi tanssiNode;
-
-class Middleware middlewareNode;
-
-class Gateway gatewayNode;
-
-class Symbiotic symbioticNode;
-
-class Relayer relayerNode;
-```
-
-- **`Relayer`** - is the software that continuously monitors both blockchains and transmits messages. Enabling reliable bidirectional communication between Tanssi and Ethereum, serving as the connection layer that ensures messages are correctly delivered across networks
-
-- **`Gateway`** - operates on the Ethereum side of the bridge and serves three essential functions. It receives, verifies, and routes incoming messages from Tanssi to ensure they are correctly processed. The contract accepts outgoing messages destined for the Tanssi network, preparing them for relay. Finally, it handles higher-level application functionalities, most notably token transfers between the two networks, providing a secure interface for cross-chain asset movement
-
-- **`Middleware`** - is Tanssi's implementation for handling network events and operations. It is the critical link between the `Gateway` and Tanssi's core protocol
-
-The `Middleware` plays a central role in network coordination between Tanssi and Symbiotic. It distributes rewards to operators and vaults based on their network security and performance contributions. The contract sorts operators by stake to create a merit-based ranking system for their selection and transmits the list of sorted operator keys to Tanssi for assignment. Additionally, it facilitates operator registration processes and handles the reward and slashing protocols that maintain network incentive alignment.
-
-#### From Ethereum to Tanssi {: #from-ethereum-tanssi }
-
-The `Middleware` transmits operator set information to Tanssi for session assignment through the bridge. It sends details about active operators for each epoch, ordering them by their total stake aggregated across vaults. Tanssi then uses this information to assign operators for upcoming sessions, ensuring that the most economically aligned ones secure the network. This mechanism creates a stake-weighted operator selection process where economic security on Ethereum translates to operational security on Tanssi.
-
-#### From Tanssi to Ethereum {: #from-tanssi-ethereum }
-
-Tanssi sends operational data back to Ethereum through the same communication channel. This message includes reward information that enables proper distribution to stakeholders based on network performance. The network also transmits slashing event data when operators fail to perform correctly or violate protocol rules, allowing the protocol to apply penalties. Tanssi can also request new tokens to be created on Ethereum and register tokens, making managing assets between both networks easy.
-
-### Rewards {: #rewards }
-
-Well-behaved operators and restakers are rewarded for their participation with TANSSI tokens. The reward process consists of two main phases: [Reward Distribution Phase](#reward-distribution-phase) and [Reward Claiming Phase](#reward-claiming-phase).
-
-#### Reward Distribution Phase {: #reward-distribution-phase }
-
-The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
-
-1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
-2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.network/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://docs.snowbridge.network/){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
-3. **Ethereum Message Reception** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
-4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, which is responsible for various tasks, including passing the information to the `OperatorReward` contract
-5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
-
-```mermaid
-%%{init: {'sequence': {'mirrorActors': false}}}%%
-sequenceDiagram
-    participant Tanssi Network
-    participant Snowbridge (XCM)
-    participant Gateway
-    participant Middleware
-    participant OperatorRewards
-
-    Tanssi Network->>Tanssi Network: 1. Calculate rewards and generate Merkle root
-    Tanssi Network->>Snowbridge (XCM): 2. Reward data sent via XCM (Merkle root + data)
-    Snowbridge (XCM)->>Gateway: 3. Relay message and sent to Ethereum 
-    Gateway ->>Middleware: 4. Message processing and validation
-    Middleware->>OperatorRewards: 5. Reward storage and distribution
-```
-
-#### Reward Claiming Phase {: #reward-claiming-phase }
-
-In the reward-claiming phase, operators and stakers can claim rewards based on their participation in the network. Tanssi determines the share distribution for operators and stakers, currently setting it at 20% for operators and 80% for stakers.
-
-1. **Operator Reward Claim** - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
-2. **Token Release** - the operator call triggers the token release, and the `OperatorRewards` sends the established amount to the operator
-3. **Token Distribution to Stakers** - the remaining rewards are forwarded to the `StakerRewards` contract for further claiming of the staker
-4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol){target=\_blank} contract, where stakers can claim rewards proportional to their stake in the vaults
-
-```mermaid
-%%{init: {'sequence': {'mirrorActors': false}}}%%
-sequenceDiagram
- participant Operator
- participant OperatorRewards
- participant StakerRewards
- participant Stakers
-
- Operator->>OperatorRewards: 1. Operator reward claim
- OperatorRewards->>Operator: 2. Release rewards to the operator
- OperatorRewards->>StakerRewards: 3. Forward the remainder to StakerRewards
- Stakers->>StakerRewards: 4. Stakers claim individual rewards
-```
-
-### Slashing {: #slashing }
-
-The Tanssi protocol implements slashing to penalize operators for misbehavior. When a slashing event is triggered, the authorities designated as resolvers by the vault managers can either accept or revert this action.
-
-The following actions can trigger slashing events:
-
-- Producing invalid blocks (e.g., blocks that include invalid transactions)
-- Invalid validation (e.g., double-signing or breaking protocol rules)
-- Downtime or unavailability
-- Consensus violations
-
-!!!note
-    Slashing events can only be triggered by operators' misbehavior within the Tanssi Network. Even if Tanssi networks are faulty or malicious, they operate in a sandboxed environment and cannot cause slashing.
-
-#### Slashing Process {: #slashing-process }
-
-The slashing process follows a path similar to that of rewards. When an operator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). The message passes through the `Gateway` and into the `Middleware` where the slashing method gets called.
-
-The slashing method receives a unique identifier for the operator's identity, the severity of the slash as a percentage of the operator's assigned stake in each vault, and the time context within which the offense occurred.
-
-The slashing process consists of the following steps:
-
-1. **Slash Reported** - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, `percentage`, and `epoch`
-2. **Operator Validation** - the `Middleware` validates the operator's identity and checks if the operator is subject to slashing
-3. **Retrieve Active Vaults** - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
-4. **Retrieve Operator Stake** - for each active vault, the `Middleware` retrieves the stake of the misbehaving operator
-5. **Calculate Slash Amount** - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
-6. **Slashing** - depending on the vault's slashing implementation, there are two possible routes
-
-    - **Instant Slashing** - if the vault uses instant slashing, the stake is immediately reduced
-
-    - **Veto Slashing** - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
-
-    The slashing is canceled if the resolver vetoes the request within the time window. Otherwise, the slashing penalty is executed if no veto occurs within the time window
-
-This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
-
-```mermaid
-%%{init: {'sequence': {'mirrorActors': false}}}%%
-sequenceDiagram
-    participant Network
-    participant Middleware
-    participant Vault
-    participant Slasher
-    
-    Network->>Middleware: 1. Slash reported
-    Middleware->>Middleware: 2. Operator validation
-    loop Each Active Vault
-        Middleware->>Vault: 3. Retrieve operator stake
-        Vault-->>Middleware: 4. Retrieve vault stake
-        Middleware->>Middleware: 5. Calculate slash amount
-        alt Instant Slasher
-            Middleware->>Slasher: 6.1 Slash
-        else Veto Slasher
-            Middleware->>Slasher: 6.2 Request slash
-            opt If Not Vetoed
-                Slasher->>Slasher: 6.2 Execute slash
-            end
-        end
-    end
-```
-
-#### Burner {: #burner }
-
-The `Burner` contract is an extension responsible for handling actions that follow a [slashing event](#slashing-process), notably the burning of slashed collateral. Once a slash is executed, the `Slasher` contract calls the `Burner` to carry out these post-slashing tasks.
-
-Within the protocol, the `Burner` contract plays a crucial role in deciding what happens after slashing. While there are different ways to implement the burning process, the recommended approach is to burn the slashed assets.
-When a slash is executed, the `Burner` contract's `onSlash` function is activated. This function kicks off the process of burning the slashed assets.
-
-The vault manager chooses the specific implementation of the burning process during the vault's initialization phase, and once set, the vault manager cannot modify it. The exact design of the `Burner` contract may differ depending on the type of collateral asset involved. Below are some potential implementation options:
-
-- **Burning Tokens** - if the slashed collateral is a regular ERC-20 token, the `Burner` destroys those tokens, permanently removing them from circulation
-- **Unwrapping and Burning** - if the slashed tokens represent something like staked assets (e.g., liquid staking tokens) or liquidity provider (LP) tokens from a decentralized exchange (DEX), the `Burner` might convert them back into their original form before burning them
-- **Cross-Chain Operations** - if the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
-- **Alternative Handling** - sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do
-
-Burning slashed collateral is important because it penalizes misbehaving operators and reduces the total supply of tokens, which can have deflationary effects.
---- END CONTENT ---
-
-Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-built-in-module/
---- BEGIN CONTENT ---
----
-title: Adding Built-in Substrate Modules
-description: Learn how to leverage Substrate's pre-built, ready-to-use modules to efficiently add new features to your network without building from scratch.
-icon: octicons-package-24
-categories: EVM-Template
----
-
-# Adding a Built-in Module {: #adding-builtin-module }
-
-## Introduction {: #introduction }
-
-Substrate is a powerful and modular software development framework included in the Polkadot SDKs for building blockchains. It provides a comprehensive set of tools and libraries that abstract complex blockchain functionalities, allowing developers to focus on building innovative features and applications by focusing on the runtime, which contains the core logic and the rules of the state transition for the use case.
-
-What sets Substrate apart is its modular architecture, which enables the seamless integration of [built-in modules](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame){target=\_blank} and the creation of custom ones, facilitating the development of blockchain protocols.
-
-For cases requiring only EVM (Ethereum Virtual Machine) compatibility, the template provided in the [Tanssi repository](https://github.com/moondance-labs/tanssi#container-chain-templates){target=\_blank} fulfills the requirements without further modifications. However, teams aiming to build a Substrate network must add and configure both built-in and custom modules within the runtime. This involves compiling, generating the chain specification, and deploying through the Tanssi protocol to transform it into a live Tanssi-powered network.
-
-This article focuses on the necessary steps for adding a built-in module to the EVM template.
-
-## Checking Prerequisites {: #checking-prerequisites }
-
-To follow the steps in this guide, you will need to have the following:
-
-- A healthy development environment with the Rust compiler and Cargo package manager
-- The [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}, cloned from GitHub
-
-You can read more about how to install the required components in the [prerequisites article](/builders/build/customize/prerequisites/){target=\_blank}.
-
-As this article is based on the EVM template, make sure that it compiles correctly before continuing by executing the following command:
-
-```bash
-cargo build -p container-chain-frontier-node --release
-```
-
-## Adding a Built-in Module to the Runtime {: #adding-a-built-in-module-to-runtime }
-
-As introduced in the [modularity](/learn/framework/modules/){target=\_blank} article, the Substrate framework already includes many built-in modules addressing a wide range of functionalities, ready to be used in your runtime.
-
-Modules are meant to provide the functionality needed in very different use cases such as DeFi, NFTs, or any other, and, therefore, they are basic building blocks that are inherently abstract and can be configured according to the specific needs of the Tanssi-powered network.
-
-To add a module, the following steps are necessary:
-
-1. Make the dependency available within the project by declaring it in [Cargo](https://doc.rust-lang.org/cargo){target=\_blank}, the Rust language package manager
-2. Make the standard (`std`) features of the module available to the compiler
-3. Configure the module
-4. Add the module to the runtime
-5. Add the default configuration to the chain specification
-
-In the following example, the popular Substrate module `pallet-assets` is added to the runtime of the provided EVM template, found in the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank}, specifically in the folder `container-chains/templates/frontier/`.
-
-### Declare the Dependency {: #declare-dependency }
-
-Every package contains a manifest file named `Cargo.toml` stating, among other things, all the dependencies the package relies on, and the Tanssi-powered network runtime is no exception.
-
-Therefore, the first step, is to declare the dependency and make it available to the runtime, open the `Cargo.toml` file located in the folder `container-chains/templates/frontier/runtime` with a text editor and add the module, referencing the code in the Polkadot SDK:
-
-```toml
-[dependencies]
-...
-pallet-assets = { 
-   git = "https://github.com/moondance-labs/polkadot-sdk", 
-   branch = "{{ repository.tanssi.release_branch }}", 
-   default-features = false 
-}
-...
-```
-
-!!! note
-    Our engineering team actively contributes to the Substrate development by fixing issues and enhancing functionalities. As a result, the Tanssi fork repository frequently stays ahead of the official one. That is why this example references a built-in module from a Tanssi repository instead of the official one.
-
-### Make the Standard Features Available to the Compiler {: #standard-features }
-
-In Cargo, the “features” flags provide a mechanism to tell the compiler to include or leave out certain portions of code, which is a useful mechanism to optimize compile time, minimize binary file sizes, or disable certain behavior (for example, not including unit testing or benchmarking functionality in the runtime intended for production).
-
-To compile the standard features for the Assets module within the runtime, the same `Cargo.toml` file in the `runtime` folder must be edited, enabling the flag. Everything listed in this section will ensure that it is available to the compiler when building the runtime binary, which is ultimately the file containing all the information to run your Tanssi-powered network initially.
-
-```toml
-[features]
-default = [
-	"std",
-]
-std = [
-	...,
-	"pallet-assets/std",
-   ...
-]
-```
-### Configure the Module {: #configure-the-module }
-
-With the dependency declared in the project, the module can now be configured and added to the runtime. To do so, you need to edit the `lib.rs` file that is located at:
-
-```text
-container-chains/templates/frontier/runtime/src/lib.rs
-```
-
-The configuration of new modules requires implementing a configuration `trait` for the module (in this example, for Assets) in the runtime, expressed in Rust as follows:
-
-```rust
-// Implements pallet_assets::Config trait in the runtime
-impl pallet_assets::Config for Runtime { ... }
-```
-
-[Traits](https://doc.rust-lang.org/book/ch10-02-traits.html){target=\_blank} are a way of defining shared behavior in Rust, and in this case, they allow a new runtime to benefit from the functionality the Assets module provides only by implementing its configuration trait and parameters.
-
-Some of the parameters the trait needs to define might be constant values, in which case, they have to be defined and enclosed within the macro `parameter_types!`, which helps us to reduce the development effort by expanding the code and converting each of the constants into the correct struct type with functions that allow the runtime to read its type and values in a standardized way.
-
-The following code snippet shows an example of the constant definitions to be used in the configuration of the module:
-
-```rust
-parameter_types! {
-   // The amount of funds that must be reserved for an asset
-	pub const AssetDeposit: Balance = 100;
-   // The amount of funds that must be reserved when creating 
-   // a new transfer approval
-	pub const ApprovalDeposit: Balance = 1;
-   // The basic amount of funds that must be reserved when adding metadata 
-   // to your asset
-	pub const MetadataDepositBase: Balance = 10;
-   // The additional funds that must be reserved for the number of bytes 
-   // you store in your metadata
-	pub const MetadataDepositPerByte: Balance = 1;
-
-   // Maximum lenght for the asset symbol and friendly name
-   pub const StringLimit: u32 = 50;
-}
-```
-
-It is important to note that every built-in module has a different purpose, and, therefore, each of them has different needs in terms of the parameters that must be configured. The following code snippet implements the trait and configures the module Assets, using types and the constants defined previously in the `parameter_types!` macro:
-
-```rust
-// Implementing the Assets config trait for the runtime
-impl pallet_assets::Config for Runtime {
-   
-   // Stores the balances in an unsigned integer of 128bits
-	type Balance = u128;
-   // The id of an asset can be defined as an unsigned integer of 64 bits
-	type AssetId = u64;
-   // Uses module Balances as mechanism for currency operations
-	type Currency = Balances;
-
-   // Configure the module by referencing the previously
-   // defined constants
-
-	type AssetDeposit = AssetDeposit;
-	type MetadataDepositBase = MetadataDepositBase;
-	type MetadataDepositPerByte = MetadataDepositPerByte;
-	type ApprovalDeposit = ApprovalDeposit;
-	type StringLimit = StringLimit;
-   
-   // More configuration
-   ...
-}
-```
-
-??? code "View the complete script"
-
-    ```rust
-    parameter_types! {
-    // The amount of funds that must be reserved for an asset
-    pub const AssetDeposit: Balance = 100;
-    // The amount of funds that must be reserved when creating 
-    // a new transfer approval
-    pub const ApprovalDeposit: Balance = 1;
-    // The basic amount of funds that must be reserved when adding metadata 
-    // to your asset
-    pub const MetadataDepositBase: Balance = 10;
-    // The additional funds that must be reserved for the number of bytes 
-    // you store in your metadata
-    pub const MetadataDepositPerByte: Balance = 1;
-    // Maximum lenght for the asset symbol and friendly name
-    pub const StringLimit: u32 = 50;
-}
-
-// Implementing the Assets config trait for the runtime
-impl pallet_assets::Config for Runtime {
-    type RuntimeEvent = RuntimeEvent;
-
-    // Stores the balances in an unsigned integer of 128bits
-    type Balance = u128;
-    // The id of an asset can be defined as an unsigned integer of 64 bits
-    type AssetId = u64;
-    // Uses module Balances as mechanism for currency operations
-    type Currency = Balances;
-
-    // Configure the module by referencing the previously
-    // defined constants
-    type AssetDeposit = AssetDeposit;
-    type MetadataDepositBase = MetadataDepositBase;
-    type MetadataDepositPerByte = MetadataDepositPerByte;
-    type ApprovalDeposit = ApprovalDeposit;
-    type StringLimit = StringLimit;
-
-    // More configuration
-    type AssetIdParameter = u64;
-    // Defines the allowed origins to create assets
-    type CreateOrigin = 
-        frame_support::traits::AsEnsureOriginWithArg<frame_system::EnsureSigned<AccountId>>;
-    // Root can create assets
-    type ForceOrigin = EnsureRoot<AccountId>;
-    type AssetAccountDeposit = frame_support::traits::ConstU128<1>;
-    type Freezer = ();
-    type Extra = ();
-    type WeightInfo = pallet_assets::weights::SubstrateWeight<Runtime>;
-    type RemoveItemsLimit = frame_support::traits::ConstU32<1000>;
-    #[cfg(feature = "runtime-benchmarks")]
-    type BenchmarkHelper = ();
-    type CallbackHandle = ();
-}
-    ```
-
-The complete configuration of the module contains more parameters, to view a detailed description of each of them, refer to the [official config trait for the Assets module documentation](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=\_blank}.
-
-### Add the Module to the Runtime {: #add-module-to-runtime }
-
-In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro `construct_runtime!()`. This is where the pallet must be added to be included in the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now also Assets:
-
-```rust
-construct_runtime!(
-   pub enum Runtime where
-      Block = Block,
-      NodeBlock = opaque::Block,
-      UncheckedExtrinsic = UncheckedExtrinsic,
-   {
-      // System support stuff.
-      System: frame_system = 0,
-      ParachainSystem: cumulus_pallet_parachain_system = 1,
-      Timestamp: pallet_timestamp = 2,
-      ParachainInfo: parachain_info = 3,
-      Sudo: pallet_sudo = 4,
-      Utility: pallet_utility = 5,
-      ...
-      Balances: pallet_balances = 10,
-      // Assets module is added here
-      Assets: pallet_assets = 11,
-      ...
-   }
-```
-
-### Configure the Module in the Chain Specification {: #configure-chain-specs }
-
-Finally, add the configuration in the chain specification for the genesis state in the file `chain_spec.rs` located at:
-
-```text
-container-chains/templates/frontier/node/src/chain_spec.rs
-```
-
-The function `testnet_genesis`, presented in the following code snippet, defines the initial state for the modules included in the runtime (such as initial funded accounts, for example). After adding the Assets module, it is necessary to initialize it as well, and in the following example, its default values are defined.
-
-More about the chain specification and how to configure it will be covered in the article [Customizing Chain Specifications](/builders/build/customize/customizing-chain-specs/){target=\_blank}.
-
-```rust hl_lines="14"
-fn testnet_genesis(
-   endowed_accounts: Vec<AccountId>,
-   id: ParaId,
-   root_key: AccountId,
-) -> container_chain_template_frontier_runtime::GenesisConfig {
-   container_chain_template_frontier_runtime::GenesisConfig {
-      system: container_chain_template_frontier_runtime::SystemConfig {
-         code: container_chain_template_frontier_runtime::WASM_BINARY
-               .expect("WASM binary was not build, please build it!")
-               .to_vec(),
-      },
-      ...
-      // Add the default state for this module in the genesis state
-      assets: Default::default()
-      ...
-   }
-}
-```
-
-With the module included, this new runtime version has unlocked a new set of functionalities ready to be composed with even more of the Substrate built-in modules or custom-made ones.
---- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/build/templates/evm/
 --- BEGIN CONTENT ---
@@ -658,13 +90,105 @@ To reach full Ethereum compatibility, these specific modules are also included:
 Both modules are part of the [Frontier](https://github.com/paritytech/frontier){target=\_blank} project, which is the backbone of Ethereum-compatible Tanssi-powered networks.
 --- END CONTENT ---
 
+Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/smart-contracts-creation-filter/
+--- BEGIN CONTENT ---
+---
+title: Smart EVM - Whitelist Contract Deployments
+description: Learn how to use Sudo to whitelist smart contract deployers for your Smart EVM Tanssi-powered network, increasing overall security.
+icon: octicons-file-binary-24
+categories: Appchain, EVM-Template
+---
+
+# Smart EVM - Whitelist Contract Deployments
+
+## Introduction {: #introduction }
+
+EVM-compatible Tanssi-powered networks benefit from a unique feature: the network governor can define which accounts are authorized to deploy smart contracts, forbidding the action for any other non-whitelisted account.
+
+This feature brings several key benefits that might be a great fit for different use cases or contexts. Some of those benefits are:
+
+- **Enhanced Security** - by restricting deployment to trusted accounts, the risk of deploying malicious or vulnerable smart contracts is reduced
+- **Quality Assurance** - known and vetted accounts can be required to follow specific coding standards and undergo thorough testing before deployment
+- **Regulatory Compliance** - uses cases that are highly regulated can limit deployment to ensure that smart contracts meet legal and compliance requirements
+- **Spam and Abuse Prevention** - prevent bad actors from deploying large numbers of unnecessary or harmful contracts
+
+In this guide, you'll learn how to use the Sudo account to manage the whitelisted accounts that can deploy smart contracts on your network.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+For the examples in this guide, you will need to have the following:
+
+ - An EVM-compatible Tanssi-powered network (Quick Trial or Dedicated) running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above. Any new network deployment based on the [EVM template](/builders/build/templates/evm/){target=\_blank} will do
+ - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
+
+If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+
+![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
+
+!!! warning
+    It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi network.
+
+## Getting Started {: #getting-started }
+
+To follow the next sections of this guide, head to Polkadot.js Apps for your Tanssi network. The Polkadot.js Apps link for your Tanssi network can be found in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Tooling** section.
+
+![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-1.webp)
+
+Once in Polkadot.js Apps, navigate to the **Developer** tab and click on **Sudo**.
+
+!!! note
+    If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}.
+
+## Whitelisting Accounts {: #whitelist-accounts }
+
+To define the accounts that will have authorization to deploy smart contracts, [get your Polkadot.js Apps started](#getting-started) and then take the following steps:
+
+1. Select the **parameters** pallet. **setParameter** will be automatically selected in the functions selector and **ContractDeployFilter** in the **keyValue** parameter
+2. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to whitelist the accounts for smart contract deployments and the latter to whitelist the accounts for indirect  (via a smart contract call) smart contract deployments
+3. Toggle the **Include option** switch
+4. Select the **Whitelisted** option
+5. Insert the whitelisted account
+6. If you need to insert more than one account, click on **Add item**
+7. Press **Submit Sudo** and confirm the transaction in your wallet
+
+![Whitelisting Accounts](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-2.webp)
+
+These same steps can be repeated at any moment to remove an account from the whitelist or to add new ones.
+
+## Restoring Permissions to Deploy Smart Contracts {: #restoring-permission}
+
+If you previously authorized some accounts to deploy smart contracts and want to allow any account to deploy smart contracts (as long as they can cover regular transaction fees), then [get your Polkadot.js Apps started](#getting-started) and take the following steps:
+
+1. Select the **parameters** pallet. **setParameter** will be automatically selected in the functions selector and **ContractDeployFilter** in the **keyValue** parameter
+2. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to clear the whitelist for smart contract deployments and the latter to clear the whitelist for indirect  (via a smart contract call) smart contract deployments
+3. Toggle the **Include option** switch
+4. Select the **All** option
+5. Press **Submit Sudo** and confirm the transaction in your wallet
+
+![Clearing the Whitelisted Accounts](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-3.webp)
+
+## Query the Whitelisted Accounts {: #query-whitelisted-accounts }
+
+To get the current configuration containing the whitelisted accounts that can deploy smart contracts, go to Polkadot.js Apps (as explained in the [Getting Started](#getting-started) section), navigate to the **Developer** tab, click on **Chain state**, and take the following steps:
+
+1. Select the **parameters** storage
+2. Select the **parameters(ContainerChainTemplateFrontierRuntimeParametersKey)** option
+3. Make sure that the **Include option** switch is on
+4. Make sure that the **ContractDeployFilter** option is selected
+5. Two options will be available in the **ContractDeployFilter** selector: **AllowedAddressesToCreate** and **AllowedAddressesToCreateInner**. Select the **AllowedAddressesToCreate** option if you want to query the whitelist for smart contract deployments and the latter to query the whitelist for indirect (via a smart contract call) smart contract deployments
+6. Click the **+** button
+7. The current configuration will be displayed
+
+![Query the Whitelists](/images/builders/manage/developer-portal/smart-contracts-creation-filter/smart-contracts-creation-filter-4.webp)
+--- END CONTENT ---
+
 Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/demo-evm-network/
 --- BEGIN CONTENT ---
 ---
 title: Demo EVM Tanssi Network
 description: Test our demo EVM Tanssi network to discover the capabilities of a fully Ethereum-compatible network deployed through Tanssi in just a few minutes.
 icon: material-ethereum
-categories: EVM-Template
+categories: Appchain, EVM-Template
 ---
 
 ## Introduction
@@ -7682,7 +7206,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/
 title: Index ERC-20 Transfers on an EVM Network
 description: Learn how to use the Squid SDK, a query node framework that can index both Substrate and EVM data, to process blockchain data for your Tanssi-powered network.
 icon: octicons-arrow-switch-24
-categories: EVM-Template, Substrate-Template
+categories: EVM-Template
 ---
 
 # Indexing ERC-20 Transfers on a Tanssi EVM Network
@@ -10370,6 +9894,501 @@ The complete example code is available in the [rainbow-manual-build-demo reposit
 </div>
 --- END CONTENT ---
 
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/chopsticks/
+--- BEGIN CONTENT ---
+---
+title: How to use Chopsticks to Fork Your Network
+description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi network.
+icon: octicons-code-square-24
+categories: Substrate-Template, EVM-Template
+---
+
+# How to Use Chopsticks to Fork Your Network
+
+## Introduction {: #introduction }
+
+[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} provides a developer-friendly method of locally forking existing [Substrate-based](/learn/framework/overview/){target=\_blank} chains. It allows for the replaying of blocks to easily examine how transactions affect the state, the forking of multiple Tanssi networks for XCM testing, and more. This empowers developers to test and experiment with their custom blockchain configurations in a local development environment without deploying a live network.
+
+Overall, Chopsticks aims to simplify the process of building blockchain applications on Substrate and make it accessible to a wider range of developers.
+
+This article will cover using Chopsticks to fork and interact with the local copy of a Tanssi network.
+
+!!! note
+    Chopsticks currently does not support calls done via the Ethereum JSON-RPC. Consequently, you can't fork your chain using Chopsticks and connect Metamask to it.
+
+## Prerequisites {: #prerequisites }
+
+To follow along with this tutorial, you will need to clone the repository along with its submodules([Smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
+
+```bash
+git clone --recurse-submodules https://github.com/AcalaNetwork/chopsticks.git
+```
+
+Then, get into the folder and install the dependencies using [yarn](https://classic.yarnpkg.com/en/docs/install){target=\_blank}:
+
+```bash
+ cd chopsticks && yarn
+```
+
+Finally, build the project:
+
+```bash
+yarn build-wasm
+```
+
+Now the development environment is ready to start testing and debugging Tanssi-deployed networks.
+
+## Forking a Demo EVM Network with Chopsticks {: #forking-demo-chain }
+
+To fork a Tanssi network using Chopsticks, execute the command with only the RPC endpoint as a parameter:
+
+```bash
+yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}
+```
+
+This command will start a local clone of the chain as it was in the latest block.
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>
+    chopsticks % yarn start --endpoint wss://dancelight-2001.tanssi-api.network
+  </span>
+  <span data-ty>
+    [01:59:42.628] INFO (xcm/59650): Frontier Container 2001 RPC listening on port 8000
+  </span>
+</div>
+
+Typically, the configuration parameters are stored in a configuration file, as are the configurations in the repository's `configs` folder for the relay chains and parachains deployed in the Dotsama ecosystem. The following configuration file works for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}, overriding the chain's sudo account with Alith's and additionally funding the account with tokens:
+
+```yaml
+endpoint: {{ networks.dancelight.demo_evm_rpc_wss_url }}
+mock-signature-host: true
+allow-unresolved-imports: true
+db: ./tmp/db_ftrcon.sqlite
+
+import-storage:
+  System:
+    Account:
+      - - - "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac" # Alith
+        - providers: 1
+          sufficients: 1
+          consumers: 1
+          data:
+            free: "100000000000000000000000"
+  Sudo:
+    Key: "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac"
+```
+
+The configuration file accepts all of the following parameters:
+
+|           Option           |                                                 Description                                                  |
+|:--------------------------:|:------------------------------------------------------------------------------------------------------------:|
+|         `genesis`          |          The link to a parachain's raw genesis file to build the fork from, instead of an endpoint.          |
+|        `timestamp`         |                                     Timestamp of the block to fork from.                                     |
+|         `endpoint`         |                                    The endpoint of the parachain to fork.                                    |
+|          `block`           |                       Use to specify at which block hash or number to replay the fork.                       |
+|      `wasm-override`       |              Path of the Wasm to use as the parachain runtime instead of an endpoint's runtime.              |
+|            `db`            |               Path to the name of the file that stores or will store the parachain's database.               |
+|          `config`          |                                       Path or URL of the config file.                                        |
+|           `port`           |                                      The port to expose an endpoint on.                                      |
+|     `build-block-mode`     |                       How blocks should be built in the fork: batch, manual, instant.                        |
+|      `import-storage`      |              A pre-defined JSON/YAML storage file path to override in the parachain's storage.               |
+| `allow-unresolved-imports` |              Whether to allow Wasm unresolved imports when using a Wasm to build the parachain.              |
+|           `html`           |                           Include to generate storage diff preview between blocks.                           |
+|   `mock-signature-host`    | Mock signature host so that any signature starts with `0xdeadbeef` and filled by `0xcd` is considered valid. |
+
+You can run the command `yarn start` to fork chains by specifying a local configuration file. Alternatively, the name or the GitHub URL can be used if the chain is listed in the repository's `configs` folder.
+
+=== "Local File Path"
+
+    ```bash
+    yarn start --config=configs/polkadot.yml
+    ```
+
+=== "Chain Name"
+
+    ```bash
+    yarn start --config=polkadot
+    ```
+
+=== "GitHub URL"
+
+    ```bash
+    yarn start \
+    --config=https://github.com/AcalaNetwork/chopsticks.git/master/configs/polkadot.yml
+    ```
+
+All settings (except `genesis` and `timestamp`) can also be passed as flags to configure the environment completely in the command line. For example, the following command forks the demo EVM network at block 100.
+
+```bash
+yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }} --block 100
+```
+
+### Interacting with a Fork {: #interacting-with-a-fork }
+
+When running a fork, by default, it will be accessible at:
+
+```text
+ws://localhost:8000
+```
+
+You can interact with the parachain via libraries such as [Polkadot.js](https://github.com/polkadot-js/common){target=\_blank} and its [user interface, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}.
+
+![Polkadot Js](/images/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.webp)
+
+You should now be able to interact with the forked chain as you would with the real one.
+
+!!! note
+    If your browser cannot connect to the WebSocket endpoint provided by Chopsticks, you might need to allow insecure connections for the Polkadot.js Apps URL. Another solution is to run the [Docker version of Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
+
+## Replaying Blocks {: #replaying-blocks }
+
+If you would like to replay a block and retrieve its information to dissect the effects of an extrinsic, you can use the `yarn start run-block` command. Its following flags are:
+
+|            Flag            |                                      Description                                       |
+|:--------------------------:|:--------------------------------------------------------------------------------------:|
+|         `endpoint`         |                         The endpoint of the parachain to fork.                         |
+|          `block`           |            Use to specify at which block hash or number to replay the fork.            |
+|      `wasm-override`       |   Path of the Wasm to use as the parachain runtime instead of an endpoint's runtime.   |
+|            `db`            |    Path to the name of the file that stores or will store the parachain's database.    |
+|          `config`          |                            Path or URL of the config file.                             |
+| `output-path=/[file_path]` |   Use to print out results to a JSON file instead of printing it out in the console.   |
+|           `html`           | Include to generate an HTML representation of the storage diff preview between blocks. |
+|           `open`           |                        Whether to open the HTML representation.                        |
+
+For example, running the following command will re-run the demo EVM networks's block 1000 and write the storage diff and other data in a `chain-output.json` file:  
+
+```bash
+yarn start run-block  \
+--endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}  \
+--output-path=./chain-output.json  \
+--block 1000
+```
+
+## WebSocket Commands {: #websocket-commands }
+
+Chopstick's internal WebSocket server has special endpoints that allow the manipulation of the local Substrate chain.
+
+These are the methods that can be invoked and their parameters:
+
+???+ function "**dev_newBlock** (options) — Generates one or more new blocks"
+
+    === "Parameters"
+
+        - **options** - `{ "to": number, "count": number }` - a JSON object where `"to"` will create blocks up to a certain value, and `"count"` will increase by a certain number of blocks. Use only one entry at a time within the JSON object
+
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api'
+        const ws = new WsProvider(`ws://localhost:8000`)
+        // Creates five new blocks
+        await ws.send('dev_newBlock', [{ count: 5 }])
+        ```
+
+??? function "**dev_setStorage** (values, blockHash) — Creates or overwrites the value of any storage"
+
+    === "Parameters"
+
+         - **values** - Object - a JSON object resembling the path to a storage value, similar to what you would retrieve via Polkadot.js  
+        - **blockHash** - String - optional, the block hash at which the storage value is changed  
+        
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Overwrites the sudo key
+        await ws.send('dev_setStorage', 
+            [{"Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" }}]
+        );
+        ```
+
+??? function "**dev_timeTravel** (date) — Sets the timestamp of the block to the date value"
+
+    === "Parameters"
+
+         - **date** - Date - a string compatible with the JavaScript Date library that will change the timestamp at which the next blocks being created will be. All future blocks will be sequentially created after that point in time  
+
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Sets the timestamp of the block to 15th August 2030
+        await ws.send('dev_timeTravel', ["2030-08-15T00:00:00"]);
+        ```
+
+??? function "**dev_setHead** (hashOrNumber) — Sets the head of the blockchain to a specific hash or number"
+
+    === "Parameters"
+
+         - **hashOrNumber** - number | string - if found, the chain head will be set to the block with the block number or block hash of this value
+        
+    === "Example"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Sets the head to block number 500
+        await ws.send('dev_setHead', [500]);
+        ```
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/subwallet/
+--- BEGIN CONTENT ---
+---
+title: How to Connect SubWallet to Tanssi Substrate
+description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate network.
+icon: material-wallet-outline
+categories: Substrate-Template, EVM-Template
+---
+
+# Interacting with Your Tanssi Substrate Network Using SubWallet
+
+## Introduction {: #introduction }
+
+Developers and users of Tanssi-powered Substrate networks have a variety of options when it comes to wallets. SubWallet is a comprehensive Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Substrate API, but you can check out a similar [tutorial for interacting with SubWallet using the Ethereum API](/builders/toolkit/ethereum-api/wallets/subwallet/){target=\_blank}.
+
+The SubWallet wallet browser extension [can be downloaded](https://www.subwallet.app/download.html){target=\_blank} for all supported browsers, including Chrome, Brave, Firefox, and MS Edge. SubWallet also has a mobile app for both iOS and Android, but that is beyond the scope of this guide. A complete online asset dashboard is accessible at [web.subwallet.app](https://web.subwallet.app){target=\_blank}.
+
+This guide takes you through all the necessary steps, from installing SubWallet to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
+
+## Creating Your First Substrate Account {: #creating-your-first-substrate-account }
+
+First, download and install the [SubWallet extension](https://www.subwallet.app/download.html){target=\_blank}. Creating a new account will generate a seed phrase that can derive multiple Ethereum and Substrate accounts. By default, SubWallet will generate a single Ethereum and a single Substrate account, but you can easily derive more from the same seed phrase. Click **Create a new account** to get started.
+
+![Get started with SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-1.webp)
+
+On the following screen, you'll be prompted to create a password to secure your new wallet.
+
+![Create a password for SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-2.webp)
+
+You'll then be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
+
+![Back up your seed phrase in SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-3.webp)
+
+!!! note
+    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
+
+## Importing an Existing Substrate Account {: #importing-an-existing-substrate-account }
+
+Of course, you can import an existing Substrate account into SubWallet. To get started, take the following steps:
+
+1. Press the **All accounts** button at the top
+2. Press the **Import account** icon
+
+![Import account part 1](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-4.webp)
+
+On the following screen, select the method by which you would like to import the existing account. If you're importing a Substrate account, you can choose from the seed phrase, Polkadot.js (JSON), or QR code options.
+
+![Import existing account part 2](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-5.webp)
+
+On the following screen, you'll be able to provide the relevant seed phrase, JSON file, or QR code, and you can begin using your new account right away.
+
+## Connecting SubWallet to the Tanssi Dancelight TestNet {: #connecting-Subwallet-to-the-tanssi-dancelight-testnet }
+
+SubWallet comes pre-configured with support for the Tanssi Dancelight TestNet, but it may not be enabled by default. You just need to head to the **Manage networks** page to toggle it on. Remember that the Tanssi Dancelight TestNet itself is the Substrate-based network that orchestrates and manages the launch of Tanssi-powered networks. To configure your SubWallet to work with Dancelight, press the **More Options** icon in the upper left corner. Then click **Manage networks** and take the following steps:
+
+1. Search for **Dancelight**
+2. Toggle the slider on to enable support for Dancelight
+
+![Toggle support for the Dancelight TestNet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-6.webp)
+
+If you have a balance of Dancelight tokens, you'll see your account balance on the homepage of the SubWallet wallet. By default, all balances are hidden in SubWallet, but if you press the eye icon, you can toggle balance visibility.
+
+![See your TestNet account balances in SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-7.webp)
+
+## Connecting SubWallet to Your Substrate Network {: #connecting-Subwallet-to-your-substrate-network }
+
+To configure SubWallet for your Substrate network, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Tanssi Dancelight Parachain is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to SubWallet, take the following steps:
+
+1. Paste in the WSS URL of your Tanssi network. Other parameters like the parachain ID and token decimals may be auto-populated
+2. Provide a name for your Tanssi network
+3. Press **Save**
+
+![Add Network in SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-8.webp)
+
+## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
+
+To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancelight TestNet, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
+
+![Connect to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-9.webp)
+
+The SubWallet extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the SubWallet extension and click on the **Connected** icon next to your account at the top. To configure SubWallet to correctly interface with your Tanssi network on Polkadot.js Apps, you should take the following steps:
+
+1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
+2. Press **Connect**
+
+![Connect SubWallet to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-10.webp)
+
+Your SubWallet wallet is now connected to Polkadot.js Apps. After refreshing Polkadot.js Apps, you should see your SubWallet account in the [Accounts page of Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} underneath the **extension** heading.
+
+## Sending a Transaction {: #sending-a-transaction}
+
+To send a transaction through the Substrate API, click **Send** next to your account on Polkadot.js Apps. Then, take the following steps:
+
+1. Input the **send to address**
+2. Enter the **amount**
+3. Press **Make Transfer** and confirm the transaction in the resulting Polkadot.js pop-up
+4. Press **View Details** if you'd like to inspect the contents of the transaction
+5. Press **Approve** to submit the transaction
+
+![Send funds through Substrate API with Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-11.webp)
+
+You can also send a transaction through the Substrate API directly from the SubWallet extension without using Polkadot.js Apps. To do so, press the **Send** icon and take the following steps:
+
+1. Specify the asset to send
+2. Specify the destination chain (in this case, the same chain that you're sending from)
+3. Enter the destination address
+4. Enter the number of tokens to send
+5. Look over the transaction details, then press **Transfer** and subsequently **Approve**
+
+![Send funds through Substrate API directly in SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-12.webp)
+
+This guide focused specifically on configuring SubWallet to work with your Tanssi Substrate network, but SubWallet is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring SubWallet for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/subwallet/){target=\_blank}.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/talisman/
+--- BEGIN CONTENT ---
+---
+title: How to Connect Talisman to Tanssi
+description: This guide walks you through how to connect Talisman, a Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate decentralized network.
+icon: material-wallet-outline
+categories: Substrate-Template, EVM-Template
+---
+
+# Interacting with your Tanssi Substrate Network Using Talisman
+
+## Introduction {: #introduction }
+
+Developers and users of Tanssi-powered Substrate networks have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
+
+Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+
+This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
+
+## Setting Up Talisman {: #setting-up-talisman }
+
+First, download and install the [Talisman extension](https://talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
+
+![Get started with Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-1.webp)
+
+On the following screen, you'll be prompted to create a password to secure your new wallet.
+
+![Enter password for Talisman Wallet](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-2.webp)
+
+## Create a Substrate Account {: #create-a-substrate-account }
+
+To create your first Polkadot account in Talisman, take the following steps:
+
+1. Select the **Polkadot** option
+2. Give your account a name
+3. Press **Create**
+
+![Create your first Polkadot account in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-3.webp)
+
+After creating your first account, you'll be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
+
+![Back up your seed phrase](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-4.webp)
+
+!!! note
+    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
+
+## Importing an Existing Substrate Account {: #importing-an-existing-substrate-account }
+
+Of course, you can import an existing Substrate account into Talisman. To do so, take the following steps:
+
+1. Press **Add Account**
+2. Press **Import**
+3. Select **Import via Recovery Phrase**
+
+![Import existing account setup](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-12.webp)
+
+On the following screen, take the following steps:
+
+1. Select the **Polkadot** account type
+2. Provide a name for your account
+3. Paste in your seed
+4. Select which accounts you'd like to import
+5. Press **Import**
+
+![Import existing account final steps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-13.webp)
+
+## Connecting Talisman to the Tanssi Dancelight TestNet {: #connecting-talisman-to-the-tanssi-dancelight-testnet }
+
+Talisman already comes pre-configured with support for the Tanssi Dancelight TestNet. You just need to first ensure that you have enabled support for TestNets on Talisman. Remember that the Tanssi Dancelight TestNet itself is not a network; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi networks. To configure your Talisman to work with Dancelight, take the following steps:
+
+1. Open the Talisman extension and click on the Talisman logo
+2. Select **Settings**
+3. Ensure that **Enable testnets** is checked
+
+![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
+
+If you have a balance of Dancelight tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancelight tokens, the network will be omitted from your list of assets.
+
+![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
+
+## Connecting Talisman to Your Substrate Network {: #connecting-talisman-to-your-substrate-network }
+
+To configure Talisman for your Tanssi Substrate network, open the Talisman extension and click on the **More Options** tab. Click on **Settings** > **Networks & Tokens** > **Manage Networks**.
+
+1. Slide the network slider to **Polkadot**
+2. Check the **Enable testnets** box
+3. Press **Add Network**
+
+![Add Network in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-7.webp)
+
+On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Dancelight TestNet is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to Talisman, take the following steps:
+
+1. Paste in the RPC URL of your Tanssi network. Other parameters will be auto-populated
+2. Optionally, enter the block explorer URL of your Tanssi network, if applicable
+3. Check the **This is a testnet** box if applicable
+4. Press **Add Network**
+
+![Add your Tanssi-Powered Network Details](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-8.webp)
+
+## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
+
+To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancelight TestNet, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
+
+![Connect to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-9.webp)
+
+The Talisman extension will prompt you to select the accounts you'd like to use with Polkadot.js Apps. If it doesn't automatically pop up, you can open the Talisman extension and click on the **polkadot.js.org** heading at the top. To configure Talisman to correctly interface with your Tanssi network on Polkadot.js Apps, you should take the following steps:
+
+1. Select the Substrate account(s) that you'd like to use with Polkadot.js Apps
+2. Press **Connect 1**. The value will change depending on the number of accounts you are connecting
+
+![Connect Talisman to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-10.webp)
+
+Your Talisman wallet is now connected to Polkadot.js Apps. After refreshing Polkadot.js Apps, you should see your Talisman account in the [Accounts page of Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} underneath the **extension** heading.
+
+## Sending a Transaction {: #sending-a-transaction}
+
+To send a transaction through the Substrate API, click **Send** next to your account on Polkadot.js Apps. Then, take the following steps:
+
+1. Input the **send to address**
+2. Enter the **amount**
+3. Press **Make Transfer** and confirm the transaction in the resulting Polkadot.js pop-up
+4. Press **View Details** if you'd like to inspect the contents of the transaction
+5. Press **Approve** to submit the transaction
+
+![Send funds through Substrate API with Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-11.webp)
+
+This guide focused specifically on configuring Talisman to work with your Tanssi Substrate network, but Talisman is also a full-featured wallet for EVM accounts. Under the Ethereum API section, you'll find a [similar guide for configuring Talisman for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
 ## Basics Concepts [shared: true]
 
 The following section contains foundational documentation shared across all Tanssi products.
@@ -11299,6 +11318,301 @@ Within Tanssi's Substrate-based protocol, an operator’s primary _Sr25519_ iden
 For rewards on Ethereum (e.g., via [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}), an operator's Tanssi _Sr25519_ identity maps to an Ethereum _ECDSA_ address. Operators inform both accounts, which are then linked through the Tanssi middleware. This trusted link ensures that rewards from the operator's node work on the Tanssi network are routed to the operator's designated Ethereum account.
 --- END CONTENT ---
 
+Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-providers/symbiotic/
+--- BEGIN CONTENT ---
+---
+title: Ethereum with Symbiotic
+description: Tanssi's design allows developers to choose and connect to the Symbiotic restaking protocol, benefiting from Ethereum-grade security right from the start.
+icon: octicons-shield-check-24
+categories: Basics
+---
+
+# Ethereum with Symbiotic {: #ethereum-symbiotic }
+
+## Introduction {: #introduction }
+
+The Tanssi protocol takes care of critical infrastructural components, making it easy for developers to launch their networks in a few minutes. In addition to block production, data retrievability, and integrations with essential tools such as wallets, RPC endpoints, block explorers, and others, another major task to tackle is providing security to the network.
+
+Tanssi is designed to offer developers a shared security model, alleviating them from having to source enough economic security or negotiating with operators to run nodes opting-in for their networks. By deploying networks through Tanssi, and by choosing [Symbiotic](https://symbiotic.fi/){target=\_blank} as a security provider, developers benefit from Ethereum-grade security, tapping into billions of dollars in shared security from staked ETH.
+
+The following sections describe how the Symbiotic protocol works and how Tanssi networks can leverage it as their consensus mechanism.
+
+## Ethereum-Grade Security with Symbiotic {: #symbiotic }
+
+[Symbiotic](https://symbiotic.fi/){target=\_blank} is a shared security protocol designed to be permissionless, multi-asset, and network-agnostic. It fosters capital efficiency by allowing users to extend the functionality of their staked assets to secure other networks while providing additional utility.
+
+The protocol provides a coordination layer for its main components and participants, aligning incentives among parties while minimizing execution layer risks by deploying non-upgradeable core contracts on Ethereum. The following diagram resumes all the components and actors participating in the protocol:
+
+```mermaid
+flowchart TD
+    %% Vaults subgraph
+    subgraph Ethereum["Ethereum/Symbiotic"]
+        slash[/Slashing Events/]
+        Restakers -- Deposit Assets --> Vaults
+        manager["Vault managers"] -- Manage --> Vaults
+        Resolvers -- Decide On --> slash
+        slash -- Executes On --> Vaults
+    end
+
+    %% Operators subgraph
+    subgraph Operators
+        direction BT
+        operators["Operators (Validators)"]
+        node_operators["Node Operators"]
+        node_operators -- Run --> operators
+    end
+
+    %% Networks subgraph
+    subgraph Networks
+        direction BT
+        developers["Developers"]
+        networks["Decentralized Networks"]
+        developers -- Launch --> networks
+    end
+
+    Vaults <--> Tanssi
+    Tanssi <--> Operators
+    Tanssi <--> Networks
+```
+
+Symbiotic's flexible design allows every party to decide on setups that best fit their use cases. For example, vaults can choose what forms of collateral they accept, operators can determine which networks they want to provide services to, and decentralized networks can customize their use case and define the level of security (which collaterals are accepted, for example) they need.
+
+The following sections describe the protocol's main components.
+
+### Vaults {: #vaults }
+
+[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, and set up delegation strategies.
+
+Each vault is bound to a specific token that satisfies the [IERC20](https://github.com/ethereum/ercs/blob/master/ERCS/erc-20.md){target=\_blank} interface and is accepted as collateral. Internally, the funds within the vault are represented as shares, which provide a mechanism for tracking ownership and distributing rewards. However, the reward token may differ from the collateral token.
+
+A vault comprises three key modules, each serving a distinct function: the slasher, the delegator, and the accounting module. The implementation of these modules can vary depending on the vault manager's decisions.
+
+- **Slasher module** - implements the [slashing](#slashing-process) logic, which penalizes bad actors
+- **Delegator module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator){target=\_blank} are available, allowing the vault manager to select which operators and networks they want to work with
+- **Accounting module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/){target=\_blank}, which provides a vault with a shares system included
+
+Since the operators get delegated stake from the vault and could potentially get slashed, they must be approved by the vault managers beforehand. On a similar note, vault managers analyze and authorize each network the vault will secure, considering, for example, the rewards the network offers.
+
+Vault managers also designate [resolvers](https://docs.symbiotic.fi/modules/counterparties/resolvers){target=\_blank}, responsible for approving or vetoing [slashing events](https://docs.symbiotic.fi/modules/vault/slasher){target=\_blank} caused by operators on networks with [veto-slashing](https://docs.symbiotic.fi/modules/vault/slasher#veto-slashing){target=\_blank} support, like the Tanssi Network.
+
+### Operators {: #operators }
+
+[Node operators](/node-operators/){target=\_blank} are entities or individuals responsible for running the [nodes (also known as operators or validators)](https://docs.symbiotic.fi/modules/counterparties/operators){target=\_blank}, which are the computational components validating the networks' transactions. They are responsible for the nodes' configuration, hardware setup, uptime, and performance.
+
+Node operators opt-in to provide services to networks, which must accept their request. Also, they opt-in to provide services in vaults, which must accept their request.
+
+Once an operator has been accepted by a vault and a network connected to that vault, the node can start providing validation services to that network, receiving rewards in exchange.
+
+### Networks {: #networks }
+
+[Networks](https://docs.symbiotic.fi/modules/counterparties/networks){target=\_blank} are the actively validated services or networks. These application-specific blockchains can be a use case from a wide range of industries, such as Gaming, Defi, RWAs, and others, and are the platforms that, through dApps, the end users interact with.
+
+Since operators opt-in to provide services to networks and the vault managers must accept the networks, the developers are responsible for defining, controlling, and adapting their methodology for onboarding, rewarding, and slashing operators.
+
+!!! note
+    Networks deployed through Tanssi don't need to work on the relation with vaults and operators since the Tanssi protocol deals with those complexities.
+
+## Tanssi with Symbiotic {: #tanssi-symbiotic }
+
+Developers launching networks through Tanssi benefit from [block production services](/learn/tanssi/network-services/block-production/){target=\_blank}, data retrievability as a service, and the shared security model derived from every vault opting-in to support the Tanssi protocol. This eliminates the hurdle of dealing with infrastructural and security components developers would need to take on otherwise.
+
+Vault managers running vaults can apply to offer the restaked collaterals as economic security for the Tanssi Network. Since Tanssi networks run in a sandbox-like environment, and the Tanssi protocol manages all the networks-related responsibilities, vault managers only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of networks that are running through the Tanssi protocol at any given moment.
+
+Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi Network and, consequently, to every network deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi network is launched or decommissioned.
+
+!!! note
+    The Tanssi protocol effectively abstracts the details of the active set of networks away from vault managers and operators. Networks particularities don't require any additional setup from operators nor pose risks to vault assets.
+
+All things combined shape a functional and elegant ecosystem where developers can focus on creating and innovating. Tanssi handles the infrastructural components, guaranteeing liveness and performance, and Symbiotic provides the economic safeguards to ensure the validity of the operations.
+
+```mermaid
+flowchart LR
+    subgraph Symbiotic
+        direction LR
+        Operators
+        Vaults
+    end
+    Symbiotic  -- Validates/Secures --> tanssi["Tanssi Network"]
+    tanssi -- Block Production Services--> Networks
+    tanssi -- Security--> Networks
+    tanssi -- Data Retrievability--> Networks
+
+    class Symbiotic custom-container
+```
+
+### Tanssi-Ethereum Communication {: #tanssi-ethereum-communication }
+
+It is important to learn how Tanssi and Ethereum exchange data to understand the mechanics of the protocol. They connect through a two-way bridge that lets them communicate with each other. Each protocol has a specific job in making cross-chain operations possible.
+
+There are three key components between Symbiotic and Tanssi:
+
+```mermaid
+flowchart LR
+
+Tanssi["Tanssi"] <--> Relayer 
+Relayer <--> Gateway 
+Gateway["Gateway"] <--> Middleware
+Middleware <--> Symbiotic["Symbiotic"]
+
+class Tanssi tanssiNode;
+
+class Middleware middlewareNode;
+
+class Gateway gatewayNode;
+
+class Symbiotic symbioticNode;
+
+class Relayer relayerNode;
+```
+
+- **`Relayer`** - is the software that continuously monitors both blockchains and transmits messages. Enabling reliable bidirectional communication between Tanssi and Ethereum, serving as the connection layer that ensures messages are correctly delivered across networks
+
+- **`Gateway`** - operates on the Ethereum side of the bridge and serves three essential functions. It receives, verifies, and routes incoming messages from Tanssi to ensure they are correctly processed. The contract accepts outgoing messages destined for the Tanssi network, preparing them for relay. Finally, it handles higher-level application functionalities, most notably token transfers between the two networks, providing a secure interface for cross-chain asset movement
+
+- **`Middleware`** - is Tanssi's implementation for handling network events and operations. It is the critical link between the `Gateway` and Tanssi's core protocol
+
+The `Middleware` plays a central role in network coordination between Tanssi and Symbiotic. It distributes rewards to operators and vaults based on their network security and performance contributions. The contract sorts operators by stake to create a merit-based ranking system for their selection and transmits the list of sorted operator keys to Tanssi for assignment. Additionally, it facilitates operator registration processes and handles the reward and slashing protocols that maintain network incentive alignment.
+
+#### From Ethereum to Tanssi {: #from-ethereum-tanssi }
+
+The `Middleware` transmits operator set information to Tanssi for session assignment through the bridge. It sends details about active operators for each epoch, ordering them by their total stake aggregated across vaults. Tanssi then uses this information to assign operators for upcoming sessions, ensuring that the most economically aligned ones secure the network. This mechanism creates a stake-weighted operator selection process where economic security on Ethereum translates to operational security on Tanssi.
+
+#### From Tanssi to Ethereum {: #from-tanssi-ethereum }
+
+Tanssi sends operational data back to Ethereum through the same communication channel. This message includes reward information that enables proper distribution to stakeholders based on network performance. The network also transmits slashing event data when operators fail to perform correctly or violate protocol rules, allowing the protocol to apply penalties. Tanssi can also request new tokens to be created on Ethereum and register tokens, making managing assets between both networks easy.
+
+### Rewards {: #rewards }
+
+Well-behaved operators and restakers are rewarded for their participation with TANSSI tokens. The reward process consists of two main phases: [Reward Distribution Phase](#reward-distribution-phase) and [Reward Claiming Phase](#reward-claiming-phase).
+
+#### Reward Distribution Phase {: #reward-distribution-phase }
+
+The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
+
+1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
+2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.network/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://docs.snowbridge.network/){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
+3. **Ethereum Message Reception** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
+4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, which is responsible for various tasks, including passing the information to the `OperatorReward` contract
+5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
+
+```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
+sequenceDiagram
+    participant Tanssi Network
+    participant Snowbridge (XCM)
+    participant Gateway
+    participant Middleware
+    participant OperatorRewards
+
+    Tanssi Network->>Tanssi Network: 1. Calculate rewards and generate Merkle root
+    Tanssi Network->>Snowbridge (XCM): 2. Reward data sent via XCM (Merkle root + data)
+    Snowbridge (XCM)->>Gateway: 3. Relay message and sent to Ethereum 
+    Gateway ->>Middleware: 4. Message processing and validation
+    Middleware->>OperatorRewards: 5. Reward storage and distribution
+```
+
+#### Reward Claiming Phase {: #reward-claiming-phase }
+
+In the reward-claiming phase, operators and stakers can claim rewards based on their participation in the network. Tanssi determines the share distribution for operators and stakers, currently setting it at 20% for operators and 80% for stakers.
+
+1. **Operator Reward Claim** - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
+2. **Token Release** - the operator call triggers the token release, and the `OperatorRewards` sends the established amount to the operator
+3. **Token Distribution to Stakers** - the remaining rewards are forwarded to the `StakerRewards` contract for further claiming of the staker
+4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol){target=\_blank} contract, where stakers can claim rewards proportional to their stake in the vaults
+
+```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
+sequenceDiagram
+ participant Operator
+ participant OperatorRewards
+ participant StakerRewards
+ participant Stakers
+
+ Operator->>OperatorRewards: 1. Operator reward claim
+ OperatorRewards->>Operator: 2. Release rewards to the operator
+ OperatorRewards->>StakerRewards: 3. Forward the remainder to StakerRewards
+ Stakers->>StakerRewards: 4. Stakers claim individual rewards
+```
+
+### Slashing {: #slashing }
+
+The Tanssi protocol implements slashing to penalize operators for misbehavior. When a slashing event is triggered, the authorities designated as resolvers by the vault managers can either accept or revert this action.
+
+The following actions can trigger slashing events:
+
+- Producing invalid blocks (e.g., blocks that include invalid transactions)
+- Invalid validation (e.g., double-signing or breaking protocol rules)
+- Downtime or unavailability
+- Consensus violations
+
+!!!note
+    Slashing events can only be triggered by operators' misbehavior within the Tanssi Network. Even if Tanssi networks are faulty or malicious, they operate in a sandboxed environment and cannot cause slashing.
+
+#### Slashing Process {: #slashing-process }
+
+The slashing process follows a path similar to that of rewards. When an operator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). The message passes through the `Gateway` and into the `Middleware` where the slashing method gets called.
+
+The slashing method receives a unique identifier for the operator's identity, the severity of the slash as a percentage of the operator's assigned stake in each vault, and the time context within which the offense occurred.
+
+The slashing process consists of the following steps:
+
+1. **Slash Reported** - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, `percentage`, and `epoch`
+2. **Operator Validation** - the `Middleware` validates the operator's identity and checks if the operator is subject to slashing
+3. **Retrieve Active Vaults** - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
+4. **Retrieve Operator Stake** - for each active vault, the `Middleware` retrieves the stake of the misbehaving operator
+5. **Calculate Slash Amount** - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
+6. **Slashing** - depending on the vault's slashing implementation, there are two possible routes
+
+    - **Instant Slashing** - if the vault uses instant slashing, the stake is immediately reduced
+
+    - **Veto Slashing** - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
+
+    The slashing is canceled if the resolver vetoes the request within the time window. Otherwise, the slashing penalty is executed if no veto occurs within the time window
+
+This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
+
+```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
+sequenceDiagram
+    participant Network
+    participant Middleware
+    participant Vault
+    participant Slasher
+    
+    Network->>Middleware: 1. Slash reported
+    Middleware->>Middleware: 2. Operator validation
+    loop Each Active Vault
+        Middleware->>Vault: 3. Retrieve operator stake
+        Vault-->>Middleware: 4. Retrieve vault stake
+        Middleware->>Middleware: 5. Calculate slash amount
+        alt Instant Slasher
+            Middleware->>Slasher: 6.1 Slash
+        else Veto Slasher
+            Middleware->>Slasher: 6.2 Request slash
+            opt If Not Vetoed
+                Slasher->>Slasher: 6.2 Execute slash
+            end
+        end
+    end
+```
+
+#### Burner {: #burner }
+
+The `Burner` contract is an extension responsible for handling actions that follow a [slashing event](#slashing-process), notably the burning of slashed collateral. Once a slash is executed, the `Slasher` contract calls the `Burner` to carry out these post-slashing tasks.
+
+Within the protocol, the `Burner` contract plays a crucial role in deciding what happens after slashing. While there are different ways to implement the burning process, the recommended approach is to burn the slashed assets.
+When a slash is executed, the `Burner` contract's `onSlash` function is activated. This function kicks off the process of burning the slashed assets.
+
+The vault manager chooses the specific implementation of the burning process during the vault's initialization phase, and once set, the vault manager cannot modify it. The exact design of the `Burner` contract may differ depending on the type of collateral asset involved. Below are some potential implementation options:
+
+- **Burning Tokens** - if the slashed collateral is a regular ERC-20 token, the `Burner` destroys those tokens, permanently removing them from circulation
+- **Unwrapping and Burning** - if the slashed tokens represent something like staked assets (e.g., liquid staking tokens) or liquidity provider (LP) tokens from a decentralized exchange (DEX), the `Burner` might convert them back into their original form before burning them
+- **Cross-Chain Operations** - if the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
+- **Alternative Handling** - sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do
+
+Burning slashed collateral is important because it penalizes misbehaving operators and reduces the total supply of tokens, which can have deflationary effects.
+--- END CONTENT ---
+
 Doc-Content: https://docs.tanssi.network/learn/tanssi/network-features/staking/
 --- BEGIN CONTENT ---
 ---
@@ -11914,7 +12228,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/identity/
 title: Set an Account Identity
 description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
 icon: octicons-person-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Set Up an Identity
@@ -12086,7 +12400,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/proxy-accou
 title: Set Up and Manage Proxy Accounts
 description: Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
 icon: octicons-shield-lock-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Proxy Accounts
@@ -12306,7 +12620,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
 title: Requirements and Features of Templates
 description: Explore the foundational setup and key features included in each Tanssi template, designed to streamline the building and deployment of Tanssi networks.
 icon: octicons-home-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Templates Overview {: #templates-overview }

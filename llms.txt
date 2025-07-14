@@ -1,6 +1,6 @@
 # Tanssi
 
-> Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
+> Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
 
 ## Docs
 

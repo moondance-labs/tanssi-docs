@@ -1,5 +1,5 @@
 # Tanssi llms-full.txt
-Tanssi. Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
+Tanssi. Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
 
 ## Generated automatically. Do not edit directly.
 
@@ -170,18 +170,18 @@ Each category file includes foundational content from the **Basics** and **Refer
 
 ## Download LLM Files
 
-| Category           | Description                                                                                       | File                          | Actions                                                                                                                                                                                 |
-|--------------------|---------------------------------------------------------------------------------------------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Index              | Navigation index of all Tanssi documentation pages                                                | `llms.txt`                    | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms.txt" } [:octicons-download-16:](/llms.txt){ download="llms.txt" }                                                          |
-| Full Documentation | Full content of all documentation pages                                                           | `llms-full.txt`               | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-full.txt" } [:octicons-download-16:](/llms-full.txt){ download="llms-full.txt" }                                           |
-| Basics             | Tanssi's framework, architecture, and core components to help form overall general knowledge base | `llms-basics.txt`             | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-basics.txt" } [:octicons-download-16:](/llms-files/llms-basics.txt){ download="llms-basics.txt" }                                     |
-| Reference          | Reference material including network endpoints, JSON RPC methods, and contract or token addresses | `llms-reference.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-reference.txt"} [:octicons-download-16:](/llms-files/llms-reference.txt){ download="llms-reference.txt" }                             |
-| Appchain           | How to launch and manage an appchain through the dApp                                             | `llms-appchain.txt`           | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-appchain.txt" } [:octicons-download-16:](/llms-files/llms-appchain.txt){ download="llms-appchain.txt" }                               |
-| Custom Runtime     | Create and use custom runtime modules with Tanssi                                                 | `llms-custom-runtime.txt`     | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-custom-runtime.txt" } [:octicons-download-16:](/llms-files/llms-custom-runtime.txt){ download="llms-custom-runtime.txt" }             |
-| EVM Template       | The EVM template and its associated tooling (wallet, integrations, etc.)                          | `llms-evm-template.txt`       | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-evm-template.txt" } [:octicons-download-16:](/llms-files/llms-evm-template.txt){ download="llms-evm-template.txt" }                   |
-| Substrate Template | The Substrate template and its associate tooling (wallets, integrations, etc.)                    | `llms-substrate-template.txt` | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-substrate-template.txt" } [:octicons-download-16:](/llms-files/llms-substrate-template.txt){ download="llms-substrate-template.txt" } |
-| Operators          | How to set up and run node and validation infrastructure                                          | `llms-operators.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-operators.txt" } [:octicons-download-16:](/llms-files/llms-operators.txt){ download="llms-operators.txt" }                            |
-| Sequencers         | How to run a sequencer for block production                                                       | `llms-sequencers.txt`         | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-sequencers.txt" } [:octicons-download-16:](/llms-files/llms-sequencers.txt){ download="llms-sequencers.txt" }                         |
+| Category           | Description                                                                                                                              | File                          | Actions                                                                                                                                                                                                 |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Index              | Navigation index of all Tanssi documentation pages                                                                                       | `llms.txt`                    | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms.txt" } [:octicons-download-16:](/llms.txt){ download="llms.txt" }                                                                     |
+| Full Documentation | Full content of all documentation pages                                                                                                  | `llms-full.txt`               | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-full.txt" } [:octicons-download-16:](/llms-full.txt){ download="llms-full.txt" }                                                      |
+| Basics             | Tanssi's framework, architecture, and core components to help form overall general knowledge base                                        | `llms-basics.txt`             | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-basics.txt" } [:octicons-download-16:](/llms-files/llms-basics.txt){ download="llms-basics.txt" }                                     |
+| Reference          | Reference material including network endpoints, JSON RPC methods, and contract or token addresses                                        | `llms-reference.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-reference.txt"} [:octicons-download-16:](/llms-files/llms-reference.txt){ download="llms-reference.txt" }                             |
+| Appchain           | How to launch and manage an appchain through the dApp or the developer portal                                                            | `llms-appchain.txt`           | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-appchain.txt" } [:octicons-download-16:](/llms-files/llms-appchain.txt){ download="llms-appchain.txt" }                               |
+| Custom Runtime     | Customize your appchain runtime                                                                                                          | `llms-custom-runtime.txt`     | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-custom-runtime.txt" } [:octicons-download-16:](/llms-files/llms-custom-runtime.txt){ download="llms-custom-runtime.txt" }             |
+| EVM Template       | Use the EVM template for launching complete Ethereum-compatible appchains and know their associated tooling (wallet, integrations, etc.) | `llms-evm-template.txt`       | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-evm-template.txt" } [:octicons-download-16:](/llms-files/llms-evm-template.txt){ download="llms-evm-template.txt" }                   |
+| Substrate Template | Use the baseline Substrate template and associated tooling (wallets, integrations, etc.) for launching appchains                         | `llms-substrate-template.txt` | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-substrate-template.txt" } [:octicons-download-16:](/llms-files/llms-substrate-template.txt){ download="llms-substrate-template.txt" } |
+| Operators          | How to set up and run a node to secure the Tanssi ecosystem                                                                              | `llms-operators.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-operators.txt" } [:octicons-download-16:](/llms-files/llms-operators.txt){ download="llms-operators.txt" }                            |
+| Sequencers         | How to run a sequencer to provide appchains with block production services                                                               | `llms-sequencers.txt`         | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-sequencers.txt" } [:octicons-download-16:](/llms-files/llms-sequencers.txt){ download="llms-sequencers.txt" }                         |
 
 !!! note
     The `llms-full.txt` file may exceed the input limits of some language models due to its size. If you encounter limitations, consider using the files by category.
@@ -193,7 +193,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/identity/
 title: Set an Account Identity
 description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
 icon: octicons-person-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Set Up an Identity
@@ -385,7 +385,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/proxy-accou
 title: Set Up and Manage Proxy Accounts
 description: Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
 icon: octicons-shield-lock-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Proxy Accounts
@@ -605,7 +605,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/customize/adding-built-i
 title: Adding Built-in Substrate Modules
 description: Learn how to leverage Substrate's pre-built, ready-to-use modules to efficiently add new features to your network without building from scratch.
 icon: octicons-package-24
-categories: EVM-Template
+categories: Custom-Runtime
 ---
 
 # Adding a Built-in Module {: #adding-builtin-module }
@@ -1786,7 +1786,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/customize/customizing-ch
 title: Customizing Chain Specifications
 description: Review the sections and attributes of a chain specification file and how to obtain it for launching your Tanssi-powered network with a customized specification.
 icon: octicons-link-24
-categories: Custom-Runtime
+categories: Appchain
 ---
 
 # Customizing Chain Specifications {: #customizing-chain-specifications }
@@ -2035,7 +2035,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/customize/prerequisites/
 title: Prerequisites for Building a Network
 description: Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your appchain.
 icon: octicons-checkbox-24
-Categories: Basics
+Categories: Custom-Runtime
 ---
 
 # Prerequisites for Building a Network {: #prerequisites }
@@ -2405,7 +2405,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
 title: Requirements and Features of Templates
 description: Explore the foundational setup and key features included in each Tanssi template, designed to streamline the building and deployment of Tanssi networks.
 icon: octicons-home-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Templates Overview {: #templates-overview }
@@ -3864,7 +3864,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/smart-
 title: Smart EVM - Whitelist Contract Deployments
 description: Learn how to use Sudo to whitelist smart contract deployers for your Smart EVM Tanssi-powered network, increasing overall security.
 icon: octicons-file-binary-24
-categories: Appchain
+categories: Appchain, EVM-Template
 ---
 
 # Smart EVM - Whitelist Contract Deployments
@@ -4461,7 +4461,7 @@ Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/demo-ev
 title: Demo EVM Tanssi Network
 description: Test our demo EVM Tanssi network to discover the capabilities of a fully Ethereum-compatible network deployed through Tanssi in just a few minutes.
 icon: material-ethereum
-categories: EVM-Template
+categories: Appchain, EVM-Template
 ---
 
 ## Introduction
@@ -11819,7 +11819,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/
 title: Index ERC-20 Transfers on an EVM Network
 description: Learn how to use the Squid SDK, a query node framework that can index both Substrate and EVM data, to process blockchain data for your Tanssi-powered network.
 icon: octicons-arrow-switch-24
-categories: EVM-Template, Substrate-Template
+categories: EVM-Template
 ---
 
 # Indexing ERC-20 Transfers on a Tanssi EVM Network
@@ -14580,7 +14580,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/
 title: How to use Chopsticks to Fork Your Network
 description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi network.
 icon: octicons-code-square-24
-categories: Substrate-Template
+categories: Substrate-Template, EVM-Template
 ---
 
 # How to Use Chopsticks to Fork Your Network
@@ -16252,7 +16252,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/
 title: How to Connect SubWallet to Tanssi Substrate
 description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate network.
 icon: material-wallet-outline
-categories: Substrate-Template
+categories: Substrate-Template, EVM-Template
 ---
 
 # Interacting with Your Tanssi Substrate Network Using SubWallet
@@ -16370,7 +16370,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/
 title: How to Connect Talisman to Tanssi
 description: This guide walks you through how to connect Talisman, a Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate decentralized network.
 icon: material-wallet-outline
-categories: Substrate-Template
+categories: Substrate-Template, EVM-Template
 ---
 
 # Interacting with your Tanssi Substrate Network Using Talisman
@@ -17524,7 +17524,7 @@ Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-provider
 title: Ethereum with Symbiotic
 description: Tanssi's design allows developers to choose and connect to the Symbiotic restaking protocol, benefiting from Ethereum-grade security right from the start.
 icon: octicons-shield-check-24
-categories: EVM-Template
+categories: Basics
 ---
 
 # Ethereum with Symbiotic {: #ethereum-symbiotic }
@@ -18664,7 +18664,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi-powe
 title: Run a Network Node Using Docker
 description: Discover how to configure and operate a Tanssi-powered network node using Docker, enabling you to host your own RPC endpoint for interaction with your chain.
 icon: material-docker
-categories: Operators
+categories: RPC-Data-Preservers
 ---
 
 # Run a Network Node Using Docker
@@ -18930,7 +18930,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi-powe
 title: Run a Network Node Using Systemd
 description: Learn how to set up and run a Tanssi-powered network node using Systemd, which allows you to have your own RPC endpoint to interact with your chain.
 icon: simple-linux
-categories: Operators
+categories: RPC-Data-Preservers
 ---
 
 # Run a Network Node Using Systemd
@@ -19272,7 +19272,7 @@ title: Run a Tanssi Node
 description: Learn how to set up and run a Tanssi node using Docker or Systemd to interact with the Tanssi network.
 icon: octicons-server-24
 template: index-page.html
-categories: Operators
+categories: RPC-Data-Preservers
 ---
 
 # Run a Tanssi Node
@@ -19313,7 +19313,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi/tans
 title: Run a Tanssi Node Using Docker
 description: Learn how to set up and run a node for Tanssi network using Docker to provide API endpoints for applications and users.
 icon: simple-docker
-categories: Operators
+categories: RPC-Data-Preservers
 ---
 
 # Run a Tanssi Node Using Docker
@@ -19698,7 +19698,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi/tans
 title: Run a Tanssi Node Using Systemd
 description: Learn how to set up and run a Node for Tanssi networks using Systemd, allowing you to provide API endpoints for applications and users.
 icon: simple-linux
-categories: Operators
+categories: RPC-Data-Preservers
 ---
 
 # Run a Tanssi Node Using Systemd

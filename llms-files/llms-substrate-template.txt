@@ -1,6 +1,6 @@
 # Tanssi Developer Documentation (LLMS Format)
 
-This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
+This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
 It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
 
 This file includes documentation related to the product: Substrate-Template
@@ -16,7 +16,6 @@ You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/build/templates/substrate.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/wallets/subwallet.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/wallets/talisman.md [type: builders]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/integrations/indexers/sqd/erc20-transfers.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/integrations/indexers/sqd/quick-start.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/dev-env/chopsticks.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/libraries/polkadot-js-api.md [type: builders]
@@ -256,1113 +255,6 @@ This guide focused specifically on configuring Talisman to work with your Tanssi
 </div>
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/erc20-transfers/
---- BEGIN CONTENT ---
----
-title: Index ERC-20 Transfers on an EVM Network
-description: Learn how to use the Squid SDK, a query node framework that can index both Substrate and EVM data, to process blockchain data for your Tanssi-powered network.
-icon: octicons-arrow-switch-24
-categories: EVM-Template, Substrate-Template
----
-
-# Indexing ERC-20 Transfers on a Tanssi EVM Network
-
-## Introduction {: #introduction }
-
-[SQD](https://www.sqd.ai/){target=\_blank} is a data network that allows rapid and cost-efficient retrieval of blockchain data from 100+ chains using SQD’s decentralized data lake and open-source SDK. In very simple terms, SQD can be thought of as an ETL (extract, transform, and load) tool with a [GraphQL](https://graphql.org){target=\_blank} server included. It enables comprehensive filtering, pagination, and even full-text search capabilities.
-
-SQD has native and full support for both EVM and Substrate data. SQD offers a Substrate Archive and Processor and an EVM Archive and Processor. The Substrate Archive and Processor can be used to index both Substrate and EVM data. This allows developers to extract on-chain data from any Tanssi-powered network and process EVM logs as well as Substrate entities (events, extrinsics, and storage items) in one single project and serve the resulting data with one single GraphQL endpoint. If you exclusively want to index EVM data, it is recommended to use the EVM Archive and Processor.
-
-This tutorial is a step-by-step guide to building a Squid to index EVM data from start to finish. It's recommended that you follow along, taking each step described on your own, but you can also find a [complete version of the Squid built in this tutorial in the tanssiSquid GitHub repository](https://github.com/themacexpert/tanssiSquid){target=\_blank}.
-
-## Check Prerequisites {: #check-prerequisites }
-
-To follow along with this tutorial, you'll need to have:
-
-- [Docker installed](https://docs.docker.com/get-started/get-docker/){target=\_blank}
-- [Docker Compose installed](https://docs.docker.com/compose/install){target=\_blank}
-- An empty Hardhat project. For step-by-step instructions, please refer to the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page
-
-!!! note
-    The examples in this guide are based on a MacOS or Ubuntu 20.04 environment. If you're using Windows, you'll need to adapt them accordingly.
-    
-    Furthermore, please ensure that you have Node.js and a package manager (such as npm or yarn) installed. To learn how to install Node.js, please check their [official documentation](https://nodejs.org/en/download){target=\blank}.
-    
-    Also, make sure you've initialized a `package.json` file for ES6 modules. You can initialize a default `package.json` file using npm by running the following command `npm init --yes`.
-
-## Deploy an ERC-20 with Hardhat {: #deploy-an-erc20-with-hardhat }
-
-Before we can index anything with SQD we need to make sure we have something to index! This section will walk through deploying an ERC-20 token to your Tanssi-powered network so you can get started indexing it. However, you can feel free to skip to [Create a Squid Project](#create-a-squid-project) if either of the two scenarios apply:
-
-- You have already deployed an ERC-20 token to your network (and made several transfers)
-- You would prefer to use an existing ERC-20 token deployed to the demo EVM network (of which there are already several transfer events)
-
-If you'd like to use an existing ERC-20 token on the demo EVM network, you can use the below `MyTok.sol` contract. The hashes of the token transfers are provided as well to assist with any debugging.
-
-In this section, we'll show you how to deploy an ERC-20 to your EVM network and we'll write a quick script to fire off a series of transfers that will be picked up by our SQD indexer. Ensure that you have initialized an empty Hardhat project via the instructions in the [Creating a Hardhat Project](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank} section of our Hardhat documentation page.
-
-Before we dive into creating our project, let's install a couple of dependencies that we'll need: the [Hardhat Ethers plugin](https://hardhat.org/hardhat-runner/plugins/nomicfoundation-hardhat-ethers){target=\_blank} and [OpenZeppelin contracts](https://docs.openzeppelin.com/contracts/4.x){target=\_blank}. The Hardhat Ethers plugin provides a convenient way to use the [Ethers](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank} library to interact with the network. We'll use OpenZeppelin's base ERC-20 implementation to create an ERC-20. To install both of these dependencies, you can run:
-
-=== "npm"
-
-    ```bash
-    npm install @nomicfoundation/hardhat-ethers ethers @openzeppelin/contracts
-    ```
-
-=== "yarn"
-
-    ```bash
-    yarn add @nomicfoundation/hardhat-ethers ethers @openzeppelin/contracts
-    ```
-
-Now we can edit `hardhat.config.js` to include the following network and account configurations for our network. You can replace the demo EVM network values with the respective parameters for your own Tanssi-powered EVM network which can be found at [apps.tanssi.network](https://apps.tanssi.network){target=\_blank}.
-
-???+ code "hardhat.config.js"
-
-    ```js
-    // 1. Import the Ethers plugin required to interact with the contract
-require('@nomicfoundation/hardhat-ethers');
-
-// 2. Add your private key that is funded with tokens of your Tanssi-powered network
-// This is for example purposes only - **never store your private keys in a JavaScript file**
-const privateKey = 'INSERT_PRIVATE_KEY';
-
-/** @type import('hardhat/config').HardhatUserConfig */
-module.exports = {
-  // 3. Specify the Solidity version
-  solidity: '0.8.20',
-  networks: {
-    // 4. Add the network specification for your Tanssi EVM network
-    demo: {
-      url: 'https://dancelight-2001.tanssi-api.network/',
-      chainId: 5678, // Fill in the EVM ChainID for your Tanssi-powered network
-      accounts: [privateKey],
-    },
-  },
-};
-    ```
-
-!!! remember
-    You should never store your private keys in a JavaScript or Python file. It is done in this tutorial for ease of demonstration only. You should always manage your private keys with a designated secret manager or similar service.
-
-### Create an ERC-20 Contract {: #create-an-erc-20-contract }
-
-For the purposes of this tutorial, we'll be creating a simple ERC-20 contract. We'll rely on OpenZeppelin's ERC-20 base implementation. We'll start by creating a file for the contract and naming it `MyTok.sol`:
-
-```bash
-mkdir -p contracts && touch contracts/MyTok.sol
-```
-
-Now we can edit the `MyTok.sol` file to include the following contract, which will mint an initial supply of MYTOKs and allow only the owner of the contract to mint additional tokens:
-
-???+ code "MyTok.sol"
-
-    ```solidity
-    // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.20;
-
-import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-
-contract MyTok is ERC20, Ownable {
-    constructor() ERC20("MyToken", "MTK") Ownable(msg.sender) {
-        _mint(msg.sender, 50000 * 10 ** decimals());
-    }
-
-    function mint(address to, uint256 amount) public onlyOwner {
-        _mint(to, amount);
-    }
-}
-    ```
-
-### Deploy an ERC-20 Contract {: #deploy-erc-20-contract }
-
-Now that we have our contract set up, we can compile and deploy our contract.
-
-To compile the contract, you can run:
-
-```bash
-npx hardhat compile
-```
-
-![Compile contracts using Hardhat](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-1.webp)
-
-This command will compile our contract and generate an `artifacts` directory containing the ABI of the contract.
-
-To deploy our contract, we'll need to create a deployment script that deploys our ERC-20 contract and mints an initial supply of MYTOKs. We'll use Alith's account to deploy the contract, and we'll specify the initial supply to be 1000 MYTOK. The initial supply will be minted and sent to the contract owner, which is Alith.
-
-Let's take the following steps to deploy our contract:
-
-1. Create a directory and file for our script:
-
-    ```bash
-    mkdir -p scripts && touch scripts/deploy.js
-    ```
-
-2. In the `deploy.js` file, go ahead and add the following script:
-
-    ???+ code "deploy.js"
-
-        ```ts
-        // scripts/deploy.js
-const hre = require('hardhat');
-require('@nomicfoundation/hardhat-ethers');
-
-async function main() {
-  // Get ERC-20 contract
-  const MyTok = await hre.ethers.getContractFactory('MyTok');
-
-  // Define custom gas price and gas limit
-  // This is a temporary stopgap solution to a bug
-  const customGasPrice = 50000000000; // example for 50 gwei
-  const customGasLimit = 5000000; // example gas limit
-
-  // Deploy the contract providing a gas price and gas limit
-  const myTok = await MyTok.deploy({
-    gasPrice: customGasPrice,
-    gasLimit: customGasLimit,
-  });
-
-  // Wait for the deployment
-  await myTok.waitForDeployment();
-
-  console.log(`Contract deployed to ${myTok.target}`);
-}
-
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
-        ```
-
-3. Run the script using the `dev` network configurations we set up in the `hardhat.config.js` file:
-
-    ```bash
-    npx hardhat run scripts/deploy.js --network demo
-    ```
-
-The address of the deployed contract should be printed to the terminal. Save the address, as we'll need it to interact with the contract in the following section.
-
-### Transfer ERC-20s {: #transfer-erc-20s }
-
-Since we'll be indexing `Transfer` events for our ERC-20, we'll need to send a few transactions that transfer some tokens from Alith's account to our other test accounts. We'll do this by creating a simple script that transfers 10 MYTOKs to Baltathar, Charleth, Dorothy, and Ethan. We'll take the following steps:
-
-Create a new file script to send transactions:
-
-```bash
-touch scripts/transactions.js
-```
-
-In the `transactions.js` file, add the following script and insert the contract address of your deployed MyTok contract (output in the console in the prior step):
-
-???+ code "transactions.js"
-
-    ```ts
-    // We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// You can also run a script with `npx hardhat run <script>`. If you do that, Hardhat
-// will compile your contracts, add the Hardhat Runtime Environment's members to the
-// global scope, and execute the script.
-const hre = require('hardhat');
-
-async function main() {
-  // Get Contract ABI
-  const MyTok = await hre.ethers.getContractFactory('MyTok');
-
-  // Define custom gas price and gas limit
-  // Gas price is typically specified in 'wei' and gas limit is just a number
-  // You can use Ethers.js utility functions to convert from gwei or ether if needed
-  const customGasPrice = 50000000000; // example for 50 gwei
-  const customGasLimit = 5000000; // example gas limit
-
-  // Plug ABI to address
-  const myTok = await MyTok.attach('INSERT_CONTRACT_ADDRESS');
-
-  const value = 100000000000000000n;
-
-  let tx;
-  // Transfer to Baltathar
-  tx = await myTok.transfer(
-    '0x3Cd0A705a2DC65e5b1E1205896BaA2be8A07c6e0',
-    value,
-    {
-      gasPrice: customGasPrice,
-      gasLimit: customGasLimit,
-    }
-  );
-  await tx.wait();
-  console.log(`Transfer to Baltathar with TxHash ${tx.hash}`);
-
-  // Transfer to Charleth
-  tx = await myTok.transfer(
-    '0x798d4Ba9baf0064Ec19eB4F0a1a45785ae9D6DFc',
-    value,
-    {
-      gasPrice: customGasPrice,
-      gasLimit: customGasLimit,
-    }
-  );
-  await tx.wait();
-  console.log(`Transfer to Charleth with TxHash ${tx.hash}`);
-
-  // Transfer to Dorothy
-  tx = await myTok.transfer(
-    '0x773539d4Ac0e786233D90A233654ccEE26a613D9',
-    value,
-    {
-      gasPrice: customGasPrice,
-      gasLimit: customGasLimit,
-    }
-  );
-  await tx.wait();
-  console.log(`Transfer to Dorothy with TxHash ${tx.hash}`);
-
-  // Transfer to Ethan
-  tx = await myTok.transfer(
-    '0xFf64d3F6efE2317EE2807d223a0Bdc4c0c49dfDB',
-    value,
-    {
-      gasPrice: customGasPrice,
-      gasLimit: customGasLimit,
-    }
-  );
-  await tx.wait();
-  console.log(`Transfer to Ethan with TxHash ${tx.hash}`);
-}
-
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
-    ```
-
-Run the script to send the transactions:
-
-```bash
-npx hardhat run scripts/transactions.js --network demo
-```
-
-As each transaction is sent, you'll see a log printed to the terminal.
-
-![Send transactions using Hardhat](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-2.webp)
-
-Now we can move on to creating our Squid to index the data on our local development node.
-
-## Create a Squid Project {: #create-a-squid-project }
-
-Now we're going to create our Subquid project. First, we'll need to install the [Squid CLI](https://docs.sqd.ai/squid-cli/){target=\_blank}:
-
-```bash
-npm i -g @subsquid/cli@latest
-```
-
-To verify successful installation, you can run:
-
-```bash
-sqd --version
-```
-
-Now we'll be able to use the `sqd` command to interact with our Squid project. To create our project, we're going to use the `--template` (`-t`) flag, which will create a project from a template. We'll be using the EVM Squid template, which is a starter project for indexing EVM chains.
-
-You can run the following command to create an EVM Squid named `tanssi-squid`:
-
-```bash
-sqd init tanssi-squid --template evm
-```
-
-This will create a Squid with all of the necessary dependencies. You can go ahead and install the dependencies:
-
-```bash
-cd tanssi-squid && npm ci
-```
-
-Now that we have a starting point for our project, we'll need to configure our project to index ERC-20 `Transfer` events taking place on our Tanssi network.
-
-##  Set Up the Indexer for ERC-20 Transfers {: #set-up-the-indexer-for-erc-20-transfers}
-
-In order to index ERC-20 transfers, we'll need to take a series of actions:
-
-1. Define the database schema and generate the entity classes
-2. Use the `ERC20` contract's ABI to generate TypeScript interface classes
-3. Configure the processor by specifying exactly what data to ingest
-4. Transform the data and insert it into a TypeORM database in `main.ts`
-5. Run the indexer and query the squid
-
-As mentioned, we'll first need to define the database schema for the transfer data. To do so, we'll edit the `schema.graphql` file, which is located in the root directory, and create a `Transfer` entity and `Account` entity. You can copy and paste the below schema, ensuring that any existing schema is first removed.
-
-???+ code "schema.graphql"
-
-    ```graphql
-    type Account @entity {
-  "Account address"
-  id: ID!
-  transfersFrom: [Transfer!] @derivedFrom(field: "from")
-  transfersTo: [Transfer!] @derivedFrom(field: "to")
-}
-
-type Transfer @entity {
-  id: ID!
-  blockNumber: Int!
-  timestamp: DateTime!
-  txHash: String!
-  from: Account!
-  to: Account!
-  amount: BigInt!
-}
-    ```
-
-Now we can generate the entity classes from the schema, which we'll use when we process the transfer data. This will create new classes for each entity in the `src/model/generated` directory.
-
-```bash
-sqd codegen
-```
-
-In the next step, we'll use the ERC-20 ABI to automatically generate TypeScript interface classes. Below is a generic ERC-20 standard ABI. Copy and paste it into a file named `erc20.json` in the `abi` folder at the root level of the project.
-
-??? code "ERC-20 ABI"
-
-    ```json
-    [
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "name",
-    "outputs": [
-      {
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_spender",
-        "type": "address"
-      },
-      {
-        "name": "_value",
-        "type": "uint256"
-      }
-    ],
-    "name": "approve",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "totalSupply",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_from",
-        "type": "address"
-      },
-      {
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "name": "_value",
-        "type": "uint256"
-      }
-    ],
-    "name": "transferFrom",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "decimals",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint8"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_owner",
-        "type": "address"
-      }
-    ],
-    "name": "balanceOf",
-    "outputs": [
-      {
-        "name": "balance",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "symbol",
-    "outputs": [
-      {
-        "name": "",
-        "type": "string"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "_to",
-        "type": "address"
-      },
-      {
-        "name": "_value",
-        "type": "uint256"
-      }
-    ],
-    "name": "transfer",
-    "outputs": [
-      {
-        "name": "",
-        "type": "bool"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_owner",
-        "type": "address"
-      },
-      {
-        "name": "_spender",
-        "type": "address"
-      }
-    ],
-    "name": "allowance",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "payable": true,
-    "stateMutability": "payable",
-    "type": "fallback"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "owner",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "name": "spender",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "name": "value",
-        "type": "uint256"
-      }
-    ],
-    "name": "Approval",
-    "type": "event"
-  },
-  {
-    "anonymous": false,
-    "inputs": [
-      {
-        "indexed": true,
-        "name": "from",
-        "type": "address"
-      },
-      {
-        "indexed": true,
-        "name": "to",
-        "type": "address"
-      },
-      {
-        "indexed": false,
-        "name": "value",
-        "type": "uint256"
-      }
-    ],
-    "name": "Transfer",
-    "type": "event"
-  }
-]
-    ```
-
-Next, we can use our contract's ABI to generate TypeScript interface classes. We can do this by running:
-
-```bash
-sqd typegen
-```
-
-![Run Squid commands](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-3.webp)
-
-This will generate the related TypeScript interface classes in the `src/abi/erc20.ts` file. For this tutorial, we'll be accessing the `events` specifically.
-
-### Configure the Processor {: #configure-the-processor}
-
-The `processor.ts` file tells SQD exactly what data you'd like to ingest. Transforming that data into the exact desired format will take place at a later step. In `processor.ts`, we'll need to indicate a data source, a contract address, the event(s) to index, and a block range.
-
-Open up the `src` folder and head to the `processor.ts` file. First, we need to tell the SQD processor which contract we're interested in. Create a constant for the address in the following manner:
-
-```ts
-export const CONTRACT_ADDRESS = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
-```
-
-The `.toLowerCase()` is critical because the SQD processor is case-sensitive, and some block explorers format contract addresses with capitalization. Next, you'll see the line `export const processor = new EvmBatchProcessor()`, followed by `.setDataSource`. We'll need to make a few changes here. SQD has [available archives for many chains](https://docs.sqd.ai/subsquid-network/reference/networks/){target=\_blank} that can speed up the data retrieval process, but it's unlikely your network has a hosted archive already. But not to worry, SQD can easily get the data it needs via your network's RPC URL. Go ahead and comment out or delete the archive line. Once done, your code should look similar to the below:
-
-```ts
-.setDataSource({
-  chain: {
-    url: assertNotNull(
-      '{{ networks.dancelight.demo_evm_rpc_url }}'
-    ),
-    rateLimit: 300,
-  },
-})
-```
-
-The Squid template comes with a variable for your RPC URL defined in your `.env` file. You can replace that with the RPC URL for your network. For demonstration purposes, the RPC URL for the demo EVM network is hardcoded directly, as shown above. If you're setting the RPC URL in your `.env`, the respective line will look like this:
-
-```text
-RPC_ENDPOINT={{ networks.dancelight.demo_evm_rpc_url }}
-```
-
-Now, let's define the event that we want to index by adding the following:
-
-```ts
-.addLog({
-  address: [contractAddress],
-  topic0: [erc20.events.Transfer.topic],
-  transaction: true,
-})
-```
-
-The `Transfer` event is defined in `erc20.ts`, which was auto-generated when `sqd typegen` was run. The import `import * as erc20 from './abi/erc20'` is already included as part of the Squid EVM template.
-
-Block range is an important value to modify to narrow the scope of the blocks you're indexing. For example, if you launched your ERC-20 at block `650000`, there is no need to query the chain before that block for transfer events. Setting an accurate block range will improve the performance of your indexer. You can set the earliest block to begin indexing in the following manner:
-
-```ts
-.setBlockRange({from: 632400,})
-```
-
-The chosen start block here corresponds to the relevant block to begin indexing on the demo EVM network, but you should change it to one relevant to your Tanssi-powered network and indexer project.
-
-Change the `setFields` section to specify the following data for our processor to ingest:
-
-```ts
-.setFields({
-  log: {
-    topics: true,
-    data: true,
-  },
-  transaction: {
-    hash: true,
-  },
-})
-```
-
-We also need to add the following imports to our `processor.ts` file:
-
-```ts
-import { Store } from '@subsquid/typeorm-store';
-import * as erc20 from './abi/erc20';
-```
-
-Once you've completed the prior steps, your `processor.ts` file should look similar to this:
-
-???+ code "processor.ts"
-
-    ```ts
-    import { assertNotNull } from '@subsquid/util-internal';
-import {
-  BlockHeader,
-  DataHandlerContext,
-  EvmBatchProcessor,
-  EvmBatchProcessorFields,
-  Log as _Log,
-  Transaction as _Transaction,
-} from '@subsquid/evm-processor';
-import { Store } from '@subsquid/typeorm-store';
-import * as erc20 from './abi/erc20';
-
-// Here you'll need to import the contract
-export const contractAddress = 'INSERT_CONTRACT_ADDRESS'.toLowerCase();
-
-export const processor = new EvmBatchProcessor()
-  .setDataSource({
-    chain: {
-      url: assertNotNull(
-        'https://dancelight-2001.tanssi-api.network'
-      ),
-      rateLimit: 300,
-    },
-  })
-  .setFinalityConfirmation(10)
-  .setFields({
-    log: {
-      topics: true,
-      data: true,
-    },
-    transaction: {
-      hash: true,
-    },
-  })
-  .addLog({
-    address: [contractAddress],
-    topic0: [erc20.events.Transfer.topic],
-    transaction: true,
-  })
-  .setBlockRange({
-    from: INSERT_START_BLOCK, // Note the lack of quotes here
-  });
-
-export type Fields = EvmBatchProcessorFields<typeof processor>;
-export type Block = BlockHeader<Fields>;
-export type Log = _Log<Fields>;
-export type Transaction = _Transaction<Fields>;
-    ```
-
-### Transform and Save the Data {: #transform-and-save-the-data}
-
-While `processor.ts` determines the data being consumed, `main.ts` determines the bulk of actions related to processing and transforming that data. In the simplest terms, we are processing the data that was ingested via the SQD processor and inserting the desired pieces into a TypeORM database. For more detailed information on how SQD works, be sure to check out the [SQD docs on Developing a Squid](https://docs.sqd.ai/sdk/how-to-start/squid-development/){target=\_blank}.
-
-Our `main.ts` file is going to scan through each processed block for the `Transfer` event and decode the transfer details, including the sender, receiver, and amount. The script also fetches account details for involved addresses and creates transfer objects with the extracted data. The script then inserts these records into a TypeORM database, enabling them to be easily queried. Let's break down the code that comprises `main.ts` in order:
-
-1. The job of `main.ts` is to run the processor and refine the collected data. In `processor.run`, the processor will iterate through all selected blocks and look for `Transfer` event logs. Whenever it finds a `Transfer` event, it's going to store it in an array of transfer events where it awaits further processing
-2. The `transferEvent` interface is the type of structure that stores the data extracted from the event logs
-3. `getTransfer` is a helper function that extracts and decodes ERC-20 `Transfer` event data from a log entry. It constructs and returns a `TransferEvent` object, which includes details such as the transaction ID, block number, sender and receiver addresses, and the amount transferred. `getTransfer` is called at the time of storing the relevant transfer events into the array of transfers
-4. `processTransfers` enriches the transfer data and then inserts these records into a TypeORM database using the `ctx.store` methods. The account model, while not strictly necessary, allows us to introduce another entity in the schema to demonstrate working with multiple entities in your Squid
-5. `getAccount` is a helper function that manages the retrieval and creation of account objects. Given an account ID and a map of existing accounts, it returns the corresponding account object. If the account doesn't exist in the map, it creates a new one, adds it to the map, and then returns it
-
-We'll demo a sample query in a later section. You can copy and paste the below code into your `main.ts` file:
-
-???+ code "main.ts"
-
-    ```ts
-    import { In } from 'typeorm';
-import { assertNotNull } from '@subsquid/evm-processor';
-import { TypeormDatabase } from '@subsquid/typeorm-store';
-import * as erc20 from './abi/erc20';
-import { Account, Transfer } from './model';
-import {
-  Block,
-  contractAddress,
-  Log,
-  Transaction,
-  processor,
-} from './processor';
-
-// 1. Iterate through all selected blocks and look for transfer events,
-// storing the relevant events in an array of transfer events
-processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) => {
-  let transfers: TransferEvent[] = [];
-
-  for (let block of ctx.blocks) {
-    for (let log of block.logs) {
-      if (
-        log.address === contractAddress &&
-        log.topics[0] === erc20.events.Transfer.topic
-      ) {
-        transfers.push(getTransfer(ctx, log));
-      }
-    }
-  }
-
-  await processTransfers(ctx, transfers);
-});
-
-// 2. Define an interface to hold the data from the transfer events
-interface TransferEvent {
-  id: string;
-  block: Block;
-  transaction: Transaction;
-  from: string;
-  to: string;
-  amount: bigint;
-}
-
-// 3. Extract and decode ERC-20 transfer event data from a log entry
-function getTransfer(ctx: any, log: Log): TransferEvent {
-  let event = erc20.events.Transfer.decode(log);
-
-  let from = event.from.toLowerCase();
-  let to = event.to.toLowerCase();
-  let amount = event.value;
-
-  let transaction = assertNotNull(log.transaction, `Missing transaction`);
-
-  return {
-    id: log.id,
-    block: log.block,
-    transaction,
-    from,
-    to,
-    amount,
-  };
-}
-
-// 4. Enrich and insert data into typeorm database
-async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
-  let accountIds = new Set<string>();
-  for (let t of transfersData) {
-    accountIds.add(t.from);
-    accountIds.add(t.to);
-  }
-
-  let accounts = await ctx.store
-    .findBy(Account, { id: In([...accountIds]) })
-    .then((q: any[]) => new Map(q.map((i: any) => [i.id, i])));
-
-  let transfers: Transfer[] = [];
-
-  for (let t of transfersData) {
-    let { id, block, transaction, amount } = t;
-
-    let from = getAccount(accounts, t.from);
-    let to = getAccount(accounts, t.to);
-
-    transfers.push(
-      new Transfer({
-        id,
-        blockNumber: block.height,
-        timestamp: new Date(block.timestamp),
-        txHash: transaction.hash,
-        from,
-        to,
-        amount,
-      })
-    );
-  }
-
-  await ctx.store.upsert(Array.from(accounts.values()));
-  await ctx.store.insert(transfers);
-}
-
-// 5. Helper function to get account object
-function getAccount(m: Map<string, Account>, id: string): Account {
-  let acc = m.get(id);
-  if (acc == null) {
-    acc = new Account();
-    acc.id = id;
-    m.set(id, acc);
-  }
-  return acc;
-}
-    ```
-
-Now we've taken all of the steps necessary and are ready to run our indexer!
-
-### Run the Indexer {: #run-the-indexer }
-
-To run our indexer, we're going to run a series of `sqd` commands:
-
-Build our project:
-
-   ```bash
-   sqd build
-   ```
-
-Launch the database:
-
-   ```bash
-   sqd up
-   ```
-
-Remove the database migration file that comes with the EVM template and generate a new one for our new database schema:
-
-   ```bash
-   sqd migration:generate
-   ```
-
-   ```bash
-   sqd migration:apply
-   ```
-
-Launch the processor:
-
-   ```bash
-   sqd process
-   ```
-
-In your terminal, you should see your indexer starting to process blocks!
-
-![Get Squid running](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-4.webp)
-
-## Query Your Squid {: #query-your-squid }
-
-To query your squid, open up a new terminal window within your project and run the following command:
-
-```bash
-sqd serve
-```
-
-And that's it! You can now run queries against your Squid on the GraphQL playground at `http://localhost:4350/graphql`. Try crafting your own GraphQL query, or use the below one:
-
-???+ code "Example query"
-
-    ```ts
-    query {
-  accounts {
-    id
-    transfersFrom {
-      id
-      blockNumber
-      timestamp
-      txHash
-      to {
-        id
-      }
-      amount
-    }
-    transfersTo {
-      id
-      blockNumber
-      timestamp
-      txHash
-      from {
-        id
-      }
-      amount
-    }
-  }
-}
-    ```
-
-![Running queries in GraphQL playground](/images/builders/toolkit/integrations/indexers/sqd/erc20-transfers/sqd-5.webp)
-
-## Debug Your Squid {: #debug-your-squid }
-
-It may seem tricky at first to debug errors when building your Squid, but fortunately, there are several techniques you can use to streamline this process. First and foremost, if you're facing errors with your Squid, you should enable debug mode in your `.env` file by uncommenting the debug mode line. This will trigger much more verbose logging and will help you locate the source of the error.
-
-```text
-# Uncommenting the below line enables debug mode
-SQD_DEBUG=*
-```
-
-You can also add logging statements directly to your `main.ts` file to indicate specific parameters like block height and more. For example, see this version of `main.ts`, which has been enhanced with detailed logging:
-
-??? code "main.ts"
-
-    ```ts
-    import { In } from 'typeorm';
-import { assertNotNull } from '@subsquid/evm-processor';
-import { TypeormDatabase } from '@subsquid/typeorm-store';
-import * as erc20 from './abi/erc20';
-import { Account, Transfer } from './model';
-import {
-  Block,
-  contractAddress,
-  Log,
-  Transaction,
-  processor,
-} from './processor';
-
-processor.run(new TypeormDatabase({ supportHotBlocks: true }), async (ctx) => {
-  ctx.log.info('Processor started');
-  let transfers: TransferEvent[] = [];
-
-  ctx.log.info(`Processing ${ctx.blocks.length} blocks`);
-  for (let block of ctx.blocks) {
-    ctx.log.debug(`Processing block number ${block.header.height}`);
-    for (let log of block.logs) {
-      ctx.log.debug(`Processing log with address ${log.address}`);
-      if (
-        log.address === contractAddress &&
-        log.topics[0] === erc20.events.Transfer.topic
-      ) {
-        ctx.log.info(`Transfer event found in block ${block.header.height}`);
-        transfers.push(getTransfer(ctx, log));
-      }
-    }
-  }
-
-  ctx.log.info(`Found ${transfers.length} transfers, processing...`);
-  await processTransfers(ctx, transfers);
-  ctx.log.info('Processor finished');
-});
-
-interface TransferEvent {
-  id: string;
-  block: Block;
-  transaction: Transaction;
-  from: string;
-  to: string;
-  amount: bigint;
-}
-
-function getTransfer(ctx: any, log: Log): TransferEvent {
-  let event = erc20.events.Transfer.decode(log);
-
-  let from = event.from.toLowerCase();
-  let to = event.to.toLowerCase();
-  let amount = event.value;
-
-  let transaction = assertNotNull(log.transaction, `Missing transaction`);
-
-  ctx.log.debug(
-    `Decoded transfer event: from ${from} to ${to} amount ${amount.toString()}`
-  );
-  return {
-    id: log.id,
-    block: log.block,
-    transaction,
-    from,
-    to,
-    amount,
-  };
-}
-
-async function processTransfers(ctx: any, transfersData: TransferEvent[]) {
-  ctx.log.info('Starting to process transfer data');
-  let accountIds = new Set<string>();
-  for (let t of transfersData) {
-    accountIds.add(t.from);
-    accountIds.add(t.to);
-  }
-
-  ctx.log.debug(`Fetching accounts for ${accountIds.size} addresses`);
-  let accounts = await ctx.store
-    .findBy(Account, { id: In([...accountIds]) })
-    .then((q: any[]) => new Map(q.map((i: any) => [i.id, i])));
-  ctx.log.info(
-    `Accounts fetched, processing ${transfersData.length} transfers`
-  );
-
-  let transfers: Transfer[] = [];
-
-  for (let t of transfersData) {
-    let { id, block, transaction, amount } = t;
-
-    let from = getAccount(accounts, t.from);
-    let to = getAccount(accounts, t.to);
-
-    transfers.push(
-      new Transfer({
-        id,
-        blockNumber: block.height,
-        timestamp: new Date(block.timestamp),
-        txHash: transaction.hash,
-        from,
-        to,
-        amount,
-      })
-    );
-  }
-
-  ctx.log.debug(`Upserting ${accounts.size} accounts`);
-  await ctx.store.upsert(Array.from(accounts.values()));
-  ctx.log.debug(`Inserting ${transfers.length} transfers`);
-  await ctx.store.insert(transfers);
-  ctx.log.info('Transfer data processing completed');
-}
-
-function getAccount(m: Map<string, Account>, id: string): Account {
-  let acc = m.get(id);
-  if (acc == null) {
-    acc = new Account();
-    acc.id = id;
-    m.set(id, acc);
-  }
-  return acc;
-}
-    ```
-
-See the [SQD guide to logging](https://docs.sqd.ai/sdk/reference/logger/){target=\_blank} for more information on debug mode.
-
-### Common Errors {: #common-errors }
-
-Below are some common errors you may face when building a project and how you can solve them.
-
-```text
-Error response from daemon: driver failed programming external connectivity on endpoint my-awesome-squid-db-1
-(49df671a7b0531abbb5dc5d2a4a3f5dc7e7505af89bf0ad1e5480bd1cdc61052):
-Bind for 0.0.0.0:23798 failed: port is already allocated
-```
-
-This error indicates that you have another instance of SQD running somewhere else. You can stop that gracefully with the command `sqd down` or by pressing the **Stop** button next to the container in Docker Desktop.
-
-```text
-Error: connect ECONNREFUSED 127.0.0.1:23798
-     at createConnectionError (node:net:1634:14)
-     at afterConnectMultiple (node:net:1664:40) {
-     errno: -61,code: 'ECONNREFUSED',syscall: 'connect',
-     address: '127.0.0.1',port: 23798}
-```
-
-To resolve this, run `sqd up` before you run `sqd migration:generate`
-
-Is your Squid error-free, yet you aren't seeing any transfers detected? Make sure your log events are consistent and identical to the ones your processor is looking for. Your contract address also needs to be lowercase, which you can be assured of by defining it as follows:
-
-```ts
-export const contractAddress = '0x37822de108AFFdd5cDCFDaAa2E32756Da284DB85'.toLowerCase();
-```
-
-<div class="page-disclaimer">
-  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
-</div>
---- END CONTENT ---
-
 Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/quick-start/
 --- BEGIN CONTENT ---
 ---
@@ -1539,7 +431,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/dev-env/
 title: How to use Chopsticks to Fork Your Network
 description: Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi network.
 icon: octicons-code-square-24
-categories: Substrate-Template
+categories: Substrate-Template, EVM-Template
 ---
 
 # How to Use Chopsticks to Fork Your Network
@@ -3114,7 +2006,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/
 title: How to Connect SubWallet to Tanssi Substrate
 description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate network.
 icon: material-wallet-outline
-categories: Substrate-Template
+categories: Substrate-Template, EVM-Template
 ---
 
 # Interacting with Your Tanssi Substrate Network Using SubWallet
@@ -3232,7 +2124,7 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/
 title: How to Connect Talisman to Tanssi
 description: This guide walks you through how to connect Talisman, a Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate decentralized network.
 icon: material-wallet-outline
-categories: Substrate-Template
+categories: Substrate-Template, EVM-Template
 ---
 
 # Interacting with your Tanssi Substrate Network Using Talisman
@@ -4288,6 +3180,301 @@ Within Tanssi's Substrate-based protocol, an operator’s primary _Sr25519_ iden
 For rewards on Ethereum (e.g., via [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}), an operator's Tanssi _Sr25519_ identity maps to an Ethereum _ECDSA_ address. Operators inform both accounts, which are then linked through the Tanssi middleware. This trusted link ensures that rewards from the operator's node work on the Tanssi network are routed to the operator's designated Ethereum account.
 --- END CONTENT ---
 
+Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-providers/symbiotic/
+--- BEGIN CONTENT ---
+---
+title: Ethereum with Symbiotic
+description: Tanssi's design allows developers to choose and connect to the Symbiotic restaking protocol, benefiting from Ethereum-grade security right from the start.
+icon: octicons-shield-check-24
+categories: Basics
+---
+
+# Ethereum with Symbiotic {: #ethereum-symbiotic }
+
+## Introduction {: #introduction }
+
+The Tanssi protocol takes care of critical infrastructural components, making it easy for developers to launch their networks in a few minutes. In addition to block production, data retrievability, and integrations with essential tools such as wallets, RPC endpoints, block explorers, and others, another major task to tackle is providing security to the network.
+
+Tanssi is designed to offer developers a shared security model, alleviating them from having to source enough economic security or negotiating with operators to run nodes opting-in for their networks. By deploying networks through Tanssi, and by choosing [Symbiotic](https://symbiotic.fi/){target=\_blank} as a security provider, developers benefit from Ethereum-grade security, tapping into billions of dollars in shared security from staked ETH.
+
+The following sections describe how the Symbiotic protocol works and how Tanssi networks can leverage it as their consensus mechanism.
+
+## Ethereum-Grade Security with Symbiotic {: #symbiotic }
+
+[Symbiotic](https://symbiotic.fi/){target=\_blank} is a shared security protocol designed to be permissionless, multi-asset, and network-agnostic. It fosters capital efficiency by allowing users to extend the functionality of their staked assets to secure other networks while providing additional utility.
+
+The protocol provides a coordination layer for its main components and participants, aligning incentives among parties while minimizing execution layer risks by deploying non-upgradeable core contracts on Ethereum. The following diagram resumes all the components and actors participating in the protocol:
+
+```mermaid
+flowchart TD
+    %% Vaults subgraph
+    subgraph Ethereum["Ethereum/Symbiotic"]
+        slash[/Slashing Events/]
+        Restakers -- Deposit Assets --> Vaults
+        manager["Vault managers"] -- Manage --> Vaults
+        Resolvers -- Decide On --> slash
+        slash -- Executes On --> Vaults
+    end
+
+    %% Operators subgraph
+    subgraph Operators
+        direction BT
+        operators["Operators (Validators)"]
+        node_operators["Node Operators"]
+        node_operators -- Run --> operators
+    end
+
+    %% Networks subgraph
+    subgraph Networks
+        direction BT
+        developers["Developers"]
+        networks["Decentralized Networks"]
+        developers -- Launch --> networks
+    end
+
+    Vaults <--> Tanssi
+    Tanssi <--> Operators
+    Tanssi <--> Networks
+```
+
+Symbiotic's flexible design allows every party to decide on setups that best fit their use cases. For example, vaults can choose what forms of collateral they accept, operators can determine which networks they want to provide services to, and decentralized networks can customize their use case and define the level of security (which collaterals are accepted, for example) they need.
+
+The following sections describe the protocol's main components.
+
+### Vaults {: #vaults }
+
+[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, and set up delegation strategies.
+
+Each vault is bound to a specific token that satisfies the [IERC20](https://github.com/ethereum/ercs/blob/master/ERCS/erc-20.md){target=\_blank} interface and is accepted as collateral. Internally, the funds within the vault are represented as shares, which provide a mechanism for tracking ownership and distributing rewards. However, the reward token may differ from the collateral token.
+
+A vault comprises three key modules, each serving a distinct function: the slasher, the delegator, and the accounting module. The implementation of these modules can vary depending on the vault manager's decisions.
+
+- **Slasher module** - implements the [slashing](#slashing-process) logic, which penalizes bad actors
+- **Delegator module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator){target=\_blank} are available, allowing the vault manager to select which operators and networks they want to work with
+- **Accounting module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/){target=\_blank}, which provides a vault with a shares system included
+
+Since the operators get delegated stake from the vault and could potentially get slashed, they must be approved by the vault managers beforehand. On a similar note, vault managers analyze and authorize each network the vault will secure, considering, for example, the rewards the network offers.
+
+Vault managers also designate [resolvers](https://docs.symbiotic.fi/modules/counterparties/resolvers){target=\_blank}, responsible for approving or vetoing [slashing events](https://docs.symbiotic.fi/modules/vault/slasher){target=\_blank} caused by operators on networks with [veto-slashing](https://docs.symbiotic.fi/modules/vault/slasher#veto-slashing){target=\_blank} support, like the Tanssi Network.
+
+### Operators {: #operators }
+
+[Node operators](/node-operators/){target=\_blank} are entities or individuals responsible for running the [nodes (also known as operators or validators)](https://docs.symbiotic.fi/modules/counterparties/operators){target=\_blank}, which are the computational components validating the networks' transactions. They are responsible for the nodes' configuration, hardware setup, uptime, and performance.
+
+Node operators opt-in to provide services to networks, which must accept their request. Also, they opt-in to provide services in vaults, which must accept their request.
+
+Once an operator has been accepted by a vault and a network connected to that vault, the node can start providing validation services to that network, receiving rewards in exchange.
+
+### Networks {: #networks }
+
+[Networks](https://docs.symbiotic.fi/modules/counterparties/networks){target=\_blank} are the actively validated services or networks. These application-specific blockchains can be a use case from a wide range of industries, such as Gaming, Defi, RWAs, and others, and are the platforms that, through dApps, the end users interact with.
+
+Since operators opt-in to provide services to networks and the vault managers must accept the networks, the developers are responsible for defining, controlling, and adapting their methodology for onboarding, rewarding, and slashing operators.
+
+!!! note
+    Networks deployed through Tanssi don't need to work on the relation with vaults and operators since the Tanssi protocol deals with those complexities.
+
+## Tanssi with Symbiotic {: #tanssi-symbiotic }
+
+Developers launching networks through Tanssi benefit from [block production services](/learn/tanssi/network-services/block-production/){target=\_blank}, data retrievability as a service, and the shared security model derived from every vault opting-in to support the Tanssi protocol. This eliminates the hurdle of dealing with infrastructural and security components developers would need to take on otherwise.
+
+Vault managers running vaults can apply to offer the restaked collaterals as economic security for the Tanssi Network. Since Tanssi networks run in a sandbox-like environment, and the Tanssi protocol manages all the networks-related responsibilities, vault managers only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of networks that are running through the Tanssi protocol at any given moment.
+
+Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi Network and, consequently, to every network deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi network is launched or decommissioned.
+
+!!! note
+    The Tanssi protocol effectively abstracts the details of the active set of networks away from vault managers and operators. Networks particularities don't require any additional setup from operators nor pose risks to vault assets.
+
+All things combined shape a functional and elegant ecosystem where developers can focus on creating and innovating. Tanssi handles the infrastructural components, guaranteeing liveness and performance, and Symbiotic provides the economic safeguards to ensure the validity of the operations.
+
+```mermaid
+flowchart LR
+    subgraph Symbiotic
+        direction LR
+        Operators
+        Vaults
+    end
+    Symbiotic  -- Validates/Secures --> tanssi["Tanssi Network"]
+    tanssi -- Block Production Services--> Networks
+    tanssi -- Security--> Networks
+    tanssi -- Data Retrievability--> Networks
+
+    class Symbiotic custom-container
+```
+
+### Tanssi-Ethereum Communication {: #tanssi-ethereum-communication }
+
+It is important to learn how Tanssi and Ethereum exchange data to understand the mechanics of the protocol. They connect through a two-way bridge that lets them communicate with each other. Each protocol has a specific job in making cross-chain operations possible.
+
+There are three key components between Symbiotic and Tanssi:
+
+```mermaid
+flowchart LR
+
+Tanssi["Tanssi"] <--> Relayer 
+Relayer <--> Gateway 
+Gateway["Gateway"] <--> Middleware
+Middleware <--> Symbiotic["Symbiotic"]
+
+class Tanssi tanssiNode;
+
+class Middleware middlewareNode;
+
+class Gateway gatewayNode;
+
+class Symbiotic symbioticNode;
+
+class Relayer relayerNode;
+```
+
+- **`Relayer`** - is the software that continuously monitors both blockchains and transmits messages. Enabling reliable bidirectional communication between Tanssi and Ethereum, serving as the connection layer that ensures messages are correctly delivered across networks
+
+- **`Gateway`** - operates on the Ethereum side of the bridge and serves three essential functions. It receives, verifies, and routes incoming messages from Tanssi to ensure they are correctly processed. The contract accepts outgoing messages destined for the Tanssi network, preparing them for relay. Finally, it handles higher-level application functionalities, most notably token transfers between the two networks, providing a secure interface for cross-chain asset movement
+
+- **`Middleware`** - is Tanssi's implementation for handling network events and operations. It is the critical link between the `Gateway` and Tanssi's core protocol
+
+The `Middleware` plays a central role in network coordination between Tanssi and Symbiotic. It distributes rewards to operators and vaults based on their network security and performance contributions. The contract sorts operators by stake to create a merit-based ranking system for their selection and transmits the list of sorted operator keys to Tanssi for assignment. Additionally, it facilitates operator registration processes and handles the reward and slashing protocols that maintain network incentive alignment.
+
+#### From Ethereum to Tanssi {: #from-ethereum-tanssi }
+
+The `Middleware` transmits operator set information to Tanssi for session assignment through the bridge. It sends details about active operators for each epoch, ordering them by their total stake aggregated across vaults. Tanssi then uses this information to assign operators for upcoming sessions, ensuring that the most economically aligned ones secure the network. This mechanism creates a stake-weighted operator selection process where economic security on Ethereum translates to operational security on Tanssi.
+
+#### From Tanssi to Ethereum {: #from-tanssi-ethereum }
+
+Tanssi sends operational data back to Ethereum through the same communication channel. This message includes reward information that enables proper distribution to stakeholders based on network performance. The network also transmits slashing event data when operators fail to perform correctly or violate protocol rules, allowing the protocol to apply penalties. Tanssi can also request new tokens to be created on Ethereum and register tokens, making managing assets between both networks easy.
+
+### Rewards {: #rewards }
+
+Well-behaved operators and restakers are rewarded for their participation with TANSSI tokens. The reward process consists of two main phases: [Reward Distribution Phase](#reward-distribution-phase) and [Reward Claiming Phase](#reward-claiming-phase).
+
+#### Reward Distribution Phase {: #reward-distribution-phase }
+
+The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
+
+1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
+2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.network/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://docs.snowbridge.network/){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
+3. **Ethereum Message Reception** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
+4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, which is responsible for various tasks, including passing the information to the `OperatorReward` contract
+5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
+
+```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
+sequenceDiagram
+    participant Tanssi Network
+    participant Snowbridge (XCM)
+    participant Gateway
+    participant Middleware
+    participant OperatorRewards
+
+    Tanssi Network->>Tanssi Network: 1. Calculate rewards and generate Merkle root
+    Tanssi Network->>Snowbridge (XCM): 2. Reward data sent via XCM (Merkle root + data)
+    Snowbridge (XCM)->>Gateway: 3. Relay message and sent to Ethereum 
+    Gateway ->>Middleware: 4. Message processing and validation
+    Middleware->>OperatorRewards: 5. Reward storage and distribution
+```
+
+#### Reward Claiming Phase {: #reward-claiming-phase }
+
+In the reward-claiming phase, operators and stakers can claim rewards based on their participation in the network. Tanssi determines the share distribution for operators and stakers, currently setting it at 20% for operators and 80% for stakers.
+
+1. **Operator Reward Claim** - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
+2. **Token Release** - the operator call triggers the token release, and the `OperatorRewards` sends the established amount to the operator
+3. **Token Distribution to Stakers** - the remaining rewards are forwarded to the `StakerRewards` contract for further claiming of the staker
+4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol){target=\_blank} contract, where stakers can claim rewards proportional to their stake in the vaults
+
+```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
+sequenceDiagram
+ participant Operator
+ participant OperatorRewards
+ participant StakerRewards
+ participant Stakers
+
+ Operator->>OperatorRewards: 1. Operator reward claim
+ OperatorRewards->>Operator: 2. Release rewards to the operator
+ OperatorRewards->>StakerRewards: 3. Forward the remainder to StakerRewards
+ Stakers->>StakerRewards: 4. Stakers claim individual rewards
+```
+
+### Slashing {: #slashing }
+
+The Tanssi protocol implements slashing to penalize operators for misbehavior. When a slashing event is triggered, the authorities designated as resolvers by the vault managers can either accept or revert this action.
+
+The following actions can trigger slashing events:
+
+- Producing invalid blocks (e.g., blocks that include invalid transactions)
+- Invalid validation (e.g., double-signing or breaking protocol rules)
+- Downtime or unavailability
+- Consensus violations
+
+!!!note
+    Slashing events can only be triggered by operators' misbehavior within the Tanssi Network. Even if Tanssi networks are faulty or malicious, they operate in a sandboxed environment and cannot cause slashing.
+
+#### Slashing Process {: #slashing-process }
+
+The slashing process follows a path similar to that of rewards. When an operator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). The message passes through the `Gateway` and into the `Middleware` where the slashing method gets called.
+
+The slashing method receives a unique identifier for the operator's identity, the severity of the slash as a percentage of the operator's assigned stake in each vault, and the time context within which the offense occurred.
+
+The slashing process consists of the following steps:
+
+1. **Slash Reported** - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, `percentage`, and `epoch`
+2. **Operator Validation** - the `Middleware` validates the operator's identity and checks if the operator is subject to slashing
+3. **Retrieve Active Vaults** - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
+4. **Retrieve Operator Stake** - for each active vault, the `Middleware` retrieves the stake of the misbehaving operator
+5. **Calculate Slash Amount** - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
+6. **Slashing** - depending on the vault's slashing implementation, there are two possible routes
+
+    - **Instant Slashing** - if the vault uses instant slashing, the stake is immediately reduced
+
+    - **Veto Slashing** - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
+
+    The slashing is canceled if the resolver vetoes the request within the time window. Otherwise, the slashing penalty is executed if no veto occurs within the time window
+
+This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
+
+```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
+sequenceDiagram
+    participant Network
+    participant Middleware
+    participant Vault
+    participant Slasher
+    
+    Network->>Middleware: 1. Slash reported
+    Middleware->>Middleware: 2. Operator validation
+    loop Each Active Vault
+        Middleware->>Vault: 3. Retrieve operator stake
+        Vault-->>Middleware: 4. Retrieve vault stake
+        Middleware->>Middleware: 5. Calculate slash amount
+        alt Instant Slasher
+            Middleware->>Slasher: 6.1 Slash
+        else Veto Slasher
+            Middleware->>Slasher: 6.2 Request slash
+            opt If Not Vetoed
+                Slasher->>Slasher: 6.2 Execute slash
+            end
+        end
+    end
+```
+
+#### Burner {: #burner }
+
+The `Burner` contract is an extension responsible for handling actions that follow a [slashing event](#slashing-process), notably the burning of slashed collateral. Once a slash is executed, the `Slasher` contract calls the `Burner` to carry out these post-slashing tasks.
+
+Within the protocol, the `Burner` contract plays a crucial role in deciding what happens after slashing. While there are different ways to implement the burning process, the recommended approach is to burn the slashed assets.
+When a slash is executed, the `Burner` contract's `onSlash` function is activated. This function kicks off the process of burning the slashed assets.
+
+The vault manager chooses the specific implementation of the burning process during the vault's initialization phase, and once set, the vault manager cannot modify it. The exact design of the `Burner` contract may differ depending on the type of collateral asset involved. Below are some potential implementation options:
+
+- **Burning Tokens** - if the slashed collateral is a regular ERC-20 token, the `Burner` destroys those tokens, permanently removing them from circulation
+- **Unwrapping and Burning** - if the slashed tokens represent something like staked assets (e.g., liquid staking tokens) or liquidity provider (LP) tokens from a decentralized exchange (DEX), the `Burner` might convert them back into their original form before burning them
+- **Cross-Chain Operations** - if the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
+- **Alternative Handling** - sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do
+
+Burning slashed collateral is important because it penalizes misbehaving operators and reduces the total supply of tokens, which can have deflationary effects.
+--- END CONTENT ---
+
 Doc-Content: https://docs.tanssi.network/learn/tanssi/network-features/staking/
 --- BEGIN CONTENT ---
 ---
@@ -4903,7 +4090,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/identity/
 title: Set an Account Identity
 description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
 icon: octicons-person-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Set Up an Identity
@@ -5075,7 +4262,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/proxy-accou
 title: Set Up and Manage Proxy Accounts
 description: Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
 icon: octicons-shield-lock-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Proxy Accounts
@@ -5295,7 +4482,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
 title: Requirements and Features of Templates
 description: Explore the foundational setup and key features included in each Tanssi template, designed to streamline the building and deployment of Tanssi networks.
 icon: octicons-home-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Templates Overview {: #templates-overview }

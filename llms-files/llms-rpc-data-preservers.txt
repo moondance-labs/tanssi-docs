@@ -3,30 +3,1424 @@
 This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
 It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
 
-This file includes documentation related to the category: Basics
+This file includes documentation related to the product: RPC-Data-Preservers
+
+## AI Prompt Template
+
+You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your task is to assist developers in understanding and using the product described in this file.
+- Provide accurate answers based on the included documentation.
+- Do not assume undocumented features, behaviors, or APIs.
+- If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/decentralized-networks/included-templates.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/decentralized-networks/overview.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/decentralized-networks/runtime-features.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/decentralized-networks/tx-fees.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/framework/architecture.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/framework/modules.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/framework/overview.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/framework/xcm.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/tanssi/account-types.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/tanssi/external-security-providers/symbiotic.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/tanssi/network-features/staking.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/tanssi/network-services/block-production.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/tanssi/overview.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/learn/tanssi/tanssi-ethereum-bridge.md [type: learn]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/account-management/identity.md [type: builders]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/account-management/proxy-accounts.md [type: builders]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/build/templates/overview.md [type: builders]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/interoperability/built-in-bridge.md [type: builders]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/tanssi-network/tanssi-token.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi-powered-network/rpc-docker.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi-powered-network/rpc-systemd.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi/tanssi-node-docker.md [type: node-operators]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/node-operators/network-node/tanssi/tanssi-node-systemd.md [type: node-operators]
 
 ## Full content for each doc page
+
+Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi-powered-network/rpc-docker/
+--- BEGIN CONTENT ---
+---
+title: Run a Network Node Using Docker
+description: Discover how to configure and operate a Tanssi-powered network node using Docker, enabling you to host your own RPC endpoint for interaction with your chain.
+icon: material-docker
+categories: RPC-Data-Preservers
+---
+
+# Run a Network Node Using Docker
+
+## Introduction {: #introduction }
+
+Running a Tanssi-powered network node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols.
+
+Nodes store block data and network state. However, developers can run different kinds of nodes:
+
+ - **Full Archive Node** - a node storing the entire block data and network state at all block heights. Such nodes are helpful when querying historical data from old blocks. However, a full archive node takes up a lot of space
+
+  - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
+
+In this guide, you'll learn how to quickly spin up a Tanssi network node using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
+
+!!! note
+    It is not possible to run an RPC node for quick Trial networks as they run on a private network, and their nodes are, therefore, unreachable for syncing.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+### Installing Docker {: #installing-docker}
+
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
+
+Run the following command to install Docker on a Linux Ubuntu platform:
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+And the following command to check the installation:
+
+```bash
+sudo docker run hello-world
+```
+
+This is what a successful execution in the terminal looks like:
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>sudo docker run hello-world</span>
+  <span data-ty>
+    <br> 
+    <br> Hello from Docker!
+    <br> This message shows that your installation appears to be working correctly.
+    <br> 
+    <br> To generate this message, Docker took the following steps:
+    <br> 1. The Docker client contacted the Docker daemon.
+    <br> 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    <br>     (amd64)
+    <br> 3. The Docker daemon created a new container from that image which runs the
+    <br>     executable that produces the output you are currently reading.
+    <br> 4. The Docker daemon streamed that output to the Docker client, which sent it
+    <br>     to your terminal.
+    <br>
+    <br> To try something more ambitious, you can run an Ubuntu container with:
+    <br> $ docker run -it ubuntu bash
+    <br>
+    <br> Share images, automate workflows, and more with a free Docker ID:
+    <br> https://hub.docker.com/
+    <br>
+    <br> For more examples and ideas, visit:
+    <br>  https://docs.docker.com/get-started/
+  </span>
+</div>
+
+### Pulling the Docker Image {: #pulling-docker-image }
+
+A Docker image is built and published as part of the automated deployment process, either for a Tanssi EVM-compatible network or another for a Tanssi Substrate network.
+
+A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
+
+The chain specification is generated when registering the network in the [dApp](https://apps.tanssi.network){target=\_blank} using the provided parameters for the selected [template](/learn/decentralized-networks/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
+
+Luckily, running a node requires the right Docker image configured correctly!
+
+### EVM-Compatible Networks {: #pulling-evm-docker-image }
+
+If the Tanssi network was registered in the dApp choosing the EVM template or uploading a custom specification representing a Tanssi EVM-compatible network, then execute the following command to pull the Docker image:
+
+=== "Dancelight"
+
+    ```bash
+    docker pull moondancelabs/dancelight-container-chain-evm-templates
+    ```
+
+The command will download and extract the image and show the status upon execution:
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/dancelight-container-chain-evm-templates</span>
+  <span data-ty>
+    <br> 
+    <br> Using default tag: latest
+    <br> latest: Pulling from moondancelabs/dancelight-container-chain-evm-templates
+    <br> 31ad3619f756: Already exists 
+    <br> 8f3d9759dcde: Pull complete 
+    <br> de5eaba9b289: Pull complete 
+    <br> Digest: sha256:4930d631a8ac7f7852754d4cf77bb3317229d768f44092a00295ba50641b2a33
+    <br> Status: Downloaded newer image for moondancelabs/dancelight-container-chain-evm-templates
+    <br> docker.io/moondancelabs/dancelight-container-chain-evm-templates:latest
+  </span>
+</div>
+
+### Simple Substrate Networks {: #pulling-substrate-docker-image }
+
+If the network was registered in the dApp choosing the basic Substrate template or uploading a custom specification file representing a Substrate network, then execute the following command to pull the Docker image:
+
+=== "Dancelight"
+
+    ```bash
+    docker pull moondancelabs/dancelight-container-chain-simple-templates
+    ```
+
+The command will download and extract the image and show the status upon execution, showing a similar output as the previous terminal image.
+
+## Start-Up Command {: #start-up-command }
+
+To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
+
+- `Network ID` - replace `YOUR_NETWORK_ID` with your Tanssi network ID within the `--chain` command. This ID was obtained during the [third step of the network deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network){target=\_blank}. For example, `2001`
+- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi network bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_NETWORK_BOOTNODE` with the actual bootnode information
+
+!!! note
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
+=== "EVM-compatible Network"
+
+    ```bash
+    docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
+    /chain-network/container-chain-frontier-node \
+    --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
+--rpc-port=9944 \
+--name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
+--bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
+-- \
+--name=relay \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--rpc-port=9945 \
+--sync=fast \
+--database=paritydb \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+    ```
+
+=== "Simple Substrate Network"
+
+    ```bash
+    docker run -ti moondancelabs/dancelight-container-chain-simple-templates \
+    /chain-network/container-chain-simple-node \
+    --chain=/chain-network/container-YOUR_NETWORK_ID-raw-specs.json \
+--rpc-port=9944 \
+--name=para \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
+--bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
+-- \
+--name=relay \
+--chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--rpc-port=9945 \
+--sync=fast \
+--database=paritydb \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+    ```
+
+!!! note
+    Only the historical state of the last 256 finalized blocks are kept in the local database by default. To run a full archive node, you must set the `--state-pruning archive` flag. More information is in the [flags section](#run-flags).
+
+### Fetching Bootnode Information {: #fetching-bootnode-information}
+
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancelight TestNet](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+
+To do so, take the following steps:
+
+1. Select **dataPreservers** as the module to query
+2. Set the storage query to **bootNodes**
+3. Provide your Tanssi network ID
+4. Click on the **+** sign
+
+![Getting the bootnode](/images/node-operators/network-node/rpc-docker-systemd-1.webp)
+
+### Full Node Example for Demo EVM Network {: #example-demo-evm-network }
+
+The following example spins up a full archive RPC node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancelight with an ID of `2001`.
+
+=== "Dancelight"
+
+    ```bash
+    docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
+    /chain-network/container-chain-frontier-node \
+    --chain=/chain-network/container-2001-raw-specs.json \
+    --rpc-port=9944 \
+    --name=para \
+    --state-pruning=archive \
+    --blocks-pruning=archive \
+    --database=paritydb \
+    --unsafe-rpc-external \
+    --bootnodes=/dns4/ukl-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWKDotMgTRpURvoZHsLWP4K9ymhkBByi1EJjMQAnCmqg8E \
+    --bootnodes=/dns4/qco-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWB3kqqNhYgGtGbsdtgD18wUoFVeuXVXgWLXTFs91RNgAx \
+    -- \
+    --chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+    --rpc-port=9945 \
+    --name=relay \
+    --sync=fast \
+    --database=paritydb \
+    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+    ```
+
+### Run Flags {: #run-flags }
+
+The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+
+- `--name INSERT_NAME` - a human-readable name for this node
+- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
+- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
+- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
+- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
+- `--detailed-log-output` - enables detailed log output
+
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
+
+For a complete list of available flags, their description, and possible values, run the following command:
+
+=== "Dancelight"
+
+    ```bash
+    docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
+    /chain-network/container-chain-frontier-node \
+    --help
+    ```
+
+## Syncing Your Node {: #syncing-your-node }
+
+Once your node spins up, the syncing process displays a lot of log information from both the node and the Tanssi network. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker run ....</span>
+  <span data-ty>
+    <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
+    <br> 2024-02-08 18:30:06.368  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #14139635 (0x8c41…8df6)    
+    <br> 2024-02-08 18:30:08.809  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #14139635 (0x8c41…8df6), finalized #14139632 (0xa9a8…cab9), ⬇ 32.7kiB/s ⬆
+  </span>
+</div>
+
+!!! note
+    The length of the syncing process is directly proportional to the size of the chain you are syncing to.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi-powered-network/rpc-systemd/
+--- BEGIN CONTENT ---
+---
+title: Run a Network Node Using Systemd
+description: Learn how to set up and run a Tanssi-powered network node using Systemd, which allows you to have your own RPC endpoint to interact with your chain.
+icon: simple-linux
+categories: RPC-Data-Preservers
+---
+
+# Run a Network Node Using Systemd
+
+## Introduction {: #introduction }
+
+Running a Tanssi-powered network node allows you to connect to and interact with the network using your infrastructure via either HTTP or WebSocket protocols.
+
+Nodes store block data and network state. However, developers can run different kinds of nodes:
+
+ - **Full Archive Node** - a node storing the entire block data and network state at all block heights. Such nodes are helpful when querying historical data from old blocks. However, a full archive node takes up a lot of space
+
+  - **Full Pruned Node** - a node storing block data and network state up to some specific number of blocks before the current block height. Such nodes are helpful when querying recent data or submitting transactions through your infrastructure. They require much less space than an archival node but don't store the full network state
+
+In this guide, you'll learn how to spin up a Tanssi network node using a binary executable file and manage the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+
+The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
+
+!!! note
+    It is not possible to run an RPC node for quick Trial networks as they run on a private network, and their nodes are, therefore, unreachable for syncing.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
+
+- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable node release. If you want to build and run your own file, make sure to follow the instructions for [building your network node](/builders/build/customize/prerequisites/){target=\_blank}
+
+- **Network specifications file** - the network specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network){target=\_blank} by clicking the **Network Data** link
+
+    ![Getting the chain specs](/images/node-operators/network-node/rpc-systemd/rpc-systemd-1.webp)
+
+- **Tanssi network specifications file** - the Tanssi network specification file can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Moonbeam/Moonbase-Alpha){target=\_blank}
+
+## Download the Latest Release {: #download-latest-release }
+
+Every new release includes two node binaries, one for EVM-compatible networks and another for Substrate networks. To get started, run the following command to get the latest release binary that matches your network type and make it executable:
+
+=== "EVM-Compatible Network"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-frontier-node && \
+    chmod +x ./container-chain-frontier-node
+    ```
+
+=== "Substrate Network"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-simple-node && \
+    chmod +x ./container-chain-simple-node
+    ```
+
+!!! note
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
+## Download the Tanssi Network Specs File {: #download-tanssi-specs }
+
+The node binary file includes also the necessary code to run a Tanssi network node. When launching your network's node, it will also be required to provide the Tanssi network specification file as a parameter.
+
+Download the Tanssi network specification file by executing:
+
+=== "Dancelight"
+
+    ```bash
+    wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancelight/dancelight-raw-specs.json
+    ```
+
+## Setup the Systemd Service {: #setup-systemd-service }
+
+[Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures. The following commands configure a new account, the directory, and move the previously downloaded files to the right location.
+
+Create a new account to run the service:
+
+```bash
+adduser network_node_service --system --no-create-home
+```
+
+Create a directory to store the required files and data:
+
+=== "Dancelight"
+
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
+
+Set the folder's ownership to the account that will run the service to ensure writing permission:
+
+=== "Dancelight"
+
+    ```bash
+    sudo chown -R network_node_service /var/lib/dancelight-data
+    ```
+
+And finally, move the binary and the relay chain spec to the folder:
+
+=== "Dancelight"
+
+    ```bash
+    mv ./container-chain-template-*-node /var/lib/dancelight-data && \
+    mv ./dancelight-raw-specs.json /var/lib/dancelight-data
+    ```
+
+!!! note
+    To keep all the necessary files grouped in the same directory, it is also recommended to copy your network's specification file there.
+
+### Create the Systemd Service Configuration File {: #create-systemd-configuration }
+
+The next step is to create the Systemd configuration file.
+
+You can create the file by running the following command:
+
+```bash
+sudo touch /etc/systemd/system/network.service
+```
+
+Now, you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service.
+
+Note that the `ExecStart` command  has some parameters that need to be changed to match your specific network:
+
+- `Specification file` - replace `YOUR_NETWORK_SPECS_FILE_LOCATION` with your network's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/dancelight-data/YOUR_FILENAME.json`, e.g., `/var/lib/dancelight-data/spec-raw.json`
+- `Bootnode` - a bootnode is a full archive node that is used to sync the network from scratch. You'll need to [retrieve your Tanssi network bootnode](#fetching-bootnode-information) and replace `INSERT_YOUR_NETWORK_BOOTNODE` with the actual bootnode information
+
+=== "EVM-Compatible Network"
+
+    ```bash
+    [Unit]
+    Description="Network systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=network_node_service
+    SyslogIdentifier=network
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart=/var/lib/dancelight-data/container-chain-frontier-node \
+    --chain=YOUR_NETWORK_SPECS_FILE_LOCATION \
+    --rpc-port=9944 \
+    --name=para \
+    --base-path=/var/lib/dancelight-data \
+    --state-pruning=archive \
+    --blocks-pruning=archive \
+    --database=paritydb \
+    --unsafe-rpc-external \
+    --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
+    -- \
+    --chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
+    --rpc-port=9945 \
+    --name=relay \
+    --sync=fast \
+    --database=paritydb \
+    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+=== "Substrate Network"
+
+    ```bash
+    [Unit]
+    Description="Network systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=network_node_service
+    SyslogIdentifier=network
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart=/var/lib/dancelight-data/container-chain-simple-node \
+    --chain=YOUR_NETWORK_SPECS_FILE_LOCATION \
+    --rpc-port=9944 \
+    --name=para \
+    --base-path=/var/lib/dancelight-data \
+    --bootnodes=INSERT_YOUR_NETWORK_BOOTNODE \
+    -- \
+    --chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
+    --rpc-port=9945 \
+    --name=relay \
+    --sync=fast \
+    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+### Fetching Bootnode Information {: #fetching-bootnode-information}
+
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancelight TestNet](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+
+To do so, take the following steps:
+
+1. Select **dataPreservers** as the module to query
+2. Set the storage query to **bootNodes**
+3. Provide your Tanssi network ID
+4. Click on the **+** sign
+
+![Getting the bootnode](/images/node-operators/network-node/rpc-docker-systemd-1.webp)
+
+### Full Node Configuration Example for the Demo EVM Network {: #example-demo-evm-network}
+
+The following example deploys a fully functional full archive node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancelight with an ID of `2001`.
+
+The raw chain specification file for the demo network is required to run the node, and can be downloaded from this [public GitHub repository](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain){target=\_blank}. Download the file and place it in the `/var/lib/dancelight-data/` directory.
+
+=== "Dancelight"
+
+    ```bash
+    [Unit]
+    Description="Network systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=network_node_service
+    SyslogIdentifier=network
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart=/var/lib/dancelight-data/container-chain-frontier-node \
+    --chain=/var/lib/dancelight-data/container-2001-raw-specs.json \
+    --rpc-port=9944 \
+    --name=para \
+    --state-pruning=archive \
+    --blocks-pruning=archive \
+    --base-path=/var/lib/dancelight-data \
+    --bootnodes=/dns4/ukl-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWKDotMgTRpURvoZHsLWP4K9ymhkBByi1EJjMQAnCmqg8E \
+    --bootnodes=/dns4/qco-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWB3kqqNhYgGtGbsdtgD18wUoFVeuXVXgWLXTFs91RNgAx \
+    -- \
+    --chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
+    --rpc-port=9945 \
+    --name=relay \
+    --sync=fast \
+    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+### Run Flags {: #run-flags }
+
+The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+
+- `--name INSERT_NAME` - a human-readable name for this node
+- `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
+- `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
+- `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
+- `--blocks-pruning INSERT_BLOCKS_PRUNING_TYPE` - specifies how many blocks should be kept in the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the blocks), `archive-canonical` (which keeps only finalized blocks), or any `number` (representing the amount of finalized blocks to keep)
+- `--detailed-log-output` - enables detailed log output
+
+!!! warning
+    The `--unsafe-rpc-external` enables external access to your node’s RPC interface, making it accessible from any IP address. Make sure that proper security controls are in place.
+
+For a complete list of available flags, their description, and possible values, run the following command:
+
+=== "EVM-compatible Network"
+
+    ```bash
+    /var/lib/dancelight-data/container-chain-frontier-node --help
+    ```
+
+=== "Simple Substrate Network"
+
+    ```bash
+    /var/lib/dancelight-data/container-chain-simple-node --help
+    ```
+
+## Run the Service {: #run-the-service }
+
+Finally, enable the service and start it for the first time:
+
+```bash
+systemctl enable network.service && \
+systemctl start network.service
+```
+
+You can verify that the service is up and running correctly running:
+
+```bash
+systemctl status network.service
+```
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
+  <span data-ty>
+    <br> ● network.service - "Network systemd service"
+    <br>&nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/network.service; enabled; vendor preset: enabled)
+    <br>&nbsp;&nbsp;&nbsp;Active: active (running) since Sun 2024-02-18 18:16:40 EST; 14min ago
+    <br>&nbsp;&nbsp;Main PID: 4045278 (container-chain)
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;Tasks: 44 (limit: 9462)
+    <br>&nbsp;&nbsp;&nbsp;Memory: 6.5G
+    <br>&nbsp;&nbsp;&nbsp;CGroup: /system.slice/network.service
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─4045278 4045278 /var/lib/network-data/container-chain- ...
+  </span>
+</div>
+
+And check the logs, if needed, with the following command:
+
+```bash
+journalctl -f -u network.service
+```
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>journalctl -f -u network.service</span>
+  <span data-ty>
+    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 Parachain Collator Template
+    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 ✌️  version 0.1.0-3b1fbbfdfe7
+    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 ❤️  by Moondance Labs,     <br> 2020-2024
+    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 📋 Chain specification: Frontier Container 2001
+    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 🏷  Node name: para
+    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 👤 Role: FULL
+    <br> Feb 19 20:05:53 tutorials network[4066765]: 2024-02-19 20:05:53 💾 Database: RocksDb at /var/lib/network-data/chains/frontier_container_2001/db/full
+    <br> Feb 19 20:05:57 tutorials network[4066765]: 2024-02-19 20:05:57 Parachain id: Id(2001)
+    <br> Feb 19 20:05:57 tutorials network[4066765]: 2024-02-19 20:05:57 Parachain Account: 5Ec4AhPQLGvfWywVhJZwufTDvknLT3BVPQcbV977JmBDUsHP
+    <br> Feb 19 20:05:57 tutorials network[4066765]: 2024-02-19 20:05:57 Parachain genesis state V0: 0x000000000000000000000000000000000000000000000000000000000000000000e1324cc53e66
+    <br> Feb 19 20:05:57 tutorials network[4066765]: 2024-02-19 20:05:57 Parachain genesis state V1: 0x000000000000000000000000000000000000000000000000000000000000000000327cfde8482b
+  </span>
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi/
+--- BEGIN CONTENT ---
+---
+title: Run a Tanssi Node
+description: Learn how to set up and run a Tanssi node using Docker or Systemd to interact with the Tanssi network.
+icon: octicons-server-24
+template: index-page.html
+categories: RPC-Data-Preservers
+---
+
+# Run a Tanssi Node
+
+Setting up a Tanssi Node is an important step in interacting with and querying the Tanssi network. You have two options for configuration: using _Docker_ or _Systemd_. Whichever path you choose, we provide step-by-step tutorials to guide you through the process.
+
+## Hardware Requirements
+
+Appropriate hardware is essential for running a Tanssi node successfully. A performant setup ensures reliable service and quick response to queries.
+
+Recommended hardware:
+
+- **Recommended Configuration** - bare metal hardware running Linux Debian or Ubuntu
+- **Recommended CPUs** - Intel Ice Lake or newer (Xeon or Core series), AMD Zen3 or newer (EPYC or Ryzen). Eight Physical cores @ 3.4 GHz with hyperthreading disabled (SMT for AMD processors)
+- **Recommended NVMe** - 500 GB NVMe SSD
+- **Recommended RAM** - 32 GB ECC RAM
+- **Recommended Network** - 1 Gbps connection
+
+!!! warning
+    Maintaining your Tanssi Node's performance, keeping it updated, and ensuring its security are critical for reliable operation.
+
+### Required Network Ports
+
+To ensure proper communication with the Tanssi network, make sure the following port is open for incoming connections:
+
+| Network          | Port        |
+|------------------|-------------|
+| Tanssi Chain     | 30333 (TCP) |
+
+## Explore This Section
+
+:::INSERT_GENERATED_CARDS:::
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi/tanssi-node-docker/
+--- BEGIN CONTENT ---
+---
+title: Run a Tanssi Node Using Docker
+description: Learn how to set up and run a node for Tanssi network using Docker to provide API endpoints for applications and users.
+icon: simple-docker
+categories: RPC-Data-Preservers
+---
+
+# Run a Tanssi Node Using Docker
+
+## Introduction {: #introduction }
+
+In this guide, you'll learn how to spin up a Tanssi node using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems. Nodes are crucial for the Tanssi ecosystem as they provide stable API endpoints that applications and users can connect to for chain data and transaction submission.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+### Installing Docker {: #installing-docker}
+
+To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
+
+Run the following command to install Docker on a Linux Ubuntu platform:
+
+```bash
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+```
+
+And the following command to check the installation:
+
+```bash
+sudo docker run hello-world
+```
+
+This is what a successful execution in the terminal looks like:
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>sudo docker run hello-world</span>
+  <span data-ty>
+    <br> 
+    <br> Hello from Docker!
+    <br> This message shows that your installation appears to be working correctly.
+    <br> 
+    <br> To generate this message, Docker took the following steps:
+    <br> 1. The Docker client contacted the Docker daemon.
+    <br> 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    <br>     (amd64)
+    <br> 3. The Docker daemon created a new container from that image which runs the
+    <br>     executable that produces the output you are currently reading.
+    <br> 4. The Docker daemon streamed that output to the Docker client, which sent it
+    <br>     to your terminal.
+    <br>
+    <br> To try something more ambitious, you can run an Ubuntu container with:
+    <br> $ docker run -it ubuntu bash
+    <br>
+    <br> Share images, automate workflows, and more with a free Docker ID:
+    <br> https://hub.docker.com/
+    <br>
+    <br> For more examples and ideas, visit:
+    <br>  https://docs.docker.com/get-started/
+  </span>
+</div>
+
+### Pull the Docker Image {: #pull-docker-image }
+
+For every release, a Docker image is built and published. It contains all the necessary dependencies a Tanssi node requires and the binary file itself.
+
+A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the Tanssi orchestrator specification file.
+
+Run the following command to pull the Docker image:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker pull {{ networks.dancelight.operator_docker_image }}
+    ```
+
+The command will download and extract the image and show the status upon execution:
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker moondancelabs/starlight</span>
+  <span data-ty>
+    <br> 
+    <br> Using default tag: latest
+    <br> latest: Pulling from moondancelabs/starlight
+    <br> e1caac4eb9d2: Pull complete 
+    <br> 1d4409959e6d: Pull complete 
+    <br> b8beed19c122: Pull complete 
+    <br> c0fab1f18601: Pull complete 
+    <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
+    <br> Status: Downloaded newer image for moondancelabs/starlight
+    <br> docker.io/moondancelabs/starlight
+  </span>
+</div>
+
+### Set Up the Data Directory {: #set-up-data-directory }
+
+Running a node requires syncing with the Tanssi chain and storing its state.
+
+Run the following command to create the directory where your node will store the databases containing blocks and chain states:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
+
+Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/dancelight-data
+    ```
+
+Or run the following command if you want to run the node with the current logged-in user:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
+    ```
+
+!!! note
+    The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
+
+### Generate the Node Key {: #generate-node-key }
+
+To generate and store on disk the session keys that will be referenced in the start-up command, run the following command:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
+
+!!! note
+    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
+
+## Start Your Node {: #start-your-node }
+
+To spin up your node, you must run the Docker image with the `docker run` command.
+
+Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
+
+!!! note
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
+=== "Tanssi MainNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+=== "Dancelight TestNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --base-path /data \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+        ```
+
+### Run Flags {: #run-flags }
+
+The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+
+- **--state-pruning=archive** - keeps all state data, which is necessary for historical state queries
+- **--blocks-pruning=archive** - keeps all blocks, necessary for historical block data
+- **--database=paritydb** - uses ParityDB as the database backend, which is optimized for RPC node performance
+- **--unsafe-rpc-external** - allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below)
+
+!!! warning
+    The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.
+
+You can view all available flags by running:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    ```
+
+## Syncing Your Node {: #syncing-your-node }
+
+The first time your node spins up, the syncing process displays lots of log information from the node configuration and the chain blocks being synced. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>docker run ....</span>
+  <span data-ty>
+    <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
+    <br> 2024-02-08 18:30:06.368  INFO tokio-runtime-worker substrate: [Relaychain] ✨ Imported #14139635 (0x8c41…8df6)    
+    <br> 2024-02-08 18:30:08.809  INFO tokio-runtime-worker substrate: [Relaychain] 💤 Idle (8 peers), best: #14139635 (0x8c41…8df6), finalized #14139632 (0xa9a8…cab9), ⬇ 32.7kiB/s ⬆
+  </span>
+</div>
+
+When the syncing process is finished, your node is ready to serve API requests.
+
+## Testing Your Node {: #testing-your-rpc-node }
+
+After your node is fully synced, you can verify that the RPC endpoint is working correctly by making a simple request. You can use curl to test the connection:
+
+```bash
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method":"chain_getHeader", "params":[]}' http://localhost:9944
+```
+
+If the RPC endpoint is working correctly, you should receive a JSON response containing the latest block header information.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/node-operators/network-node/tanssi/tanssi-node-systemd/
+--- BEGIN CONTENT ---
+---
+title: Run a Tanssi Node Using Systemd
+description: Learn how to set up and run a Node for Tanssi networks using Systemd, allowing you to provide API endpoints for applications and users.
+icon: simple-linux
+categories: RPC-Data-Preservers
+---
+
+# Run a Tanssi Node Using Systemd
+
+## Introduction {: #introduction }
+
+In this guide, you'll learn how to spin up a Tanssi Node using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems. Nodes provide essential API endpoints for applications and users to interact with the Tanssi network.
+
+The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+To get started, you'll need access to a computer running an Ubuntu Linux OS with [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} enabled and root privileges. You will also need:
+
+- **Node binary files** - a node requires three binary files: `tanssi-relay`, `tanssi-relay-execute-worker`, and `tanssi-relay-prepare-worker`
+``
+
+The instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable release. However, you can build your own file by compiling the [source code](https://github.com/moondance-labs/tanssi){target=\_blank}.
+
+## Check Landlock Support {: #check-landlock }
+
+Tanssi nodes use the Linux kernel's Landlock feature as a security measure to restrict access to system resources, limiting the damage if the application is compromised.
+
+Check the Landlock feature support in your system by running the following command:
+
+```bash
+sudo dmesg | grep landlock || journalctl -kg landlock
+```
+
+The output should look like:
+
+<div id="termynal" data-termynal>
+    <span data-ty="input"><span class="file-path"></span>sudo dmesg | grep landlock || journalctl -kg landlock</span>
+    <span data-ty>[    0.240344] landlock: Up and running.</span>
+</div>
+
+If Landlock is disabled in your system, upgrade the kernel to version 5.13 or above.
+
+## Download the Latest Release {: #download-latest-release }
+
+To get started, download the latest binary release and make it executable by running the following command:
+
+!!! note
+    It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
+
+=== "Generic"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker && \
+    chmod +x ./tanssi-relay*
+    ```
+
+=== "Intel Skylake"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-skylake -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker-skylake -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker-skylake -O tanssi-relay-prepare-worker && \
+    chmod +x ./tanssi-relay*
+    ```
+
+=== "AMD Zen3"
+
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-znver3 -O tanssi-relay && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-execute-worker-znver3 -O tanssi-relay-execute-worker && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.client_version }}/tanssi-relay-prepare-worker-znver3 -O tanssi-relay-prepare-worker && \
+    chmod +x ./tanssi-relay*
+    ```
+
+## Set Up the Systemd Service {: #set-up-systemd-service }
+
+[Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
+
+The following commands configure a new account, create the directory, and move the previously downloaded files to the right location.
+
+1. Create a new account to run the service:
+
+    === "Tanssi MainNet"
+
+        ```bash
+        adduser tanssi_service --system --no-create-home
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        adduser dancelight_service --system --no-create-home
+        ```
+
+2. Create a directory to store the required files and data:
+
+    === "Tanssi MainNet"
+
+        ```bash
+        mkdir /var/lib/tanssi-data
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        mkdir /var/lib/dancelight-data
+        ```
+
+3. Set the folder's ownership to the account that will run the service to ensure writing permission:
+
+    === "Tanssi MainNet"
+
+        ```bash
+        chown -R tanssi_service /var/lib/tanssi-data
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        chown -R tanssi_service /var/lib/dancelight-data
+        ```
+
+4. Move the binaries to the folder:
+
+    === "Tanssi MainNet"
+
+        ```bash
+        mv ./tanssi-relay* /var/lib/tanssi-data
+        ```
+
+    === "Dancelight TestNet"
+        
+        ```bash
+        mv ./tanssi-relay* /var/lib/dacelight-data
+        ```
+
+### Generate the Node Key {: #generate-node-key }
+
+To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay key generate-node-key --file /var/lib/tanssi-data/node-key
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
+    ```
+
+!!! note
+    This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
+
+### Create the Systemd Service Configuration File {: #create-systemd-configuration }
+
+The next step is to create the Systemd configuration file.
+
+You can create the file by running the following command:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo touch /etc/systemd/system/tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo touch /etc/systemd/system/dancelight.service
+    ```
+
+Now you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` tag with a human-readable name and `INSERT_YOUR_IP_ADDRESS` with your public IP address. The name will come in handy for connecting the log entries and metrics with the node that generates them.
+
+=== "Tanssi MainNet"
+
+    ```bash
+    [Unit]
+    Description="Tanssi systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    User=tanssi_service
+    Type=simple
+    Restart=always
+    RestartSec=10
+    SyslogIdentifier=tanssi
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    LimitNOFILE=100000
+    ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=tanssi \
+    --base-path /var/lib/tanssi-data/ \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /var/lib/tanssi-data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+    
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    [Unit]
+    Description="Dancelight systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    User=dancelight_service
+    Type=simple
+    Restart=always
+    RestartSec=10
+    SyslogIdentifier=dancelight
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    LimitNOFILE=100000
+    ExecStart=/var/lib/dancelight-data/tanssi-relay --chain=dancelight \
+    --base-path /var/lib/tanssi-data/ \
+--name INSERT_YOUR_TANSSI_NODE_NAME \
+--node-key-file /var/lib/tanssi-data/node-key \
+--database paritydb \
+--rpc-port 9944 \
+--prometheus-port 9615 \
+--prometheus-external \
+--listen-addr /ip4/0.0.0.0/tcp/30333 \
+--public-addr /ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
+--state-pruning archive \
+--blocks-pruning archive \
+--rpc-cors=all \
+--unsafe-rpc-external \
+--rpc-methods=safe \
+--telemetry-url 'wss://telemetry.polkadot.io/submit/ 0'
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+### Run Flags {: #run-flags }
+
+The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
+
+- **--state-pruning=archive** - keeps all state data, which is necessary for historical state queries
+- **--blocks-pruning=archive** - keeps all blocks, necessary for historical block data
+- **--database=paritydb** - uses ParityDB as the database backend, which is optimized for RPC node performance
+- **--unsafe-rpc-external** - allows external connections to the RPC server. This is required for the node to be accessible externally, but exposing RPC endpoints carries security risks. Ensure appropriate firewall and security measures are in place (see warning below)
+
+!!! warning
+    The `--unsafe-rpc-external` flag opens your RPC node to external connections. In production environments, you should implement additional security measures like a reverse proxy with rate limiting and authentication.
+
+You can view all available flags by running:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-relay --help
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    /var/lib/dancelight-data/tanssi-relay --help
+    ```
+
+## Run the Service {: #run-the-service }
+
+Finally, enable the service and start it for the first time:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    systemctl enable tanssi.service && \
+    systemctl start tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl enable dancelight.service && \
+    systemctl start dancelight.service
+    ```
+
+You can verify that the service is up and running correctly by executing the following command:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    systemctl status tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    systemctl status dancelight.service
+    ```
+
+<div id="termynal" data-termynal>
+  <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
+  <span data-ty>
+    <br> ● network.service - "Network systemd service"
+    <br>&nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/network.service; enabled; vendor preset: enabled)
+    <br>&nbsp;&nbsp;&nbsp;Active: active (running) since Sun 2024-02-18 18:16:40 EST; 14min ago
+    <br>&nbsp;&nbsp;Main PID: 4045278 (container-chain)
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;Tasks: 44 (limit: 9462)
+    <br>&nbsp;&nbsp;&nbsp;Memory: 6.5G
+    <br>&nbsp;&nbsp;&nbsp;CGroup: /system.slice/network.service
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─4045278 4045278 /var/lib/network-data/container-chain- ...
+  </span>
+</div>
+
+Check the logs, if needed, with the following command:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    journalctl -f -u tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    journalctl -f -u dancelight.service
+    ```
+
+## Testing Your Node {: #testing-your-rpc-node }
+
+After your node is fully synced, you can verify that the RPC endpoint is working correctly by making a simple request. You can use curl to test the connection:
+
+```bash
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method":"chain_getHeader", "params":[]}' http://localhost:9944
+```
+
+If the RPC endpoint is working correctly, you should receive a JSON response containing the latest block header information.
+--- END CONTENT ---
+
+## Basics Concepts [shared: true]
+
+The following section contains foundational documentation shared across all Tanssi products.
+It describes the architecture and infrastructure that serve as the backbone for all integrations built with Tanssi.
+This includes the network development framework, Substrate and EVM development tools, templates, and guidance for node operators.
+This context is provided to help understand how the system works under the hood, but responses should stay focused on the specific product unless the user explicitly asks about the general architecture.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
 
 Doc-Content: https://docs.tanssi.network/learn/decentralized-networks/included-templates/
 --- BEGIN CONTENT ---
@@ -2491,4 +3885,183 @@ To better understand the differences between the two token representations, the 
 | **Primary Utilities**  | - On-chain governance participation<br/>- Appchain registration and deployment<br/>- Sequencing services payment<br/>- Transaction fees on Tanssi network<br/>- Staking on sequencers<br/>- Sequencer operation rewards | - Operator validation rewards<br/>- Staking on operators                                                                                                                                          |
 | **Staking Options**    | Sequencer staking (for keeping appchain liveness)                                                                                                                                                                       | Operator staking (for validating/securing the entire Tanssi ecosystem)                                                                                                                            |
 | **Bridge Conversion**  | Can be bridged to ERC-20, paying fees in $TANSSI (Substrate)                                                                                                                                                            | Can be bridged to Substrate, paying fees in $ETH                                                                                                                                                  |
+--- END CONTENT ---
+
+## Reference Concepts [shared: true]
+
+The following section contains reference material for Tanssi.
+It includes network endpoints, JSON RPC methods, and contract or token addresses.
+While it may not be required for all use cases, it offers a deeper technical layer for advanced development work.
+
+---
+
+## List of shared concept pages:
+
+
+## Full content for shared concepts:
+
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/endpoints/
+--- BEGIN CONTENT ---
+---
+title: Network Endpoints
+description: Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
+icon: octicons-share-android-24
+categories: Reference
+---
+
+## Network Endpoints
+
+Tanssi networks have two endpoints available for users to connect to: one for HTTPS and one for WSS.
+
+## Tanssi MainNet
+
+The Tanssi Network MainNet HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    https://{{ networks.mainnet.dns_name }}
+    ```
+
+=== "WSS"
+
+    ```text
+    wss://{{ networks.mainnet.dns_name }}
+    ```
+
+## Dancelight
+
+The Dancelight TestNet HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    https://{{ networks.dancelight.dns_name }}
+    ```
+
+=== "WSS"
+
+    ```text
+    wss://{{ networks.dancelight.dns_name }}
+    ```
+
+### Demo EVM Network
+
+The demo EVM network HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_url }}
+    ```
+
+=== "WSS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_wss_url }}
+    ```
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc/
+--- BEGIN CONTENT ---
+---
+title: JSON-RPC API Methods
+description: Learn about the supported JSON-RPC API methods for querying your Tanssi EVM network, including standard Ethereum methods and custom methods unique to Tanssi.
+icon: material-code-json
+categories: Reference
+---
+
+# JSON-RPC API Methods
+
+## Standard Ethereum JSON-RPC Methods {: #standard-rpc-methods }
+
+As Tanssi's EVM Compatibility is derived from [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} and closely modeled after Moonbeam's Ethereum compatibility, Tanssi nodes support a wide variety of standard supported Ethereum JSON-RPC methods.
+
+Nevertheless, not all Ethereum JSON-RPC methods are supported; some of those supported return default values (those related to Ethereum's PoW consensus mechanism in particular). This guide provides a comprehensive list of supported Ethereum JSON-RPC methods on Tanssi. Developers can quickly reference this list to understand the available functionality for interfacing with Tanssi EVM networks.
+
+The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
+
+- **[eth_protocolVersion](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_protocolversion){target=\_blank}** — returns `1` by default
+- **[eth_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing){target=\_blank}** — returns an object with data about the sync status or `false`
+- **[eth_hashrate](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_hashrate){target=\_blank}** — returns `"0x0"` by default
+- **[eth_coinbase](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_coinbase){target=\_blank}** — returns the latest block author. Not necessarily a finalized block
+- **[eth_mining](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_mining){target=\_blank}** — returns `false` by default
+- **[eth_chainId](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_chainid){target=\_blank}** — returns the chain ID used for signing at the current block
+- **[eth_gasPrice](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gasprice){target=\_blank}** — returns the base fee per unit of gas used. This is currently the minimum gas price for each network
+- **[eth_accounts](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_accounts){target=\_blank}** — returns a list of addresses owned by the client
+- **[eth_blockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_blocknumber){target=\_blank}** — returns the highest available block number
+- **[eth_getBalance](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getbalance){target=\_blank}** — returns the balance of the given address
+- **[eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
+- **[eth_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
+- **[eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
+- **[eth_getBlockReceipts](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — returns all transaction receipts for a given block
+- **[eth_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
+- **[eth_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
+- **[eth_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
+- **[eth_getUncleCountByBlockHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblockhash){target=\_blank}** —  returns `"0x0"` by default
+- **[eth_getUncleCountByBlockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblocknumber){target=\_blank}** — returns `"0x0"` by default
+- **[eth_getCode](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getcode){target=\_blank}** — returns the code at the given address at the given block number
+- **[eth_sendTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction){target=\_blank}** — creates a new message call transaction or a contract creation, if the data field contains code. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
+- **[eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
+- **[eth_feeHistory](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
+- **[eth_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionReceipt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionreceipt){target=\_blank}** — returns the transaction receipt of a given transaction hash
+- **[eth_getUncleByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblockhashandindex){target=\_blank}** — returns `null` by default
+- **[eth_getUncleByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblocknumberandindex){target=\_blank}** — returns `null` by default
+- **[eth_getLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getlogs){target=\_blank}** — returns an array of all logs matching a given filter object
+- **[eth_newFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newfilter){target=\_blank}** — creates a filter object based on the input provided. Returns a filter ID
+- **[eth_newBlockFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newblockfilter){target=\_blank}** — creates a filter in the node to notify when a new block arrives. Returns a filter ID
+- **[eth_getFilterChanges](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterchanges){target=\_blank}** — polling method for filters (see methods above). Returns an array of logs that occurred since the last poll
+- **[eth_getFilterLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterlogs){target=\_blank}** — returns an array of all the logs matching the filter with a given ID
+- **[eth_uninstallFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_uninstallfilter){target=\_blank}** — uninstall a filter with a given ID. It should be used when polling is no longer needed. Filters timeout when they are not requested using `eth_getFilterChanges` after some time
+
+## Custom JSON-RPC Methods {: #custom-json-rpc-methods }
+
+Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and `frnt_isTxFinalized`. Tanssi features deterministic finality (as opposed to probabilistic like Bitcoin's finality), which means that at any point of time, the answer to whether a block or transaction is finalized or not can be answered with a definitive yes or no. Tanssi has built these two custom endpoints to provide valuable functionality for checking the finality of on-chain events.
+
+???+ function "frnt_isBlockFinalized - checks for the finality of the block given by its block hash"
+
+    === "Parameters"
+
+        - `block_hash` ++"string"++ - the hash of the block, accepts either Substrate-style or Ethereum-style block hash as its input
+
+    === "Returns"
+
+        ++"boolean"++ - `true` if the block is finalized, `false` if the block is not finalized or not found
+
+    === "Example"
+
+        ```bash
+        curl -H "Content-Type: application/json" -X POST --data '{
+          "jsonrpc": "2.0",
+          "id": "1",
+          "method": "frnt_isBlockFinalized",
+          "params": ["INSERT_BLOCK_HASH"]
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        ```
+
+???+ function "frnt_isTxFinalized - checks for the finality of a transaction given its EVM transaction hash"
+
+    === "Parameters"
+
+        - `tx_hash` ++"string"++ - the EVM transaction hash of the transaction 
+
+    === "Returns"
+
+        ++"boolean"++ - `true` if the transaction is finalized, `false` if the transaction is not finalized or not found
+
+    === "Example"
+
+        ```bash
+        curl -H "Content-Type: application/json" -X POST --data '{
+          "jsonrpc": "2.0",
+          "id": "1",
+          "method": "frnt_isTxFinalized",
+          "params": ["INSERT_TRANSACTION_HASH"]
+        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        ```
 --- END CONTENT ---

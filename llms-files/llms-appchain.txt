@@ -1,6 +1,6 @@
 # Tanssi Developer Documentation (LLMS Format)
 
-This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi lets developers launch secure, scalable appchains in minutes using no-code templates or fully customizable infrastructure.
+This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
 It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
 
 This file includes documentation related to the product: Appchain
@@ -13,6 +13,10 @@ You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your
 - If unsure, respond with “Not specified in the documentation.
 
 ## List of doc pages:
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/account-management/identity.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/account-management/proxy-accounts.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/build/customize/customizing-chain-specs.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/build/templates/overview.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/deploy/dapp.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/dapp/manage-tokens.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/dapp/register-external-assets.md [type: builders]
@@ -25,8 +29,678 @@ Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/head
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/smart-contracts-creation-filter.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/sudo.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/manage/developer-portal/upgrade.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/tanssi-network/testnet/demo-evm-network.md [type: builders]
 
 ## Full content for each doc page
+
+Doc-Content: https://docs.tanssi.network/builders/account-management/identity/
+--- BEGIN CONTENT ---
+---
+title: Set an Account Identity
+description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
+icon: octicons-person-24
+categories: Basics, Appchain
+---
+
+# Set Up an Identity
+
+## Introduction {: #introduction }
+
+The [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}.
+
+The identity you configure goes beyond a simple display name. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, and Riot (now known as Element) name. You can also use custom fields to include any other relevant information.
+
+This guide will demonstrate setting up an identity with a display name and additional parameters, enhancing your visibility and recognizability.
+
+## General Definitions {: #general-definitions }
+
+To store your information on-chain, you must bond some funds, which will eventually be returned once the identity has been cleared. There are two categories of fields: default and custom. A basic deposit amount is reserved upon identity creation, and a storage deposit is required for each additional byte of data stored on-chain.
+
+- **Default fields include** - your legal name, display name, website, Twitter handle, Discord, Riot (now known as Element) name
+
+- **Custom fields include** - any other relevant information
+
+- **Subaccounts** - You can link subaccounts underneath a primary account. As an example, a sequencer service that's running multiple different sequencer nodes can establish subaccounts to demonstrate an official link between the nodes
+
+=== "Tanssi MainNet"
+
+    |       Variable        |                                    Definition                                    |                                        Value                                         |
+    |:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
+    |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.mainnet.identity.basic_deposit }} {{ networks.mainnet.token_symbol }}   |
+    |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.mainnet.identity.per_byte_deposit }} {{ networks.mainnet.token_symbol }} |
+    | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                      {{ networks.mainnet.identity.max_fields }}                      |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                   {{ networks.mainnet.identity.max_subaccounts }}                    |
+
+=== "Dancelight TestNet"
+
+    |       Variable        |                                    Definition                                    |                                           Value                                            |
+    |:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------:|
+    |     Basic deposit     |                The amount held on deposit for setting an identity                |  {{ networks.dancelight.identity.basic_deposit }} {{ networks.dancelight.token_symbol }}   |
+    |   Deposit per byte    | The amount held on deposit per byte of on-chain storage used setting an identity | {{ networks.dancelight.identity.per_byte_deposit }} {{ networks.dancelight.token_symbol }} |
+    | Max additional fields |         Maximum number of additional fields that may be stored in an ID          |                       {{ networks.dancelight.identity.max_fields }}                        |
+    |    Max subaccounts    |   Maximum number of subaccounts that can be defined under an account identity    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
+
+## Checking Prerequisites { : #checking-prerequisites }
+
+For this guide, you will need the following:
+
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
+- At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens
+
+If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
+
+## Get Started {: #get-started }
+
+Depending on the information to be included, there are a couple of different ways to set and clear an identity using Polkadot.js Apps. If you intend to register your identity using only the default fields, you can follow the instructions for [Managing an Identity via the Accounts UI](#manage-via-accounts). **This is the recommended way to set and manage your identity**.
+
+If you want to add custom fields beyond the default fields, follow the instructions for [Managing an Identity via the Extrinsics UI](#manage-via-extrinsics).
+
+!!! note
+    Please note that using the **Accounts** UI on Polkadot.js Apps is recommended to manage your identity as it provides an easy-to-use interface that enforces character limits. If you use the **Extrinsics** UI, please be aware that your input for each field (i.e., name, email, etc.) must be 32 characters or less; otherwise, your information will be cut off.
+
+## Manage an Identity via Accounts {: #manage-via-accounts }
+
+### Set an Identity {: #set-identity-accounts }
+
+To get started with setting an identity using the Accounts UI, head to the [**Accounts** tab](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} on the Polkadot.js Apps explorer.
+
+You should already have an account connected, so you can click on your account name to verify and note your balances. After you send the transaction to set an identity, the deposit(s) you submitted will be moved from your transferable balance to your reserved balance.
+
+![Starting account balances](/images/builders/account-management/identity/identity-1.webp)
+
+To set your identity, you'll need to:
+
+1. Click on the three vertical dots next to the account you would like to set an identity for
+2. A menu will pop up. Click **Set on-chain identity**
+
+![Set on-chain identity](/images/builders/account-management/identity/identity-2.webp)
+
+Next, the menu to register and set your identity will pop up, and you can start filling in your information. You are not required to enter information for every single field; you can choose to fill in just one field or all of them; it's up to you. For this example:
+
+1. Set your display name
+2. Click on the **include field** toggle for email and then enter in your email
+3. Click on the **include field** toggle for web and then enter in your website URL
+4. Click on the **include field** toggle for Twitter and then enter in your Twitter handle
+5. Review the prior data fields and click **Set Identity**
+
+![Set your identity](/images/builders/account-management/identity/identity-3.webp)
+
+You will then be prompted to sign the transaction. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction.
+
+You should see status notifications pop up in the top right-hand corner. Once the transaction has been confirmed, you can click on your account name again, and the panel will slide out on the right side of the page. Your balances will have changed, and you'll also see your new identity information.
+
+![Updated account balances](/images/builders/account-management/identity/identity-4.webp)
+
+If the identity information matches what you entered, you've successfully set an identity!
+
+Once you clear your identity, the deposit in your reserved balance will get transferred back to your transferable balance. If you need to change your identity, you can go through the process of setting your identity again. Please note that you must ensure all fields are re-entered, even if only one field needs to be changed, or they will be overwritten. You will not need to pay another deposit unless custom fields are used, but you will need to pay gas fees.
+
+## Manage an Identity via Extrinsics {: #manage-via-extrinsics }
+
+### Set an Identity {: #set-identity-extrinsics }
+
+To register an identity using the extrinsics UI, navigate to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} on Polkadot.js Apps. Please ensure your input does not exceed 32 characters for each identity field. To complete your identity, take the following steps:
+
+1. Select your account
+2. Select identity from the **submit the following extrinsic** dropdown
+3. Then select the **setIdentity(info)** function
+4. Select **Raw** as the data format to enter your **Display Name**
+5. Enter the data for **Display** in the selected format
+6. Select **Raw** as the data format to enter your web address
+7. Enter your website URL in the selected format
+8. Select **Raw** as the data format to enter your email
+9. Enter your email address in the selected format
+10. Select **Raw** as the data format to enter your Twitter handle
+11. Enter your Twitter in the selected format. Enter the username only, starting with the `@` symbol
+12. Review the prepared fields and press **Submit Transaction**
+
+![Set on-chain identity](/images/builders/account-management/identity/identity-5.webp)
+
+Optionally, if you would like to enter custom fields, take the following steps:
+
+1. Scroll to the top and click on **Add item**
+2. Two fields will appear: the first for the field name and the second for the value. Select **Raw** as the data format to enter the field name
+3. Enter the field name in the specified format
+4. Select **Raw** as the data format to enter the custom value
+5. Enter the custom value in the specified format
+
+![Add custom fields](/images/builders/account-management/identity/identity-6.webp)
+
+Finally, once all of your identity information has been added, you can scroll to the bottom of the page and click **Submit Transaction**.
+
+You will then be prompted to sign the transaction. Remember, an additional deposit is required for each additional custom field. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction.
+
+You should see status notifications pop up in the top right-hand corner confirming the transaction. If successful, you've set an identity! Congratulations! To ensure everything went through and your identity information looks good, you can verify your identity.
+
+### Confirm an Identity {: #confirm-identity-extrinsics }
+
+To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [**Chain state**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}.
+
+On the **Chain State** UI, make sure **Storage** is selected. Then you can start to request your identity information:
+
+1. Set **selected state query** to **identity**
+2. Select the **identityOf(AccountId)** function
+3. Select your account
+4. Click the **+** button to get your identity information
+
+![Request identity information](/images/builders/account-management/identity/identity-7.webp)
+
+You can see now that you've successfully set an identity! Once you clear your identity, the deposit in your reserved balance will get transferred back to your transferable balance. If you need to change your identity, you can go through the process of setting your identity again. Please note that you must ensure all fields are re-entered, even if only one field needs to be changed, or they will be overwritten. You will not need to pay another deposit unless custom fields are used, but you will need to pay gas fees.
+
+## Clear an Identity {: #confirm-identity-extrinsics }
+
+To clear your identity, take the following steps from **Extrinsics** tab of the Polkadot.js Apps UI:
+
+1. Select your account from the **using the selected account** dropdown
+2. Select **identity** from the **submit the following extrinsic** dropdown
+3. Then select the **clearIdentity()** function
+4. Click **Submit Transaction**
+
+![Clear an identity](/images/builders/account-management/identity/identity-8.webp)
+
+You will then be prompted to sign the transaction. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction. You should see status notifications in the top right-hand corner confirming the transaction.
+
+To confirm that your identity information has been successfully removed, revisit the steps outlined in the [Confirm an Identity section](#confirm-identity-extrinsics). This time, instead of displaying your identity details, the response should indicate "none," confirming that no identity information is currently linked to your account. Additionally, when you check your balances, you will find that the deposit initially made for setting your identity has been credited back to your transferable balance. This completes the process of clearing your identity.
+
+![Clear an identity confirmation](/images/builders/account-management/identity/identity-9.webp)
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/account-management/proxy-accounts/
+--- BEGIN CONTENT ---
+---
+title: Set Up and Manage Proxy Accounts
+description: Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
+icon: octicons-shield-lock-24
+categories: Basics, Appchain
+---
+
+# Proxy Accounts
+
+## Introduction {: #introduction }
+
+Proxy accounts can be set up to perform a limited number of actions on behalf of primary accounts and are helpful for keeping the underlying accounts safe. Your proxy account can act as a "hot wallet" to interact with the network on behalf of your "cold wallet" account. For added safety, you can regularly rotate the proxy account. 
+
+Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum level of access required to carry out their duties via a specific type of proxy account. 
+
+This tutorial will walk you through configuring a proxy account on the Tanssi TestNet specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
+
+## Checking Prerequisites {: #checking-prerequisites }
+
+To follow along with this tutorial, you will need to have:
+
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
+- Create or have two accounts accessible in Polkadot.js Apps
+- At least one of the accounts will need to be funded with `{{ networks.dancelight.token_symbol }}` tokens
+
+If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
+
+## General Definitions {: #general-definitions }
+
+When setting up a proxy account, a bond for the proxy is taken out of your free balance and moved to your reserved balance. The bond is required as adding a proxy requires on-chain storage space, and it is recalculated for each proxy you add or remove. The bond is returned to your free balance after all proxies are removed from your account.
+
+The deposit is calculated based on a deposit base and a deposit factor:
+
+- **Deposit base** - the amount to be reserved for an account to have a proxy list
+- **Deposit factor** - the additional amount to be reserved for every proxy the primary account has
+
+The equation for calculating the deposit is:
+
+```text
+deposit base + deposit factor * number of proxies
+```
+
+You can find each of the relevant variables for the Dancelight TestNet below. Note that these values are subject to change for Tanssi MainNet.
+
+
+=== "Tanssi MainNet"
+    |    Variable    |                                      Value                                       |
+    |:--------------:|:--------------------------------------------------------------------------------:|
+    |  Deposit base  |  {{ networks.mainnet.proxy.deposit_base }} {{ networks.mainnet.token_symbol }}  |
+    | Deposit factor | {{ networks.mainnet.proxy.deposit_factor }} {{ networks.mainnet.token_symbol }} |
+    |  Max proxies   |                 {{ networks.mainnet.proxy.max_proxies }} proxies                 |
+
+=== "Dancelight"
+    |    Variable    |                                         Value                                          |
+    |:--------------:|:--------------------------------------------------------------------------------------:|
+    |  Deposit base  |  {{ networks.dancelight.proxy.deposit_base }} {{ networks.dancelight.token_symbol }}  |
+    | Deposit factor | {{ networks.dancelight.proxy.deposit_factor }} {{ networks.dancelight.token_symbol }} |
+    |  Max proxies   |                  {{ networks.dancelight.proxy.max_proxies }} proxies                   |
+
+## Proxy Types {: #proxy-types }
+
+When creating a proxy account, you must choose a type of proxy that will define how the proxy can be used. The available options are:
+
+- **`Any`** - allows the proxy account to use any function supported by the proxy pallet. There is no filtering of calls
+- **`NonTransfer`** - this type of proxy account is allowed to submit any type of transaction with the exception of balance transfers
+- **`Balances`** - allows the proxy account to only make transactions related to sending funds
+- **`Governance`** - allows the proxy account to only make transactions related to the governance pallet, such as voting or creating democracy proposals. Note, governance is not yet enabled on Tanssi. You can create governance proxy accounts but they will not be able to take any actions until governance is enabled 
+- **`Registrar`** - allows the proxy account to only make transactions related to the registrar pallet
+- **`SudoRegistrar`** - allows the proxy account to only make transactions related to the registrar pallet that need to be called by Sudo
+- **`CancelProxy`** - allows the proxy account to reject and remove any announced proxy calls
+- **`Staking`** - allows the proxy account to perform staking-related transactions, such as sequencer and `session()` functions 
+- **`SessionKeyManagement`** - allows the proxy account to make key management related transactions included in the session pallet
+
+For this guide, you will be setting up a proxy account using the balances proxy type. Since this type enables the proxy to spend funds on behalf of the primary account, you should exercise caution and only provide access to accounts you trust. The proxy will have access to transfer all of the funds within the primary account, and if not trusted, the proxy could drain the primary account. Ensure that you maintain oversight of your proxy accounts and remove any proxies that are no longer needed.
+
+## Creating a Proxy Account {: #creating-a-proxy-account }
+
+There are a couple of ways you can create proxy accounts in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}, either from the **Extrinsics** page or the **Accounts** page. However, to create a time-delayed proxy, you will need to use the **Extrinsics** page. A time delay provides an additional layer of security to proxies by specifying a delay period based on the number of blocks. This will prevent the proxy account from executing a transaction until the delay period ends. The delay allows time for the primary account that controls the proxy to review pending transactions, potentially for malicious actions, and cancel if necessary before execution.
+
+The following demo will showcase configuring a Balances proxy, which allows for transferring funds, making it perfect for demonstration purposes. After configuring your Balances proxy you can try transferring funds from the primary account via proxy. 
+
+To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
+
+1. Select the primary account
+2. From the **submit the following extrinsic** dropdown, select **proxy**
+3. Choose the **addProxy** extrinsic
+4. Choose **Id** from the **AccountIdLookupOf** dropdown 
+5. Select the **delegate** account for the proxy
+6. From the **proxyType** dropdown, choose **Balances**
+7. Optionally, you can add a time delay using a specified number of blocks to add an additional layer of security for the primary account to review the pending transaction
+8. Click **Submit Transaction**
+
+![Add a proxy account from the Extrinsics page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-1.webp)
+
+You will then be prompted to authorize and sign the transaction. Click **Sign and Submit** to create the proxy relationship. Once the transaction has been successfully submitted, you will receive some notifications confirming the transaction.
+
+As previously mentioned, you can also create a proxy from the **Accounts** page. To do so, navigate to the **Accounts** page and take the following steps:
+
+1. Select the three vertical dots next to the primary account
+2. Select **Add proxy**
+
+![Select the Add proxy menu item from the Accounts page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-2.webp)
+
+!!! note
+    If the account already has a proxy, **Manage proxies** will be displayed as an option instead of **Add proxy**.
+
+A pop-up will appear and you can enter in the required information, such as the proxied/primary account, the proxy account, and type of proxy to create a proxy account. First click **Add Proxy**.
+
+![Add a proxy account from the Accounts page of Polkadot.js Apps](/images/builders/account-management/proxy/proxy-3.webp)
+
+Then, take the following steps:
+
+1. Select the account you would like to set as a proxy
+2. Select the proxy type
+3. Click **Submit** and sign the transaction
+
+![Add the details of the proxy account, including the proxy account and type.](/images/builders/account-management/proxy/proxy-4.webp)
+
+In the next section, you will learn how to verify that your proxy account was set up successfully.
+
+## Verifying Your Proxy Account {: #verifying-your-proxy-account }
+
+You can verify that your proxy account has been successfully set up in a couple of ways: either through the **Accounts** page or via the **Chain state** page.
+
+To check your proxy accounts from the [**Chain state** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}, you can take the following steps:
+
+1. From the **selected state query** dropdown, select **proxy**
+2. Choose the **proxies** extrinsic
+3. Select your primary/proxied account
+4. Click on the **+** button to send the query
+
+![Verify your proxy accounts via the Extrinsics page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-5.webp)
+
+The result will appear on the page showing you information about all of your proxies, including the delegate/proxy account address, the proxy type, the delay period if one was specified, and the total bond amount for all of your proxies in Planck.
+
+You can also check your proxy accounts from the **Accounts** page. To do so, navigate to the **Accounts** page, and there should be a Proxy symbol next to the primary account. Hover over the icon and click on **Manage proxies** to review your proxies.
+
+![Hover over the proxy icon to manage your proxies via the Accounts page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-6.webp)
+
+A pop-up will appear where you can see an overview of all of your proxy accounts.
+
+![Review your proxy accounts.](/images/builders/account-management/proxy/proxy-7.webp)
+
+## Executing a Proxy Transaction {: #executing-a-proxy-transaction }
+
+Now that you have created a proxy account and verified that it was successfully set up, you can execute a transaction using the proxy account on behalf of the primary account.
+
+To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} and take the following steps:
+
+1. Select the proxy account to submit the transaction from the **using the select account** dropdown
+2. From the **submit the following extrinsic** menu, select **proxy**
+3. Choose the **proxy** extrinsic
+4. Choose **Id** from the **AccountIdLookupOf** dropdown
+5. Select the primary account from the **real** dropdown
+6. Select the **balances** call
+7. Choose the **transferKeepAlive** extrinsic
+8. Choose **Id** from the **AccountIdLookupOf** dropdown
+9. In the **dest** field, enter the address you would like to send funds to
+10. In the **value** field, enter the amount of Dancelight tokens to send. For this example, you can send `2` Dancelight tokens
+11. Click **Submit Transaction**
+
+![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-8.webp)
+
+A pop-up will appear for you to authorize and sign the transaction. Enter your password for the proxy account and click **Sign and Submit**.
+
+If the transaction successfully went through, you should see a couple of notification pop-ups. If you head over to the **Accounts** page, you'll see that your primary account balance has decreased. If you check the account balance where you sent the funds, you'll notice the balance there has increased.
+
+![Check balance on the accounts page of Polkadot.js Apps](/images/builders/account-management/proxy/proxy-9.webp)
+
+That's it! You've successfully executed a transaction using a proxy account on behalf of your primary account.
+
+## Removing a Proxy Account {: #removing-a-proxy-account }
+
+Similarly to adding a proxy account, there are a couple of ways that you can remove a proxy account, either from the **Extrinsics** page or the **Accounts** page. Regardless of which page you use, you can elect to remove a single proxy account or all proxies associated with your primary account.
+
+To remove a proxy from the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, you can take the following steps:
+
+1. From the **using the selected account** dropdown, select your primary account
+2. Then select **proxy**
+3. Choose **removeProxy** to remove a single proxy or **removeProxies** to remove all associated proxies
+4. Choose **Id** from the **AccountIdLookupOf** dropdown
+5. If removing a single proxy, enter the proxy account to remove in the **delegate** field
+6. Select the **proxyType** to remove, in this case choose **Balances**
+7. Optionally, select a delay period in block numbers
+8. Click **Submit Transaction**
+
+![Remove a proxy account from the Extrinsics page of Polkadot.js Apps](/images/builders/account-management/proxy/proxy-10.webp)
+
+A pop-up will appear asking you to authorize and sign the transaction. You can sign and send the transaction from the primary or proxy account, but the call to remove the proxy must be sent from the primary account. Enter your password and click **Sign and Submit**.
+
+To check that the proxy or proxy accounts have been removed, follow the steps in the [Verifying your Proxy Account](#verifying-your-proxy-account) section.
+
+As previously mentioned, you can also remove a proxy from the **Accounts** page. To do so, on the **Accounts** page, select the three vertical dots next to the primary account and select **Manage Proxies**.
+
+![Click on the Manage Proxies button to review and manage your proxy accounts.](/images/builders/account-management/proxy/proxy-11.webp)
+
+A pop-up will appear showing an overview of your proxy accounts. To remove all proxies, you can click on **Clear all**, then you will automatically be prompted to enter your password and submit the transaction. To remove a single proxy, take the following steps:
+
+1. Click the **X** button next to the proxy to remove
+2. Press **Submit**
+
+![Remove a proxy account from the Accounts page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-12.webp)
+
+On the transaction confirmation screen, take the following steps:
+
+1. Ensure that you do not use a proxy for this call (as this example is a balances proxy, the call to remove the proxy needs to come from the primary account rather than the proxy account)
+2. Enter your password for the respective account
+3. Press **Sign and Submit**
+
+![Remove a proxy account from the Accounts page of Polkadot.js Apps, confirmation](/images/builders/account-management/proxy/proxy-13.webp)
+
+Once the transaction has successfully been submitted, you can review your current proxies, or if you removed all proxies, you will notice the proxy icon is no longer being displayed next to the primary account. And that's it! You've successfully created a proxy, reviewed all proxy accounts associated with your primary account, executed a proxy transaction, and removed a proxy account!
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/build/customize/customizing-chain-specs/
+--- BEGIN CONTENT ---
+---
+title: Customizing Chain Specifications
+description: Review the sections and attributes of a chain specification file and how to obtain it for launching your Tanssi-powered network with a customized specification.
+icon: octicons-link-24
+categories: Appchain
+---
+
+# Customizing Chain Specifications {: #customizing-chain-specifications }
+
+## Introduction {: #introduction }
+
+The chain specification refers to a set of parameters and configurations that define the characteristics and behavior of a new Tanssi-powered network. It defines the initial settings and state that all nodes participating in the network must agree on to reach consensus and produce blocks. Many initial settings cannot be changed after the network is launched without generating a completely different chain.
+
+The specification contains two main sections:
+
+- **The client specification** - includes the network parameters, for example, the boot nodes the client connects with when joining the network
+- **The genesis state** - represents the initial state upon which all transactions and state transitions take place. It includes details like the initial registered accounts and their balances, as well as the account with administrator privileges (sudo, if applicable), among other relevant information
+
+This information the chain specification contains can be stored in a Rust file (which can be found in the [templates](/builders/build/templates/overview/){target=\_blank} included in the Tanssi repository) or in a JSON file.
+
+This article covers the sections and attributes within a chain specification file and explains how to obtain it, in case you want to launch your Tanssi network by uploading a customized specifications file.
+
+## The Client Specification {: #client-specification }
+
+The client specification contains the configuration of the network and other settings (excluding those related to the runtime state): 
+
+- **Name** - name for the specifications
+- **Id** - a unique simple id for the network used to define the storage path in the node
+- **Fork Id** - optional parameter for a network fork identifier
+- **Chain Type** - a parameter that can be set to define the chain type and display additional information or enable additional features (it can be set to Development, Local, Live, or a custom type)
+- **Boot Nodes** - set of boot nodes that will be used when the new node joins the network and syncs
+- **Telemetry Endpoints** - an optional list of endpoints to send information and monitor the operation of the network
+- **Protocol Id** - a unique name defining the network protocol
+- **Relay Chain** - defines the id of the orchestration chain the Tanssi network interacts with
+- **Parachain Id** - sets a unique id that identifies the Tanssi network
+- **Code Substitutes** - an emergency feature to replace the runtime when a Tanssi network is unable to perform a runtime upgrade
+- **Properties** - key-value properties that can be customized and are useful to improve the user experience
+
+In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
+
+- **Token Symbol** - a name for your Tanssi network's own token symbol
+- **SS58 Format** - an integer that uniquely identifies the accounts in your network. [SS58 encoding](https://docs.polkadot.com/polkadot-protocol/parachain-basics/accounts/#address-formats){target=\_blank} transforms the underlying 32-byte account to a network-specific representation. This attribute doesn't apply nor interfere with the ECDSA Ethereum accounts on EVM-compatible networks
+- **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token. It's set to `18` for EVM-compatible networks
+- **Is Ethereum** - a boolean identifying the network as EVM compatible or not
+
+## The Genesis State {: #genesis-state }
+
+All the sequencers assigned to the Tanssi network must agree on the initial state so they can execute the incoming extrinsics, arrive at the same results, and finally reach a consensus on the new valid state.
+
+This genesis state will define the starting point of the Tanssi network. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
+
+For example, in the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module. In addition, the template also has a sudo account (which **should be modified**) for the `Sudo` module, which provides unique priviledges to the given account, and that can be offboarded once an on-chain democracy module is plugged in.
+
+## Generating a JSON Chain Specification File {: #generating-json-chain-specs }
+
+The following commands will build and generate the chain specification for the EVM-compatible template based on the configuration expressed in the `chain_spec.rs`, located in the `*/container-chains/templates/frontier/node/src/chain_spec.rs`. This example can be adapted to any other template or custom runtime.
+
+To build and generate the chain specifications, take the following steps:
+
+1. Clone the Tanssi code hosted on GitHub
+
+    ```bash
+    git clone https://github.com/moondance-labs/tanssi
+    ```
+
+2. Step into the project folder
+
+    ```bash
+    cd tanssi
+    ```
+
+3. Build the Tanssi EVM-compatible network template
+
+    ```bash
+    cargo build -p container-chain-frontier-node --release
+    ```
+
+    This step is quite verbose and might take a while to complete. The following screenshot shows the terminal after successfully finishing the building process (note that the completion time is above 35 minutes):
+
+    ![Building the template](/images/builders/build/customize/customizing-chain-specs/customizing-chain-specs-1.webp)
+
+4. Generate the chain specification
+
+    ```bash
+    ./target/release/container-chain-frontier-node \
+        build-spec > chain_spec.json
+    ```
+
+After executing the last step, the terminal displays only a log line:
+
+![Generating the chain specification](/images/builders/build/customize/customizing-chain-specs/customizing-chain-specs-2.webp)
+
+And now the `chain_spec.json` file containing the client specification and the genesis state is created in the current folder.
+
+!!! note
+    The JSON chain specifications can be generated in two different versions: the human readable, which is the one generated following the previous steps, and the raw version, which is the one needed to deploy the network through Tanssi. More about how to generate the raw version [later](#generating-raw-specs-file) in this article.
+
+### Editing the JSON Chain Specification File {: #editing-json-chain-specs }
+
+The generated `chain_spec.json` file reflects the parameters set in the Rust chain specifications file. Being a JSON file, it is easy to read and, should any parameter need to be changed, easy to edit.
+
+For example, the following code snippet shows some of the attributes of the client specifications:
+
+```json
+{
+    // Set the name for the specification of this network
+    "name": "Frontier network 1000",
+    // Set an id for the specifications of this network
+    "id": "frontier_network_1000",
+    // Network will be live
+    "chainType": "Live",
+    "bootNodes": [
+        // boot nodes will be added automatically during deployment
+    ],
+    // Optional attribute, defaults to null
+    "telemetryEndpoints": null,
+    // Set a protocol identifier for this network
+    "protocolId": "network-chain-1000",
+    // Set properties to define the token and the ethereum compatibility
+    "properties": {
+        "isEthereum": true,
+        "ss58Format": 42,
+        "tokenDecimals": 18,
+        "tokenSymbol": "UNIT"
+    },
+    // Set the stagenet relay chain
+    "relay_chain": "westend_moonbase_relay_stagenet",
+    // Set the parachain id reserved in the relay chain
+    "para_id": 3333,
+    // No need
+    "codeSubstitutes": {},
+    "genesis": { 
+        ... 
+    }
+}
+```
+
+The other important section of the file is within the `genesis` attribute, which contains the genesis state. In the following JSON snippet, the default values and configuration for some modules are presented as an example:
+
+```json
+{
+    ...
+    "genesis": {
+        "runtime": {
+            ...
+            // Sets the account that will bear sudo privileges
+            "sudo": {
+                "key": "0xf24ff3a9cf04c71dbc94d0b566f7a27b94566cac"
+            },
+            // Sets the initial balances for some accounts
+            "balances": {
+                "balances": [
+                [
+                    "0x3cd0a705a2dc65e5b1e1205896baa2be8a07c6e0",
+                    1208925819614629174706176
+                ],
+                [
+                    "0x773539d4ac0e786233d90a233654ccee26a613d9",
+                    1208925819614629174706176
+                ],
+                [
+                    "0x798d4ba9baf0064ec19eb4f0a1a45785ae9d6dfc",
+                    1208925819614629174706176
+                ],
+                [
+                    "0xf24ff3a9cf04c71dbc94d0b566f7a27b94566cac",
+                    1208925819614629174706176
+                ]
+                ]
+            },
+            // Sets balances for EVM accounts
+            "evm": {
+                "accounts": {
+                "0x1000000000000000000000000000000000000001": {
+                    "nonce": "0x1",
+                    "balance": "0xd3c21bcecceda1000000",
+                    "storage": {},
+                    "code": [
+                    0
+                    ]
+                },
+                "0x6be02d1d3665660d22ff9624b7be0551ee1ac91b": {
+                    "nonce": "0x0",
+                    "balance": "0xffffffffffffffffffffffffffffffff",
+                    "storage": {},
+                    "code": []
+                },
+                "0xd43593c715fdd31c61141abd04a99fd6822c8558": {
+                    "nonce": "0x0",
+                    "balance": "0xffffffffffffffffffffffffffffffff",
+                    "storage": {},
+                    "code": []
+                }
+                }
+            },
+        }
+    }
+    ...
+}
+```
+
+An example of a non-manually editable attribute is the Wasm runtime (in the genesis state section), which is a hexadecimal representation of a binary blob generated by the compiler. Still, apart from this, most of the properties are easy to edit before launching the network.
+
+## Generating a Raw JSON Chain Specification File {: #generating-raw-specs-file }
+
+One final step before deploying the Tanssi network is converting the JSON specification file to a raw format, which is a compact, less-readable version of the same file, required to initialize a node.
+
+After going through the [steps to generate the JSON chain Specification File](#generating-json-chain-specs) and editing its values, the following command will convert the chain specs file into the required raw format:
+
+```bash
+./target/release/container-chain-frontier-node \
+    build-spec --chain=chain_spec.json --raw > raw_chain_spec.json
+```
+
+Now that this file has been configured and customized and is in the correct raw JSON format, it can be uploaded to initialize a new network in Tanssi.
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
+--- BEGIN CONTENT ---
+---
+title: Requirements and Features of Templates
+description: Explore the foundational setup and key features included in each Tanssi template, designed to streamline the building and deployment of Tanssi networks.
+icon: octicons-home-24
+categories: Basics, Appchain
+---
+
+# Templates Overview {: #templates-overview }
+
+## Introduction {: #introduction }
+
+Networks deployed through Tanssi are fully customizable blockchains benefiting from a shared set of sequencers and the security of a provider of their choice. The templates presented in this article implement the necessary functionalities and configurations to support the Tanssi protocol, making development easier.
+
+## Base Setup to Support the Tanssi Protocol {: #base-setup-supporting-tanssi }
+
+Tanssi networks must implement the following modules to support the protocol and benefit safely from Tanssi's block production as a service:
+
+- **Author Noting** - registers the set of sequencers assigned to the network by Tanssi
+- **Author Inherent** - allows the sequencer authoring the block to include its identity to get validated and rewarded
+
+If you don't include these modules in the Tanssi network's runtime, there won't be a method to confirm that the blocks are being generated by trustworthy sequencers designated by the Tanssi orchestrator. This could create a vulnerability for malicious actors to exploit and compromise the network. For more information about Tanssi's block production as a service please refer to the [Block Production Services](/learn/tanssi/network-services/block-production/){target=\_blank} article.
+
+Besides block production, there are other essential aspects for any network covered in the templates, such as:
+
+- **Consensus** - networks have the necessary functionality to allow the sequencers to produce blocks, gossip and validate them, and coordinate with the security provider to get notified about the block's finality
+- **Networks Interoperability** - handles the ingestion and dispatch of incoming downward and lateral messages, allowing a Tanssi network to communicate and interoperate with the other chains within the ecosystem
+- **Runtime Upgrades** - a runtime upgrade in a Tanssi network must be informed to the security provider's operators to allow them to check on the blocks produced by the sequencers of the Tanssi networks
+
+## Included Modules {: #included-modules }
+
+Besides the necessary modules to support the operation of a Tanssi network, many other modules provide functional behavior that the users can interact with.
+
+These are some of the functional modules exposing a behavior to the users that are included in the templates and ready to use:
+
+- **[Balances](https://paritytech.github.io/substrate/master/pallet_balances/index.html){target=\_blank}** - the Balances module provides functions for handling accounts and balances for the Tanssi network native currency
+- **[Utility](https://paritytech.github.io/polkadot-sdk/master/pallet_utility/index.html){target=\_blank}** - the Utility module provides functions to execute multiple calls in a single dispatch. Besides batching transactions, this module also allows the execution of a call from an alternative signed origin
+- **[Proxy](https://paritytech.github.io/polkadot-sdk/master/pallet_proxy/index.html){target=\_blank}** - the Proxy module provides functions to delegate to other accounts (proxies) the permission to dispatch calls from a proxied origin
+- **[Maintenance Mode](https://github.com/moondance-labs/moonkit/blob/tanssi-polkadot-v1.3.0/pallets/maintenance-mode/src/lib.rs){target=\_blank}** - the Maintenance Mode module allows the Tanssi network to be set to a mode where it doesn't execute balance/asset transfers or other transactions. This could be useful when upgrading the runtime in an emergency, when executing large storage migrations, or when a security vulnerability is discovered
+- **[Tx Pause](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank}** - the Tx Pause module allows a valid origin (typically Root) to pause (and unpause) an entire module or a single transaction. A paused transaction (or all the transactions included in a paused module) will fail when called until it is unpaused. This module provides a higher degree of granularity compared to maintenance mode, making it particularly useful when a faulty or vulnerable transaction is identified in the runtime
+- **[Multisig](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/multisig/src/lib.rs){target=\_blank}** - the Multisig module enables transaction dispatches that require -typically- more than one signature. A multisig transaction defines a set of authorized accounts and a threshold for its approval, requiring consensus among multiple parties
+
+## Start Building {: #getting-started }
+
+To start building on top of the provided templates, be it the [baseline Tanssi network template](/builders/build/templates/substrate/){target=\_blank} or the [baseline EVM (Ethereum Virtual Machine) template](/builders/build/templates/evm/){target=\_blank}, the recommended approach is to fork the [Tanssi repository](https://github.com/moondance-labs/tanssi){target=\_blank} and start adding [built-in modules](/builders/build/customize/adding-built-in-module/){target=\_blank} or [custom-made modules](/builders/build/customize/adding-custom-made-module/){target=\_blank} on top of the [latest release](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} tag.
+
+This approach comes with some advantages, such as:
+
+- Building on top of the latest and stable release
+- Get the Tanssi protocol already configured and included in the template runtime
+- Keep your fork up-to-date by syncing with the Tanssi upstream repository
+- Run the included tests, ensuring that block production on your Tanssi network works as intended
+- Run a complete local environment with the included [Zombienet](https://paritytech.github.io/zombienet){target=\_blank} configuration
+
+If the templates already cover your use case needs, or after building and testing your chain, you can continue with the [Deploy Your Network via the Tanssi DApp](/builders/deploy/dapp/){target=\_blank} article to know how to use the Tanssi dApp to register and get your chain up and running.
+--- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/deploy/dapp/
 --- BEGIN CONTENT ---
@@ -1132,7 +1806,7 @@ Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/smart-
 title: Smart EVM - Whitelist Contract Deployments
 description: Learn how to use Sudo to whitelist smart contract deployers for your Smart EVM Tanssi-powered network, increasing overall security.
 icon: octicons-file-binary-24
-categories: Appchain
+categories: Appchain, EVM-Template
 ---
 
 # Smart EVM - Whitelist Contract Deployments
@@ -1377,6 +2051,115 @@ And that's it! The [Developer Portal](/builders/manage/developer-portal/) sectio
 <div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
+--- END CONTENT ---
+
+Doc-Content: https://docs.tanssi.network/builders/tanssi-network/testnet/demo-evm-network/
+--- BEGIN CONTENT ---
+---
+title: Demo EVM Tanssi Network
+description: Test our demo EVM Tanssi network to discover the capabilities of a fully Ethereum-compatible network deployed through Tanssi in just a few minutes.
+icon: material-ethereum
+categories: Appchain, EVM-Template
+---
+
+## Introduction
+
+Explore the functionalities of a fully Ethereum-compatible network deployed through Tanssi by interacting with the demo EVM network on Dancelight.
+
+This quick reference page offers all the essentials you need to interact with this demo network.
+
+## Faucet for TestNet Tokens {: #faucet }
+
+You can access {{ networks.dancelight.demo_evm_token_symbol }} tokens, the native currency of the EVM demo network, at the faucet on the [Tanssi dApp](https://apps.tanssi.network/demo){target=\_blank}. You can receive up to 100 {{ networks.dancelight.demo_evm_token_symbol }} tokens every 12 hours.
+
+To request tokens from the faucet, head to the [Tanssi dApp](https://apps.tanssi.network/demo){target=\_blank} and press **Add to MetaMask**.
+
+![Add to MetaMask](/images/builders/tanssi-network/testnet/demo-evm-network/demo-1.webp)
+
+Then, take the following steps:
+
+1. Press **Request Tokens**
+2. Select the account you'd like to receive {{ networks.dancelight.demo_evm_token_symbol }} tokens and press **Next**
+3. Press **Connect**
+
+![Request tokens](/images/builders/tanssi-network/testnet/demo-evm-network/demo-2.webp)
+
+!!! note
+    {{ networks.dancelight.demo_evm_token_symbol }} tokens have no value. Please don't spam the faucet with unnecessary requests.
+
+Your tokens will be disbursed shortly, and you can verify your {{ networks.dancelight.demo_evm_token_symbol }} token balance by looking up your address on the [explorer]({{ networks.dancelight.demo_evm_blockscout_url }}){target=\_blank}.
+
+## Network Endpoints {: #network-endpoints }
+
+The demo EVM network HTTPS and WSS endpoints are as follows:
+
+=== "HTTPS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_url }}
+    ```
+
+=== "WSS"
+
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_wss_url }}
+    ```
+
+## Block Explorers {: #block-explorers }
+
+For the demo EVM network, you can use any of the following explorers:
+
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc={{ networks.dancelight.demo_evm_rpc_wss_url }}/explorer){target=\_blank} (Substrate API)
+- [Blockscout]({{ networks.dancelight.demo_evm_blockscout_url }}){target=\_blank} (Ethereum API)
+- [Expedition](https://evmexplorer.tanssi-chains.network/?rpcUrl={{ networks.dancelight.demo_evm_rpc_url }}){target=\_blank} (Ethereum API)
+
+## Chain ID {: #chain-id }
+
+The demo EVM network has a [chain ID](https://chainlist.org/chain/{{ networks.dancelight.demo_evm_chain_id }}){target=\_blank} of: `{{ networks.dancelight.demo_evm_chain_id }}`, which is `{{ networks.dancelight.demo_evm_chain_hex_id }}` in hex.
+
+## Quick Start {: #quick-start }
+
+You can interact with a Tanssi-powered EVM network using standard Ethereum libraries, like [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, and [Web3.py](/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}. To quickly get started, you'll need to create a provider connected to a Tanssi EVM network:
+
+=== "Ethers.js"
+
+    ```js
+    import { ethers } from "ethers";
+
+    const providerRPC = {
+      evmNetwork: {
+        name: 'dancelight-evm-network',
+        // Insert your RPC URL here
+        rpc: '{{ networks.dancelight.demo_evm_rpc_url }}', 
+        chainId: {{ networks.dancelight.demo_evm_chain_id }}, // {{ networks.dancelight.demo_evm_chain_hex_id }} in hex,
+      },
+    };
+    const provider = new ethers.JsonRpcProvider(
+      providerRPC.evmNetwork.rpc, 
+      {
+        chainId: providerRPC.evmNetwork.chainId,
+        name: providerRPC.evmNetwork.name,
+      }
+    );
+    ```
+
+=== "Web3.js"
+
+    ```js
+    const Web3 = require('web3');
+
+    const web3 = new Web3(
+      '{{ networks.dancelight.demo_evm_rpc_url }}'
+    );
+    ```
+
+=== "Web3.py"
+
+    ```python
+    from web3 import Web3
+
+    web3 = Web3(Web3.HTTPProvider('{{ networks.dancelight.demo_evm_rpc_url }}')) 
+    ```
 --- END CONTENT ---
 
 ## Basics Concepts [shared: true]
@@ -2308,6 +3091,301 @@ Within Tanssi's Substrate-based protocol, an operator’s primary _Sr25519_ iden
 For rewards on Ethereum (e.g., via [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}), an operator's Tanssi _Sr25519_ identity maps to an Ethereum _ECDSA_ address. Operators inform both accounts, which are then linked through the Tanssi middleware. This trusted link ensures that rewards from the operator's node work on the Tanssi network are routed to the operator's designated Ethereum account.
 --- END CONTENT ---
 
+Doc-Content: https://docs.tanssi.network/learn/tanssi/external-security-providers/symbiotic/
+--- BEGIN CONTENT ---
+---
+title: Ethereum with Symbiotic
+description: Tanssi's design allows developers to choose and connect to the Symbiotic restaking protocol, benefiting from Ethereum-grade security right from the start.
+icon: octicons-shield-check-24
+categories: Basics
+---
+
+# Ethereum with Symbiotic {: #ethereum-symbiotic }
+
+## Introduction {: #introduction }
+
+The Tanssi protocol takes care of critical infrastructural components, making it easy for developers to launch their networks in a few minutes. In addition to block production, data retrievability, and integrations with essential tools such as wallets, RPC endpoints, block explorers, and others, another major task to tackle is providing security to the network.
+
+Tanssi is designed to offer developers a shared security model, alleviating them from having to source enough economic security or negotiating with operators to run nodes opting-in for their networks. By deploying networks through Tanssi, and by choosing [Symbiotic](https://symbiotic.fi/){target=\_blank} as a security provider, developers benefit from Ethereum-grade security, tapping into billions of dollars in shared security from staked ETH.
+
+The following sections describe how the Symbiotic protocol works and how Tanssi networks can leverage it as their consensus mechanism.
+
+## Ethereum-Grade Security with Symbiotic {: #symbiotic }
+
+[Symbiotic](https://symbiotic.fi/){target=\_blank} is a shared security protocol designed to be permissionless, multi-asset, and network-agnostic. It fosters capital efficiency by allowing users to extend the functionality of their staked assets to secure other networks while providing additional utility.
+
+The protocol provides a coordination layer for its main components and participants, aligning incentives among parties while minimizing execution layer risks by deploying non-upgradeable core contracts on Ethereum. The following diagram resumes all the components and actors participating in the protocol:
+
+```mermaid
+flowchart TD
+    %% Vaults subgraph
+    subgraph Ethereum["Ethereum/Symbiotic"]
+        slash[/Slashing Events/]
+        Restakers -- Deposit Assets --> Vaults
+        manager["Vault managers"] -- Manage --> Vaults
+        Resolvers -- Decide On --> slash
+        slash -- Executes On --> Vaults
+    end
+
+    %% Operators subgraph
+    subgraph Operators
+        direction BT
+        operators["Operators (Validators)"]
+        node_operators["Node Operators"]
+        node_operators -- Run --> operators
+    end
+
+    %% Networks subgraph
+    subgraph Networks
+        direction BT
+        developers["Developers"]
+        networks["Decentralized Networks"]
+        developers -- Launch --> networks
+    end
+
+    Vaults <--> Tanssi
+    Tanssi <--> Operators
+    Tanssi <--> Networks
+```
+
+Symbiotic's flexible design allows every party to decide on setups that best fit their use cases. For example, vaults can choose what forms of collateral they accept, operators can determine which networks they want to provide services to, and decentralized networks can customize their use case and define the level of security (which collaterals are accepted, for example) they need.
+
+The following sections describe the protocol's main components.
+
+### Vaults {: #vaults }
+
+[Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, and set up delegation strategies.
+
+Each vault is bound to a specific token that satisfies the [IERC20](https://github.com/ethereum/ercs/blob/master/ERCS/erc-20.md){target=\_blank} interface and is accepted as collateral. Internally, the funds within the vault are represented as shares, which provide a mechanism for tracking ownership and distributing rewards. However, the reward token may differ from the collateral token.
+
+A vault comprises three key modules, each serving a distinct function: the slasher, the delegator, and the accounting module. The implementation of these modules can vary depending on the vault manager's decisions.
+
+- **Slasher module** - implements the [slashing](#slashing-process) logic, which penalizes bad actors
+- **Delegator module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator){target=\_blank} are available, allowing the vault manager to select which operators and networks they want to work with
+- **Accounting module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/){target=\_blank}, which provides a vault with a shares system included
+
+Since the operators get delegated stake from the vault and could potentially get slashed, they must be approved by the vault managers beforehand. On a similar note, vault managers analyze and authorize each network the vault will secure, considering, for example, the rewards the network offers.
+
+Vault managers also designate [resolvers](https://docs.symbiotic.fi/modules/counterparties/resolvers){target=\_blank}, responsible for approving or vetoing [slashing events](https://docs.symbiotic.fi/modules/vault/slasher){target=\_blank} caused by operators on networks with [veto-slashing](https://docs.symbiotic.fi/modules/vault/slasher#veto-slashing){target=\_blank} support, like the Tanssi Network.
+
+### Operators {: #operators }
+
+[Node operators](/node-operators/){target=\_blank} are entities or individuals responsible for running the [nodes (also known as operators or validators)](https://docs.symbiotic.fi/modules/counterparties/operators){target=\_blank}, which are the computational components validating the networks' transactions. They are responsible for the nodes' configuration, hardware setup, uptime, and performance.
+
+Node operators opt-in to provide services to networks, which must accept their request. Also, they opt-in to provide services in vaults, which must accept their request.
+
+Once an operator has been accepted by a vault and a network connected to that vault, the node can start providing validation services to that network, receiving rewards in exchange.
+
+### Networks {: #networks }
+
+[Networks](https://docs.symbiotic.fi/modules/counterparties/networks){target=\_blank} are the actively validated services or networks. These application-specific blockchains can be a use case from a wide range of industries, such as Gaming, Defi, RWAs, and others, and are the platforms that, through dApps, the end users interact with.
+
+Since operators opt-in to provide services to networks and the vault managers must accept the networks, the developers are responsible for defining, controlling, and adapting their methodology for onboarding, rewarding, and slashing operators.
+
+!!! note
+    Networks deployed through Tanssi don't need to work on the relation with vaults and operators since the Tanssi protocol deals with those complexities.
+
+## Tanssi with Symbiotic {: #tanssi-symbiotic }
+
+Developers launching networks through Tanssi benefit from [block production services](/learn/tanssi/network-services/block-production/){target=\_blank}, data retrievability as a service, and the shared security model derived from every vault opting-in to support the Tanssi protocol. This eliminates the hurdle of dealing with infrastructural and security components developers would need to take on otherwise.
+
+Vault managers running vaults can apply to offer the restaked collaterals as economic security for the Tanssi Network. Since Tanssi networks run in a sandbox-like environment, and the Tanssi protocol manages all the networks-related responsibilities, vault managers only need to analyze and opt-in to the Tanssi protocol, regardless of the quality and the quantity of networks that are running through the Tanssi protocol at any given moment.
+
+Operators opting-in to provide services to the Tanssi protocol (provided that they participate in a vault that supports the Tanssi protocol) have the benefit of running the same setup to provide block production and validation services to the Tanssi Network and, consequently, to every network deployed through Tanssi. This unique architecture facilitates all the tasks related to running and maintaining the operators since there are no changes in the setup when a new Tanssi network is launched or decommissioned.
+
+!!! note
+    The Tanssi protocol effectively abstracts the details of the active set of networks away from vault managers and operators. Networks particularities don't require any additional setup from operators nor pose risks to vault assets.
+
+All things combined shape a functional and elegant ecosystem where developers can focus on creating and innovating. Tanssi handles the infrastructural components, guaranteeing liveness and performance, and Symbiotic provides the economic safeguards to ensure the validity of the operations.
+
+```mermaid
+flowchart LR
+    subgraph Symbiotic
+        direction LR
+        Operators
+        Vaults
+    end
+    Symbiotic  -- Validates/Secures --> tanssi["Tanssi Network"]
+    tanssi -- Block Production Services--> Networks
+    tanssi -- Security--> Networks
+    tanssi -- Data Retrievability--> Networks
+
+    class Symbiotic custom-container
+```
+
+### Tanssi-Ethereum Communication {: #tanssi-ethereum-communication }
+
+It is important to learn how Tanssi and Ethereum exchange data to understand the mechanics of the protocol. They connect through a two-way bridge that lets them communicate with each other. Each protocol has a specific job in making cross-chain operations possible.
+
+There are three key components between Symbiotic and Tanssi:
+
+```mermaid
+flowchart LR
+
+Tanssi["Tanssi"] <--> Relayer 
+Relayer <--> Gateway 
+Gateway["Gateway"] <--> Middleware
+Middleware <--> Symbiotic["Symbiotic"]
+
+class Tanssi tanssiNode;
+
+class Middleware middlewareNode;
+
+class Gateway gatewayNode;
+
+class Symbiotic symbioticNode;
+
+class Relayer relayerNode;
+```
+
+- **`Relayer`** - is the software that continuously monitors both blockchains and transmits messages. Enabling reliable bidirectional communication between Tanssi and Ethereum, serving as the connection layer that ensures messages are correctly delivered across networks
+
+- **`Gateway`** - operates on the Ethereum side of the bridge and serves three essential functions. It receives, verifies, and routes incoming messages from Tanssi to ensure they are correctly processed. The contract accepts outgoing messages destined for the Tanssi network, preparing them for relay. Finally, it handles higher-level application functionalities, most notably token transfers between the two networks, providing a secure interface for cross-chain asset movement
+
+- **`Middleware`** - is Tanssi's implementation for handling network events and operations. It is the critical link between the `Gateway` and Tanssi's core protocol
+
+The `Middleware` plays a central role in network coordination between Tanssi and Symbiotic. It distributes rewards to operators and vaults based on their network security and performance contributions. The contract sorts operators by stake to create a merit-based ranking system for their selection and transmits the list of sorted operator keys to Tanssi for assignment. Additionally, it facilitates operator registration processes and handles the reward and slashing protocols that maintain network incentive alignment.
+
+#### From Ethereum to Tanssi {: #from-ethereum-tanssi }
+
+The `Middleware` transmits operator set information to Tanssi for session assignment through the bridge. It sends details about active operators for each epoch, ordering them by their total stake aggregated across vaults. Tanssi then uses this information to assign operators for upcoming sessions, ensuring that the most economically aligned ones secure the network. This mechanism creates a stake-weighted operator selection process where economic security on Ethereum translates to operational security on Tanssi.
+
+#### From Tanssi to Ethereum {: #from-tanssi-ethereum }
+
+Tanssi sends operational data back to Ethereum through the same communication channel. This message includes reward information that enables proper distribution to stakeholders based on network performance. The network also transmits slashing event data when operators fail to perform correctly or violate protocol rules, allowing the protocol to apply penalties. Tanssi can also request new tokens to be created on Ethereum and register tokens, making managing assets between both networks easy.
+
+### Rewards {: #rewards }
+
+Well-behaved operators and restakers are rewarded for their participation with TANSSI tokens. The reward process consists of two main phases: [Reward Distribution Phase](#reward-distribution-phase) and [Reward Claiming Phase](#reward-claiming-phase).
+
+#### Reward Distribution Phase {: #reward-distribution-phase }
+
+The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
+
+1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
+2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.network/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://docs.snowbridge.network/){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
+3. **Ethereum Message Reception** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
+4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, which is responsible for various tasks, including passing the information to the `OperatorReward` contract
+5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
+
+```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
+sequenceDiagram
+    participant Tanssi Network
+    participant Snowbridge (XCM)
+    participant Gateway
+    participant Middleware
+    participant OperatorRewards
+
+    Tanssi Network->>Tanssi Network: 1. Calculate rewards and generate Merkle root
+    Tanssi Network->>Snowbridge (XCM): 2. Reward data sent via XCM (Merkle root + data)
+    Snowbridge (XCM)->>Gateway: 3. Relay message and sent to Ethereum 
+    Gateway ->>Middleware: 4. Message processing and validation
+    Middleware->>OperatorRewards: 5. Reward storage and distribution
+```
+
+#### Reward Claiming Phase {: #reward-claiming-phase }
+
+In the reward-claiming phase, operators and stakers can claim rewards based on their participation in the network. Tanssi determines the share distribution for operators and stakers, currently setting it at 20% for operators and 80% for stakers.
+
+1. **Operator Reward Claim** - operators can claim their share by calling the `OperatorRewards` contract by using a cryptographic receipt that verifies their entitlement
+2. **Token Release** - the operator call triggers the token release, and the `OperatorRewards` sends the established amount to the operator
+3. **Token Distribution to Stakers** - the remaining rewards are forwarded to the `StakerRewards` contract for further claiming of the staker
+4. **Staker Allocation** - the remaining 80% of the rewards are automatically directed to the [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol){target=\_blank} contract, where stakers can claim rewards proportional to their stake in the vaults
+
+```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
+sequenceDiagram
+ participant Operator
+ participant OperatorRewards
+ participant StakerRewards
+ participant Stakers
+
+ Operator->>OperatorRewards: 1. Operator reward claim
+ OperatorRewards->>Operator: 2. Release rewards to the operator
+ OperatorRewards->>StakerRewards: 3. Forward the remainder to StakerRewards
+ Stakers->>StakerRewards: 4. Stakers claim individual rewards
+```
+
+### Slashing {: #slashing }
+
+The Tanssi protocol implements slashing to penalize operators for misbehavior. When a slashing event is triggered, the authorities designated as resolvers by the vault managers can either accept or revert this action.
+
+The following actions can trigger slashing events:
+
+- Producing invalid blocks (e.g., blocks that include invalid transactions)
+- Invalid validation (e.g., double-signing or breaking protocol rules)
+- Downtime or unavailability
+- Consensus violations
+
+!!!note
+    Slashing events can only be triggered by operators' misbehavior within the Tanssi Network. Even if Tanssi networks are faulty or malicious, they operate in a sandboxed environment and cannot cause slashing.
+
+#### Slashing Process {: #slashing-process }
+
+The slashing process follows a path similar to that of rewards. When an operator misbehaves, the Tanssi Network sends a slashing request message to the trustless bridge (Snowbridge). The message passes through the `Gateway` and into the `Middleware` where the slashing method gets called.
+
+The slashing method receives a unique identifier for the operator's identity, the severity of the slash as a percentage of the operator's assigned stake in each vault, and the time context within which the offense occurred.
+
+The slashing process consists of the following steps:
+
+1. **Slash Reported** - Tanssi sends the slash request to the `Middleware` with the parameters `operatorKey`, `percentage`, and `epoch`
+2. **Operator Validation** - the `Middleware` validates the operator's identity and checks if the operator is subject to slashing
+3. **Retrieve Active Vaults** - the `Middleware` iterates through all active vaults during the offense epoch, skipping any inactive vaults
+4. **Retrieve Operator Stake** - for each active vault, the `Middleware` retrieves the stake of the misbehaving operator
+5. **Calculate Slash Amount** - the `Middleware` calculates the slashing amount by applying the slashed percentage to the operator's stake in each vault
+6. **Slashing** - depending on the vault's slashing implementation, there are two possible routes
+
+    - **Instant Slashing** - if the vault uses instant slashing, the stake is immediately reduced
+
+    - **Veto Slashing** - if the vault uses veto slashing, the `Middleware` requests the slashing from a resolver. A time-limited veto window is created (e.g., 7 days)
+
+    The slashing is canceled if the resolver vetoes the request within the time window. Otherwise, the slashing penalty is executed if no veto occurs within the time window
+
+This process ensures that each vault's slashing is handled independently, preventing cross-contamination, and offers both instant and time-delayed slashing with dispute resolution mechanisms.
+
+```mermaid
+%%{init: {'sequence': {'mirrorActors': false}}}%%
+sequenceDiagram
+    participant Network
+    participant Middleware
+    participant Vault
+    participant Slasher
+    
+    Network->>Middleware: 1. Slash reported
+    Middleware->>Middleware: 2. Operator validation
+    loop Each Active Vault
+        Middleware->>Vault: 3. Retrieve operator stake
+        Vault-->>Middleware: 4. Retrieve vault stake
+        Middleware->>Middleware: 5. Calculate slash amount
+        alt Instant Slasher
+            Middleware->>Slasher: 6.1 Slash
+        else Veto Slasher
+            Middleware->>Slasher: 6.2 Request slash
+            opt If Not Vetoed
+                Slasher->>Slasher: 6.2 Execute slash
+            end
+        end
+    end
+```
+
+#### Burner {: #burner }
+
+The `Burner` contract is an extension responsible for handling actions that follow a [slashing event](#slashing-process), notably the burning of slashed collateral. Once a slash is executed, the `Slasher` contract calls the `Burner` to carry out these post-slashing tasks.
+
+Within the protocol, the `Burner` contract plays a crucial role in deciding what happens after slashing. While there are different ways to implement the burning process, the recommended approach is to burn the slashed assets.
+When a slash is executed, the `Burner` contract's `onSlash` function is activated. This function kicks off the process of burning the slashed assets.
+
+The vault manager chooses the specific implementation of the burning process during the vault's initialization phase, and once set, the vault manager cannot modify it. The exact design of the `Burner` contract may differ depending on the type of collateral asset involved. Below are some potential implementation options:
+
+- **Burning Tokens** - if the slashed collateral is a regular ERC-20 token, the `Burner` destroys those tokens, permanently removing them from circulation
+- **Unwrapping and Burning** - if the slashed tokens represent something like staked assets (e.g., liquid staking tokens) or liquidity provider (LP) tokens from a decentralized exchange (DEX), the `Burner` might convert them back into their original form before burning them
+- **Cross-Chain Operations** - if the tokens are tied to assets on another blockchain, the `Burner` could unwrap them on Ethereum and trigger the burn process on the original network
+- **Alternative Handling** - sometimes, burning isn't the best option. Instead, the `Burner` might redistribute the slashed assets to other operators, compensate affected users, or lock them in liquidity pools—whatever the system is designed to do
+
+Burning slashed collateral is important because it penalizes misbehaving operators and reduces the total supply of tokens, which can have deflationary effects.
+--- END CONTENT ---
+
 Doc-Content: https://docs.tanssi.network/learn/tanssi/network-features/staking/
 --- BEGIN CONTENT ---
 ---
@@ -2923,7 +4001,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/identity/
 title: Set an Account Identity
 description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
 icon: octicons-person-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Set Up an Identity
@@ -3095,7 +4173,7 @@ Doc-Content: https://docs.tanssi.network/builders/account-management/proxy-accou
 title: Set Up and Manage Proxy Accounts
 description: Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
 icon: octicons-shield-lock-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Proxy Accounts
@@ -3315,7 +4393,7 @@ Doc-Content: https://docs.tanssi.network/builders/build/templates/overview/
 title: Requirements and Features of Templates
 description: Explore the foundational setup and key features included in each Tanssi template, designed to streamline the building and deployment of Tanssi networks.
 icon: octicons-home-24
-categories: Basics
+categories: Basics, Appchain
 ---
 
 # Templates Overview {: #templates-overview }
