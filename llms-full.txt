@@ -16178,7 +16178,7 @@ Assuming you already have a [ledger](https://www.ledger.com/){target=\_blank} de
 2. Go to My Ledger.
 3. Connect and unlock the device.
 
-Finally, look up for the Zondax’s Polkadot (DOT) app in the Ledger Live app and have it installed on your device.
+Finally, search for Zondax’s Polkadot (DOT) app in Ledger Live and install it on your device.
 
 ![Install Polkadot in Ledger Live](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-14.webp)
 
