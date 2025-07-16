@@ -86,7 +86,7 @@ sudo chown -R tanssi_service /var/lib/tanssi-data
 Move the chain specification file to the folder:
 
 ```bash
-mv ./relay-raw-no-bootnodes-specs.json /var/lib/tanssi-data
+mv ./dancelight-raw-specs.json /var/lib/tanssi-data
 ```
 
 And finally, move the binary to the folder:
@@ -135,15 +135,10 @@ ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
 --node-key-file=/var/lib/tanssi-data/node-key \
---keystore-path=/var/lib/tanssi-data/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
---rpc-cors=all \
---rpc-max-connections 100 \
---unsafe-rpc-external \
---rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -155,16 +150,14 @@ ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --in-peers=100 \
 --detailed-log-output \
 -- \
---chain=/var/lib/tanssi-data/relay-raw-no-bootnodes-specs.json \
+--chain=/var/lib/tanssi-data/dancelight-raw-specs.json \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
 --base-path=/var/lib/tanssi-data/relay \      
 --node-key-file=/var/lib/tanssi-data/node-key \
+--keystore-path=/var/lib/tanssi-data/session \
 --database=paritydb \
 --rpc-port=9945 \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \
