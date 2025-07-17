@@ -46,11 +46,7 @@ After creating your first account, you'll be prompted to back up your seed phras
 
 ## Importing an Existing Substrate Account {: #importing-an-existing-substrate-account }
 
-Of course, you can use an existing Substrate account in Talisman. You can import the account into Talisman using the seed phrase, or you can connect a cold wallet such as [Ledger](https://www.ledger.com/){target=\_blank} to work with Talisman.
-
-### Importing an Account via Seed Phrase {: #importing-an-account-via-seed-phrase }
-
-If you want to import the account into Talisman using its seed phrase, take the following steps:
+Of course, you can import an existing Substrate account into Talisman. To do so, take the following steps:
 
 1. Press **Add Account**.
 2. Press **Import**.
@@ -68,46 +64,9 @@ On the following screen, take the following steps:
 
 ![Import existing account final steps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-13.webp)
 
-### Connecting a Ledger Device With Talisman {: #connecting-a-ledger-device-with-talisman }
-
-Your Ledger device holds your private keys in a secure hardware environment, but it still can’t directly interact with Tanssi or other Tanssi-powered Substrate appchains on its own. Therefore, a compatible wallet, such as Talisman, is needed to act as the user interface.
-
-Assuming you already have a [ledger](https://www.ledger.com/){target=\_blank} device initiated, make sure you have installed the Polkadot app. If you haven't done so yet, take the following steps:
-
-1. Open the Ledger Live App on your computer.
-2. Go to My Ledger.
-3. Connect and unlock the device.
-
-Finally, search for Zondax’s Polkadot (DOT) app in Ledger Live and install it on your device.
-
-![Install Polkadot in Ledger Live](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-14.webp)
-
-!!! note
-    Why Polkadot? Tanssi is built using Substrate, the same framework that powers Polkadot. As a result, even though Tanssi and Polkadot are separate networks, they share the same cryptographic signature schema. This means that the Ledger app named Polkadot (DOT) is fully compatible with Tanssi.
-
-Now, to connect the ledger to Talisman:
-
-1. Press the **+** icon (Add Account).
-2. Press **Connect**.
-3. Select **Connect Ledger**.
-
-![Connect Ledger](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-15.webp)
-
-On the following screen, take the following steps:
-
-1. Select **Polkadot**. Other options will be presented below.
-2. Select **Polkadot** from the dropdown.
-3. Select **Polkadot App** from the box. You'll be prompted to connect your ledger and open the Polkadot app.
-4. Make sure that your ledger is successfully connected.
-5. Click on **Continue**
-
-![Connect Ledger](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-16.webp)
-
-In the next step, you will be presented with a list of derived accounts. Select the first one, click **Continue**, and that's all! Your Talisman wallet can now sign transactions using your ledger device.
-
 ## Connecting Talisman to the Tanssi network {: #connecting-talisman-to-the-tanssi-network }
 
-Talisman already comes pre-configured with support for the Tanssi network MainNet and its TestNet, Dancelight. To connect to Dancelight, you first need to ensure that you have enabled support for TestNets on Talisman. To configure your Talisman to work with TestNets, take the following steps:
+Talisman already comes pre-configured with support for the Tanssi network MainNet and its TestNet, Dancelight. To connect to Dancelight, you first need to make sure you have enabled support for TestNets on Talisman. To do so, take the following steps:
 
 1. Open the Talisman extension and click on the Talisman logo
 2. Select **Settings**
@@ -115,7 +74,7 @@ Talisman already comes pre-configured with support for the Tanssi network MainNe
 
 ![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
 
-If you have a balance of Tanssi MainNet or Dancelight tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancelight tokens, the network will be omitted from your list of assets.
+If you have a balance of Tanssi MainNet or Dancelight tokens, you'll see your account balance on the homepage of the Talisman wallet. When you don't have a balance, the network is omitted from your list of assets.
 
 ![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
 
