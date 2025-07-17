@@ -2,6 +2,7 @@
 title: Upgrade Your Sequencer Systemd Node
 description: Follow these instructions to update your Tanssi sequencer node running via Systemd to the latest version of the Tanssi client software.
 icon: simple-linux
+categories: Sequencers
 ---
 
 # Upgrade Your Node Running via Systemd

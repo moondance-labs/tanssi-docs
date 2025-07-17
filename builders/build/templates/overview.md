@@ -2,6 +2,7 @@
 title: Requirements and Features of Templates
 description: Explore the foundational setup and key features included in each Tanssi template, designed to streamline the building and deployment of Tanssi networks.
 icon: octicons-home-24
+categories: Basics, Appchain
 ---
 
 # Templates Overview {: #templates-overview }

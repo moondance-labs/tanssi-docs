@@ -1,6 +1,7 @@
 ---
 title: Manage Cross-Chain Communication Channels
 description: Tanssi networks benefit from native cross-chain communication, which allows fast and secure bridging leveraging the architecture they are built on top of.
+categories: Appchain
 ---
 
 # Manage Cross-Chain Communication Channels

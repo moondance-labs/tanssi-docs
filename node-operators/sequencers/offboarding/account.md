@@ -2,6 +2,7 @@
 title: Decommissioning Your Sequencer
 description: In these step-by-step instructions, learn how to properly offboard as a Tanssi sequencer, including unmapping your session keys and unstaking your bond.
 icon: octicons-arrow-down-right-24
+categories: Sequencers
 ---
 
 # Offboard as a Tanssi Sequencer

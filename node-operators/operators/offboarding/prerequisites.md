@@ -3,6 +3,7 @@ title: Prerequisites for Offboarding
 description: Before offboarding your Tanssi operator, ensure you have wallet access and sufficient ETH for gas. This guide outlines crucial prerequisites.
 icon: octicons-arrow-down-right-24
 template: main.html
+categories: Operators
 ---
 
 # Prerequisites for Offboarding

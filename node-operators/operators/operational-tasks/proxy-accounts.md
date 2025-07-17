@@ -2,6 +2,7 @@
 title: Set Up an Operator Proxy Account
 description: Follow this step-by-step guide to enable proxy accounts to securely perform operational tasks (such as keys rotation) on behalf of your operator account.
 icon: octicons-shield-lock-24
+categories: Operators
 ---
 
 # Set Up an Operator Proxy Account

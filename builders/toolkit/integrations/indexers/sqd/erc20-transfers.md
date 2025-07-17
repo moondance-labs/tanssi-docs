@@ -2,6 +2,7 @@
 title: Index ERC-20 Transfers on an EVM Network
 description: Learn how to use the Squid SDK, a query node framework that can index both Substrate and EVM data, to process blockchain data for your Tanssi-powered network.
 icon: octicons-arrow-switch-24
+categories: EVM-Template
 ---
 
 # Indexing ERC-20 Transfers on a Tanssi EVM Network

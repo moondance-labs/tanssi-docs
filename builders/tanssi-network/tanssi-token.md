@@ -2,6 +2,7 @@
 title: TANSSI Token
 description: Learn about the two versions of the Tanssi token - the native Substrate token and the ERC-20 representation on Ethereum, and their utilities and use cases.
 icon: octicons-ruby-24
+categories: Basics
 ---
 
 # TANSSI Token {: #tanssi-token }

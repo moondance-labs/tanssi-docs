@@ -3,6 +3,7 @@ title: Vault Opt Out
 description: Optionally opt out of a Tanssi vault. Learn how using CLI, Etherscan, or Safe, and verify your vault opt out status.
 icon: octicons-sign-out-24
 template: main.html
+categories: Operators
 ---
 
 # Vault Opt Out (Optional)

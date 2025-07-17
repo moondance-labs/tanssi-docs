@@ -1,6 +1,7 @@
 ---
 title: Native Cross-Chain Communication
 description: Tanssi networks benefit from XCM, a native cross-chain communication language, which allows fast and secure bridging guaranteed by Polkadot's relay chain.
+categories: Basics
 ---
 
 # Native Cross-Chain Communication

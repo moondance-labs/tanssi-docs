@@ -2,6 +2,7 @@
 title: Network Development Framework Overview
 description: Substrate is a blockchain development framework built in Rust Programming Language that streamlines and speeds up the process of developing new networks.
 icon: octicons-home-24
+categories: Basics
 ---
 
 # Network Development Framework Overview {: #network-dev-framework-overview }

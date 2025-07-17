@@ -1,6 +1,7 @@
 ---
 title: Register External Assets
 description: Tanssi networks benefit from native cross-chain communication, enabling smooth and fast token transfers between the token’s native chain and other chains.
+categories: Appchain
 ---
 
 # Register External Assets
