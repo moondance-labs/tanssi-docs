@@ -69,9 +69,9 @@ On the following screen, take the following steps:
 
 Talisman already comes pre-configured with support for the Tanssi network MainNet and its TestNet, Dancelight. To connect to Dancelight, you first need to make sure you have enabled support for TestNets on Talisman. To do so, take the following steps:
 
-1. Open the Talisman extension and click on the Talisman logo
-2. Select **Settings**
-3. Ensure that **Enable testnets** is checked
+1. Open the Talisman extension and click on the Talisman logo.
+2. Select **Settings**.
+3. Ensure that **Enable testnets** is checked.
 
 ![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
 
@@ -83,18 +83,18 @@ If you have a balance of Tanssi MainNet or Dancelight tokens, you'll see your ac
 
 To configure Talisman for your Tanssi-powered Substrate network, open the Talisman extension and click on the **More Options** tab. Click on **Settings** > **Networks & Tokens** > **Manage Networks**.
 
-1. Slide the network slider to **Polkadot**
-2. Check the **Enable testnets** box
-3. Press **Add Network**
+1. Slide the network slider to **Polkadot**.
+2. Check the **Enable testnets** box.
+3. Press **Add Network**.
 
 ![Add Network in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-7.webp)
 
 On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Dancelight TestNet is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to Talisman, take the following steps:
 
-1. Paste in the RPC URL of your Tanssi network. Other parameters will be auto-populated
-2. Optionally, enter the block explorer URL of your Tanssi network, if applicable
-3. Check the **This is a testnet** box if applicable
-4. Press **Add Network**
+1. Paste in the RPC URL of your Tanssi network. Other parameters will be auto-populated.
+2. Optionally, enter the block explorer URL of your Tanssi network, if applicable.
+3. Check the **This is a testnet** box if applicable.
+4. Press **Add Network**.
 
 ![Add your Tanssi-Powered Network Details](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-8.webp)
 
@@ -117,11 +117,11 @@ Your Talisman wallet is now connected to Polkadot.js Apps. After refreshing Polk
 
 To send a transaction through the Substrate API, click **Send** next to your account on Polkadot.js Apps. Then, take the following steps:
 
-1. Input the **send to address**
-2. Enter the **amount**
-3. Press **Make Transfer** and confirm the transaction in the resulting Polkadot.js pop-up
-4. Press **View Details** if you'd like to inspect the contents of the transaction
-5. Press **Approve** to submit the transaction
+1. Input the **send to address**.
+2. Enter the **amount**.
+3. Press **Make Transfer** and confirm the transaction in the resulting Polkadot.js pop-up.
+4. Press **View Details** if you'd like to inspect the contents of the transaction.
+5. Press **Approve** to submit the transaction.
 
 ![Send funds through Substrate API with Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-11.webp)
 
