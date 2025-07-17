@@ -13,7 +13,7 @@ Developers and users of Substrate networks, such as the Tanssi network or non-EV
 
 Ledger devices are hardware wallets designed to store the private keys offline. They are used to verify and sign the transactions, but they still need a software layer to provide the UI that interacts with the networks, builds the transactions, and sends the signed transactions back to the network once the user has verified them.
 
-This guide takes you through all the necessary steps to use your Ledger device with Substrare Tanssi chains.
+This guide takes you through all the necessary steps to use your Ledger device with Substrate Tanssi chains.
 
 ## Setting Up Your Ledger Device {: #setting-up-ledger-device }
 

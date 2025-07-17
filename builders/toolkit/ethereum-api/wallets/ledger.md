@@ -54,6 +54,6 @@ On the following screen:
 
 ![Connect Ledger](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-5.webp)
 
-Finally, will be presented with a list of derived accounts. Select the first one, click **Unlock**, and that's all! Your Metamask wallet can now sign transactions using your ledger device.
+Finally, you will be presented with a list of derived accounts. Select the first one, click **Unlock**, and that's all! Your Metamask wallet can now sign transactions using your ledger device.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
