@@ -2,6 +2,7 @@
 title: Baseline EVM Template
 description: The Tanssi repository includes an EVM template that provides all the necessary configurations to launch a network that is fully compatible with Ethereum.
 icon: material-ethereum
+categories: EVM-Template
 ---
 
 # Baseline EVM Template {: #baseline-evm-template }
@@ -37,4 +38,4 @@ To reach full Ethereum compatibility, these specific modules are also included:
 - **[EVM](https://docs.rs/pallet-evm/latest/pallet_evm){target=\_blank}** - it adds support for unmodified EVM bytecode execution on a Tanssi-powered network. It uses the Rust-based [SputnikVM](https://github.com/rust-ethereum/evm){target=\_blank} as the underlying EVM engine
 - **[Ethereum](https://docs.rs/pallet-ethereum/latest/pallet_ethereum){target=\_blank}** - it works alongside the EVM module to provide full emulation for Ethereum block processing. Among many other tasks, it is responsible for creating emulated Ethereum blocks for Ethereum-specific components such as EVM logs
 
-Both modules are part of the [Frontier](https://github.com/paritytech/frontier){target=\_blank} project, which is the backbone of Ethereum-compatible Tanssi-powered networks.
+Both modules are part of the [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} project, which is the backbone of Ethereum-compatible Tanssi-powered networks.

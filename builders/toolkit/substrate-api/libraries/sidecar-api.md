@@ -2,6 +2,7 @@
 title: Using Substrate API Sidecar
 description: Learn how to use Substrate-based REST service with Tanssi-powered networks to access blocks, account balance, compute gas used, and more.
 icon: octicons-code-24
+categories: Substrate-Template
 ---
 
 # Using Substrate API Sidecar

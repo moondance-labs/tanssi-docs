@@ -2,6 +2,7 @@
 title: How to use the Polkadot.js API
 description: Learn how to use the Polkadot.js API to interact with a Tanssi-powered network to get chain data and send transactions (extrinsics) via the Substrate API.
 icon: octicons-code-24
+categories: Substrate-Template
 ---
 
 # Polkadot.js API Library
@@ -350,7 +351,7 @@ In addition, you can find more sample code snippets related to more specific cas
 
 The Polkadot.js API also includes a number of utility libraries for computing commonly used cryptographic primitives and hash functions.
 
-The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://eth.wiki/fundamentals/rlp){target=\_blank}) encoding and then hashing the result with keccak256.
+The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/){target=\_blank}) encoding and then hashing the result with keccak256.
 
 ```typescript
 import { encode } from '@polkadot/util-rlp';

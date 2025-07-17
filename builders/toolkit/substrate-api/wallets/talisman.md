@@ -1,7 +1,8 @@
 ---
 title: How to Connect Talisman to Tanssi
 description: This guide walks you through how to connect Talisman, a Substrate and Ethereum wallet, to the Tanssi network or your Tanssi-powered Substrate appchain.
-icon: material-wallet-outline 
+icon: material-wallet-outline
+categories: Substrate-Template
 ---
 
 # Interacting with Tanssi or Your Substrate Appchain Using Talisman

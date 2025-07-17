@@ -2,6 +2,7 @@
 title: Block Production Services Payment
 description: Networks deployed through Tanssi benefit from block production services provided by a set of node operators, which are compensated with Tanssi tokens.
 icon: octicons-server-24
+categories: Appchain
 ---
 
 # Block Production Services Payment

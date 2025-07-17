@@ -1,15 +1,10 @@
 --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
---rpc-cors=all \
---rpc-max-connections 100 \
---unsafe-rpc-external \
---rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -26,11 +21,9 @@
 --sync=fast \
 --base-path=/data/relay \      
 --node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --database=paritydb \
 --rpc-port=9945 \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \

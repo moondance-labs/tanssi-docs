@@ -2,6 +2,7 @@
 title: Setup an Account to Produce Blocks
 description: Follow these step-by-step instructions on becoming eligible to produce blocks on Tanssi-powered networks and setting up your account for rewards payouts.
 icon: octicons-person-add-24
+categories: Sequencers
 ---
 
 # Set Up Your Account to Produce Blocks on Tanssi
@@ -50,10 +51,10 @@ You will need to create session keys for your primary and backup servers. Each o
 
 Before generating session keys, you must be [running a sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank}.
 
-To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your sequencer's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
+To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your sequencer's HTTP endpoint is at port `9945`, the JSON-RPC call might look like this:
 
 ```bash
-curl http://127.0.0.1:9944 -H \
+curl http://127.0.0.1:9945 -H \
 "Content-Type:application/json;charset=utf-8" -d \
   '{
     "jsonrpc":"2.0",

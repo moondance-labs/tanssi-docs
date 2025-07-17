@@ -2,6 +2,7 @@
 title: Network Templates Included in Tanssi
 description: Tanssi protocol provides useful templates to start building your decentralized network, including a ready-to-use EVM template for Ethereum compatibility.
 icon: octicons-copy-24
+categories: Basics
 ---
 
 # Network Templates Included in Tanssi {: #network-templates-included-in-tanssi }
@@ -48,7 +49,7 @@ The source code for this template is public and accessible on the [Tanssi GitHub
 
 Extending the [baseline Tanssi network template](#baseline-network-template), this template provides not only Tanssi protocol support but also an EVM and full Ethereum compatibility.
 
-Leveraging a set [EVM-specific modules](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
+Leveraging a set [EVM-specific modules](https://github.com/polkadot-evm/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
 
 Using this template, networks support the deployment and running of any existing smart contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Remix](https://remix.ethereum.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, and many more out of the box, with no extra adapters.
 
