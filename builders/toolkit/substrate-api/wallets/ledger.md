@@ -2,6 +2,7 @@
 title: Interacting with Substrate Tanssi Chains Using Ledger
 description: This guide walks you through setting up and using a Ledger device to interact with the Tanssi network or any of the Tanssi-powered Substrate appchains.
 icon: material-wallet-outline 
+categories: Substrate-Template
 ---
 
 # Interacting with Substrate Tanssi Chains Using Ledger

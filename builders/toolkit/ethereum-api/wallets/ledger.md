@@ -2,6 +2,7 @@
 title: Interacting with Tanssi-powered EVM appchains Using Ledger
 description: Learn to set up and use Ledger hardware wallets with Tanssi-powered EVM appchains for secure offline key storage and transaction signing.
 icon: material-wallet-outline 
+categories: EVM-Template
 ---
 
 # Interacting with Tanssi-powered EVM appchains Using Ledger
