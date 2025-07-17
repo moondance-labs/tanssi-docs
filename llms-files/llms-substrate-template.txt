@@ -14,12 +14,11 @@ You are an AI developer assistant for Tanssi (https://www.tanssi.network/). Your
 
 ## List of doc pages:
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/build/templates/substrate.md [type: builders]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/wallets/subwallet.md [type: builders]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/wallets/talisman.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/integrations/indexers/sqd/quick-start.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/dev-env/chopsticks.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/libraries/polkadot-js-api.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/libraries/sidecar-api.md [type: builders]
+Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/wallets/ledger.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/wallets/subwallet.md [type: builders]
 Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/substrate-api/wallets/talisman.md [type: builders]
 
@@ -67,194 +66,6 @@ The Substrate network template includes all the required modules and configurati
 This template is designed to serve as a foundation to build upon, as most use cases require expanded capabilities, adding existing or custom modules. To learn how to add new functionalities to your runtime, check the [customize runtime](/builders/build/customize/){target=\_blank} section.
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/subwallet/
---- BEGIN CONTENT ---
----
-title: How to Connect SubWallet to Tanssi
-description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered EVM-compatible network.
-icon: material-wallet-outline
-categories: EVM-Template, Substrate-Template
----
-
-# Interacting with Your Tanssi EVM Network Using SubWallet
-
-## Introduction {: #introduction }
-
-Developers and users of Tanssi-powered EVM networks have a variety of options when it comes to wallets. Thanks to their seamless Ethereum compatibility, Tanssi EVM networks support a great variety of popular wallets, including SubWallet.
-
-SubWallet is a comprehensive Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with SubWallet using the Substrate API](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}. The SubWallet wallet browser extension [can be downloaded](https://www.subwallet.app/download.html){target=\_blank} for all supported browsers, including Chrome, Brave, Firefox, and MS Edge. SubWallet also has a mobile app for both iOS and Android, but that is beyond the scope of this guide. A complete online asset dashboard is accessible at [web.subwallet.app](https://web.subwallet.app){target=\_blank}.
-
-This guide takes you through all the necessary steps, from installing SubWallet to setting up a wallet, connecting it to your Tanssi EVM network, and sending funds.
-
-## Creating Your First Ethereum Account {: #creating-your-first-ethereum-account }
-
-First, download and install the [SubWallet extension](https://www.subwallet.app/download.html){target=\_blank}. Creating a new account will generate a seed phrase that can derive multiple Ethereum and Substrate accounts. By default, SubWallet will generate a single Ethereum and a single Substrate account, but you can easily derive more from the same seed phrase. Click **Create a new account** to get started.
-
-![Get started with SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-1.webp)
-
-On the following screen, you'll be prompted to create a password to secure your new wallet.
-
-![Create a password for SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-2.webp)
-
-You'll then be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
-
-![Back up your seed phrase in SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-3.webp)
-
-!!! note
-    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
-
-## Importing an Existing EVM Account {: #importing-an-existing-evm-account }
-
-Of course, you can import an existing EVM account into SubWallet. To get started, take the following steps:
-
-1. Press the **All accounts** button at the top
-2. Press the **Import account** icon
-
-![Import account part 1](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-4.webp)
-
-On the following screen, select the method by which you would like to import the existing account.
-
-![Import existing account part 2](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-5.webp)
-
-On the following screen, you'll be able to provide the relevant seed phrase, private key, JSON file, or QR code, and you can begin using your new account right away.
-
-## Configuring SubWallet for Your EVM Network {: #configuring-subwallet-for-your-evm-network }
-
-To configure SubWallet for your Tanssi-powered EVM network, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the demo EVM network is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to SubWallet, take the following steps:
-
-1. Paste in the HTTPS RPC URL of your Tanssi network. The demo EVM network's RPC URL is `{{ networks.dancelight.demo_evm_rpc_url }}`. Other parameters will be auto-populated
-2. Paste in the block explorer URL of your Tanssi network. The demo EVM network's block explorer URL is `{{ networks.dancelight.demo_evm_blockscout_url }}`
-3. Press **Save**
-
-![Add your Tanssi-Powered Network Details in SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-6.webp)
-
-By default, all balances are hidden in SubWallet, but if you press the eye icon, you can toggle balance visibility.
-
-## Sending Assets on Your EVM Network {: #sending-assets-on-your-evm-network }
-
-To transfer the native token of your Tanssi network, take the following steps:
-
-1. Specify the asset to send
-2. Specify the destination chain (in this case, the same chain that you're sending from)
-3. Enter the destination address
-4. Enter the number of tokens to send
-5. Look over the transaction details, then press **Transfer** and subsequently **Approve**
-
-![Send funds on your Tanssi EVM Network](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-7.webp)
-
-This guide focused specifically on configuring SubWallet to work with your Tanssi EVM network, but SubWallet is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a [similar guide for configuring SubWallet for use with your Substrate network](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
-
-<div class="page-disclaimer">
-  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
-</div>
---- END CONTENT ---
-
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/talisman/
---- BEGIN CONTENT ---
----
-title: How to Connect Talisman to Tanssi
-description: This guide walks you through how to connect Talisman, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered EVM-compatible network.
-icon: material-wallet-outline
-categories: EVM-Template, Substrate-Template
----
-
-# Interacting with Your Tanssi EVM Network Using Talisman
-
-## Introduction {: #introduction }
-
-Developers and users of Tanssi-powered EVM networks have a variety of options when it comes to wallets. Thanks to their seamless Ethereum compatibility, Tanssi EVM networks support a great variety of popular wallets, such as Talisman.
-
-Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. This tutorial centers on the Ethereum API, but you can check out a similar [tutorial for interacting with Talisman using the Substrate API](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}. The Talisman wallet browser extension is available on [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
-
-This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi EVM network, and sending funds.
-
-## Setting Up Talisman {: #setting-up-talisman }
-
-First, download and install the [Talisman extension](https://talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.
-
-![Get started with Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-1.webp)
-
-On the following screen, you'll be prompted to create a password to secure your new wallet.
-
-![Enter password for Talisman Wallet](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-2.webp)
-
-## Creating an Ethereum Account {: #creating-an-ethereum-account }
-
-To create your first Ethereum account, take the following steps:
-
-1. Select the **Ethereum** option
-2. Give your account a name
-3. Press **Create**
-
-![Create your first Ethereum account in Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-3.webp)
-
-After creating your first account, you'll be prompted to back up your seed phrase. This is an important step, especially because you have the option to later derive additional accounts from this seed phrase.
-
-![Back up your seed phrase](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-4.webp)
-
-!!! note
-    You should never share your seed phrase (mnemonic) or private key with anyone. This gives them direct access to your funds. This guide is for educational purposes only.
-
-## Importing an Existing EVM Account {: #importing-an-existing-evm-account }
-
-Of course, you can import an existing EVM account into Talisman. To do so, take the following steps:
-
-1. Press **Add Account**
-2. Press **Import**
-3. Select **Import via Recovery Phrase** (note, this works for both seeds and private keys)
-
-![Import existing account setup](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-9.webp)
-
-On the following screen, take the following steps:
-
-1. Select the **Ethereum** account type
-2. Provide a name for your account
-3. Paste in your seed or private key
-4. If you imported a mnenomic seed phrase in the prior step, select which accounts you'd like to import
-5. Press **Import**
-
-![Import existing account final steps](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-10.webp)
-
-## Configuring Talisman for Your EVM Network {: #configuring-talisman-for-your-evm-network }
-
-To configure Talisman for your Tanssi EVM network, open the Talisman extension and click on the **More Options** tab. Then, take the following steps:
-
-1. Select **Settings**
-2. Check the **Enable testnets** box
-3. Press **Add Network**
-
-![Add Network in Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-6.webp)
-
-On the following page, you'll then be prompted to enter the network details for your Tanssi-powered network. For demonstration purposes, the demo EVM network is used here, but you can substitute these details for your own network. To add your network to Talisman, take the following steps:
-
-1. Paste in the RPC URL of your Tanssi-powered network. The demo EVM network's RPC URL is `{{ networks.dancelight.demo_evm_rpc_url }}`. Other parameters will be autopopulated
-2. Paste in the block explorer URL of your Tanssi-powered network. The demo EVM network's block explorer URL is `{{ networks.dancelight.demo_evm_blockscout_url }}`
-3. Check the **This is a testnet** box if applicable
-4. Press **Add Network**
-
-![Add your Tanssi-Powered Network Details](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-7.webp)
-
-If you hold a balance of tokens in your newly created account for your network, you'll see the balance in the Talisman dashboard.
-
-## Sending Assets on Your EVM Network {: #sending-assets-on-your-evm-network }
-
-To transfer the native token of your Tanssi network, take the following steps:
-
-1. Click on the **Send** icon
-2. Click the desired **Send from** account
-3. Enter the destination address
-4. Enter the amount of tokens to send
-5. Look over the transaction details, then press **Review** and subsequently **Confirm**
-
-![Send funds on your EVM network](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-8.webp)
-
-This guide focused specifically on configuring Talisman to work with your Tanssi-powered EVM network, but Talisman is also a full-featured wallet for Substrate (Polkadot) accounts. Under the Substrate API section, you'll find a similar tutorial for configuring Talisman to work with Substrate-based chains.
-
-<div class="page-disclaimer">
-  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
-</div>
---- END CONTENT ---
-
 Doc-Content: https://docs.tanssi.network/builders/toolkit/integrations/indexers/sqd/quick-start/
 --- BEGIN CONTENT ---
 ---
@@ -280,7 +91,7 @@ For the examples in this guide, you will need to have the following:
 
  - [Node.js](https://nodejs.org/en/download){target=\_blank} version 16 or newer
  - [Docker](https://docs.docker.com/get-started/get-docker/){target=\_blank}
- - [Squid CLI](https://docs.sqd.ai/squid-cli/installation){target=\_blank}
+ - [Squid CLI](https://docs.sqd.ai/squid-cli/installation/){target=\_blank}
 
 ## Index a Tanssi Substrate Network {: #index-substrate-networks }
 
@@ -360,7 +171,7 @@ To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to
     For more information on getting started with both of these templates, please check out the following SQD docs:
 
       - [Getting started: EVM chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
-      - [Quickstart: Squid generation tools](https://docs.sqd.dev/sdk/resources/tools/squid-gen/){target=\_blank}
+      - [Quickstart: Squid generation tools](https://docs.sqd.ai/sdk/resources/tools/squid-gen/){target=\_blank}
 
 2. Navigate into the root directory of your Squid project and install dependencies by running
 
@@ -1336,7 +1147,7 @@ In addition, you can find more sample code snippets related to more specific cas
 
 The Polkadot.js API also includes a number of utility libraries for computing commonly used cryptographic primitives and hash functions.
 
-The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://eth.wiki/fundamentals/rlp){target=\_blank}) encoding and then hashing the result with keccak256.
+The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/){target=\_blank}) encoding and then hashing the result with keccak256.
 
 ```typescript
 import { encode } from '@polkadot/util-rlp';
@@ -2000,13 +1811,80 @@ extrinsics[extrinsic_number].events[event_number].data[0].weight
 </div>
 --- END CONTENT ---
 
+Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/ledger/
+--- BEGIN CONTENT ---
+---
+title: Interacting with Substrate Tanssi Chains Using Ledger
+description: This guide walks you through setting up and using a Ledger device to interact with the Tanssi network or any of the Tanssi-powered Substrate appchains.
+icon: material-wallet-outline 
+categories: Substrate-Template
+---
+
+# Interacting with Substrate Tanssi Chains Using Ledger
+
+## Introduction {: #introduction }
+
+Developers and users of Substrate networks, such as the Tanssi network or non-EVM Tanssi-powered appchains, have a variety of options when it comes to wallets. Regarding cold wallets, which store your private keys in a secure, offline environment, [Ledger](https://www.ledger.com/){target=\_blank} is one of the most popular options. Ledger provides full support for Substrate blockchains, such as the Tanssi network.
+
+Ledger devices are hardware wallets designed to store the private keys offline. They are used to verify and sign the transactions, but they still need a software layer to provide the UI that interacts with the networks, builds the transactions, and sends the signed transactions back to the network once the user has verified them.
+
+This guide takes you through all the necessary steps to use your Ledger device with Substrare Tanssi chains.
+
+## Setting Up Your Ledger Device {: #setting-up-ledger-device }
+
+If you have a brand new Ledger device, refer to the [official website](https://support.ledger.com/article/4404389503889-zd){target=\_blank} for a guide on getting it started with the initial setup.
+
+Now, with your Ledger already initiated, install the _Polkadot_ app taking the following steps:
+
+1. Open the Ledger Live App on your computer.
+2. Go to My Ledger.
+3. Connect and unlock the device.
+
+Finally, search for Zondax’s Polkadot (DOT) app in Ledger Live and install it on your device.
+
+!!! note
+    Why Polkadot? Tanssi is built using Substrate, the same framework that powers Polkadot. As a result, even though Tanssi and Polkadot are separate networks, they share the same cryptographic signature schema. This means that the Ledger app named Polkadot (DOT) is fully compatible with Tanssi.
+
+![Install Polkadot in Ledger Live](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-1.webp)
+
+And that's it. Your device now has a Substrate account and is able to sign transactions on Tanssi and any non-EVM Tanssi-powered appchain.
+
+## Adding the Ledger to a Software Wallet {: #adding-Ledger--software-wallet }
+
+As presented in the [introduction](#introduction), a Ledger hardware wallet provides secure, offline storage for private keys, allowing users to verify and sign transactions. However, by design, it can't interact with blockchains or dApps by itself, nor does it offer a UI for managing assets. To complement the device, a software wallet is required. The user can choose any Substrate wallet, such as [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank} or [SubWallet](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
+
+For demonstration purposes, we'll show how to configure Talisman to work with your hardware wallet. To follow along with the steps, make sure you have [Talisman installed](/builders/toolkit/substrate-api/wallets/talisman/#setting-up-talisman){target=\_blank} in your browser, then open the extension and:
+
+1. Press the **+** icon (Add Account).
+2. Click on the **Connect** tab.
+3. Select **Connect Ledger**.
+
+![Connect Ledger](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-2.webp)
+
+On the following screen, take the following steps:
+
+1. Select **Polkadot**. Other options will be presented below.
+2. Select **Polkadot** from the dropdown.
+3. Select **Polkadot App** from the box. You'll be prompted to connect your ledger and open the Polkadot app.
+4. Make sure that your ledger is successfully connected.
+5. Click on **Continue**.
+
+![Connect Ledger](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-3.webp)
+
+In the next step, you will be presented with a list of derived accounts. Select the first one, click **Continue**, and that's all! Your Talisman wallet can now sign transactions using your ledger device.
+
+<div class="page-disclaimer">
+  The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
+</div>
+--- END CONTENT ---
+
 Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/subwallet/
 --- BEGIN CONTENT ---
 ---
 title: How to Connect SubWallet to Tanssi Substrate
 description: This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate network.
 icon: material-wallet-outline
-categories: Substrate-Template, EVM-Template
+categories: Substrate-Template
 ---
 
 # Interacting with Your Tanssi Substrate Network Using SubWallet
@@ -2122,18 +2000,18 @@ Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/
 --- BEGIN CONTENT ---
 ---
 title: How to Connect Talisman to Tanssi
-description: This guide walks you through how to connect Talisman, a Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate decentralized network.
+description: This guide walks you through how to connect Talisman, a Substrate and Ethereum wallet, to the Tanssi network or your Tanssi-powered Substrate appchain.
 icon: material-wallet-outline
-categories: Substrate-Template, EVM-Template
+categories: Substrate-Template
 ---
 
-# Interacting with your Tanssi Substrate Network Using Talisman
+# Interacting with Tanssi or Your Substrate Appchain Using Talisman
 
 ## Introduction {: #introduction }
 
-Developers and users of Tanssi-powered Substrate networks have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
+Developers and users of Substrate networks, such as the Tanssi network or Tanssi-powered Substrate appchains, have a variety of options when it comes to wallets. Talisman is a great option, as it provides full native support for both Substrate and Ethereum accounts. This guide focuses on the Substrate API. You can also check out a [similar guide for configuring Talisman for use with your Tanssi EVM network](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
 
-Talisman is a Web3 wallet that natively supports Substrate (Polkadot) and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} and [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, and a corresponding asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
+Talisman is a Web3 wallet that natively supports Substrate and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome, Brave, and other Chromium-based browsers](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, as well as [Firefox](https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet-extension/){target=\_blank}. An asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
 This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
 
@@ -2149,11 +2027,14 @@ On the following screen, you'll be prompted to create a password to secure your 
 
 ## Create a Substrate Account {: #create-a-substrate-account }
 
-To create your first Polkadot account in Talisman, take the following steps:
+To create your first Substrate account in Talisman, take the following steps:
 
-1. Select the **Polkadot** option
-2. Give your account a name
-3. Press **Create**
+1. Select the **Polkadot** option.
+2. Give your account a name.
+3. Press **Create**.
+
+!!! note
+    Why Polkadot? Tanssi and Tanssi-powered appchains are built using Substrate, the same framework that powers Polkadot. As a result, even though Tanssi and Polkadot are separate networks, they share the same cryptographic signature schema.
 
 ![Create your first Polkadot account in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-3.webp)
 
@@ -2168,52 +2049,52 @@ After creating your first account, you'll be prompted to back up your seed phras
 
 Of course, you can import an existing Substrate account into Talisman. To do so, take the following steps:
 
-1. Press **Add Account**
-2. Press **Import**
-3. Select **Import via Recovery Phrase**
+1. Press **Add Account**.
+2. Press **Import**.
+3. Select **Import via Recovery Phrase**.
 
 ![Import existing account setup](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-12.webp)
 
 On the following screen, take the following steps:
 
-1. Select the **Polkadot** account type
-2. Provide a name for your account
-3. Paste in your seed
-4. Select which accounts you'd like to import
-5. Press **Import**
+1. Select the **Polkadot** account type.
+2. Provide a name for your account.
+3. Paste in your seed.
+4. Select which accounts you'd like to import.
+5. Press **Import**.
 
 ![Import existing account final steps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-13.webp)
 
-## Connecting Talisman to the Tanssi Dancelight TestNet {: #connecting-talisman-to-the-tanssi-dancelight-testnet }
+## Connecting Talisman to the Tanssi network {: #connecting-talisman-to-the-tanssi-network }
 
-Talisman already comes pre-configured with support for the Tanssi Dancelight TestNet. You just need to first ensure that you have enabled support for TestNets on Talisman. Remember that the Tanssi Dancelight TestNet itself is not a network; it is the Substrate-based parachain that orchestrates and manages the launch of Tanssi networks. To configure your Talisman to work with Dancelight, take the following steps:
+Talisman already comes pre-configured with support for the Tanssi network MainNet and its TestNet, Dancelight. To connect to Dancelight, you first need to make sure you have enabled support for TestNets on Talisman. To do so, take the following steps:
 
-1. Open the Talisman extension and click on the Talisman logo
-2. Select **Settings**
-3. Ensure that **Enable testnets** is checked
+1. Open the Talisman extension and click on the Talisman logo.
+2. Select **Settings**.
+3. Ensure that **Enable testnets** is checked.
 
 ![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-5.webp)
 
-If you have a balance of Dancelight tokens, you'll see your account balance on the homepage of the Talisman wallet. If you don't have a balance of Dancelight tokens, the network will be omitted from your list of assets.
+If you have a balance of Tanssi MainNet or Dancelight tokens, you'll see your account balance on the homepage of the Talisman wallet. When you don't have a balance, the network is omitted from your list of assets.
 
 ![See your TestNet account balances in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
 
 ## Connecting Talisman to Your Substrate Network {: #connecting-talisman-to-your-substrate-network }
 
-To configure Talisman for your Tanssi Substrate network, open the Talisman extension and click on the **More Options** tab. Click on **Settings** > **Networks & Tokens** > **Manage Networks**.
+To configure Talisman for your Tanssi-powered Substrate network, open the Talisman extension and click on the **More Options** tab. Click on **Settings** > **Networks & Tokens** > **Manage Networks**.
 
-1. Slide the network slider to **Polkadot**
-2. Check the **Enable testnets** box
-3. Press **Add Network**
+1. Slide the network slider to **Polkadot**.
+2. Check the **Enable testnets** box.
+3. Press **Add Network**.
 
 ![Add Network in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-7.webp)
 
 On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Dancelight TestNet is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to Talisman, take the following steps:
 
-1. Paste in the RPC URL of your Tanssi network. Other parameters will be auto-populated
-2. Optionally, enter the block explorer URL of your Tanssi network, if applicable
-3. Check the **This is a testnet** box if applicable
-4. Press **Add Network**
+1. Paste in the RPC URL of your Tanssi network. Other parameters will be auto-populated.
+2. Optionally, enter the block explorer URL of your Tanssi network, if applicable.
+3. Check the **This is a testnet** box if applicable.
+4. Press **Add Network**.
 
 ![Add your Tanssi-Powered Network Details](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-8.webp)
 
@@ -2236,11 +2117,11 @@ Your Talisman wallet is now connected to Polkadot.js Apps. After refreshing Polk
 
 To send a transaction through the Substrate API, click **Send** next to your account on Polkadot.js Apps. Then, take the following steps:
 
-1. Input the **send to address**
-2. Enter the **amount**
-3. Press **Make Transfer** and confirm the transaction in the resulting Polkadot.js pop-up
-4. Press **View Details** if you'd like to inspect the contents of the transaction
-5. Press **Approve** to submit the transaction
+1. Input the **send to address**.
+2. Enter the **amount**.
+3. Press **Make Transfer** and confirm the transaction in the resulting Polkadot.js pop-up.
+4. Press **View Details** if you'd like to inspect the contents of the transaction.
+5. Press **Approve** to submit the transaction.
 
 ![Send funds through Substrate API with Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-11.webp)
 
@@ -2318,7 +2199,7 @@ The source code for this template is public and accessible on the [Tanssi GitHub
 
 Extending the [baseline Tanssi network template](#baseline-network-template), this template provides not only Tanssi protocol support but also an EVM and full Ethereum compatibility.
 
-Leveraging a set [EVM-specific modules](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
+Leveraging a set [EVM-specific modules](https://github.com/polkadot-evm/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
 
 Using this template, networks support the deployment and running of any existing smart contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Remix](https://remix.ethereum.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, and many more out of the box, with no extra adapters.
 
@@ -2344,7 +2225,7 @@ Networks deployed through Tanssi receive many [benefits](/learn/tanssi/overview/
 
 Also, because Tanssi-powered networks are based on a [modular tech stack](/learn/framework/){target=\_blank}, they profit from unique advantages when customizations are required at a runtime level. This [modularity](/learn/framework/modules/){target=\_blank} allows developers to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
-For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/paritytech/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
+For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 This section covers the fundamentals of a Tanssi network, its architecture, its core modules and functionalities, and the transaction fee mechanism.
 

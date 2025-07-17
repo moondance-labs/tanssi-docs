@@ -52,7 +52,7 @@ On the following screen, take the following steps:
 2. Select **Polkadot** from the dropdown.
 3. Select **Polkadot App** from the box. You'll be prompted to connect your ledger and open the Polkadot app.
 4. Make sure that your ledger is successfully connected.
-5. Click on **Continue**
+5. Click on **Continue**.
 
 ![Connect Ledger](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-3.webp)
 
