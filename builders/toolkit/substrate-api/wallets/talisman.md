@@ -65,7 +65,7 @@ On the following screen, take the following steps:
 
 ![Import existing account final steps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-13.webp)
 
-## Connecting Talisman to the Tanssi network {: #connecting-talisman-to-the-tanssi-network }
+## Connecting Talisman to the Tanssi Network {: #connecting-talisman-to-the-tanssi-network }
 
 Talisman already comes pre-configured with support for the Tanssi network MainNet and its TestNet, Dancelight. To connect to Dancelight, you first need to make sure you have enabled support for TestNets on Talisman. To do so, take the following steps:
 

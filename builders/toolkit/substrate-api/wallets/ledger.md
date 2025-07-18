@@ -38,7 +38,7 @@ And that's it. Your device now has a Substrate account and is able to sign trans
 
 As presented in the [introduction](#introduction), a Ledger hardware wallet provides secure, offline storage for private keys, allowing users to verify and sign transactions. However, by design, it can't interact with blockchains or dApps by itself, nor does it offer a UI for managing assets. To complement the device, a software wallet is required. The user can choose any Substrate wallet, such as [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank} or [SubWallet](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
 
-For demonstration purposes, we'll show how to configure Talisman to work with your hardware wallet. To follow along with the steps, make sure you have [Talisman installed](/builders/toolkit/substrate-api/wallets/talisman/#setting-up-talisman){target=\_blank} in your browser, then open the extension and:
+For demonstration purposes, we'll show how to configure Talisman to work with your hardware wallet, but these steps are generally applicable to any other Substrate-enabled wallet that supports Ledger. To follow along with the steps, make sure you have [Talisman installed](/builders/toolkit/substrate-api/wallets/talisman/#setting-up-talisman){target=\_blank} in your browser, then open the extension and:
 
 1. Press the **+** icon (Add Account).
 2. Click on the **Connect** tab.
@@ -56,6 +56,6 @@ On the following screen, take the following steps:
 
 ![Connect Ledger](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-3.webp)
 
-In the next step, you will be presented with a list of derived accounts. Select the first one, click **Continue**, and that's all! Your Talisman wallet can now sign transactions using your ledger device.
+In the next step, you will be presented with a list of derived accounts. Select the one you want to import, click **Continue**, and that's all! Your Talisman wallet can now sign transactions using your ledger device.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
