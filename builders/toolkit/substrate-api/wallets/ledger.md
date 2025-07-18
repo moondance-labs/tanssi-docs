@@ -34,9 +34,9 @@ Finally, search for Zondax’s Polkadot (DOT) app in Ledger Live and install it 
 
 And that's it. Your device now has a Substrate account and is able to sign transactions on Tanssi and any non-EVM Tanssi-powered appchain.
 
-## Adding the Ledger to a Software Wallet {: #adding-Ledger--software-wallet }
+## Adding the Ledger to a Hot Wallet {: #adding-Ledger-hot-wallet }
 
-As presented in the [introduction](#introduction), a Ledger hardware wallet provides secure, offline storage for private keys, allowing users to verify and sign transactions. However, by design, it can't interact with blockchains or dApps by itself, nor does it offer a UI for managing assets. To complement the device, a software wallet is required. The user can choose any Substrate wallet, such as [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank} or [SubWallet](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
+As presented in the [introduction](#introduction), a Ledger hardware wallet provides secure, offline storage for private keys, allowing users to verify and sign transactions. However, by design, it can't interact with blockchains or dApps by itself, nor does it offer a UI for managing assets. To complement the device, a hot wallet is required. The user can choose any Substrate wallet, such as [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank} or [SubWallet](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
 
 For demonstration purposes, we'll show how to configure Talisman to work with your hardware wallet, but these steps are generally applicable to any other Substrate-enabled wallet that supports Ledger. To follow along with the steps, make sure you have [Talisman installed](/builders/toolkit/substrate-api/wallets/talisman/#setting-up-talisman){target=\_blank} in your browser, then open the extension and:
 
