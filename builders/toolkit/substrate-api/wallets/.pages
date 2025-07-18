@@ -4,3 +4,4 @@ nav:
   - index.md
   - 'Talisman': 'talisman.md'
   - 'SubWallet': 'subwallet.md'
+  - 'Ledger': 'ledger.md'
