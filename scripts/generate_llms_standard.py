@@ -134,6 +134,11 @@ def fetch_remote_snippet(snippet_ref, yaml_data):
     # - http://example.com:1:3 (this means extract lines 1 to 3)
     # - http://example.com::1 (this means extract until line 1)
     # - http://example.com (no line range specified, fetch entire content)
+    # The regex allows empty digit groups between colons (e.g., "::" or ":1:").
+    # This is intentional to support flexible line range specifications:
+    # - "::1" means "from the start to line 1".
+    # - ":1:" means "from line 1 to the end".
+    # - "::" means "fetch the entire content".
     match = re.match(r'^(https?://[^\s:]+)(?::(\d*))?(?::(\d*))?$', snippet_ref)
 
     if not match:
@@ -144,8 +149,8 @@ def fetch_remote_snippet(snippet_ref, yaml_data):
     line_start = match.group(2)
     line_end = match.group(3)
 
-    line_start = int(line_start) if line_start and line_start.isdigit() else None
-    line_end = int(line_end) if line_end and line_end.isdigit() else None
+    line_start = int(line_start) if line_start else None
+    line_end = int(line_end) if line_end else None
 
     url = resolve_placeholders(url, yaml_data) # resolve any template placeholders using the yaml_data
 
