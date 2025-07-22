@@ -99,7 +99,7 @@ For more information on different contracts available on Explore, check out [thi
 
     ![thirdweb deploy](/images/builders/toolkit/ethereum-api/dev-environments/thirdweb/thirdweb-2.webp)
 
-For additional information on Deploy, please reference [thirdweb’s documentation](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank}.
+For additional information on Deploy, please reference [thirdweb’s documentation](https://portal.thirdweb.com/contracts/deploy){target=\_blank}.
 
 ## Create Application {: #create-application }
 
