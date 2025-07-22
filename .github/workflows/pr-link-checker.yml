@@ -9,6 +9,7 @@ jobs:
     with:
       mkdocs_repo: papermoonio/tanssi-mkdocs
       docs_repo: moondance-labs/tanssi-docs
+      docs_checkout: tanssi-docs
       url: https://docs.tanssi.network
     secrets:
       GH_TOKEN: ${{ secrets.GH_PR_404_CHECKER }}
