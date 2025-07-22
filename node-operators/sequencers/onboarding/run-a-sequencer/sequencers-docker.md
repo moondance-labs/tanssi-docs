@@ -193,7 +193,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     === "AMD Zen3"
 
         ```bash
-        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        docker run --entrypoint bash --network="host" -v "/var/lib/dancelight-data:/data" \
         -u $(id -u ${USER}):$(id -g ${USER}) \
         {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-znver3 solo-chain \
         --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
