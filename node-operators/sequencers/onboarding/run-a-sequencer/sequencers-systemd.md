@@ -49,15 +49,7 @@ To get started, download and make executable the latest binary release by runnin
     chmod +x ./tanssi-node
     ```
 
-## Download the Tanssi Chain Specs File {: #download-tanssi-specs }
-
-The node binary file includes the necessary code to run a Tanssi chain node. When launching your network's node, it will also be required to provide the chain's specification file as a parameter.
-
-Download the relay chain specification file by executing the following:
-
-```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancelight/dancelight-raw-specs.json
-```
+--8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/download-specs.md'
 
 ## Setup the Systemd Service {: #setup-systemd-service }
 
