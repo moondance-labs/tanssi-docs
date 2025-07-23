@@ -2,6 +2,7 @@
 title: Glossary
 description: The Tanssi network's architecture is rich and complex. Here's a technical glossary for understanding Tanssi, including key terms, concepts, and definitions.
 icon: octicons-book-24
+categories: Reference
 ---
 
 # Glossary

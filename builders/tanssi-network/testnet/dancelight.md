@@ -2,6 +2,7 @@
 title: Get Started with Dancelight
 description: Dancelight is the Tanssi TestNet, and it is the easiest way to get started with the Tanssi Network to deploy your Substrate or EVM-compatible appchain.
 icon: octicons-star-24
+categories: Basics
 ---
 
 # Get Started with Dancelight

@@ -1,17 +1,53 @@
 # Tanssi Developer Documentation (LLMS Format)
 
 This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
-It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
+It is intended for use with large language models (LLMs) to support developers working with this product.
 
-This file includes documentation related to the category: Reference
+## Included Categories
+- Reference
 
 ## List of doc pages:
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/tanssi-network/endpoints.md [type: builders]
-Doc-Page: https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/toolkit/ethereum-api/rpc.md [type: builders]
+[AI Resources](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/ai-resources/ai-resources.md): Download LLM-optimized files of the Tanssi documentation, including full content and category-specific resources for AI agents.
+[Network Endpoints](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/endpoints.md): Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
+[JSON-RPC API Methods](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/rpc.md): Learn about the supported JSON-RPC API methods for querying your Tanssi EVM network, including standard Ethereum methods and custom methods unique to Tanssi.
+[Glossary](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/tanssi/glossary.md): The Tanssi network's architecture is rich and complex. Here's a technical glossary for understanding Tanssi, including key terms, concepts, and definitions.
 
 ## Full content for each doc page
 
-Doc-Content: https://docs.tanssi.network/builders/tanssi-network/endpoints/
+Doc-Content: https://www.tanssi.network/ai-resources/ai-resources/
+--- BEGIN CONTENT ---
+---
+title: AI Resources
+description: Download LLM-optimized files of the Tanssi documentation, including full content and category-specific resources for AI agents.
+categories: Reference
+---
+
+# AI Resources
+
+Tanssi provides `.txt` files containing the documentation content and navigation structure, optimized for use with large language models (LLMs) and AI tools. These resources help build AI assistants, power code search, or enable custom tooling trained on Tanssi’s documentation.
+
+Each category file includes foundational content from the **Basics** and **Reference** categories to ensure LLMs have the necessary context.
+
+## Download LLM Files
+
+| Category           | Description                                                                                                                              | File                          | Actions                                                                                                                                                                                                 |
+|--------------------|------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Index              | Navigation index of all Tanssi documentation pages                                                                                       | `llms.txt`                    | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms.txt" } [:octicons-download-16:](/llms.txt){ download="llms.txt" }                                                                     |
+| Full Documentation | Full content of all documentation pages                                                                                                  | `llms-full.txt`               | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-full.txt" } [:octicons-download-16:](/llms-full.txt){ download="llms-full.txt" }                                                      |
+| Basics             | Tanssi's framework, architecture, and core components to help form overall general knowledge base                                        | `llms-basics.txt`             | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-basics.txt" } [:octicons-download-16:](/llms-files/llms-basics.txt){ download="llms-basics.txt" }                                     |
+| Reference          | Reference material including network endpoints, JSON RPC methods, and contract or token addresses                                        | `llms-reference.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-reference.txt"} [:octicons-download-16:](/llms-files/llms-reference.txt){ download="llms-reference.txt" }                             |
+| Appchain           | How to launch and manage an appchain through the dApp or the developer portal                                                            | `llms-appchain.txt`           | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-appchain.txt" } [:octicons-download-16:](/llms-files/llms-appchain.txt){ download="llms-appchain.txt" }                               |
+| Custom Runtime     | Customize your appchain runtime                                                                                                          | `llms-custom-runtime.txt`     | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-custom-runtime.txt" } [:octicons-download-16:](/llms-files/llms-custom-runtime.txt){ download="llms-custom-runtime.txt" }             |
+| EVM Template       | Use the EVM template for launching complete Ethereum-compatible appchains and know their associated tooling (wallet, integrations, etc.) | `llms-evm-template.txt`       | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-evm-template.txt" } [:octicons-download-16:](/llms-files/llms-evm-template.txt){ download="llms-evm-template.txt" }                   |
+| Substrate Template | Use the baseline Substrate template and associated tooling (wallets, integrations, etc.) for launching appchains                         | `llms-substrate-template.txt` | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-substrate-template.txt" } [:octicons-download-16:](/llms-files/llms-substrate-template.txt){ download="llms-substrate-template.txt" } |
+| Operators          | How to set up and run a node to secure the Tanssi ecosystem                                                                              | `llms-operators.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-operators.txt" } [:octicons-download-16:](/llms-files/llms-operators.txt){ download="llms-operators.txt" }                            |
+| Sequencers         | How to run a sequencer to provide appchains with block production services                                                               | `llms-sequencers.txt`         | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-sequencers.txt" } [:octicons-download-16:](/llms-files/llms-sequencers.txt){ download="llms-sequencers.txt" }                         |
+
+!!! note
+    The `llms-full.txt` file may exceed the input limits of some language models due to its size. If you encounter limitations, consider using the files by category.
+--- END CONTENT ---
+
+Doc-Content: https://www.tanssi.network/builders/tanssi-network/endpoints/
 --- BEGIN CONTENT ---
 ---
 title: Network Endpoints
@@ -31,13 +67,13 @@ The Tanssi Network MainNet HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://{{ networks.mainnet.dns_name }}
+    https://tanssi.tanssi-mainnet.network
     ```
 
 === "WSS"
 
     ```text
-    wss://{{ networks.mainnet.dns_name }}
+    wss://tanssi.tanssi-mainnet.network
     ```
 
 ## Dancelight
@@ -47,13 +83,13 @@ The Dancelight TestNet HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    https://{{ networks.dancelight.dns_name }}
+    https://dancelight.tanssi-api.network
     ```
 
 === "WSS"
 
     ```text
-    wss://{{ networks.dancelight.dns_name }}
+    wss://dancelight.tanssi-api.network
     ```
 
 ### Demo EVM Network
@@ -63,17 +99,17 @@ The demo EVM network HTTPS and WSS endpoints are as follows:
 === "HTTPS"
 
     ```text
-    {{ networks.dancelight.demo_evm_rpc_url }}
+    https://dancelight-2001.tanssi-api.network/
     ```
 
 === "WSS"
 
     ```text
-    {{ networks.dancelight.demo_evm_rpc_wss_url }}
+    wss://dancelight-2001.tanssi-api.network/
     ```
 --- END CONTENT ---
 
-Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/rpc/
+Doc-Content: https://www.tanssi.network/builders/toolkit/ethereum-api/rpc/
 --- BEGIN CONTENT ---
 ---
 title: JSON-RPC API Methods
@@ -152,7 +188,7 @@ Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and 
           "id": "1",
           "method": "frnt_isBlockFinalized",
           "params": ["INSERT_BLOCK_HASH"]
-        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        }' https://dancelight-2001.tanssi-api.network/
         ```
 
 ???+ function "frnt_isTxFinalized - checks for the finality of a transaction given its EVM transaction hash"
@@ -173,6 +209,116 @@ Tanssi nodes support two custom JSON-RPC endpoints: `frnt_isBlockFinalized` and 
           "id": "1",
           "method": "frnt_isTxFinalized",
           "params": ["INSERT_TRANSACTION_HASH"]
-        }' {{ networks.dancelight.demo_evm_rpc_url }}
+        }' https://dancelight-2001.tanssi-api.network/
         ```
+--- END CONTENT ---
+
+Doc-Content: https://www.tanssi.network/learn/tanssi/glossary/
+--- BEGIN CONTENT ---
+---
+title: Glossary
+description: The Tanssi network's architecture is rich and complex. Here's a technical glossary for understanding Tanssi, including key terms, concepts, and definitions.
+icon: octicons-book-24
+categories: Reference
+---
+
+# Glossary
+
+## Introduction {: #introduction }
+
+The Tanssi protocol offers a wide range of features and layered architecture, making it both rich and complex. There's a great deal of terminology specific to Tanssi, Appchains, Symbiotic, and the web3 space in general. We've compiled a list of terms you'll want to know as you review the Tanssi documentation.
+
+## Appchain {: #appchain }
+
+A customizable application-specific blockchain deployed through Tanssi that goes live in minutes, benefiting from shared security, block production services, built-in bridging, and other services.
+
+## BEEFY {: #beefy }
+
+BEEFY stands for _Bridge Efficiency Enabling Finality Yielder_. It is a consensus protocol that Tanssi utilizes for efficient, trustless bridging to Ethereum.
+
+## Bridge {: #bridge }
+
+A bridge in the web3 context connects two different sovereign blockchains. Tanssi offers a built-in bridge based on Snowbridge connecting the Tanssi network to Ethereum in a decentralized and trustless way.
+
+## Dancelight {: #dancelight }
+
+Tanssi's official TestNet for rapid network deployment and experimentation.
+
+## Data Preservers {: #data-preservers }
+
+Full archive nodes that ensure data availability and provide RPC infrastructure for Tanssi and Tanssi-powered networks.
+
+## ECDSA {: #ecdsa }
+
+ECDSA stands for _Elliptic Curve Digital Signature Algorithm_, which is the cryptographic scheme used for Ethereum accounts.
+
+## Ed25519 {: #ed25519 }
+
+It is the cryptographic scheme for producing digital signatures used by node operators for consensus mechanisms like block production.
+
+## Gateway Contract {: #gateway }
+
+One of the components of the Tanssi-Ethereum bridge. It serves as Ethereum's central messaging point that receives and validates messages from Tanssi.
+
+## Light Client {: #light-client }
+
+One of the components of the Tanssi-Ethereum bridge. It serves as an on-chain verifier for data legitimacy in a network.
+
+A light client is a software that allows you to interact with a blockchain without having to download the entire data. It relies on a subset of information (such as block headers) and uses tools like Merkle proofs to verify transaction and data authenticity. This makes light clients more resource-efficient than full nodes.
+
+## Merkle Root {: #merkle-root }
+
+A single cryptographic hash that allows the verification of an entire set of data, such as all the transactions in a block.
+
+## Operator {: #operator }
+
+A node that validates transactions, providing security through a restaking protocol to Tanssi and all Tanssi-powered appchains.
+
+## Relayer {: #relayer }
+
+A stateless component that transports messages and proofs between different blockchain networks, such as Tanssi and Ethereum.
+
+## Restaking {: #restaking }
+
+The practice of using already-staked tokens to secure additional protocols or services.
+
+## Sequencer {: #sequencer }
+
+A node responsible for executing transactions and producing blocks for Tanssi-powered appchains.
+
+## Session {: #session }
+
+A period of time during which the same set of authorities (sequencers or validators) are active.
+
+## Sr25519 {: #sr25519 }
+
+The primary signature scheme that is used for most user-facing operations within the Tanssi network.
+
+## Substrate {: #substrate }
+
+A modular and performant blockchain development framework used to build Tanssi and Tanssi appchains.
+
+## Symbiotic {: #symbiotic }
+
+A restaking protocol based on Ethereum, providing restaking services and economic security to Tanssi and Tanssi-powered appchains.
+
+## $TANSSI(Substrate) {: #tanssi-substrate }
+
+The native utility token of the Tanssi protocol. It is used for staking, governance, network operations, and more.
+
+## $TANSSI(ERC20) {: #tanssi-erc20 }
+
+The ERC20 Ethereum representation of the Tanssi token. It is used for paying rewards to operators and more.
+
+## Trustless {: #trustless }
+ 
+As with a _trustless bridge_, it enables operation without requiring trust in centralized intermediaries, relying instead on cryptographic proofs.
+
+## Vault {: #vault }
+
+A Symbiotic component that receives and manages restaked collateral, delegating to operators and providing economic security to networks.
+
+## Verifier {: #verifier }
+
+The component that validates cryptographic proofs.
 --- END CONTENT ---

@@ -1,6 +1,7 @@
 ---
 title: AI Resources
 description: Download LLM-optimized files of the Tanssi documentation, including full content and category-specific resources for AI agents.
+categories: Reference
 ---
 
 # AI Resources

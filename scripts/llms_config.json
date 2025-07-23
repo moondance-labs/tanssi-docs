@@ -8,7 +8,18 @@
     "branch": "main",
     "docs_path": "."
   },
-  "categories_order": ["Basics", "EVM Template", "Substrate Template", "Custom Runtime", "Appchain", "Sequencers", "Operators", "RPC Data Preservers", "Reference"],
+  "base_context_categories": ["Basics", "Reference"],
+  "categories_order": [
+    "Basics",
+    "EVM Template",
+    "Substrate Template",
+    "Custom Runtime",
+    "Appchain",
+    "Sequencers",
+    "Operators",
+    "RPC Data Preservers",
+    "Reference"
+  ],
   "source_repos": [
     {
       "name": "Tanssi protocol",
@@ -25,7 +36,6 @@
       "url": "https://github.com/moondance-labs/snowbridge/tree/tanssi-relay-v1.0.40",
       "description": "Fork of the Snowbridge project, deployed version in repo branch."
     }
-
   ],
   "optional_resources": [
     {
@@ -38,6 +48,17 @@
       "url": "https://apps.tanssi.network/",
       "description": "Use this UI to launch appchains, bridge or stake assets, and interact with the Tanssi ecosystem."
     }
+  ],
+  "skip_basenames": [
+    "README.md",
+    "index.md",
+    ".CONTRIBUTING.md",
+    "pull-request-template.md"
+  ],
+  "skip_parts": [
+    ".snippets",
+    ".github",
+    "node_modules",
+    "venv"
   ]
 }
-

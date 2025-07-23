@@ -1,10 +1,25 @@
 # Tanssi
+
 > Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
 
-## Docs
-Documentation page title, markdown page URL, and description; organized by category.
+## How to Use This File
 
-### Docs: Basics
+This file is intended for AI models and developers. Use it to:
+- Understand project architecture and follow builder guides (see Docs)
+- Access source code (see Source Code Repos)
+- Explore optional resources (see Optional)
+
+## Metadata
+- Documentation pages: 96
+- Categories: 15
+- Tutorials: 0
+- Source repositories: 3
+- Optional resources: 2
+
+## Docs
+This section lists documentation pages by category. Each entry includes the page title, a direct link to the raw Markdown file, and a short description. Pages may appear in multiple categories if they are relevant to more than one audience. Use this to retrieve focused documentation based on topic. Use this section to answer questions about core functionality, architecture, and features. If a question is about how or why something works, check here first.
+
+Docs: Basics
 - [Native Cross-Chain Communication](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/framework/xcm.md): Tanssi networks benefit from XCM, a native cross-chain communication language, which allows fast and secure bridging guaranteed by Polkadot's relay chain.
 - [Framework Architecture](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/framework/architecture.md): In a Substrate node, two main components are the runtime, which controls the blockchain's state transition, and the client, which manages everything else.
 - [Network Development Framework Overview](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/framework/overview.md): Substrate is a blockchain development framework built in Rust Programming Language that streamlines and speeds up the process of developing new networks.
@@ -19,9 +34,14 @@ Documentation page title, markdown page URL, and description; organized by categ
 - [Ethereum with Symbiotic](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/tanssi/external-security-providers/symbiotic.md): Tanssi's design allows developers to choose and connect to the Symbiotic restaking protocol, benefiting from Ethereum-grade security right from the start.
 - [Staking for Block Production](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/tanssi/network-features/staking.md): Learn how Tanssi implements a novel Staking mechanism to provide liveness via a decentralized and trustless set of sequencers to all Tanssi-powered networks.
 - [Using the Built-In Tanssi Bridge](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/interoperability/built-in-bridge.md): Learn how to use the built-in Tanssi bridge that connects Tanssi and Ethereum to convert TANSSI tokens between their native form and ERC-20 and vice versa.
+- [Get Started with Tanssi MainNet](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/mainnet.md): The Tanssi Network MainNet is live, allowing developers to leverage the decentralized protocol to launch appchains with Ethereum-grade security in minutes.
 - [TANSSI Token](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/tanssi-token.md): Learn about the two versions of the Tanssi token - the native Substrate token and the ERC-20 representation on Ethereum, and their utilities and use cases.
+- [Get Started with Dancelight](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/testnet/dancelight.md): Dancelight is the Tanssi TestNet, and it is the easiest way to get started with the Tanssi Network to deploy your Substrate or EVM-compatible appchain.
 
-### Docs: Appchain
+Docs: Custom Runtime
+- [Prerequisites for Building a Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/customize/prerequisites.md): Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your appchain.
+
+Docs: Appchain
 - [Deploy Your Appchain via the DApp](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/deploy/dapp.md): Learn how to spin up and deploy an appchain on Tanssi using the Tanssi dApp, a no-code solution for onboarding and launching decentralized appchains in minutes.
 - [Manage Cross-Chain Communication Channels](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/manage/dapp/xcm-channels.md): Tanssi networks benefit from native cross-chain communication, which allows fast and secure bridging leveraging the architecture they are built on top of.
 - [Block Production Services Payment](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/manage/dapp/services-payment.md): Networks deployed through Tanssi benefit from block production services provided by a set of node operators, which are compensated with Tanssi tokens.
@@ -35,7 +55,7 @@ Documentation page title, markdown page URL, and description; organized by categ
 - [Enabling Maintenance Mode](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/manage/developer-portal/maintenance.md): Learn how to use Sudo to turn on and off maintenance mode, which effectively pauses your network while still producing blocks and allowing select calls.
 - [Customizing Chain Specifications](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/customize/customizing-chain-specs.md): Review the sections and attributes of a chain specification file and how to obtain it for launching your Tanssi-powered network with a customized specification.
 
-### Docs: Sequencers
+Docs: Sequencers
 - [Decommissioning Your Sequencer](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/offboarding/account.md): In these step-by-step instructions, learn how to properly offboard as a Tanssi sequencer, including unmapping your session keys and unstaking your bond.
 - [Set Up a Sequencer Proxy Account](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/operational-tasks/proxy-accounts.md): Follow these step-by-step instructions to configure a proxy account to manage sequencer activities on behalf of your primary sequencer account.
 - [Setup an Account to Produce Blocks](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/onboarding/account-setup.md): Follow these step-by-step instructions on becoming eligible to produce blocks on Tanssi-powered networks and setting up your account for rewards payouts.
@@ -44,7 +64,7 @@ Documentation page title, markdown page URL, and description; organized by categ
 - [Run a Tanssi Sequencer](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd.md): Learn how to set up and run a sequencer (block producer) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 - [Run a Sequencer Using Docker](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker.md): Learn how to set up and run a sequencer (aka block producer) for Tanssi-powered networks using Docker to participate in the protocol and earn rewards.
 
-### Docs: Operators
+Docs: Operators
 - [Prerequisites for Offboarding](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/offboarding/prerequisites.md): Before offboarding your Tanssi operator, ensure you have wallet access and sufficient ETH for gas. This guide outlines crucial prerequisites.
 - [Opt Out from Tanssi](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/offboarding/opt-out-from-tanssi.md): Learn how to initiate the offboarding process from a Tanssi network by opting out using various methods and how to verify your status.
 - [Vault Opt Out](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/offboarding/vault-opt-out.md): Optionally opt out of a Tanssi vault. Learn how using CLI, Etherscan, or Safe, and verify your vault opt out status.
@@ -57,29 +77,31 @@ Documentation page title, markdown page URL, and description; organized by categ
 - [Run an Operator Using Docker](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/onboarding/run-an-operator/operators-docker.md): Learn how to set up and run an operator (aka validator) for Tanssi network using Docker to participate in the protocol, secure networks, and earn rewards.
 - [Run a Tanssi Operator](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/onboarding/run-an-operator/operators-systemd.md): Learn how to set up and run an operator (validator) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 
-### Docs: Reference
+Docs: Reference
+- [AI Resources](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/ai-resources/ai-resources.md): Download LLM-optimized files of the Tanssi documentation, including full content and category-specific resources for AI agents.
+- [Glossary](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/tanssi/glossary.md): The Tanssi network's architecture is rich and complex. Here's a technical glossary for understanding Tanssi, including key terms, concepts, and definitions.
 - [Network Endpoints](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/endpoints.md): Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
 - [JSON-RPC API Methods](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/rpc.md): Learn about the supported JSON-RPC API methods for querying your Tanssi EVM network, including standard Ethereum methods and custom methods unique to Tanssi.
 
-### Docs: Appchain, EVM-Template
+Docs: Appchain, EVM-Template
 - [Demo EVM Tanssi Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/testnet/demo-evm-network.md): Test our demo EVM Tanssi network to discover the capabilities of a fully Ethereum-compatible network deployed through Tanssi in just a few minutes.
 - [Smart EVM - Whitelist Contract Deployments](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/manage/developer-portal/smart-contracts-creation-filter.md): Learn how to use Sudo to whitelist smart contract deployers for your Smart EVM Tanssi-powered network, increasing overall security.
 
-### Docs: Basics, Appchain
+Docs: Basics, Appchain
 - [Set Up and Manage Proxy Accounts](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/account-management/proxy-accounts.md): Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
 - [Set an Account Identity](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/account-management/identity.md): Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
 - [Requirements and Features of Templates](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/templates/overview.md): Explore the foundational setup and key features included in each Tanssi template, designed to streamline the building and deployment of Tanssi networks.
 
-### Docs: Custom-Runtime
+Docs: Custom-Runtime
 - [Custom Runtime](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/templates/custom-runtime.md): Any custom runtime can be adapted to be deployed through Tanssi, provided that specific modules are implemented and the required configurations are set.
 - [Adding Built-in Substrate Modules](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/customize/adding-built-in-module.md): Learn how to leverage Substrate's pre-built, ready-to-use modules to efficiently add new features to your network without building from scratch.
 - [Adding a Custom-Made Module](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/customize/adding-custom-made-module.md): Discover how to incorporate custom-made modules to add unique or specialized features to your network that go beyond the capabilities of the built-in modules.
 - [Adding External Modules](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/customize/adding-external-module.md): Learn how to resolve double reference issues of dependencies when customizing your Tanssi-powered network template with a Rust-based tool called Diener.
 
-### Docs: Custom-Runtime, Basics
+Docs: Custom-Runtime, Basics
 - [Network Modules for your Runtime](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/framework/modules.md): Substrate is a modular blockchain development framework with an extensive set of ready-to-use components to bundle with custom logic into the network Runtime.
 
-### Docs: EVM-Template
+Docs: EVM-Template
 - [Baseline EVM Template](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/templates/evm.md): The Tanssi repository includes an EVM template that provides all the necessary configurations to launch a network that is fully compatible with Ethereum.
 - [External Assets as ERC-20](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/precompiles/external-assets-erc20.md): Learn how to access and interact with an ERC-20 representation of any external assets on Tanssi EVM networks through the precompiled ERC-20 Interface.
 - [Call Permit](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/precompiles/call-permit.md): Learn how to use the Call Permit Precompile on Tanssi EVM networks to sign a permit for any EVM call that can be dispatched by anyone or any smart contract.
@@ -102,95 +124,36 @@ Documentation page title, markdown page URL, and description; organized by categ
 - [How to Add RainbowKit to a Tanssi EVM Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/integrations/wallet-integrations/rainbowkit.md): Learn how to integrate RainbowKit with an Ethereum-compatible network deployed through Tanssi, making adding a great wallet experience to your dApp easy.
 - [Index ERC-20 Transfers on an EVM Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/integrations/indexers/sqd/erc20-transfers.md): Learn how to use the Squid SDK, a query node framework that can index both Substrate and EVM data, to process blockchain data for your Tanssi-powered network.
 
-### Docs: EVM-Template, Substrate-Template
+Docs: EVM-Template, Substrate-Template
 - [How to Connect SubWallet to Tanssi](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/wallets/subwallet.md): This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered EVM-compatible network.
 - [How to Connect Talisman to Tanssi](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/wallets/talisman.md): This guide walks you through how to connect Talisman, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered EVM-compatible network.
 - [Index a Tanssi Network with SQD](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/integrations/indexers/sqd/quick-start.md): Learn how to use the Squid SDK, a query node framework for Substrate-based chains, to index and process data on a Tanssi-powered EVM or Substrate network.
 
-### Docs: RPC-Data-Preservers
-- [Run a Tanssi Node](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/network-node/tanssi/index.md): Learn how to set up and run a Tanssi node using Docker or Systemd to interact with the Tanssi network.
+Docs: RPC-Data-Preservers
 - [Run a Tanssi Node Using Docker](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/network-node/tanssi/tanssi-node-docker.md): Learn how to set up and run a node for Tanssi network using Docker to provide API endpoints for applications and users.
 - [Run a Tanssi Node Using Systemd](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/network-node/tanssi/tanssi-node-systemd.md): Learn how to set up and run a Node for Tanssi networks using Systemd, allowing you to provide API endpoints for applications and users.
 - [Run a Network Node Using Docker](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/network-node/tanssi-powered-network/rpc-docker.md): Discover how to configure and operate a Tanssi-powered network node using Docker, enabling you to host your own RPC endpoint for interaction with your chain.
 - [Run a Network Node Using Systemd](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/network-node/tanssi-powered-network/rpc-systemd.md): Learn how to set up and run a Tanssi-powered network node using Systemd, which allows you to have your own RPC endpoint to interact with your chain.
 
-### Docs: Substrate-Template
+Docs: Substrate-Template
 - [Baseline Network Template](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/templates/substrate.md): The Tanssi repository includes a basic template that provides the necessary configuration to support the protocol and kick-start the development of a network.
 - [How to use the Polkadot.js API](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/substrate-api/libraries/polkadot-js-api.md): Learn how to use the Polkadot.js API to interact with a Tanssi-powered network to get chain data and send transactions (extrinsics) via the Substrate API.
 - [Using Substrate API Sidecar](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/substrate-api/libraries/sidecar-api.md): Learn how to use Substrate-based REST service with Tanssi-powered networks to access blocks, account balance, compute gas used, and more.
 
-### Docs: Substrate-Template, EVM-Template
+Docs: Substrate-Template, EVM-Template
 - [How to use Chopsticks to Fork Your Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/substrate-api/dev-env/chopsticks.md): Learn the basics of how to use Chopsticks to replay blocks, dissect state changes, test XCM interactions, and create a local fork of your Tanssi network.
 - [How to Connect SubWallet to Tanssi Substrate](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/substrate-api/wallets/subwallet.md): This guide walks you through how to connect SubWallet, a comprehensive Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate network.
 - [How to Connect Talisman to Tanssi](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/substrate-api/wallets/talisman.md): This guide walks you through how to connect Talisman, a Polkadot, Substrate, and Ethereum wallet, to your Tanssi-powered Substrate decentralized network.
 
-### Docs: Uncategorized
-- [README](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/README.md): No description available.
-- [Home](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/index.md): Welcome to the Tanssi Network documentation site. Your gateway to rapid, efficient, and effortless decentralized network deployment.
-- [.CONTRIBUTING](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/.CONTRIBUTING.md): No description available.
-- [Learn About Tanssi Infrastructure Protocol](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/index.md): Learn about Tanssi protocol and how it helps developers to build and deploy networks by handling infrastructure complexities and providing key integrations.
-- [Run Infrastructure on Tanssi](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/index.md): This section offers guides on setting up infrastructure and nodes for RPC services, block production, and validation within the Tanssi ecosystem.
-- [Guides for Developing Tanssi-Powered Networks](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/index.md): Start building your network, set your development environment up, test and deploy your runtime, and choose the integrations that suit your use case.
-- [pull-request-template](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/.github/pull-request-template.md): No description available.
-- [AI Resources](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/ai-resources/ai-resources.md): Download LLM-optimized files of the Tanssi documentation, including full content and category-specific resources for AI agents.
-- [Appchain Development Framework](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/framework/index.md): Learn about the network development framework, Rust programming language, Substrate and its features, including XCM and ready-to-use pallets for your runtime.
-- [Learn about Tanssi-Powered Networks](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/decentralized-networks/index.md): Discover the features in EVM and Substrate networks deployed through Tanssi, leveraging user-friendly and easy-to-deploy templates for enhanced capabilities.
-- [Glossary](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/tanssi/glossary.md): The Tanssi network's architecture is rich and complex. Here's a technical glossary for understanding Tanssi, including key terms, concepts, and definitions.
-- [Learn About Tanssi](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/tanssi/index.md): Learn about Tanssi protocol and how it handles infrastructure complexities, making it easy for developers to deploy decentralized networks in minutes.
-- [Network Services](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/tanssi/network-services/index.md): Learn about the Tanssi protocol value proposal, including critical features like block production and data availability as a service, bridging, and more.
-- [External Security Providers](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/tanssi/external-security-providers/index.md): Learn about Tanssi's design, which allows developers to connect to external security providers and benefit from Ethereum-level security right from the start.
-- [Network Features](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/learn/tanssi/network-features/index.md): Explore Tanssi's network features like staking, governance, and treasury, supporting its role as a decentralized network orchestrator for the Web3 ecosystem.
-- [Tanssi Operators](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/index.md): Learn how to set up, run, and manage network operators to participate in the Tanssi infrastructure protocol, verifying transactions and earning rewards.
-- [Run a Node](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/network-node/index.md): Learn how to set up and run nodes for Tanssi and Tanssi-powered networks. This will allow you to host your own RPC endpoints for chain interaction.
-- [Tanssi Sequencers](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/index.md): Learn how to set up, run, and manage sequencers (block producers) to participate in the Tanssi infrastructure protocol and earn rewards.
-- [Offboard Your Operator Node](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/offboarding/index.md): Learn how to properly offboard your operator, including pausing operations, opting out from the network, and removing yourself from the registry.
-- [Operational Tasks - Operators](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/operational-tasks/index.md): Learn how to manage your activities as an operator in the Tanssi network protocol, including managing your account, upgrading your node, and more.
-- [Run an Operator Node](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/onboarding/index.md): Learn how to run an operator (validator) to verify transactions across Tanssi-powered networks, providing security and earning rewards for your contribution.
-- [Upgrade an Operator Node](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/operational-tasks/upgrade-your-node/index.md): Follow these steps to update your node to the latest version of the Tanssi client software, ensuring seamless operations on the Tanssi network protocol.
-- [Run an Operator](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/operators/onboarding/run-an-operator/index.md): Learn how to set up and run an operator node (also referred to as validators) using Docker or Systemd to participate in the protocol securing the ecosystem.
-- [Run a Node on a Tanssi-Powered Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/network-node/tanssi-powered-network/index.md): Learn how to set up and run a node on a Tanssi-powered network using Docker or Systemd, which allows you to host your own RPC endpoint for chain interaction.
-- [Offboard Your Sequencer Node](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/offboarding/index.md): Learn how to properly offboard your sequencer node (also known as block producers) including clearing session keys and undelegating funds.
-- [Sequencers Operational Tasks](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/operational-tasks/index.md): Learn how to manage your activities as a sequencer in the Tanssi network protocol, including managing your account, upgrading your node, and more.
-- [Onboard to Run a Sequencer Node](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/onboarding/index.md): Learn how to get started to run a sequencer using Docker or Systemd to participate in the protocol, provide block production services, and earn rewards.
-- [Upgrade Sequencers Node](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/operational-tasks/upgrade-your-node/index.md): Follow these steps to update your node to the latest version of the Tanssi client software, ensuring seamless block production on the Tanssi network protocol.
-- [Run a Sequencer](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/node-operators/sequencers/onboarding/run-a-sequencer/index.md): Learn how to set up and run a sequencer node using Docker or Systemd to participate in the protocol, providing block production services and earning rewards.
-- [Account Management](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/account-management/index.md): Learn how to manage all account related activities such as the creation, maintenance, and removal of proxies and identities.
-- [Deploy Your Appchain](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/deploy/index.md): Learn how to deploy your appchain to Tanssi as a quick trial for short-term testing or as a dedicated one for long-term testing using the Tanssi dApp.
-- [Interoperability](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/interoperability/index.md): Explore the built-in cross-chain solutions available within the Tanssi ecosystem, enabling asset transfers and communication between Tanssi and Ethereum.
-- [Get Started with Tanssi MainNet](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/mainnet.md): The Tanssi Network MainNet is live, allowing developers to leverage the decentralized protocol to launch appchains with Ethereum-grade security in minutes.
-- [Network Essentials](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/index.md): Discover everything you need to know about the Tanssi ecosystem, its different networks, and its key aspects to get started developing and interacting with it.
-- [Manage Your Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/manage/index.md): Learn how to use the developer portal and the Tanssi dApp to manage your network, including minting tokens, paying for block production services, and more.
-- [Build Your Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/index.md): Install the software to compile your Tanssi-powered network, configure genesis state and core functions, test locally, and prepare for deployment.
-- [Guides for Developing DApps](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/index.md): Dive into tutorials, tools, and resources designed to streamline the development process when building dApps on Tanssi and Tanssi-powered networks.
-- [Test Networks](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/testnet/index.md): Learn about Tanssi's TestNet, Dancelight, and the demo EVM network deployed on Dancelight and how to get started developing and interacting with each network.
-- [Get Started with Dancelight](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/tanssi-network/testnet/dancelight.md): Dancelight is the Tanssi TestNet, and it is the easiest way to get started with the Tanssi Network to deploy your Substrate or EVM-compatible appchain.
-- [Using the Tanssi DApp to Manage Your Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/manage/dapp/index.md): Learn how to use the Tanssi dApp to manage your network, including paying for block production services, managing tokens, opening XCM channels, and more.
-- [Using the Developer Portal to Manage Your Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/manage/developer-portal/index.md): Learn how to use the developer portal to administer and manage your network, including upgrading your chain's runtime, rotating the Sudo keys, and more.
-- [Templates for Network Development](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/templates/index.md): Learn more about the baseline network templates (EVM and non-EVM) that support Tanssi out of the box to help you kickstart your network development.
-- [Prerequisites for Building a Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/customize/prerequisites.md): Install the basic set of tools and software to set up a local development environment and be able to compile, run, and test your appchain.
-- [Customize Your Tanssi-Powered Network](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/build/customize/index.md): Set up your local environment and start using the templates to build your network with Substrate, a powerful and modular blockchain framework based in Rust.
-- [Ethereum API](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/index.md): Learn how to interact with your Tanssi EVM-compatible network through the Ethereum API with different development environments, libraries, and more.
-- [Substrate API](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/substrate-api/index.md): Learn how to interact with your Tanssi-powered network using the Substrate API, leveraging tools like the Polkadot.js API, Sidecar API, Chopsticks, and others.
-- [Integrations](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/integrations/index.md): Uncover some of the available integrations, ready to seamlessly integrate with and extend the functionality of your apps on Tanssi EVM or Substrate networks.
-- [Solidity Precompiles](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/precompiles/index.md): These guides demonstrate how to interact with precompiles to access Substrate features through the familiar Ethereum API on Tanssi's EVM-compatible networks.
-- [Ethereum Libraries](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/libraries/index.md): Learn how to use Ethereum libraries such as Ethers.js, Web3.js, or Web3.py to send transactions or deploy contracts on your Tanssi EVM network.
-- [Dev Environments](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/dev-env/index.md): Learn how to interact with your Tanssi EVM-compatible network through the Ethereum API with different Ethereum tools like Remix, Hardhat, Foundry, and more.
-- [Ethereum API Wallets](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/ethereum-api/wallets/index.md): Learn how to interact with your Tanssi-powered EVM network through the Ethereum API including configuring wallets, adding RPC Urls, and sending funds.
-- [Substrate Libraries](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/substrate-api/libraries/index.md): Learn how to use Substrate libraries such as the Polkadot.js API to send transactions (extrinsics) and interact with an network's Substrate-layer.
-- [Substrate Development Environments](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/substrate-api/dev-env/index.md): Check out the Substrate development environments, which can be used to develop, test, and debug a Tanssi-powered network in a local development environment.
-- [Substrate Wallets](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/substrate-api/wallets/index.md): Learn how to interact with your Tanssi-powered Substrate network through the Substrate API, including configuring wallets, adding RPC Urls, and sending funds.
-- [EVM Blockchain Data Indexers](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/integrations/indexers/index.md): Learn how to use blockchain indexers to ingest, process, refine, and query Ethereum (EVM) data on Your Tanssi-powered EVM-compatible network.
-- [Oracles](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/integrations/oracles/index.md): Learn how to integrate specialized tools like decentralized price feed Oracles to provide asset price feeds to builders and users of your Tanssi network.
-- [Wallets Integrations](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/integrations/wallet-integrations/index.md): Learn how to add wallet integrations to your dApp on Tanssi-powered networks so users can automatically connect to their wallets.
-- [SQD](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/main/builders/toolkit/integrations/indexers/sqd/index.md): Explore comprehensive tutorials covering the fundamentals and advanced techniques for indexing data on your Tanssi Substrate or EVM network with SQD.
-
 ## Source Code Repos
-Repository name, GitHub URL, and description for frequently used source code repositories essential to the project/product
+Frequently used source code repositories essential for working with this project. Each entry includes the repository name, GitHub URL, and a short description of what the repo contains or enables. These repositories contain the source code referenced by these docs. Use them for API references, code examples, or implementation details.
 - [Tanssi protocol](https://github.com/moondance-labs/tanssi): The core SDK for interacting with the Tanssi Protocol.
 - [Tanssi-Symbiotic implementation](https://github.com/moondance-labs/tanssi-symbiotic): Tanssi's own implementation and middleware of the Symbiotic protocol.
 - [Tanssi-Ethereum bridge](https://github.com/moondance-labs/snowbridge/tree/tanssi-relay-v1.0.40): Fork of the Snowbridge project, deployed version in repo branch.
 
 
+## Tutorials
+No tutorials available.
 
 ## Optional
 Additional resources:
