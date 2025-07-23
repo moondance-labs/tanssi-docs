@@ -209,10 +209,10 @@ You will need to create session keys for your primary and backup servers. Each o
 
 Before generating session keys, you must be [running a sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank}.
 
-To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your sequencer's HTTP endpoint is at port `9944`, the JSON-RPC call might look like this:
+To generate session keys, you'll send an RPC call, using the `author_rotateKeys` method, to your node's HTTP endpoint. For reference, if your sequencer's HTTP endpoint is at port `9945`, the JSON-RPC call might look like this:
 
 ```bash
-curl http://127.0.0.1:9944 -H \
+curl http://127.0.0.1:9945 -H \
 "Content-Type:application/json;charset=utf-8" -d \
   '{
     "jsonrpc":"2.0",
@@ -495,15 +495,10 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
---rpc-cors=all \
---rpc-max-connections 100 \
---unsafe-rpc-external \
---rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -520,11 +515,9 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --sync=fast \
 --base-path=/data/relay \      
 --node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --database=paritydb \
 --rpc-port=9945 \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \
@@ -548,15 +541,10 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
---rpc-cors=all \
---rpc-max-connections 100 \
---unsafe-rpc-external \
---rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -573,11 +561,9 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --sync=fast \
 --base-path=/data/relay \      
 --node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --database=paritydb \
 --rpc-port=9945 \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \
@@ -599,15 +585,10 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
---rpc-cors=all \
---rpc-max-connections 100 \
---unsafe-rpc-external \
---rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -624,11 +605,9 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --sync=fast \
 --base-path=/data/relay \      
 --node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --database=paritydb \
 --rpc-port=9945 \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \
@@ -773,7 +752,7 @@ sudo chown -R tanssi_service /var/lib/tanssi-data
 Move the chain specification file to the folder:
 
 ```bash
-mv ./relay-raw-no-bootnodes-specs.json /var/lib/tanssi-data
+mv ./dancelight-raw-specs.json /var/lib/tanssi-data
 ```
 
 And finally, move the binary to the folder:
@@ -823,15 +802,10 @@ ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/var/lib/tanssi-data/container \
 --node-key-file=/var/lib/tanssi-data/node-key \
---keystore-path=/var/lib/tanssi-data/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
---rpc-cors=all \
---rpc-max-connections 100 \
---unsafe-rpc-external \
---rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -843,16 +817,14 @@ ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
 --in-peers=100 \
 --detailed-log-output \
 -- \
---chain=/var/lib/tanssi-data/relay-raw-no-bootnodes-specs.json \
+--chain=/var/lib/tanssi-data/dancelight-raw-specs.json \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
 --base-path=/var/lib/tanssi-data/relay \      
 --node-key-file=/var/lib/tanssi-data/node-key \
+--keystore-path=/var/lib/tanssi-data/session \
 --database=paritydb \
 --rpc-port=9945 \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \
@@ -1119,15 +1091,10 @@ To restart the node, you can use the same command you used when launching your n
     --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
---rpc-cors=all \
---rpc-max-connections 100 \
---unsafe-rpc-external \
---rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -1144,11 +1111,9 @@ To restart the node, you can use the same command you used when launching your n
 --sync=fast \
 --base-path=/data/relay \      
 --node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --database=paritydb \
 --rpc-port=9945 \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \
@@ -1173,15 +1138,10 @@ To restart the node, you can use the same command you used when launching your n
     --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
---rpc-cors=all \
---rpc-max-connections 100 \
---unsafe-rpc-external \
---rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -1198,11 +1158,9 @@ To restart the node, you can use the same command you used when launching your n
 --sync=fast \
 --base-path=/data/relay \      
 --node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --database=paritydb \
 --rpc-port=9945 \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \
@@ -1226,15 +1184,10 @@ To restart the node, you can use the same command you used when launching your n
     --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
 --rpc-port=9944 \
---rpc-cors=all \
---rpc-max-connections 100 \
---unsafe-rpc-external \
---rpc-methods=unsafe \
 --prometheus-port=9615 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
@@ -1251,11 +1204,9 @@ To restart the node, you can use the same command you used when launching your n
 --sync=fast \
 --base-path=/data/relay \      
 --node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
 --database=paritydb \
 --rpc-port=9945 \
---rpc-cors=all \
---rpc-methods=safe \
---unsafe-rpc-external \
 --prometheus-port=9616 \
 --prometheus-external \
 --listen-addr=/ip4/0.0.0.0/tcp/30334 \
@@ -1426,7 +1377,7 @@ The source code for this template is public and accessible on the [Tanssi GitHub
 
 Extending the [baseline Tanssi network template](#baseline-network-template), this template provides not only Tanssi protocol support but also an EVM and full Ethereum compatibility.
 
-Leveraging a set [EVM-specific modules](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
+Leveraging a set [EVM-specific modules](https://github.com/polkadot-evm/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
 
 Using this template, networks support the deployment and running of any existing smart contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Remix](https://remix.ethereum.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, and many more out of the box, with no extra adapters.
 
@@ -1452,7 +1403,7 @@ Networks deployed through Tanssi receive many [benefits](/learn/tanssi/overview/
 
 Also, because Tanssi-powered networks are based on a [modular tech stack](/learn/framework/){target=\_blank}, they profit from unique advantages when customizations are required at a runtime level. This [modularity](/learn/framework/modules/){target=\_blank} allows developers to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
-For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/paritytech/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
+For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 This section covers the fundamentals of a Tanssi network, its architecture, its core modules and functionalities, and the transaction fee mechanism.
 

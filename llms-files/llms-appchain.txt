@@ -1479,7 +1479,7 @@ categories: Appchain
 
 ## Introduction {: #introduction }
 
-The [Maintenance pallet](https://moonbeam.network/blog/maintenance-mode){target=\_blank} is a module that is designed for use only in emergencies that present existential threats to the network. Enabling maintenance mode on your network will suspend the processing of all regular transactions, including EVM interactions. Block production continues at a regular cadence and allows governance and staking functions to continue. 
+The [Maintenance pallet](https://moonbeam.network/news/what-is-maintenance-mode/){target=\_blank} is a module that is designed for use only in emergencies that present existential threats to the network. Enabling maintenance mode on your network will suspend the processing of all regular transactions, including EVM interactions. Block production continues at a regular cadence and allows governance and staking functions to continue. 
 
 Maintenance mode filters (ignores) all calls outside of governance and staking. Once maintenance mode is exited, your chain will process any pending transactions that queued up while your chain was in maintenance mode. Maintenance mode is intended to be used only as a temporary, emergency measure. 
 
@@ -1969,27 +1969,27 @@ And that's it! The [Developer Portal](/builders/manage/developer-portal/) sectio
 Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/upgrade/
 --- BEGIN CONTENT ---
 ---
-title: Upgrade Your Network's Runtime
-description: Learn how to use the Sudo key to manage your network by performing the privileged action of upgrading the runtime of your Tanssi-powered network.
+title: Upgrade Your Appchain's Runtime
+description: Learn how to use the Sudo account to perform the privileged action of upgrading the runtime of your Tanssi-powered appchain through the developer portal.
 icon: octicons-arrow-up-24
 categories: Appchain
 ---
 
-# Upgrading Your Network Runtime with Sudo
+# Upgrading Your Appchain Runtime with Sudo
 
 ## Introduction {: #introduction }
 
-[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This enables you to perform privileged actions in the course of managing your network, such as upgrading your Tanssi-powered network's runtime.
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} is a module that enables privileged runtime calls to be dispatched when called from the Sudo account. Sudo is sometimes colloquially referred to as a superuser or god-like account. This enables you to perform privileged actions in the course of managing your appchain, such as upgrading your Tanssi-powered appchain's runtime.
 
-In this guide, you'll learn how to use Sudo to upgrade your network's runtime. With Sudo access, upgrading your chain is a quick and easy process. Note that network teams in production will have the option to phase out Sudo access and rely on governance to process runtime upgrades.
+In this guide, you'll learn how to use Sudo to upgrade your appchain's runtime. With Sudo access, upgrading your chain is a quick and easy process. Note that appchain teams in production will have the option to phase out Sudo access and rely on governance to process runtime upgrades.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 For the example in this guide, you will need to have the following:
 
- - A Tanssi-powered network (Quick Trial or Dedicated)
- - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
- - The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one
+ - A Tanssi-powered appchain (Quick Trial, Dedicated, or MainNet).
+ - Your appchain's Sudo account connected to your appchain's developer portal. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into the developer portal.
+ - The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one.
 
 If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
@@ -2002,51 +2002,58 @@ If you're unsure what your Tanssi network's Sudo account is, you can find it in 
 
 If your chain is based on one of the official templates, you can download the official Wasm runtime binary file from the table below. The official releases are published in the [releases section](https://github.com/moondance-labs/tanssi/releases){target\_blank} in the Tanssi repository.
 
-|                                              Version                                               |                                                                            EVM Template                                                                            |                                                                           Substrate Template                                                                           |
-|:--------------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-|      [700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}      |      [Download EVM V700 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-700/frontier-template-runtime-700.wasm){target=\_blank}      |      [Download Substrate V700 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-700/simple-template-runtime-700.wasm){target=\_blank}      |
-|      [600](https://github.com/moondance-labs/tanssi/releases/tag/runtime-600){target=\_blank}      |      [Download EVM V600 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-600/frontier-template-runtime-600.wasm){target=\_blank}      |      [Download Substrate V600 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-600/simple-template-runtime-600.wasm){target=\_blank}      |
-|      [500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank}      |      [Download EVM V500 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-500/frontier-template-runtime-500.wasm){target=\_blank}      |      [Download Substrate V500 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-500/simple-template-runtime-500.wasm){target=\_blank}      |
-| [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} | [Download EVM V400 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-400-templates/frontier-template-runtime-400.wasm){target=\_blank} | [Download Substrate V400 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-400-templates/simple-template-runtime-400.wasm){target=\_blank} |
-| [300](https://github.com/moondance-labs/tanssi/releases/tag/templates-runtime-300){target=\_blank} | [Download EVM V300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/templates-runtime-300/frontier-template-runtime-300.wasm){target=\_blank} | [Download Substrate V300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/templates-runtime-300/simple-template-runtime-300.wasm){target=\_blank} |
-|      [200](https://github.com/moondance-labs/tanssi/releases/tag/runtime-200){target=\_blank}      |      [Download EVM V200 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-200/frontier-template-runtime-200.wasm){target=\_blank}      |      [Download Substrate V200 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-200/simple-template-runtime-200.wasm){target=\_blank}      |
-| [101](https://github.com/moondance-labs/tanssi/releases/tag/runtime-101-templates){target=\_blank} | [Download EVM V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/frontier-template-runtime-101.wasm){target=\_blank} | [Download Substrate V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/simple-template-runtime-101.wasm){target=\_blank} |
-| [100](https://github.com/moondance-labs/tanssi/releases/tag/runtime-100-templates){target=\_blank} | [Download EVM V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/frontier-template-runtime-100.wasm){target=\_blank} | [Download Substrate V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/simple-template-runtime-100.wasm){target=\_blank} |
 
-You should always upgrade the runtime following the releases in an orderly fashion, applying one release after another without skipping any of them. To do so, you need to know your network's current runtime version, which you'll find in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section. For example, if your runtime version is `300`, you should upgrade first to `400`, then `500`, then `600`, and so on until the latest available version.
+|                                               Version                                                |                                                                             EVM Template                                                                              |                                                                            Substrate Template                                                                             |
+|:----------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| [1300](https://github.com/moondance-labs/tanssi/releases/tag/runtime-1300-templates){target=\_blank} | [Download EVM V1300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1300-templates/frontier-template-runtime-1300.wasm){target=\_blank} | [Download Substrate V1300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1300-templates/simple-template-runtime-1300.wasm){target=\_blank} |
+| [1201](https://github.com/moondance-labs/tanssi/releases/tag/runtime-1201-templates){target=\_blank} | [Download EVM V1201 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1201-templates/frontier-template-runtime-1201.wasm){target=\_blank} | [Download Substrate V1201 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1201-templates/simple-template-runtime-1201.wasm){target=\_blank} |
+| [1100](https://github.com/moondance-labs/tanssi/releases/tag/runtime-1100-templates){target=\_blank} | [Download EVM V1100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1100-templates/frontier-template-runtime-1100.wasm){target=\_blank} | [Download Substrate V1100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1100-templates/simple-template-runtime-1100.wasm){target=\_blank} |
+| [1000](https://github.com/moondance-labs/tanssi/releases/tag/runtime-1000-templates){target=\_blank} | [Download EVM V1000 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1000-templates/frontier-template-runtime-1000.wasm){target=\_blank} | [Download Substrate V1000 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1000-templates/simple-template-runtime-1000.wasm){target=\_blank} |
+|  [900](https://github.com/moondance-labs/tanssi/releases/tag/runtime-900-templates){target=\_blank}  |  [Download EVM V900 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-900-templates/frontier-template-runtime-900.wasm){target=\_blank}   |  [Download Substrate V900 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-900-templates/simple-template-runtime-900.wasm){target=\_blank}   |
+|       [800](https://github.com/moondance-labs/tanssi/releases/tag/runtime-800){target=\_blank}       |       [Download EVM V800 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-800/frontier-template-runtime-800.wasm){target=\_blank}        |       [Download Substrate V800 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-800/simple-template-runtime-800.wasm){target=\_blank}        |
+|       [700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}       |       [Download EVM V700 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-700/frontier-template-runtime-700.wasm){target=\_blank}        |       [Download Substrate V700 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-700/simple-template-runtime-700.wasm){target=\_blank}        |
+|       [600](https://github.com/moondance-labs/tanssi/releases/tag/runtime-600){target=\_blank}       |       [Download EVM V600 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-600/frontier-template-runtime-600.wasm){target=\_blank}        |       [Download Substrate V600 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-600/simple-template-runtime-600.wasm){target=\_blank}        |
+|       [500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank}       |       [Download EVM V500 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-500/frontier-template-runtime-500.wasm){target=\_blank}        |       [Download Substrate V500 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-500/simple-template-runtime-500.wasm){target=\_blank}        |
+|  [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank}  |  [Download EVM V400 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-400-templates/frontier-template-runtime-400.wasm){target=\_blank}   |  [Download Substrate V400 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-400-templates/simple-template-runtime-400.wasm){target=\_blank}   |
+|  [300](https://github.com/moondance-labs/tanssi/releases/tag/templates-runtime-300){target=\_blank}  |  [Download EVM V300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/templates-runtime-300/frontier-template-runtime-300.wasm){target=\_blank}   |  [Download Substrate V300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/templates-runtime-300/simple-template-runtime-300.wasm){target=\_blank}   |
+|       [200](https://github.com/moondance-labs/tanssi/releases/tag/runtime-200){target=\_blank}       |       [Download EVM V200 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-200/frontier-template-runtime-200.wasm){target=\_blank}        |       [Download Substrate V200 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-200/simple-template-runtime-200.wasm){target=\_blank}        |
+|  [101](https://github.com/moondance-labs/tanssi/releases/tag/runtime-101-templates){target=\_blank}  |  [Download EVM V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/frontier-template-runtime-101.wasm){target=\_blank}   |  [Download Substrate V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/simple-template-runtime-101.wasm){target=\_blank}   |
+|  [100](https://github.com/moondance-labs/tanssi/releases/tag/runtime-100-templates){target=\_blank}  |  [Download EVM V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/frontier-template-runtime-100.wasm){target=\_blank}   |  [Download Substrate V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/simple-template-runtime-100.wasm){target=\_blank}   |
+
+You should always upgrade the runtime following the releases in an orderly fashion, applying one release after another without skipping any of them. To do so, you need to know your appchain's current runtime version, which you'll find in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section. For example, if your runtime version is `1000`, you should upgrade first to `1100`, then `1200`, then `1300`, and so on until the latest available version.
 
 !!! warning
-    Applying the upgrades in order ensures that the changes (migrations) in the internal data structures are applied, preserving data consistency. Doing otherwise might **stall** your network.
+    Applying the upgrades in order ensures that the changes (migrations) in the internal data structures are applied, preserving data consistency. Doing otherwise might **stall** your appchain.
 
 !!! note
     If you are compiling the runtime manually, make sure to use the Wasm version `compact` and `compressed`, which is optimized and lighter.
 
 ## Upgrading Your Runtime {: #upgrading-your-runtime }
 
-To get started, head to Polkadot.js Apps for your Tanssi network. The Polkadot.js Apps link for your Tanssi network can be found in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Tooling** section.
+To get started, head to the developer portal for your Tanssi appchain. The developer portal link for your Tanssi appchain can be found in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Tooling** section.
 
-![Locating your Polkadot.js Apps Link on apps.tanssi.network](/images/builders/manage/developer-portal/upgrade/upgrade-2.webp)
+![Locating your Developer Portal Link on apps.tanssi.network](/images/builders/manage/developer-portal/upgrade/upgrade-2.webp)
 
 !!! warning
-    If your network was deployed using an official template and the intended upgrade is a custom runtime, make sure to have changed the default spec name (*frontier-template* or *container-chain-template*) to a different one before building the Wasm file. You'll also need to execute the `setCodeWithoutChecks` extrinsic instead of `setCode`.
+    If your appchain was deployed using an official template and the intended upgrade is a custom runtime, make sure to have changed the default spec name (*frontier-template* or *container-chain-template*) to a different one before building the Wasm file. You'll also need to execute the `setCodeWithoutChecks` extrinsic instead of `setCode`.
 
-With your [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload and your [Sudo account accessible in Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}, take the following steps:
+With your [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} ready to upload and your [Sudo account accessible in the Developer Portal](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}, take the following steps:
 
-1. Navigate to the **Developer** Tab of Polkadot.js Apps for your Tanssi network
-2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with Polkadot.js Apps. Make sure that your [Sudo account is injected by your wallet and connected to Polkadot.js Apps](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}
-3. Select the **system** pallet
-4. Select **setCode**
-5. Toggle the **fileUpload** switch to enable uploading your Wasm runtime file
-6. Upload your Wasm runtime
-7. Press **Submit Sudo** and confirm the transaction in your wallet
+1. Navigate to the **Developer** Tab of the developer portal for your Tanssi appchain.
+2. Click on **Sudo**. If you do not see **Sudo** in this menu, then you have not associated the Sudo account with the developer portal. Make sure that your [Sudo account is injected by your wallet and connected to the developer portal](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}.
+3. Select the **system** pallet.
+4. Select **setCode**.
+5. Toggle the **fileUpload** switch to enable uploading your Wasm runtime file.
+6. Upload your Wasm runtime.
+7. Press **Submit Sudo** and confirm the transaction in your wallet.
 
-![Upgrading your Runtime on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-3.webp)
+![Upgrading your Runtime on the Developer Portal](/images/builders/manage/developer-portal/upgrade/upgrade-3.webp)
 
-You can verify that your runtime upgrade was successful by checking the runtime version in the upper left-hand corner. In this case, we can see that the Tanssi-powered network's runtime was successfully upgraded to version `400`.
+You can verify that your runtime upgrade was successful by checking the runtime version in the upper left-hand corner. In this case, we can see that the Tanssi-powered appchain's runtime was successfully upgraded to version `400`.
 
 ![Check Runtime version on Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-4.webp)
 
-And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
+And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi appchain.
 
 <div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
@@ -2229,7 +2236,7 @@ The source code for this template is public and accessible on the [Tanssi GitHub
 
 Extending the [baseline Tanssi network template](#baseline-network-template), this template provides not only Tanssi protocol support but also an EVM and full Ethereum compatibility.
 
-Leveraging a set [EVM-specific modules](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
+Leveraging a set [EVM-specific modules](https://github.com/polkadot-evm/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
 
 Using this template, networks support the deployment and running of any existing smart contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Remix](https://remix.ethereum.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, and many more out of the box, with no extra adapters.
 
@@ -2255,7 +2262,7 @@ Networks deployed through Tanssi receive many [benefits](/learn/tanssi/overview/
 
 Also, because Tanssi-powered networks are based on a [modular tech stack](/learn/framework/){target=\_blank}, they profit from unique advantages when customizations are required at a runtime level. This [modularity](/learn/framework/modules/){target=\_blank} allows developers to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
-For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/paritytech/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
+For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 This section covers the fundamentals of a Tanssi network, its architecture, its core modules and functionalities, and the transaction fee mechanism.
 

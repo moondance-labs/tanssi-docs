@@ -280,7 +280,7 @@ For the examples in this guide, you will need to have the following:
 
  - [Node.js](https://nodejs.org/en/download){target=\_blank} version 16 or newer
  - [Docker](https://docs.docker.com/get-started/get-docker/){target=\_blank}
- - [Squid CLI](https://docs.sqd.ai/squid-cli/installation){target=\_blank}
+ - [Squid CLI](https://docs.sqd.ai/squid-cli/installation/){target=\_blank}
 
 ## Index a Tanssi Substrate Network {: #index-substrate-networks }
 
@@ -360,7 +360,7 @@ To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to
     For more information on getting started with both of these templates, please check out the following SQD docs:
 
       - [Getting started: EVM chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
-      - [Quickstart: Squid generation tools](https://docs.sqd.dev/sdk/resources/tools/squid-gen/){target=\_blank}
+      - [Quickstart: Squid generation tools](https://docs.sqd.ai/sdk/resources/tools/squid-gen/){target=\_blank}
 
 2. Navigate into the root directory of your Squid project and install dependencies by running
 
@@ -1336,7 +1336,7 @@ In addition, you can find more sample code snippets related to more specific cas
 
 The Polkadot.js API also includes a number of utility libraries for computing commonly used cryptographic primitives and hash functions.
 
-The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://eth.wiki/fundamentals/rlp){target=\_blank}) encoding and then hashing the result with keccak256.
+The following example computes the deterministic transaction hash of a raw Ethereum legacy transaction by first computing its RLP ([Recursive Length Prefix](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/){target=\_blank}) encoding and then hashing the result with keccak256.
 
 ```typescript
 import { encode } from '@polkadot/util-rlp';
@@ -2318,7 +2318,7 @@ The source code for this template is public and accessible on the [Tanssi GitHub
 
 Extending the [baseline Tanssi network template](#baseline-network-template), this template provides not only Tanssi protocol support but also an EVM and full Ethereum compatibility.
 
-Leveraging a set [EVM-specific modules](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
+Leveraging a set [EVM-specific modules](https://github.com/polkadot-evm/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
 
 Using this template, networks support the deployment and running of any existing smart contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Remix](https://remix.ethereum.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, and many more out of the box, with no extra adapters.
 
@@ -2344,7 +2344,7 @@ Networks deployed through Tanssi receive many [benefits](/learn/tanssi/overview/
 
 Also, because Tanssi-powered networks are based on a [modular tech stack](/learn/framework/){target=\_blank}, they profit from unique advantages when customizations are required at a runtime level. This [modularity](/learn/framework/modules/){target=\_blank} allows developers to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
-For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/paritytech/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
+For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 This section covers the fundamentals of a Tanssi network, its architecture, its core modules and functionalities, and the transaction fee mechanism.
 
