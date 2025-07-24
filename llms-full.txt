@@ -5551,7 +5551,7 @@ To create a new smart contract using the [thirdweb CLI](https://portal.thirdweb.
     - Inheriting the contract by declaring that your contract is an `ERC721Base` contract
     - Implementing any required methods, such as the constructor
 
-5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM network using [Deploy](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank}. That will be covered in the next section!
+5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM network using [Deploy](#deploy-contract). That will be covered in the next section!
 
 Alternatively, you can deploy a prebuilt contract for NFTs, tokens, or marketplace directly from the thirdweb Explore page:
 
@@ -5566,7 +5566,7 @@ For more information on different contracts available on Explore, check out [thi
 
 ## Deploy Contract {: #deploy-contract }
 
-[Deploy](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank} is thirdweb's tool that allows you to easily deploy a smart contract to any EVM compatible network without configuring RPC URLs, exposing your private keys, writing scripts, and other additional setup such as verifying your contract.
+Deploy is thirdweb's tool that allows you to easily deploy a smart contract to any EVM compatible network without configuring RPC URLs, exposing your private keys, writing scripts, and other additional setup such as verifying your contract.
 
 1. To deploy your smart contract using deploy, navigate to the `contracts` directory of your project and execute the following command:
 
@@ -5592,7 +5592,7 @@ For more information on different contracts available on Explore, check out [thi
 
     ![thirdweb deploy](/images/builders/toolkit/ethereum-api/dev-environments/thirdweb/thirdweb-2.webp)
 
-For additional information on Deploy, please reference [thirdweb’s documentation](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank}.
+For additional information on Deploy, please reference [thirdweb’s documentation](https://portal.thirdweb.com/contracts){target=\_blank}.
 
 ## Create Application {: #create-application }
 
@@ -11447,7 +11447,7 @@ The pages in this section provide an overview of getting started with various wa
 Doc-Content: https://docs.tanssi.network/builders/toolkit/ethereum-api/wallets/ledger/
 --- BEGIN CONTENT ---
 ---
-title: Interacting with Tanssi-powered EVM appchains Using Ledger
+title: Using Ledger With Your EVM Appchain
 description: Learn to set up and use Ledger hardware wallets with Tanssi-powered EVM appchains for secure offline key storage and transaction signing.
 icon: material-wallet-outline 
 categories: EVM-Template
@@ -11473,7 +11473,7 @@ Now, with your Ledger already initiated, install the _Ethereum_ app taking the f
 2. Go to My Ledger.
 3. Connect and unlock the device.
 
-Finally, search for the _Ethereum (ETH)_ app in Ledger Live and install it on your device.
+Finally, search for the **Ethereum (ETH)** app in Ledger Live and install it on your device.
 
 ![Install Ethereum in Ledger Live](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-1.webp)
 
@@ -11483,7 +11483,7 @@ And that's it. Your device now has an Ethereum account and is able to sign trans
 
 As presented in the [introduction](#introduction), a Ledger hardware wallet provides secure, offline storage for private keys, allowing users to verify and sign transactions. However, by design, it can't interact with blockchains or dApps by itself, nor does it offer a UI for managing assets. To complement the device, a hot wallet is required. The user can choose any Ethereum-compatible wallet.
 
-For demonstration purposes, we'll show how to configure [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to work with your hardware wallet, but these steps are generally applicable to any other wallet that supports Ledger. To follow along with the steps, make sure you have Metamask installed in your browser, then open the extension and click on the dropdown icon, next to the account name.
+For demonstration purposes, we'll show how to configure [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to work with your hardware wallet, but these steps are generally applicable to any other wallet that supports Ledger. To follow along with the steps, make sure you have Metamask installed in your browser, then open the extension and click on the dropdown icon next to the account name.
 
 ![Connect Ledger](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-2.webp)
 
@@ -11497,7 +11497,7 @@ Select **Hardware wallet** from the available options.
 
 On the following screen:
 
-1. Select the **LEDGER** box. You'll be prompted to connect your ledger, unlock it, and open the Ethereum app.
+1. Select the **LEDGER** box. You'll be prompted to connect your Ledger, unlock it, and open the Ethereum app.
 2. Click on **Continue**.
 
 ![Connect Ledger](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-5.webp)
@@ -13679,7 +13679,7 @@ categories: EVM-Template
 
 ## Introduction {: #introduction }
 
-[Phala Network](https://phala.network){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/tech-specs/blockchain#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/overview/phala-network){target=\_blank}.
+[Phala Network](https://phala.network){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/network/tech-specs/blockchain/overview#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/overview/phala-network){target=\_blank}.
 
 Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch.
 
@@ -13689,7 +13689,7 @@ This tutorial will walk through a demo of [interacting with price feeds](#fetch-
 
 Phala mirrors [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds){target=\_blank} from Ethereum MainNet. Chainlink Price Feeds have stood the test of time and have wide industry adoption. As a reminder, Chainlink Price Feeds don't rely on any single source of truth, rather, their pricing data is collected and aggregated from a variety of data sources gathered by a decentralized set of independent node operators. This helps to prevent manipulation and erratic pricing data.
 
-The core component of Phala's system design is the [Secure Enclave](https://docs.phala.network/tech-specs/blockchain#the-architecture){target=\_blank}, which processes the inputs it receives from the Phala blockchain, acting as an encrypted message queue, and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain requests a price feed update, which the Phala off-chain workers fetch from Ethereum MainNet, and return to the Phala blockchain.
+The core component of Phala's system design is the [Secure Enclave](https://docs.phala.network/network/tech-specs/blockchain/overview#the-architecture){target=\_blank}, which processes the inputs it receives from the Phala blockchain, acting as an encrypted message queue, and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain requests a price feed update, which the Phala off-chain workers fetch from Ethereum MainNet, and return to the Phala blockchain.
 
 It's important to note that Phala isn't limited to replicating existing Oracles. You can create entirely new Oracles by sourcing off-chain data via Phat Contracts. In this [Phat-EVM Oracle example](https://github.com/Phala-Network/phat-offchain-rollup/blob/main/EvmRollup.md){target=\_blank}, pricing data is sourced from the CoinGecko API. Price quote updates can then be constantly streamed from the Phat contract (push design), or the EVM smart contract can ask for a refreshed quote from the Phat contract (pull design).
 
@@ -16316,7 +16316,7 @@ The pages in this section provide an overview of getting started with various wa
 Doc-Content: https://docs.tanssi.network/builders/toolkit/substrate-api/wallets/ledger/
 --- BEGIN CONTENT ---
 ---
-title: Interacting with Substrate Tanssi Chains Using Ledger
+title: Using Ledger With Your Substrate Appchain
 description: This guide walks you through setting up and using a Ledger device to interact with the Tanssi network or any of the Tanssi-powered Substrate appchains.
 icon: material-wallet-outline 
 categories: Substrate-Template
@@ -16342,10 +16342,10 @@ Now, with your Ledger already initiated, install the _Polkadot_ app taking the f
 2. Go to My Ledger.
 3. Connect and unlock the device.
 
-Finally, search for Zondax’s Polkadot (DOT) app in Ledger Live and install it on your device.
+Finally, search for **Polkadot (DOT)** app in Ledger Live and install it on your device.
 
 !!! note
-    Why Polkadot? Tanssi is built using Substrate, the same framework that powers Polkadot. As a result, even though Tanssi and Polkadot are separate networks, they share the same cryptographic signature schema. This means that the Ledger app named Polkadot (DOT) is fully compatible with Tanssi.
+    Why Polkadot? Tanssi is built using Substrate, the same framework that powers Polkadot. As a result, even though Tanssi and Polkadot are separate networks, they share the same cryptographic signature schema. This means that the Ledger app named **Polkadot (DOT)** is fully compatible with Tanssi.
 
 ![Install Polkadot in Ledger Live](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-1.webp)
 
@@ -16373,7 +16373,7 @@ On the following screen, take the following steps:
 
 ![Connect Ledger](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-3.webp)
 
-In the next step, you will be presented with a list of derived accounts. Select the one you want to import, click **Continue**, and that's all! Your Talisman wallet can now sign transactions using your ledger device.
+In the next step, you will be presented with a list of derived accounts. Select the one you want to import, click **Continue**, and that's all! Your Talisman wallet can now sign transactions using your Ledger device.
 
 <div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
