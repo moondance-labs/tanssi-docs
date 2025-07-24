@@ -87,7 +87,7 @@ To reach full Ethereum compatibility, these specific modules are also included:
 - **[EVM](https://docs.rs/pallet-evm/latest/pallet_evm){target=\_blank}** - it adds support for unmodified EVM bytecode execution on a Tanssi-powered network. It uses the Rust-based [SputnikVM](https://github.com/rust-ethereum/evm){target=\_blank} as the underlying EVM engine
 - **[Ethereum](https://docs.rs/pallet-ethereum/latest/pallet_ethereum){target=\_blank}** - it works alongside the EVM module to provide full emulation for Ethereum block processing. Among many other tasks, it is responsible for creating emulated Ethereum blocks for Ethereum-specific components such as EVM logs
 
-Both modules are part of the [Frontier](https://github.com/paritytech/frontier){target=\_blank} project, which is the backbone of Ethereum-compatible Tanssi-powered networks.
+Both modules are part of the [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} project, which is the backbone of Ethereum-compatible Tanssi-powered networks.
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/builders/manage/developer-portal/smart-contracts-creation-filter/
@@ -2523,7 +2523,7 @@ categories: EVM-Template
 
 ## Introduction {: #introduction }
 
-[viem](https://viem.sh){target=\_blank} is a modular TypeScript library that allows developers to interact with abstractions over the JSON-RPC API, making it easy to interact with Ethereum nodes. Since Tanssi-powered EVM networks have an Ethereum API available that is fully compatible with Ethereum-style JSON-RPC invocations, developers can leverage this compatibility to interact with any Tanssi EVM network. For more information on viem, check out their [documentation site](https://viem.sh/docs/getting-started.html){target=\_blank}.
+[viem](https://viem.sh){target=\_blank} is a modular TypeScript library that allows developers to interact with abstractions over the JSON-RPC API, making it easy to interact with Ethereum nodes. Since Tanssi-powered EVM networks have an Ethereum API available that is fully compatible with Ethereum-style JSON-RPC invocations, developers can leverage this compatibility to interact with any Tanssi EVM network. For more information on viem, check out their [documentation site](https://viem.sh/docs/getting-started){target=\_blank}.
 
 In this guide, you'll learn how to use viem to send a transaction and deploy a contract on the demo EVM network. This guide can be adapted for use with any Tanssi-powered EVM network.
 
@@ -8332,7 +8332,7 @@ For the examples in this guide, you will need to have the following:
 
  - [Node.js](https://nodejs.org/en/download){target=\_blank} version 16 or newer
  - [Docker](https://docs.docker.com/get-started/get-docker/){target=\_blank}
- - [Squid CLI](https://docs.sqd.ai/squid-cli/installation){target=\_blank}
+ - [Squid CLI](https://docs.sqd.ai/squid-cli/installation/){target=\_blank}
 
 ## Index a Tanssi Substrate Network {: #index-substrate-networks }
 
@@ -8412,7 +8412,7 @@ To get started indexing EVM data on a Tanssi-powered EVM network, you'll need to
     For more information on getting started with both of these templates, please check out the following SQD docs:
 
       - [Getting started: EVM chains](https://docs.sqd.ai/sdk/how-to-start/squid-development/?template-tech=evm){target=\_blank}
-      - [Quickstart: Squid generation tools](https://docs.sqd.dev/sdk/resources/tools/squid-gen/){target=\_blank}
+      - [Quickstart: Squid generation tools](https://docs.sqd.ai/sdk/resources/tools/squid-gen/){target=\_blank}
 
 2. Navigate into the root directory of your Squid project and install dependencies by running
 
@@ -8492,7 +8492,7 @@ categories: EVM-Template
 
 [Acurast](https://acurast.com){target=\_blank} gives developers complete permissionless access to compute that is trustless, affordable, and confidential for deploying their applications.
 
-One of Acurast's use cases is to enable developers to deploy their own push/pull oracles, interacting with off-chain APIs to bring price feeds on-chain. Pricing data is confidentially processed through Acurast Processors, pushing data to smart contracts of EVM-compatible chains like Tanssi-powered EVM networks via a [standard Chainlink Aggregator Interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}.
+One of Acurast's use cases is to enable developers to deploy their own push/pull oracles, interacting with off-chain APIs to bring price feeds on-chain. Pricing data is confidentially processed through Acurast Processors, pushing data to smart contracts of EVM-compatible chains like Tanssi-powered EVM networks via a [standard Chainlink Aggregator Interface](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}.
 
 This tutorial will walk through a demo of [interacting with price feeds](#fetch-price-data) enabled by Acurast on the [demo Tanssi EVM-compatible network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}. You can also deploy your own price feeds to your Tanssi EVM-compatible network. Please be advised that the steps shown in this tutorial are for demonstration purposes only - it's highly recommended that you contact the [Acurast](https://acurast.com){target=\_blank} team directly as they can assist you with launching price feeds on your network to ensure the integrity of the deployment process.
 
@@ -8552,7 +8552,7 @@ This tutorial will showcase interacting with a sample BTC/USDT price feed contra
 
 For a refresher on setting up Remix to interface with the demo EVM network, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM network.
 
-Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
+Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
 ![Compile aggregator contract](/images/builders/toolkit/integrations/oracles/acurast/acurast-1.webp)
 
@@ -8612,7 +8612,7 @@ The Acurast team has deployed the below price feeds on the Tanssi demo EVM netwo
 
 You can build and launch your own Acurast price feed on your Tanssi-powered EVM-compatible network. Please be advised that the steps shown in this tutorial are unaudited, unverified, and for demonstration purposes only - it's highly recommended that you [contact the Acurast team directly](https://acurast.com){target=\_blank} as they can assist you with launching price feeds on your network to ensure the integrity of the deployment process.
 
-To launch an Acurast price feed, you need two key components: a smart contract and a script. In the prior example of [Interacting with the BTC/USD price feed](#interacting-with-price-feeds-demo-evm-network) on the demo EVM network, the generic Chainlink interface is used because it is a more straightforward example for demonstration purposes. The underlying smart contract that powers that price feed conforms to the [Chainlink Aggregator interface](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}, but the demo contract has additional components worthy of discussion. You can find both the demo contract and script at the [GitHub repo for the Acurast demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/tree/main){target=\_blank}.
+To launch an Acurast price feed, you need two key components: a smart contract and a script. In the prior example of [Interacting with the BTC/USD price feed](#interacting-with-price-feeds-demo-evm-network) on the demo EVM network, the generic Chainlink interface is used because it is a more straightforward example for demonstration purposes. The underlying smart contract that powers that price feed conforms to the [Chainlink Aggregator interface](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank}, but the demo contract has additional components worthy of discussion. You can find both the demo contract and script at the [GitHub repo for the Acurast demo BTC/USD price feed](https://github.com/Acurast/acurast-evm-oracle-sample/tree/main){target=\_blank}.
 
 The demo contract, `InsecureDummyPriceFeed.sol`, emits an event when the price is updated and when a new round begins. The `setPrice` method is insecure, as shown in this demo smart contract, but it is provided to show you where you might add logic like aggregation consensus, access control checks, and other parameters.
 
@@ -9043,7 +9043,7 @@ Next, this tutorial will showcase interacting with the price feed contracts on t
 
 For a refresher on setting up Remix to interface with the demo EVM network, see the [Deploy Smart Contracts with Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=\_blank} guide. Secondly, make sure you have [connected MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to the demo EVM network.
 
-Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
+Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
 ![Compile aggregator contract](/images/builders/toolkit/integrations/oracles/phala/phala-1.webp)
 
@@ -9363,7 +9363,7 @@ You'll get a transaction status as well as a contract address. Copy this contrac
 
 Next, this tutorial will demonstrate interacting with the newly deployed aggregator contract. Make sure that your MetaMask wallet is connected to your EVM network. You can add your network to your MetaMask by pressing **Add to MetaMask** on your dashboard on the [Tanssi dApp](https://apps.tanssi.network){target=\_blank}.
 
-Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
+Paste the [aggregator contract](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=\_blank} into a new file in Remix and compile it.
 
 Then, take the following steps:
 
@@ -10456,7 +10456,7 @@ The source code for this template is public and accessible on the [Tanssi GitHub
 
 Extending the [baseline Tanssi network template](#baseline-network-template), this template provides not only Tanssi protocol support but also an EVM and full Ethereum compatibility.
 
-Leveraging a set [EVM-specific modules](https://github.com/paritytech/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
+Leveraging a set [EVM-specific modules](https://github.com/polkadot-evm/frontier){target=\_blank}, this template includes an Ethereum compatibility layer for networks to allow running unmodified Ethereum dApps.
 
 Using this template, networks support the deployment and running of any existing smart contract written in Solidity or Vyper with no changes. By emulating Ethereum block production and exposing the expected RPC interface, developers can also continue using the same tools like [Metamask](https://metamask.io){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Remix](https://remix.ethereum.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, and many more out of the box, with no extra adapters.
 
@@ -10482,7 +10482,7 @@ Networks deployed through Tanssi receive many [benefits](/learn/tanssi/overview/
 
 Also, because Tanssi-powered networks are based on a [modular tech stack](/learn/framework/){target=\_blank}, they profit from unique advantages when customizations are required at a runtime level. This [modularity](/learn/framework/modules/){target=\_blank} allows developers to add functionality directly into the runtime or extend the capabilities of the EVM itself via precompiled contracts.
 
-For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/paritytech/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
+For example, Tanssi provides a ready-to-use [template](/learn/decentralized-networks/included-templates#baseline-evm-template){target=\_blank} that includes [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} modules, enabling the effortless deployment of an EVM-compatible networks, similar to [Moonbeam](https://moonbeam.network){target=\_blank}.
 
 This section covers the fundamentals of a Tanssi network, its architecture, its core modules and functionalities, and the transaction fee mechanism.
 
