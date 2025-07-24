@@ -1,5 +1,5 @@
 ---
-title: Interacting with Substrate Tanssi Chains Using Ledger
+title: Using Ledger With Your Substrate Appchain
 description: This guide walks you through setting up and using a Ledger device to interact with the Tanssi network or any of the Tanssi-powered Substrate appchains.
 icon: material-wallet-outline 
 categories: Substrate-Template
@@ -25,10 +25,10 @@ Now, with your Ledger already initiated, install the _Polkadot_ app taking the f
 2. Go to My Ledger.
 3. Connect and unlock the device.
 
-Finally, search for Zondax’s Polkadot (DOT) app in Ledger Live and install it on your device.
+Finally, search for **Polkadot (DOT)** app in Ledger Live and install it on your device.
 
 !!! note
-    Why Polkadot? Tanssi is built using Substrate, the same framework that powers Polkadot. As a result, even though Tanssi and Polkadot are separate networks, they share the same cryptographic signature schema. This means that the Ledger app named Polkadot (DOT) is fully compatible with Tanssi.
+    Why Polkadot? Tanssi is built using Substrate, the same framework that powers Polkadot. As a result, even though Tanssi and Polkadot are separate networks, they share the same cryptographic signature schema. This means that the Ledger app named **Polkadot (DOT)** is fully compatible with Tanssi.
 
 ![Install Polkadot in Ledger Live](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-1.webp)
 
@@ -56,6 +56,6 @@ On the following screen, take the following steps:
 
 ![Connect Ledger](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-3.webp)
 
-In the next step, you will be presented with a list of derived accounts. Select the one you want to import, click **Continue**, and that's all! Your Talisman wallet can now sign transactions using your ledger device.
+In the next step, you will be presented with a list of derived accounts. Select the one you want to import, click **Continue**, and that's all! Your Talisman wallet can now sign transactions using your Ledger device.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

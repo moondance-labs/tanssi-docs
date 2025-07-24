@@ -1,5 +1,5 @@
 ---
-title: Interacting with Tanssi-powered EVM appchains Using Ledger
+title: Using Ledger With Your EVM Appchain
 description: Learn to set up and use Ledger hardware wallets with Tanssi-powered EVM appchains for secure offline key storage and transaction signing.
 icon: material-wallet-outline 
 categories: EVM-Template
@@ -25,7 +25,7 @@ Now, with your Ledger already initiated, install the _Ethereum_ app taking the f
 2. Go to My Ledger.
 3. Connect and unlock the device.
 
-Finally, search for the _Ethereum (ETH)_ app in Ledger Live and install it on your device.
+Finally, search for the **Ethereum (ETH)** app in Ledger Live and install it on your device.
 
 ![Install Ethereum in Ledger Live](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-1.webp)
 
@@ -35,7 +35,7 @@ And that's it. Your device now has an Ethereum account and is able to sign trans
 
 As presented in the [introduction](#introduction), a Ledger hardware wallet provides secure, offline storage for private keys, allowing users to verify and sign transactions. However, by design, it can't interact with blockchains or dApps by itself, nor does it offer a UI for managing assets. To complement the device, a hot wallet is required. The user can choose any Ethereum-compatible wallet.
 
-For demonstration purposes, we'll show how to configure [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to work with your hardware wallet, but these steps are generally applicable to any other wallet that supports Ledger. To follow along with the steps, make sure you have Metamask installed in your browser, then open the extension and click on the dropdown icon, next to the account name.
+For demonstration purposes, we'll show how to configure [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} to work with your hardware wallet, but these steps are generally applicable to any other wallet that supports Ledger. To follow along with the steps, make sure you have Metamask installed in your browser, then open the extension and click on the dropdown icon next to the account name.
 
 ![Connect Ledger](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-2.webp)
 
@@ -49,7 +49,7 @@ Select **Hardware wallet** from the available options.
 
 On the following screen:
 
-1. Select the **LEDGER** box. You'll be prompted to connect your ledger, unlock it, and open the Ethereum app.
+1. Select the **LEDGER** box. You'll be prompted to connect your Ledger, unlock it, and open the Ethereum app.
 2. Click on **Continue**.
 
 ![Connect Ledger](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-5.webp)
