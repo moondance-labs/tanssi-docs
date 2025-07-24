@@ -5556,7 +5556,7 @@ To create a new smart contract using the [thirdweb CLI](https://portal.thirdweb.
     - Inheriting the contract by declaring that your contract is an `ERC721Base` contract
     - Implementing any required methods, such as the constructor
 
-5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM network using [Deploy](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank}. That will be covered in the next section!
+5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM network using [Deploy](#deploy-contract). That will be covered in the next section!
 
 Alternatively, you can deploy a prebuilt contract for NFTs, tokens, or marketplace directly from the thirdweb Explore page:
 
@@ -5571,7 +5571,7 @@ For more information on different contracts available on Explore, check out [thi
 
 ## Deploy Contract {: #deploy-contract }
 
-[Deploy](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank} is thirdweb's tool that allows you to easily deploy a smart contract to any EVM compatible network without configuring RPC URLs, exposing your private keys, writing scripts, and other additional setup such as verifying your contract.
+Deploy is thirdweb's tool that allows you to easily deploy a smart contract to any EVM compatible network without configuring RPC URLs, exposing your private keys, writing scripts, and other additional setup such as verifying your contract.
 
 1. To deploy your smart contract using deploy, navigate to the `contracts` directory of your project and execute the following command:
 
@@ -5597,7 +5597,7 @@ For more information on different contracts available on Explore, check out [thi
 
     ![thirdweb deploy](/images/builders/toolkit/ethereum-api/dev-environments/thirdweb/thirdweb-2.webp)
 
-For additional information on Deploy, please reference [thirdweb’s documentation](https://portal.thirdweb.com/contracts/deploy/overview){target=\_blank}.
+For additional information on Deploy, please reference [thirdweb’s documentation](https://portal.thirdweb.com/contracts/){target=\_blank}.
 
 ## Create Application {: #create-application }
 
@@ -13619,7 +13619,7 @@ categories: EVM-Template
 
 ## Introduction {: #introduction }
 
-[Phala Network](https://phala.network){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/tech-specs/blockchain#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/overview/phala-network){target=\_blank}.
+[Phala Network](https://phala.network){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/network/tech-specs/blockchain/overview#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/overview/phala-network){target=\_blank}.
 
 Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch.
 
@@ -13629,7 +13629,7 @@ This tutorial will walk through a demo of [interacting with price feeds](#fetch-
 
 Phala mirrors [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds){target=\_blank} from Ethereum MainNet. Chainlink Price Feeds have stood the test of time and have wide industry adoption. As a reminder, Chainlink Price Feeds don't rely on any single source of truth, rather, their pricing data is collected and aggregated from a variety of data sources gathered by a decentralized set of independent node operators. This helps to prevent manipulation and erratic pricing data.
 
-The core component of Phala's system design is the [Secure Enclave](https://docs.phala.network/tech-specs/blockchain#the-architecture){target=\_blank}, which processes the inputs it receives from the Phala blockchain, acting as an encrypted message queue, and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain requests a price feed update, which the Phala off-chain workers fetch from Ethereum MainNet, and return to the Phala blockchain.
+The core component of Phala's system design is the [Secure Enclave](https://docs.phala.network/network/tech-specs/blockchain/overview#the-architecture){target=\_blank}, which processes the inputs it receives from the Phala blockchain, acting as an encrypted message queue, and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain requests a price feed update, which the Phala off-chain workers fetch from Ethereum MainNet, and return to the Phala blockchain.
 
 It's important to note that Phala isn't limited to replicating existing Oracles. You can create entirely new Oracles by sourcing off-chain data via Phat Contracts. In this [Phat-EVM Oracle example](https://github.com/Phala-Network/phat-offchain-rollup/blob/main/EvmRollup.md){target=\_blank}, pricing data is sourced from the CoinGecko API. Price quote updates can then be constantly streamed from the Phat contract (push design), or the EVM smart contract can ask for a refreshed quote from the Phat contract (pull design).
 
