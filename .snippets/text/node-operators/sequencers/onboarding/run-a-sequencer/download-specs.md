@@ -1,9 +1,8 @@
 ## Download the Tanssi Chain Specs File {: #download-tanssi-specs }
 
-The node binary file includes the necessary code to run a Tanssi chain node. When launching your network's node, it will also be required to provide the chain's specification file as a parameter.
+The node binary file also includes the necessary code to run a Tanssi orchestration chain node. When launching a sequencer, it will also be required to provide the Tanssi orchestration chain specification file as a parameter.
 
 Download the Tanssi orchestration chain specification file by executing the following:
-
 
 === "Tanssi MainNet"
 

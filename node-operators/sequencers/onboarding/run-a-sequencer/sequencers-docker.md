@@ -17,7 +17,7 @@ In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the 
 
 --8<-- 'text/node-operators/installing-docker.md'
 
-### Pulling the Docker Image {: #pulling-docker-image }
+## Pulling the Docker Image {: #pulling-docker-image }
 
 A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi sequencer requires and the binary file itself.
 
@@ -43,7 +43,7 @@ The command will download and extract the image and show the status upon executi
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/download-specs.md'
 
-### Setup the Data Directory {: #setup-data-directory }
+## Setup the Data Directory {: #setup-data-directory }
 
 Running a sequencer requires syncing with two chains: the Tanssi chain and the network it has been assigned to.
 
@@ -106,7 +106,7 @@ Move the chain specification file to the folder:
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
 
-### Generate the Node Key {: #generate-node-key }
+## Generate the Node Key {: #generate-node-key }
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-intro.md'
 

@@ -22972,7 +22972,7 @@ This is what a successful execution in the terminal looks like:
   </span>
 </div>
 
-### Pulling the Docker Image {: #pulling-docker-image }
+## Pulling the Docker Image {: #pulling-docker-image }
 
 A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi sequencer requires and the binary file itself.
 
@@ -22995,28 +22995,27 @@ The following command to pull the Docker image:
 The command will download and extract the image and show the status upon execution:
 
 <div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/dancelight-collators:2</span>
+  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/tanssi</span>
   <span data-ty>
     <br> 
     <br> Using default tag: latest
-    <br> latest: Pulling from moondancelabs/dancelight-collators:2
+    <br> latest: Pulling from moondancelabs/tanssi
     <br> e1caac4eb9d2: Pull complete 
     <br> 1d4409959e6d: Pull complete 
     <br> b8beed19c122: Pull complete 
     <br> c0fab1f18601: Pull complete 
     <br> d9dcf3cddfc5: Pull complete 
     <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
-    <br> Status: Downloaded newer image for moondancelabs/dancelight-collators:2
-    <br> docker.io/moondancelabs/dancelight-collators:2
+    <br> Status: Downloaded newer image for moondancelabs/tanssi
+    <br> docker.io/moondancelabs/tanssi
   </span>
 </div>
 
 ## Download the Tanssi Chain Specs File {: #download-tanssi-specs }
 
-The node binary file includes the necessary code to run a Tanssi chain node. When launching your network's node, it will also be required to provide the chain's specification file as a parameter.
+The node binary file also includes the necessary code to run a Tanssi orchestration chain node. When launching a sequencer, it will also be required to provide the Tanssi orchestration chain specification file as a parameter.
 
 Download the Tanssi orchestration chain specification file by executing the following:
-
 
 === "Tanssi MainNet"
 
@@ -23030,7 +23029,7 @@ Download the Tanssi orchestration chain specification file by executing the foll
     wget https://raw.githubusercontent.com/moondance-labs/tanssi/75e576add204abd321c48cded556c8de14d65618/chains/orchestrator-relays/node/tanssi-relay-service/chain-specs/dancelight-raw-specs.json
     ```
 
-### Setup the Data Directory {: #setup-data-directory }
+## Setup the Data Directory {: #setup-data-directory }
 
 Running a sequencer requires syncing with two chains: the Tanssi chain and the network it has been assigned to.
 
@@ -23093,7 +23092,7 @@ Move the chain specification file to the folder:
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
 
-### Generate the Node Key {: #generate-node-key }
+## Generate the Node Key {: #generate-node-key }
 
 Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
@@ -23545,10 +23544,9 @@ To get started, download and make executable the latest binary release by runnin
 
 ## Download the Tanssi Chain Specs File {: #download-tanssi-specs }
 
-The node binary file includes the necessary code to run a Tanssi chain node. When launching your network's node, it will also be required to provide the chain's specification file as a parameter.
+The node binary file also includes the necessary code to run a Tanssi orchestration chain node. When launching a sequencer, it will also be required to provide the Tanssi orchestration chain specification file as a parameter.
 
 Download the Tanssi orchestration chain specification file by executing the following:
-
 
 === "Tanssi MainNet"
 
