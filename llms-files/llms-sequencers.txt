@@ -464,7 +464,7 @@ On the transaction confirmation screen, take the following steps:
 
 Once the transaction has successfully been submitted, you can review your current proxies, or if you removed all proxies, you will notice the proxy icon is no longer being displayed next to the primary account. And that's it! You've successfully created a proxy, reviewed all proxy accounts associated with your primary account, executed a proxy transaction, and removed a proxy account!
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -1448,7 +1448,7 @@ To improve developer experience when writing modules, Substrate relies heavily o
 
 All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
 
-- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+-- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
 - **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
 - **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
 - **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
@@ -1467,7 +1467,7 @@ As an example of a custom module, the following code (not intended for productio
 - **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
 
 ```rust
-#![cfg_attr(not(feature = "std"), no_std)]
+-#![cfg_attr(not(feature = "std"), no_std)]
 
 /// Learn more about FRAME and the core library of Substrate FRAME pallets:
 /// <https://docs.substrate.io/reference/frame-pallets/>
@@ -3121,7 +3121,7 @@ curl http://127.0.0.1:9945 -H \
 
 Your hex-encoded session keys will be printed to the terminal in the `"result"` field.
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>curl http://127.0.0.1:9944 -H \
     <br>  "Content-Type:application/json;charset=utf-8" -d \
     <br>    '{
@@ -3246,7 +3246,7 @@ categories: Sequencers
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions is that it provides decentralized and trustless block production for its networks. Tanssi's runtime handles sequencer assignments to all the active networks in the Tanssi ecosystem.
+-One of Tanssi's core propositions is that it provides decentralized and trustless block production for its networks. Tanssi's runtime handles sequencer assignments to all the active networks in the Tanssi ecosystem.
 
 Each time, the assignment algorithm distributes the available set of sequencers per session, assigning them to a random chain. Consequently, they would be producing blocks for the same network only for a relatively short period, increasing the overall security of the ecosystem.
 
@@ -3257,7 +3257,7 @@ In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-### Installing Docker {: #installing-docker}
+-### Installing Docker {: #installing-docker}
 
 To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
@@ -3275,7 +3275,7 @@ sudo docker run hello-world
 
 This is what a successful execution in the terminal looks like:
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>sudo docker run hello-world</span>
   <span data-ty>
     <br> 
@@ -3318,7 +3318,7 @@ docker pull moondancelabs/tanssi
 
 The command will download and extract the image and show the status upon execution:
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/dancelight-collators:2</span>
   <span data-ty>
     <br> 
@@ -3363,7 +3363,7 @@ sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
 
 ### Generate the Node Key {: #generate-node-key }
 
-Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+-Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
 ```bash
 docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
@@ -3371,7 +3371,7 @@ docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
 moondancelabs/tanssi -c "/chain-network/tanssi-node key generate-node-key --file /data/node-key"
 ```
 
-!!! note
+-!!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
 
 ## Start-Up Command {: #start-up-command }
@@ -3385,7 +3385,7 @@ Note that the command contains two sections, divided by `-- \`:
 
 Name each of the sections with a human-readable name by replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
-!!! note
+-!!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 
@@ -3395,7 +3395,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     moondancelabs/tanssi -c "/chain-network/tanssi-node solo-chain \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    ---name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
@@ -3441,7 +3441,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     moondancelabs/tanssi -c "/chain-network/tanssi-node-skylake solo-chain \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    ---name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
@@ -3485,7 +3485,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
     ```bash
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     moondancelabs/tanssi -c "/chain-network/tanssi-node-znver3 solo-chain \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    ---name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
@@ -3528,7 +3528,7 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
+-- `--name INSERT_NAME` - a human-readable name for this node
 - `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
 - `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
 - `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
@@ -3549,7 +3549,7 @@ docker run --entrypoint bash moondancelabs/tanssi -c "/chain-network/tanssi-node
 
 The first time your node spins up, the syncing process displays lots of log information from the node configuration and the node itself. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>docker run ....</span>
   <span data-ty>
     <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
@@ -3575,7 +3575,7 @@ categories: Sequencers
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions is that it provides decentralized and trustless block production for its networks. Tanssi's runtime handles sequencer assignments to all the active networks in the Tanssi ecosystem.
+-One of Tanssi's core propositions is that it provides decentralized and trustless block production for its networks. Tanssi's runtime handles sequencer assignments to all the active networks in the Tanssi ecosystem.
 
 Each time, the assignment algorithm distributes the available set of sequencers per session, assigning them to a random chain. Consequently, they would be producing blocks for the same network only for a relatively short period, increasing the overall security of the ecosystem.
 
@@ -3597,7 +3597,7 @@ To get started, you'll need access to a computer running an Ubuntu Linux OS and 
 
 To get started, download and make executable the latest binary release by running the following command:
 
-!!! note
+-!!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 
@@ -3670,13 +3670,13 @@ mv ./tanssi-node /var/lib/tanssi-data
 
 ### Generate the Node Key {: #generate-node-key }
 
-Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
+-Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
 ```bash
 /var/lib/tanssi-data/tanssi-node key generate-node-key --file /var/lib/tanssi-data/node-key
 ```
 
-!!! note
+-!!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
@@ -3753,7 +3753,7 @@ WantedBy=multi-user.target
 
 The flags used in the ExecStart command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
+-- `--name INSERT_NAME` - a human-readable name for this node
 - `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
 - `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
 - `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
@@ -3785,7 +3785,7 @@ You can verify that the service is up and running correctly running:
 systemctl status tanssi.service
 ```
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
   <span data-ty>
     <br> ● network.service - "Network systemd service"
@@ -3934,7 +3934,7 @@ After you've mapped your session keys and executed the pending delegation reques
 
 That's it! You've successfully executed a transaction using a proxy account on behalf of your primary sequencer account.
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -3956,7 +3956,7 @@ Keeping your node up-to-date is an important part of being a Tanssi sequencer. N
 
 This tutorial covers upgrading your Tanssi sequencer that was configured using Docker. It assumes you have already set up your account and launched a [sequencer using Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
 
-!!! tip "Subscribe to Release Notifications" 
+-!!! tip "Subscribe to Release Notifications" 
     Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
     To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
@@ -3979,7 +3979,7 @@ docker stop INSERT_YOUR_CONTAINER_ID
 
 Your terminal interaction will resemble the following:
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>docker ps -a</span>
   <span data-ty>
     <br> 
@@ -4000,7 +4000,7 @@ To restart the node, you can use the same command you used when launching your n
     docker run --network="host" -v "/var/lib/dancebox:/data" \
     -u $(id -u ${USER}):$(id -g ${USER}) \
     moondancelabs/tanssi \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    ---name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
@@ -4047,7 +4047,7 @@ To restart the node, you can use the same command you used when launching your n
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-skylake" \
     moondancelabs/tanssi \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    ---name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
@@ -4093,7 +4093,7 @@ To restart the node, you can use the same command you used when launching your n
     -u $(id -u ${USER}):$(id -g ${USER}) \
     --entrypoint "/tanssi/tanssi-node-znver3" \
     moondancelabs/tanssi \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    ---name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
@@ -4157,7 +4157,7 @@ Keeping your node up-to-date is an important part of being a Tanssi sequencer. N
 
 This tutorial covers upgrading your Tanssi sequencer node that was configured using Systemd. It assumes you have already set up your account and launched a [sequencer node using Systemd](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/){target=\_blank}.
 
-!!! tip "Subscribe to Release Notifications" 
+-!!! tip "Subscribe to Release Notifications" 
     Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
     To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.

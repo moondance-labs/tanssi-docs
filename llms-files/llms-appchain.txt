@@ -471,7 +471,7 @@ On the transaction confirmation screen, take the following steps:
 
 Once the transaction has successfully been submitted, you can review your current proxies, or if you removed all proxies, you will notice the proxy icon is no longer being displayed next to the primary account. And that's it! You've successfully created a proxy, reviewed all proxy accounts associated with your primary account, executed a proxy transaction, and removed a proxy account!
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -1137,7 +1137,7 @@ In this guide, you'll learn how to execute the previously listed actions using t
 For the examples in this guide, you will need to have the following:
 
 - A Tanssi-powered network (Quick Trial or Dedicated)
-- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+-- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 - Your network's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
 !!! note
@@ -1145,7 +1145,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -1161,7 +1161,7 @@ You'll see the registration account at the bottom.
 
 ### Retrieving the Sudo Account {: #retrieving-sudo-account }
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -1280,7 +1280,7 @@ Once your network's communication channels are established, you can register oth
 For the examples in this guide, you will need to have the following:
 
 - A Tanssi-powered network (Dedicated) running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
-- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+-- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 - Your network's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
 !!! note
@@ -1288,7 +1288,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -1304,7 +1304,7 @@ You'll see the registration account at the bottom.
 
 ### Retrieving the Sudo Account {: #retrieving-sudo-account }
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -1315,7 +1315,7 @@ If you're unsure what your Tanssi network's Sudo account is, you can find it in 
 
 ## Accessing the External Assets Registration Panel {: #accesing-external-assets-management-panel }
 
-The Tanssi dApp makes it easy for the network governor to manage cross-chain communication configurations. It allows requesting new channels, accepting incoming channel opening requests, closing existing channels, managing external assets, and more. To access the cross-chain management panel, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, and then: 
+-The Tanssi dApp makes it easy for the network governor to manage cross-chain communication configurations. It allows requesting new channels, accepting incoming channel opening requests, closing existing channels, managing external assets, and more. To access the cross-chain management panel, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, and then: 
 
 1. Click on the **Manage** button
 2. Click on the **XCM** button
@@ -1377,7 +1377,7 @@ For the examples in this guide, you will need to have the following:
 - A Tanssi-powered network (Quick Trial or Dedicated)
 - The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -1442,7 +1442,7 @@ In this guide, you'll learn how to use the [Tanssi dApp](https://apps.tanssi.net
 For the examples in this guide, you will need to have the following:
 
 - A Tanssi-powered network (Dedicated) running [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} or above
-- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
+-- The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 - Your network's Sudo account, also imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
 !!! note
@@ -1450,7 +1450,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -1466,7 +1466,7 @@ You'll see the registration account at the bottom.
 
 ### Retrieving the Sudo Account {: #retrieving-sudo-account }
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -1477,7 +1477,7 @@ If you're unsure what your Tanssi network's Sudo account is, you can find it in 
 
 ## Accessing the Channel Management Panel {: #accesing-channel-management-panel }
 
-The Tanssi dApp makes it easy for the network governor to manage cross-chain communication configurations. It allows requesting new channels, accepting incoming channel opening requests, closing existing channels, managing external assets, and more. To access the cross-chain management panel, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, and then: 
+-The Tanssi dApp makes it easy for the network governor to manage cross-chain communication configurations. It allows requesting new channels, accepting incoming channel opening requests, closing existing channels, managing external assets, and more. To access the cross-chain management panel, head to the [Tanssi dApp](https://apps.tanssi.network/){target=\_blank}, and then: 
 
 1. Click on the **Manage** button
 2. Click on the **XCM** button
@@ -1548,7 +1548,7 @@ For the examples in this guide, you will need to have the following:
  - A Tanssi-powered network (Quick Trial or Dedicated)
  - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -1602,7 +1602,7 @@ The other account had a starting balance of `995` tokens prior to the call and d
 
 And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -1636,7 +1636,7 @@ For the examples in this guide, you will need to have the following:
  - A Tanssi-powered network (Quick Trial or Dedicated)
  - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -1675,7 +1675,7 @@ Remember that using maintenance mode is an emergency action that should only be 
 
 And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi-powered network.
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -1704,7 +1704,7 @@ For the examples in this guide, you will need to have the following:
  - A Tanssi-powered network (Quick Trial or Dedicated)
  - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -1747,7 +1747,7 @@ To assign an account balance to an account, make sure to have your Sudo account 
 
 And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -1781,7 +1781,7 @@ For the examples in this guide, you will need to have the following:
  - A Tanssi-powered network (Quick Trial or Dedicated) featuring the Transaction Pause module. Any new network deployment based on one of the templates will do; otherwise, make sure to [include the module](/builders/build/customize/adding-built-in-module/){target=\_blank} in your custom-made network runtime
  - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -1936,7 +1936,7 @@ The `unpause` transaction executes successfully only if the module and transacti
 
 And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -1972,7 +1972,7 @@ For the examples in this guide, you will need to have the following:
  - An EVM-compatible Tanssi-powered network (Quick Trial or Dedicated) running [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} or above. Any new network deployment based on the [EVM template](/builders/build/templates/evm/){target=\_blank} will do
  - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -2059,7 +2059,7 @@ For the examples in this guide, you will need to have the following:
  - A Tanssi-powered network (Quick Trial or Dedicated)
  - Your network's Sudo account connected to your network's Polkadot.js Apps
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -2102,7 +2102,7 @@ Prior to getting started, make sure that you have your existing Sudo account acc
 
 And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -2132,7 +2132,7 @@ For the example in this guide, you will need to have the following:
  - Your network's Sudo account connected to your network's Polkadot.js Apps. You can refer to the [Managing Sudo guide](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} for instructions on injecting your Sudo account into Polkadot.js Apps
  - The new [Wasm runtime](/learn/framework/architecture/#runtime){target=\_blank} binary file, built with a higher version than the current one
 
-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
+-If you're unsure what your Tanssi network's Sudo account is, you can find it in your [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} underneath the **Properties** section.
 
 ![Locating your Sudo address on apps.tanssi.network](/images/builders/manage/locate-sudo-account.webp)
 
@@ -2189,7 +2189,7 @@ You can verify that your runtime upgrade was successful by checking the runtime 
 
 And that's it! The [Developer Portal](/builders/manage/developer-portal/) section has plenty more guides on how to manage your Tanssi network.
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -3140,7 +3140,7 @@ To improve developer experience when writing modules, Substrate relies heavily o
 
 All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
 
-- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+-- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
 - **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
 - **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
 - **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
@@ -3159,7 +3159,7 @@ As an example of a custom module, the following code (not intended for productio
 - **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
 
 ```rust
-#![cfg_attr(not(feature = "std"), no_std)]
+-#![cfg_attr(not(feature = "std"), no_std)]
 
 /// Learn more about FRAME and the core library of Substrate FRAME pallets:
 /// <https://docs.substrate.io/reference/frame-pallets/>

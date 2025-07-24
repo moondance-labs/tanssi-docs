@@ -94,11 +94,16 @@ def format_docs_section(pages: List[Dict[str, Any]], base_url: str, category_ord
 def format_tutorials_section(pages: List[Dict[str, Any]], base_url: str, project_name: str) -> str:
     tutorials = [
         f"- [{p['title']}]({base_url}/{p['path']}): {p['description']}"
-        for p in pages if "Tutorial" in p["categories"]
+        for p in pages
+        if any("tutorial" in c.lower() for c in p["categories"])
     ]
     if not tutorials:
         return f"\n## Tutorials\nNo tutorials available."
-    return f"\n## Tutorials\nTutorials for building with {project_name}. These provide step-by-step instructions for real-world use cases and implementations.\n" + "\n".join(tutorials)
+    return (
+        f"\n## Tutorials\nTutorials for building with {project_name}. "
+        "These provide step-by-step instructions for real-world use cases and implementations.\n"
+        + "\n".join(tutorials)
+    )
 
 def format_repos_section(repos: List[Dict[str, str]]) -> str:
     if not repos:

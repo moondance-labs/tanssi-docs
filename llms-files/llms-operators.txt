@@ -468,7 +468,7 @@ On the transaction confirmation screen, take the following steps:
 
 Once the transaction has successfully been submitted, you can review your current proxies, or if you removed all proxies, you will notice the proxy icon is no longer being displayed next to the primary account. And that's it! You've successfully created a proxy, reviewed all proxy accounts associated with your primary account, executed a proxy transaction, and removed a proxy account!
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -1452,7 +1452,7 @@ To improve developer experience when writing modules, Substrate relies heavily o
 
 All modules in Substrate, including custom-made ones, implement these attribute macros, of which the first three are mandatory:
 
-- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
+-- **`#[frame_support::pallet]`** - this attribute is the entry point that marks the module as usable in the runtime
 - **`#[pallet::pallet]`** - applied to a structure that is used to retrieve module information easily
 - **`#[pallet::config]`** - is a required attribute to define the configuration for the data types of the module
 - **`#[pallet::call]`** -  this macro is used to define functions that will be exposed as transactions, allowing them to be dispatched to the runtime. It is here that the developers add their custom transactions and logic
@@ -1471,7 +1471,7 @@ As an example of a custom module, the following code (not intended for productio
 - **award_prize** - this transaction generates a random number to pick the winner from the list of participants. The winner gets the total amount of the funds transferred to the module's special account
 
 ```rust
-#![cfg_attr(not(feature = "std"), no_std)]
+-#![cfg_attr(not(feature = "std"), no_std)]
 
 /// Learn more about FRAME and the core library of Substrate FRAME pallets:
 /// <https://docs.substrate.io/reference/frame-pallets/>
@@ -3124,7 +3124,7 @@ Key offboarding steps, such as signaling your intent to exit or formally unregis
 
 ### Interaction Methods
 
-There are several ways to interact with the smart contracts:
+-There are several ways to interact with the smart contracts:
 
 - Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
 - Using [Etherscan](https://etherscan.io/){target=\_blank}
@@ -3382,7 +3382,7 @@ curl http://127.0.0.1:9944 -H \
 
 Your hex-encoded session keys will be printed to the terminal in the `"result"` field.
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>curl http://127.0.0.1:9944 -H \
     <br>  "Content-Type:application/json;charset=utf-8" -d \
     <br>    '{
@@ -3460,7 +3460,7 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
 The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
 
@@ -3478,7 +3478,7 @@ Before opting into a Tanssi-enabled vault and the Tanssi network, make sure that
 
 To follow this guide, you must interact with smart contracts, one from Symbiotic's core protocol and the other from Tanssi's integration with Symbiotic.
 
-There are several ways to interact with the smart contracts:
+-There are several ways to interact with the smart contracts:
 
 - Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
 - Using [Etherscan](https://etherscan.io/){target=\_blank}
@@ -3815,7 +3815,7 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
 The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
 
@@ -3829,7 +3829,7 @@ This guide will walk you through the steps to successfully register your node as
 Before registering as an operator, ensure you have already [set up the node](/node-operators/operators/onboarding/run-an-operator/){target=\_blank} and it is running.
 
 To follow this guide, you must interact with smart contracts.
-There are several ways to interact with the smart contracts:
+-There are several ways to interact with the smart contracts:
 
 - Using the [Symbiotic CLI](https://github.com/symbioticfi/cli){target=\_blank}
 - Using [Etherscan](https://etherscan.io/){target=\_blank}
@@ -4071,7 +4071,7 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
 The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
 
@@ -4082,7 +4082,7 @@ In this guide, you'll learn how to spin up a Tanssi operator using the official 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
-### Installing Docker {: #installing-docker}
+-### Installing Docker {: #installing-docker}
 
 To get started, you'll need access to a computer running a Linux OS and install [Docker](https://docs.docker.com/desktop/setup/install/linux/){target=\blank}.
 
@@ -4100,7 +4100,7 @@ sudo docker run hello-world
 
 This is what a successful execution in the terminal looks like:
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>sudo docker run hello-world</span>
   <span data-ty>
     <br> 
@@ -4151,7 +4151,7 @@ The following command to pull the Docker image:
 
 The command will download and extract the image and show the status upon execution:
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>docker moondancelabs/starlight</span>
   <span data-ty>
     <br> 
@@ -4168,7 +4168,7 @@ The command will download and extract the image and show the status upon executi
 </div>
 
 
-### Set Up the Data Directory {: #set-up-data-directory }
+-### Set Up the Data Directory {: #set-up-data-directory }
 
 Running a node requires syncing with the Tanssi chain and storing its state.
 
@@ -4237,7 +4237,7 @@ To generate and store on disk the session keys that will be referenced on the st
     moondancelabs/starlight key generate-node-key --file /data/node-key
     ```
 
-!!! note
+-!!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
 
 ## Start Your Node {: #start-your-node }
@@ -4246,7 +4246,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSERT_YOUR_IP_ADDRESS` with your public IP address.
 
-!!! note
+-!!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 
@@ -4259,7 +4259,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
         -u $(id -u ${USER}):$(id -g ${USER}) \
         moondancelabs/starlight \
         --chain=tanssi \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -4282,7 +4282,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
         --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
         moondancelabs/starlight \
         --chain=tanssi \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -4305,7 +4305,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
         --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
         moondancelabs/starlight \
         --chain=tanssi \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -4329,7 +4329,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
         -u $(id -u ${USER}):$(id -g ${USER}) \
         moondancelabs/starlight \
         --chain=dancelight \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -4352,7 +4352,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
         --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
         moondancelabs/starlight \
         --chain=dancelight \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -4375,7 +4375,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
         --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
         moondancelabs/starlight \
         --chain=dancelight \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -4394,7 +4394,7 @@ Replace `INSERT_YOUR_TANSSI_NODE_NAME` with a human-readable name and set `INSER
 
 The flags used in the `docker run` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
+-- `--name INSERT_NAME` - a human-readable name for this node
 - `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
 - `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
 - `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
@@ -4423,7 +4423,7 @@ For a complete list of available flags, their description, and possible values, 
 
 The first time your node spins up, the syncing process displays lots of log information from the node configuration and the chain blocks being synced. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>docker run ....</span>
   <span data-ty>
     <br> 2024-02-08 18:30:04.093  INFO tokio-runtime-worker substrate: [Parachain] 💤 Idle (0 peers), best: #0 (0x4a2b…7de3), finalized #0 (0x4a2b…7de3), ⬇ 0 ⬆ 0
@@ -4449,7 +4449,7 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
 
 The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
 
@@ -4480,7 +4480,7 @@ sudo dmesg | grep landlock || journalctl -kg landlock
 
 The output should look like:
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
     <span data-ty="input"><span class="file-path"></span>sudo dmesg | grep landlock || journalctl -kg landlock</span>
     <span data-ty>[    0.240344] landlock: Up and running.</span>
 </div>
@@ -4491,7 +4491,7 @@ If Landlock is disabled in your system, upgrade the kernel to version 5.13 or ab
 
 To get started, download the latest binary release and make it executable by running the following command:
 
-!!! note
+-!!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 
@@ -4522,7 +4522,7 @@ To get started, download the latest binary release and make it executable by run
     chmod +x ./tanssi-relay*
     ```
 
-## Set Up the Systemd Service {: #set-up-systemd-service }
+-## Set Up the Systemd Service {: #set-up-systemd-service }
 
 [Systemd](https://systemd.io){target=\_blank} is a management system for Linux systems that manages services (daemons in Unix-like systems jargon), starting them automatically when the computer starts or reboots, or restarting them upon unexpected failures.
 
@@ -4584,7 +4584,7 @@ The following commands configure a new account, create the directory, and move t
         mv ./tanssi-relay* /var/lib/dacelight-data
         ```
 
-### Generate the Node Key {: #generate-node-key }
+-### Generate the Node Key {: #generate-node-key }
 
 To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
@@ -4600,10 +4600,10 @@ To generate and store on disk the session keys that will be referenced on the st
     /var/lib/dancelight-data/tanssi-relay key generate-node-key --file /var/lib/dancelight-data/node-key
     ```
 
-!!! note
+-!!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
 
-### Create the Systemd Service Configuration File {: #create-systemd-configuration }
+-### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
 The next step is to create the Systemd configuration file.
 
@@ -4642,7 +4642,7 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
     KillSignal=SIGHUP
     LimitNOFILE=100000
     ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=tanssi \
-    --base-path=/var/lib/tanssi-data/ \
+    ---base-path=/var/lib/tanssi-data/ \
 --node-key-file /var/lib/tanssi-data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -4678,7 +4678,7 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
     KillSignal=SIGHUP
     LimitNOFILE=100000
     ExecStart=/var/lib/tanssi-data/tanssi-relay --chain=dancelight \
-    --base-path=/var/lib/tanssi-data/ \
+    ---base-path=/var/lib/tanssi-data/ \
 --node-key-file /var/lib/tanssi-data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -4700,7 +4700,7 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
 
 The flags used in the `ExecStart` command can be adjusted according to your preferences and hardware configuration. The following ones are some of the most note-worthy:
 
-- `--name INSERT_NAME` - a human-readable name for this node
+-- `--name INSERT_NAME` - a human-readable name for this node
 - `--rpc-port INSERT_PORT` - specifies the JSON-RPC TCP port the node listens on
 - `--unsafe-rpc-external` - exposes the RPC service on all the interfaces
 - `--state-pruning INSERT_STATE_PRUNING_TYPE` - specifies when the Tanssi-powered network state should be removed from the database. The pruning type can be either `archive` (which makes the node behave as a full node keeping all the state), `archive-canonical` (which keeps only the state of finalized blocks), or any `number` (representing the number of blocks whose states are kept)
@@ -4725,7 +4725,7 @@ For a complete list of available flags, their description, and possible values, 
     /var/lib/dancelight-data/tanssi-relay --help
     ```
 
-## Run the Service {: #run-the-service }
+-## Run the Service {: #run-the-service }
 
 Finally, enable the service and start it for the first time:
 
@@ -4757,7 +4757,7 @@ You can verify that the service is up and running correctly by executing the fol
     systemctl status dancelight.service
     ```
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
   <span data-ty>
     <br> ● network.service - "Network systemd service"
@@ -4774,7 +4774,7 @@ You can verify that the service is up and running correctly by executing the fol
 
 
 
-Check the logs, if needed, with the following command:
+-Check the logs, if needed, with the following command:
 
 === "Tanssi MainNet"
 
@@ -4934,7 +4934,7 @@ A pop-up will appear asking you to authorize and sign the transaction; click on 
 
 That's it! You've successfully executed a transaction using a proxy account on behalf of your primary operator account.
 
-<div class="page-disclaimer">
+-<div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
 </div>
 --- END CONTENT ---
@@ -4956,7 +4956,7 @@ Keeping your node up-to-date is an important part of being a Tanssi operator. No
 
 This tutorial covers upgrading your Tanssi operator node that was configured using Docker. It assumes you have already set up your account and launched an [operator node using Systemd](/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
-!!! tip "Subscribe to Release Notifications" 
+-!!! tip "Subscribe to Release Notifications" 
     Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
     To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.
@@ -4979,7 +4979,7 @@ docker stop INSERT_YOUR_CONTAINER_ID
 
 Your terminal interaction will resemble the following:
 
-<div id="termynal" data-termynal>
+-<div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>docker ps -a</span>
   <span data-ty>
     <br> 
@@ -5003,7 +5003,7 @@ To restart the node, you can use the same command you used when launching your n
         -u $(id -u ${USER}):$(id -g ${USER}) \
         moondancelabs/starlight \
         --chain=tanssi \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -5026,7 +5026,7 @@ To restart the node, you can use the same command you used when launching your n
         --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
         moondancelabs/starlight \
         --chain=tanssi \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -5049,7 +5049,7 @@ To restart the node, you can use the same command you used when launching your n
         --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
         moondancelabs/starlight \
         --chain=tanssi \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -5073,7 +5073,7 @@ To restart the node, you can use the same command you used when launching your n
         -u $(id -u ${USER}):$(id -g ${USER}) \
         moondancelabs/starlight \
         --chain=dancelight \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -5096,7 +5096,7 @@ To restart the node, you can use the same command you used when launching your n
         --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
         moondancelabs/starlight \
         --chain=dancelight \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -5119,7 +5119,7 @@ To restart the node, you can use the same command you used when launching your n
         --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
         moondancelabs/starlight \
         --chain=dancelight \
-        --base-path=/data/ \
+        ---base-path=/data/ \
 --node-key-file /data/node-key \
 --database=paritydb \
 --rpc-port=9944 \
@@ -5134,7 +5134,7 @@ To restart the node, you can use the same command you used when launching your n
 --validator
         ```
 
-!!! note
+-!!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
 
@@ -5162,7 +5162,7 @@ Keeping your node up-to-date is an important part of being a Tanssi operator. No
 
 This tutorial covers upgrading your Tanssi operator node that was configured using Systemd. It assumes you have already set up your account and launched a [operator node using Systemd](/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
-!!! tip "Subscribe to Release Notifications" 
+-!!! tip "Subscribe to Release Notifications" 
     Staying informed about new client releases is essential for maintaining an up-to-date node. Node maintainers can subscribe to GitHub notifications to be alerted for new client release versions.  
 
     To subscribe, visit the [Tanssi GitHub](https://github.com/moondance-labs/tanssi){target=\_blank} repository and click **Watch**. Select **Custom notifications** and ensure the box for **Releases** is checked.

@@ -53,7 +53,9 @@
     "README.md",
     "index.md",
     ".CONTRIBUTING.md",
-    "pull-request-template.md"
+    "pull-request-template.md",
+    "cookie-policy.md",
+    "LICENSE.md"
   ],
   "skip_parts": [
     ".snippets",

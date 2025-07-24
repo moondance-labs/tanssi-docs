@@ -41,9 +41,9 @@ def remove_html_comments(content: str) -> str:
     """
     return re.sub(r"<!--.*?-->", "", content, flags=re.DOTALL)
 
-# --- Snippet handling ---
-SNIPPET_REGEX = r"--8<--\s*['\"]([^'\"]+)['\"]"
-# Handles snippets specifying line ranges
+# --- Snippet handling (cleaned) ---
+SNIPPET_REGEX = r"-?8<--\s*['\"]([^'\"]+)['\"]"
+
 def parse_line_range(snippet_path):
     parts = snippet_path.split(':')
     file_only = parts[0]
@@ -56,23 +56,25 @@ def fetch_local_snippet(snippet_ref, snippet_directory):
     absolute_snippet_path = os.path.join(snippet_directory, file_only)
 
     if not os.path.exists(absolute_snippet_path):
-        print(f"Snippet file not found: {absolute_snippet_path}. Leaving placeholder unchanged.")
-        return snippet_ref
+        return f"<!-- MISSING LOCAL SNIPPET {snippet_ref} -->"
 
     with open(absolute_snippet_path, 'r', encoding='utf-8') as snippet_file:
         snippet_content = snippet_file.read()
 
     lines = snippet_content.split('\n')
     if line_start is not None and line_end is not None:
+        if line_start == line_end:
+            snippet_content = lines[line_start - 1: line_end]
         snippet_content = '\n'.join(lines[line_start - 1: line_end])
 
-    # recursively resolve nested snippets
+    # Recursively resolve nested snippets
     return replace_snippet_placeholders(snippet_content, snippet_directory, {})
 
 def fetch_remote_snippet(snippet_ref):
     match = re.match(r'^(https?://[^:]+)(?::(\d+))?(?::(\d+))?$', snippet_ref)
     if not match:
-        return f"Invalid snippet reference: {snippet_ref}"
+        return f"<!-- INVALID REMOTE SNIPPET {snippet_ref} -->"
+
     url = match.group(1)
     line_start = int(match.group(2)) if match.group(2) else None
     line_end = int(match.group(3)) if match.group(3) else None
@@ -83,19 +85,27 @@ def fetch_remote_snippet(snippet_ref):
         snippet_content = response.text
         if line_start and line_end:
             lines = snippet_content.split('\n')
-            snippet_content = '\n'.join(lines[line_start-1:line_end])
+            snippet_content = '\n'.join(lines[line_start - 1: line_end])
         return snippet_content.strip()
     except requests.RequestException as e:
-        return f"Error fetching snippet from {url}: {e}"
+        return f"<!-- ERROR FETCHING REMOTE SNIPPET {snippet_ref} -->"
 
 def replace_snippet_placeholders(markdown, snippet_directory, yaml_data):
-    def replacement(match):
-        snippet_ref = match.group(1)
-        if snippet_ref.startswith("http"):
-            return fetch_remote_snippet(snippet_ref)
+    """
+    Recursively replace --8<-- snippet placeholders until none remain.
+    Handles nested snippet references and multiple snippet blocks.
+    Also resolves {{placeholders}} in snippet paths before fetching.
+    """
+    def fetch_and_replace(snippet_ref):
+        snippet_ref_resolved = resolve_markdown_placeholders(snippet_ref, yaml_data)
+        if snippet_ref_resolved.startswith("http"):
+            return fetch_remote_snippet(snippet_ref_resolved)
         else:
-            return fetch_local_snippet(snippet_ref, snippet_directory)
-    return re.sub(SNIPPET_REGEX, replacement, markdown)
+            return fetch_local_snippet(snippet_ref_resolved, snippet_directory)
+
+    while re.search(SNIPPET_REGEX, markdown):
+        markdown = re.sub(SNIPPET_REGEX, lambda match: fetch_and_replace(match.group(1)), markdown)
+    return markdown
 
 # --- Collect markdown files ---
 def get_all_markdown_files(directory, skip_basenames, skip_parts):
