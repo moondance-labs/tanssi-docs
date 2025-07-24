@@ -150,13 +150,13 @@ The flags used in the `docker run` command can be adjusted according to your pre
 === "Tanssi MainNet"
 
     ```bash
-    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    docker run -ti {{ networks.dancelight.operator_docker_image }} --help
     ```
     
 === "Dancelight TestNet"
     
     ```bash
-    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    docker run -ti {{ networks.dancelight.operator_docker_image }} --help
     ```
 
 ## Syncing Your Node {: #syncing-your-node }

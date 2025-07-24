@@ -592,34 +592,6 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --sync=fast \
 --base-path=/data/relay \
 --node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
---database=paritydb \
---rpc-port=9945 \
---prometheus-port=9616 \
---prometheus-external \
---listen-addr=/ip4/0.0.0.0/tcp/30334 \
---pool-limit=0 \
---db-cache=128 \
---out-peers=15 \
---state-pruning=2000 \
---blocks-pruning=2000 \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/deo-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWNQ1cddxwvnZZUBG2gtByn9hirVGEn2yR37ztnGSi1VHu \
---bootnodes=/dns4/fro-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWS3kv4PyNTxKS8CBxZsVrhMcNcXgxqVUHLrXixuz4DaSR \
---bootnodes=/dns4/qcl-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWFDUJ1QZn18tmeJJZU4e6JbyQrLiAp4Xz7ongKzoSjadg \
---bootnodes=/dns4/qco-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWBzJzAdAKNVXcsvfL3nHH8BSocNvxz7A8PkRAAJhTuQNm \
---bootnodes=/dns4/uko-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWAexWR4uyhVPyxqPBNhhepJ5jRqUa885mu5dKPPVHSfpC"
-        ```
-
-    === "Intel Skylake"
-
-        ```bash
-        docker run --entrypoint bash --network="host" -v "/var/lib/tanssi-data:/data" \
-        -u $(id -u ${USER}):$(id -g ${USER}) \
-        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-skylake solo-chain \
-        --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
---base-path=/data/container \
---node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --pool-type=fork-aware \
 --database=paritydb \
@@ -636,104 +608,6 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --detailed-log-output \
 -- \
 --chain=/data/starlight-raw-specs.json \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=fast \
---base-path=/data/relay \
---node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
---database=paritydb \
---rpc-port=9945 \
---prometheus-port=9616 \
---prometheus-external \
---listen-addr=/ip4/0.0.0.0/tcp/30334 \
---pool-limit=0 \
---db-cache=128 \
---out-peers=15 \
---state-pruning=2000 \
---blocks-pruning=2000 \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/deo-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWNQ1cddxwvnZZUBG2gtByn9hirVGEn2yR37ztnGSi1VHu \
---bootnodes=/dns4/fro-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWS3kv4PyNTxKS8CBxZsVrhMcNcXgxqVUHLrXixuz4DaSR \
---bootnodes=/dns4/qcl-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWFDUJ1QZn18tmeJJZU4e6JbyQrLiAp4Xz7ongKzoSjadg \
---bootnodes=/dns4/qco-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWBzJzAdAKNVXcsvfL3nHH8BSocNvxz7A8PkRAAJhTuQNm \
---bootnodes=/dns4/uko-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWAexWR4uyhVPyxqPBNhhepJ5jRqUa885mu5dKPPVHSfpC"
-        ```
-
-    === "AMD Zen3"
-
-        ```bash
-        docker run --entrypoint bash --network="host" -v "/var/lib/tanssi-data:/data" \
-        -u $(id -u ${USER}):$(id -g ${USER}) \
-        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-znver3 solo-chain \
-        --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
---base-path=/data/container \
---node-key-file=/data/node-key \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---pool-type=fork-aware \
---database=paritydb \
---rpc-port=9944 \
---prometheus-port=9615 \
---prometheus-external \
---listen-addr=/ip4/0.0.0.0/tcp/30333 \
---state-pruning=2000 \
---blocks-pruning=2000 \
---db-cache=1024 \
---trie-cache-size=1073741824 \
---collator \
---in-peers=100 \
---detailed-log-output \
--- \
---chain=/data/starlight-raw-specs.json \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=fast \
---base-path=/data/relay \
---node-key-file=/data/node-key \
---keystore-path=/data/keys/session \
---database=paritydb \
---rpc-port=9945 \
---prometheus-port=9616 \
---prometheus-external \
---listen-addr=/ip4/0.0.0.0/tcp/30334 \
---pool-limit=0 \
---db-cache=128 \
---out-peers=15 \
---state-pruning=2000 \
---blocks-pruning=2000 \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/deo-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWNQ1cddxwvnZZUBG2gtByn9hirVGEn2yR37ztnGSi1VHu \
---bootnodes=/dns4/fro-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWS3kv4PyNTxKS8CBxZsVrhMcNcXgxqVUHLrXixuz4DaSR \
---bootnodes=/dns4/qcl-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWFDUJ1QZn18tmeJJZU4e6JbyQrLiAp4Xz7ongKzoSjadg \
---bootnodes=/dns4/qco-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWBzJzAdAKNVXcsvfL3nHH8BSocNvxz7A8PkRAAJhTuQNm \
---bootnodes=/dns4/uko-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWAexWR4uyhVPyxqPBNhhepJ5jRqUa885mu5dKPPVHSfpC"
-        ```
-
-=== "Dancelight TestNet"
-
-    === "Generic"
-
-        ```bash
-        docker run --entrypoint bash --network="host" -v "/var/lib/dancelight-data:/data" \
-        -u $(id -u ${USER}):$(id -g ${USER}) \
-        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node solo-chain \
-        --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
---base-path=/data/container \
---node-key-file=/data/node-key \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---pool-type=fork-aware \
---database=paritydb \
---rpc-port=9944 \
---prometheus-port=9615 \
---prometheus-external \
---listen-addr=/ip4/0.0.0.0/tcp/30333 \
---state-pruning=2000 \
---blocks-pruning=2000 \
---db-cache=1024 \
---trie-cache-size=1073741824 \
---collator \
---in-peers=100 \
---detailed-log-output \
--- \
---chain=/data/dancelight-raw-specs.json \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
 --base-path=/data/relay \
@@ -1045,15 +919,9 @@ Move the chain specification file to the folder:
 
 === "Tanssi MainNet"
 
-    ```bash
-    mv ./starlight-raw-specs.json /var/lib/tanssi-data
-    ```
-
-=== "Dancelight TestNet"
-
-    ```bash
-    mv ./dancelight-raw-specs.json /var/lib/dancelight-data
-    ```
+```bash
+mv ./dancelight-raw-specs.json /var/lib/tanssi-data
+```
 
 And finally, move the binary to the folder:
 
@@ -1117,115 +985,53 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
     After=network.target
     StartLimitIntervalSec=0
 
-    [Service]
-    Type=simple
-    Restart=on-failure
-    RestartSec=10
-    User=tanssi_service
-    SyslogIdentifier=tanssi
-    SyslogFacility=local7
-    KillSignal=SIGHUP
-    ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
-    --base-path=/var/lib/tanssi-data/container \
-    --node-key-file=/var/lib/tanssi-data/node-key \
-    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
-    --pool-type=fork-aware \
-    --database=paritydb \
-    --rpc-port=9944 \
-    --prometheus-port=9615 \
-    --prometheus-external \
-    --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
-    --db-cache=1024 \
-    --trie-cache-size=1073741824 \
-    --collator \
-    --in-peers=100 \
-    --detailed-log-output \
-    -- \
-    --chain=/var/lib/tanssi-data/starlight-raw-specs.json \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --sync=fast \
-    --base-path=/var/lib/tanssi-data/relay \
-    --node-key-file=/var/lib/tanssi-data/node-key \
-    --keystore-path=/var/lib/tanssi-data/session \
-    --database=paritydb \
-    --rpc-port=9945 \
-    --prometheus-port=9616 \
-    --prometheus-external \
-    --listen-addr=/ip4/0.0.0.0/tcp/30334 \
-    --pool-limit=0 \
-    --db-cache=128 \
-    --out-peers=15 \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
-    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
-    --bootnodes=/dns4/deo-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWNQ1cddxwvnZZUBG2gtByn9hirVGEn2yR37ztnGSi1VHu \
-    --bootnodes=/dns4/fro-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWS3kv4PyNTxKS8CBxZsVrhMcNcXgxqVUHLrXixuz4DaSR \
-    --bootnodes=/dns4/qcl-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWFDUJ1QZn18tmeJJZU4e6JbyQrLiAp4Xz7ongKzoSjadg \
-    --bootnodes=/dns4/qco-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWBzJzAdAKNVXcsvfL3nHH8BSocNvxz7A8PkRAAJhTuQNm \
-    --bootnodes=/dns4/uko-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWAexWR4uyhVPyxqPBNhhepJ5jRqUa885mu5dKPPVHSfpC
-
-    [Install]
-    WantedBy=multi-user.target
-    ```
-
-=== "Dancelight TestNet"
-
-    ```bash
-    [Unit]
-    Description="Dancelight systemd service"
-    After=network.target
-    StartLimitIntervalSec=0
-
-    [Service]
-    Type=simple
-    Restart=on-failure
-    RestartSec=10
-    User=dancelight_service
-    SyslogIdentifier=dancelight
-    SyslogFacility=local7
-    KillSignal=SIGHUP
-    ExecStart=/var/lib/dancelight-data/tanssi-node solo-chain \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
-    --base-path=/var/lib/dancelight-data/container \
-    --node-key-file=/var/lib/dancelight-data/node-key \
-    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
-    --pool-type=fork-aware \
-    --database=paritydb \
-    --rpc-port=9944 \
-    --prometheus-port=9615 \
-    --prometheus-external \
-    --listen-addr=/ip4/0.0.0.0/tcp/30333 \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
-    --db-cache=1024 \
-    --trie-cache-size=1073741824 \
-    --collator \
-    --in-peers=100 \
-    --detailed-log-output \
-    -- \
-    --chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
-    --name=INSERT_YOUR_TANSSI_NODE_NAME \
-    --sync=fast \
-    --base-path=/var/lib/dancelight-data/relay \
-    --node-key-file=/var/lib/dancelight-data/node-key \
-    --keystore-path=/var/lib/dancelight-data/session \
-    --database=paritydb \
-    --rpc-port=9945 \
-    --prometheus-port=9616 \
-    --prometheus-external \
-    --listen-addr=/ip4/0.0.0.0/tcp/30334 \
-    --pool-limit=0 \
-    --db-cache=128 \
-    --out-peers=15 \
-    --state-pruning=2000 \
-    --blocks-pruning=2000 \
-    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
-    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
-    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
-    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+[Service]
+Type=simple
+Restart=on-failure
+RestartSec=10
+User=tanssi_service
+SyslogIdentifier=tanssi
+SyslogFacility=local7
+KillSignal=SIGHUP
+ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
+--name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/var/lib/tanssi-data/container \
+--node-key-file=/var/lib/tanssi-data/node-key \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/var/lib/tanssi-data/dancelight-raw-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/var/lib/tanssi-data/relay \      
+--node-key-file=/var/lib/tanssi-data/node-key \
+--keystore-path=/var/lib/tanssi-data/session \
+--database=paritydb \
+--rpc-port=9945 \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
 
     [Install]
     WantedBy=multi-user.target
