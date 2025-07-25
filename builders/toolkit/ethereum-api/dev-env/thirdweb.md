@@ -29,8 +29,8 @@ To create a new smart contract using the [thirdweb CLI](https://portal.thirdweb.
     1. Give your project a name
     2. Choose your preferred framework: **Hardhat** or **Foundry**
     3. Name your smart contract
-    4. Choose the type of base contract: **Empty**, [**ERC20**](https://portal.thirdweb.com/contracts/build/base-contracts/erc-20/base){target=\_blank}, [**ERC721**](https://portal.thirdweb.com/contracts/build/base-contracts/erc-721/base){target=\_blank}, or [**ERC1155**](https://portal.thirdweb.com/contracts/build/base-contracts/erc-1155/base){target=\_blank}
-    5. Add any desired [extensions](https://portal.thirdweb.com/contracts/build/extensions){target=\_blank}
+    4. Choose the type of base contract: **Empty**, **ERC20**, **ERC721**, or **ERC1155**
+    5. Add any desired [extensions](https://portal.thirdweb.com/contracts/extensions){target=\_blank}
 3. Once created, navigate to your project’s directory and open in your preferred code editor
 4. If you open the `contracts` folder, you will find your smart contract; this is your smart contract written in Solidity
 
@@ -59,6 +59,7 @@ To create a new smart contract using the [thirdweb CLI](https://portal.thirdweb.
     - Implementing any required methods, such as the constructor
 
 5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM network using [Deploy](#deploy-contract). That will be covered in the next section!
+5. After modifying your contract with your desired custom logic, you can deploy it to a Tanssi EVM network using [Deploy](#deploy-contract). That will be covered in the next section!
 
 Alternatively, you can deploy a prebuilt contract for NFTs, tokens, or marketplace directly from the thirdweb Explore page:
 
@@ -73,6 +74,7 @@ For more information on different contracts available on Explore, check out [thi
 
 ## Deploy Contract {: #deploy-contract }
 
+Deploy is thirdweb's tool that allows you to easily deploy a smart contract to any EVM compatible network without configuring RPC URLs, exposing your private keys, writing scripts, and other additional setup such as verifying your contract.
 Deploy is thirdweb's tool that allows you to easily deploy a smart contract to any EVM compatible network without configuring RPC URLs, exposing your private keys, writing scripts, and other additional setup such as verifying your contract.
 
 1. To deploy your smart contract using deploy, navigate to the `contracts` directory of your project and execute the following command:
@@ -99,7 +101,7 @@ Deploy is thirdweb's tool that allows you to easily deploy a smart contract to a
 
     ![thirdweb deploy](/images/builders/toolkit/ethereum-api/dev-environments/thirdweb/thirdweb-2.webp)
 
-For additional information on Deploy, please reference [thirdweb’s documentation](https://portal.thirdweb.com/contracts){target=\_blank}.
+For additional information on Deploy, please reference [thirdweb’s documentation](https://portal.thirdweb.com/contracts/){target=\_blank}.
 
 ## Create Application {: #create-application }
 

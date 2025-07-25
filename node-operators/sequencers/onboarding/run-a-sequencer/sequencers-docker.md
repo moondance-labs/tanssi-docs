@@ -1,6 +1,6 @@
 ---
 title: Run a Sequencer Using Docker
-description: Learn how to set up and run a sequencer (aka block producer) for Tanssi-powered networks using Docker to participate in the protocol and earn rewards.
+description: Learn how to set up and run a sequencer (aka block producer) for Tanssi-powered appchains using Docker to participate in the protocol and earn rewards.
 icon: simple-docker
 categories: Sequencers
 ---
@@ -17,7 +17,7 @@ In this guide, you'll learn how to spin up a Tanssi sequencer to be part of the 
 
 --8<-- 'text/node-operators/installing-docker.md'
 
-### Pulling the Docker Image {: #pulling-docker-image }
+## Pulling the Docker Image {: #pulling-docker-image }
 
 A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi sequencer requires and the binary file itself.
 
@@ -25,48 +25,106 @@ A Docker image combines the binary corresponding to the latest stable release of
 
 The following command to pull the Docker image:
 
-```bash
-docker pull {{ node_versions.docker_sequencer_image_name }}
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker pull {{ node_versions.docker_sequencer_image_name }}
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker pull {{ node_versions.docker_sequencer_image_name }}
+    ```
 
 The command will download and extract the image and show the status upon execution:
 
 --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/terminal/pulling-docker-image.md'
 
-### Setup the Data Directory {: #setup-data-directory }
+--8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/download-specs.md'
+
+## Setup the Data Directory {: #setup-data-directory }
 
 Running a sequencer requires syncing with two chains: the Tanssi chain and the network it has been assigned to.
 
 Run the following command to create the directory where your sequencer will store the databases containing blocks and chain states:
 
-```bash
-mkdir /var/lib/dancebox
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
 
-```bash
-chown INSERT_DOCKER_USER /var/lib/dancebox
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/tanssi-data
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/dancelight-data
+    ```
 
 Or run the following command if you want to run the sequencer with the current logged-in user:
 
-```bash
-sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
+    ```
+
+Move the chain specification file to the folder:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    mv ./starlight-raw-specs.json /var/lib/tanssi-data
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    mv ./dancelight-raw-specs.json /var/lib/dancelight-data
+    ```
 
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
 
-### Generate the Node Key {: #generate-node-key }
+## Generate the Node Key {: #generate-node-key }
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-intro.md'
 
-```bash
-docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node key generate-node-key --file /data/node-key"
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ node_versions.docker_sequencer_image_name }} key generate-node-key --file /data/node-key
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ node_versions.docker_sequencer_image_name }} key generate-node-key --file /data/node-key
+    ```
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
@@ -83,29 +141,63 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-=== "Generic"
+=== "Tanssi MainNet"
 
-    ```bash
-    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
-    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
-    ```
+    === "Generic"
 
-=== "Intel Skylake"
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node solo-chain \
+        --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command-mainnet.md'
+        ```
 
-    ```bash
-    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-skylake solo-chain \
-    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
-    ```
-=== "AMD Zen3"
+    === "Intel Skylake"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
-    {{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-znver3 solo-chain \
-    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-skylake solo-chain \
+        --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command-mainnet.md'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-znver3 solo-chain \
+        --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command-mainnet.md'
+        ```
+
+=== "Dancelight TestNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node solo-chain \
+        --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-skylake solo-chain \
+        --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-znver3 solo-chain \
+        --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
+        ```
 
 ### Run Flags {: #run-flags }
 
@@ -113,9 +205,17 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 --8<-- 'text/node-operators/network-node/run-flags.md'
 
-```bash
-docker run --entrypoint bash {{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node --help"
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run {{ node_versions.docker_sequencer_image_name }} --help
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    docker run {{ node_versions.docker_sequencer_image_name }} --help
+    ```
 
 ## Syncing Your Node {: #syncing-your-node }
 
