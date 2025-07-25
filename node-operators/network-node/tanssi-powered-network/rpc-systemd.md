@@ -1,30 +1,30 @@
 ---
-title: Run a Network Node Using Systemd
-description: Learn how to set up and run a Tanssi-powered network node using Systemd, which allows you to have your own RPC endpoint to interact with your chain.
+title: Run an Appchain Node Using Systemd
+description: Learn how to set up and run a Tanssi-powered appchain node using Systemd, which allows you to have your own RPC endpoint to interact with your appchain.
 icon: simple-linux
 categories: RPC-Data-Preservers
 ---
 
-# Run a Network Node Using Systemd
+# Run an Appchain Node Using Systemd
 
 ## Introduction {: #introduction }
 
 --8<-- 'text/node-operators/network-node/intro.md'
 
-In this guide, you'll learn how to spin up a Tanssi network node using a binary executable file and manage the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
+In this guide, you'll learn how to spin up a Tanssi appchain node using a binary executable file and manage the service with [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
 The article follows the good practice of running the service with its own non-root account and granting that account write access to a specific directory. However, you can adapt this article's steps and instructions to your infrastructure configuration, preferences, and security policies.
 
 !!! note
-    It is not possible to run an RPC node for quick Trial networks as they run on a private network, and their nodes are, therefore, unreachable for syncing.
+    It is not possible to run an RPC node for quick Trial appchains as they run on a private network, and their nodes are, therefore, unreachable for syncing.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 To get started, you'll need access to a computer running an Ubuntu Linux OS and root privileges. You will also need:
 
-- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable node release. If you want to build and run your own file, make sure to follow the instructions for [building your network node](/builders/build/customize/prerequisites/){target=\_blank}
+- **Node binary file** - the instructions in this guide execute the [latest](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank} official stable node release. If you want to build and run your own file, make sure to follow the instructions for [building your appchain node](/builders/build/customize/prerequisites/){target=\_blank}
 
-- **Network specifications file** - the network specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network){target=\_blank} by clicking the **Network Data** link
+- **Appchain specifications file** - the appchain specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network){target=\_blank} by clicking the **Network Data** link
 
     ![Getting the chain specs](/images/node-operators/network-node/rpc-systemd/rpc-systemd-1.webp)
 

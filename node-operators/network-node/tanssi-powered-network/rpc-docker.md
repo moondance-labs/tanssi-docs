@@ -1,57 +1,77 @@
 ---
-title: Run a Network Node Using Docker
-description: Discover how to configure and operate a Tanssi-powered network node using Docker, enabling you to host your own RPC endpoint for interaction with your chain.
+title: Run an Appchain Node Using Docker
+description: Discover how to configure and operate a Tanssi-powered appchain node using Docker, enabling you to host your own RPC endpoint to interact with your appchain.
 icon: material-docker
 categories: RPC-Data-Preservers
 ---
 
-# Run a Network Node Using Docker
+# Run an Appchain Node Using Docker
 
 ## Introduction {: #introduction }
 
 --8<-- 'text/node-operators/network-node/intro.md'
 
-In this guide, you'll learn how to quickly spin up a Tanssi network node using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
+In this guide, you'll learn how to quickly spin up a Tanssi appchain node using [Docker](https://www.docker.com){target=\_blank} on a Linux computer. However, it can be adapted to other operating systems.
 
 !!! note
-    It is not possible to run an RPC node for quick Trial networks as they run on a private network, and their nodes are, therefore, unreachable for syncing.
+    It is not possible to run an RPC node for quick Trial appchains as they run on a private network, and their nodes are, therefore, unreachable for syncing.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 --8<-- 'text/node-operators/installing-docker.md'
 
-### Pulling the Docker Image {: #pulling-docker-image }
+### Getting Specifications Files {: #getting-specifications-files }
 
-A Docker image is built and published as part of the automated deployment process, either for a Tanssi EVM-compatible network or another for a Tanssi Substrate network.
+- **Tanssi orchestration chain specifications file**: 
 
-A Docker image combines the binary corresponding to the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}, along with the [chain specification](/builders/build/customize/customizing-chain-specs/){target=\_blank} file.
 
-The chain specification is generated when registering the network in the [dApp](https://apps.tanssi.network){target=\_blank} using the provided parameters for the selected [template](/learn/decentralized-networks/included-templates/){target=\_blank} or is required to be uploaded manually when choosing the custom specs option.
 
-Luckily, running a node requires the right Docker image configured correctly!
+- **Appchain specifications file**: the appchain specification file is needed to run the node. You can download it from the dashboard in the [dApp](https://apps.tanssi.network){target=\_blank} by clicking the **Network Data** link
 
-### EVM-Compatible Networks {: #pulling-evm-docker-image }
+    ![Getting the chain specs](/images/node-operators/network-node/rpc-systemd/rpc-systemd-1.webp)
 
-If the Tanssi network was registered in the dApp choosing the EVM template or uploading a custom specification representing a Tanssi EVM-compatible network, then execute the following command to pull the Docker image:
+## Pulling the Docker Image {: #pulling-docker-image }
 
-=== "Dancelight"
+Two Docker images are built and published as part of the automated deployment process for every release: one for EVM-compatible appchains and the other for Substrate appchains.
+
+These Docker images include all the binary files required to run the latest stable release of the [client node](/learn/framework/architecture/#architecture){target=\_blank}. 
+
+Depending on the type of appchain you want to run the node for, pull the corresponding image.
+
+### EVM-Compatible Appchains {: #pulling-evm-docker-image }
+
+If the Tanssi-powered appchain was registered in the dApp choosing the EVM template or uploading a custom specification representing a Tanssi EVM-compatible appchain, then execute the following command to pull the Docker image:
+
+=== "Tanssi MainNet"
 
     ```bash
-    docker pull moondancelabs/dancelight-container-chain-evm-templates
+    docker pull moondancelabs/container-chain-evm-template
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    docker pull moondancelabs/container-chain-evm-template
     ```
 
 The command will download and extract the image and show the status upon execution:
 
 --8<-- 'code/node-operators/network-node/rpc-docker/terminal/pulling-docker-image.md'
 
-### Simple Substrate Networks {: #pulling-substrate-docker-image }
+### Simple Substrate Appchains {: #pulling-substrate-docker-image }
 
-If the network was registered in the dApp choosing the basic Substrate template or uploading a custom specification file representing a Substrate network, then execute the following command to pull the Docker image:
+If the appchain was registered in the dApp choosing the basic Substrate template or uploading a custom specification file representing a Substrate appchain, then execute the following command to pull the Docker image:
 
-=== "Dancelight"
+=== "Tanssi MainNet"
 
     ```bash
-    docker pull moondancelabs/dancelight-container-chain-simple-templates
+    docker pull moondancelabs/container-chain-simple-template
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    docker moondancelabs/container-chain-simple-template
     ```
 
 The command will download and extract the image and show the status upon execution, showing a similar output as the previous terminal image.
@@ -60,12 +80,12 @@ The command will download and extract the image and show the status upon executi
 
 To spin up your node, you must run the Docker image with the `docker run` command. Note that you'll need to modify the following parameters:
 
-- `Network ID` - replace `YOUR_NETWORK_ID` with your Tanssi network ID within the `--chain` command. This ID was obtained during the [third step of the network deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network){target=\_blank}. For example, `2001`
+- `Network ID` - replace `YOUR_NETWORK_ID` with your Tanssi appchain ID within the `--chain` command. This ID was obtained during the [third step of the appchain deployment process](/builders/deploy/dapp/#reserve-appchain-id){target=\_blank} and can be retrieved from the dashboard on the [dApp](https://apps.tanssi.network){target=\_blank}. For example, `2001`
 --8<-- 'text/node-operators/network-node/bootnode-item.md'
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
-=== "EVM-compatible Network"
+=== "EVM-compatible Appchain"
 
     ```bash
     docker run -ti moondancelabs/dancelight-container-chain-evm-templates \
@@ -73,7 +93,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
     --8<-- 'code/node-operators/network-node/rpc-docker/docker-command.md'
     ```
 
-=== "Simple Substrate Network"
+=== "Simple Substrate Appchain"
 
     ```bash
     docker run -ti moondancelabs/dancelight-container-chain-simple-templates \
@@ -86,7 +106,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 --8<-- 'text/node-operators/network-node/fetching-bootnode-section.md'
 
-### Full Node Example for Demo EVM Network {: #example-demo-evm-network }
+### Full Node Example for Demo EVM Appchain {: #example-demo-evm-appchain }
 
 The following example spins up a full archive RPC node for the [demo EVM network](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} deployed on Dancelight with an ID of `2001`.
 
@@ -131,7 +151,7 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 ## Syncing Your Node {: #syncing-your-node }
 
-Once your node spins up, the syncing process displays a lot of log information from both the node and the Tanssi network. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
+Once your node spins up, the syncing process displays a lot of log information from both the node and the Tanssi appchain. Some errors are expected to be displayed at the beginning of the process, disappearing once the chain gets synced to the last block.
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
