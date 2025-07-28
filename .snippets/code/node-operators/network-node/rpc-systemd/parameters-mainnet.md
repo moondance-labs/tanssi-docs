@@ -1,4 +1,4 @@
---chain=INSERT_YOUR_APPCHAIN_SPECS_FILE_LOCATION \
+--chain=/var/lib/tanssi-data/INSERT_YOUR_APPCHAIN_SPECS_FILE_NAME \
 --rpc-port=9944 \
 --name=para \
 --base-path=/var/lib/tanssi-data \

@@ -1,4 +1,4 @@
---chain=INSERT_YOUR_APPCHAIN_SPECS_FILE_LOCATION \
+--chain=/var/lib/dancelight-data/INSERT_YOUR_APPCHAIN_SPECS_FILE_NAME \
 --rpc-port=9944 \
 --name=para \
 --base-path=/var/lib/dancelight-data \
@@ -8,7 +8,7 @@
 --unsafe-rpc-external \
 --bootnodes=INSERT_YOUR_NETWORK_BOOTNODES \
 -- \
---chain=/var/lib/dancelight-data/starlight-raw-specs.json \
+--chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
 --rpc-port=9945 \
 --name=relay \
 --sync=fast \

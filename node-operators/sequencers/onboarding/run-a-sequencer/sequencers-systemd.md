@@ -78,6 +78,20 @@ To get started, download and make executable the latest binary release by runnin
 
 --8<-- 'text/node-operators/appchains-systemd-data-directory.md'
 
+And finally, move the binary to the folder:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    mv ./tanssi-node /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    mv ./tanssi-node /var/lib/dancelight-data
+    ```
+
 ### Generate the Node Key {: #generate-node-key }
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-intro.md'

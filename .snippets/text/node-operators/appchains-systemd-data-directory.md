@@ -59,17 +59,3 @@ Move the chain specification file to the folder:
     ```bash
     mv ./dancelight-raw-specs.json /var/lib/dancelight-data
     ```
-
-And finally, move the binary to the folder:
-
-=== "Tanssi MainNet"
-
-    ```bash
-    mv ./tanssi-node /var/lib/tanssi-data
-    ```
-
-=== "Dancelight TestNet"
-
-    ```bash
-    mv ./tanssi-node /var/lib/dancelight-data
-    ```

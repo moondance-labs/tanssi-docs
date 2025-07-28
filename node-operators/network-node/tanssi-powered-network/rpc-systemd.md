@@ -35,20 +35,53 @@ Every new release includes two node binaries, one for EVM-compatible networks an
 === "EVM-Compatible Network"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-frontier-node && \
+    
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/container-chain-frontier-node && \
     chmod +x ./container-chain-frontier-node
     ```
 
 === "Substrate Network"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-simple-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/container-chain-simple-node && \
     chmod +x ./container-chain-simple-node
     ```
 
 --8<-- 'text/node-operators/optimized-binaries-note.md'
 
 --8<-- 'text/node-operators/appchains-systemd-data-directory.md'
+
+Move the node binary as well: 
+
+=== "Tanssi MainNet"
+
+    === "EVM-Compatible Appchain"
+
+        ```bash
+        mv ./container-chain-frontier-node /var/lib/tanssi-data
+        ```
+
+    === "Substrate Network"
+
+        ```bash
+        mv ./container-chain-simple-node /var/lib/tanssi-data
+        ```
+
+=== "Dancelight TestNet"
+
+    === "EVM-Compatible Appchain"
+
+        ```bash
+        mv ./container-chain-frontier-node /var/lib/dancelight-data
+        ```
+
+    === "Substrate Network"
+
+        ```bash
+        mv ./container-chain-simple-node /var/lib/dancelight-data
+        ```
+
+Finally, move also your appchain's spec file to the same folder.
 
 ### Create the Systemd Service Configuration File {: #create-systemd-configuration }
 
@@ -57,14 +90,14 @@ The next step is to create the Systemd configuration file.
 You can create the file by running the following command:
 
 ```bash
-sudo touch /etc/systemd/system/network.service
+sudo touch /etc/systemd/system/appchain.service
 ```
 
 Now, you can open the file using your favorite text editor (vim, emacs, nano, etc.) and add the configuration for the service.
 
 Note that the `ExecStart` command  has some parameters that need to be changed to match your specific network:
 
-- `Specification file` - replace `INSERT_YOUR_APPCHAIN_SPECS_FILE_LOCATION` with your network's absolute path. If you copied the file in the same directory as the binary file and the relay chain specs, then your path will look like `/var/lib/tanssi-data/YOUR_FILENAME.json`, for a MainNet appchain.
+- `Specification file` - replace `INSERT_YOUR_APPCHAIN_SPECS_FILE_NAME` with your appchain's file name. Your path will look like `/var/lib/tanssi-data/YOUR_FILENAME.json`, for a MainNet appchain.
 --8<-- 'text/node-operators/network-node/bootnode-item.md'
 
 === "Tanssi MainNet"
@@ -194,6 +227,9 @@ The raw chain specification file for the demo network is required to run the nod
     --state-pruning=archive \
     --blocks-pruning=archive \
     --base-path=/var/lib/dancelight-data \
+    --database=paritydb \
+    --base-path=/var/lib/dancelight-data \
+    --unsafe-rpc-external \
     --bootnodes=/dns4/ukl-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWKDotMgTRpURvoZHsLWP4K9ymhkBByi1EJjMQAnCmqg8E \
     --bootnodes=/dns4/qco-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWB3kqqNhYgGtGbsdtgD18wUoFVeuXVXgWLXTFs91RNgAx \
     -- \
@@ -201,6 +237,7 @@ The raw chain specification file for the demo network is required to run the nod
     --rpc-port=9945 \
     --name=relay \
     --sync=fast \
+    --database=paritydb \
     --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
     --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
     --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
@@ -232,14 +269,14 @@ The flags used in the `ExecStart` command can be adjusted according to your pref
 Finally, enable the service and start it for the first time:
 
 ```bash
-systemctl enable network.service && \
-systemctl start network.service
+systemctl enable appchain.service && \
+systemctl start appchain.service
 ```
 
 You can verify that the service is up and running correctly running:
 
 ```bash
-systemctl status network.service
+systemctl status appchain.service
 ```
 
 --8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
@@ -247,7 +284,7 @@ systemctl status network.service
 And check the logs, if needed, with the following command:
 
 ```bash
-journalctl -f -u network.service
+journalctl -f -u appchain.service
 ```
 
 --8<-- 'code/node-operators/network-node/rpc-systemd/terminal/journalctl-logs.md'
