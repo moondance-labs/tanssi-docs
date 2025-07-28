@@ -513,7 +513,6 @@ Every new release includes two node binaries, one for EVM-compatible networks an
 === "EVM-Compatible Network"
 
     ```bash
-    
     wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/container-chain-frontier-node && \
     chmod +x ./container-chain-frontier-node
     ```
@@ -850,7 +849,6 @@ The raw chain specification file for the demo network is required to run the nod
     --blocks-pruning=archive \
     --base-path=/var/lib/dancelight-data \
     --database=paritydb \
-    --base-path=/var/lib/dancelight-data \
     --unsafe-rpc-external \
     --bootnodes=/dns4/ukl-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWKDotMgTRpURvoZHsLWP4K9ymhkBByi1EJjMQAnCmqg8E \
     --bootnodes=/dns4/qco-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWB3kqqNhYgGtGbsdtgD18wUoFVeuXVXgWLXTFs91RNgAx \
