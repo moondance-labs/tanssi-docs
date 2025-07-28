@@ -462,9 +462,9 @@ Download the Tanssi orchestration chain specification file by executing the foll
 
 ## Setup the Data Directory {: #setup-data-directory }
 
-Running a sequencer requires syncing with two chains: the Tanssi chain and the network it has been assigned to.
+Running a sequencer or an appchain node require syncing with two chains: the Tanssi orchestration chain and the appchain it is working for.
 
-Run the following command to create the directory where your sequencer will store the databases containing blocks and chain states:
+Run the following command to create the directory where your node will store the databases containing blocks and chain states:
 
 === "Tanssi MainNet"
 
