@@ -1,0 +1,20 @@
+--chain=INSERT_YOUR_APPCHAIN_SPECS_FILE_LOCATION \
+--rpc-port=9944 \
+--name=para \
+--base-path=/var/lib/tanssi-data \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
+--bootnodes=INSERT_YOUR_NETWORK_BOOTNODES \
+-- \
+--chain=/var/lib/tanssi-data/starlight-raw-specs.json \
+--rpc-port=9945 \
+--name=relay \
+--sync=fast \
+--database=paritydb \
+--bootnodes=/dns4/deo-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWNQ1cddxwvnZZUBG2gtByn9hirVGEn2yR37ztnGSi1VHu \
+--bootnodes=/dns4/fro-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWS3kv4PyNTxKS8CBxZsVrhMcNcXgxqVUHLrXixuz4DaSR \
+--bootnodes=/dns4/qcl-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWFDUJ1QZn18tmeJJZU4e6JbyQrLiAp4Xz7ongKzoSjadg \
+--bootnodes=/dns4/qco-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWBzJzAdAKNVXcsvfL3nHH8BSocNvxz7A8PkRAAJhTuQNm \
+--bootnodes=/dns4/uko-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWAexWR4uyhVPyxqPBNhhepJ5jRqUa885mu5dKPPVHSfpC
