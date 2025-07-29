@@ -4520,7 +4520,7 @@ The demo EVM network HTTPS and WSS endpoints are as follows:
 
 For the demo EVM network, you can use any of the following explorers:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc={{ networks.dancelight.demo_evm_rpc_wss_url }}/explorer){target=\_blank} (Substrate API)
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc={{ networks.dancelight.demo_evm_rpc_wss_url }}){target=\_blank} (Substrate API)
 - [Blockscout]({{ networks.dancelight.demo_evm_blockscout_url }}){target=\_blank} (Ethereum API)
 - [Expedition](https://evmexplorer.tanssi-chains.network/?rpcUrl={{ networks.dancelight.demo_evm_rpc_url }}){target=\_blank} (Ethereum API)
 
