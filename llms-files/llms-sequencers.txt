@@ -339,7 +339,7 @@ Doc-Content: https://docs.tanssi.network/node-operators/sequencers/onboarding/ru
 --- BEGIN CONTENT ---
 ---
 title: Run a Sequencer Using Docker
-description: Learn how to set up and run a sequencer (aka block producer) for Tanssi-powered networks using Docker to participate in the protocol and earn rewards.
+description: Learn how to set up and run a sequencer (aka block producer) for Tanssi-powered appchains using Docker to participate in the protocol and earn rewards.
 icon: simple-docker
 categories: Sequencers
 ---
@@ -403,7 +403,7 @@ This is what a successful execution in the terminal looks like:
   </span>
 </div>
 
-### Pulling the Docker Image {: #pulling-docker-image }
+## Pulling the Docker Image {: #pulling-docker-image }
 
 A Docker image is built and published in every release, containing all the necessary dependencies a Tanssi sequencer requires and the binary file itself.
 
@@ -411,63 +411,137 @@ A Docker image combines the binary corresponding to the latest stable release of
 
 The following command to pull the Docker image:
 
-```bash
-docker pull {{ node_versions.docker_sequencer_image_name }}
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker pull {{ node_versions.docker_sequencer_image_name }}
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker pull {{ node_versions.docker_sequencer_image_name }}
+    ```
 
 The command will download and extract the image and show the status upon execution:
 
 <div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/dancelight-collators:2</span>
+  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/tanssi</span>
   <span data-ty>
     <br> 
     <br> Using default tag: latest
-    <br> latest: Pulling from moondancelabs/dancelight-collators:2
+    <br> latest: Pulling from moondancelabs/tanssi
     <br> e1caac4eb9d2: Pull complete 
     <br> 1d4409959e6d: Pull complete 
     <br> b8beed19c122: Pull complete 
     <br> c0fab1f18601: Pull complete 
     <br> d9dcf3cddfc5: Pull complete 
     <br> Digest: sha256:0f717d6cf247bbb1b082f5f9e5761b23c44a0be8b704492a57fdbf8c63c0a91c
-    <br> Status: Downloaded newer image for moondancelabs/dancelight-collators:2
-    <br> docker.io/moondancelabs/dancelight-collators:2
+    <br> Status: Downloaded newer image for moondancelabs/tanssi
+    <br> docker.io/moondancelabs/tanssi
   </span>
 </div>
 
-### Setup the Data Directory {: #setup-data-directory }
+## Download the Tanssi Chain Specs File {: #download-tanssi-specs }
+
+The node binary file also includes the necessary code to run a Tanssi orchestration chain node. When launching a sequencer, it will also be required to provide the Tanssi orchestration chain specification file as a parameter.
+
+Download the Tanssi orchestration chain specification file by executing the following:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    wget https://raw.githubusercontent.com/moondance-labs/tanssi/75e576add204abd321c48cded556c8de14d65618/chains/orchestrator-relays/node/tanssi-relay-service/chain-specs/starlight-raw-specs.json
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    wget https://raw.githubusercontent.com/moondance-labs/tanssi/75e576add204abd321c48cded556c8de14d65618/chains/orchestrator-relays/node/tanssi-relay-service/chain-specs/dancelight-raw-specs.json
+    ```
+
+## Setup the Data Directory {: #setup-data-directory }
 
 Running a sequencer requires syncing with two chains: the Tanssi chain and the network it has been assigned to.
 
 Run the following command to create the directory where your sequencer will store the databases containing blocks and chain states:
 
-```bash
-mkdir /var/lib/dancebox
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
 
-```bash
-chown INSERT_DOCKER_USER /var/lib/dancebox
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/tanssi-data
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    chown INSERT_DOCKER_USER /var/lib/dancelight-data
+    ```
 
 Or run the following command if you want to run the sequencer with the current logged-in user:
 
-```bash
-sudo chown -R $(id -u):$(id -g) /var/lib/dancebox
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
+    ```
+
+Move the chain specification file to the folder:
+
+=== "Tanssi MainNet"
+
+    ```bash
+    mv ./starlight-raw-specs.json /var/lib/tanssi-data
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    mv ./dancelight-raw-specs.json /var/lib/dancelight-data
+    ```
 
 !!! note
     The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
 
-### Generate the Node Key {: #generate-node-key }
+## Generate the Node Key {: #generate-node-key }
 
 Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node key generate-node-key --file /data/node-key"
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ node_versions.docker_sequencer_image_name }} key generate-node-key --file /data/node-key
+    ```
+    
+=== "Dancelight TestNet"
+    
+    ```bash
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ node_versions.docker_sequencer_image_name }} key generate-node-key --file /data/node-key
+    ```
 
 !!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
@@ -486,13 +560,15 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
-=== "Generic"
+=== "Tanssi MainNet"
 
-    ```bash
-    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node solo-chain \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    === "Generic"
+
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node solo-chain \
+        --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
@@ -510,10 +586,10 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --in-peers=100 \
 --detailed-log-output \
 -- \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--chain=/data/starlight-raw-specs.json \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \      
+--base-path=/data/relay \
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --database=paritydb \
@@ -527,18 +603,20 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
---bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
---bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
-    ```
+--bootnodes=/dns4/deo-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWNQ1cddxwvnZZUBG2gtByn9hirVGEn2yR37ztnGSi1VHu \
+--bootnodes=/dns4/fro-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWS3kv4PyNTxKS8CBxZsVrhMcNcXgxqVUHLrXixuz4DaSR \
+--bootnodes=/dns4/qcl-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWFDUJ1QZn18tmeJJZU4e6JbyQrLiAp4Xz7ongKzoSjadg \
+--bootnodes=/dns4/qco-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWBzJzAdAKNVXcsvfL3nHH8BSocNvxz7A8PkRAAJhTuQNm \
+--bootnodes=/dns4/uko-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWAexWR4uyhVPyxqPBNhhepJ5jRqUa885mu5dKPPVHSfpC"
+        ```
 
-=== "Intel Skylake"
+    === "Intel Skylake"
 
-    ```bash
-    docker run --entrypoint bash --network="host" -v "/var/lib/dancebox:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-skylake solo-chain \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-skylake solo-chain \
+        --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
@@ -556,10 +634,10 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --in-peers=100 \
 --detailed-log-output \
 -- \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--chain=/data/starlight-raw-specs.json \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \      
+--base-path=/data/relay \
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --database=paritydb \
@@ -573,16 +651,20 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --state-pruning=2000 \
 --blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
---bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
---bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
-    ```
-=== "AMD Zen3"
+--bootnodes=/dns4/deo-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWNQ1cddxwvnZZUBG2gtByn9hirVGEn2yR37ztnGSi1VHu \
+--bootnodes=/dns4/fro-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWS3kv4PyNTxKS8CBxZsVrhMcNcXgxqVUHLrXixuz4DaSR \
+--bootnodes=/dns4/qcl-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWFDUJ1QZn18tmeJJZU4e6JbyQrLiAp4Xz7ongKzoSjadg \
+--bootnodes=/dns4/qco-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWBzJzAdAKNVXcsvfL3nHH8BSocNvxz7A8PkRAAJhTuQNm \
+--bootnodes=/dns4/uko-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWAexWR4uyhVPyxqPBNhhepJ5jRqUa885mu5dKPPVHSfpC"
+        ```
 
-    ```bash
-    docker run --network="host" -v "/var/lib/dancebox:/data" \
-    {{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node-znver3 solo-chain \
-    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    === "AMD Zen3"
+
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-znver3 solo-chain \
+        --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
 --base-path=/data/container \
 --node-key-file=/data/node-key \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
@@ -600,10 +682,60 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --in-peers=100 \
 --detailed-log-output \
 -- \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--chain=/data/starlight-raw-specs.json \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \      
+--base-path=/data/relay \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
+--database=paritydb \
+--rpc-port=9945 \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/deo-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWNQ1cddxwvnZZUBG2gtByn9hirVGEn2yR37ztnGSi1VHu \
+--bootnodes=/dns4/fro-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWS3kv4PyNTxKS8CBxZsVrhMcNcXgxqVUHLrXixuz4DaSR \
+--bootnodes=/dns4/qcl-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWFDUJ1QZn18tmeJJZU4e6JbyQrLiAp4Xz7ongKzoSjadg \
+--bootnodes=/dns4/qco-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWBzJzAdAKNVXcsvfL3nHH8BSocNvxz7A8PkRAAJhTuQNm \
+--bootnodes=/dns4/uko-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWAexWR4uyhVPyxqPBNhhepJ5jRqUa885mu5dKPPVHSfpC"
+        ```
+
+=== "Dancelight TestNet"
+
+    === "Generic"
+
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node solo-chain \
+        --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
+--node-key-file=/data/node-key \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/data/dancelight-raw-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --database=paritydb \
@@ -620,6 +752,99 @@ Name each of the sections with a human-readable name by replacing the `INSERT_YO
 --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
 --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
 --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-skylake solo-chain \
+        --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
+--node-key-file=/data/node-key \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/data/dancelight-raw-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
+--database=paritydb \
+--rpc-port=9945 \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        docker run --entrypoint bash --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ node_versions.docker_sequencer_image_name }} -c "/tanssi/tanssi-node-znver3 solo-chain \
+        --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+--base-path=/data/container \
+--node-key-file=/data/node-key \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--pool-type=fork-aware \
+--database=paritydb \
+--rpc-port=9944 \
+--prometheus-port=9615 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30333 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--db-cache=1024 \
+--trie-cache-size=1073741824 \
+--collator \
+--in-peers=100 \
+--detailed-log-output \
+-- \
+--chain=/data/dancelight-raw-specs.json \
+--name=INSERT_YOUR_TANSSI_NODE_NAME \
+--sync=fast \
+--base-path=/data/relay \
+--node-key-file=/data/node-key \
+--keystore-path=/data/keys/session \
+--database=paritydb \
+--rpc-port=9945 \
+--prometheus-port=9616 \
+--prometheus-external \
+--listen-addr=/ip4/0.0.0.0/tcp/30334 \
+--pool-limit=0 \
+--db-cache=128 \
+--out-peers=15 \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
+--telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT"
+        ```
 
 ### Run Flags {: #run-flags }
 
@@ -637,9 +862,17 @@ The flags used in the `docker run` command can be adjusted according to your pre
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
-```bash
-docker run --entrypoint bash {{ node_versions.docker_sequencer_image_name }} -c "/chain-network/tanssi-node --help"
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    docker run {{ node_versions.docker_sequencer_image_name }} --help
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    docker run {{ node_versions.docker_sequencer_image_name }} --help
+    ```
 
 ## Syncing Your Node {: #syncing-your-node }
 
@@ -694,36 +927,69 @@ To get started, download and make executable the latest binary release by runnin
 !!! note
     It is recommended that you run the optimized binary versions for either Intel's [Skylake](https://www.intel.com/content/www/us/en/products/platforms/details/skylake-u-y.html){target=\_blank} or AMD's [Zen3](https://www.amd.com/en/technologies/zen-core.html){target=\_blank} architectures for better performance.
 
-=== "Generic"
+=== "Tanssi MainNet"
 
-    ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node && \
-    chmod +x ./tanssi-node
-    ```
+    === "Generic"
 
-=== "Intel Skylake"
+        ```bash
+        wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node && \
+        chmod +x ./tanssi-node
+        ```
 
-    ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node-skylake -O tanssi-node && \
-    chmod +x ./tanssi-node
-    ```
+    === "Intel Skylake"
 
-=== "AMD Zen3"
+        ```bash
+        wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node-skylake -O tanssi-node && \
+        chmod +x ./tanssi-node
+        ```
 
-    ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node-znver3 -O tanssi-node && \
-    chmod +x ./tanssi-node
-    ```
+    === "AMD Zen3"
+
+        ```bash
+        wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node-znver3 -O tanssi-node && \
+        chmod +x ./tanssi-node
+        ```
+    
+=== "Dancelight TestNet"
+    
+    === "Generic"
+
+        ```bash
+        wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node && \
+        chmod +x ./tanssi-node
+        ```
+
+    === "Intel Skylake"
+
+        ```bash
+        wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node-skylake -O tanssi-node && \
+        chmod +x ./tanssi-node
+        ```
+
+    === "AMD Zen3"
+
+        ```bash
+        wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node-znver3 -O tanssi-node && \
+        chmod +x ./tanssi-node
+        ```
 
 ## Download the Tanssi Chain Specs File {: #download-tanssi-specs }
 
-The node binary file includes the necessary code to run a Tanssi chain node. When launching your network's node, it will also be required to provide the chain's specification file as a parameter.
+The node binary file also includes the necessary code to run a Tanssi orchestration chain node. When launching a sequencer, it will also be required to provide the Tanssi orchestration chain specification file as a parameter.
 
-Download the relay chain specification file by executing the following:
+Download the Tanssi orchestration chain specification file by executing the following:
 
-```bash
-wget https://raw.githubusercontent.com/papermoonio/external-files/main/Tanssi/Dancelight/dancelight-raw-specs.json
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    wget https://raw.githubusercontent.com/moondance-labs/tanssi/75e576add204abd321c48cded556c8de14d65618/chains/orchestrator-relays/node/tanssi-relay-service/chain-specs/starlight-raw-specs.json
+    ```
+
+=== "Dancelight TestNet"
+    
+    ```bash
+    wget https://raw.githubusercontent.com/moondance-labs/tanssi/75e576add204abd321c48cded556c8de14d65618/chains/orchestrator-relays/node/tanssi-relay-service/chain-specs/dancelight-raw-specs.json
+    ```
 
 ## Setup the Systemd Service {: #setup-systemd-service }
 
@@ -733,41 +999,90 @@ The following commands configure a new account, the directory, and move the prev
 
 Create a new account to run the service:
 
-```bash
-adduser tanssi_service --system --no-create-home
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    adduser tanssi_service --system --no-create-home
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    adduser dancelight_service --system --no-create-home
+    ```
 
 Create a directory to store the required files and data:
 
-```bash
-mkdir /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mkdir /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    mkdir /var/lib/dancelight-data
+    ```
 
 Set the folder's ownership to the account that will run the service to ensure writing permission:
 
-```bash
-sudo chown -R tanssi_service /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo chown -R tanssi_service /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    sudo chown -R dancelight_service /var/lib/dancelight-data
+    ```
 
 Move the chain specification file to the folder:
 
-```bash
-mv ./dancelight-raw-specs.json /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mv ./starlight-raw-specs.json /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    mv ./dancelight-raw-specs.json /var/lib/dancelight-data
+    ```
 
 And finally, move the binary to the folder:
 
-```bash
-mv ./tanssi-node /var/lib/tanssi-data
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    mv ./tanssi-node /var/lib/tanssi-data
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    mv ./tanssi-node /var/lib/dancelight-data
+    ```
 
 ### Generate the Node Key {: #generate-node-key }
 
 Starting from [runtime 700 release](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, Tanssi sequencer nodes don't generate the session keys automatically on start-up. To generate and store on disk the session keys that will be referenced on the start-up command, run the following command:
 
-```bash
-/var/lib/tanssi-data/tanssi-node key generate-node-key --file /var/lib/tanssi-data/node-key
-```
+
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-node key generate-node-key --file /var/lib/tanssi-data/node-key
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    /var/lib/dancelight-data/tanssi-node key generate-node-key --file /var/lib/dancelight-data/node-key
+    ```
 
 !!! note
     This step could be avoided using the `--unsafe-force-node-key-generation` parameter in the start-up command, although this is not the recommended practice.
@@ -778,69 +1093,141 @@ The next step is to create the Systemd configuration file.
 
 You can create the file by running the following command:
 
-```bash
-sudo touch /etc/systemd/system/tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    sudo touch /etc/systemd/system/tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    sudo touch /etc/systemd/system/dancelight.service
+    ```
 
 Now you can open the file using your favorite text editor (vim, emacs, nano, etc) and add the configuration for the service, replacing the `INSERT_YOUR_TANSSI_NODE_NAME` and `INSERT_YOUR_SEQUENCER_NODE_NAME` tags with a human-readable text in the `--name` flags. These names will come in handy for connecting the log entries and metrics with the node that generates them.
 
-```bash
-[Unit]
-Description="Tanssi systemd service"
-After=network.target
-StartLimitIntervalSec=0
+=== "Tanssi MainNet"
 
-[Service]
-Type=simple
-Restart=on-failure
-RestartSec=10
-User=tanssi_service
-SyslogIdentifier=tanssi
-SyslogFacility=local7
-KillSignal=SIGHUP
-ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
---name=INSERT_YOUR_SEQUENCER_NODE_NAME \
---base-path=/var/lib/tanssi-data/container \
---node-key-file=/var/lib/tanssi-data/node-key \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---pool-type=fork-aware \
---database=paritydb \
---rpc-port=9944 \
---prometheus-port=9615 \
---prometheus-external \
---listen-addr=/ip4/0.0.0.0/tcp/30333 \
---state-pruning=2000 \
---blocks-pruning=2000 \
---db-cache=1024 \
---trie-cache-size=1073741824 \
---collator \
---in-peers=100 \
---detailed-log-output \
--- \
---chain=/var/lib/tanssi-data/dancelight-raw-specs.json \
---name=INSERT_YOUR_TANSSI_NODE_NAME \
---sync=fast \
---base-path=/var/lib/tanssi-data/relay \      
---node-key-file=/var/lib/tanssi-data/node-key \
---keystore-path=/var/lib/tanssi-data/session \
---database=paritydb \
---rpc-port=9945 \
---prometheus-port=9616 \
---prometheus-external \
---listen-addr=/ip4/0.0.0.0/tcp/30334 \
---pool-limit=0 \
---db-cache=128 \
---out-peers=15 \
---state-pruning=2000 \
---blocks-pruning=2000 \
---telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
---bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
---bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
---bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+    ```bash
+    [Unit]
+    Description="Tanssi systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
 
-[Install]
-WantedBy=multi-user.target
-```
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=tanssi_service
+    SyslogIdentifier=tanssi
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart=/var/lib/tanssi-data/tanssi-node solo-chain \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    --base-path=/var/lib/tanssi-data/container \
+    --node-key-file=/var/lib/tanssi-data/node-key \
+    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+    --pool-type=fork-aware \
+    --database=paritydb \
+    --rpc-port=9944 \
+    --prometheus-port=9615 \
+    --prometheus-external \
+    --listen-addr=/ip4/0.0.0.0/tcp/30333 \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    --db-cache=1024 \
+    --trie-cache-size=1073741824 \
+    --collator \
+    --in-peers=100 \
+    --detailed-log-output \
+    -- \
+    --chain=/var/lib/tanssi-data/starlight-raw-specs.json \
+    --name=INSERT_YOUR_TANSSI_NODE_NAME \
+    --sync=fast \
+    --base-path=/var/lib/tanssi-data/relay \
+    --node-key-file=/var/lib/tanssi-data/node-key \
+    --keystore-path=/var/lib/tanssi-data/session \
+    --database=paritydb \
+    --rpc-port=9945 \
+    --prometheus-port=9616 \
+    --prometheus-external \
+    --listen-addr=/ip4/0.0.0.0/tcp/30334 \
+    --pool-limit=0 \
+    --db-cache=128 \
+    --out-peers=15 \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+    --bootnodes=/dns4/deo-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWNQ1cddxwvnZZUBG2gtByn9hirVGEn2yR37ztnGSi1VHu \
+    --bootnodes=/dns4/fro-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWS3kv4PyNTxKS8CBxZsVrhMcNcXgxqVUHLrXixuz4DaSR \
+    --bootnodes=/dns4/qcl-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWFDUJ1QZn18tmeJJZU4e6JbyQrLiAp4Xz7ongKzoSjadg \
+    --bootnodes=/dns4/qco-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWBzJzAdAKNVXcsvfL3nHH8BSocNvxz7A8PkRAAJhTuQNm \
+    --bootnodes=/dns4/uko-tanssi-boot-1.rv.tanssi.network/tcp/30334/p2p/12D3KooWAexWR4uyhVPyxqPBNhhepJ5jRqUa885mu5dKPPVHSfpC
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    [Unit]
+    Description="Dancelight systemd service"
+    After=network.target
+    StartLimitIntervalSec=0
+
+    [Service]
+    Type=simple
+    Restart=on-failure
+    RestartSec=10
+    User=dancelight_service
+    SyslogIdentifier=dancelight
+    SyslogFacility=local7
+    KillSignal=SIGHUP
+    ExecStart=/var/lib/dancelight-data/tanssi-node solo-chain \
+    --name=INSERT_YOUR_SEQUENCER_NODE_NAME \
+    --base-path=/var/lib/dancelight-data/container \
+    --node-key-file=/var/lib/dancelight-data/node-key \
+    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+    --pool-type=fork-aware \
+    --database=paritydb \
+    --rpc-port=9944 \
+    --prometheus-port=9615 \
+    --prometheus-external \
+    --listen-addr=/ip4/0.0.0.0/tcp/30333 \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    --db-cache=1024 \
+    --trie-cache-size=1073741824 \
+    --collator \
+    --in-peers=100 \
+    --detailed-log-output \
+    -- \
+    --chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
+    --name=INSERT_YOUR_TANSSI_NODE_NAME \
+    --sync=fast \
+    --base-path=/var/lib/dancelight-data/relay \
+    --node-key-file=/var/lib/dancelight-data/node-key \
+    --keystore-path=/var/lib/dancelight-data/session \
+    --database=paritydb \
+    --rpc-port=9945 \
+    --prometheus-port=9616 \
+    --prometheus-external \
+    --listen-addr=/ip4/0.0.0.0/tcp/30334 \
+    --pool-limit=0 \
+    --db-cache=128 \
+    --out-peers=15 \
+    --state-pruning=2000 \
+    --blocks-pruning=2000 \
+    --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
+    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
 
 ### Run Flags {: #run-flags }
 
@@ -858,24 +1245,49 @@ The flags used in the ExecStart command can be adjusted according to your prefer
 
 For a complete list of available flags, their description, and possible values, run the following command:
 
-```bash
-/var/lib/tanssi-data/tanssi-node  --help
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    /var/lib/tanssi-data/tanssi-node  --help
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    /var/lib/dancelight-data/tanssi-node  --help
+    ```
 
 ## Run the Service {: #run-the-service }
 
 Finally, enable the service and start it for the first time:
 
-```bash
-systemctl enable tanssi.service && \
-systemctl start tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    systemctl enable tanssi.service && \
+    systemctl start tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    systemctl enable dancelight.service && \
+    systemctl start dancelight.service
+    ```
 
 You can verify that the service is up and running correctly running:
 
-```bash
-systemctl status tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    systemctl status tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    systemctl status dancelight.service
+    ```
 
 <div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>systemctl status network.service</span>
@@ -893,9 +1305,17 @@ systemctl status tanssi.service
 
 And check the logs, if needed, with the following command:
 
-```bash
-journalctl -f -u tanssi.service
-```
+=== "Tanssi MainNet"
+
+    ```bash
+    journalctl -f -u tanssi.service
+    ```
+
+=== "Dancelight TestNet"
+
+    ```bash
+    journalctl -f -u dancelight.service
+    ```
 --- END CONTENT ---
 
 Doc-Content: https://docs.tanssi.network/node-operators/sequencers/operational-tasks/proxy-accounts/
@@ -1106,10 +1526,10 @@ To restart the node, you can use the same command you used when launching your n
 --in-peers=100 \
 --detailed-log-output \
 -- \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--chain=/data/dancelight-raw-specs.json \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \      
+--base-path=/data/relay \
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --database=paritydb \
@@ -1153,10 +1573,10 @@ To restart the node, you can use the same command you used when launching your n
 --in-peers=100 \
 --detailed-log-output \
 -- \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--chain=/data/dancelight-raw-specs.json \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \      
+--base-path=/data/relay \
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --database=paritydb \
@@ -1199,10 +1619,10 @@ To restart the node, you can use the same command you used when launching your n
 --in-peers=100 \
 --detailed-log-output \
 -- \
---chain=/chain-network/relay-raw-no-bootnodes-specs.json \
+--chain=/data/dancelight-raw-specs.json \
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --sync=fast \
---base-path=/data/relay \      
+--base-path=/data/relay \
 --node-key-file=/data/node-key \
 --keystore-path=/data/keys/session \
 --database=paritydb \

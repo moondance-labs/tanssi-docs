@@ -1505,13 +1505,13 @@ For a complete list of available flags, their description, and possible values, 
 === "Tanssi MainNet"
 
     ```bash
-    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    docker run -ti {{ networks.dancelight.operator_docker_image }} --help
     ```
     
 === "Dancelight TestNet"
     
     ```bash
-    docker run -ti --entrypoint /chain-network/tanssi-relay {{ networks.dancelight.operator_docker_image }} --help
+    docker run -ti {{ networks.dancelight.operator_docker_image }} --help
     ```
 
 ## Syncing Your Node {: #syncing-your-node }
@@ -1742,8 +1742,8 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
     
@@ -1778,8 +1778,8 @@ Now you can open the file using your favorite text editor (vim, emacs, nano, etc
 --name=INSERT_YOUR_TANSSI_NODE_NAME \
 --listen-addr=/ip4/0.0.0.0/tcp/30333 \
 --public-addr=/ip4/INSERT_YOUR_IP_ADDRESS/tcp/30333 \
---state-pruning=archive \
---blocks-pruning=archive \
+--state-pruning=2000 \
+--blocks-pruning=2000 \
 --telemetry-url='wss://telemetry.polkadot.io/submit/ 0' \
 --validator
 
