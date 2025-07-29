@@ -1010,7 +1010,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://services.tanssi-testnet.network/dancelight#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -1151,7 +1151,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://services.tanssi-testnet.network/dancelight#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -1238,7 +1238,7 @@ For the examples in this guide, you will need to have the following:
 - A Tanssi-powered network (Quick Trial or Dedicated)
 - The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://services.tanssi-testnet.network/dancelight#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -1311,7 +1311,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://services.tanssi-testnet.network/dancelight#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**

@@ -3031,7 +3031,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://services.tanssi-testnet.network/dancelight#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -3172,7 +3172,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://services.tanssi-testnet.network/dancelight#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -3259,7 +3259,7 @@ For the examples in this guide, you will need to have the following:
 - A Tanssi-powered network (Quick Trial or Dedicated)
 - The account you used when registering the network, imported in any of the [supported wallets](/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://services.tanssi-testnet.network/dancelight#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -3332,7 +3332,7 @@ For the examples in this guide, you will need to have the following:
 
 ### Retrieving the Registration Account {: #retrieving-registration-account }
 
-If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://dancelight.tanssi-api.network#/chainstate){target=\_blank}, and take the following steps:
+If you're unsure what your registration account is, you can query it directly from the Tanssi orchestrator chain, which keeps records of every registered network. To do so, head to the **Chain state** section on the Polkadot.js Apps connected to the orchestrator chain for [quick trial networks](https://polkadot.js.org/apps/?rpc=wss://fraa-flashbox-rpc.a.stagenet.tanssi.network#/chainstate){target=\_blank} or [dedicated networks](https://polkadot.js.org/apps/?rpc=wss://services.tanssi-testnet.network/dancelight#/chainstate){target=\_blank}, and take the following steps:
 
 1. Select the **registrar** storage module
 2. Select **registrarDeposit**
@@ -6115,7 +6115,7 @@ import { ethers } from 'ethers';
 const providerRPC = {
   evmNetwork: {
     name: 'dancelight-evm-network',
-    rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+    rpc: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6221,7 +6221,7 @@ import { ethers } from 'ethers';
 const providerRPC = {
   evmNetwork: {
     name: 'dancelight-evm-network',
-    rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+    rpc: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6435,7 +6435,7 @@ import contractFile from './compile.js';
 const providerRPC = {
   evmNetwork: {
     name: 'dancelight-evm-network',
-    rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+    rpc: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6551,7 +6551,7 @@ import contractFile from './compile.js';
 const providerRPC = {
   evmNetwork: {
     name: 'dancelight-evm-network',
-    rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+    rpc: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6672,7 +6672,7 @@ import contractFile from './compile.js';
 const providerRPC = {
   evmNetwork: {
     name: 'dancelight-evm-network',
-    rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+    rpc: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6796,7 +6796,7 @@ import contractFile from './compile.js';
 const providerRPC = {
   evmNetwork: {
     name: 'dancelight-evm-network',
-    rpc: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+    rpc: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
     chainId: 5678, // 0x162E in hex,
   },
 };
@@ -6983,12 +6983,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -7000,7 +7000,7 @@ export const demoEVM = defineChain({
 });
 
 // 3. Create a public client for reading chain data
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 const publicClient = createPublicClient({
   chain: demoEVM,
   transport: http(rpcUrl),
@@ -7038,12 +7038,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -7056,7 +7056,7 @@ export const demoEVM = defineChain({
 
 // 3. Create your account using the privateKeyToAccount function
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 
 //4. Create a wallet client for writing chain data
 const walletClient = createWalletClient({
@@ -7119,12 +7119,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -7136,7 +7136,7 @@ export const demoEVM = defineChain({
 });
 
 // 3. Create a public client for reading chain data
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 const publicClient = createPublicClient({
   chain: demoEVM,
   transport: http(rpcUrl),
@@ -7219,12 +7219,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -7238,7 +7238,7 @@ export const demoEVM = defineChain({
 // 3. Create a wallet client for writing chain data
 // The private key must be prepended with `0x` to avoid errors
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,
@@ -7418,12 +7418,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -7437,7 +7437,7 @@ export const demoEVM = defineChain({
 // 3. Create a wallet client for writing chain data
 // The private key must be prepended with `0x` to avoid errors
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,
@@ -7529,12 +7529,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -7546,7 +7546,7 @@ export const demoEVM = defineChain({
 });
 
 // 3. Create a public client for reading chain data
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 const publicClient = createPublicClient({
   chain: demoEVM,
   transport: http(rpcUrl),
@@ -7629,12 +7629,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -7648,7 +7648,7 @@ export const demoEVM = defineChain({
 // 3. Create a wallet client for writing chain data
 // The private key must be prepended with `0x` to avoid errors
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,
@@ -7739,12 +7739,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -7758,7 +7758,7 @@ export const demoEVM = defineChain({
 // 3. Create a wallet client for writing chain data
 // The private key must be prepended with `0x` to avoid errors
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 const walletClient = createWalletClient({
   account,
   chain: demoEVM,
@@ -7942,7 +7942,7 @@ const Web3 = require('web3');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+  evmNetwork: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -8045,7 +8045,7 @@ const Web3 = require('web3');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+  evmNetwork: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -8262,7 +8262,7 @@ const contractFile = require('./compile');
 
 // Add the Web3 provider logic here
 const providerRPC = {
-  evmNetwork: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+  evmNetwork: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -8375,7 +8375,7 @@ const { abi } = require('./compile');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+  evmNetwork: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -8485,7 +8485,7 @@ const { abi } = require('./compile');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+  evmNetwork: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -8606,7 +8606,7 @@ const { abi } = require('./compile');
 
 // Add the Web3 provider logic here:
 const providerRPC = {
-  evmNetwork: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+  evmNetwork: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 
@@ -8747,7 +8747,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://dancelight-2001.tanssi-api.network",
+    "evm_network": "https://services.tanssi-testnet.network/dancelight-2001",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -8803,7 +8803,7 @@ from web3.gas_strategies.rpc import rpc_gas_price_strategy
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://dancelight-2001.tanssi-api.network",
+    "evm_network": "https://services.tanssi-testnet.network/dancelight-2001",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -8954,7 +8954,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://dancelight-2001.tanssi-api.network",
+    "evm_network": "https://services.tanssi-testnet.network/dancelight-2001",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -9027,7 +9027,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://dancelight-2001.tanssi-api.network",
+    "evm_network": "https://services.tanssi-testnet.network/dancelight-2001",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -9080,7 +9080,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://dancelight-2001.tanssi-api.network",
+    "evm_network": "https://services.tanssi-testnet.network/dancelight-2001",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -9147,7 +9147,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://dancelight-2001.tanssi-api.network",
+    "evm_network": "https://services.tanssi-testnet.network/dancelight-2001",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 
@@ -11967,7 +11967,7 @@ module.exports = {
   networks: {
     // 4. Add the network specification for your Tanssi EVM network
     demo: {
-      url: 'https://dancelight-2001.tanssi-api.network/',
+      url: 'https://services.tanssi-testnet.network/dancelight-2001/',
       chainId: 5678, // Fill in the EVM ChainID for your Tanssi-powered network
       accounts: [privateKey],
     },
@@ -12586,7 +12586,7 @@ export const processor = new EvmBatchProcessor()
   .setDataSource({
     chain: {
       url: assertNotNull(
-        'https://dancelight-2001.tanssi-api.network'
+        'https://services.tanssi-testnet.network/dancelight-2001'
       ),
       rateLimit: 300,
     },
@@ -14275,7 +14275,7 @@ export const demoEVMChain = {
   name: "Tanssi demo EVM Network",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://dancelight-2001.tanssi-api.network'] }
+    default: { http: ['https://services.tanssi-testnet.network/dancelight-2001'] }
   },
   blockExplorers: {
     default: { name: 'Demo EVM Explorer', url: 'https://dancelight-2001-blockscout.tanssi-chains.network/' }
@@ -14430,7 +14430,7 @@ export const demoEVMChain = {
   name: "Tanssi demo EVM Network",
   nativeCurrency: { name: "TANGO", symbol: "TANGO", decimals: 18 },
   rpcUrls: {
-    default: { http: ['https://dancelight-2001.tanssi-api.network'] }
+    default: { http: ['https://services.tanssi-testnet.network/dancelight-2001'] }
   },
   blockExplorers: {
     default: { name: 'Demo EVM Explorer', url: 'https://dancelight-2001-blockscout.tanssi-chains.network/' }
@@ -14706,7 +14706,7 @@ This command will start a local clone of the chain as it was in the latest block
 
 <div id="termynal" data-termynal>
   <span data-ty="input"><span class="file-path"></span>
-    chopsticks % yarn start --endpoint wss://dancelight-2001.tanssi-api.network
+    chopsticks % yarn start --endpoint wss://services.tanssi-testnet.network/dancelight-2001
   </span>
   <span data-ty>
     [01:59:42.628] INFO (xcm/59650): Frontier Container 2001 RPC listening on port 8000
@@ -18989,7 +18989,7 @@ To spin up your node, you must run the Docker image with the `docker run` comman
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancelight TestNet](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fservices.tanssi-testnet.network/dancelight#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancelight TestNet](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
 
 To do so, take the following steps:
 
@@ -19275,7 +19275,7 @@ Note that the `ExecStart` command  has some parameters that need to be changed t
 
 ### Fetching Bootnode Information {: #fetching-bootnode-information}
 
-Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fdancelight.tanssi-api.network#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancelight TestNet](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+Bootnode information can be read directly from Tanssi itself. For example, you can use the [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fservices.tanssi-testnet.network/dancelight#/chainstate){target=\_blank} to get the bootnodes for a specific network in the [Dancelight TestNet](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
 
 To do so, take the following steps:
 
