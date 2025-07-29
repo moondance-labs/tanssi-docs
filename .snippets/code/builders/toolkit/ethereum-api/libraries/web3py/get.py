@@ -5,7 +5,7 @@ from web3 import Web3
 # 2. Create web3.py provider
 provider_rpc = {
     # Insert your RPC URL here
-    "evm_network": "https://dancelight-2001.tanssi-api.network",
+    "evm_network": "https://services.tanssi-testnet.network/dancelight-2001",
 }
 web3 = Web3(Web3.HTTPProvider(provider_rpc["evm_network"]))
 

@@ -17,7 +17,7 @@ export const processor = new EvmBatchProcessor()
   .setDataSource({
     chain: {
       url: assertNotNull(
-        'https://dancelight-2001.tanssi-api.network'
+        'https://services.tanssi-testnet.network/dancelight-2001'
       ),
       rateLimit: 300,
     },

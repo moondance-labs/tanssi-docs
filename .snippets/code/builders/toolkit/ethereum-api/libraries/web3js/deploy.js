@@ -4,7 +4,7 @@ const contractFile = require('./compile');
 
 // Add the Web3 provider logic here
 const providerRPC = {
-  evmNetwork: 'https://dancelight-2001.tanssi-api.network', // Insert your RPC URL here
+  evmNetwork: 'https://services.tanssi-testnet.network/dancelight-2001', // Insert your RPC URL here
 };
 const web3 = new Web3(providerRPC.evmNetwork);
 

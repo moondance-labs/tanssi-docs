@@ -14,12 +14,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -32,7 +32,7 @@ export const demoEVM = defineChain({
 
 // 3. Create your account using the privateKeyToAccount function
 const account = privateKeyToAccount('INSERT_PRIVATE_KEY');
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 
 //4. Create a wallet client for writing chain data
 const walletClient = createWalletClient({
