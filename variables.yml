@@ -1,6 +1,6 @@
 networks:
   mainnet:
-    dns_name: tanssi.tanssi-mainnet.network
+    dns_name: services.tanssi-mainnet.network/tanssi
     subscan_url: https://tanssi.subscan.io/
     token_symbol: 'TANSSI'
     session:
@@ -38,13 +38,13 @@ networks:
       stable_version: 20.2.2
   dancelight:
     operator_docker_image: moondancelabs/starlight
-    dns_name: dancelight.tanssi-api.network
+    dns_name: services.tanssi-testnet.network/dancelight
     token_symbol: 'STAR'
     session:
       blocks: 3600
       hours: 6
-    demo_evm_rpc_url: https://dancelight-2001.tanssi-api.network/
-    demo_evm_rpc_wss_url: wss://dancelight-2001.tanssi-api.network/
+    demo_evm_rpc_url: https://services.tanssi-testnet.network/dancelight-2001/
+    demo_evm_rpc_wss_url: wss://services.tanssi-testnet.network/dancelight-2001/
     demo_evm_blockscout_url: https://dancelight-2001-blockscout.tanssi-chains.network/
     demo_evm_chain_id: 5678
     demo_evm_chain_hex_id: "0x162E"

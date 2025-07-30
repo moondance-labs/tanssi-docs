@@ -14,12 +14,12 @@ export const demoEVM = defineChain({
   },
   rpcUrls: {
     default: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
     public: {
-      http: ['https://dancelight-2001.tanssi-api.network'],
-      webSocket: ['wss://dancelight-2001.tanssi-api.network'],
+      http: ['https://services.tanssi-testnet.network/dancelight-2001'],
+      webSocket: ['wss://services.tanssi-testnet.network/dancelight-2001'],
     },
   },
   blockExplorers: {
@@ -31,7 +31,7 @@ export const demoEVM = defineChain({
 });
 
 // 3. Create a public client for reading chain data
-const rpcUrl = 'https://dancelight-2001.tanssi-api.network';
+const rpcUrl = 'https://services.tanssi-testnet.network/dancelight-2001';
 const publicClient = createPublicClient({
   chain: demoEVM,
   transport: http(rpcUrl),
