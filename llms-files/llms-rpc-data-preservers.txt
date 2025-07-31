@@ -334,14 +334,14 @@ Every new release includes two node binaries, one for EVM-compatible networks an
 === "EVM-Compatible Network"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-frontier-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/container-chain-frontier-node && \
     chmod +x ./container-chain-frontier-node
     ```
 
 === "Substrate Network"
 
     ```bash
-    wget https://github.com/moondance-labs/tanssi/releases/latest/download/container-chain-simple-node && \
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/container-chain-simple-node && \
     chmod +x ./container-chain-simple-node
     ```
 
