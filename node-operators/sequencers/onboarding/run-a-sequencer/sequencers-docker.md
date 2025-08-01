@@ -43,68 +43,7 @@ The command will download and extract the image and show the status upon executi
 
 --8<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/download-specs.md'
 
-## Setup the Data Directory {: #setup-data-directory }
-
-Running a sequencer requires syncing with two chains: the Tanssi chain and the network it has been assigned to.
-
-Run the following command to create the directory where your sequencer will store the databases containing blocks and chain states:
-
-=== "Tanssi MainNet"
-
-    ```bash
-    mkdir /var/lib/tanssi-data
-    ```
-    
-=== "Dancelight TestNet"
-    
-    ```bash
-    mkdir /var/lib/dancelight-data
-    ```
-
-Set the folder's ownership to the account that will run the Docker image to ensure writing permission:
-
-=== "Tanssi MainNet"
-
-    ```bash
-    chown INSERT_DOCKER_USER /var/lib/tanssi-data
-    ```
-    
-=== "Dancelight TestNet"
-    
-    ```bash
-    chown INSERT_DOCKER_USER /var/lib/dancelight-data
-    ```
-
-Or run the following command if you want to run the sequencer with the current logged-in user:
-
-=== "Tanssi MainNet"
-
-    ```bash
-    sudo chown -R $(id -u):$(id -g) /var/lib/tanssi-data
-    ```
-    
-=== "Dancelight TestNet"
-    
-    ```bash
-    sudo chown -R $(id -u):$(id -g) /var/lib/dancelight-data
-    ```
-
-Move the chain specification file to the folder:
-
-=== "Tanssi MainNet"
-
-    ```bash
-    mv ./starlight-raw-specs.json /var/lib/tanssi-data
-    ```
-    
-=== "Dancelight TestNet"
-    
-    ```bash
-    mv ./dancelight-raw-specs.json /var/lib/dancelight-data
-    ```
-
-!!! note
-    The directory is a parameter in the Docker start-up command. If you decide to create the directory elsewhere, update the command accordingly.
+--8<-- 'text/node-operators/appchains-docker-data-directory.md'
 
 ## Generate the Node Key {: #generate-node-key }
 

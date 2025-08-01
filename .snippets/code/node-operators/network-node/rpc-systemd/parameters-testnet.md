@@ -1,0 +1,18 @@
+--chain=/var/lib/dancelight-data/INSERT_YOUR_APPCHAIN_SPECS_FILE_NAME \
+--rpc-port=9944 \
+--name=para \
+--base-path=/var/lib/dancelight-data \
+--state-pruning=archive \
+--blocks-pruning=archive \
+--database=paritydb \
+--unsafe-rpc-external \
+--bootnodes=INSERT_YOUR_NETWORK_BOOTNODES \
+-- \
+--chain=/var/lib/dancelight-data/dancelight-raw-specs.json \
+--rpc-port=9945 \
+--name=relay \
+--sync=fast \
+--database=paritydb \
+--bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+--bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+--bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
