@@ -5,7 +5,7 @@
 ## Docs
 
 - [AI Resources](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/ai-resources/ai-resources.md): Download LLM-optimized files of the Tanssi documentation, including full content and category-specific resources for AI agents.
-- [Set an Account Identity](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/account-management/identity.md): Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
+- [Set an Account Identity](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/account-management/identity.md): Follow these instructions to establish an identity, including a display name so that you can be more easily recognizable on the Tanssi orchestrator chain.
 - [Account Management](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/account-management/index.md): Learn how to manage all account related activities such as the creation, maintenance, and removal of proxies and identities.
 - [Set Up and Manage Proxy Accounts](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/account-management/proxy-accounts.md): Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
 - [Adding Built-in Substrate Modules](https://raw.githubusercontent.com/moondance-labs/tanssi-docs/refs/heads/main/builders/build/customize/adding-built-in-module.md): Learn how to leverage Substrate's pre-built, ready-to-use modules to efficiently add new features to your network without building from scratch.
