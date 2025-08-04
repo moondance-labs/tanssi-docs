@@ -5,7 +5,7 @@ icon: octicons-person-24
 categories: Basics, Appchain
 ---
 
-# Set Up an Identity
+# Set Up an On-Chain Identity
 
 ## Introduction {: #introduction }
 
