@@ -3415,7 +3415,7 @@ To clear your identity, take the following steps from **Extrinsics** tab of the 
 
 You will then be prompted to sign the transaction. If everything looks good, sign it. You should see status notifications in the top right-hand corner confirming the transaction.
 
-To confirm that your identity information has been successfully removed, revisit the steps outlined in the [Confirm an Identity section](#confirm-identity-extrinsics). This time, instead of displaying your identity details, the response should indicate "none", confirming that no identity information is currently linked to your account. Additionally, when you check your balances, you will find that the deposit initially made for setting your identity has been credited back to your transferable balance. This completes the process of clearing your identity.
+To confirm that your identity information has been successfully removed, revisit the steps outlined in the [Confirm an Identity section](#confirm-identity-extrinsics). This time, instead of displaying your identity details, the response should indicate **none**, confirming that no identity information is currently linked to your account. Additionally, when you check your balances, you will find that the deposit initially made for setting your identity has been credited back to your transferable balance. This completes the process of clearing your identity.
 
 ![Clear an identity confirmation](/images/builders/account-management/identity/identity-9.webp)
 --- END CONTENT ---
