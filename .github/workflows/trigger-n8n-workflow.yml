@@ -62,7 +62,7 @@ jobs:
           COMMITS_DATA: ${{ steps.commits.outputs.data }}
           DIFF_B64: ${{ steps.diff.outputs.diff_b64 }}
           RUN_TOKEN: ${{ steps.uuid.outputs.run_token }}
-          N8N_WEBHOOK_URL: ${{ secrets.tanssi-docs }}
+          N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
         run: |
           set -e
 
