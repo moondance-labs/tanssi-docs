@@ -45,15 +45,15 @@ In summary, appchains deployed through Tanssi are sovereign Layer 1 solutions de
 
 The following table summarizes the main problems Tanssi addresses:
 
-| Aspect                 | The Challenge       | The Tanssi Solution                          |
-|-------------------------|-----------------------------------------|--------------------------------------|
-| Deployment Time         | 6-12 months setup time                  | Minutes to deploy, faster time to market                    |
-| Block production         | - Bootstrap a set of nodes/High up-front-cost<br/>- Centralization<br/> | - Decentralized set of sequencers<br/>- Decentralized by design                    |
-| Security | - Bootstrap economic security<br/> - Weak security  | - Ethereum-grade security from the start     |
-| Finality/Settlement | - Probabilistic<br/> - Takes minutes or days  | - Deterministic<br/>- Takes seconds     |
-| Cost | - High up-front cost  | - Pay-as-you-go model     |
-| Customizability | - Limited  | - Fully sovereign<br/> - Modular framework<br/>- Full runtime customizability<br/>- Freedom to choose the governance mechanism     |
-| Integrations and tooling | - Time consuming  | - Essential tools available from the start     |
+| Aspect                   | The Challenge                                                           | The Tanssi Solution                                                                                                            |
+|--------------------------|-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| Deployment Time          | 6-12 months setup time                                                  | Minutes to deploy, faster time to market                                                                                       |
+| Block production         | - Bootstrap a set of nodes/High up-front-cost<br/>- Centralization<br/> | - Decentralized set of sequencers<br/>- Decentralized by design                                                                |
+| Security                 | - Bootstrap economic security<br/> - Weak security                      | - Ethereum-grade security from the start                                                                                       |
+| Finality/Settlement      | - Probabilistic<br/> - Takes minutes or days                            | - Deterministic<br/>- Takes seconds                                                                                            |
+| Cost                     | - High up-front cost                                                    | - Pay-as-you-go model                                                                                                          |
+| Customizability          | - Limited                                                               | - Fully sovereign<br/> - Modular framework<br/>- Full runtime customizability<br/>- Freedom to choose the governance mechanism |
+| Integrations and tooling | - Time consuming                                                        | - Essential tools available from the start                                                                                     |
 
 ## General Architecture of Tanssi & Tanssi-powered Appchains {: #tanssi-architecture }
 
