@@ -47,7 +47,7 @@ jobs:
         id: diff
         run: |
           curl -L \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3.diff" \
             "https://api.github.com/repos/${{ github.repository }}/pulls/${{ github.event.pull_request.number }}" \
             > pr.diff
@@ -95,8 +95,16 @@ jobs:
 
           echo "$HTTP_BODY" > response_body.json
 
-          STATUS=$(echo "$HTTP_BODY" | jq -r ".status" | tr -d '"')
-          MATCHED=$(echo "$HTTP_BODY" | jq -r ".token" | tr -d '"')
+          STATUS=$(echo "$HTTP_BODY" | jq -r ".status")
+          if [ $? -ne 0 ]; then
+            echo "Failed to parse .status from n8n response (invalid JSON?)"
+            exit 1
+          fi
+          MATCHED=$(echo "$HTTP_BODY" | jq -r ".token")
+          if [ $? -ne 0 ]; then
+            echo "Failed to parse .token from n8n response (invalid JSON?)"
+            exit 1
+          fi
 
           if [ "$MATCHED" != "$RUN_TOKEN" ] || [ "$STATUS" != "completed" ]; then
             echo "n8n workflow did not complete correctly or token mismatch"
