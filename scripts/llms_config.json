@@ -1,6 +1,6 @@
 {
   "projectName": "Tanssi",
-  "projectUrl": "https://www.tanssi.network/",
+  "projectUrl": "https://docs.tanssi.network",
   "projectDescription": "Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.",
   "sectionPriority": ["learn", "builders", "node-operators"],
   "categories": ["Sequencers", "Operators", "RPC-Data-Preservers", "Appchain", "Substrate-Template", "EVM-Template", "Custom-Runtime"],
