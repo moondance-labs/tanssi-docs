@@ -1,6 +1,6 @@
 # Tanssi Developer Documentation (LLMS Format)
 
-This file contains documentation for Tanssi (https://www.tanssi.network/). Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
+This file contains documentation for Tanssi (https://docs.tanssi.network). Tanssi is a decentralized infrastructure protocol designed to enable the rapid deployment of sovereign appchains.
 It is intended for use with large language models (LLMs) to support developers working with Tanssi. The content includes selected pages from the official docs, organized by section.
 
 This file includes documentation related to the category: Basics
