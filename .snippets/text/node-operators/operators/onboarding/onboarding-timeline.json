@@ -28,5 +28,10 @@
       "title": "[Set up your account](/node-operators/operators/onboarding/account-setup/){target=_blank}",
       "content": "Map your account to your node to start validating in the Tanssi protocol.",
       "icon": ":fontawesome-solid-6:"
+    },
+    {
+      "title": "[Set up an on-chain identity](/builders/account-management/identity/){target=_blank}",
+      "content": "Set up an identity to improve the visibility and recognizability of your operator's Substrate account.",
+      "icon": ":fontawesome-solid-7:"
     }
 ]
