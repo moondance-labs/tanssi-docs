@@ -11,7 +11,7 @@ Tanssi is a decentralized appchain infrastructure protocol that allows developer
 
 You can think of Tanssi as _AWS for appchains_. Instead of dealing with all the networking infrastructure yourself, Tanssi handles all the hurdles, allowing you to focus on building your application logic, growing your community, and other tasks essential to your product's success.
 
-Security is another major pain point developers have to deal with, including sourcing the economic security, and bootstrapping and incentivizing a validator set. This is particularly challenging for projects in their early stages. All Tanssi-powered appchains benefit from Ethereum-grade security right from the start, and, by leveraging Tanssi's decentralized design, appchains don't have any single point of failure. 
+Security is another major pain point that developers have to deal with, taking on the responsibility of sourcing economic security and bootstrapping a validator set, which can be particularly challenging for projects in their early stages. All Tanssi-powered appchains benefit from Ethereum-grade security right from the start, and by leveraging Tanssi's decentralized design, appchains aren't exposed to single points of failure. 
 
 Tanssi-powered appchains also benefit from a modular tech stack, providing ultimate control over the logic that powers the blockchain's runtime, offering an excellent way for projects to scale and build optimized solutions for their products. This complete control over the appchain's logic and governance mechanism suits perfectly a wide range of use cases, including DeFi Protocols, Real World Assets (RWA), Gaming Platforms, and others.
 
@@ -21,11 +21,11 @@ Developers looking to build decentralized appchains typically have to deal with 
 
 - **Complex Infrastructure Management**: appchain deployments typically demand handling numerous infrastructural components like bootstrapping sequencers, operators (also called validators), wallets, block explorers, oracles, indexers, RPC endpoints, and more. This is both time-consuming and resource-intensive.
 
-- **Weak & Inefficient Security**: appchains commonly suffer from having small set of operators or weak economic security. Early-stage projects don't have enough economic backing to power a robust consensus mechanism. Moreover, developers often have to pay for full blockchain capacity validation even when they might not have achieved product-market fit, and blocks might be close to empty. This essentially means operators are being overpaid, and there is a large opportunity cost since those resources could be used elsewhere to develop the protocol.
+- **Weak & Inefficient Security**: appchains commonly suffer from having a small set of operators or weak economic security. Early-stage projects don't have enough economic backing to power a robust consensus mechanism. Moreover, developers often have to pay for full blockchain capacity validation even when they might not have achieved product-market fit, and blocks might be close to empty. This essentially means operators are being overpaid, and there is a large opportunity cost since those resources could be used elsewhere to develop the protocol.
 
 - **Cross-Chain and Interoperability**: appchains inherently lack cross-chain capabilities to connect to other blockchain ecosystems. Furthermore, developing interoperability solutions requires specialized expertise and meticulous implementation.
 
-- **Slow Time to Market**: the complexities of appchain infrastructure divert developer's focus from application logic, which is the key driver for intuitive interfaces and a seamless user experience, critical for adoption.
+- **Slow Time to Market**: the complexities of appchain infrastructure divert developers' focus from application logic, which is the key driver for intuitive interfaces and a seamless user experience, critical for adoption.
 
 ## What Tanssi Provides {: #what-tanssi-provides}
 
@@ -59,13 +59,13 @@ The following table summarizes the main benefits Tanssi brings to your project:
 
 ## General Architecture of Tanssi & Tanssi-powered Appchains {: #tanssi-architecture }
 
-As previously discussed, appchains deployed through Tanssi are sovereign and customizable blockchains which, among other features, leverage sequencing as a service and inherit block finality from an external security provider.
+As previously discussed, appchains deployed through Tanssi are sovereign and customizable blockchains that, among other features, leverage sequencing as a service and inherit block finality from an external security provider.
 
 A high-level overview of the architecture is presented below, featuring [Symbiotic](https://symbiotic.fi/){target=\_blank} as the security provider.
 
 ![High-level overview of an appchain & Tanssi](/images/learn/tanssi/overview/overview-1.webp)
 
-The Tanssi protocol manages and orchestrates a decentralized set of sequencers assigned to provide block production services to Tanssi-powered appchains. The sequencers execute transactions and include them in blocks, which the security provider's operators then proceed to validate. Symbiotic operators offer Ethereum-grade economic security through its restaking protocol. The mechanism of how this works is explained in two separate articles: [Block Production Services](/learn/tanssi/network-services/block-production/){target=\_blank} and [Ethereum with Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}.
+The Tanssi protocol manages and orchestrates a decentralized set of sequencers assigned to provide block production services to Tanssi-powered appchains. The sequencers execute transactions and include them in blocks, which the security provider's operators then proceed to validate. Symbiotic's restaking protocol allows its operators to offer Ethereum-grade economic security. The mechanism of how this works is explained in two separate articles: [Block Production Services](/learn/tanssi/network-services/block-production/){target=\_blank} and [Ethereum with Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}.
 
 While the sequencers providing block production services are rotated and reassigned to a different appchain upon every session change, each appchain will have its own set of Data Preservers running full archive nodes, ensuring data availability. These Data Preservers will provide the RPC infrastructure for apps and users interacting with Tanssi-powered appchains.
 
