@@ -33,27 +33,29 @@ Tanssi addresses the most common appchain pain points by:
 
 - **Sequencing as a Service**: appchains built with Tanssi have their blocks produced by Tanssi's incentivized workers. Tanssi guarantees the appchain's liveness by orchestrating a decentralized set of sequencers.
 
-- **External Security Providers**: appchains deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of operators.
+- **Economic Security Through External Providers**: appchains deployed through Tanssi leverage security from a provider of choice (for example, [Symbiotic](https://symbiotic.fi/){target=\_blank} for Ethereum). The protocol is designed to finalize transactions deterministically in seconds through a decentralized set of operators.
+
+- **Tanssi/Ethereum Bridge**: Move liquidity to and from Ethereum using the [built-in bridge](/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} based on Snowbridge.
+
+- **Key Integrations**: appchains built with Tanssi can access key infrastructural components alongside block production in a fully automated and standardized way. Tanssi-powered appchains come with built-in support for crucial tools such as wallets, block explorers, indexers, RPC providers, and more, saving developers the effort of dealing with these integrations. 
 
 - **Modular Blockchain Framework**: appchains built with Tanssi can use a modular blockchain framework called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}, which enables developers to quickly and easily build optimized and customizable blockchains for any use case. Tanssi handles most infrastructural complexities, allowing developers to focus on their appchain's custom logic.
-
-- **Key Integrations**: appchains built with Tanssi can access key infrastructural components alongside block production in a fully automated and standardized way. Tanssi-powered appchains come with built-in support for crucial tools such as wallets, block explorers, indexers, RPC providers, and more, saving developers the effort of dealing with these integrations. Additionally, appchains deployed through Tanssi can immediately leverage Cross-Consensus Messaging (XCM) upon launch, enabling instant bridging capabilities.
 
 In summary, appchains deployed through Tanssi are sovereign Layer 1 solutions designed to be highly modular and interconnected, with a focus on simplifying the deployment process and enabling customization of the appchain itself. This empowers developers to bring their blockchain applications to market faster, securely, and with greater potential for integration and interaction within the broader blockchain ecosystems.
 
 ### Key Aspects of Tanssi {: #tanssi-key-aspects }
 
-The following table summarizes the main problems Tanssi addresses:
+The following table summarizes the main benefits Tanssi brings to your project:
 
-| Aspect                   | The Challenge                                                           | The Tanssi Solution                                                                                                            |
-|--------------------------|-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| Deployment Time          | 6-12 months setup time                                                  | Minutes to deploy, faster time to market                                                                                       |
-| Block production         | - Bootstrap a set of nodes/High up-front-cost<br/>- Centralization<br/> | - Decentralized set of sequencers<br/>- Decentralized by design                                                                |
-| Security                 | - Bootstrap economic security<br/> - Weak security                      | - Ethereum-grade security from the start                                                                                       |
-| Finality/Settlement      | - Probabilistic<br/> - Takes minutes or days                            | - Deterministic<br/>- Takes seconds                                                                                            |
-| Cost                     | - High up-front cost                                                    | - Pay-as-you-go model                                                                                                          |
-| Customizability          | - Limited                                                               | - Fully sovereign<br/> - Modular framework<br/>- Full runtime customizability<br/>- Freedom to choose the governance mechanism |
-| Integrations and tooling | - Time consuming                                                        | - Essential tools available from the start                                                                                     |
+| Aspect                   | The Tanssi Solution                                                                                                               |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| Deployment Time          | - Minutes to deploy<br/> - Faster time to market                                                                                          |
+| Block production         | - Sequencing as a service<br/>- Decentralized set of sequencers by design                                                         |
+| Security                 | - Ethereum-grade security from the start                                                                                          |
+| Finality/Settlement      | - Deterministic<br/>- Finality in seconds                                                                                         |
+| Cost                     | - Registration bond + Pay-as-you-go model                                                                                         |
+| Customizability          | - Choose the governance mechanism that better suits your project<br/> - Modular framework<br/>- Full runtime customizability<br/> |
+| Integrations and tooling | - Essential tools available from the start                                                                                        |
 
 ## General Architecture of Tanssi & Tanssi-powered Appchains {: #tanssi-architecture }
 
@@ -71,5 +73,5 @@ While the sequencers providing block production services are rotated and reassig
 
 ## What's Next? {: #whats-next }
 
-- Head to the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} and launch your appchain
-- Interact with a live Tanssi-powered appchain: the [Tanssi Demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}
+- Head to the [Tanssi dApp](https://apps.tanssi.network){target=\_blank} and launch your appchain.
+- Interact with a live Tanssi-powered appchain: the [Tanssi Demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}.
