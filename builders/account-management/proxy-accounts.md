@@ -13,15 +13,15 @@ Proxy accounts can be set up to perform a limited number of actions on behalf of
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum level of access required to carry out their duties via a specific type of proxy account. 
 
-This tutorial will walk you through configuring a proxy account on the Tanssi TestNet specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
+This tutorial will walk you through configuring a proxy account on Dancelight, the Tanssi TestNet, specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 To follow along with this tutorial, you will need to have:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
-- Create or have two accounts accessible in Polkadot.js Apps
-- At least one of the accounts will need to be funded with `{{ networks.dancelight.token_symbol }}` tokens
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+- Create or have two accounts accessible on the developer portal.
+- At least one of the accounts will need to be funded with `{{ networks.dancelight.token_symbol }}` tokens.
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
@@ -40,8 +40,7 @@ The equation for calculating the deposit is:
 deposit base + deposit factor * number of proxies
 ```
 
-You can find each of the relevant variables for the Dancelight TestNet below. Note that these values are subject to change for Tanssi MainNet.
-
+You can find each of the relevant variables below.
 
 === "Tanssi MainNet"
     |    Variable    |                                      Value                                       |
@@ -50,7 +49,7 @@ You can find each of the relevant variables for the Dancelight TestNet below. No
     | Deposit factor | {{ networks.mainnet.proxy.deposit_factor }} {{ networks.mainnet.token_symbol }} |
     |  Max proxies   |                 {{ networks.mainnet.proxy.max_proxies }} proxies                 |
 
-=== "Dancelight"
+=== "Dancelight TestNet"
     |    Variable    |                                         Value                                          |
     |:--------------:|:--------------------------------------------------------------------------------------:|
     |  Deposit base  |  {{ networks.dancelight.proxy.deposit_base }} {{ networks.dancelight.token_symbol }}  |

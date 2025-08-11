@@ -47,14 +47,14 @@ On the following screen, select the method by which you would like to import the
 
 On the following screen, you'll be able to provide the relevant seed phrase, JSON file, or QR code, and you can begin using your new account right away.
 
-## Connecting SubWallet to the Tanssi Dancelight TestNet {: #connecting-Subwallet-to-the-tanssi-dancelight-testnet }
+## Connecting SubWallet to Dancelight {: #connecting-Subwallet-to-dancelight }
 
-SubWallet comes pre-configured with support for the Tanssi Dancelight TestNet, but it may not be enabled by default. You just need to head to the **Manage networks** page to toggle it on. Remember that the Tanssi Dancelight TestNet itself is the Substrate-based network that orchestrates and manages the launch of Tanssi-powered networks. To configure your SubWallet to work with Dancelight, press the **More Options** icon in the upper left corner. Then click **Manage networks** and take the following steps:
+SubWallet comes pre-configured with support for Dancelight, the Tanssi TestNet, but it may not be enabled by default. You just need to head to the **Manage networks** page to toggle it on. Remember that [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank} itself is the Substrate-based network that orchestrates and manages the launch of Tanssi-powered networks. To configure your SubWallet to work with Dancelight, press the **More Options** icon in the upper left corner. Then click **Manage networks** and take the following steps:
 
 1. Search for **Dancelight**
 2. Toggle the slider on to enable support for Dancelight
 
-![Toggle support for the Dancelight TestNet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-6.webp)
+![Toggle support for Dancelight](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-6.webp)
 
 If you have a balance of Dancelight tokens, you'll see your account balance on the homepage of the SubWallet wallet. By default, all balances are hidden in SubWallet, but if you press the eye icon, you can toggle balance visibility.
 
@@ -72,7 +72,7 @@ To configure SubWallet for your Substrate network, press the **More Options** ic
 
 ## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
 
-To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancelight TestNet, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
+To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to Dancelight, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
 
 ![Connect to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-9.webp)
 
