@@ -70,7 +70,7 @@ At any given time, all Tanssi networks require a certain number of sequencers, d
     |    Max. # of Sequencers    |     {{ networks.mainnet.sequencers.configuration.max_block_producers }}      |
     | # of Sequencers (Networks) | {{ networks.mainnet.sequencers.configuration.block_producer_per_container }} |
 
-=== "Dancelight"
+=== "Dancelight TestNet"
     |          Variable          |                                       Value                                        |
     |:--------------------------:|:----------------------------------------------------------------------------------:|
     |    Max. # of Sequencers    |     {{ networks.dancelight.sequencers.configuration.max_block_producers }}      |
@@ -142,7 +142,7 @@ The current configuration is set as follows:
     | Sequencers assignment |        {{ networks.mainnet.costs.cost_per_assignment }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per session         |
     |   Block production    |            {{ networks.mainnet.costs.cost_per_block }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per block            |
 
-=== "Dancelight"
+=== "Dancelight TestNet"
     |       Variable        |                                                Value                                                |
     |:---------------------:|:---------------------------------------------------------------------------------------------------:|
     | Registration deposit  | {{ networks.dancelight.costs.registration_deposit }} x 10<sup>-5</sup> {{ networks.dancelight.token_symbol }} per appchain runtime byte |

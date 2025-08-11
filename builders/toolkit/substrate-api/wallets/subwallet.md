@@ -62,7 +62,7 @@ If you have a balance of Dancelight tokens, you'll see your account balance on t
 
 ## Connecting SubWallet to Your Substrate Network {: #connecting-Subwallet-to-your-substrate-network }
 
-To configure SubWallet for your Substrate network, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Tanssi Dancelight Parachain is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to SubWallet, take the following steps:
+To configure SubWallet for your Substrate network, press the **More Options** icon in the upper left corner. Then click **Manage networks**. Press the **+** icon. On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, Dancelight is used here; however, you can substitute these details with your own Tanssi network. To add your Tanssi network to SubWallet, take the following steps:
 
 1. Paste in the WSS URL of your Tanssi network. Other parameters like the parachain ID and token decimals may be auto-populated
 2. Provide a name for your Tanssi network

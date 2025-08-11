@@ -44,7 +44,7 @@ In the terminal that Sidecar will run, export the environmental variable for the
     export SAS_SUBSTRATE_URL=wss://{{ networks.mainnet.dns_name }}
     ```
 
-=== "Dancelight"
+=== "Dancelight TestNet"
 
     ```bash
     export SAS_SUBSTRATE_URL=wss://{{ networks.dancelight.dns_name }}
