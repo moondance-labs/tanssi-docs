@@ -192,7 +192,7 @@ When establishing eligibility to produce blocks, there are a couple of variables
     |            Session             |                         {{ networks.mainnet.session.blocks }} blocks                          |
     | Network sequencers per session |    {{ networks.mainnet.sequencers.configuration.block_producer_per_container }} sequencers    |
   
-=== "Dancelight"
+=== "Dancelight TestNet"
     |            Variable            |                                             Value                                             |
     |:------------------------------:|:---------------------------------------------------------------------------------------------:|
     |    Minimum self-delegation     | {{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} |
@@ -1337,15 +1337,15 @@ The staking proxy type conveniently allows the proxy account to manage staking a
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum access required to carry out their duties via a specific proxy account.
 
-This tutorial will walk you through configuring a staking proxy account on the Tanssi TestNet specifically for operations as a sequencer. Then, it will demonstrate initiating a delegation using the newly created staking proxy.
+This tutorial will walk you through configuring a staking proxy account on [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank} specifically for operations as a sequencer. Then, it will demonstrate initiating a delegation using the newly created staking proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 To follow along with this tutorial, you will need to have:
 
-- The [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi TestNet
+- The [developer portal](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to Dancelight
 - Create or have two accounts accessible in the developer portal
-- Both accounts will need to be funded, and the sequencer account will need at least the minimum self delegation required to become an active sequencer ({{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} for the Tanssi TestNet)
+- Both accounts will need to be funded, and the sequencer account will need at least the minimum self delegation required to become an active sequencer ({{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} for Dancelight)
 
 If you need help importing your accounts into the developer portal, please check out the [Connecting to the Developer Portal](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
@@ -1432,7 +1432,7 @@ To execute a transaction, you can navigate back to the [**Extrinsics** page](htt
 7. Choose the **requestDelegate** extrinsic
 8. Enter the **candidate** address, which is the sequencer account
 9. Select **AutoCompounding** or **ManualRewards** for the **pool** field
-10. Enter the amount to stake. This amount must meet the minimum, which, for the Tanssi TestNet, is {{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} tokens. You'll need to submit the value including the twelve decimal places the Tanssi Network uses, so for a value of {{ networks.dancelight.sequencers.minimum_self_delegation }}, you'll need to enter `{{ networks.dancelight.sequencers.minimum_self_delegation }}000000000000`
+10. Enter the amount to stake. This amount must meet the minimum, which, for Dancelight, is {{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} tokens. You'll need to submit the value including the twelve decimal places the Tanssi Network uses, so for a value of {{ networks.dancelight.sequencers.minimum_self_delegation }}, you'll need to enter `{{ networks.dancelight.sequencers.minimum_self_delegation }}000000000000`
 11. Click **Submit Transaction**
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-8.webp)
@@ -3007,7 +3007,7 @@ The following diagram summarizes the high-level flow of a delegator delegating a
     | Joining Delay | {{ networks.mainnet.staking.joining_delay_blocks }} blocks ({{ networks.mainnet.staking.joining_delay_hours }} hours) |
     | Leaving Delay | {{ networks.mainnet.staking.leaving_delay_blocks }} blocks ({{ networks.mainnet.staking.leaving_delay_hours }} hours) |
   
-=== "Dancelight"
+=== "Dancelight TestNet"
     |   Variable    |                                                            Value                                                            |
     |:-------------:|:---------------------------------------------------------------------------------------------------------------------------:|
     | Joining Delay | {{ networks.dancelight.staking.joining_delay_blocks }} blocks ({{ networks.dancelight.staking.joining_delay_hours }} hours) |
@@ -3165,7 +3165,7 @@ At any given time, all Tanssi networks require a certain number of sequencers, d
     |    Max. # of Sequencers    |     {{ networks.mainnet.sequencers.configuration.max_block_producers }}      |
     | # of Sequencers (Networks) | {{ networks.mainnet.sequencers.configuration.block_producer_per_container }} |
 
-=== "Dancelight"
+=== "Dancelight TestNet"
     |          Variable          |                                       Value                                        |
     |:--------------------------:|:----------------------------------------------------------------------------------:|
     |    Max. # of Sequencers    |     {{ networks.dancelight.sequencers.configuration.max_block_producers }}      |
@@ -3237,7 +3237,7 @@ The current configuration is set as follows:
     | Sequencers assignment |        {{ networks.mainnet.costs.cost_per_assignment }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per session         |
     |   Block production    |            {{ networks.mainnet.costs.cost_per_block }} x 10<sup>-6</sup> {{ networks.mainnet.token_symbol }} per block            |
 
-=== "Dancelight"
+=== "Dancelight TestNet"
     |       Variable        |                                                Value                                                |
     |:---------------------:|:---------------------------------------------------------------------------------------------------:|
     | Registration deposit  | {{ networks.dancelight.costs.registration_deposit }} x 10<sup>-5</sup> {{ networks.dancelight.token_symbol }} per appchain runtime byte |
@@ -3614,8 +3614,8 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 For this guide, you will need the following:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
-- At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+- At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens.
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
@@ -3752,15 +3752,15 @@ Proxy accounts can be set up to perform a limited number of actions on behalf of
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum level of access required to carry out their duties via a specific type of proxy account. 
 
-This tutorial will walk you through configuring a proxy account on the Tanssi TestNet specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
+This tutorial will walk you through configuring a proxy account on Dancelight, the Tanssi TestNet, specifically for balance transfers. Then, it will demonstrate performing a balance transfer using the newly created proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 To follow along with this tutorial, you will need to have:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
-- Create or have two accounts accessible in Polkadot.js Apps
-- At least one of the accounts will need to be funded with `{{ networks.dancelight.token_symbol }}` tokens
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+- Create or have two accounts accessible on the developer portal.
+- At least one of the accounts will need to be funded with `{{ networks.dancelight.token_symbol }}` tokens.
 
 If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
@@ -3770,8 +3770,8 @@ When setting up a proxy account, a bond for the proxy is taken out of your free 
 
 The deposit is calculated based on a deposit base and a deposit factor:
 
-- **Deposit base** - the amount to be reserved for an account to have a proxy list
-- **Deposit factor** - the additional amount to be reserved for every proxy the primary account has
+- **Deposit base** - the amount to be reserved for an account to have a proxy list.
+- **Deposit factor** - the additional amount to be reserved for every proxy the primary account has.
 
 The equation for calculating the deposit is:
 
@@ -3779,8 +3779,7 @@ The equation for calculating the deposit is:
 deposit base + deposit factor * number of proxies
 ```
 
-You can find each of the relevant variables for the Dancelight TestNet below. Note that these values are subject to change for Tanssi MainNet.
-
+You can find each of the relevant variables below.
 
 === "Tanssi MainNet"
     |    Variable    |                                      Value                                       |
@@ -3789,7 +3788,7 @@ You can find each of the relevant variables for the Dancelight TestNet below. No
     | Deposit factor | {{ networks.mainnet.proxy.deposit_factor }} {{ networks.mainnet.token_symbol }} |
     |  Max proxies   |                 {{ networks.mainnet.proxy.max_proxies }} proxies                 |
 
-=== "Dancelight"
+=== "Dancelight TestNet"
     |    Variable    |                                         Value                                          |
     |:--------------:|:--------------------------------------------------------------------------------------:|
     |  Deposit base  |  {{ networks.dancelight.proxy.deposit_base }} {{ networks.dancelight.token_symbol }}  |
@@ -3800,15 +3799,15 @@ You can find each of the relevant variables for the Dancelight TestNet below. No
 
 When creating a proxy account, you must choose a type of proxy that will define how the proxy can be used. The available options are:
 
-- **`Any`** - allows the proxy account to use any function supported by the proxy pallet. There is no filtering of calls
-- **`NonTransfer`** - this type of proxy account is allowed to submit any type of transaction with the exception of balance transfers
-- **`Balances`** - allows the proxy account to only make transactions related to sending funds
-- **`Governance`** - allows the proxy account to only make transactions related to the governance pallet, such as voting or creating democracy proposals. Note, governance is not yet enabled on Tanssi. You can create governance proxy accounts but they will not be able to take any actions until governance is enabled 
-- **`Registrar`** - allows the proxy account to only make transactions related to the registrar pallet
-- **`SudoRegistrar`** - allows the proxy account to only make transactions related to the registrar pallet that need to be called by Sudo
-- **`CancelProxy`** - allows the proxy account to reject and remove any announced proxy calls
-- **`Staking`** - allows the proxy account to perform staking-related transactions, such as sequencer and `session()` functions 
-- **`SessionKeyManagement`** - allows the proxy account to make key management related transactions included in the session pallet
+- **`Any`** - allows the proxy account to use any function supported by the proxy pallet. There is no filtering of calls.
+- **`NonTransfer`** - this type of proxy account is allowed to submit any type of transaction with the exception of balance transfers.
+- **`Balances`** - allows the proxy account to only make transactions related to sending funds.
+- **`Governance`** - allows the proxy account to only make transactions related to the governance pallet, such as voting or creating democracy proposals. Note, governance is not yet enabled on Tanssi. You can create governance proxy accounts but they will not be able to take any actions until governance is enabled. 
+- **`Registrar`** - allows the proxy account to only make transactions related to the registrar pallet.
+- **`SudoRegistrar`** - allows the proxy account to only make transactions related to the registrar pallet that need to be called by Sudo.
+- **`CancelProxy`** - allows the proxy account to reject and remove any announced proxy calls.
+- **`Staking`** - allows the proxy account to perform staking-related transactions, such as sequencer and `session()` functions.
+- **`SessionKeyManagement`** - allows the proxy account to make key management related transactions included in the session pallet.
 
 For this guide, you will be setting up a proxy account using the balances proxy type. Since this type enables the proxy to spend funds on behalf of the primary account, you should exercise caution and only provide access to accounts you trust. The proxy will have access to transfer all of the funds within the primary account, and if not trusted, the proxy could drain the primary account. Ensure that you maintain oversight of your proxy accounts and remove any proxies that are no longer needed.
 
@@ -3820,14 +3819,14 @@ The following demo will showcase configuring a Balances proxy, which allows for 
 
 To get started creating your proxy account, head to the **Developer** tab and select [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} from the dropdown. Next, you will need to take the following steps:
 
-1. Select the primary account
-2. From the **submit the following extrinsic** dropdown, select **proxy**
-3. Choose the **addProxy** extrinsic
-4. Choose **Id** from the **AccountIdLookupOf** dropdown 
-5. Select the **delegate** account for the proxy
-6. From the **proxyType** dropdown, choose **Balances**
-7. Optionally, you can add a time delay using a specified number of blocks to add an additional layer of security for the primary account to review the pending transaction
-8. Click **Submit Transaction**
+1. Select the primary account.
+2. From the **submit the following extrinsic** dropdown, select **proxy**.
+3. Choose the **addProxy** extrinsic.
+4. Choose **Id** from the **AccountIdLookupOf** dropdown.
+5. Select the **delegate** account for the proxy.
+6. From the **proxyType** dropdown, choose **Balances**.
+7. Optionally, you can add a time delay using a specified number of blocks to add an additional layer of security for the primary account to review the pending transaction.
+8. Click **Submit Transaction**.
 
 ![Add a proxy account from the Extrinsics page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-1.webp)
 
@@ -3835,8 +3834,8 @@ You will then be prompted to authorize and sign the transaction. Click **Sign an
 
 As previously mentioned, you can also create a proxy from the **Accounts** page. To do so, navigate to the **Accounts** page and take the following steps:
 
-1. Select the three vertical dots next to the primary account
-2. Select **Add proxy**
+1. Select the three vertical dots next to the primary account.
+2. Select **Add proxy**.
 
 ![Select the Add proxy menu item from the Accounts page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-2.webp)
 
@@ -3849,9 +3848,9 @@ A pop-up will appear and you can enter in the required information, such as the 
 
 Then, take the following steps:
 
-1. Select the account you would like to set as a proxy
-2. Select the proxy type
-3. Click **Submit** and sign the transaction
+1. Select the account you would like to set as a proxy.
+2. Select the proxy type.
+3. Click **Submit** and sign the transaction.
 
 ![Add the details of the proxy account, including the proxy account and type.](/images/builders/account-management/proxy/proxy-4.webp)
 
@@ -3863,10 +3862,10 @@ You can verify that your proxy account has been successfully set up in a couple 
 
 To check your proxy accounts from the [**Chain state** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}, you can take the following steps:
 
-1. From the **selected state query** dropdown, select **proxy**
-2. Choose the **proxies** extrinsic
-3. Select your primary/proxied account
-4. Click on the **+** button to send the query
+1. From the **selected state query** dropdown, select **proxy**.
+2. Choose the **proxies** extrinsic.
+3. Select your primary/proxied account.
+4. Click on the **+** button to send the query.
 
 ![Verify your proxy accounts via the Extrinsics page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-5.webp)
 
@@ -3886,17 +3885,17 @@ Now that you have created a proxy account and verified that it was successfully 
 
 To execute a transaction, you can navigate back to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} and take the following steps:
 
-1. Select the proxy account to submit the transaction from the **using the select account** dropdown
-2. From the **submit the following extrinsic** menu, select **proxy**
-3. Choose the **proxy** extrinsic
-4. Choose **Id** from the **AccountIdLookupOf** dropdown
-5. Select the primary account from the **real** dropdown
-6. Select the **balances** call
-7. Choose the **transferKeepAlive** extrinsic
-8. Choose **Id** from the **AccountIdLookupOf** dropdown
-9. In the **dest** field, enter the address you would like to send funds to
-10. In the **value** field, enter the amount of Dancelight tokens to send. For this example, you can send `2` Dancelight tokens
-11. Click **Submit Transaction**
+1. Select the proxy account to submit the transaction from the **using the select account** dropdown.
+2. From the **submit the following extrinsic** menu, select **proxy**.
+3. Choose the **proxy** extrinsic.
+4. Choose **Id** from the **AccountIdLookupOf** dropdown.
+5. Select the primary account from the **real** dropdown.
+6. Select the **balances** call.
+7. Choose the **transferKeepAlive** extrinsic.
+8. Choose **Id** from the **AccountIdLookupOf** dropdown.
+9. In the **dest** field, enter the address you would like to send funds to.
+10. In the **value** field, enter the amount of {{ networks.dancelight.token_symbol }} tokens to send. For this example, you can send `2` {{ networks.dancelight.token_symbol }} tokens.
+11. Click **Submit Transaction**.
 
 ![Execute a proxy transaction from the Extrinsics page of Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-8.webp)
 
@@ -3914,14 +3913,14 @@ Similarly to adding a proxy account, there are a couple of ways that you can rem
 
 To remove a proxy from the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, you can take the following steps:
 
-1. From the **using the selected account** dropdown, select your primary account
-2. Then select **proxy**
-3. Choose **removeProxy** to remove a single proxy or **removeProxies** to remove all associated proxies
-4. Choose **Id** from the **AccountIdLookupOf** dropdown
-5. If removing a single proxy, enter the proxy account to remove in the **delegate** field
-6. Select the **proxyType** to remove, in this case choose **Balances**
-7. Optionally, select a delay period in block numbers
-8. Click **Submit Transaction**
+1. From the **using the selected account** dropdown, select your primary account.
+2. Then select **proxy**.
+3. Choose **removeProxy** to remove a single proxy or **removeProxies** to remove all associated proxies.
+4. Choose **Id** from the **AccountIdLookupOf** dropdown.
+5. If removing a single proxy, enter the proxy account to remove in the **delegate** field.
+6. Select the **proxyType** to remove, in this case choose **Balances**.
+7. Optionally, select a delay period in block numbers.
+8. Click **Submit Transaction**.
 
 ![Remove a proxy account from the Extrinsics page of Polkadot.js Apps](/images/builders/account-management/proxy/proxy-10.webp)
 
@@ -3942,9 +3941,9 @@ A pop-up will appear showing an overview of your proxy accounts. To remove all p
 
 On the transaction confirmation screen, take the following steps:
 
-1. Ensure that you do not use a proxy for this call (as this example is a balances proxy, the call to remove the proxy needs to come from the primary account rather than the proxy account)
-2. Enter your password for the respective account
-3. Press **Sign and Submit**
+1. Ensure that you do not use a proxy for this call (as this example is a balances proxy, the call to remove the proxy needs to come from the primary account rather than the proxy account).
+2. Enter your password for the respective account.
+3. Press **Sign and Submit**.
 
 ![Remove a proxy account from the Accounts page of Polkadot.js Apps, confirmation](/images/builders/account-management/proxy/proxy-13.webp)
 
@@ -4253,7 +4252,7 @@ The Tanssi Network MainNet HTTPS and WSS endpoints are as follows:
 
 ## Dancelight
 
-The Dancelight TestNet HTTPS and WSS endpoints are as follows:
+The Tanssi TestNet HTTPS and WSS endpoints are as follows:
 
 === "HTTPS"
 
