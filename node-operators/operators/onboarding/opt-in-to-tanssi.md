@@ -9,9 +9,9 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/operators/onboarding/run-an-operator/intro.md'
+After successfully [registering your node in the Symbiotic protocol](/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank}, the next steps are to opt in to both Tanssi-enabled vaults and the Tanssi network itself. As presented in the [onboarding section](/node-operators/operators/onboarding/){target=\_blank}, these are the third and fourth steps.
 
-This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
+This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network, allowing you to choose between multiple methods, including using the Symbiotic CLI, interacting directly with smart contracts through Etherscan, or utilizing Safe for multisig configurations. 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
