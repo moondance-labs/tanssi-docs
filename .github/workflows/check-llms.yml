@@ -6,7 +6,7 @@ on:
 
 jobs:
   validate:
-    uses: your-org/workflows-repo/.github/workflows/validate-llms.yml@main
+    uses: papermoonio/workflows/.github/workflows/validate-llms.yml@main
     with:
       llms_filename: "llms-full.txt"
       generator_command: "python3 scripts/generate_llms.py"
