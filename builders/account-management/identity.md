@@ -61,9 +61,9 @@ If you need help importing your accounts into the developer portal, please check
 
 ## Get Started {: #get-started }
 
-Depending on the information to be included, there are a couple of different ways to set and clear an identity using the developer portal. If you intend to register your identity using only the default fields, you can follow the instructions for [Managing an Identity via the Accounts Page](#manage-via-accounts). **This is the recommended way to set and manage your identity**.
+Depending on the information to be included, there are a couple of different ways to set and clear an identity using the developer portal. If you intend to register your identity using only the default fields, you can follow the instructions for [Managing an Identity via the Accounts](#manage-via-accounts) page. **This is the recommended way to set and manage your identity**.
 
-If you want to add custom fields beyond the default fields, follow the instructions for [Managing an Identity via the Extrinsics Page](#manage-via-extrinsics).
+If you want to add custom fields beyond the default fields, follow the instructions for [Managing an Identity via the Extrinsics](#manage-via-extrinsics) page.
 
 !!! note
     Please note that using the **Accounts** page on the developer portal is recommended to manage your identity as it provides an easy-to-use interface that enforces character limits. If you use the **Extrinsics** page, please be aware that your input for each field (i.e., name, email, etc.) must be 32 characters or less; otherwise, your information will be cut off.
