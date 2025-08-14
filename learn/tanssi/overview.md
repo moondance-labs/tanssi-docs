@@ -11,7 +11,7 @@ Tanssi is a decentralized appchain infrastructure protocol that allows developer
 
 You can think of Tanssi as _AWS for appchains_. Instead of dealing with all the networking infrastructure yourself, Tanssi handles all the hurdles, allowing you to focus on building your application logic, growing your community, and other tasks essential to your product's success.
 
-Security is another major pain point that developers have to deal with, taking on the responsibility of sourcing economic security and bootstrapping a validator set, which can be particularly challenging for projects in their early stages. All Tanssi-powered appchains benefit from Ethereum-grade security right from the start, and by leveraging Tanssi's decentralized design, appchains aren't exposed to single points of failure. 
+Security is another significant obstacle that developers must deal with, taking on the responsibility of attracting staked assets to ensure consensus security and bootstrapping a validator set, which can be particularly challenging for projects in their early stages. All Tanssi-powered appchains benefit from Ethereum-grade security right from the start, and by leveraging Tanssi's decentralized design, appchains aren't exposed to single points of failure. 
 
 Tanssi-powered appchains also benefit from a modular tech stack, providing ultimate control over the logic that powers the blockchain's runtime, offering an excellent way for projects to scale and build optimized solutions for their products. This complete control over the appchain's logic and governance mechanism suits perfectly a wide range of use cases, including DeFi Protocols, Real World Assets (RWA), Gaming Platforms, and others.
 
