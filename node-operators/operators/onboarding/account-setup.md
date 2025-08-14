@@ -9,11 +9,11 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-Before you can start participating in the Tanssi protocol, validating blocks, and securing the Tanssi ecosystem, you'll need to set up your account and establish your node's eligibility.
+As presented in the [onboarding section](/node-operators/operators/onboarding/){target=\_blank}, once you've successfully [opted into a Tanssi-enabled vault](/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi-vaults){target=\_blank}, [opted into the Tanssi network](/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi){target=\_blank}, and [filled out the application form](https://www.tanssi.network/node-operators-application){target=\_blank}, this is the sixth step of the process. After this step, your node will be able to participate in the Tanssi protocol.
 
-This step maps your Tanssi stash account (the one keeping track of your rewards) to your node's session keys (the ones used for communication and consensus), allowing the protocol to include your node in the active set. 
+In this step, you'll map your Substrate stash account (the one keeping track of your rewards) to your node's session keys (the ones used for communication and consensus), allowing the protocol to include your node in the active set. 
 
-By following the steps outlined in this guide, you'll learn everything you need to know to validate within the Tanssi ecosystem.
+This guide walks you through generating session keys for your node, mapping them to your account through the Tanssi developer portal, and verifying that the association has been established correctly. 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
