@@ -122,5 +122,5 @@ repository:
     release_branch: tanssi-polkadot-stable2412
 node_versions:
   docker_sequencer_image_name: moondancelabs/tanssi
-  client_version: v0.14.0
-  para_client_version: v0.14.0-para
+  client_version: v0.14.1
+  para_client_version: v0.14.1-para
