@@ -1,5 +1,5 @@
 ---
-title: Run a Tanssi Operator
+title: Run an Operator Node Using Systemd
 description: Learn how to set up and run an operator (validator) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 icon: simple-linux
 categories: Operators
@@ -9,7 +9,9 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/operators/onboarding/run-an-operator/intro.md'
+Operators are a crucial component of the Tanssi ecosystem, providing security and validation services for Tanssi-powered networks. As an operator, you participate in the consensus mechanism that secures the network while earning rewards for your contribution.
+
+As presented in the [onboarding section](/node-operators/operators/onboarding/){target=\_blank}, running the actual node is the first step towards your active participation in the protocol.
 
 In this guide, you'll learn how to spin up a Tanssi operator using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 

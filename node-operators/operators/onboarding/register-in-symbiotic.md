@@ -9,9 +9,11 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
---8<-- 'text/node-operators/operators/onboarding/run-an-operator/intro.md'
+As presented in the [onboarding section](/node-operators/operators/onboarding/){target=\_blank}, registering in Symbiotic is the second step of the process. You should already have the node synced and running, whether using [Docker](/node-operators/operators/onboarding/run-an-operator/operators-docker/){target=\_blank} or [Systemd](/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}. 
 
-This guide will walk you through the steps to successfully register your node as a Symbiotic operator.
+The Tanssi protocol provides its appchains with Ethereum-grade security from the start by relying on external security providers, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. To participate as an operator in the Tanssi ecosystem, you must first register your node in the Symbiotic protocol. The registration process establishes your node as a recognized operator.
+
+This guide will walk you through the steps to successfully register your node as a Symbiotic operator, allowing you to choose between multiple methods, including using the Symbiotic CLI, interacting directly with smart contracts through Etherscan, or utilizing Safe for multisig configurations.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 

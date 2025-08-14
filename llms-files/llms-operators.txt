@@ -448,11 +448,11 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-Before you can start participating in the Tanssi protocol, validating blocks, and securing the Tanssi ecosystem, you'll need to set up your account and establish your node's eligibility.
+As presented in the [onboarding section](/node-operators/operators/onboarding/){target=\_blank}, once you've successfully [opted into a Tanssi-enabled vault](/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi-vaults){target=\_blank}, [opted into the Tanssi network](/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi){target=\_blank}, and [filled out the application form](https://www.tanssi.network/node-operators-application){target=\_blank}, this is the sixth step of the process. After this step, your node will be able to participate in the Tanssi protocol.
 
-This step maps your Tanssi stash account (the one keeping track of your rewards) to your node's session keys (the ones used for communication and consensus), allowing the protocol to include your node in the active set. 
+In this step, you'll map your Substrate stash account (the one keeping track of your rewards) to your node's session keys (the ones used for communication and consensus), allowing the protocol to include your node in the active set. 
 
-By following the steps outlined in this guide, you'll learn everything you need to know to validate within the Tanssi ecosystem.
+This guide walks you through generating session keys for your node, mapping them to your account through the Tanssi developer portal, and verifying that the association has been established correctly. 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -563,13 +563,9 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+After successfully [registering your node in the Symbiotic protocol](/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank}, the next steps are to opt in to both Tanssi-enabled vaults and the Tanssi network itself. As presented in the [onboarding section](/node-operators/operators/onboarding/){target=\_blank}, these are the third and fourth steps.
 
-The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
-
-In every session, the Tanssi protocol determines the number of operators required to support the entire ecosystem. Knowing this number, the protocol picks those with the highest delegated stake from the allow-listed ones.
-
-This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network.
+This guide will walk through the steps to successfully opt into a Tanssi-enabled vault and the Tanssi network, allowing you to choose between multiple methods, including using the Symbiotic CLI, interacting directly with smart contracts through Etherscan, or utilizing Safe for multisig configurations. 
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -917,13 +913,11 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+As presented in the [onboarding section](/node-operators/operators/onboarding/){target=\_blank}, registering in Symbiotic is the second step of the process. You should already have the node synced and running, whether using [Docker](/node-operators/operators/onboarding/run-an-operator/operators-docker/){target=\_blank} or [Systemd](/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}. 
 
-The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
+The Tanssi protocol provides its appchains with Ethereum-grade security from the start by relying on external security providers, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. To participate as an operator in the Tanssi ecosystem, you must first register your node in the Symbiotic protocol. The registration process establishes your node as a recognized operator.
 
-In every session, the Tanssi protocol determines the number of operators required to support the entire ecosystem. Knowing this number, the protocol picks those with the highest delegated stake from the allow-listed ones.
-
-This guide will walk you through the steps to successfully register your node as a Symbiotic operator.
+This guide will walk you through the steps to successfully register your node as a Symbiotic operator, allowing you to choose between multiple methods, including using the Symbiotic CLI, interacting directly with smart contracts through Etherscan, or utilizing Safe for multisig configurations.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -1162,21 +1156,19 @@ Finally, open a pull request. The Symbiotic team will review it and merge it.
 Doc-Content: https://docs.tanssi.network/node-operators/operators/onboarding/run-an-operator/operators-docker/
 --- BEGIN CONTENT ---
 ---
-title: Run an Operator Using Docker
+title: Run an Operator Node Using Docker
 description: Learn how to set up and run an operator (aka validator) for Tanssi network using Docker to participate in the protocol, secure networks, and earn rewards.
 icon: simple-docker
 categories: Operators
 ---
 
-# Run an Operator in Tanssi Using Docker
+# Run an Operator Node Using Docker
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+Operators are a crucial component of the Tanssi ecosystem, providing security and validation services for Tanssi-powered networks. As an operator, you participate in the consensus mechanism that secures the network while earning rewards for your contribution.
 
-The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
-
-In every session, the Tanssi protocol determines the number of operators required to support the entire ecosystem. Knowing this number, the protocol picks those with the highest delegated stake from the allow-listed ones.
+As presented in the [onboarding section](/node-operators/operators/onboarding/){target=\_blank}, running the actual node is the first step towards your active participation in the protocol.
 
 In this guide, you'll learn how to spin up a Tanssi operator using the official image release with [Docker](https://www.docker.com){target=\_blank} on Linux systems.
 
@@ -1533,7 +1525,7 @@ When the syncing process is finished, your node is ready for the next steps.
 Doc-Content: https://docs.tanssi.network/node-operators/operators/onboarding/run-an-operator/operators-systemd/
 --- BEGIN CONTENT ---
 ---
-title: Run a Tanssi Operator
+title: Run an Operator Node Using Systemd
 description: Learn how to set up and run an operator (validator) node for Tanssi networks using Systemd, allowing you to participate in the protocol and earn rewards.
 icon: simple-linux
 categories: Operators
@@ -1543,11 +1535,9 @@ categories: Operators
 
 ## Introduction {: #introduction }
 
-One of Tanssi's core propositions for builders is that it provides Ethereum-grade economic security to every Tanssi-powered network, regardless of its TVL, userbase, or the specifics of the use case. Tanssi's design offers developers a shared security model, alleviating them from having to source enough economic security or negotiate with operators to run nodes opting in for their networks. 
+Operators are a crucial component of the Tanssi ecosystem, providing security and validation services for Tanssi-powered networks. As an operator, you participate in the consensus mechanism that secures the network while earning rewards for your contribution.
 
-The Tanssi protocol achieves this by integrating with [external security providers](/learn/tanssi/external-security-providers/){target=\_blank}, such as [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. In this model, different [vaults](/learn/tanssi/external-security-providers/symbiotic/#vaults){target=\_blank} associated with Tanssi provide economic security, and reliable operators provide validation services to the Tanssi network.
-
-In every session, the Tanssi protocol determines the number of operators required to support the entire ecosystem. Knowing this number, the protocol picks those with the highest delegated stake from the allow-listed ones.
+As presented in the [onboarding section](/node-operators/operators/onboarding/){target=\_blank}, running the actual node is the first step towards your active participation in the protocol.
 
 In this guide, you'll learn how to spin up a Tanssi operator using the latest stable binary file release and manage the service using [Systemd](https://systemd.io){target=\_blank} on Linux systems.
 
