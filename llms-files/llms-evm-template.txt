@@ -12090,13 +12090,13 @@ To follow along with this guide, you will need the following:
 
 === "Tanssi MainNet"
 
-    - The [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} open and connected to Tanssi MainNet
-    - At least one account funded with `{{ networks.mainnet.token_symbol }}` tokens
+    - The [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} open and connected to Tanssi MainNet.
+    - At least one account funded with `{{ networks.mainnet.token_symbol }}` tokens.
 
 === "Dancelight TestNet"
     
-    - The [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
-    - At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens
+    - The [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+    - At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens.
 
 If you need help importing your accounts into the developer portal, please check out the [Connecting to the developer portal](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
