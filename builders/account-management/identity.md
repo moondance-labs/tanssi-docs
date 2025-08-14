@@ -1,15 +1,15 @@
 ---
 title: Set an Account Identity
-description: Follow these step-by-step instructions to establish an identity, including a display name, so you can be more easily recognizable on Tanssi.
+description: Follow these instructions to establish an identity, including a display name so that you can be more easily recognizable on the Tanssi orchestrator chain.
 icon: octicons-person-24
 categories: Basics, Appchain
 ---
 
-# Set Up an Identity
+# Set Up an On-Chain Identity
 
 ## Introduction {: #introduction }
 
-The [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity pallet is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field in [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}.
+The [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity [module](/learn/framework/modules/){target=\_blank} is an out-of-the-box solution for adding personal information to your on-chain account. Establishing an identity makes it easier for your account to be recognized by others, as your display name will automatically populate when someone pastes your address into a field on the [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank}.
 
 The identity you configure goes beyond a simple display name. Personal information can include default fields such as your legal name, display name, website, Twitter handle, Discord, and Riot (now known as Element) name. You can also use custom fields to include any other relevant information.
 
@@ -45,27 +45,34 @@ To store your information on-chain, you must bond some funds, which will eventua
 
 ## Checking Prerequisites { : #checking-prerequisites }
 
-For this guide, you will need the following:
+To follow along with this guide, you will need the following:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
-- At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens
+=== "Tanssi MainNet"
 
-If you need help importing your accounts into Polkadot.js Apps, please check out the [Connecting to Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
+    - The [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} open and connected to Tanssi MainNet
+    - At least one account funded with `{{ networks.mainnet.token_symbol }}` tokens
+
+=== "Dancelight TestNet"
+    
+    - The [developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} open and connected to the Tanssi Dancelight TestNet
+    - At least one account funded with `{{ networks.dancelight.token_symbol }}` tokens
+
+If you need help importing your accounts into the developer portal, please check out the [Connecting to the developer portal](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank} guide.
 
 ## Get Started {: #get-started }
 
-Depending on the information to be included, there are a couple of different ways to set and clear an identity using Polkadot.js Apps. If you intend to register your identity using only the default fields, you can follow the instructions for [Managing an Identity via the Accounts UI](#manage-via-accounts). **This is the recommended way to set and manage your identity**.
+Depending on the information to be included, there are a couple of different ways to set and clear an identity using the developer portal. If you intend to register your identity using only the default fields, you can follow the instructions for [Managing an Identity via the Accounts](#manage-via-accounts) page. **This is the recommended way to set and manage your identity**.
 
-If you want to add custom fields beyond the default fields, follow the instructions for [Managing an Identity via the Extrinsics UI](#manage-via-extrinsics).
+If you want to add custom fields beyond the default fields, follow the instructions for [Managing an Identity via the Extrinsics](#manage-via-extrinsics) page.
 
 !!! note
-    Please note that using the **Accounts** UI on Polkadot.js Apps is recommended to manage your identity as it provides an easy-to-use interface that enforces character limits. If you use the **Extrinsics** UI, please be aware that your input for each field (i.e., name, email, etc.) must be 32 characters or less; otherwise, your information will be cut off.
+    Please note that using the **Accounts** page on the developer portal is recommended to manage your identity as it provides an easy-to-use interface that enforces character limits. If you use the **Extrinsics** page, please be aware that your input for each field (i.e., name, email, etc.) must be 32 characters or less; otherwise, your information will be cut off.
 
 ## Manage an Identity via Accounts {: #manage-via-accounts }
 
 ### Set an Identity {: #set-identity-accounts }
 
-To get started with setting an identity using the Accounts UI, head to the [**Accounts** tab](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} on the Polkadot.js Apps explorer.
+To get started with setting an identity using the Accounts page, head to the [**Accounts** tab](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} of the developer portal.
 
 You should already have an account connected, so you can click on your account name to verify and note your balances. After you send the transaction to set an identity, the deposit(s) you submitted will be moved from your transferable balance to your reserved balance.
 
@@ -88,7 +95,7 @@ Next, the menu to register and set your identity will pop up, and you can start 
 
 ![Set your identity](/images/builders/account-management/identity/identity-3.webp)
 
-You will then be prompted to sign the transaction. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction.
+You will then be prompted to sign the transaction. If everything looks good, sign it.
 
 You should see status notifications pop up in the top right-hand corner. Once the transaction has been confirmed, you can click on your account name again, and the panel will slide out on the right side of the page. Your balances will have changed, and you'll also see your new identity information.
 
@@ -102,7 +109,7 @@ Once you clear your identity, the deposit in your reserved balance will get tran
 
 ### Set an Identity {: #set-identity-extrinsics }
 
-To register an identity using the extrinsics UI, navigate to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} on Polkadot.js Apps. Please ensure your input does not exceed 32 characters for each identity field. To complete your identity, take the following steps:
+To register an identity using the extrinsics page, navigate to the [**Extrinsics** page](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/extrinsics){target=\_blank} of the developer portal. Please ensure your input does not exceed 32 characters for each identity field. To complete your identity, take the following steps:
 
 1. Select your account
 2. Select identity from the **submit the following extrinsic** dropdown
@@ -131,15 +138,15 @@ Optionally, if you would like to enter custom fields, take the following steps:
 
 Finally, once all of your identity information has been added, you can scroll to the bottom of the page and click **Submit Transaction**.
 
-You will then be prompted to sign the transaction. Remember, an additional deposit is required for each additional custom field. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction.
+You will then be prompted to sign the transaction. Remember, an additional deposit is required for each additional custom field. If everything looks good, sign the transaction.
 
 You should see status notifications pop up in the top right-hand corner confirming the transaction. If successful, you've set an identity! Congratulations! To ensure everything went through and your identity information looks good, you can verify your identity.
 
 ### Confirm an Identity {: #confirm-identity-extrinsics }
 
-To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [**Chain state**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}.
+To verify the addition of your identity information, you can click on the **Developer** tab and then navigate to [**Chain state**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/chainstate){target=\_blank}.
 
-On the **Chain State** UI, make sure **Storage** is selected. Then you can start to request your identity information:
+On the **Chain State** page, make sure **Storage** is selected. Then you can start to request your identity information:
 
 1. Set **selected state query** to **identity**
 2. Select the **identityOf(AccountId)** function
@@ -152,7 +159,7 @@ You can see now that you've successfully set an identity! Once you clear your id
 
 ## Clear an Identity {: #confirm-identity-extrinsics }
 
-To clear your identity, take the following steps from **Extrinsics** tab of the Polkadot.js Apps UI:
+To clear your identity, take the following steps from **Extrinsics** tab of the developer portal:
 
 1. Select your account from the **using the selected account** dropdown
 2. Select **identity** from the **submit the following extrinsic** dropdown
@@ -161,8 +168,8 @@ To clear your identity, take the following steps from **Extrinsics** tab of the 
 
 ![Clear an identity](/images/builders/account-management/identity/identity-8.webp)
 
-You will then be prompted to sign the transaction. If everything looks good, enter your password and click **Sign and Submit** to sign and send the transaction. You should see status notifications in the top right-hand corner confirming the transaction.
+You will then be prompted to sign the transaction. If everything looks good, sign it. You should see status notifications in the top right-hand corner confirming the transaction.
 
-To confirm that your identity information has been successfully removed, revisit the steps outlined in the [Confirm an Identity section](#confirm-identity-extrinsics). This time, instead of displaying your identity details, the response should indicate "none," confirming that no identity information is currently linked to your account. Additionally, when you check your balances, you will find that the deposit initially made for setting your identity has been credited back to your transferable balance. This completes the process of clearing your identity.
+To confirm that your identity information has been successfully removed, revisit the steps outlined in the [Confirm an Identity section](#confirm-identity-extrinsics). This time, instead of displaying your identity details, the response should indicate **none**, confirming that no identity information is currently linked to your account. Additionally, when you check your balances, you will find that the deposit initially made for setting your identity has been credited back to your transferable balance. This completes the process of clearing your identity.
 
 ![Clear an identity confirmation](/images/builders/account-management/identity/identity-9.webp)

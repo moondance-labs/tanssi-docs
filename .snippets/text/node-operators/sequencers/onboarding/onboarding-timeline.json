@@ -1,0 +1,22 @@
+[
+    {
+      "title": "[Run a sequencer](/node-operators/sequencers/onboarding/run-a-sequencer/){target=_blank}",
+      "content": "Set up the actual node using Systemd or Docker.",
+      "icon": ":fontawesome-solid-1:"
+    },
+    {
+      "title": "[Set up your account](/node-operators/sequencers/onboarding/account-setup/#map-account){target=_blank}",
+      "content": "Map your account to your node's session keys.",
+      "icon": ":fontawesome-solid-2:"
+    },
+    {
+      "title": "[Self-delegate assets](/node-operators/sequencers/onboarding/account-setup/#submit-self-delegation){target=_blank}",
+      "content": "Delegate assets to your own account to become eligible for sequencing.",
+      "icon": ":fontawesome-solid-3:"
+    },
+    {
+      "title": "[Set up an on-chain identity](/builders/account-management/identity/){target=_blank}",
+      "content": "Set up an identity to improve the visibility and recognizability of your sequencer.",
+      "icon": ":fontawesome-solid-4:"
+    }
+]
