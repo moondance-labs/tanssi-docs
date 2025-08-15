@@ -34,7 +34,7 @@ When establishing eligibility to produce blocks, there are a couple of variables
     |            Session             |                         {{ networks.mainnet.session.blocks }} blocks                          |
     | Network sequencers per session |    {{ networks.mainnet.sequencers.configuration.block_producer_per_container }} sequencers    |
   
-=== "Dancelight"
+=== "Dancelight TestNet"
     |            Variable            |                                             Value                                             |
     |:------------------------------:|:---------------------------------------------------------------------------------------------:|
     |    Minimum self-delegation     | {{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} |

@@ -43,7 +43,7 @@ Dancelight has two types of endpoints available for users to connect to: one for
 
 For Dancelight, you can use the following block explorer:
 
-- [Dancelight Subscan]({{ networks.dancelight.subscan_url }}){target=\_blank}
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/explorer){target=\_blank}
+- [Subscan]({{ networks.dancelight.subscan_url }}){target=\_blank}.
+- [The developer portal](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/explorer){target=\_blank}.
 
 Support for additional block explorers is in the works and as more explorers support Dancelight, this section will be updated accordingly.

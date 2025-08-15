@@ -16,7 +16,7 @@ One of the main benefits of this precompile is that it removes the necessity of 
 
 Under the hood, the [ERC-20 precompile](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank} executes specific Substrate actions related to the Substrate balances module, which is coded in Rust. The balances module provides functionality for handling the various types of balances.
 
-This guide will show you how to interact with UNIT tokens, the native protocol tokens for quick trial networks on the Tanssi Dancelight TestNet, via the ERC-20 precompile. You can follow along and adapt this guide to interacting with your own network.
+This guide will show you how to interact with UNIT tokens, the native protocol tokens for quick trial networks on [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}, via the ERC-20 precompile. You can follow along and adapt this guide to interacting with your own network.
 
 The precompile is located at the following address:
 

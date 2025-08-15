@@ -27,7 +27,7 @@ The Tanssi Network MainNet HTTPS and WSS endpoints are as follows:
 
 ## Dancelight
 
-The Dancelight TestNet HTTPS and WSS endpoints are as follows:
+The Tanssi TestNet HTTPS and WSS endpoints are as follows:
 
 === "HTTPS"
 

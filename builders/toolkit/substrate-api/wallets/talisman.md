@@ -67,7 +67,7 @@ On the following screen, take the following steps:
 
 ## Connecting Talisman to the Tanssi Network {: #connecting-talisman-to-the-tanssi-network }
 
-Talisman already comes pre-configured with support for the Tanssi network MainNet and its TestNet, Dancelight. To connect to Dancelight, you first need to make sure you have enabled support for TestNets on Talisman. To do so, take the following steps:
+Talisman already comes pre-configured with support for Tanssi MainNet and [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}. To connect to Dancelight, you first need to make sure you have enabled support for TestNets on Talisman. To do so, take the following steps:
 
 1. Open the Talisman extension and click on the Talisman logo.
 2. Select **Settings**.
@@ -89,7 +89,7 @@ To configure Talisman for your Tanssi-powered Substrate network, open the Talism
 
 ![Add Network in Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-7.webp)
 
-On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, the Dancelight TestNet is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to Talisman, take the following steps:
+On the following page, you'll then be prompted to enter the network details for your Tanssi network. For demonstration purposes, Dancelight is used here, but you can substitute these details for your own Tanssi network. To add your Tanssi network to Talisman, take the following steps:
 
 1. Paste in the RPC URL of your Tanssi network. Other parameters will be auto-populated.
 2. Optionally, enter the block explorer URL of your Tanssi network, if applicable.
@@ -100,7 +100,7 @@ On the following page, you'll then be prompted to enter the network details for 
 
 ## Connecting to Polkadot.js {: #connecting-to-polkadotjs}
 
-To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to the Dancelight TestNet, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
+To connect your Tanssi Substrate network to Polkadot.js Apps, first head to [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. In this example, Polkadot.js Apps is connected to Dancelight, but you can point Polkadot.js to your Tanssi network by clicking on the network dropdown and filling in the WSS endpoint of your Tanssi network in the **custom endpoint** field.
 
 ![Connect to Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-9.webp)
 
