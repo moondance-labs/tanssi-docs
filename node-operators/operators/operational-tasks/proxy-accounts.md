@@ -15,7 +15,7 @@ The `SessionKeyManagement` proxy type conveniently allows the account to rotate 
 
 Proxy accounts can also help you implement the principle of least privilege for access control. For example, if you have multiple team members, you can give them the minimum access required to carry out their duties via a specific proxy account.
 
-This tutorial will walk you through configuring a `SessionKeyManagement` proxy account on the Tanssi TestNet specifically for operator-related actions and demonstrate how to rotate your newly created keys using the proxy.
+This tutorial will walk you through configuring a `SessionKeyManagement` proxy account on [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank} specifically for operator-related actions and demonstrate how to rotate your newly created keys using the proxy.
 
 ## Checking Prerequisites {: #checking-prerequisites }
 

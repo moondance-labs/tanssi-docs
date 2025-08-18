@@ -7,7 +7,7 @@ categories: Appchain, EVM-Template
 
 ## Introduction
 
-Explore the functionalities of a fully Ethereum-compatible network deployed through Tanssi by interacting with the demo EVM network on Dancelight.
+Explore the functionalities of a fully Ethereum-compatible network deployed through Tanssi by interacting with the demo EVM network on [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
 
 This quick reference page offers all the essentials you need to interact with this demo network.
 

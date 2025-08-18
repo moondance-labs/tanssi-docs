@@ -49,7 +49,7 @@ The following diagram summarizes the high-level flow of a delegator delegating a
     | Joining Delay | {{ networks.mainnet.staking.joining_delay_blocks }} blocks ({{ networks.mainnet.staking.joining_delay_hours }} hours) |
     | Leaving Delay | {{ networks.mainnet.staking.leaving_delay_blocks }} blocks ({{ networks.mainnet.staking.leaving_delay_hours }} hours) |
   
-=== "Dancelight"
+=== "Dancelight TestNet"
     |   Variable    |                                                            Value                                                            |
     |:-------------:|:---------------------------------------------------------------------------------------------------------------------------:|
     | Joining Delay | {{ networks.dancelight.staking.joining_delay_blocks }} blocks ({{ networks.dancelight.staking.joining_delay_hours }} hours) |

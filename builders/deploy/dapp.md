@@ -207,7 +207,6 @@ The required minimum balances to launch a Tanssi appchain are as follows:
     |:----------------------------:|:----------------:|
     |  Tanssi TestNet   |    100 STAR     |
 
-
 !!! note
     Quick trial appchains use an additional orchestration layer, therefore two different tokens, SNAP and UNIT, will be sent to your account. For dedicated appchains only STAR tokens are required.
 
@@ -242,7 +241,7 @@ Once the files have been generated, please click **Continue** to go on to the fi
 
 ## Deploy Your appchain {: #deploy-your-appchain }
 
-You're finally ready to take your last step towards preparing your appchain as it evolves into a Tanssi-powered appchain! For this final step, when registering a quieck trial you'll need to submit two transactions: one to register your appchain on the orchestration layer and another to register your appchain on the Tanssi TestNet.
+You're finally ready to take your last step towards preparing your appchain as it evolves into a Tanssi-powered appchain! For this final step, when registering a quick trial you'll need to submit two transactions: one to register your appchain on the orchestration layer and another to register your appchain on the Tanssi TestNet.
 
 To register your appchain on the orchestration layer, take the following steps:
 
