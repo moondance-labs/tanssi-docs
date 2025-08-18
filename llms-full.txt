@@ -1109,7 +1109,7 @@ Calls represent the behavior a runtime exposes in the form of transactions that 
 Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Polkadot documentation](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/#how-fees-are-calculated){target=\_blank}
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an `Error` if anything goes wrong
 
@@ -4410,7 +4410,7 @@ To better understand the differences between the two token representations, the 
 | **Network**            | Tanssi Network                                                                                                                                                                                                          | Ethereum MainNet                                                                                                                                                                                  |
 | **Token Standard**     | Native Substrate asset                                                                                                                                                                                                  | ERC-20 standard token                                                                                                                                                                             |
 | **Decimal Places**     | Twelve (12) decimals                                                                                                                                                                                                    | Twelve (12) decimals                                                                                                                                                                              |
-| **Account Type**       | [Sr25519](https://wiki.polkadot.network/learn/learn-cryptography/#keypairs-and-signing){target=_blank}                                                                                                                  | [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm){target=_blank}                                                                                                  |
+| **Account Type**       | [Sr25519](https://wiki.polkadot.com/learn/learn-cryptography/#keypairs-and-signing){target=_blank}                                                                                                                  | [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm){target=_blank}                                                                                                  |
 | **Compatible Wallets** | [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}, [SubWallet](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}, and others                                              | [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}, [Talisman](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}, and other Ethereum-compatible wallets |
 | **Primary Utilities**  | - On-chain governance participation<br/>- Appchain registration and deployment<br/>- Sequencing services payment<br/>- Transaction fees on Tanssi network<br/>- Staking on sequencers<br/>- Sequencer operation rewards | - Operator validation rewards<br/>- Staking on operators                                                                                                                                          |
 | **Staking Options**    | Sequencer staking (for keeping appchain liveness)                                                                                                                                                                       | Operator staking (for validating/securing the entire Tanssi ecosystem)                                                                                                                            |
@@ -14990,7 +14990,7 @@ categories: Substrate-Template
 
 ## Introduction {: #introduction }
 
-[Polkadot.js](https://wiki.polkadot.network/general/polkadotjs/){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Tanssi-powered network! The [Polkadot.js API](https://polkadot.js.org/docs/api){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a network and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
+[Polkadot.js](https://wiki.polkadot.com/general/polkadotjs/){target=\_blank} is a collection of tools that allow you to interact with Substrate-based blockchains, such as your Tanssi-powered network! The [Polkadot.js API](https://polkadot.js.org/docs/api){target=\_blank} is one component of Polkadot.js and is a library that allows application developers to query a network and interact with the node's Substrate interfaces using JavaScript, enabling you to read and write data to the network.
 
 You can use the Polkadot.js API to query on-chain data and send transactions from the Substrate side of your Tanssi network. You can query runtime constants, chain state, events, transaction (extrinsic) data, and more.
 
@@ -16902,7 +16902,7 @@ categories: Basics
 
 Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
 
-Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
+Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
 
 A transaction fee scheme is applied on top of the weight-based mechanism to ensure economic incentives are in line to limit the execution time, computation, and number of calls (database read/writes) to perform operations. Transaction fees are fundamental to preventing network spam, as they represent the cost of using the Tanssi network service. Consequently, a user interacting with the network through a specific function call will pay a transaction fee determined by a baseline fee algorithm.
 
@@ -17619,8 +17619,8 @@ Blockchain technology relies on [public-private](https://en.wikipedia.org/wiki/P
 
 | **Account Type** | **Underlying Algorithm** | **Primary Use in Tanssi** |
 | --- | --- | --- |
-| [Sr25519](https://wiki.polkadot.network/learn/learn-cryptography/){target=_blank} | Schnorr signatures on the Ristretto group | Default signature scheme for Substrate-based transactions and operator identity. |
-| [Ed25519](https://wiki.polkadot.network/learn/learn-cryptography/){target=_blank} | EdDSA using Curve25519 | Used for specific consensus roles (e.g., block production, finality) within the Substrate framework. |
+| [Sr25519](https://wiki.polkadot.com/learn/learn-cryptography/){target=_blank} | Schnorr signatures on the Ristretto group | Default signature scheme for Substrate-based transactions and operator identity. |
+| [Ed25519](https://wiki.polkadot.com/learn/learn-cryptography/){target=_blank} | EdDSA using Curve25519 | Used for specific consensus roles (e.g., block production, finality) within the Substrate framework. |
 | [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm){target=_blank} | Elliptic Curve Digital Signature Algorithm | Receiving rewards through the Ethereum-based Symbiotic protocol for operators. |
 
 ## Identity and Operations { : #identity-and-operations }
@@ -17842,7 +17842,7 @@ Well-behaved operators and restakers are rewarded for their participation with T
 The reward distribution phase calculates and allocates rewards through five key steps involving operators, restakers, and smart contracts. The steps are:
 
 1. **Reward Calculation** - Tanssi calculates rewards based on the activity of operators and stakers and then creates a [Merkle root](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. This Merkle root is a cryptographic fingerprint that summarizes the reward allocations, indicating who receives what. Stakers are rewarded according to their stake in each vault
-2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.network/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://docs.snowbridge.network/){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
+2. **Reward Data Sent via XCM** - reward allocation data is sent using [XCM](https://wiki.polkadot.com/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), a standardized protocol for blockchain communication. [Snowbridge](https://docs.snowbridge.network/){target=\_blank} acts as a trustless bridge between Tanssi and Ethereum
 3. **Ethereum Message Reception** - once the message is relayed to the `Gateway` contract, this contract serves as Tanssi's authorized entry point on Ethereum for the Snowbridge bridge
 4. **Message Processing and Validation** - the `Gateway` forwards the data to the [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, which is responsible for various tasks, including passing the information to the `OperatorReward` contract
 5. **Reward Storage and Distribution** - this is the final destination for the data. The [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} contract stores the Merkle tree of the reward allocations and handles the transfer of reward tokens when a claim is made
@@ -23004,7 +23004,7 @@ categories: Sequencers
 
 As a sequencer, there may come a time when you need to gracefully exit the network. Decommissioning your account involves a two-step process to ensure that your node is properly disassociated from your account and that you receive your bond back.
 
-This guide will show you how to wind down your operations as a Tanssi sequencer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi sequencer with a [sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank}.
+This guide will show you how to wind down your operations as a Tanssi sequencer properly. This includes undelegating your self-delegation to reclaim your bond and unmapping your session keys to sever the connection between your node and your account. Naturally, this guide assumes that you're an existing Tanssi sequencer with a [sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} and mapped [session keys](https://wiki.polkadot.com/learn/learn-cryptography/#session-keys){target=\_blank}.
 
 ## Request Undelegation {: #request-undelegation }
 
@@ -23163,7 +23163,7 @@ Before you can start producing blocks on Tanssi-powered networks, you'll need to
 
 You must have spun up a [Sequencer node](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} to tackle the account setup steps in this guide.
 
-You'll need to set up your account by generating [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
+You'll need to set up your account by generating [session keys](https://wiki.polkadot.com/learn/learn-cryptography/#session-keys){target=\_blank} and mapping those session keys to your account.  This account is the one to which delegators will choose to delegate and where your rewards will be distributed. You can optionally [establish a proxy account](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} for additional security. 
 
 To establish eligibility, you must delegate yourself as a sequencer and meet the minimum bond requirements.
 
@@ -23193,7 +23193,7 @@ When establishing eligibility to produce blocks, there are a couple of variables
 
 ## Map an Account to Your Sequencer Node {: #map-account }
 
-The first step is a two-step process that generates [session keys](https://wiki.polkadot.network/general/web3-and-polkadot/#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your sequencer.
+The first step is a two-step process that generates [session keys](https://wiki.polkadot.com/learn/learn-cryptography/#session-keys){target=\_blank} and maps the session keys to your account. Session keys are used to perform network operations, such as signing blocks, whereas your account holds the staked funds and has an on-chain identity. By mapping the session key to your account, you create an association between your account and your sequencer.
 
 You will need to create session keys for your primary and backup servers. Each of your servers, your primary and backup, should have its own unique keys. Since the keys never leave your servers, you can consider them a unique ID for that server.
 
