@@ -65,6 +65,7 @@ const moonbeamLinks = [
   origin,
   'https://www.tanssi.network',
   'https://tanssi.network',
+  'https://www.tanssi.network',
   'https://apps.tanssi.network/'
 ];
 const checkIfMoonbeamLink = (href) => {
