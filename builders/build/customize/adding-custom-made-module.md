@@ -115,7 +115,7 @@ The next step would be to add the third mandatory macro (`#[pallet::config]`) an
 
 To make the modules highly adaptable, their configuration is abstract enough to allow them to be adapted to the specific requirements of the use case the runtime implements.
 
-The implementation of the `#[pallet::config]` macro is mandatory and sets the module's dependency on other modules and the types and values specified by the runtime-specific settings. More about module dependencies is in the [Substrate documentation](https://docs.substrate.io/build/pallet-coupling){target=\_blank}.
+The implementation of the `#[pallet::config]` macro is mandatory and sets the module's dependency on other modules and the types and values specified by the runtime-specific settings.
 
 In the custom `lottery-example` module you are building, the module depends on other modules to manage the currency and the random function to select the winner. The module also reads and uses the ticket price and the maximum number of participants directly from the runtime settings.  Consequently, the configuration needs to include these dependencies:
 
@@ -165,7 +165,7 @@ Calls represent the behavior a runtime exposes in the form of transactions that 
 Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Polkadot documentation](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/#how-fees-are-calculated){target=\_blank}
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an `Error` if anything goes wrong
 

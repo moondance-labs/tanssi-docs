@@ -15,8 +15,8 @@ Blockchain technology relies on [public-private](https://en.wikipedia.org/wiki/P
 
 | **Account Type** | **Underlying Algorithm** | **Primary Use in Tanssi** |
 | --- | --- | --- |
-| [Sr25519](https://wiki.polkadot.network/learn/learn-cryptography/){target=_blank} | Schnorr signatures on the Ristretto group | Default signature scheme for Substrate-based transactions and operator identity. |
-| [Ed25519](https://wiki.polkadot.network/learn/learn-cryptography/){target=_blank} | EdDSA using Curve25519 | Used for specific consensus roles (e.g., block production, finality) within the Substrate framework. |
+| [Sr25519](https://wiki.polkadot.com/learn/learn-cryptography/){target=_blank} | Schnorr signatures on the Ristretto group | Default signature scheme for Substrate-based transactions and operator identity. |
+| [Ed25519](https://wiki.polkadot.com/learn/learn-cryptography/){target=_blank} | EdDSA using Curve25519 | Used for specific consensus roles (e.g., block production, finality) within the Substrate framework. |
 | [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm){target=_blank} | Elliptic Curve Digital Signature Algorithm | Receiving rewards through the Ethereum-based Symbiotic protocol for operators. |
 
 ## Identity and Operations { : #identity-and-operations }
