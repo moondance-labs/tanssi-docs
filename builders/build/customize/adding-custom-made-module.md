@@ -165,7 +165,7 @@ Calls represent the behavior a runtime exposes in the form of transactions that 
 Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Substrate documentation](https://docs.polkadot.com/polkadot-protocol/basics/blocks-transactions-fees/fees/){target=\_blank}
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Polkadot documentation](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/#how-fees-are-calculated){target=\_blank}
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an `Error` if anything goes wrong
 
