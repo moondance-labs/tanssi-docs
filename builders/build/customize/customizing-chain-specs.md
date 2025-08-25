@@ -49,7 +49,7 @@ All the sequencers assigned to the Tanssi network must agree on the initial stat
 
 This genesis state will define the starting point of the Tanssi network. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
 
-For example, in the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module. In addition, the template also has a sudo account (which **should be modified**) for the `Sudo` module, which provides unique priviledges to the given account, and that can be offboarded once an on-chain democracy module is plugged in.
+For example, in the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module. In addition, the template also has a sudo account (which **should be modified**) for the `Sudo` module, which provides unique privileges to the given account, and that can be offboarded once an on-chain democracy module is plugged in.
 
 ## Generating a JSON Chain Specification File {: #generating-json-chain-specs }
 

@@ -221,7 +221,7 @@ To reserve your Tanssi appchain ID, you'll need to submit a transaction. Please 
 
 ![Reserve your Tanssi-powered Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-8.webp)
 
-Once the transaction has successfully gone through, your Tanssi appchain ID will be displayed on the dApp, and you'll be able to click **Continue** to proceed to the next step. You'll notice that some of your UNIT (or STAR if registering a dedicated Appchain) tokens have been removed from your transferrable balance and are now reserved.
+Once the transaction has successfully gone through, your Tanssi appchain ID will be displayed on the dApp, and you'll be able to click **Continue** to proceed to the next step. You'll notice that some of your UNIT (or STAR if registering a dedicated Appchain) tokens have been removed from your transferable balance and are now reserved.
 
 ![Successfully reserved your Tanssi-powered Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-9.webp)
 

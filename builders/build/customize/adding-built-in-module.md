@@ -120,7 +120,7 @@ parameter_types! {
    // you store in your metadata
 	pub const MetadataDepositPerByte: Balance = 1;
 
-   // Maximum lenght for the asset symbol and friendly name
+   // Maximum length for the asset symbol and friendly name
    pub const StringLimit: u32 = 50;
 }
 ```
