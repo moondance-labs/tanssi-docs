@@ -60,21 +60,22 @@ const links = document.querySelectorAll('a');
 // Origin will tell us if it's the documentation site
 const origin = window.location.origin;
 
-// We don't need to have a pop-up if the link goes to the Moonbeam Network or Moonbeam Foundation website
-const moonbeamLinks = [
+// We don't need to have a pop-up if the link goes to the Tanssi Network or Tanssi Foundation website
+const tanssiLinks = [
   origin,
+  'https://www.tanssi.network',
   'https://tanssi.network',
   'https://apps.tanssi.network/'
 ];
-const checkIfMoonbeamLink = (href) => {
-  return moonbeamLinks.some((link) => href.startsWith(link));
+const checkIfTanssiLink = (href) => {
+  return tanssiLinks.some((link) => href.startsWith(link));
 };
 
 for (let i = 0; i < links.length; i++) {
   const href = links[i].href;
-  const isMoonbeamLink = moonbeamLinks.some((link) => href.startsWith(link));
+  const isTanssiLink = tanssiLinks.some((link) => href.startsWith(link));
 
-  if (!isMoonbeamLink && href) {
+  if (!isTanssiLink && href) {
     links[i].onclick = (e) => {
       e.preventDefault();
 
