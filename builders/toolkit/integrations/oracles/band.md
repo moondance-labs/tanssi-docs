@@ -5,7 +5,7 @@ icon: octicons-eye-24
 categories: EVM-Template
 ---
 
-# Accesing Price Feeds with the Band Protocol
+# Accessing Price Feeds with the Band Protocol
 
 ## Introduction {: #introduction }
 

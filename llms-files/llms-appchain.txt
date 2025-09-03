@@ -484,7 +484,7 @@ All the sequencers assigned to the Tanssi network must agree on the initial stat
 
 This genesis state will define the starting point of the Tanssi network. It includes an initial value for the elements that the modules included in the runtime need to persist and the initial runtime Wasm code, which is stored on-chain.
 
-For example, in the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module. In addition, the template also has a sudo account (which **should be modified**) for the `Sudo` module, which provides unique priviledges to the given account, and that can be offboarded once an on-chain democracy module is plugged in.
+For example, in the templates included, the chain specification defines the initial accounts and token balances in the `Balances` module. In addition, the template also has a sudo account (which **should be modified**) for the `Sudo` module, which provides unique privileges to the given account, and that can be offboarded once an on-chain democracy module is plugged in.
 
 ## Generating a JSON Chain Specification File {: #generating-json-chain-specs }
 
@@ -933,7 +933,7 @@ To reserve your Tanssi appchain ID, you'll need to submit a transaction. Please 
 
 ![Reserve your Tanssi-powered Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-8.webp)
 
-Once the transaction has successfully gone through, your Tanssi appchain ID will be displayed on the dApp, and you'll be able to click **Continue** to proceed to the next step. You'll notice that some of your UNIT (or STAR if registering a dedicated Appchain) tokens have been removed from your transferrable balance and are now reserved.
+Once the transaction has successfully gone through, your Tanssi appchain ID will be displayed on the dApp, and you'll be able to click **Continue** to proceed to the next step. You'll notice that some of your UNIT (or STAR if registering a dedicated Appchain) tokens have been removed from your transferable balance and are now reserved.
 
 ![Successfully reserved your Tanssi-powered Appchain ID via the Tanssi dApp.](/images/builders/deploy/dapp/dapp-9.webp)
 
@@ -2224,7 +2224,7 @@ The process is as simple as:
 2. Add the specific logic to adapt the runtime to the requirements of the use case
 3. Deploy in Tanssi
 
-![Using Templates to Speed Up the Developmet Process](/images/learn/decentralized-networks/templates/templates-1.webp)
+![Using Templates to Speed Up the Development Process](/images/learn/decentralized-networks/templates/templates-1.webp)
 
 The two included templates are the *baseline network template* and the *baseline EVM template*, which are presented in the following sections.
 

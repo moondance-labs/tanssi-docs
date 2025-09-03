@@ -11,7 +11,7 @@ Indexers enable efficient ingestion, processing, and querying of blockchain data
 
 Main features of indexers include:
 
-- **Improved data acess speed** - faster querying of on-chain data by organizing and indexing it, enabling quicker retrieval times
+- **Improved data access speed** - faster querying of on-chain data by organizing and indexing it, enabling quicker retrieval times
 - **Data aggregation** - ingest and transform data that is easier to query and work with large amounts of data
 - **Enhanced querying capabilities** - use sophisticatd querying methods, such as filtering, sorting, and pagination
 - **Real-time data updates** - synchronization with the blockchain enables applications to access the latest information as soon as its available
