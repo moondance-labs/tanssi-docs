@@ -5947,7 +5947,7 @@ To host your static web application on decentralized storage, run:
 npx thirdweb deploy --app
 ```
 
-By running this command, your application is built for production and stored using [Storage](https://portal.thirdweb.com/infrastructure/storage/overview){target=\_blank}, thirdweb's decentralized file management solution. The built application is uploaded to IPFS, a decentralized storage network, and a unique URL is generated for your application. This URL serves as a permanent hosting location for your application on the web.
+By running this command, your application is built for production and stored using [Storage](https://portal.thirdweb.com/references/typescript/v5/functions#storage){target=\_blank}, thirdweb's decentralized file management solution. The built application is uploaded to IPFS, a decentralized storage network, and a unique URL is generated for your application. This URL serves as a permanent hosting location for your application on the web.
 
 If you have any further questions or encounter any issues during the process, please reach out to thirdweb support at [support.thirdweb.com](http://support.thirdweb.com){target=\_blank}.
 
@@ -13694,7 +13694,7 @@ categories: EVM-Template
 
 ## Introduction {: #introduction }
 
-[Phala Network](https://phala.network){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.network/network/tech-specs/blockchain/overview#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.network/overview/phala-network){target=\_blank}.
+[Phala Network](https://phala.com/){target=\_blank} is an off-chain compute network powered by [Secure Enclaves](https://docs.phala.com/network/tech-specs/blockchain/overview#the-architecture){target=\_blank} that enables developers to build powerful smart contracts that connect to off-chain components called Phat Contracts. Phat Contracts are designed to enable functionality that surpasses the limitations of traditional smart contracts, such as storage, cost, and compute limitations while remaining trustless, verifiable, and permissionless. For more information about Phala's architecture, be sure to check out the [Phala docs](https://docs.phala.com/overview/phala-network){target=\_blank}.
 
 Phala is not an oracle network itself; rather, Phala enables a variety of off-chain compute capabilities, such as a decentralized oracle network. Phala also provides a toolset called [Phala Bricks](https://bricks.phala.network){target=\_blank} that makes it easy to quickly launch these types of features without having to build them from scratch.
 
@@ -13704,7 +13704,7 @@ This tutorial will walk through a demo of [interacting with price feeds](#fetch-
 
 Phala mirrors [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds){target=\_blank} from Ethereum MainNet. Chainlink Price Feeds have stood the test of time and have wide industry adoption. As a reminder, Chainlink Price Feeds don't rely on any single source of truth, rather, their pricing data is collected and aggregated from a variety of data sources gathered by a decentralized set of independent node operators. This helps to prevent manipulation and erratic pricing data.
 
-The core component of Phala's system design is the [Secure Enclave](https://docs.phala.network/network/tech-specs/blockchain/overview#the-architecture){target=\_blank}, which processes the inputs it receives from the Phala blockchain, acting as an encrypted message queue, and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain requests a price feed update, which the Phala off-chain workers fetch from Ethereum MainNet, and return to the Phala blockchain.
+The core component of Phala's system design is the [Secure Enclave](https://docs.phala.com/network/tech-specs/blockchain/overview#the-architecture){target=\_blank}, which processes the inputs it receives from the Phala blockchain, acting as an encrypted message queue, and guarantees secure and faithful execution, regardless of the presence of malicious workers. In this sense, the Phala blockchain requests a price feed update, which the Phala off-chain workers fetch from Ethereum MainNet, and return to the Phala blockchain.
 
 It's important to note that Phala isn't limited to replicating existing Oracles. You can create entirely new Oracles by sourcing off-chain data via Phat Contracts. In this [Phat-EVM Oracle example](https://github.com/Phala-Network/phat-offchain-rollup/blob/main/EvmRollup.md){target=\_blank}, pricing data is sourced from the CoinGecko API. Price quote updates can then be constantly streamed from the Phat contract (push design), or the EVM smart contract can ask for a refreshed quote from the Phat contract (pull design).
 
@@ -14141,7 +14141,7 @@ Upon returning to Remix, click **latestRoundData** once more, and after waiting 
 
 ![Check price data](/images/builders/toolkit/integrations/oracles/phala/phala-6.webp)
 
-For more information about using Phala to access off-chain data, be sure to check out the [Phala docs site](https://docs.phala.network/overview/phala-network){target=\_blank}.
+For more information about using Phala to access off-chain data, be sure to check out the [Phala docs site](https://docs.phala.com/overview/phala-network){target=\_blank}.
 
 <div class="page-disclaimer">
   The information presented herein has been provided by third parties and is made available solely for general information purposes. Tanssi does not endorse any project listed and described on the Tanssi Doc Website (https://docs.tanssi.network/). Tanssi Foundation does not warrant the accuracy, completeness or usefulness of this information. Any reliance you place on such information is strictly at your own risk. Tanssi Foundation disclaims all liability and responsibility arising from any reliance placed on this information by you or by anyone who may be informed of any of its contents. All statements and/or opinions expressed in these materials are solely the responsibility of the person or entity providing those materials and do not necessarily represent the opinion of Tanssi Foundation. The information should not be construed as professional or financial advice of any kind. Advice from a suitably qualified professional should always be sought in relation to any particular matter or circumstance. The information herein may link to or integrate with other websites operated or content provided by third parties, and such other websites may link to this website. Tanssi Foundation has no control over any such other websites or their content and will have no liability arising out of or related to such websites or their content. The existence of any such link does not constitute an endorsement of such websites, the content of the websites, or the operators of the websites. These links are being provided to you only as a convenience and you release and hold Tanssi Foundation harmless from any and all liability arising from your use of this information or the information provided by any third-party website or service.
@@ -18134,7 +18134,7 @@ Tanssi staking mechanics guarantee that the sequencers for Tanssi-powered networ
 This page covers the fundamental concepts of Tanssi's staking mechanics and how it secures a decentralized block production set that drives network liveness for Tanssi networks.
 
 <div style="text-align: center; justify-content:center;" class="row hero-buttons">
-  <a href="https://www.tanssi.network/post/dancebox-staking-guide" aria-label="Learn How to Stake on Tanssi Apps" style="margin: .5em;">
+  <a href="https://www.tanssi.network/post/staking-tanssi" aria-label="Learn How to Stake on Tanssi Apps" style="margin: .5em;">
     <button class="md-button primary-button" style="padding: 1em; font-size: 1em;">Learn How to Stake -></button>
   </a>
 </div>
