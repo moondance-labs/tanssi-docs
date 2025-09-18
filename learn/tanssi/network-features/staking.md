@@ -16,7 +16,7 @@ Tanssi staking mechanics guarantee that the sequencers for Tanssi-powered networ
 This page covers the fundamental concepts of Tanssi's staking mechanics and how it secures a decentralized block production set that drives network liveness for Tanssi networks.
 
 <div style="text-align: center; justify-content:center;" class="row hero-buttons">
-  <a href="https://www.tanssi.network/post/dancebox-staking-guide" aria-label="Learn How to Stake on Tanssi Apps" style="margin: .5em;">
+  <a href="https://www.tanssi.network/post/staking-tanssi" aria-label="Learn How to Stake on Tanssi Apps" style="margin: .5em;">
     <button class="md-button primary-button" style="padding: 1em; font-size: 1em;">Learn How to Stake -></button>
   </a>
 </div>
