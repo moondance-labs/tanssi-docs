@@ -1812,6 +1812,11 @@ This information the chain specification contains can be stored in a Rust file (
 
 This article covers the sections and attributes within a chain specification file and explains how to obtain it, in case you want to launch your Tanssi network by uploading a customized specifications file.
 
+!!! note "Editor’s Note (2025 Update)"
+    This guide explains how to customize chain specification files in Substrate-based networks. Some fields (e.g. relay chain, parachain id) come from the Substrate SDK and are included for compatibility or template purposes.
+    
+    These attributes do not mean that a Tanssi-powered network is a Polkadot parachain. Tanssi is an independent appchain infrastructure protocol, built with Substrate and aligned with Ethereum-backed security. You may encounter Polkadot-related terms in configuration files because of Substrate’s shared origins, but Tanssi-powered appchains do not require Polkadot slots or relaychain mechanics.
+
 ## The Client Specification {: #client-specification }
 
 The client specification contains the configuration of the network and other settings (excluding those related to the runtime state): 
@@ -14996,6 +15001,9 @@ You can use the Polkadot.js API to query on-chain data and send transactions fro
 
 Here you will find an overview of the available functionalities and some commonly used [TypeScript](https://www.typescriptlang.org){target=\_blank} code examples to get you started on interacting with your Tanssi network using the Polkadot.js API library.
 
+!!! note "Editor’s Note (2025 Update)"
+    Polkadot.js is the name of a developer toolset created for interacting with Substrate-based blockchains. While the name references Polkadot, the library itself is chain-agnostic and works with any Substrate-based network, including Tanssi.
+
 !!! note
     The examples in this guide are based on a MacOS or Ubuntu 20.04 environment. If you're using Windows, you'll need to adapt them accordingly.
     
@@ -16531,6 +16539,9 @@ Developers and users of Substrate networks, such as the Tanssi network or Tanssi
 Talisman is a Web3 wallet that natively supports Substrate and Ethereum accounts. The Talisman wallet browser extension is available on [Google Chrome, Brave, and other Chromium-based browsers](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, as well as [Firefox](https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet-extension/){target=\_blank}. An asset dashboard is accessible at [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
 This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
+
+!!! note "Editor’s Note (2025 Update)"
+    This guide references options like Polkadot.js Apps or Polkadot account type because these are the labels used in common Substrate tools. Tanssi itself is independent — built with Substrate and aligned with Ethereum-backed security.
 
 ## Setting Up Talisman {: #setting-up-talisman }
 
