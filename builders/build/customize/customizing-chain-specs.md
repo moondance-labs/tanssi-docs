@@ -23,7 +23,7 @@ This article covers the sections and attributes within a chain specification fil
 !!! note "Editor’s Note (2025 Update)"
     This guide explains how to customize chain specification files in Substrate-based networks. Some fields (e.g. relay chain, parachain id) come from the Substrate SDK and are included for compatibility or template purposes.
     
-    These attributes do not mean that a Tanssi-powered network is a Polkadot parachain. Tanssi is an independent appchain infrastructure protocol, built with Substrate and aligned with Ethereum-backed security. You may encounter Polkadot-related terms in configuration files because of Substrate’s shared origins, but Tanssi-powered appchains do not require Polkadot slots or relaychain mechanics.
+    These attributes do not mean that a Tanssi-powered network is a Polkadot parachain. Tanssi is an independent appchain infrastructure protocol, built with Substrate and aligned with Ethereum-backed security. You may encounter Polkadot-related terms in configuration files because of Substrate’s shared origins, but Tanssi-powered appchains do not require Polkadot slots or relay chain mechanics.
 
 ## The Client Specification {: #client-specification }
 
