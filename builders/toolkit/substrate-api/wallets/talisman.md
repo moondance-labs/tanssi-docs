@@ -15,6 +15,9 @@ Talisman is a Web3 wallet that natively supports Substrate and Ethereum accounts
 
 This guide takes you through all the necessary steps, from installing Talisman to setting up a wallet, connecting it to your Tanssi Substrate network, and sending funds.
 
+!!! note "Editor’s Note (2025 Update)"
+    This guide references options like Polkadot.js Apps or Polkadot account type because these are the labels used in common Substrate tools. Tanssi itself is independent — built with Substrate and aligned with Ethereum-backed security.
+
 ## Setting Up Talisman {: #setting-up-talisman }
 
 First, download and install the [Talisman extension](https://talisman.xyz/){target=\_blank}. This guide will first cover creating a new wallet and later address importing an existing one. Review the terms and conditions, then press **Get Started**.

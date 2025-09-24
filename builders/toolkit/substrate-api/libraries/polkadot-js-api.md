@@ -15,6 +15,9 @@ You can use the Polkadot.js API to query on-chain data and send transactions fro
 
 Here you will find an overview of the available functionalities and some commonly used [TypeScript](https://www.typescriptlang.org){target=\_blank} code examples to get you started on interacting with your Tanssi network using the Polkadot.js API library.
 
+!!! note "Editor’s Note (2025 Update)"
+    Polkadot.js is the name of a developer toolset created for interacting with Substrate-based blockchains. While the name references Polkadot, the library itself is chain-agnostic and works with any Substrate-based network, including Tanssi.
+
 --8<-- 'text/_common/general-js-tutorial-check.md'
 
 ## Install Polkadot.js API {: #installing-polkadot.js-api-library }
