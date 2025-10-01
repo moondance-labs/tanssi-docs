@@ -61,7 +61,7 @@ The following sections describe the protocol's main components.
 
 [Vaults](https://docs.symbiotic.fi/modules/vault/introduction){target=\_blank} are the Symbiotic protocol's economic backbone. They manage liquidity and deposits from restakers, connect operators and networks, and set up delegation strategies.
 
-Each vault is bound to a specific token that satisfies the [IERC20](https://github.com/ethereum/ercs/blob/master/ERCS/erc-20.md){target=\_blank} interface and is accepted as collateral. Internally, the funds within the vault are represented as shares, which provide a mechanism for tracking ownership and distributing rewards. However, the reward token may differ from the collateral token.
+Each vault is bound to a specific token that satisfies the [ERC20](https://github.com/ethereum/ercs/blob/master/ERCS/erc-20.md){target=\_blank} interface and is accepted as collateral. Internally, the funds within the vault are represented as shares, which provide a mechanism for tracking ownership and distributing rewards. However, the reward token may differ from the collateral token.
 
 A vault comprises three key modules, each serving a distinct function: the slasher, the delegator, and the accounting module. The implementation of these modules can vary depending on the vault manager's decisions.
 
