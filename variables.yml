@@ -119,8 +119,8 @@ templates:
     gas_to_weight: 25000
 repository:
   tanssi:
-    release_branch: tanssi-polkadot-stable2412
+    release_branch: tanssi-polkadot-stable2503
 node_versions:
   docker_sequencer_image_name: moondancelabs/tanssi
-  client_version: v0.14.1
-  para_client_version: v0.14.1-para
+  client_version: v0.15.0
+  para_client_version: v0.15.0-para
