@@ -28,8 +28,8 @@ For successful block production, your node must synchronize and interact with tw
 
 | Network          | Port        |
 |------------------|-------------|
-| Tanssi Chain     | 30333 (TCP) |
-| Assigned Network | 30335 (TCP) |
+| Tanssi Chain     | 30334 (TCP) |
+| Assigned Network | 30333 (TCP) |
 
 ## Explore This Section
 
