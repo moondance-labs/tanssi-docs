@@ -3229,18 +3229,18 @@ There are three main costs associated with block production as a service that an
 The current configuration is set as follows:
 
 === "Tanssi MainNet"
-    |           Variable           |                                                                    Value                                                                    |
-    |:----------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------:|
-    |     Registration deposit     |                          {{ networks.mainnet.costs.registration_deposit_fee }} {{ networks.mainnet.token_symbol }}                          |
-    | Registration storage deposit | {{ networks.mainnet.costs.registration_deposit_per_byte }} x 10 <sup>-5</sup> {{ networks.mainnet.token_symbol }} per appchain runtime byte |
-    |    Sequencers assignment     |                      {{ networks.mainnet.costs.cost_per_assignment }} {{ networks.mainnet.token_symbol }} per session                       |
-    |       Block production       |                          {{ networks.mainnet.costs.cost_per_block }} {{ networks.mainnet.token_symbol }} per block                          |
+    |           Variable           |                                                                   Value                                                                    |
+    |:----------------------------:|:------------------------------------------------------------------------------------------------------------------------------------------:|
+    |     Registration deposit     |                         {{ networks.mainnet.costs.registration_deposit_fee }} {{ networks.mainnet.token_symbol }}                          |
+    | Registration storage deposit | {{ networks.mainnet.costs.registration_deposit_per_byte }} x 10<sup>-5</sup> {{ networks.mainnet.token_symbol }} per appchain runtime byte |
+    |    Sequencers assignment     |                      {{ networks.mainnet.costs.cost_per_assignment }} {{ networks.mainnet.token_symbol }} per session                      |
+    |       Block production       |                         {{ networks.mainnet.costs.cost_per_block }} {{ networks.mainnet.token_symbol }} per block                          |
 
 === "Dancelight TestNet"
     |       Variable        |                                                Value                                                |
     |:---------------------:|:---------------------------------------------------------------------------------------------------:|
     | Registration deposit  | {{ networks.dancelight.costs.registration_deposit_fee }} {{ networks.dancelight.token_symbol }} |
-    | Registration storage deposit  | {{ networks.dancelight.costs.registration_deposit_per_byte }} x 10 <sup>-5</sup> {{ networks.dancelight.token_symbol }} per appchain runtime byte |
+    | Registration storage deposit  | {{ networks.dancelight.costs.registration_deposit_per_byte }} x 10<sup>-5</sup> {{ networks.dancelight.token_symbol }} per appchain runtime byte |
     | Sequencers assignment |        {{ networks.dancelight.costs.cost_per_assignment }} x 10<sup>-6</sup> {{ networks.dancelight.token_symbol }} per session         |
     |   Block production    |            {{ networks.dancelight.costs.cost_per_block }} x 10<sup>-6</sup> {{ networks.dancelight.token_symbol }} per block            |
 
