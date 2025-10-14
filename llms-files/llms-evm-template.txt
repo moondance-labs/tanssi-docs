@@ -11592,8 +11592,8 @@ This article covers the necessary aspects to consider when building and deployin
 
 The Tanssi protocol provides block production as a service, orchestrating a decentralized and trustless set of sequencers, ensuring the networks' liveness. To do so, the protocol bridges both ends:
 
-- **Node operators**: who run sequencers, offering their block production services to get rewards.
-- **Developers**: who launch networks, which require sequencers.
+- **Node operators**: Who run sequencers, offering their block production services to get rewards.
+- **Developers**: Who launch networks, which require sequencers.
 
 The protocol assigns a subset of sequencers to provide services to each network, rotating them after a period of time. The sequencers can serve any Tanssi-powered network, regardless of the custom logic they implement. On the other hand, networks deployed through Tanssi can customize their runtime as much as they need to fit their use case and upgrade the logic at any moment in a forkless fashion without worrying about the sequencer's setup.
 
@@ -11689,8 +11689,8 @@ Once the block is filled with network transactions, it will be proposed as a can
 
 As presented in the [Introduction](#introduction), Tanssi is an infrastructure protocol that addresses the complexities and high costs associated with setting up and maintaining blockchain infrastructure, streamlining the deployment of networks. This protocol brings benefits for both participants:
 
-- **Networks**: teams can focus on the core logic of their product, the UX, and the UI without dealing with the challenges of infrastructure bootstrapping and its management.
-- **Sequencers**: bearing with the responsibility of keeping their hardware and software configuration in optimal conditions, they are incentivized to execute transactions and produce blocks on behalf of the Tanssi networks.
+- **Networks**: Teams can focus on the core logic of their product, the UX, and the UI without dealing with the challenges of infrastructure bootstrapping and its management.
+- **Sequencers**: Bearing with the responsibility of keeping their hardware and software configuration in optimal conditions, they are incentivized to execute transactions and produce blocks on behalf of the Tanssi networks.
 
 [Block production as a service](#block-production-as-a-service) carries associated costs that must be covered by the networks that want to leverage Tanssi for such a purpose. The following sections cover the general aspects of those costs and associated service payments.
 
@@ -11698,10 +11698,10 @@ As presented in the [Introduction](#introduction), Tanssi is an infrastructure p
 
 There are three main costs associated with block production as a service that any network must cover using Tanssi tokens to deploy successfully and get the block production services:
 
-- **Registration deposit**: the initial deposit that is locked from the account that signs the network registration transaction.
-- **Registration storage deposit**: the initial deposit that is locked from the account that signs the network registration transaction. It is a variable amount depending on the appchain's runtime size.
-- **Sequencers assignment**: every time the Tanssi protocol assigns sequencers, which happens once per session, a fixed fee is charged. This fee gives networks the right to be assigned sequencers and discourages networks whose runtime logic fails to produce valid transactions or blocks.
-- **Block production**: networks must pay for each block produced on their behalf. Since the protocol selects and assigns the sequencers on a per-session basis, networks must have enough funds to cover all the blocks to be produced in an entire session to be served.
+- **Registration deposit**: The initial deposit that is locked from the account that signs the network registration transaction.
+- **Registration storage deposit**: The initial deposit that is locked from the account that signs the network registration transaction. It is a variable amount depending on the appchain's runtime size.
+- **Sequencers assignment**: Every time the Tanssi protocol assigns sequencers, which happens once per session, a fixed fee is charged. This fee gives networks the right to be assigned sequencers and discourages networks whose runtime logic fails to produce valid transactions or blocks.
+- **Block production**: Networks must pay for each block produced on their behalf. Since the protocol selects and assigns the sequencers on a per-session basis, networks must have enough funds to cover all the blocks to be produced in an entire session to be served.
 
 The current configuration is set as follows:
 
