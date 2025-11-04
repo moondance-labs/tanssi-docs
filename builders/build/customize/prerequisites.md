@@ -21,7 +21,7 @@ The following sections of this article will cover the minimal required software 
 
 To compile the Tanssi network, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system.
 
-In accordance with the instructions described in the [official Rust documentation](https://www.rust-lang.org/tools/install){target=\_blank}, for any system running Linux or MacOS, the following command will do:
+In accordance with the instructions described in the [official Rust documentation](https://rust-lang.org/tools/install/){target=\_blank}, for any system running Linux or MacOS, the following command will do:
 
 === "Linux"
 
