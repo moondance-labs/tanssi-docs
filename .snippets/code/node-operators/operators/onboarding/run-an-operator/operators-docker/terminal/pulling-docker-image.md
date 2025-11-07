@@ -1,5 +1,5 @@
 <div id="termynal" data-termynal>
-  <span data-ty="input"><span class="file-path"></span>docker moondancelabs/starlight</span>
+  <span data-ty="input"><span class="file-path"></span>docker pull moondancelabs/starlight</span>
   <span data-ty>
     <br> 
     <br> Using default tag: latest
