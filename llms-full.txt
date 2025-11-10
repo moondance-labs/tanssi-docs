@@ -2067,7 +2067,7 @@ The following sections of this article will cover the minimal required software 
 
 To compile the Tanssi network, the rust compiler, `rustc`, and the package manager, `cargo`, must be installed on the system.
 
-In accordance with the instructions described in the [official Rust documentation](https://rust-lang.org/tools/install/){target=\_blank}, for any system running Linux or MacOS, the following command will do:
+In accordance with the instructions in the [official Rust documentation](https://rust-lang.org/tools/install/){target=\_blank}, for Linux or macOS systems, run the following command:
 
 === "Linux"
 
@@ -5952,7 +5952,7 @@ To host your static web application on decentralized storage, run:
 npx thirdweb deploy --app
 ```
 
-By running this command, your application is built for production and stored using [Storage](https://portal.thirdweb.com/references/typescript/v5/functions#storage){target=\_blank}, thirdweb's decentralized file management solution. The built application is uploaded to IPFS, a decentralized storage network, and a unique URL is generated for your application. This URL serves as a permanent hosting location for your application on the web.
+Running this command builds your application for production and stores it using [Storage](https://portal.thirdweb.com/references/typescript/v5/functions#storage){target=\_blank}, thirdweb's decentralized file management solution. It uploads your built application to IPFS, a decentralized storage network, and generates a unique URL that provides a persistent hosting location for your application on the web.
 
 If you have any further questions or encounter any issues during the process, please reach out to thirdweb support at [support.thirdweb.com](http://support.thirdweb.com){target=\_blank}.
 
@@ -17455,7 +17455,7 @@ Substrate streamlines and speeds up the process of developing new networks. When
 
 ## Rust Programming Language {: #rust-programming-language}
 
-[Rust](https://rust-lang.org/){target=\_blank} is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages){target=blank}.
+[Rust](https://rust-lang.org/){target=\_blank} is a programming language with features developers consistently rank highly in surveys like [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/){target=\_blank}.
 
 In addition to providing a great experience for developers, Rust excels in many areas:
 
