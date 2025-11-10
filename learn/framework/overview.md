@@ -51,7 +51,7 @@ Substrate streamlines and speeds up the process of developing new networks. When
 
 ## Rust Programming Language {: #rust-programming-language}
 
-[Rust](https://www.rust-lang.org){target=\_blank} is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages){target=blank}.
+[Rust](https://rust-lang.org/){target=\_blank} is a programming language with features developers consistently rank highly in surveys like [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/){target=\_blank}.
 
 In addition to providing a great experience for developers, Rust excels in many areas:
 

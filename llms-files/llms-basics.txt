@@ -772,7 +772,7 @@ Substrate streamlines and speeds up the process of developing new networks. When
 
 ## Rust Programming Language {: #rust-programming-language}
 
-[Rust](https://www.rust-lang.org){target=\_blank} is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages){target=blank}.
+[Rust](https://rust-lang.org/){target=\_blank} is a programming language with features developers consistently rank highly in surveys like [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/){target=\_blank}.
 
 In addition to providing a great experience for developers, Rust excels in many areas:
 
@@ -1014,7 +1014,7 @@ A vault comprises three key modules, each serving a distinct function: the slash
 
 - **Slasher module** - implements the [slashing](#slashing-process) logic, which penalizes bad actors
 - **Delegator module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator){target=\_blank} are available, allowing the vault manager to select which operators and networks they want to work with
-- **Accounting module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/){target=\_blank}, which provides a vault with a shares system included
+- **Accounting module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/developers/docs/standards/tokens/erc-4626/){target=\_blank}, which provides a vault with a shares system included
 
 Since the operators get delegated stake from the vault and could potentially get slashed, they must be approved by the vault managers beforehand. On a similar note, vault managers analyze and authorize each network the vault will secure, considering, for example, the rewards the network offers.
 
@@ -1643,7 +1643,7 @@ The bridge is more than an asset exchange. It’s a secure, standardized protoco
 
 This article introduces the Tanssi-Ethereum bridge as a key interoperability layer between the two networks. You’ll learn how it works, including its architecture, operator management, economic model, slashing mechanisms, and asset transfers.
 
-You'll also learn about the consensus layers that secure communication ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} on [Tanssi](https://docs.tanssi.network/learn/tanssi/){target=\_blank} and the [Ethereum Beacon Chain](https://ethereum.org/en/roadmap/beacon-chain/){target=\_blank}), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
+You'll also learn about the consensus layers that secure communication ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} on [Tanssi](https://docs.tanssi.network/learn/tanssi/){target=\_blank} and the [Ethereum Beacon Chain](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
 
 ## Core Functions { : #core-functions }
 
@@ -1662,7 +1662,7 @@ Understanding the bridge's consensus functionality requires examining its core c
 
 Provers include Tanssi's [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} module and Ethereum's Beacon Chain consensus. They produce consensus data transmitted by specialized relayers.
 
-Each chain runs a [light client](https://ethereum.org/en/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other, acting as an on-chain verifier for data legitimacy. For instance, when Tanssi sends a message to Ethereum, it generates compact proofs of events or state changes based on its consensus. Ethereum's light client verifies these proofs before acting. This efficient method avoids processing the entire sending chain's state, relying instead on concise cryptographic proof verification.
+Each chain runs a [light client](https://ethereum.org/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other, acting as an on-chain verifier for data legitimacy. For instance, when Tanssi sends a message to Ethereum, it generates compact proofs of events or state changes based on its consensus. Ethereum's light client verifies these proofs before acting. This efficient method avoids processing the entire sending chain's state, relying instead on concise cryptographic proof verification.
 
 ### Tanssi to Ethereum Consensus  { : #tanssi-ethereum-consensus }
 

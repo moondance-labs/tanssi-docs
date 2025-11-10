@@ -2485,7 +2485,7 @@ Substrate streamlines and speeds up the process of developing new networks. When
 
 ## Rust Programming Language {: #rust-programming-language}
 
-[Rust](https://www.rust-lang.org){target=\_blank} is a programming language that has unique features that have made it the most loved language for the seventh consecutive year, according to [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/2022#section-most-loved-dreaded-and-wanted-programming-scripting-and-markup-languages){target=blank}.
+[Rust](https://rust-lang.org/){target=\_blank} is a programming language with features developers consistently rank highly in surveys like [Stack Overflow's annual developer survey](https://survey.stackoverflow.co/){target=\_blank}.
 
 In addition to providing a great experience for developers, Rust excels in many areas:
 
@@ -2727,7 +2727,7 @@ A vault comprises three key modules, each serving a distinct function: the slash
 
 - **Slasher module** - implements the [slashing](#slashing-process) logic, which penalizes bad actors
 - **Delegator module** - defines how funds are delegated across operators and networks. Several [strategies](https://docs.symbiotic.fi/modules/vault/delegator){target=\_blank} are available, allowing the vault manager to select which operators and networks they want to work with
-- **Accounting module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/en/developers/docs/standards/tokens/erc-4626/){target=\_blank}, which provides a vault with a shares system included
+- **Accounting module** - handles the vault's financial operations, including processing user deposits, managing withdrawal requests, tracking active balances and total supply, and implementing epoch-based accounting for withdrawals and slashing events. The accounting module's standard implementation is [ERC-4626](https://ethereum.org/developers/docs/standards/tokens/erc-4626/){target=\_blank}, which provides a vault with a shares system included
 
 Since the operators get delegated stake from the vault and could potentially get slashed, they must be approved by the vault managers beforehand. On a similar note, vault managers analyze and authorize each network the vault will secure, considering, for example, the rewards the network offers.
 
@@ -3356,7 +3356,7 @@ The bridge is more than an asset exchange. It’s a secure, standardized protoco
 
 This article introduces the Tanssi-Ethereum bridge as a key interoperability layer between the two networks. You’ll learn how it works, including its architecture, operator management, economic model, slashing mechanisms, and asset transfers.
 
-You'll also learn about the consensus layers that secure communication ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} on [Tanssi](https://docs.tanssi.network/learn/tanssi/){target=\_blank} and the [Ethereum Beacon Chain](https://ethereum.org/en/roadmap/beacon-chain/){target=\_blank}), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
+You'll also learn about the consensus layers that secure communication ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} on [Tanssi](https://docs.tanssi.network/learn/tanssi/){target=\_blank} and the [Ethereum Beacon Chain](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
 
 ## Core Functions { : #core-functions }
 
@@ -3375,7 +3375,7 @@ Understanding the bridge's consensus functionality requires examining its core c
 
 Provers include Tanssi's [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} module and Ethereum's Beacon Chain consensus. They produce consensus data transmitted by specialized relayers.
 
-Each chain runs a [light client](https://ethereum.org/en/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other, acting as an on-chain verifier for data legitimacy. For instance, when Tanssi sends a message to Ethereum, it generates compact proofs of events or state changes based on its consensus. Ethereum's light client verifies these proofs before acting. This efficient method avoids processing the entire sending chain's state, relying instead on concise cryptographic proof verification.
+Each chain runs a [light client](https://ethereum.org/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other, acting as an on-chain verifier for data legitimacy. For instance, when Tanssi sends a message to Ethereum, it generates compact proofs of events or state changes based on its consensus. Ethereum's light client verifies these proofs before acting. This efficient method avoids processing the entire sending chain's state, relying instead on concise cryptographic proof verification.
 
 ### Tanssi to Ethereum Consensus  { : #tanssi-ethereum-consensus }
 
@@ -4332,43 +4332,43 @@ Nevertheless, not all Ethereum JSON-RPC methods are supported; some of those sup
 
 The basic JSON-RPC methods from the Ethereum API supported by Tanssi are:
 
-- **[eth_protocolVersion](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_protocolversion){target=\_blank}** — returns `1` by default
-- **[eth_syncing](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_syncing){target=\_blank}** — returns an object with data about the sync status or `false`
-- **[eth_hashrate](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_hashrate){target=\_blank}** — returns `"0x0"` by default
-- **[eth_coinbase](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_coinbase){target=\_blank}** — returns the latest block author. Not necessarily a finalized block
-- **[eth_mining](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_mining){target=\_blank}** — returns `false` by default
-- **[eth_chainId](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_chainid){target=\_blank}** — returns the chain ID used for signing at the current block
-- **[eth_gasPrice](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gasprice){target=\_blank}** — returns the base fee per unit of gas used. This is currently the minimum gas price for each network
-- **[eth_accounts](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_accounts){target=\_blank}** — returns a list of addresses owned by the client
-- **[eth_blockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_blocknumber){target=\_blank}** — returns the highest available block number
-- **[eth_getBalance](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getbalance){target=\_blank}** — returns the balance of the given address
-- **[eth_getStorageAt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
-- **[eth_getBlockByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
-- **[eth_getBlockByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
+- **[eth_protocolVersion](https://ethereum.org/developers/docs/apis/json-rpc/#eth_protocolversion){target=\_blank}** — returns `1` by default
+- **[eth_syncing](https://ethereum.org/developers/docs/apis/json-rpc/#eth_syncing){target=\_blank}** — returns an object with data about the sync status or `false`
+- **[eth_hashrate](https://ethereum.org/developers/docs/apis/json-rpc/#eth_hashrate){target=\_blank}** — returns `"0x0"` by default
+- **[eth_coinbase](https://ethereum.org/developers/docs/apis/json-rpc/#eth_coinbase){target=\_blank}** — returns the latest block author. Not necessarily a finalized block
+- **[eth_mining](https://ethereum.org/developers/docs/apis/json-rpc/#eth_mining){target=\_blank}** — returns `false` by default
+- **[eth_chainId](https://ethereum.org/developers/docs/apis/json-rpc/#eth_chainid){target=\_blank}** — returns the chain ID used for signing at the current block
+- **[eth_gasPrice](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gasprice){target=\_blank}** — returns the base fee per unit of gas used. This is currently the minimum gas price for each network
+- **[eth_accounts](https://ethereum.org/developers/docs/apis/json-rpc/#eth_accounts){target=\_blank}** — returns a list of addresses owned by the client
+- **[eth_blockNumber](https://ethereum.org/developers/docs/apis/json-rpc/#eth_blocknumber){target=\_blank}** — returns the highest available block number
+- **[eth_getBalance](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getbalance){target=\_blank}** — returns the balance of the given address
+- **[eth_getStorageAt](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — returns the content of the storage at a given address
+- **[eth_getBlockByHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — returns information about the block of the given hash, including `baseFeePerGas` on post-London blocks
+- **[eth_getBlockByNumber](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — returns information about the block specified by block number, including `baseFeePerGas` on post-London blocks
 - **[eth_getBlockReceipts](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — returns all transaction receipts for a given block
-- **[eth_getTransactionCount](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
-- **[eth_getBlockTransactionCountByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
-- **[eth_getBlockTransactionCountByNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
-- **[eth_getUncleCountByBlockHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblockhash){target=\_blank}** —  returns `"0x0"` by default
-- **[eth_getUncleCountByBlockNumber](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclecountbyblocknumber){target=\_blank}** — returns `"0x0"` by default
-- **[eth_getCode](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getcode){target=\_blank}** — returns the code at the given address at the given block number
-- **[eth_sendTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendtransaction){target=\_blank}** — creates a new message call transaction or a contract creation, if the data field contains code. Returns the transaction hash or the zero hash if the transaction is not yet available
-- **[eth_sendRawTransaction](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
-- **[eth_call](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
-- **[eth_estimateGas](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
+- **[eth_getTransactionCount](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — returns the number of transactions sent from the given address (nonce)
+- **[eth_getBlockTransactionCountByHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — returns the number of transactions in a block with a given block hash
+- **[eth_getBlockTransactionCountByNumber](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — returns the number of transactions in a block with a given block number
+- **[eth_getUncleCountByBlockHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getunclecountbyblockhash){target=\_blank}** —  returns `"0x0"` by default
+- **[eth_getUncleCountByBlockNumber](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getunclecountbyblocknumber){target=\_blank}** — returns `"0x0"` by default
+- **[eth_getCode](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getcode){target=\_blank}** — returns the code at the given address at the given block number
+- **[eth_sendTransaction](https://ethereum.org/developers/docs/apis/json-rpc/#eth_sendtransaction){target=\_blank}** — creates a new message call transaction or a contract creation, if the data field contains code. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_sendRawTransaction](https://ethereum.org/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — creates a new message call transaction or a contract creation for signed transactions. Returns the transaction hash or the zero hash if the transaction is not yet available
+- **[eth_call](https://ethereum.org/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executes a new message call immediately without creating a transaction on the blockchain, returning the value of the executed call
+- **[eth_estimateGas](https://ethereum.org/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — returns an estimated amount of gas necessary for a given transaction to succeed. You can optionally specify a `gasPrice` or `maxFeePerGas` and `maxPriorityFeePerGas`
 - **[eth_feeHistory](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — returns `baseFeePerGas`, `gasUsedRatio`, `oldestBlock`, and `reward` for a specified range of up to 1024 blocks
-- **[eth_getTransactionByHash](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
-- **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
-- **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
-- **[eth_getTransactionReceipt](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_gettransactionreceipt){target=\_blank}** — returns the transaction receipt of a given transaction hash
-- **[eth_getUncleByBlockHashAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblockhashandindex){target=\_blank}** — returns `null` by default
-- **[eth_getUncleByBlockNumberAndIndex](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getunclebyblocknumberandindex){target=\_blank}** — returns `null` by default
-- **[eth_getLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getlogs){target=\_blank}** — returns an array of all logs matching a given filter object
-- **[eth_newFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newfilter){target=\_blank}** — creates a filter object based on the input provided. Returns a filter ID
-- **[eth_newBlockFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_newblockfilter){target=\_blank}** — creates a filter in the node to notify when a new block arrives. Returns a filter ID
-- **[eth_getFilterChanges](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterchanges){target=\_blank}** — polling method for filters (see methods above). Returns an array of logs that occurred since the last poll
-- **[eth_getFilterLogs](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_getfilterlogs){target=\_blank}** — returns an array of all the logs matching the filter with a given ID
-- **[eth_uninstallFilter](https://ethereum.org/en/developers/docs/apis/json-rpc/#eth_uninstallfilter){target=\_blank}** — uninstall a filter with a given ID. It should be used when polling is no longer needed. Filters timeout when they are not requested using `eth_getFilterChanges` after some time
+- **[eth_getTransactionByHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — returns the information about a transaction with a given hash. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — returns information about a transaction at a given block hash and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — returns information about a transaction at a given block number and a given index position. EIP-1559 transactions have `maxPriorityFeePerGas` and `maxFeePerGas` fields
+- **[eth_getTransactionReceipt](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionreceipt){target=\_blank}** — returns the transaction receipt of a given transaction hash
+- **[eth_getUncleByBlockHashAndIndex](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getunclebyblockhashandindex){target=\_blank}** — returns `null` by default
+- **[eth_getUncleByBlockNumberAndIndex](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getunclebyblocknumberandindex){target=\_blank}** — returns `null` by default
+- **[eth_getLogs](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getlogs){target=\_blank}** — returns an array of all logs matching a given filter object
+- **[eth_newFilter](https://ethereum.org/developers/docs/apis/json-rpc/#eth_newfilter){target=\_blank}** — creates a filter object based on the input provided. Returns a filter ID
+- **[eth_newBlockFilter](https://ethereum.org/developers/docs/apis/json-rpc/#eth_newblockfilter){target=\_blank}** — creates a filter in the node to notify when a new block arrives. Returns a filter ID
+- **[eth_getFilterChanges](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getfilterchanges){target=\_blank}** — polling method for filters (see methods above). Returns an array of logs that occurred since the last poll
+- **[eth_getFilterLogs](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getfilterlogs){target=\_blank}** — returns an array of all the logs matching the filter with a given ID
+- **[eth_uninstallFilter](https://ethereum.org/developers/docs/apis/json-rpc/#eth_uninstallfilter){target=\_blank}** — uninstall a filter with a given ID. It should be used when polling is no longer needed. Filters timeout when they are not requested using `eth_getFilterChanges` after some time
 
 ## Custom JSON-RPC Methods {: #custom-json-rpc-methods }
 
