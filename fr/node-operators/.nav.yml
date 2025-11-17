@@ -1,0 +1,7 @@
+title: Opérateurs de nœuds
+hide: false
+nav:
+  - index.md
+  - 'Exploiter un nœud': network-node
+  - Séquenceurs: sequencers
+  - Opérateurs: operators

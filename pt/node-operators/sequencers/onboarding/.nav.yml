@@ -1,0 +1,6 @@
+title: Integração
+hide: false
+nav:
+  - index.md
+  - 'Executar um sequenciador': run-a-sequencer
+  - 'Configurar sua conta': account-setup.md

@@ -1,0 +1,6 @@
+title: SQD
+hide: false
+nav:
+- index.md
+- Início rápido: quick-start.md
+- Indexar transferências ERC-20: erc20-transfers.md

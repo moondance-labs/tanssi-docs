@@ -1,0 +1,8 @@
+title: Integração
+hide: false
+nav:
+  - index.md
+  - 'Executar um operador': run-an-operator
+  - 'Registrar-se no Symbiotic': register-in-symbiotic.md
+  - 'Aderir ao Tanssi': opt-in-to-tanssi.md
+  - 'Configurar sua conta': account-setup.md

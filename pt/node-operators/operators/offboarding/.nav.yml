@@ -1,0 +1,7 @@
+title: Desligamento
+hide: false
+nav:
+  - index.md
+  - 'Pré-requisitos': prerequisites.md
+  - 'Sair do Tanssi': opt-out-from-tanssi.md
+  - 'Sair do cofre': vault-opt-out.md

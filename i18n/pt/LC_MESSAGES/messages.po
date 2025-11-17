@@ -1,0 +1,122 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Tanssi Docs\n"
+"POT-Creation-Date: 2025-01-01 00:00+0000\n"
+"Language: pt\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "home.meta.title"
+msgstr "Tanssi Docs"
+
+msgid "home.hero.video_fallback"
+msgstr "Seu navegador não suporta a tag de vídeo."
+
+msgid "home.hero.title_html"
+msgstr "Site Tanssi <span class=\"shadow\">&lt;Dev&gt;</span>"
+
+msgid "home.hero.subtitle"
+msgstr "Construa, lance e escale redes Simbióticas mais rápido com a infraestrutura, as ferramentas e as integrações da Tanssi."
+
+msgid "home.hero.cards.launch.title"
+msgstr "Lance uma rede com Tanssi"
+
+msgid "home.hero.cards.launch.description"
+msgstr "Obtenha ferramentas e guias para lançar sua rede em minutos."
+
+msgid "home.hero.cards.launch.button"
+msgstr "Começar"
+
+msgid "home.hero.cards.evm.title"
+msgstr "Desenvolva usando ferramentas EVM"
+
+msgid "home.hero.cards.evm.description"
+msgstr "Aproveite ferramentas EVM populares para acelerar seu desenvolvimento."
+
+msgid "home.hero.cards.evm.button"
+msgstr "Saiba mais"
+
+msgid "home.hero.cards.learn.title"
+msgstr "Explore conceitos técnicos"
+
+msgid "home.hero.cards.learn.description"
+msgstr "Conheça recursos, serviços e segurança da Tanssi por meio da Symbiotic."
+
+msgid "home.hero.cards.learn.button"
+msgstr "Saiba mais"
+
+msgid "home.feature.heading.prefix"
+msgstr "O hub completo para"
+
+msgid "home.feature.heading.accent"
+msgstr "construtores Tanssi"
+
+msgid "home.feature.description"
+msgstr "Descubra mais maneiras de interagir com o ecossistema Tanssi—acesse financiamento, recursos e visibilidade para o seu projeto."
+
+msgid "home.feature.cards.one.badge"
+msgstr "Ecossistema"
+
+msgid "home.feature.cards.one.title"
+msgstr "Candidate-se a um subsídio"
+
+msgid "home.feature.cards.one.arrow_alt"
+msgstr "Ir para a página Candidate-se a um subsídio"
+
+msgid "home.feature.cards.two.badge"
+msgstr "Comece a construir"
+
+msgid "home.feature.cards.two.title"
+msgstr "Visite o TestNet"
+
+msgid "home.feature.cards.two.arrow_alt"
+msgstr "Ir para a página do TestNet"
+
+msgid "home.feature.cards.three.badge"
+msgstr "Insights do setor"
+
+msgid "home.feature.cards.three.title"
+msgstr "Atualizações do ecossistema"
+
+msgid "home.feature.cards.three.arrow_alt"
+msgstr "Ir para a página Atualizações do ecossistema"
+
+msgid "home.feature.separator_alt"
+msgstr "Design decorativo multicolorido da Tanssi"
+
+msgid "home.community.heading.prefix"
+msgstr "Junte-se à comunidade"
+
+msgid "home.community.heading.accent"
+msgstr "Dev"
+
+msgid "home.community.heading.suffix"
+msgstr "Tanssi"
+
+msgid "home.community.buttons.discord"
+msgstr "Entrar no Discord"
+
+msgid "home.community.buttons.subscribe"
+msgstr "Inscrever-se"
+
+msgid "action.edit"
+msgstr "Editar esta página"
+
+msgid "action.view"
+msgstr "Ver fonte"
+
+msgid "feedback.title"
+msgstr "Esta página foi útil?"
+
+msgid "feedback.ratings.helpful.name"
+msgstr "Esta página foi útil"
+
+msgid "feedback.ratings.helpful.note"
+msgstr "Obrigado pelo seu feedback!"
+
+msgid "feedback.ratings.unhelpful.name"
+msgstr "Esta página pode ser aprimorada"
+
+msgid "feedback.ratings.unhelpful.note"
+msgstr "Obrigado pelo seu feedback! Ajude-nos a melhorar esta página enviando <a href="https://github.com/moondance-labs/tanssi-docs/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">feedback adicional</a>."
+

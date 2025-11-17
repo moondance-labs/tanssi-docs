@@ -1,0 +1,7 @@
+title: Baja
+hide: false
+nav:
+  - index.md
+  - 'Requisitos previos': prerequisites.md
+  - 'Salir de Tanssi': opt-out-from-tanssi.md
+  - 'Salir de la bóveda': vault-opt-out.md

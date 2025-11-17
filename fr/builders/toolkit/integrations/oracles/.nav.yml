@@ -1,0 +1,7 @@
+title: Oracles
+hide: false
+nav:
+- index.md
+- Flux de prix avec Acurast: acurast.md
+- Flux de prix avec Band Protocol: band.md
+- Flux de prix avec Phala: phala.md
