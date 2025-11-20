@@ -1,0 +1,180 @@
+name: rose-orchestration
+
+on:
+  workflow_dispatch:
+    inputs:
+      base_ref:
+        description: 'Which branch/commit should be treated as "English baseline"? (ex: origin/main)'
+        required: true
+        default: 'origin/main'
+      head_ref:
+        description: 'Which branch/commit contains the new content you want translated?'
+        required: true
+        default: 'HEAD'
+      languages:
+        description: 'Two-letter locale codes to translate (separate with spaces, e.g. "es fr pt")'
+        required: true
+        default: 'es fr pt'
+      pr_number:
+        description: 'Optional PR number to post the summary comment to'
+        required: false
+        default: ''
+      file_filter:
+        description: 'Optional comma/newline separated list of files to translate (repo-relative paths)'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    env:
+      N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
+      ROSE_INCLUDE_FILES: ${{ inputs.file_filter }}
+    steps:
+      # 1) Fetch the repo so the pipeline can diff and modify files.
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2) Install a consistent Python interpreter for all helper scripts.
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # 3) Kick off Rose's orchestrator (diff → n8n → verify → build).
+      - name: Run Rose pipeline
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          # Abort early if the webhook secret is missing.
+          if [[ -z "${N8N_WEBHOOK_URL:-}" ]]; then
+            echo "N8N_WEBHOOK_URL secret is required" >&2
+            exit 1
+          fi
+
+          LANGS="${{ inputs.languages }}"
+
+          CMD=(python translation-workflow/scripts/rose_pipeline.py \
+            --base "${{ inputs.base_ref }}" \
+            --head "${{ inputs.head_ref }}" \
+            --n8n-webhook "$N8N_WEBHOOK_URL")
+
+          # Pass down the language list one by one.
+          CMD+=(--languages)
+          for lang in $LANGS; do
+            CMD+=("$lang")
+          done
+
+          echo "Running: ${CMD[*]}"
+          "${CMD[@]}"
+
+      - name: Generate summary markdown
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          SUMMARY_JSON="translation-workflow/translations/summary_report.json"
+          SUMMARY_MD="translation-workflow/translations/summary.md"
+          if [[ ! -f "$SUMMARY_JSON" ]]; then
+            echo '{}' > "$SUMMARY_JSON"
+          fi
+          python translation-workflow/scripts/render_summary.py \
+            --summary "$SUMMARY_JSON" \
+            --output "$SUMMARY_MD"
+
+      - name: Append translation summary to job summary
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          SUMMARY_MD="translation-workflow/translations/summary.md"
+          if [[ -f "$SUMMARY_MD" ]]; then
+            cat "$SUMMARY_MD" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Summary markdown not found; skipping job summary update."
+          fi
+
+      - name: Comment on PR with summary
+        if: ${{ always() && inputs.pr_number != '' }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const summaryPath = 'translation-workflow/translations/summary.md';
+            if (!fs.existsSync(summaryPath)) {
+              core.info('Summary markdown not found; skipping PR comment.');
+              return;
+            }
+            const body = fs.readFileSync(summaryPath, 'utf8');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: Number('${{ inputs.pr_number }}'),
+              body,
+            });
+
+      - name: Inline validation review comments
+        if: ${{ always() && inputs.pr_number != '' }}
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const reportPath = 'translation-workflow/translations/validation_report.json';
+            if (!fs.existsSync(reportPath)) {
+              core.info('Validation report not found; skipping inline comments.');
+              return;
+            }
+            const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+            if (!report.issues || report.issues.length === 0) {
+              core.info('No validation issues detected; no inline comments to post.');
+              return;
+            }
+            const prNumber = Number('${{ inputs.pr_number }}');
+            const { data: pr } = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+            });
+            const commitId = pr.head.sha;
+            let comments = 0;
+            for (const issue of report.issues) {
+              if (comments >= 20) {
+                core.info('Reached inline comment cap (20).');
+                break;
+              }
+              const filePath = issue.target_path || issue.source_path;
+              if (!filePath) {
+                continue;
+              }
+              const line = issue.line || 1;
+              const messageParts = [
+                `**${issue.issue_type || 'validation_issue'}**`,
+                issue.message || 'See validation report for details.',
+              ];
+              if (issue.details && Object.keys(issue.details).length) {
+                messageParts.push('', '```json', JSON.stringify(issue.details, null, 2), '```');
+              }
+              try {
+                await github.rest.pulls.createReviewComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  pull_number: prNumber,
+                  commit_id: commitId,
+                  path: filePath,
+                  line,
+                  side: 'RIGHT',
+                  body: messageParts.join('\n'),
+                });
+                comments += 1;
+              } catch (error) {
+                core.warning(`Unable to post inline validation comment for ${filePath}:${line} - ${error.message}`);
+              }
+            }
+            if (comments === 0) {
+              core.info('Inline validation comments skipped (no eligible paths/lines).');
+            }

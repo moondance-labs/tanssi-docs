@@ -1,0 +1,73 @@
+meta:
+  home_title: Documentation for the Tanssi Network
+footer:
+  llms_full_label: llms-full.txt
+  made_with_html: Made with 🩵 by <a href="https://papermoon.io/" target="_blank">PaperMoon</a>
+  privacy_policy: Privacy Policy
+  terms_of_use: Terms of Use
+  material_attribution_html: Made with <a href="https://squidfunk.github.io/mkdocs-material/"
+    target="_blank" rel="noopener">Material for MkDocs</a>
+error:
+  404_title: 404 – Not found
+home:
+  meta:
+    title: Tanssi Docs
+  hero:
+    video_fallback: Your browser does not support the video tag.
+    title_html: Tanssi <span class="shadow">&lt;Dev&gt;</span> Site
+    subtitle: Build, launch, and scale Symbiotic Networks faster with Tanssi's infrastructure,
+      tools, and integrations.
+    cards:
+      launch:
+        title: Launch a Tanssi-Powered Network
+        description: Get tools and guides to launch your network in minutes.
+        button: Get Started
+      evm:
+        title: Develop using EVM Tools
+        description: Leverage popular EVM tools to accelerate your development.
+        button: Learn More
+      learn:
+        title: Explore Technical Concepts
+        description: Learn Tanssi's features, services, and security via Symbiotic.
+        button: Learn More
+  feature:
+    heading:
+      prefix: The One Stop-Hub For Tanssi
+      accent: Builders
+    description: Explore more ways to engage with the Tanssi ecosystem—access funding,
+      resources, and visibility for your project.
+    cards:
+      one:
+        badge: Ecosystem
+        title: Apply for a Grant
+        arrow_alt: Navigate to the Apply for a Grant page
+      two:
+        badge: Start Building
+        title: Visit the TestNet
+        arrow_alt: Navigate to the TestNet page
+      three:
+        badge: Industry Insights
+        title: Ecosystem Updates
+        arrow_alt: Navigate to the Ecosystem Updates page
+    separator_alt: Multicolor decorative design of Tanssi
+  community:
+    heading:
+      prefix: Join the Tanssi
+      accent: Dev
+      suffix: Community
+    buttons:
+      discord: Join Discord
+      subscribe: Subscribe
+action:
+  edit: Edit this page
+  view: View source
+feedback:
+  title: Was this page helpful?
+  ratings:
+    helpful:
+      name: This page was helpful
+      note: Thanks for your feedback!
+    unhelpful:
+      name: This page could be improved
+      note: Thanks for your feedback! Help us improve this page by submitting <a href="https://github.com/moondance-labs/tanssi-docs/issues/new/?title=[Feedback]+{title}+-+{url}"
+        target="_blank" rel="noopener">additional feedback</a>.
