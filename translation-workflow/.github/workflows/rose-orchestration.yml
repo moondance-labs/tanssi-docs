@@ -29,7 +29,36 @@ permissions:
   pull-requests: write
 
 jobs:
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      allowed: ${{ steps.permission_check.outputs.allowed }}
+    steps:
+      - name: Verify maintainer permissions
+        id: permission_check
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const actor = context.actor;
+            const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              username: actor,
+            });
+            const permission = (data && data.permission) ? data.permission : 'none';
+            core.info(`Actor ${actor} has permission level: ${permission}`);
+            const allowedPermissions = new Set(['admin', 'maintain']);
+            const allowed = allowedPermissions.has(permission) ? 'true' : 'false';
+            core.setOutput('allowed', allowed);
+      - name: Halt unauthorized dispatch
+        if: ${{ steps.permission_check.outputs.allowed != 'true' }}
+        run: |
+          echo "::warning::${{ github.actor }} is not an admin/maintainer on this repository; skipping pipeline."
+
   run-pipeline:
+    needs: guard
+    if: ${{ needs.guard.outputs.allowed == 'true' }}
     runs-on: ubuntu-latest
     env:
       N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL }}
@@ -97,8 +126,34 @@ jobs:
             echo "Summary markdown not found; skipping job summary update."
           fi
 
+      - name: Create translation pull request
+        id: create_pr
+        if: ${{ inputs.pr_number == '' }}
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: chore(rose): sync translations for ${{ inputs.languages }}
+          title: chore(rose): sync translations for ${{ inputs.languages }}
+          body-path: translation-workflow/translations/summary.md
+          branch: rose/translations/${{ github.run_id }}
+          base: ${{ inputs.head_ref }}
+          draft: false
+          delete-branch: true
+
+      - name: Resolve PR number for reporting
+        if: ${{ always() }}
+        id: pr_target
+        shell: bash
+        run: |
+          pr_number="${{ inputs.pr_number }}"
+          created="${{ steps.create_pr.outputs.pull-request-number }}"
+          if [[ -z "$pr_number" && -n "$created" ]]; then
+            pr_number="$created"
+          fi
+          echo "number=$pr_number" >> "$GITHUB_OUTPUT"
+
       - name: Comment on PR with summary
-        if: ${{ always() && inputs.pr_number != '' }}
+        if: ${{ always() && steps.pr_target.outputs.number != '' }}
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -113,12 +168,12 @@ jobs:
             await github.rest.issues.createComment({
               owner: context.repo.owner,
               repo: context.repo.repo,
-              issue_number: Number('${{ inputs.pr_number }}'),
+              issue_number: Number('${{ steps.pr_target.outputs.number }}'),
               body,
             });
 
       - name: Inline validation review comments
-        if: ${{ always() && inputs.pr_number != '' }}
+        if: ${{ always() && steps.pr_target.outputs.number != '' }}
         uses: actions/github-script@v7
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -134,7 +189,7 @@ jobs:
               core.info('No validation issues detected; no inline comments to post.');
               return;
             }
-            const prNumber = Number('${{ inputs.pr_number }}');
+            const prNumber = Number('${{ steps.pr_target.outputs.number }}');
             const { data: pr } = await github.rest.pulls.get({
               owner: context.repo.owner,
               repo: context.repo.repo,
