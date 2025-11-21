@@ -6,6 +6,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shlex
 import sys
 import time
@@ -27,6 +28,7 @@ except Exception as exc:  # pragma: no cover
 from paths import REPO_ROOT, repo_path, repo_relative, repo_relative_str
 
 TRANSLATION_STAGE = ROOT / "translations"
+PYTHON_BIN = sys.executable or shutil.which("python3") or "python3"
 PAYLOAD_PATH = TRANSLATION_STAGE / "payload.json"
 CHANGES_PATH = TRANSLATION_STAGE / "changed_segments.json"
 ALLOWED_EXTENSIONS = {".md", ".markdown", ".mkd", ".html", ".jinja", ".jinja2", ".j2", ".tpl", ".yml", ".yaml"}
@@ -76,9 +78,29 @@ def _is_code_only(block: str) -> bool:
 def _resolve_target_path(entry: dict[str, Any]) -> Path | None:
     lang = entry.get("target_language")
     source_path = entry.get("source_path")
-    if not lang or not source_path:
+    if not source_path:
         return None
-    target_path = entry.get("target_path") or _derive_target_path(source_path, lang)
+    derived = None
+    if lang:
+        try:
+            derived = _derive_target_path(source_path, lang)
+        except Exception:
+            derived = None
+    target_path = entry.get("target_path")
+    if derived is not None:
+        use_derived = False
+        if not target_path:
+            use_derived = True
+        else:
+            try:
+                if Path(target_path).as_posix() == Path(source_path).as_posix():
+                    use_derived = lang is not None and lang.lower() != "en"
+            except Exception:
+                use_derived = True
+        if use_derived:
+            target_path = derived
+    if not target_path:
+        return None
     try:
         return repo_relative(target_path)
     except ValueError:
@@ -400,6 +422,48 @@ def _run_cmd(cmd: list[str]) -> None:
         raise SystemExit(result)
 
 
+def _detect_pr_number() -> str | None:
+    env_pr = os.environ.get("PR_NUMBER")
+    if env_pr:
+        return env_pr
+    ref = os.environ.get("GITHUB_REF", "")
+    match = re.match(r"refs/pull/(\d+)/", ref)
+    if match:
+        return match.group(1)
+    return None
+
+
+def _maybe_post_validation_comments(commit_sha: str) -> None:
+    repo = os.environ.get("GITHUB_REPOSITORY")
+    token = os.environ.get("GITHUB_TOKEN")
+    pr_number = _detect_pr_number()
+    if not (repo and token and pr_number and VALIDATION_REPORT.exists()):
+        return
+    try:
+        data = json.loads(VALIDATION_REPORT.read_text(encoding="utf-8"))
+    except Exception:
+        return
+    issues = data.get("issues", [])
+    if not issues:
+        return
+    _run_cmd(
+        [
+            PYTHON_BIN,
+            str(CURRENT_DIR / "post_validation_comments.py"),
+            "--report",
+            str(VALIDATION_REPORT),
+            "--repo",
+            repo,
+            "--pull-request",
+            pr_number,
+            "--token",
+            token,
+            "--commit",
+            commit_sha,
+        ]
+    )
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--base", required=True, help="Base git ref (e.g., origin/main)")
@@ -467,7 +531,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
 
     # Run locale sync before diff collection so locale keys stay in sync
     subprocess.run(
-        ["python", str(LOCALE_SYNC), "--report", str(LOCALE_REPORT)],
+        [PYTHON_BIN, str(LOCALE_SYNC), "--report", str(LOCALE_REPORT)],
         check=True,
     )
 
@@ -521,11 +585,11 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     )
     PAYLOAD_PATH.write_text(json.dumps(translations, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    _run_cmd(["python", "-m", "pip", "install", "ruamel.yaml"])
-    _run_cmd(["python", str(CURRENT_DIR / "extract_strings.py"), "--payload", str(PAYLOAD_PATH)])
+    _run_cmd([PYTHON_BIN, "-m", "pip", "install", "ruamel.yaml"])
+    _run_cmd([PYTHON_BIN, str(CURRENT_DIR / "extract_strings.py"), "--payload", str(PAYLOAD_PATH)])
     _run_cmd(
         [
-            "python",
+            PYTHON_BIN,
             str(CURRENT_DIR / "inject_translations.py"),
             "--payload",
             str(PAYLOAD_PATH),
@@ -534,7 +598,16 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         ]
     )
 
-    _run_cmd(["python", str(CURRENT_DIR / "format_locale_yaml.py")])
+    _run_cmd(
+        [
+            PYTHON_BIN,
+            str(CURRENT_DIR / "fix_front_matter.py"),
+            "--languages",
+            *args.languages,
+        ]
+    )
+
+    _run_cmd([PYTHON_BIN, str(CURRENT_DIR / "format_locale_yaml.py")])
 
     target_files = _collect_target_files(translations)
     markdown_suffixes = {".md", ".markdown", ".mkd"}
@@ -544,18 +617,18 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     if mdformat_targets:
         file_args = " ".join(shlex.quote(str(path)) for path in mdformat_targets)
         repo_root_quoted = shlex.quote(str(REPO_ROOT))
-        _run_cmd(["python", "-m", "pip", "install", "mdformat"])
+        _run_cmd([PYTHON_BIN, "-m", "pip", "install", "mdformat"])
         _run_cmd(
             [
                 "bash",
                 "-lc",
-                f"cd {repo_root_quoted} && mdformat {file_args}",
+                f"cd {repo_root_quoted} && {shlex.quote(PYTHON_BIN)} -m mdformat {file_args}",
             ]
         )
 
-    _run_cmd(["python", "-m", "pip", "install", "PyYAML"])
+    _run_cmd([PYTHON_BIN, "-m", "pip", "install", "PyYAML"])
     validation_cmd = [
-        "python",
+        PYTHON_BIN,
         str(CURRENT_DIR / "validate_translations.py"),
         "--payload",
         str(PAYLOAD_PATH),
@@ -565,7 +638,16 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     validation_result = subprocess.run(validation_cmd, check=False)
     if validation_result.returncode != 0:
         print("Structural validation reported issues; continuing so translations stay available.")
-    _run_cmd(["python", str(CURRENT_DIR / "cleanup_tmp.py")])
+    _maybe_post_validation_comments(commit_sha)
+    _run_cmd(
+        [
+            PYTHON_BIN,
+            str(CURRENT_DIR / "fix_front_matter.py"),
+            "--languages",
+            *args.languages,
+        ]
+    )
+    _run_cmd([PYTHON_BIN, str(CURRENT_DIR / "cleanup_tmp.py")])
 
     missing_report = _report_missing_translations(english_files, args.languages)
     locale_summary = _report_locale_findings(LOCALE_REPORT)

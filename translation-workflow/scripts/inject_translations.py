@@ -7,6 +7,7 @@ import json
 import re
 from pathlib import Path
 
+import yaml
 from ruamel.yaml import YAML
 from ruamel.yaml.comments import CommentedMap, CommentedSeq
 
@@ -72,6 +73,13 @@ COLON_PATTERN = re.compile(r'^(\s*[^:\n]+):[ \t]*([^\n]+)$', re.MULTILINE)
 EXCLUDED_VALUE_PREFIXES = ('"', "'", '|', '>', '[', '{', '#')
 INLINE_COLON_REGEX = re.compile(r'(?<=\w):(?=\s)')
 INLINE_CODE_PATTERN = re.compile(r'`([^`\n]+)`')
+FRONT_MATTER_DELIM = "---"
+INLINE_FRONT_MATTER_RE = re.compile(
+    r'([A-Za-z0-9_]+):\s*([^:]+?)(?=\s+[A-Za-z0-9_]+:|$)'
+)
+FM_LINE_RE = re.compile(r'^(\s*)([^:#]+):(.*)$')
+INLINE_HEADER_RE = re.compile(r'^\s*##\s+(.*)$')
+DECOR_LINE_RE = re.compile(r'^_+$')
 
 
 def _sanitize_locale_text(text: str) -> str:
@@ -112,10 +120,188 @@ def _restore_markdown_structure(path: Path, english: str, translated: str) -> st
         return translated
     eng_lines = english.splitlines()
     trans_lines = translated.splitlines()
+    trans_lines = _restore_front_matter(eng_lines, trans_lines)
+    trans_lines = _collapse_duplicate_fences(trans_lines)
     _restore_code_fences(eng_lines, trans_lines)
+    trans_lines = _ensure_mermaid_headers(eng_lines, trans_lines)
     restored = "\n".join(trans_lines)
     restored = _restore_inline_code(english, restored)
     return restored
+
+
+def _extract_front_matter_values(lines: list[str]) -> tuple[dict[str, str], list[str]]:
+    fm_lines, body = _split_front_matter(lines)
+    if fm_lines:
+        content = "\n".join(fm_lines[1:-1])
+        try:
+            data = yaml.safe_load(content) or {}
+            if isinstance(data, dict):
+                return {str(k): str(v) for k, v in data.items()}, body
+        except Exception:
+            pass
+    values: dict[str, str] = {}
+    remainder = lines[:]
+    header_idx = None
+    skip_until = 0
+    for idx, line in enumerate(lines):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if DECOR_LINE_RE.match(stripped):
+            skip_until = idx + 1
+            continue
+        match = INLINE_HEADER_RE.match(line)
+        if match:
+            header_idx = idx
+            for m in INLINE_FRONT_MATTER_RE.finditer(match.group(1)):
+                values[m.group(1)] = m.group(2).strip()
+            break
+        break
+    if header_idx is not None:
+        remainder = lines[header_idx + 1 :]
+        while remainder and not remainder[0].strip():
+            remainder = remainder[1:]
+    elif skip_until:
+        remainder = lines[skip_until:]
+    return values, remainder
+
+
+def _split_front_matter(lines: list[str]) -> tuple[list[str], list[str]]:
+    if not lines or lines[0].strip() != FRONT_MATTER_DELIM:
+        return [], lines
+    for idx in range(1, len(lines)):
+        if lines[idx].strip() == FRONT_MATTER_DELIM:
+            return lines[: idx + 1], lines[idx + 1 :]
+    return [], lines
+
+
+def _restore_front_matter(eng_lines: list[str], trans_lines: list[str]) -> list[str]:
+    eng_fm, _ = _split_front_matter(eng_lines)
+    if not eng_fm:
+        return trans_lines
+    trans_fm, trans_body = _split_front_matter(trans_lines)
+    trans_values, remainder = _extract_front_matter_values(trans_lines)
+    if trans_fm:
+        remainder = trans_body
+    restored: list[str] = []
+    for line in eng_fm:
+        stripped = line.strip()
+        if stripped == FRONT_MATTER_DELIM or stripped == "":
+            restored.append(line)
+            continue
+        match = FM_LINE_RE.match(line)
+        if match:
+            indent, key, _ = match.groups()
+            key_clean = key.strip()
+            if key_clean in trans_values:
+                restored.append(f"{indent}{key_clean}: {trans_values[key_clean]}")
+                continue
+        restored.append(line)
+    return restored + remainder
+
+
+def _collapse_duplicate_fences(lines: list[str]) -> list[str]:
+    result: list[str] = []
+    prev_fence = None
+    for line in lines:
+        stripped = line.strip()
+        if stripped.startswith("```") or stripped.startswith("~~~"):
+            if stripped == prev_fence:
+                continue
+            prev_fence = stripped
+        else:
+            prev_fence = None
+        result.append(line)
+    return result
+
+
+def _collect_mermaid_headers(lines: list[str]) -> list[str | None]:
+    headers: list[str | None] = []
+    idx = 0
+    while idx < len(lines):
+        if lines[idx].strip().startswith("```mermaid"):
+            header: str | None = None
+            search = idx + 1
+            while search < len(lines):
+                stripped = lines[search].strip()
+                if not stripped:
+                    search += 1
+                    continue
+                if stripped.startswith("```"):
+                    break
+                header = lines[search]
+                break
+            headers.append(header)
+            end = search
+            while end < len(lines):
+                if lines[end].strip().startswith("```"):
+                    end += 1
+                    break
+                end += 1
+            idx = end
+        else:
+            idx += 1
+    return headers
+
+
+def _find_next_mermaid(lines: list[str], start: int) -> int | None:
+    for idx in range(start, len(lines)):
+        if lines[idx].strip().startswith("```mermaid"):
+            return idx
+    return None
+
+
+def _repair_mermaid_block(
+    lines: list[str], start_idx: int, english_header: str | None
+) -> int:
+    header_idx = start_idx + 1
+    while header_idx < len(lines) and not lines[header_idx].strip():
+        header_idx += 1
+
+    if english_header:
+        if header_idx >= len(lines) or lines[header_idx].strip().startswith("```"):
+            lines.insert(header_idx, english_header)
+            header_idx += 1
+        else:
+            lines[header_idx] = english_header
+            header_idx += 1
+
+    cur = header_idx
+    closing_idx = None
+    while cur < len(lines):
+        stripped = lines[cur].strip()
+        if stripped.startswith("```mermaid"):
+            del lines[cur]
+            continue
+        if stripped.startswith("```"):
+            closing_idx = cur
+            break
+        cur += 1
+
+    if closing_idx is None:
+        lines.append("```")
+        closing_idx = len(lines) - 1
+
+    if lines[closing_idx].strip() != "```":
+        lines[closing_idx] = "```"
+
+    after_close = closing_idx + 1
+    if after_close >= len(lines) or lines[after_close].strip() != "":
+        lines.insert(after_close, "")
+        after_close += 1
+
+    return after_close
+
+
+def _ensure_mermaid_headers(eng_lines: list[str], trans_lines: list[str]) -> list[str]:
+    headers = _collect_mermaid_headers(eng_lines)
+    search_start = 0
+    for english_header in headers:
+        start_idx = _find_next_mermaid(trans_lines, search_start)
+        if start_idx is None:
+            break
+        search_start = _repair_mermaid_block(trans_lines, start_idx, english_header)
+    return trans_lines
 
 
 def _overlay_locale(base, override):
@@ -206,11 +392,19 @@ def main() -> int:
             translated = _sanitize_locale_text(translated)
             _write_locale_translation(target, translated)
         else:
-            english_text = (
-                entry.get("content_original")
-                or entry.get("content")
-                or ""
-            )
+            english_text = ""
+            source_path = entry.get("source_path")
+            if source_path:
+                try:
+                    eng_path = REPO_ROOT / repo_relative(source_path)
+                    if eng_path.exists():
+                        english_text = eng_path.read_text(encoding="utf-8")
+                except Exception:
+                    english_text = (
+                        entry.get("content_original")
+                        or entry.get("content")
+                        or ""
+                    )
             if english_text:
                 translated = _restore_markdown_structure(target, english_text, translated)
             translated = translated.rstrip("\n") + "\n"

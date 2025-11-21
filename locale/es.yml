@@ -13,24 +13,24 @@ error:
   404_title: 404 – No encontrado
 home:
   meta:
-    title: Documentos de Tanssi
+    title: Docs de Tanssi
   hero:
-    video_fallback: Tu navegador no es compatible con la etiqueta de video.
-    title_html: Tanssi <span class="shadow">&lt;Dev&gt;</span> Site
+    video_fallback: Tu navegador no soporta la etiqueta de video.
+    title_html: Tanssi <span class="shadow">&lt;Dev&gt;</span> Sitio
     subtitle: Construye, lanza y escala redes simbióticas más rápido con la 
       infraestructura, las herramientas y las integraciones de Tanssi.
     cards:
       launch:
-        title: Lanza una red impulsada por Tanssi
+        title: Lanza una red con tecnología Tanssi
         description: Obtén herramientas y guías para lanzar tu red en minutos.
         button: Empezar
       evm:
-        title: Desarrolla con herramientas EVM
+        title: Desarrolla usando las herramientas de EVM
         description: Aprovecha las herramientas EVM populares para acelerar tu 
           desarrollo.
         button: Aprende más
       learn:
-        title: Explora conceptos técnicos
+        title: Explora los conceptos técnicos
         description: Aprende las características, los servicios y la seguridad 
           de Tanssi a través de Simbiótico.
         button: Aprende más
@@ -38,25 +38,25 @@ home:
     heading:
       prefix: El centro integral para Tanssi
       accent: Constructores
-    description: Explora más formas de interactuar con el ecosistema Tanssi 
-      accede a financiamiento, recursos y visibilidad para tu proyecto.
+    description: Explora más formas de interactuar con el ecosistema de Tanssi 
+      accede a financiación, recursos y visibilidad para tu proyecto.
     cards:
       one:
         badge: Ecosistema
-        title: Solicitar una subvención
+        title: Solicita una subvención
         arrow_alt: Navegar a la página Solicitar una subvención
       two:
         badge: Empieza a construir
         title: Visita la TestNet
         arrow_alt: Navegar a la página TestNet
       three:
-        badge: Perspectivas de la industria
+        badge: Información de la industria
         title: Actualizaciones del ecosistema
-        arrow_alt: Navegar a la página Actualizaciones del ecosistema
+        arrow_alt: Navegar a la página de actualizaciones del ecosistema
     separator_alt: Diseño decorativo multicolor de Tanssi
   community:
     heading:
-      prefix: Únete a la comunidad Tanssi
+      prefix: Únete a Tanssi
       accent: Dev
       suffix: Comunidad
     buttons:

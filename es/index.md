@@ -1,8 +1,8 @@
 ---
-title: Inicio
-description: Bienvenido al sitio de documentación de la red Tanssi tu puerta de entrada para un despliegue descentralizado rápido, eficiente y sin esfuerzos.
+title: Home
+description: Welcome to the Tanssi Network documentation site. Your gateway to rapid, efficient, and effortless decentralized network deployment.
 template: home.html
-hide:
+hide: ['footer', 'toc', 'feedback', 'navigation']
 - footer
 - toc
 - feedback
