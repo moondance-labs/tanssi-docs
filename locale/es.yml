@@ -1,5 +1,5 @@
 meta:
-  home_title: Documentación para la red Tanssi
+  home_title: Documentación de la Red Tanssi
 footer:
   llms_full_label: llms-full.txt
   made_with_html: Hecho con 🩵 por <a href="https://papermoon.io/" 
@@ -8,60 +8,60 @@ footer:
   terms_of_use: Términos de uso
   material_attribution_html: Hecho con <a 
     href="https://squidfunk.github.io/mkdocs-material/" target="_blank" 
-    rel="noopener">Material para MkDocs</a>
+    rel="noopener">Material for MkDocs</a>
 error:
   404_title: 404 – No encontrado
 home:
   meta:
     title: Docs de Tanssi
   hero:
-    video_fallback: Tu navegador no soporta la etiqueta de video.
+    video_fallback: Tu navegador no es compatible con la etiqueta de video.
     title_html: Tanssi <span class="shadow">&lt;Dev&gt;</span> Sitio
     subtitle: Construye, lanza y escala redes simbióticas más rápido con la 
       infraestructura, las herramientas y las integraciones de Tanssi.
     cards:
       launch:
-        title: Lanza una red con tecnología Tanssi
+        title: Lanza una red impulsada por Tanssi
         description: Obtén herramientas y guías para lanzar tu red en minutos.
         button: Empezar
       evm:
-        title: Desarrolla usando las herramientas de EVM
+        title: Desarrolla utilizando herramientas EVM
         description: Aprovecha las herramientas EVM populares para acelerar tu 
           desarrollo.
-        button: Aprende más
+        button: Más información
       learn:
-        title: Explora los conceptos técnicos
+        title: Explora conceptos técnicos
         description: Aprende las características, los servicios y la seguridad 
-          de Tanssi a través de Simbiótico.
-        button: Aprende más
+          de Tanssi a través de Symbiotic.
+        button: Aprender más
   feature:
     heading:
       prefix: El centro integral para Tanssi
-      accent: Constructores
-    description: Explora más formas de interactuar con el ecosistema de Tanssi 
+      accent: Creadores
+    description: Explora más formas de interactuar con el ecosistema Tanssi 
       accede a financiación, recursos y visibilidad para tu proyecto.
     cards:
       one:
         badge: Ecosistema
-        title: Solicita una subvención
-        arrow_alt: Navegar a la página Solicitar una subvención
+        title: Solicita una beca
+        arrow_alt: Navega a la página Solicitar una beca
       two:
         badge: Empieza a construir
         title: Visita la TestNet
-        arrow_alt: Navegar a la página TestNet
+        arrow_alt: Navega a la página TestNet
       three:
         badge: Información de la industria
         title: Actualizaciones del ecosistema
-        arrow_alt: Navegar a la página de actualizaciones del ecosistema
+        arrow_alt: Navega a la página de actualizaciones del ecosistema
     separator_alt: Diseño decorativo multicolor de Tanssi
   community:
     heading:
-      prefix: Únete a Tanssi
+      prefix: Únete al Tanssi
       accent: Dev
       suffix: Comunidad
     buttons:
-      discord: Únete a Discord
-      subscribe: Suscríbete
+      discord: Unirse a Discord
+      subscribe: Suscribirse
 action:
   edit: Editar esta página
   view: Ver fuente

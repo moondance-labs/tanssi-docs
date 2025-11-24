@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import os
@@ -37,6 +38,12 @@ LOCALE_SYNC = CURRENT_DIR / "locale_sync.py"
 LOCALE_REPORT = TRANSLATION_STAGE / "locale_report.json"
 COVERAGE_REPORT = TRANSLATION_STAGE / "summary_report.json"
 VALIDATION_REPORT = TRANSLATION_STAGE / "validation_report.json"
+VALIDATION_PAYLOAD_SNAPSHOT = TRANSLATION_STAGE / "validation_payload_snapshot.json"
+LANGUAGE_CODE_PATTERN = re.compile(r"^[A-Za-z]{2}(?:[-_][A-Za-z]{2})?$")
+
+
+def _debug(message: str) -> None:
+    print(f"[rose][debug] {message}")
 
 
 def _read_lines(path: Path) -> list[str]:
@@ -122,6 +129,122 @@ def _collect_target_files(translations: Any) -> list[Path]:
         if resolved and resolved not in files:
             files.append(resolved)
     return files
+
+
+def _payload_entries_list(translations: Any) -> list[dict[str, Any]]:
+    if isinstance(translations, dict) and isinstance(translations.get("entries"), list):
+        return translations["entries"]
+    if isinstance(translations, list):
+        flattened: list[dict[str, Any]] = []
+        for item in translations:
+            if isinstance(item, dict) and isinstance(item.get("entries"), list):
+                flattened.extend(item["entries"])
+            elif isinstance(item, dict):
+                flattened.append(item)
+        return flattened
+    return []
+
+
+def _summarize_payload_segments(entries: list[dict[str, Any]]) -> dict[str, list[dict[str, Any]]]:
+    """Group payload entries per language with path + line ranges for reporting."""
+    segments: dict[str, list[dict[str, Any]]] = {}
+    for entry in entries:
+        languages: list[str] = []
+        if entry.get("target_languages"):
+            languages = [str(lang) for lang in entry["target_languages"] if lang]
+        elif entry.get("target_language"):
+            languages = [str(entry["target_language"])]
+        if not languages:
+            continue
+
+        source_path = entry.get("target_path") or entry.get("source_path")
+        range_info = entry.get("range") or {}
+        start = range_info.get("start")
+        end = range_info.get("end")
+        for lang in languages:
+            normalized_lang = _normalize_language(lang)
+            segments.setdefault(normalized_lang, []).append(
+                {
+                    "path": source_path,
+                    "start": start,
+                    "end": end,
+                    "kind": entry.get("kind"),
+                }
+            )
+    return segments
+
+
+def _sanitize_payload_entry(entry: dict[str, Any]) -> dict[str, Any]:
+    sanitized = copy.deepcopy(entry)
+    sanitized.pop("provider_metadata", None)
+    return sanitized
+
+
+def _match_issue_payload_entries(issue: dict[str, Any], payload_entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    matches: list[dict[str, Any]] = []
+    issue_lang = issue.get("language") or issue.get("target_language")
+    normalized_issue_lang = _normalize_language(issue_lang) if issue_lang else None
+    issue_path = issue.get("target_path") or issue.get("source_path")
+    normalized_issue_path = Path(issue_path).as_posix() if issue_path else None
+
+    for entry in payload_entries:
+        entry_lang = entry.get("target_language") or entry.get("language")
+        normalized_entry_lang = _normalize_language(entry_lang) if entry_lang else None
+        if normalized_issue_lang and normalized_entry_lang and normalized_issue_lang != normalized_entry_lang:
+            continue
+        entry_path = entry.get("target_path") or entry.get("source_path")
+        normalized_entry_path = Path(entry_path).as_posix() if entry_path else None
+        if normalized_issue_path and normalized_entry_path and normalized_issue_path != normalized_entry_path:
+            continue
+        matches.append(entry)
+    return matches
+
+
+def _write_validation_snapshot(
+    payload_entries: list[dict[str, Any]],
+    validation_summary: dict[str, Any],
+    summary_payload: dict[str, Any],
+) -> None:
+    sanitized_entries = [_sanitize_payload_entry(entry) for entry in payload_entries]
+    issues_with_payload: list[dict[str, Any]] = []
+    issues = validation_summary.get("issues", []) or []
+    for issue in issues:
+        issue_copy = copy.deepcopy(issue)
+        matches = _match_issue_payload_entries(issue, sanitized_entries)
+        if matches:
+            issue_copy["payload_entries"] = matches
+        issues_with_payload.append(issue_copy)
+
+    snapshot = {
+        "summary": summary_payload,
+        "validation": validation_summary,
+        "payload_entries": sanitized_entries,
+        "issues_with_payload": issues_with_payload,
+    }
+    VALIDATION_PAYLOAD_SNAPSHOT.write_text(
+        json.dumps(snapshot, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+
+
+def _normalize_language(lang: str) -> str:
+    return lang.strip().lower().replace("-", "_")
+
+
+def _prepare_languages(language_args: Iterable[str]) -> list[str]:
+    normalized: list[str] = []
+    for raw in language_args or []:
+        candidate = (raw or "").strip()
+        if not candidate:
+            continue
+        if not LANGUAGE_CODE_PATTERN.match(candidate):
+            raise ValueError(
+                f"Invalid language code '{raw}'. Use ISO 639-1 codes such as 'es' or 'pt-BR'."
+            )
+        normalized.append(_normalize_language(candidate))
+    if not normalized:
+        raise ValueError("At least one valid language code must be provided.")
+    return normalized
 
 
 def _normalize_path(path: str) -> str:
@@ -281,6 +404,10 @@ def _as_bool(value: str) -> bool:
 def _should_skip_path(rel_path: str, languages: list[str], skip_llms: bool, skip_ai: bool) -> bool:
     normalized = repo_relative_str(rel_path)
     lower = normalized.lower()
+    if normalized.startswith(".github/") or normalized == ".github":
+        return True
+    if normalized.startswith("translation-workflow/scripts/") or normalized == "translation-workflow/scripts":
+        return True
     if skip_llms and "llms" in lower:
         return True
     if skip_ai and "/.ai" in lower:
@@ -351,11 +478,21 @@ def _derive_target_path(rel_path: str, language: str) -> str:
     return str(path)
 
 
+def _read_file_at_ref(ref: str, rel_path: str) -> str | None:
+    git_path = repo_relative_str(rel_path)
+    cmd = ["git", "-C", str(REPO_ROOT), "show", f"{ref}:{git_path}"]
+    result = subprocess.run(cmd, capture_output=True, text=True, check=False)
+    if result.returncode != 0:
+        return None
+    return result.stdout
+
+
 def _build_payload_entries(
     diff_map: dict[str, list[dict[str, Any]]],
     languages: list[str],
     skip_llms: bool,
     skip_ai: bool,
+    head_ref: str,
 ) -> tuple[list[dict[str, Any]], Set[str]]:
     entries: list[dict[str, Any]] = []
     english_files: Set[str] = set()
@@ -364,10 +501,15 @@ def _build_payload_entries(
         if _should_skip_path(normalized_path, languages, skip_llms, skip_ai):
             continue
         abs_path = repo_path(normalized_path)
-        if not abs_path.exists():
-            continue
-        english_text = abs_path.read_text(encoding="utf-8")
-        lines = _read_lines(abs_path)
+        if abs_path.exists():
+            english_text = abs_path.read_text(encoding="utf-8")
+            lines = _read_lines(abs_path)
+        else:
+            english_text = _read_file_at_ref(head_ref, normalized_path)
+            if english_text is None:
+                _debug(f"Missing {normalized_path} in working tree and ref {head_ref}; skipping.")
+                continue
+            lines = english_text.splitlines()
         english_files.add(normalized_path)
         tagged_full = _run_tagger(english_text)
         file_entry = {
@@ -485,6 +627,7 @@ def main() -> int:
         help="When used with --include-files, translate the entire file even if no diff exists",
     )
     args = parser.parse_args()
+    args.languages = _prepare_languages(args.languages)
 
     _reset_translation_stage()
     try:
@@ -500,6 +643,8 @@ def _reset_translation_stage() -> None:
 
 
 def _cleanup_translation_stage() -> None:
+    if os.environ.get("ROSE_PRESERVE_TRANSLATIONS"):
+        return
     if TRANSLATION_STAGE.exists():
         shutil.rmtree(TRANSLATION_STAGE)
 
@@ -515,6 +660,11 @@ def _cleanup_pycache() -> None:
 def _run_pipeline(args: argparse.Namespace) -> int:
 
     env_include_files = os.environ.get("ROSE_INCLUDE_FILES")
+    if env_include_files and env_include_files.strip().lower() == "none":
+        env_include_files = ""
+    env_include_full = os.environ.get("ROSE_INCLUDE_FULL")
+    if env_include_full and not args.include_full:
+        args.include_full = env_include_full.lower() in {"1", "true", "yes", "on"}
     if env_include_files and not args.include_files:
         args.include_files = [
             entry.strip()
@@ -524,6 +674,13 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         ]
 
     include_files = {_normalize_path(path) for path in args.include_files if path.strip()}
+    _debug(f"Base ref: {args.base}")
+    _debug(f"Head ref: {args.head}")
+    _debug(f"Paths: {', '.join(args.paths) if args.paths else '.'}")
+    _debug(f"Languages: {', '.join(args.languages)}")
+    _debug(f"Env include files: {env_include_files!r}")
+    _debug(f"CLI include files: {sorted(include_files)}")
+    _debug(f"Include full files: {args.include_full}")
     if include_files:
         print("Restricting translation to the following file(s):")
         for rel_path in sorted(include_files):
@@ -537,8 +694,20 @@ def _run_pipeline(args: argparse.Namespace) -> int:
 
     diff_text = _run_git_diff(args.base, args.head, args.paths)
     diff_map = _collect_sets(diff_text)
+    diff_file_count = len(diff_map)
+    diff_block_count = sum(len(items) for items in diff_map.values())
+    _debug(f"Detected {diff_block_count} diff block(s) across {diff_file_count} file(s).")
+    if diff_file_count:
+        preview_files = sorted(diff_map.keys())[:5]
+        for path in preview_files:
+            _debug(f"  diff file: {path} ({len(diff_map[path])} block(s))")
     if include_files:
         diff_map = _filter_diff_map(diff_map, include_files)
+        filtered_file_count = len(diff_map)
+        filtered_block_count = sum(len(items) for items in diff_map.values())
+        _debug(
+            f"After include-files filter: {filtered_block_count} block(s) across {filtered_file_count} file(s)."
+        )
         if args.include_full:
             _inject_full_file_entries(diff_map, include_files)
         if not diff_map:
@@ -552,7 +721,13 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         args.languages,
         _as_bool(args.filter_llms),
         _as_bool(args.filter_ai_dir),
+        args.head,
     )
+    _debug(f"Prepared {len(entries)} translation job(s) from {len(english_files)} English file(s).")
+    if english_files:
+        preview_sources = sorted(english_files)[:5]
+        for path in preview_sources:
+            _debug(f"  source file: {path}")
     if not entries:
         print("No eligible additions detected; exiting cleanly.")
         return 0
@@ -584,6 +759,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         or response_payload
     )
     PAYLOAD_PATH.write_text(json.dumps(translations, indent=2, ensure_ascii=False), encoding="utf-8")
+    payload_entries = _payload_entries_list(translations)
 
     _run_cmd([PYTHON_BIN, "-m", "pip", "install", "ruamel.yaml"])
     _run_cmd([PYTHON_BIN, str(CURRENT_DIR / "extract_strings.py"), "--payload", str(PAYLOAD_PATH)])
@@ -610,9 +786,18 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     _run_cmd([PYTHON_BIN, str(CURRENT_DIR / "format_locale_yaml.py")])
 
     target_files = _collect_target_files(translations)
+    payload_segments = _summarize_payload_segments(payload_entries)
     markdown_suffixes = {".md", ".markdown", ".mkd"}
+    def _normalize_lang_prefix(path: Path) -> Path:
+        parts = list(path.parts)
+        if parts:
+            parts[0] = parts[0].lower()
+        return Path(*parts)
+
     mdformat_targets = [
-        path for path in target_files if path.suffix.lower() in markdown_suffixes
+        _normalize_lang_prefix(path)
+        for path in target_files
+        if path.suffix.lower() in markdown_suffixes
     ]
     if mdformat_targets:
         file_args = " ".join(shlex.quote(str(path)) for path in mdformat_targets)
@@ -668,11 +853,16 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         "validation_status": validation_block["status"],
         "validation_issue_count": validation_block["issue_count"],
         "validation_issues": validation_summary.get("issues", []),
+        "payload_entry_count": len(payload_entries),
+        "localized_file_changes": len(target_files),
+        "diff_file_count": len(english_files),
+        "payload_segments": payload_segments,
     }
     COVERAGE_REPORT.write_text(
         json.dumps(summary_payload, ensure_ascii=False, indent=2),
         encoding="utf-8",
     )
+    _write_validation_snapshot(payload_entries, validation_summary, summary_payload)
 
     print("Rose pipeline completed successfully.")
     return 0

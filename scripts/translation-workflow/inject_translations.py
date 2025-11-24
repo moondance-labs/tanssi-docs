@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 from pathlib import Path
 
 import yaml
@@ -17,6 +18,23 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PAYLOAD = ROOT / "translations" / "payload.json"
 LOCALE_DIR = DOCS_ROOT / "locale"
 EN_LOCALE = LOCALE_DIR / "en.yml"
+LANG_DIR_PATTERN = re.compile(r"^[a-z]{2}(?:[-_][a-z0-9]+)?$")
+ROOT_DIR_SKIP = {
+    "assets",
+    "images",
+    "locale",
+    "translation-workflow",
+    "scripts",
+    "i18n",
+    "llms-files",
+    "tmp",
+    "site",
+    ".git",
+    ".github",
+    ".snippets",
+}
+ROOT_FILE_ALLOW = {"index.md", ".nav.yml"}
+_SCAFFOLDED_LANGS: set[str] = set()
 
 YAML_PARSER = YAML()
 YAML_PARSER.indent(mapping=2, sequence=4, offset=2)
@@ -25,6 +43,52 @@ YAML_PARSER.preserve_quotes = True
 
 def _normalize_lang(code: str) -> str:
     return code.strip().lower().replace("-", "_")
+
+
+def _is_language_dir(name: str) -> bool:
+    return bool(LANG_DIR_PATTERN.match(name.lower()))
+
+
+def _should_copy_entry(path: Path) -> bool:
+    name = path.name
+    if path.is_dir():
+        if name in ROOT_DIR_SKIP:
+            return False
+        if name.startswith("."):
+            return False
+        if _is_language_dir(name):
+            return False
+        return True
+    if name in ROOT_FILE_ALLOW:
+        return True
+    return False
+
+
+def _ensure_locale_file(lang: str) -> None:
+    dest = LOCALE_DIR / f"{lang}.yml"
+    if dest.exists():
+        return
+    LOCALE_DIR.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(EN_LOCALE, dest)
+
+
+def _ensure_language_scaffold(lang: str) -> None:
+    if lang in _SCAFFOLDED_LANGS:
+        return
+    _SCAFFOLDED_LANGS.add(lang)
+    lang_root = DOCS_ROOT / lang
+    if lang_root.exists():
+        return
+    lang_root.mkdir(parents=True, exist_ok=True)
+    for entry in DOCS_ROOT.iterdir():
+        if not _should_copy_entry(entry):
+            continue
+        dest = lang_root / entry.name
+        if entry.is_dir():
+            shutil.copytree(entry, dest)
+        else:
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(entry, dest)
 
 
 def _derive_target_path(source_path: str, language: str) -> Path:
@@ -377,6 +441,8 @@ def main() -> int:
             raise ValueError("target_language missing in payload entry")
         if requested and lang_code not in requested:
             continue
+        _ensure_language_scaffold(lang_code)
+        _ensure_locale_file(lang_code)
 
         path_hint = entry.get("target_path") or entry.get("source_path")
         if not path_hint:
