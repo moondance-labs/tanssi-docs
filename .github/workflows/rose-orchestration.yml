@@ -6,7 +6,8 @@ on:
       - closed
     branches:
       - main
-      - Multi-translations
+      - dev
+      - master
   workflow_dispatch:
     inputs:
       base_ref:
@@ -26,7 +27,7 @@ on:
         required: false
         default: 'false'
       file_filter:
-        description: 'Optional comma/newline separated list of files to translate (repo-relative paths)'
+        description: 'Separated list of files to translate (repo-relative paths)'
         required: false
         default: ''
 
@@ -90,6 +91,7 @@ jobs:
             core.setOutput('allowed', allowed);
 
   run-pipeline:
+    name: Rose's Summary
     environment: translations
     needs: guard
     if: ${{ needs.guard.outputs.allowed == 'true' && (github.event_name != 'pull_request' || (github.event.pull_request.merged == true && needs.guard.outputs.merged_by_allowed == 'true')) }}
@@ -101,7 +103,7 @@ jobs:
       ROSE_N8N_ALLOWED_HOST: ${{ vars.N8N_ALLOWED_HOST || '' }}
       ROSE_INCLUDE_FILES: ${{ github.event_name == 'workflow_dispatch' && inputs.file_filter || '' }}
       ROSE_INCLUDE_FULL: ${{ github.event_name == 'workflow_dispatch' && inputs.include_full || '' }}
-      ROSE_LANGUAGES: ${{ vars.ROSE_LANGUAGES || 'es fr pt' }}
+      ROSE_LANGUAGES: ${{ vars.ROSE_LANGUAGES }}
       ROSE_TRANSLATION_BRANCH: rose/translations
     steps:
       - name: Determine translation parameters
