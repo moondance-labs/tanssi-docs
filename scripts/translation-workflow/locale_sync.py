@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from collections import defaultdict
 from pathlib import Path
@@ -16,6 +17,7 @@ from paths import DOCS_ROOT, MATERIAL_OVERRIDES_ROOT, TRANSLATIONS_JSON_ROOT
 LOCALE_DIR = DOCS_ROOT / "locale"
 TRANSLATIONS_DIR = TRANSLATIONS_JSON_ROOT
 TEMPLATE_ROOT = MATERIAL_OVERRIDES_ROOT
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
 
 TRANS_KEY_RE = re.compile(r"(?<![\w.])(?:trans|t)\(\s*['\"]([A-Za-z0-9_.-]+)['\"]\s*\)")
 THEME_ALWAYS_USED_PREFIXES = (
@@ -145,13 +147,14 @@ def main() -> int:
     key_usage = _scan_templates()
     added_per_locale, unused_keys = _sync_locale_files(key_usage)
 
-    print("Locale sync completed.")
-    for locale, count in sorted(added_per_locale.items()):
-        print(f"  {locale}: added {count} key(s)")
-    if unused_keys:
-        print("Keys present in locale files but unused in templates:")
-        for key in sorted(unused_keys):
-            print(f"  - {key} (unused)")
+    if not QUIET:
+        print("Locale sync completed.")
+        for locale, count in sorted(added_per_locale.items()):
+            print(f"  {locale}: added {count} key(s)")
+        if unused_keys:
+            print("Keys present in locale files but unused in templates:")
+            for key in sorted(unused_keys):
+                print(f"  - {key} (unused)")
 
     if args.report:
         report = {

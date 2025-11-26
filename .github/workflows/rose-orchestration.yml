@@ -101,6 +101,8 @@ jobs:
       ROSE_N8N_SENDING_TOKEN: ${{ secrets.N8N_SENDING_TOKEN || '' }}
       ROSE_N8N_RECEIVING_TOKEN: ${{ secrets.N8N_RECEIVING_TOKEN || '' }}
       ROSE_N8N_ALLOWED_HOST: ${{ vars.N8N_ALLOWED_HOST || '' }}
+      ROSE_QUIET: "1"
+      ROSE_MASK_PAYLOAD: "1"
       ROSE_INCLUDE_FILES: ${{ github.event_name == 'workflow_dispatch' && inputs.file_filter || '' }}
       ROSE_INCLUDE_FULL: ${{ github.event_name == 'workflow_dispatch' && inputs.include_full || '' }}
       ROSE_LANGUAGES: ${{ vars.ROSE_LANGUAGES }}

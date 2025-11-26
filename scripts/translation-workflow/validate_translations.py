@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 from collections import defaultdict
 from pathlib import Path
@@ -28,6 +29,7 @@ IMAGE_LINK_RE = re.compile(r"!\[[^\]]*\]\(([^)\s]+)")
 REMOTE_IMAGE_PREFIXES = ("http://", "https://", "data:", "mailto:", "#")
 LOCALE_COLON_PATTERN = re.compile(r'^(\s*[^:\n]+):[ \t]*([^\n]+)$', re.MULTILINE)
 LOCALE_INLINE_COLON_REGEX = re.compile(r'(?<=\w):(?=\s)')
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
 LOCALE_EXCLUDED_VALUE_PREFIXES = ('"', "'", "|", ">", "[", "{", "#")
 
 
@@ -765,17 +767,19 @@ def main() -> int:
         return f"diff:{diff:g} | translated:{trans_val:g} | english:{eng_val:g}"
 
     if issues:
-        print("Validation issues detected:")
-        for issue in issues:
-            file_path = issue.get("target_path") or issue.get("source_path") or "<unknown>"
-            lang = issue.get("target_language") or "?"
-            line = f":{issue['line']}" if issue.get("line") else ""
-            summary = _format_count_summary(issue.get("details", {}))
-            extra = f" ({summary})" if summary else ""
-            print(f"- {file_path} ({lang}){line} [{issue['issue_type']}] {issue['message']}{extra}")
+        if not QUIET:
+            print("Validation issues detected:")
+            for issue in issues:
+                file_path = issue.get("target_path") or issue.get("source_path") or "<unknown>"
+                lang = issue.get("target_language") or "?"
+                line = f":{issue['line']}" if issue.get("line") else ""
+                summary = _format_count_summary(issue.get("details", {}))
+                extra = f" ({summary})" if summary else ""
+                print(f"- {file_path} ({lang}){line} [{issue['issue_type']}] {issue['message']}{extra}")
         status = "failed"
     else:
-        print("All translations passed structural validation.")
+        if not QUIET:
+            print("All translations passed structural validation.")
         status = "passed"
 
     if args.report:

@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 from dataclasses import dataclass
@@ -20,6 +21,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "translations" / "changed_segments.json"
 GIT_ROOT = REPO_ROOT
 HUNK_RE = re.compile(r"^@@ -(?P<old>\d+(?:,\d+)?) \+(?P<new>\d+(?:,\d+)?) @@")
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
 
 
 def _parse_range(value: str) -> tuple[int, int]:
@@ -113,7 +115,8 @@ def main() -> int:
     changes = _collect_sets(diff_text)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(changes, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"Wrote {sum(len(v) for v in changes.values())} changed block(s) to {args.output}")
+    if not QUIET:
+        print(f"Wrote {sum(len(v) for v in changes.values())} changed block(s) to {args.output}")
     return 0
 
 

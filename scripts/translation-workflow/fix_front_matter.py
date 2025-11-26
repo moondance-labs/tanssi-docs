@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 from pathlib import Path
 
 from paths import DOCS_ROOT, REPO_ROOT
@@ -12,6 +13,7 @@ from inject_translations import (
 )
 
 MARKDOWN_SUFFIXES = {".md", ".markdown", ".mkd"}
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
 
 
 def _iter_locale_files(language: str):
@@ -102,7 +104,8 @@ def main() -> int:
             english_path = _english_counterpart(path, lang_lower)
             if _fix_file(path, english_path):
                 total += 1
-    print(f"Front matter fixes applied to {total} file(s)")
+    if not QUIET:
+        print(f"Front matter fixes applied to {total} file(s)")
     return 0
 
 
