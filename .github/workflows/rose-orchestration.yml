@@ -291,6 +291,7 @@ jobs:
           git fetch origin "$TRANSLATION_BRANCH":"refs/remotes/origin/$TRANSLATION_BRANCH" || true
           git branch -D "$TRANSLATION_BRANCH" 2>/dev/null || true
           git checkout -B "$TRANSLATION_BRANCH"
+          git merge --no-edit --allow-unrelated-histories "refs/remotes/origin/$TRANSLATION_BRANCH" || true
           git add -A
           if git diff --cached --quiet; then
             echo "No staged changes to commit; skipping branch push."
