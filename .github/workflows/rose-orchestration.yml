@@ -1,4 +1,4 @@
-name: Rose-orchestration
+name: Rose
 
 on:
   pull_request:
