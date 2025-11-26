@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import shutil
 from pathlib import Path
@@ -35,6 +36,7 @@ ROOT_DIR_SKIP = {
 }
 ROOT_FILE_ALLOW = {"index.md", ".nav.yml"}
 _SCAFFOLDED_LANGS: set[str] = set()
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
 
 YAML_PARSER = YAML()
 YAML_PARSER.indent(mapping=2, sequence=4, offset=2)
@@ -481,11 +483,12 @@ def main() -> int:
         written.setdefault(lang_code, 0)
         written[lang_code] += 1
 
-    if not written:
-        print("No files injected (check languages filter or payload)")
-    else:
-        for lang, count in sorted(written.items()):
-            print(f"Injected {count} file(s) into {DOCS_ROOT/lang}")
+    if not QUIET:
+        if not written:
+            print("No files injected (check languages filter or payload)")
+        else:
+            for lang, count in sorted(written.items()):
+                print(f"Injected {count} file(s) into {DOCS_ROOT/lang}")
 
     args.payload.write_text(
         json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8"

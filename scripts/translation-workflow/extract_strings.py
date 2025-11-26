@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 from collections import defaultdict
 from pathlib import Path
@@ -15,6 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PAYLOAD = ROOT / "translations" / "payload.json"
 TRANSLATIONS_ROOT = ROOT / "translations"
 TMP_ROOT = ROOT / "tmp" / "i18n"
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
 
 
 def _normalize_lang(code: str) -> str:
@@ -109,12 +111,13 @@ def main() -> int:
     en_po = _write_catalog("en", english_catalog)
     other_pos = [_write_catalog(lang, catalog) for lang, catalog in catalogs.items()]
 
-    print(f"Wrote {len(english_written)} English sources to {english_root}")
-    for lang, files in translation_written.items():
-        print(f"Wrote {len(files)} sources for '{lang}' -> {TRANSLATIONS_ROOT/lang}")
-    print(f"English catalog: {en_po}")
-    for po_path in other_pos:
-        print(f"Locale catalog: {po_path}")
+    if not QUIET:
+        print(f"Wrote {len(english_written)} English sources to {english_root}")
+        for lang, files in translation_written.items():
+            print(f"Wrote {len(files)} sources for '{lang}' -> {TRANSLATIONS_ROOT/lang}")
+        print(f"English catalog: {en_po}")
+        for po_path in other_pos:
+            print(f"Locale catalog: {po_path}")
     return 0
 
 

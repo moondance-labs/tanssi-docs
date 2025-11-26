@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-
+import os
 import re
 
 from ruamel.yaml import YAML
@@ -12,6 +12,7 @@ from ruamel.yaml.scalarstring import ScalarString
 ROOT = Path(__file__).resolve().parents[1]
 REPO_ROOT = ROOT.parent
 LOCALE_DIR = REPO_ROOT / "tanssi-docs" / "locale"
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
 
 
 def _iter_locale_files() -> list[Path]:
@@ -62,7 +63,8 @@ def main() -> int:
 
     for path in _iter_locale_files():
         _format_file(path, yaml)
-        print(f"Formatted {path.relative_to(REPO_ROOT)}")
+        if not QUIET:
+            print(f"Formatted {path.relative_to(REPO_ROOT)}")
     return 0
 
 

@@ -11,6 +11,7 @@ from typing import Any
 from urllib import request
 
 API_BASE = "https://api.github.com"
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
 
 
 def _load_report(path: Path) -> dict[str, Any]:
@@ -88,7 +89,8 @@ def main() -> int:
     report = _load_report(args.report)
     issues = report.get("issues", [])
     if not issues:
-        print("No validation issues to report; skipping PR comments.")
+        if not QUIET:
+            print("No validation issues to report; skipping PR comments.")
         return 0
 
     grouped = _group_issues(report)
@@ -98,9 +100,11 @@ def main() -> int:
         body, line = _format_comment(path, file_issues)
         try:
             _post_comment(args.repo, args.pull_request, args.token, args.commit, path, body, line)
-            print(f"Posted validation summary for {path}")
+            if not QUIET:
+                print(f"Posted validation summary for {path}")
         except Exception as exc:  # noqa: BLE001
-            print(f"Failed to post comment for {path}: {exc}")
+            if not QUIET:
+                print(f"Failed to post comment for {path}: {exc}")
     return 0
 
 

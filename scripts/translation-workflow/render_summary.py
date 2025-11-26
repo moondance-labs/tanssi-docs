@@ -4,11 +4,17 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from pathlib import Path
 from typing import Any, Dict, List
 
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
+MASK_PAYLOAD = os.environ.get("ROSE_MASK_PAYLOAD", "").strip().lower() in {"1", "true", "yes", "on"}
+
 
 def _format_payload(data: dict[str, list[dict[str, Any]]], total_sent: int) -> list[str]:
+    if MASK_PAYLOAD:
+        return []
     if total_sent == 0:
         return []
     lines: list[str] = []
@@ -37,6 +43,8 @@ def _format_payload(data: dict[str, list[dict[str, Any]]], total_sent: int) -> l
 
 
 def _format_payload_full(data: dict[str, list[dict[str, Any]]]) -> list[str]:
+    if MASK_PAYLOAD:
+        return []
     if not data:
         return []
     by_lang: dict[str, list[str]] = {}
@@ -255,24 +263,26 @@ def build_markdown(summary_path: Path) -> str:
     if validation_section:
         blocks.extend(validation_section)
 
-    file_detail_sections = _format_file_details(data)
-    if file_detail_sections:
-        blocks.append("")
-        blocks.append("#### File-level breakdown")
-        blocks.extend(file_detail_sections)
+    if not MASK_PAYLOAD:
+        file_detail_sections = _format_file_details(data)
+        if file_detail_sections:
+            blocks.append("")
+            blocks.append("#### File-level breakdown")
+            blocks.extend(file_detail_sections)
 
     blocks.append("")
     blocks.append("#### Support resources")
     blocks.append("For support resources please check in the shared note.")
 
-    pretty_json = json.dumps(data, ensure_ascii=False, indent=2)
-    blocks.append("")
-    blocks.append("<details><summary>Full summary_report.json</summary>")
-    blocks.append("")
-    blocks.append("```json")
-    blocks.append(pretty_json)
-    blocks.append("```")
-    blocks.append("</details>")
+    if not MASK_PAYLOAD:
+        pretty_json = json.dumps(data, ensure_ascii=False, indent=2)
+        blocks.append("")
+        blocks.append("<details><summary>Full summary_report.json</summary>")
+        blocks.append("")
+        blocks.append("```json")
+        blocks.append(pretty_json)
+        blocks.append("```")
+        blocks.append("</details>")
 
     markdown = "\n".join(blocks).strip()
     if not markdown.endswith("\n"):
@@ -292,7 +302,8 @@ def main() -> int:
     markdown = build_markdown(args.summary)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(markdown, encoding="utf-8")
-    print(markdown)
+    if not QUIET:
+        print(markdown)
     return 0
 
 

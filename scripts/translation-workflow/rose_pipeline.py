@@ -24,6 +24,8 @@ from urllib import error, parse, request
 CURRENT_DIR = Path(__file__).resolve().parent
 ROOT = CURRENT_DIR.parent
 sys.path.append(str(CURRENT_DIR))
+DEBUG = os.environ.get("ROSE_DEBUG", "").strip().lower() in {"1", "true", "yes", "on"}
+QUIET = os.environ.get("ROSE_QUIET", "").strip().lower() in {"1", "true", "yes", "on"}
 try:
     from collect_diff_sets import _run_git_diff, _collect_sets  # type: ignore
 except Exception as exc:  # pragma: no cover
@@ -64,7 +66,13 @@ EXCLUDED_EXACT = {
 
 
 def _debug(message: str) -> None:
-    print(f"[rose][debug] {message}")
+    if DEBUG and not QUIET:
+        print(f"[rose][debug] {message}")
+
+
+def _info(message: str) -> None:
+    if not QUIET:
+        print(message)
 
 
 def _strip_code_fence(text: str) -> str:
@@ -307,9 +315,9 @@ def _filter_diff_map(diff_map: dict[str, list[dict[str, Any]]], include: set[str
             filtered[original] = diff_map[original]
     missing = sorted(include - set(normalized_lookup.keys()))
     if missing:
-        print("Requested file(s) not present in this diff:")
+        _info("Requested file(s) not present in this diff:")
         for path in missing:
-            print(f"  - {path}")
+            _info(f"  - {path}")
     return filtered
 
 
@@ -317,7 +325,7 @@ def _report_missing_translations(english_files: Set[str], languages: list[str]) 
     coverage: dict[str, list[str]] = {}
     if not english_files:
         return coverage
-    print("Translation coverage report:")
+    _info("Translation coverage report:")
     for lang in languages:
         missing: list[str] = []
         for rel_path in english_files:
@@ -327,13 +335,13 @@ def _report_missing_translations(english_files: Set[str], languages: list[str]) 
                 missing.append(target_rel.as_posix())
         coverage[lang] = missing
         if not missing:
-            print(f"  {lang}: OK")
+            _info(f"  {lang}: OK")
         else:
-            print(f"  {lang}: missing {len(missing)} file(s)")
+            _info(f"  {lang}: missing {len(missing)} file(s)")
             for path in missing[:10]:
-                print(f"    - {path}")
+                _info(f"    - {path}")
             if len(missing) > 10:
-                print("    ...")
+                _info("    ...")
     return coverage
 
 
@@ -344,15 +352,15 @@ def _report_locale_findings(report_path: Path) -> dict[str, Any]:
     added = data.get("added_per_locale", {})
     unused = data.get("unused_keys", [])
     if added:
-        print("Locale key additions:")
+        _info("Locale key additions:")
         for locale, count in sorted(added.items()):
-            print(f"  {locale}: {count} key(s)")
+            _info(f"  {locale}: {count} key(s)")
     if unused:
-        print("Locale keys unused in templates:")
+        _info("Locale keys unused in templates:")
         for key in unused[:20]:
-            print(f"  - {key}")
+            _info(f"  - {key}")
         if len(unused) > 20:
-            print("  ...")
+            _info("  ...")
     return {"added_per_locale": added, "unused_keys": unused}
 
 
@@ -415,7 +423,7 @@ def _inject_full_file_entries(diff_map: dict[str, list[dict[str, Any]]], include
             continue
         abs_path = repo_path(rel_path)
         if not abs_path.exists():
-            print(f"Requested include file not found on disk: {rel_path}")
+            _info(f"Requested include file not found on disk: {rel_path}")
             continue
         lines = _read_lines(abs_path)
         entry = {
@@ -423,7 +431,7 @@ def _inject_full_file_entries(diff_map: dict[str, list[dict[str, Any]]], include
             "added": {"start": 1, "end": len(lines)},
         }
         diff_map.setdefault(rel_path, []).append(entry)
-        print(f"Added full-file translation entry for {rel_path}")
+        _info(f"Added full-file translation entry for {rel_path}")
 
 
 def _compute_hmac(secret: str, data: bytes) -> str:
@@ -761,9 +769,9 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     _debug(f"CLI include files: {sorted(include_files)}")
     _debug(f"Include full files: {args.include_full}")
     if include_files:
-        print("Restricting translation to the following file(s):")
+        _info("Restricting translation to the following file(s):")
         for rel_path in sorted(include_files):
-            print(f"  - {rel_path}")
+            _info(f"  - {rel_path}")
 
     # Run locale sync before diff collection so locale keys stay in sync
     subprocess.run(
@@ -790,7 +798,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         if args.include_full:
             _inject_full_file_entries(diff_map, include_files)
         if not diff_map:
-            print("No diff entries matched include-files filter; exiting.")
+            _info("No diff entries matched include-files filter; exiting.")
             return 0
 
     CHANGES_PATH.write_text(json.dumps(diff_map, indent=2), encoding="utf-8")
@@ -808,7 +816,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         for path in preview_sources:
             _debug(f"  source file: {path}")
     if not entries:
-        print("No eligible additions detected; exiting cleanly.")
+        _info("No eligible additions detected; exiting cleanly.")
         return 0
 
     documents = _build_document_records(entries)
@@ -826,7 +834,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     payload_bytes = payload_json.encode("utf-8")
     max_bytes = 10 * 1024 * 1024
     if len(payload_bytes) > max_bytes:
-        print(f"Payload size {len(payload_bytes)} bytes exceeds 10MB limit; aborting.")
+        _info(f"Payload size {len(payload_bytes)} bytes exceeds 10MB limit; aborting.")
         return 1
     response = _post_json(args.n8n_webhook, n8n_payload, payload_json)
 
@@ -982,7 +990,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     ]
     validation_result = subprocess.run(validation_cmd, check=False)
     if validation_result.returncode != 0:
-        print("Structural validation reported issues; continuing so translations stay available.")
+        _info("Structural validation reported issues; continuing so translations stay available.")
     _maybe_post_validation_comments(commit_sha)
     _run_cmd(
         [
@@ -1024,7 +1032,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     )
     _write_validation_snapshot(payload_entries, validation_summary, summary_payload)
 
-    print("Rose pipeline completed successfully.")
+    _info("Rose pipeline completed successfully.")
     return 0
 
 
