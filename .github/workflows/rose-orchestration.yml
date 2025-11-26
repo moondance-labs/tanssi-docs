@@ -1,4 +1,4 @@
-name: rose-orchestration
+name: Rose
 
 on:
   pull_request:
@@ -20,7 +20,7 @@ on:
         default: ''
       languages:
         description: 'ISO Codes of target languages (space-separated)'
-        required: false
+        required: true
         default: ''
       include_full:
         description: 'Set to true to send full files (even if only a line changed)'
@@ -132,14 +132,14 @@ jobs:
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             raw_base="${{ inputs.base_ref }}"
             raw_head="${{ inputs.head_ref }}"
+            if [[ -z "${{ inputs.languages }}" ]]; then
+              echo "languages input is required for manual dispatch (e.g., \"es fr pt\")" >&2
+              exit 1
+            fi
             diff_base="$(normalize_ref "$raw_base")"
             diff_head="$(normalize_ref "$raw_head")"
             pr_base="$raw_head"
-            if [[ -n "${{ inputs.languages }}" ]]; then
-              langs="${{ inputs.languages }}"
-            else
-              langs="$DEFAULT_LANGS"
-            fi
+            langs="${{ inputs.languages }}"
           elif [[ "${{ github.event_name }}" == "pull_request" ]]; then
             raw_base="${{ github.event.pull_request.base.ref }}"
             raw_head="${{ github.event.pull_request.head.ref }}"
