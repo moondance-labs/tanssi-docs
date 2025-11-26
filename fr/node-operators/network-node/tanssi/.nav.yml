@@ -1,6 +1,0 @@
-title: Nœud Tanssi
-hide: false
-nav:
-  - index.md
-  - 'Avec Docker': tanssi-node-docker.md
-  - 'Avec systemd': tanssi-node-systemd.md

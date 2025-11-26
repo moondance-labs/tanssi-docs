@@ -1,6 +1,0 @@
-title: Actualizar tu nodo
-hide: false
-nav:
-  - index.md
-  - 'Usando Docker': upgrade-docker.md
-  - 'Usando Systemd': upgrade-systemd.md

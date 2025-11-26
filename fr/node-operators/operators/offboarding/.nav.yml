@@ -1,7 +1,0 @@
-title: Sortie
-hide: false
-nav:
-  - index.md
-  - 'Prérequis': prerequisites.md
-  - 'Se retirer de Tanssi': opt-out-from-tanssi.md
-  - 'Se retirer du coffre': vault-opt-out.md

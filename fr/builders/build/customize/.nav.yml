@@ -1,9 +1,0 @@
-title: Personnalisez votre réseau
-hide: false
-nav:
-- index.md
-- Prérequis: prerequisites.md
-- Ajouter un module intégré: adding-built-in-module.md
-- Ajouter un module personnalisé: adding-custom-made-module.md
-- Ajouter un module externe: adding-external-module.md
-- Spécifications de la chaîne: customizing-chain-specs.md

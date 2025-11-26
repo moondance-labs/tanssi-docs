@@ -1,6 +1,0 @@
-title: Tâches opérationnelles
-hide: false
-nav:
-  - index.md
-  - 'Mettre à jour votre nœud': upgrade-your-node
-  - 'Utiliser un compte proxy': proxy-accounts.md

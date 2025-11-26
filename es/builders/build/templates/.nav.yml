@@ -1,8 +1,0 @@
-title: Plantillas de red
-hide: false
-nav:
-- index.md
-- Descripción general: overview.md
-- Substrate: substrate.md
-- EVM: evm.md
-- Runtime personalizado: custom-runtime.md

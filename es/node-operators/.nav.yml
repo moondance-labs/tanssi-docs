@@ -1,7 +1,0 @@
-title: Operadores de nodos
-hide: false
-nav:
-  - index.md
-  - 'Ejecutar un nodo': network-node
-  - Secuenciadores: sequencers
-  - Operadores: operators

@@ -1,8 +1,0 @@
-title: Modèles de réseau
-hide: false
-nav:
-- index.md
-- Vue d'ensemble: overview.md
-- Substrate: substrate.md
-- EVM: evm.md
-- Runtime personnalisé: custom-runtime.md

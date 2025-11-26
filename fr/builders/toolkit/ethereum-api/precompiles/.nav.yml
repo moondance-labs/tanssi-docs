@@ -1,8 +1,0 @@
-title: Précompilés
-hide: false
-nav:
-- index.md
-- Lot: batch.md
-- Autorisation d'appel: call-permit.md
-- Token natif ERC-20: erc20.md
-- Proxy: proxy.md
