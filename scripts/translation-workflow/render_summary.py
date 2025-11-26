@@ -12,7 +12,7 @@ def _format_payload(data: dict[str, list[dict[str, Any]]], total_sent: int) -> l
     if total_sent == 0:
         return []
     lines: list[str] = []
-    lines.append("#### Translation payload")
+    lines.append("#### Translation payload (shows first 5 files per language)")
     if not data:
         lines.append("- Files were sent for translation but no per-language metadata was recorded.")
         return lines
@@ -33,6 +33,40 @@ def _format_payload(data: dict[str, list[dict[str, Any]]], total_sent: int) -> l
             lines.append(f"  - `{path}` ({line_hint})")
         if len(entries) > 5:
             lines.append("  - ...")
+    return lines
+
+
+def _format_payload_full(data: dict[str, list[dict[str, Any]]]) -> list[str]:
+    if not data:
+        return []
+    by_lang: dict[str, list[str]] = {}
+    unique_paths: set[str] = set()
+    for lang, entries in data.items():
+        if not isinstance(entries, list):
+            continue
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            path = (
+                entry.get("path")
+                or entry.get("file")
+                or entry.get("target_path")
+                or entry.get("source_path")
+                or "unknown"
+            )
+            normalized_path = str(path)
+            unique_paths.add(normalized_path)
+            by_lang.setdefault(lang, []).append(normalized_path)
+
+    total = len(unique_paths)
+    lines: list[str] = []
+    lines.append(f"<details><summary>Full payload ({total} file(s))</summary>")
+    lines.append("")
+    for lang in sorted(by_lang.keys()):
+        lines.append(f"- `{lang}`:")
+        for path in sorted(set(by_lang[lang])):
+            lines.append(f"  - `{path}`")
+    lines.append("</details>")
     return lines
 
 
@@ -120,41 +154,22 @@ def _format_validation(validation: dict[str, Any]) -> list[str]:
 
 
 def _format_file_details(summary: dict[str, Any]) -> list[str]:
-    payload_segments = summary.get("payload_segments") or {}
-    file_details: dict[str, dict[str, Any]] = {}
-
-    for language, entries in payload_segments.items():
-        if not isinstance(entries, list):
-            continue
-        for entry in entries:
-            if not isinstance(entry, dict):
-                continue
-            path = (
-                entry.get("path")
-                or entry.get("file")
-                or entry.get("target_path")
-                or entry.get("source_path")
-                or "unknown"
-            )
-            normalized_path = str(path)
-            payload_entry = {
-                "language": language,
-                "kind": entry.get("kind"),
-                "start": entry.get("start"),
-                "end": entry.get("end"),
-            }
-            sanitized_entry = {k: v for k, v in payload_entry.items() if v is not None}
-            file_details.setdefault(normalized_path, {}).setdefault("payload_entries", []).append(sanitized_entry)
-
     validation_block = summary.get("validation") or {
         "status": summary.get("validation_status", "unknown"),
     }
     if not validation_block.get("issues"):
         validation_block["issues"] = summary.get("validation_issues", [])
     grouped_validation = _group_validation_issues(validation_block)
+    if not grouped_validation:
+        return []
+
+    failing_paths: set[str] = set()
+    file_details: dict[str, dict[str, Any]] = {}
+
     for language, files in grouped_validation.items():
         for path, issues in files.items():
             normalized_path = str(path or "unknown")
+            failing_paths.add(normalized_path)
             formatted_issues: list[dict[str, Any]] = []
             for issue in issues:
                 formatted_issue = {
@@ -169,6 +184,32 @@ def _format_file_details(summary: dict[str, Any]) -> list[str]:
                 formatted_issues.append({k: v for k, v in formatted_issue.items() if v is not None})
             if formatted_issues:
                 file_details.setdefault(normalized_path, {}).setdefault("validation_issues", []).extend(formatted_issues)
+
+    payload_segments = summary.get("payload_segments") or {}
+    for language, entries in payload_segments.items():
+        if not isinstance(entries, list):
+            continue
+        for entry in entries:
+            if not isinstance(entry, dict):
+                continue
+            path = (
+                entry.get("path")
+                or entry.get("file")
+                or entry.get("target_path")
+                or entry.get("source_path")
+                or "unknown"
+            )
+            normalized_path = str(path)
+            if normalized_path not in failing_paths:
+                continue
+            payload_entry = {
+                "language": language,
+                "kind": entry.get("kind"),
+                "start": entry.get("start"),
+                "end": entry.get("end"),
+            }
+            sanitized_entry = {k: v for k, v in payload_entry.items() if v is not None}
+            file_details.setdefault(normalized_path, {}).setdefault("payload_entries", []).append(sanitized_entry)
 
     lines: list[str] = []
     if not file_details:
@@ -192,6 +233,10 @@ def build_markdown(summary_path: Path) -> str:
     payload_section = _format_payload(data.get("payload_segments", {}), payload_count)
     if payload_section:
         blocks.extend(payload_section)
+        blocks.append("")
+    payload_full_section = _format_payload_full(data.get("payload_segments", {}))
+    if payload_full_section:
+        blocks.extend(payload_full_section)
         blocks.append("")
     locale_added_section = _format_locale_added(data.get("locale_added_per_locale", {}))
     if locale_added_section:
