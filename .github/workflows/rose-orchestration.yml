@@ -335,6 +335,48 @@ jobs:
               echo "- No translation changes were committed during this run."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
+
+  notify-on-failure:
+    runs-on: ubuntu-latest
+    needs: [run-pipeline]
+    if: ${{ always() && needs.run-pipeline.result == 'failure' }}
+    env:
+      ERROR_WEBHOOK_URL: ${{ secrets.ERROR_WEBHOOK_URL }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      WORKFLOW_NAME: ${{ github.workflow }}
+      RUN_ID: ${{ github.run_id }}
+      RUN_ATTEMPT: ${{ github.run_attempt }}
+      ACTOR: ${{ github.actor }}
+      REPOSITORY: ${{ github.repository }}
+      REF: ${{ github.ref }}
+    steps:
+      - name: Send failure webhook
+        run: |
+          set -euo pipefail
+
+          if [[ -z ${ERROR_WEBHOOK_URL:-} ]]; then
+            echo "ERROR_WEBHOOK_URL not configured; skipping alert dispatch."
+            exit 0
+          fi
+
+          payload=$(jq -n \
+            --arg repo "$REPOSITORY" \
+            --arg ref "$REF" \
+            --arg run_url "$RUN_URL" \
+            --arg workflow "$WORKFLOW_NAME" \
+            --arg run_id "$RUN_ID" \
+            --arg run_attempt "$RUN_ATTEMPT" \
+            --arg actor "$ACTOR" \
+            --arg status "${{ needs.run-pipeline.result }}" \
+            '{repository:$repo, ref:$ref, status:$status, run_url:$run_url, workflow:$workflow, run_id:$run_id, run_attempt:$run_attempt, actor:$actor}')
+
+          curl -sS --fail-with-body --proto '=https' --tlsv1.2 \
+            --retry 2 --retry-all-errors \
+            --no-progress-meter --http1.1 --noproxy '*' \
+            -X POST \
+            -H "Content-Type: application/json" \
+            --data "$payload" \
+            "$ERROR_WEBHOOK_URL"
       - name: Verify merged-by permissions
         if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == true }}
         id: merged_actor_check
