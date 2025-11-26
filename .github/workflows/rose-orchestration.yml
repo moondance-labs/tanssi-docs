@@ -1,4 +1,4 @@
-name: Rose
+name: rose-orchestration
 
 on:
   pull_request:
@@ -6,8 +6,7 @@ on:
       - closed
     branches:
       - main
-      - master
-      - Multi-translation-testing
+      - Multi-translations
   workflow_dispatch:
     inputs:
       base_ref:
@@ -40,6 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       allowed: ${{ steps.permission_check.outputs.allowed }}
+      merged_by_allowed: ${{ steps.merged_actor_check.outputs.allowed || steps.permission_check.outputs.allowed }}
     steps:
       - name: Verify maintainer permissions
         id: permission_check
@@ -66,14 +66,17 @@ jobs:
   run-pipeline:
     environment: translations
     needs: guard
-    if: ${{ needs.guard.outputs.allowed == 'true' && (github.event_name != 'pull_request' || github.event.pull_request.merged == true) }}
+    if: ${{ needs.guard.outputs.allowed == 'true' && (github.event_name != 'pull_request' || (github.event.pull_request.merged == true && needs.guard.outputs.merged_by_allowed == 'true')) }}
     runs-on: ubuntu-latest
     env:
       N8N_WEBHOOK_URL: ${{ secrets.N8N_WEBHOOK_URL_TR }}
+      ROSE_N8N_SENDING_TOKEN: ${{ secrets.N8N_SENDING_TOKEN || '' }}
+      ROSE_N8N_RECEIVING_TOKEN: ${{ secrets.N8N_RECEIVING_TOKEN || '' }}
+      ROSE_N8N_ALLOWED_HOST: ${{ vars.N8N_ALLOWED_HOST || '' }}
       ROSE_INCLUDE_FILES: ${{ github.event_name == 'workflow_dispatch' && inputs.file_filter || '' }}
       ROSE_INCLUDE_FULL: ${{ github.event_name == 'workflow_dispatch' && inputs.include_full || '' }}
       ROSE_LANGUAGES: ${{ vars.ROSE_LANGUAGES || 'es fr pt' }}
-      ROSE_TRANSLATION_BRANCH: rose/translations/${{ github.run_id }}
+      ROSE_TRANSLATION_BRANCH: rose/translations
     steps:
       - name: Determine translation parameters
         id: refs
@@ -188,7 +191,7 @@ jobs:
           LANGS="${{ steps.refs.outputs.languages }}"
           export ROSE_PRESERVE_TRANSLATIONS=1
 
-          CMD=(python scripts/translation-workflow/rose_pipeline.py \
+          CMD=(python translation-workflow/scripts/rose_pipeline.py \
             --base "${{ steps.refs.outputs.diff_base }}" \
             --head "${{ steps.refs.outputs.diff_head }}" \
             --n8n-webhook "$N8N_WEBHOOK_URL")
@@ -213,12 +216,12 @@ jobs:
         if: ${{ always() }}
         shell: bash
         run: |
-          SUMMARY_JSON="translations/summary_report.json"
+          SUMMARY_JSON="translation-workflow/translations/summary_report.json"
           SUMMARY_MD="${{ steps.temp_summary.outputs.dir }}/summary.md"
           if [[ ! -f "$SUMMARY_JSON" ]]; then
             echo '{}' > "$SUMMARY_JSON"
           fi
-          python scripts/translation-workflow/render_summary.py \
+          python translation-workflow/scripts/render_summary.py \
             --summary "$SUMMARY_JSON" \
             --output "$SUMMARY_MD"
 
@@ -235,7 +238,7 @@ jobs:
 
       - name: Cleanup translation artifacts
         if: ${{ always() }}
-        run: rm -rf translations
+        run: rm -rf translation-workflow/translations
 
       - name: Push translation branch
         id: push_branch
@@ -256,6 +259,8 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch origin "$TRANSLATION_BRANCH":"refs/remotes/origin/$TRANSLATION_BRANCH" || true
+          git branch -D "$TRANSLATION_BRANCH" 2>/dev/null || true
           git checkout -B "$TRANSLATION_BRANCH"
           git add -A
           if git diff --cached --quiet; then
@@ -294,10 +299,36 @@ jobs:
             if [[ "${PUSHED}" == "true" ]]; then
               echo "- Branch with translations: \`${TRANSLATION_BRANCH}\`"
               echo "- Base branch: \`${BASE_BRANCH}\`"
-              echo "- Summary file: \`translations/summary_report.json\`"
+              echo "- Summary file: \`translation-workflow/translations/summary_report.json\`"
               echo ""
               echo "Open a pull request manually from the branch above (automation disabled by request)."
             else
               echo "- No translation changes were committed during this run."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
+      - name: Verify merged-by permissions
+        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.merged == true }}
+        id: merged_actor_check
+        uses: actions/github-script@v7
+        env:
+          DISPATCH_ALLOWED: ${{ steps.permission_check.outputs.allowed }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const mergedBy = context.payload.pull_request.merged_by?.login;
+            const fallback = process.env.DISPATCH_ALLOWED === 'true' ? 'true' : 'false';
+            if (!mergedBy) {
+              core.setOutput('allowed', fallback);
+              core.info('Pull request merge has no merged_by; falling back to dispatcher permissions.');
+              return;
+            }
+            const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              username: mergedBy,
+            });
+            const permission = (data && data.permission) ? data.permission : 'none';
+            const allowedPermissions = new Set(['admin', 'maintain']);
+            const allowed = allowedPermissions.has(permission) ? 'true' : 'false';
+            core.info(`Merged-by actor ${mergedBy} has permission level: ${permission}`);
+            core.setOutput('allowed', allowed);

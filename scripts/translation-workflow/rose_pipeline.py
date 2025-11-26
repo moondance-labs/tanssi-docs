@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import copy
 import hashlib
+import hmac
 import json
 import os
 import re
@@ -14,9 +16,10 @@ import time
 import subprocess
 import tempfile
 import shutil
+import uuid
 from pathlib import Path
 from typing import Any, Iterable, Set
-from urllib import request
+from urllib import error, parse, request
 
 CURRENT_DIR = Path(__file__).resolve().parent
 ROOT = CURRENT_DIR.parent
@@ -40,10 +43,44 @@ COVERAGE_REPORT = TRANSLATION_STAGE / "summary_report.json"
 VALIDATION_REPORT = TRANSLATION_STAGE / "validation_report.json"
 VALIDATION_PAYLOAD_SNAPSHOT = TRANSLATION_STAGE / "validation_payload_snapshot.json"
 LANGUAGE_CODE_PATTERN = re.compile(r"^[A-Za-z]{2}(?:[-_][A-Za-z]{2})?$")
+EXCLUDED_PREFIXES = (
+    ".github/",
+    "translation-workflow/scripts/",
+    "i18n/",
+    "images/",
+    "scripts/",
+    "locale/",
+)
+EXCLUDED_EXACT = {
+    ".github",
+    "translation-workflow/scripts",
+    "i18n",
+    "images",
+    "scripts",
+    "locale",
+    "readme.md",
+    "variables.yml",
+}
 
 
 def _debug(message: str) -> None:
     print(f"[rose][debug] {message}")
+
+
+def _strip_code_fence(text: str) -> str:
+    if not text:
+        return text
+    stripped = text.strip()
+    if stripped.startswith("```") and stripped.endswith("```") and len(stripped) >= 6:
+        lines = stripped.splitlines()
+        if lines:
+            fence_lang = lines[0].strip()
+            if fence_lang.startswith("```"):
+                lines = lines[1:]
+        if lines and lines[-1].strip().startswith("```"):
+            lines = lines[:-1]
+        return "\n".join(lines).strip()
+    return text
 
 
 def _read_lines(path: Path) -> list[str]:
@@ -389,12 +426,53 @@ def _inject_full_file_entries(diff_map: dict[str, list[dict[str, Any]]], include
         print(f"Added full-file translation entry for {rel_path}")
 
 
-def _post_json(url: str, payload: dict[str, Any]) -> dict[str, Any]:
-    data = json.dumps(payload).encode("utf-8")
-    req = request.Request(url, data=data, headers={"Content-Type": "application/json"})
-    with request.urlopen(req) as resp:  # nosec B310
-        body = resp.read().decode("utf-8")
-    return json.loads(body)
+def _compute_hmac(secret: str, data: bytes) -> str:
+    digest = hmac.new(secret.encode("utf-8"), data, hashlib.sha256).digest()
+    return "sha256=" + base64.b64encode(digest).decode("ascii")
+
+
+def _post_json(url: str, payload: dict[str, Any], payload_json: str | None = None) -> dict[str, Any]:
+    allowed_host = os.environ.get("ROSE_N8N_ALLOWED_HOST")
+    parsed = parse.urlparse(url)
+    host = parsed.hostname or ""
+    if allowed_host and host != allowed_host:
+        raise RuntimeError(f"Webhook host '{host}' not allowed (expected '{allowed_host}')")
+
+    payload_text = payload_json if payload_json is not None else json.dumps(payload, ensure_ascii=False)
+    payload_bytes = payload_text.encode("utf-8")
+    headers = {"Content-Type": "application/json"}
+    run_token = uuid.uuid4().hex
+    headers["X-Run-Token"] = run_token
+    sending_token = os.environ.get("ROSE_N8N_SENDING_TOKEN")
+    if sending_token:
+        headers["X-Signature"] = _compute_hmac(sending_token, payload_bytes)
+
+    req = request.Request(url, data=payload_bytes, headers=headers)
+    try:
+        with request.urlopen(req) as resp:  # nosec B310
+            body_bytes = resp.read()
+            status = resp.status
+            resp_headers = resp.headers
+    except error.HTTPError as exc:  # pragma: no cover - network errors
+        raise RuntimeError(f"n8n webhook request failed: HTTP {exc.code} {exc.reason}") from exc
+    except error.URLError as exc:  # pragma: no cover
+        raise RuntimeError(f"n8n webhook request failed: {exc.reason}") from exc
+
+    if status < 200 or status >= 300:
+        raise RuntimeError(f"n8n webhook returned HTTP {status}")
+
+    body_text = body_bytes.decode("utf-8")
+    receiving_token = os.environ.get("ROSE_N8N_RECEIVING_TOKEN")
+    if receiving_token:
+        header_sig = resp_headers.get("X-Response-Signature")
+        expected_sig = _compute_hmac(receiving_token, body_bytes)
+        if not header_sig or header_sig.strip() != expected_sig:
+            raise RuntimeError("Response signature mismatch from n8n.")
+
+    try:
+        return json.loads(body_text)
+    except json.JSONDecodeError as exc:  # pragma: no cover
+        raise RuntimeError(f"Unable to decode n8n response: {exc}") from exc
 
 
 def _as_bool(value: str) -> bool:
@@ -404,10 +482,11 @@ def _as_bool(value: str) -> bool:
 def _should_skip_path(rel_path: str, languages: list[str], skip_llms: bool, skip_ai: bool) -> bool:
     normalized = repo_relative_str(rel_path)
     lower = normalized.lower()
-    if normalized.startswith(".github/") or normalized == ".github":
+    if lower in EXCLUDED_EXACT:
         return True
-    if normalized.startswith("translation-workflow/scripts/") or normalized == "translation-workflow/scripts":
-        return True
+    for prefix in EXCLUDED_PREFIXES:
+        if lower.startswith(prefix):
+            return True
     if skip_llms and "llms" in lower:
         return True
     if skip_ai and "/.ai" in lower:
@@ -743,25 +822,106 @@ def _run_pipeline(args: argparse.Namespace) -> int:
         "branch": args.head,
         "commit": commit_sha,
     }
-    response = _post_json(args.n8n_webhook, n8n_payload)
+    payload_json = json.dumps(n8n_payload, ensure_ascii=False)
+    payload_bytes = payload_json.encode("utf-8")
+    max_bytes = 10 * 1024 * 1024
+    if len(payload_bytes) > max_bytes:
+        print(f"Payload size {len(payload_bytes)} bytes exceeds 10MB limit; aborting.")
+        return 1
+    response = _post_json(args.n8n_webhook, n8n_payload, payload_json)
 
+    response_payload: Any = response
     if isinstance(response, list):
-        if not response:
-            print("n8n webhook returned an empty list; exiting.")
-            return 1
-        response_payload = response[0]
-    else:
-        response_payload = response
+        response_payload = response[0] if response else {}
+    elif isinstance(response, str):
+        try:
+            response_payload = json.loads(response)
+        except json.JSONDecodeError as exc:  # pragma: no cover
+            raise RuntimeError("Unable to decode n8n response string") from exc
+
+    if isinstance(response_payload, dict) and "object" in response_payload:
+        obj = response_payload["object"]
+        if isinstance(obj, str):
+            try:
+                response_payload = json.loads(obj)
+            except json.JSONDecodeError as exc:  # pragma: no cover
+                raise RuntimeError("Unable to decode n8n object payload") from exc
+        else:
+            response_payload = obj
 
     translations = (
         response_payload.get("translations")
         or response_payload.get("entries")
+        or response_payload.get("payload")
         or response_payload
     )
+    if isinstance(translations, str):
+        try:
+            translations = json.loads(translations)
+        except json.JSONDecodeError as exc:
+            raise RuntimeError("n8n payload string could not be decoded as JSON") from exc
+    if isinstance(translations, dict) and "payload" in translations:
+        inner_payload = translations.get("payload")
+        if isinstance(inner_payload, str):
+            try:
+                translations = json.loads(inner_payload)
+            except json.JSONDecodeError as exc:  # pragma: no cover
+                raise RuntimeError("n8n payload string could not be decoded as JSON") from exc
+        elif isinstance(inner_payload, list):
+            translations = inner_payload
+        elif isinstance(inner_payload, dict):
+            translations = inner_payload
+    if isinstance(translations, dict) and "comment" in translations:
+        translations = translations["comment"]
+    if isinstance(translations, dict) and "jobs" in translations:
+        translations = translations["jobs"]
+    if isinstance(translations, list):
+        if (
+            len(translations) == 1
+            and isinstance(translations[0], dict)
+            and "jobs" in translations[0]
+        ):
+            translations = translations[0]["jobs"]
+        elif translations and all(
+            isinstance(item, dict) and "jobs" in item for item in translations
+        ):
+            flattened: list[dict[str, Any]] = []
+            for item in translations:
+                jobs = item.get("jobs")
+                if isinstance(jobs, list):
+                    flattened.extend(job for job in jobs if isinstance(job, dict))
+            if flattened:
+                translations = flattened
+        elif translations and all(
+            isinstance(item, dict) and "comment" in item for item in translations
+        ):
+            flattened: list[dict[str, Any]] = []
+            for item in translations:
+                comments = item.get("comment")
+                if isinstance(comments, list):
+                    flattened.extend(comment for comment in comments if isinstance(comment, dict))
+            if flattened:
+                translations = flattened
+    if isinstance(translations, list):
+        for entry in translations:
+            if (
+                isinstance(entry, dict)
+                and entry.get("target_language")
+                and not entry.get("target_languages")
+            ):
+                entry["target_languages"] = [entry["target_language"]]
+            if (
+                isinstance(entry, dict)
+                and entry.get("target_languages") in (None, [], "")
+                and entry.get("kind") == "file"
+            ):
+                entry["target_languages"] = list(args.languages)
+            if isinstance(entry, dict) and isinstance(entry.get("translated_content"), str):
+                entry["translated_content"] = _strip_code_fence(entry["translated_content"])
     PAYLOAD_PATH.write_text(json.dumps(translations, indent=2, ensure_ascii=False), encoding="utf-8")
     payload_entries = _payload_entries_list(translations)
 
-    _run_cmd([PYTHON_BIN, "-m", "pip", "install", "ruamel.yaml"])
+    _run_cmd([PYTHON_BIN, "-m", "pip", "install", "ruamel.yaml==0.18.16"])
     _run_cmd([PYTHON_BIN, str(CURRENT_DIR / "extract_strings.py"), "--payload", str(PAYLOAD_PATH)])
     _run_cmd(
         [
@@ -802,7 +962,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
     if mdformat_targets:
         file_args = " ".join(shlex.quote(str(path)) for path in mdformat_targets)
         repo_root_quoted = shlex.quote(str(REPO_ROOT))
-        _run_cmd([PYTHON_BIN, "-m", "pip", "install", "mdformat"])
+        _run_cmd([PYTHON_BIN, "-m", "pip", "install", "mdformat==0.7.17"])
         _run_cmd(
             [
                 "bash",
@@ -811,7 +971,7 @@ def _run_pipeline(args: argparse.Namespace) -> int:
             ]
         )
 
-    _run_cmd([PYTHON_BIN, "-m", "pip", "install", "PyYAML"])
+    _run_cmd([PYTHON_BIN, "-m", "pip", "install", "PyYAML==6.0.1"])
     validation_cmd = [
         PYTHON_BIN,
         str(CURRENT_DIR / "validate_translations.py"),

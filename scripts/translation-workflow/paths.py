@@ -19,15 +19,7 @@ def _detect_repo_root() -> Path:
 
 REPO_ROOT = _detect_repo_root()
 REPO_NAME = REPO_ROOT.name
-
-# Docs root may live inside a subfolder (e.g., tanssi-docs); default to that if present.
-PREFERRED_DOCS_DIRS = ["tanssi-docs", "docs"]
 DOCS_ROOT = REPO_ROOT
-for candidate in PREFERRED_DOCS_DIRS:
-    alt = REPO_ROOT / candidate
-    if alt.exists():
-        DOCS_ROOT = alt
-        break
 
 
 def _locate_path(*segments: str) -> Path:
