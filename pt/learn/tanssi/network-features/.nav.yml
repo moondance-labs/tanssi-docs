@@ -1,5 +1,5 @@
-title: Recursos da rede
+title: Network Features
 hide: false
 nav:
-- index.md
-- Staking para produção de blocos: staking.md
+  - index.md
+  - 'Staking for Block Production': 'staking.md'
