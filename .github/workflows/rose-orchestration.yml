@@ -6,7 +6,8 @@ on:
       - closed
     branches:
       - main
-      - Multi-translations
+      - dev
+      - master
   workflow_dispatch:
     inputs:
       base_ref:
