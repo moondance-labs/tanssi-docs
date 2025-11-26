@@ -1,6 +1,0 @@
-title: Nodo de red impulsado por Tanssi
-hide: false
-nav:
-  - index.md
-  - 'Usando Docker': rpc-docker.md
-  - 'Usando Systemd': rpc-systemd.md

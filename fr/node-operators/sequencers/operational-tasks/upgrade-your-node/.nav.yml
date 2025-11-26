@@ -1,6 +1,0 @@
-title: Mettre à jour votre nœud
-hide: false
-nav:
-  - index.md
-  - 'Avec Docker': upgrade-docker.md
-  - 'Avec systemd': upgrade-systemd.md

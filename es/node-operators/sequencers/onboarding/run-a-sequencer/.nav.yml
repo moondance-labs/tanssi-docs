@@ -1,6 +1,0 @@
-title: Ejecutar un secuenciador
-hide: false
-nav:
-  - index.md
-  - 'Usando Docker': sequencers-docker.md
-  - 'Usando Systemd': sequencers-systemd.md

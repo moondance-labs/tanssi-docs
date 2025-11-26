@@ -1,8 +1,0 @@
-title: Environnements de développement
-hide: false
-nav:
-- index.md
-- Remix: remix.md
-- Hardhat: hardhat.md
-- Foundry: foundry.md
-- thirdweb: thirdweb.md

@@ -1,6 +1,0 @@
-title: Nœud de réseau propulsé par Tanssi
-hide: false
-nav:
-  - index.md
-  - 'Avec Docker': rpc-docker.md
-  - 'Avec systemd': rpc-systemd.md
