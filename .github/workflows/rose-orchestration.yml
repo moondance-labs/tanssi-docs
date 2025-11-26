@@ -91,7 +91,7 @@ jobs:
             core.setOutput('allowed', allowed);
 
   run-pipeline:
-    name: Rose's Summary
+    name: Rose's Translation Pipeline
     environment: translations
     needs: guard
     if: ${{ needs.guard.outputs.allowed == 'true' && (github.event_name != 'pull_request' || (github.event.pull_request.merged == true && needs.guard.outputs.merged_by_allowed == 'true')) }}
@@ -329,7 +329,7 @@ jobs:
               echo "- Base branch: \`${BASE_BRANCH}\`"
               echo "- Summary file: \`scripts/translations/summary_report.json\`"
               echo ""
-              echo "Open a pull request manually from the branch above (automation disabled by request)."
+              echo "Open a pull request manually from the rose/translations branch above"
             else
               echo "- No translation changes were committed during this run."
             fi
