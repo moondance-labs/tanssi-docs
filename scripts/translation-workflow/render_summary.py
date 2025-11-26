@@ -115,7 +115,7 @@ def _format_validation(validation: dict[str, Any]) -> list[str]:
                 issue_type = issue.get("issue_type") or "validation_issue"
                 message = issue.get("message") or "See validation report for details."
                 lines.append(f"      - {line_hint}: [{issue_type}] {message}")
-    lines.append("  - Full details: translation-workflow/translations/validation_report.json")
+    lines.append("  - Full details: scripts/translations/validation_report.json")
     return lines
 
 
