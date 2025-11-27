@@ -1,8 +1,8 @@
-title: Ambientes de desenvolvimento
+title: Dev Environments
 hide: false
 nav:
-- index.md
-- Remix: remix.md
-- Hardhat: hardhat.md
-- Foundry: foundry.md
-- thirdweb: thirdweb.md
+  - index.md
+  - 'Remix': remix.md
+  - 'Hardhat': hardhat.md
+  - 'Foundry': foundry.md
+  - 'thirdweb' : thirdweb.md

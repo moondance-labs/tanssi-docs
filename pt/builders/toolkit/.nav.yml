@@ -1,7 +1,7 @@
-title: Kit de ferramentas da rede
+title: Network Toolkit
 hide: false
 nav:
-- index.md
-- ethereum-api
-- substrate-api
-- integrations
+  - index.md
+  - ethereum-api
+  - substrate-api
+  - integrations

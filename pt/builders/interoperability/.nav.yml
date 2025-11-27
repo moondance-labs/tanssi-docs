@@ -1,5 +1,5 @@
-title: Interoperabilidade
+title: Interoperability
 hide: false
 nav:
-- index.md
-- Ponte integrada: built-in-bridge.md
+  - index.md
+  - 'Built-in Bridge': 'built-in-bridge.md'

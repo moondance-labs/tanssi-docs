@@ -1,8 +1,8 @@
-title: Carteiras
+title: Wallets
 hide: false
 nav:
-- index.md
-- MetaMask: metamask.md
-- Talisman: talisman.md
-- SubWallet: subwallet.md
-- Ledger: ledger.md
+  - index.md
+  - 'MetaMask': 'metamask.md'
+  - 'Talisman': 'talisman.md'
+  - 'SubWallet': 'subwallet.md'
+  - 'Ledger': 'ledger.md'

@@ -1,5 +1,5 @@
-title: Ambientes de desenvolvimento
+title: Dev Environments
 hide: false
 nav:
-- index.md
-- Chopsticks: chopsticks.md
+  - index.md
+  - 'Chopsticks': 'chopsticks.md'

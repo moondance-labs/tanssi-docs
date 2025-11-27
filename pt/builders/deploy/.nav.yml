@@ -1,5 +1,5 @@
-title: Implemente sua rede
+title: Deploy Your Network
 hide: false
 nav:
-- index.md
-- Uso da dApp Tanssi: dapp.md
+  - index.md
+  - 'Using the Tanssi DApp': 'dapp.md'

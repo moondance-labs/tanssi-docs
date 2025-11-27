@@ -1,6 +1,6 @@
-title: Bibliotecas
+title: Libraries
 hide: false
 nav:
-- index.md
-- Polkadot.js API: polkadot-js-api.md
-- Sidecar API: sidecar-api.md
+  - index.md
+  - 'Polkadot.js API': 'polkadot-js-api.md'
+  - 'Sidecar API': 'sidecar-api.md'

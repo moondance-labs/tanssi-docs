@@ -1,8 +1,8 @@
-title: Modelos de rede
+title: Network Templates
 hide: false
 nav:
-- index.md
-- Visão geral: overview.md
-- Substrate: substrate.md
-- EVM: evm.md
-- Runtime personalizado: custom-runtime.md
+  - index.md
+  - 'Overview': 'overview.md'
+  - 'Substrate': 'substrate.md'
+  - 'EVM': 'evm.md'
+  - 'Custom Runtime': 'custom-runtime.md'

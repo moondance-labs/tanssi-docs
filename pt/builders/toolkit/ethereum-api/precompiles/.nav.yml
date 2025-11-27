@@ -1,8 +1,10 @@
-title: Pré-compilações
+title: Precompiles
 hide: false
 nav:
-- index.md
-- Lote: batch.md
-- Permissão de chamada: call-permit.md
-- Token nativo ERC-20: erc20.md
-- Proxy: proxy.md
+  - index.md
+  - 'Batch': batch.md
+  - 'Call Permit': call-permit.md
+  - 'Native Token ERC-20': erc20.md
+  # - 'Cross Chain Transfers': cross-chain-transfers.md
+  # - 'External Assets as ERC-20': external-assets-erc20.md
+  - 'Proxy': proxy.md
