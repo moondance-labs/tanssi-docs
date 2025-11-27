@@ -1,6 +1,6 @@
-title: Tarefas operacionais
+title: Operational Tasks
 hide: false
 nav:
   - index.md
-  - 'Atualizar seu nó': upgrade-your-node
-  - 'Usar uma conta proxy': proxy-accounts.md
+  - upgrade-your-node
+  - 'Use a Proxy Account': 'proxy-accounts.md'

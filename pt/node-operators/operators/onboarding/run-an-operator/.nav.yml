@@ -1,6 +1,6 @@
-title: Executar um operador
+title: Run an Operator
 hide: false
 nav:
   - index.md
-  - 'Usando Docker': operators-docker.md
-  - 'Usando systemd': operators-systemd.md
+  - 'Using Docker': 'operators-docker.md'
+  - 'Using Systemd': 'operators-systemd.md'
