@@ -1,7 +1,8 @@
-title: Estrutura de desenvolvimento de rede
+title: Network Development Framework
 hide: false
 nav:
-- index.md
-- Visão geral: overview.md
-- Arquitetura do framework: architecture.md
-- Modularidade: modules.md
+  - index.md
+  - 'Overview': 'overview.md'
+  - 'Framework Architecture': 'architecture.md'
+  - 'Modularity': 'modules.md'
+  # - 'Native Cross-Chain Communication': 'xcm.md'
