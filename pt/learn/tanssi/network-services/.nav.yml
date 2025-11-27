@@ -1,5 +1,5 @@
-title: Serviços da rede
+title: Network Services
 hide: false
 nav:
-- index.md
-- Produção de blocos: block-production.md
+  - index.md
+  - 'Block Production': 'block-production.md'

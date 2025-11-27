@@ -1,6 +1,6 @@
-title: Integração
+title: Onboarding
 hide: false
 nav:
   - index.md
-  - 'Executar um sequenciador': run-a-sequencer
-  - 'Configurar sua conta': account-setup.md
+  - run-a-sequencer
+  - 'Set Up Your Account': 'account-setup.md'

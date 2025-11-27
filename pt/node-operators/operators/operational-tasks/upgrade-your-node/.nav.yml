@@ -1,6 +1,6 @@
-title: Atualizar seu nó
+title: Upgrade Your Node
 hide: false
 nav:
   - index.md
-  - 'Usando Docker': upgrade-docker.md
-  - 'Usando systemd': upgrade-systemd.md
+  - 'Using Docker': 'upgrade-docker.md'
+  - 'Using Systemd': 'upgrade-systemd.md'
