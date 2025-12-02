@@ -7,7 +7,7 @@ categories: Basics, Appchain
 
 # Configurar uma Identidade On-Chain
 
-## Introdução {: #introduction }
+## Introdução {: #Introdução }
 
 O [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity [module](/learn/framework/modules/){target=\_blank} é uma solução pronta para uso para adicionar informações pessoais à sua conta on-chain. O estabelecimento de uma identidade torna mais fácil para sua conta ser reconhecida por outros, pois seu nome de exibição preencherá automaticamente quando alguém colar seu endereço em um campo no \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank}.
 
@@ -15,7 +15,7 @@ A identidade que você configura vai além de um simples nome de exibição. As 
 
 Este guia demonstrará como configurar uma identidade com um nome de exibição e parâmetros adicionais, aprimorando sua visibilidade e reconhecimento.
 
-## Definições Gerais {: #general-definitions }
+## Definições Gerais {: #Definições Gerais }
 
 Para armazenar suas informações on-chain, você deve vincular alguns fundos, que, eventualmente, serão devolvidos assim que a identidade for limpa. Existem duas categorias de campos: padrão e personalizado. Uma quantia básica de depósito é reservada após a criação da identidade e um depósito de armazenamento é necessário para cada byte adicional de dados armazenados on-chain.
 
@@ -47,7 +47,7 @@ Para armazenar suas informações on-chain, você deve vincular alguns fundos, q
 |    Subcontas máx.    |   Número máximo de subcontas que podem ser definidas sob uma identidade de conta    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
 ```
 
-## Verificando os Pré-requisitos { : #checking-prerequisites }
+## Verificando os Pré-requisitos { : #Verificando os Pré-requisitos }
 
 Para acompanhar este guia, você precisará do seguinte:
 
@@ -67,7 +67,7 @@ Para acompanhar este guia, você precisará do seguinte:
 
 Se precisar de ajuda para importar suas contas para o portal do desenvolvedor, consulte o guia [Conectando-se ao portal do desenvolvedor](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank}.
 
-## Comece {: #get-started }
+## Comece {: #Comece }
 
 Dependendo das informações a serem incluídas, existem algumas maneiras diferentes de definir e limpar uma identidade usando o portal do desenvolvedor. Se você pretende registrar sua identidade usando apenas os campos padrão, pode seguir as instruções da página [Gerenciando uma Identidade via Contas](#manage-via-accounts). **Esta é a maneira recomendada de definir e gerenciar sua identidade**.
 
@@ -76,9 +76,9 @@ Se você deseja adicionar campos personalizados além dos campos padrão, siga a
 !!! note
 Observe que o uso da página **Contas** no portal do desenvolvedor é recomendado para gerenciar sua identidade, pois ela fornece uma interface fácil de usar que impõe limites de caracteres. Se você usar a página **Extrinsics**, esteja ciente de que sua entrada para cada campo (ou seja, nome, e-mail, etc.) deve ter 32 caracteres ou menos; caso contrário, suas informações serão cortadas.
 
-## Gerenciar uma Identidade via Contas {: #manage-via-accounts }
+## Gerenciar uma Identidade via Contas {: #Gerenciar uma Identidade via Contas }
 
-### Definir uma Identidade {: #set-identity-accounts }
+### Definir uma Identidade {: #Definir uma Identidade via Contas }
 
 Para começar a definir uma identidade usando a página Contas, vá para a guia \[**Contas**\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} do portal do desenvolvedor.
 
@@ -113,9 +113,9 @@ Se as informações de identidade corresponderem ao que você inseriu, você def
 
 Depois de limpar sua identidade, o depósito em seu saldo reservado será transferido de volta para seu saldo transferível. Se você precisar alterar sua identidade, pode passar pelo processo de configuração da sua identidade novamente. Observe que você deve garantir que todos os campos sejam reinseridos, mesmo que apenas um campo precise ser alterado, ou eles serão substituídos. Você não precisará pagar outro depósito, a menos que campos personalizados sejam usados, mas precisará pagar taxas de gás.
 
-## Gerenciar uma Identidade via Extrinsics {: #manage-via-extrinsics }
+## Gerenciar uma Identidade via Extrinsics {: #Gerenciar uma Identidade via Extrinsics}
 
-### Definir uma Identidade {: #set-identity-extrinsics }
+### Definir uma Identidade {: #Definir uma Identidade via Extrinsics }
 
 Para registrar uma identidade usando a página de extrínsecos, navegue até a página \[**Extrinsics**\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/extrinsics){target=\_blank} do portal do desenvolvedor. Certifique-se de que sua entrada não exceda 32 caracteres para cada campo de identidade. Para concluir sua identidade, siga as etapas a seguir:
 
@@ -150,7 +150,7 @@ Você será solicitado a assinar a transação. Lembre-se, um depósito adiciona
 
 Você deve ver as notificações de status aparecerem no canto superior direito confirmando a transação. Se bem-sucedido, você definiu uma identidade! Parabéns! Para garantir que tudo tenha sido concluído e que suas informações de identidade tenham uma boa aparência, você pode verificar sua identidade.
 
-### Confirmar uma Identidade {: #confirm-identity-extrinsics }
+### Confirmar uma Identidade {: #Confirmar uma Identidade via Extrinsics }
 
 Para verificar a adição de suas informações de identidade, você pode clicar na guia **Desenvolvedor** e, em seguida, navegar até o \[**Chain state**\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/chainstate){target=\_blank}.
 
@@ -165,7 +165,7 @@ Na página **Chain State**, certifique-se de que **Armazenamento** esteja seleci
 
 Você pode ver agora que você definiu com sucesso uma identidade! Depois de limpar sua identidade, o depósito em seu saldo reservado será transferido de volta para seu saldo transferível. Se você precisar alterar sua identidade, pode passar pelo processo de configuração da sua identidade novamente. Observe que você deve garantir que todos os campos sejam reinseridos, mesmo que apenas um campo precise ser alterado, ou eles serão substituídos. Você não precisará pagar outro depósito, a menos que campos personalizados sejam usados, mas precisará pagar taxas de gás.
 
-## Limpar uma Identidade {: #confirm-identity-extrinsics }
+## Limpar uma Identidade {: #Limpar uma Identidade via Extrinsics }
 
 Para limpar sua identidade, siga as seguintes etapas na guia **Extrinsics** do portal do desenvolvedor:
 

@@ -5,9 +5,9 @@ icon: octicons-package-24
 categories: Custom-Runtime
 ---
 
-# Adicionando um Módulo Embutido {: #adding-builtin-module }
+# Adicionando um Módulo Embutido {: #adicionando-um-módulo-embutido }
 
-## Introdução {: #introduction }
+## Introdução {: #introdução }
 
 Substrate é uma estrutura de desenvolvimento de software poderosa e modular incluída nos SDKs Polkadot para construir blockchains. Ele fornece um conjunto abrangente de ferramentas e bibliotecas que abstraem funcionalidades complexas de blockchain, permitindo que os desenvolvedores se concentrem na construção de recursos e aplicações inovadoras, focando no runtime, que contém a lógica central e as regras da transição de estado para o caso de uso.
 
@@ -17,7 +17,7 @@ Para casos que exigem apenas compatibilidade com EVM (Ethereum Virtual Machine),
 
 Este artigo enfoca as etapas necessárias para adicionar um módulo embutido ao template EVM.
 
-## Verificando Pré-requisitos {: #checking-prerequisites }
+## Verificando Pré-requisitos {: #verificando pré-requisitos }
 
 Para seguir as etapas deste guia, você precisará ter o seguinte:
 
@@ -29,9 +29,10 @@ Você pode ler mais sobre como instalar os componentes necessários no [artigo d
 Como este artigo é baseado no template EVM, certifique-se de que ele compile corretamente antes de continuar, executando o seguinte comando:
 
 ```bash
+cargo build -p container-chain-frontier-node --release
 ```
 
-## Adicionando um Módulo Embutido ao Runtime {: #adding-a-built-in-module-to-runtime }
+## Adicionando um Módulo Embutido ao Runtime {: #adicionando-um-módulo-embutido-ao-runtime }
 
 Como introduzido no artigo de [modularidade](/learn/framework/modules/){target=\_blank}, o framework Substrate já inclui muitos módulos embutidos que abordam uma ampla gama de funcionalidades, prontos para serem usados em seu runtime.
 
@@ -47,13 +48,14 @@ Para adicionar um módulo, as seguintes etapas são necessárias:
 
 No exemplo a seguir, o popular módulo Substrate `pallet-assets` é adicionado ao runtime do template EVM fornecido, encontrado no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank}, especificamente na pasta `container-chains/templates/frontier/`.
 
-### Declarar a Dependência {: #declare-dependency }
+### Declarar a Dependência {: #declarar-a-dependência }
 
 Cada pacote contém um arquivo de manifesto chamado `Cargo.toml` que declara, entre outras coisas, todas as dependências em que o pacote se baseia, e o runtime da rede com tecnologia Tanssi não é exceção.
 
 Portanto, a primeira etapa é declarar a dependência e torná-la disponível para o runtime. Abra o arquivo `Cargo.toml` localizado na pasta `container-chains/templates/frontier/runtime` com um editor de texto e adicione o módulo, referenciando o código no Polkadot SDK:
 
 ```toml
+[dependencies]
 ...
 pallet-assets = { 
    git = "https://github.com/moondance-labs/polkadot-sdk", 
@@ -66,13 +68,14 @@ pallet-assets = {
 !!! note
 Nossa equipe de engenharia contribui ativamente para o desenvolvimento do Substrate, corrigindo problemas e aprimorando funcionalidades. Como resultado, o repositório fork Tanssi frequentemente fica à frente do oficial. É por isso que este exemplo faz referência a um módulo embutido de um repositório Tanssi em vez do oficial.
 
-### Tornar os Recursos Padrão Disponíveis para o Compilador {: #standard-features }
+### Tornar os Recursos Padrão Disponíveis para o Compilador {: #tornar-os-recursos-padrão disponíveis-para-o-compilador }
 
 No Cargo, as flags de “recursos” fornecem um mecanismo para dizer ao compilador para incluir ou omitir determinadas partes do código, o que é um mecanismo útil para otimizar o tempo de compilação, minimizar os tamanhos dos arquivos binários ou desabilitar determinado comportamento (por exemplo, não incluir testes unitários ou funcionalidade de benchmarking no runtime pretendido para produção).
 
 Para compilar os recursos padrão para o módulo Assets dentro do runtime, o mesmo arquivo `Cargo.toml` na pasta `runtime` deve ser editado, ativando a flag. Tudo o que está listado nesta seção garantirá que esteja disponível para o compilador ao construir o binário do runtime, que é, em última análise, o arquivo que contém todas as informações para executar sua rede com tecnologia Tanssi inicialmente.
 
 ```toml
+[features]
 default = [
 	"std",
 ]
@@ -83,7 +86,7 @@ std = [
 ]
 ```
 
-### Configurar o Módulo {: #configure-the-module }
+### Configurar o Módulo {: #configurar-o-módulo }
 
 Com a dependência declarada no projeto, o módulo agora pode ser configurado e adicionado ao runtime. Para fazer isso, você precisa editar o arquivo `lib.rs` que está localizado em:
 
@@ -153,16 +156,18 @@ impl pallet_assets::Config for Runtime {
 ??? code "Ver o script completo"
 
     ```rust
+    --8<-- 'code/builders/build/customize/built-in-module/built-in-pallet-configuration.rs'
     ```
 
-````
 
 A configuração completa do módulo contém mais parâmetros; para ver uma descrição detalhada de cada um deles, consulte o [trait de configuração oficial para a documentação do módulo Assets](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=\_blank}.
 
-### Adicionar o Módulo ao Runtime {: #add-module-to-runtime }
+### Adicionar o Módulo ao Runtime {: #adicionar-o-módulo-ao-runtime}
+
+In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro `construct_runtime!()`. This is where the pallet must be added to be included in the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now also Assets:
+      
 
 ```rust
-
 construct_runtime!(
    pub enum Runtime where
       Block = Block,
@@ -180,19 +185,16 @@ construct_runtime!(
       Balances: pallet_balances = 10,
       // Módulo Assets é adicionado aqui
       Assets: pallet_assets = 11,
-
-```
+      ...
    }
 ```
 
-### Configurar o Módulo na Especificação da Cadeia {: #configure-chain-specs }
+### Configurar o Módulo na Especificação da Cadeia {: #configurar-o-módulo-na-especificação-da-cadeia }
+
+Finally, add the configuration in the chain specification for the genesis state in the file `chain_spec.rs` located at:
 
 ```text
-
-```
-
 container-chains/templates/frontier/node/src/`chain_spec.rs`
-
 ```
 
 A função `testnet_genesis`, apresentada no seguinte trecho de código, define o estado inicial para os módulos incluídos no runtime (como contas financiadas inicialmente, por exemplo). Depois de adicionar o módulo Assets, é necessário inicializá-lo também e, no exemplo a seguir, seus valores padrão são definidos.
@@ -214,8 +216,6 @@ fn testnet_genesis(
       // Adicione o estado padrão para este módulo no estado de gênese
       assets: Default::default()
       ...
-
-```
 }
 ```
 
