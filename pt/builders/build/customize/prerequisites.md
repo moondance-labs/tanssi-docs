@@ -5,19 +5,19 @@ icon: octicons-checkbox-24
 Categories: Custom-Runtime
 ---
 
-# Pré-requisitos para a construção de uma rede {: #pré-requisitos}
+# Pré-requisitos para a construção de uma rede {: #prerequisites}
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
 A implantação de uma rede através da Tanssi é um passo bastante simples, onde o único requisito é ter uma [especificação de cadeia](https://docs.polkadot.com/develop/parachains/deployment/generate-chain-specs/){target=\_blank} válida para fazer upload.
 
-Embora a Tanssi forneça especificações de cadeia para os [modelos disponíveis](pt/learn/decentralized-networks/included-templates/), pode ser necessário gerar uma nova para corresponder a quaisquer alterações que o caso de uso possa precisar ser implementado no tempo de execução.
+Embora a Tanssi forneça especificações de cadeia para os [modelos disponíveis](/pt/learn/decentralized-networks/included-templates/), pode ser necessário gerar uma nova para corresponder a quaisquer alterações que o caso de uso possa precisar ser implementado no tempo de execução.
 
 As seções a seguir deste artigo cobrirão o software mínimo necessário e seu processo de instalação para obter um ambiente de desenvolvimento adequado para compilar um nó Substrate e gerar a especificação da cadeia.
 
-## Instalação do Rust {: #instalação-do-rust }
+## Instalação do Rust {: #installing-rust }
 
-[Rust](pt/learn/framework/overview/#rust-programming-language){target=\_blank} é uma linguagem de programação moderna, portátil e de alto desempenho que é a base da estrutura de desenvolvimento de blockchain Substrate.
+[Rust](/pt/learn/framework/overview/#rust-programming-language){target=\_blank} é uma linguagem de programação moderna, portátil e de alto desempenho que é a base da estrutura de desenvolvimento de blockchain Substrate.
 
 Para compilar a rede Tanssi, o compilador rust, `rustc`, e o gerenciador de pacotes, `cargo`, devem ser instalados no sistema.
 
@@ -51,7 +51,7 @@ Quando o processo de instalação for concluído, executar o seguinte comando ve
 
 Há outros métodos para instalar o Rust, como usar um gerenciador de pacotes. Outras opções podem ser encontradas no [site oficial do Rust](https://forge.rust-lang.org/infra/other-installation-methods.html){target=\_blank}.
 
-## Instalação do Git {: #instalação-do-git }
+## Instalação do Git {: #installing-git }
 
 [Git](https://git-scm.com){target=\_blank} é recomendado para clonar o [repositório de código](https://github.com/moondance-labs/tanssi){target=\_blank} da Tanssi, onde os modelos de nó podem ser encontrados. O Git provavelmente é fornecido na configuração de instalação padrão do sistema operacional ou incluído em outras ferramentas, como o Xcode no MacOS.
 
@@ -83,7 +83,7 @@ Para verificar a instalação correta do Git, executar o seguinte comando em um 
     git --version
     ```
 
-## Construindo um modelo Tanssi {: #construindo-um-modelo-Tanssi  }
+## Construindo um modelo Tanssi {: #building-tanssi-template  }
 
 Para construir um nó Substrate, como os modelos incluídos no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank}, é necessário instalar componentes de desenvolvimento adicionais no sistema:
 

@@ -1,6 +1,6 @@
 ---
 title: Optar para Tanssi
-description: Learn how to opt in with your registered node to Tanssi-enabled Symbiotic vaults and the Tanssi network to participate in the protocol and earn rewards.
+description: Saiba como cadastrar seu nó para participar dos cofres simbióticos habilitados para Tanssi e da rede Tanssi, a fim de obter recompensas.
 icon: octicons-plus-circle-24
 categories: Operadores
 ---
@@ -9,7 +9,7 @@ categories: Operadores
 
 ## Introdução {: #introduction }
 
-Após [registrar com sucesso seu nó no protocolo Symbiotic](/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank}, as etapas seguintes são optar tanto pelos cofres habilitados para Tanssi quanto pela própria rede Tanssi. Como apresentado na [seção de integração](/node-operators/operators/onboarding/){target=\_blank}, estas são a terceira e a quarta etapas.
+Após [registrar com sucesso seu nó no protocolo Symbiotic](/pt/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank}, as etapas seguintes são optar tanto pelos cofres habilitados para Tanssi quanto pela própria rede Tanssi. Como apresentado na [seção de integração](/pt/node-operators/operators/onboarding/){target=\_blank}, estas são a terceira e a quarta etapas.
 
 Este guia irá orientá-lo pelas etapas para optar com sucesso por um cofre habilitado para Tanssi e pela rede Tanssi, permitindo que você escolha entre vários métodos, incluindo o uso do Symbiotic CLI, a interação direta com contratos inteligentes por meio do Etherscan ou a utilização do Safe para configurações multisig.
 
@@ -17,12 +17,12 @@ Este guia irá orientá-lo pelas etapas para optar com sucesso por um cofre habi
 
 Antes de optar por um cofre habilitado para Tanssi e pela rede Tanssi, certifique-se de que:
 
-- Você tem um nó corretamente [configurado e em execução](/node-operators/operators/onboarding/run-an-operator/){target=\_blank}
-- Você [se registrou como operador](/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} no registro Symbiotic
+- Você tem um nó corretamente [configurado e em execução](/pt/node-operators/operators/onboarding/run-an-operator/){target=\_blank}
+- Você [se registrou como operador](/pt/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} no registro Symbiotic
 
 Para seguir este guia, você deve interagir com contratos inteligentes, um do protocolo central da Symbiotic e o outro da integração da Tanssi com a Symbiotic.
 
---8\<-- 'text/node-operators/operators/onboarding/run-an-operator/prerequisites.md'
+--8<-- 'text/node-operators/operators/onboarding/run-an-operator/pt/prerequisites.md'
 
 ## Optar por Cofres Habilitados para Tanssi {: #opt-in-tanssi-vaults }
 
@@ -79,11 +79,11 @@ python3 symb.py --chain sepolia opt-in-vault {{ networks.symbiotic.contracts.sep
 ````
 
 !!! warning
-Observe que este método exige que você exponha sua chave privada; portanto, não é recomendado.
+    Observe que este método exige que você exponha sua chave privada; portanto, não é recomendado.
 
 ### Optar Usando o Etherscan {: #opt-in-tanssi-vaults-with-etherscan }
 
-Você pode interagir com os contratos inteligentes da Symbiotic usando o Etherscan e assinar a transação usando uma carteira de navegador ([MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, por exemplo).
+Você pode interagir com os contratos inteligentes da Symbiotic usando o Etherscan e assinar a transação usando uma carteira de navegador ([MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, por exemplo).
 
 Para abrir a página do contrato, abra o link:
 
@@ -104,13 +104,13 @@ Clique em **Conectar ao Web3** e selecione sua carteira preferida (por exemplo, 
 ![Etapa Conectar ao Web3](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-1.webp)
 
 !!! note
-Você pode configurar o MetaMask para usar uma carteira fria.
+    Você pode configurar o MetaMask para usar uma carteira fria.
 
 Após a conexão:
 
 1. Expanda a função **`optin`**
-1. Insira o `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` no Sepolia TestNet)
-1. Clique em **Escrever** e assine a transação
+2. Insira o `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` no Sepolia TestNet)
+3. Clique em **Escrever** e assine a transação
 
 ![Registrar o operador](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)
 
@@ -154,7 +154,7 @@ Na página do contrato:
 1. Cole a conta do seu operador no campo **who**
     ```
 
-1. Clique em **Pesquisar**
+2. Clique em **Pesquisar**
 
 Você obterá um resultado `true` se seu operador foi registrado corretamente e `false` caso contrário.
 
@@ -251,12 +251,11 @@ python3 symb.py --chain sepolia opt-in-network {{ networks.symbiotic.contracts.s
 ````
 
 !!! warning
-Observe que este método exige que você exponha sua chave privada; portanto, não é recomendado.
+    Observe que este método exige que você exponha sua chave privada; portanto, não é recomendado.
 
 ### Optar Usando o Etherscan {: #opt-in-tanssi-with-etherscan }
 
-Você pode interagir com os contratos inteligentes da Symbiotic usando o Etherscan e assinar a transação usando uma carteira de navegador ([MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, por exemplo).
-
+Você pode interagir com os contratos inteligentes da Symbiotic usando o Etherscan e assinar a transação usando uma carteira de navegador ([MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, por exemplo).
 Vá para a página do contrato abrindo o link:
 
 === "MainNet"
@@ -276,13 +275,13 @@ Clique em **Conectar ao Web3** e selecione sua carteira preferida (por exemplo, 
 ![Etapa Conectar ao Web3](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-4.webp)
 
 !!! note
-Você pode configurar o MetaMask para usar uma carteira fria.
+    Você pode configurar o MetaMask para usar uma carteira fria.
 
 Após a conexão:
 
 1. Expanda a função **`optin`**
-1. Insira o `TANSSI_NETWORK_ADDRESS`. Se você estiver optando pela Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. Para TestNet, use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
-1. Clique em **Escrever** e assine a transação
+2. Insira o `TANSSI_NETWORK_ADDRESS`. Se você estiver optando pela Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. Para TestNet, use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
+3. Clique em **Escrever** e assine a transação
 
 ![Registrar o operador](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
 
@@ -323,9 +322,9 @@ Você pode verificar rapidamente seu status de registro no Etherscan. Abra o seg
 Na página do contrato:
 
 1. Selecione a função **`isOptedIn`**
-1. Cole a conta do seu operador no campo **who**
-1. Insira o `TANSSI_NETWORK_ADDRESS` no campo **where**. Se você estiver optando pela Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. Para TestNet, use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
-1. Clique em **Pesquisar**
+2. Cole a conta do seu operador no campo **who**
+3. Insira o `TANSSI_NETWORK_ADDRESS` no campo **where**. Se você estiver optando pela Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. Para TestNet, use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
+4. Clique em **Pesquisar**
 
 Você obterá um resultado `true` se seu operador foi registrado corretamente e `false` caso contrário.
 
@@ -363,4 +362,4 @@ E a saída se parece com:
 </div>
 
 !!! note
-Optar pelas Redes Tanssi requer aprovação da equipe Tanssi. Os pedidos para participar podem levar até uma semana.
+    Optar pelas Redes Tanssi requer aprovação da equipe Tanssi. Os pedidos para participar podem levar até uma semana.

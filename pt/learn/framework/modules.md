@@ -46,7 +46,7 @@ Para melhorar a experiência do desenvolvedor ao escrever módulos, o Substrate 
 
 Todos os módulos no Substrate, incluindo os feitos sob medida, implementam estas macros de atributo, das quais as três primeiras são obrigatórias:
 
---8\<-- 'text/builders/build/customize/custom-made-module/pallets-macros-descriptions.md'
+--8\<-- 'text/builders/build/customize/custom-made-module/pt/pallets-macros-descriptions.md'
 
 Todas estas macros atuam como atributos que devem ser aplicados ao código logo acima dos módulos, funções, estruturas, enums, tipos, etc., Rust, permitindo que o módulo seja construído e adicionado ao tempo de execução, que, com o tempo, irá expor a lógica personalizada ao mundo exterior, conforme exposto na seção seguinte.
 

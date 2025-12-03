@@ -11,7 +11,7 @@ categories: EVM-Template
 
 Desenvolvedores e usuários de redes EVM alimentadas por Tanssi têm uma variedade de opções quando se trata de carteiras. Graças à sua compatibilidade perfeita com o Ethereum, as redes EVM Tanssi suportam uma grande variedade de carteiras populares, incluindo SubWallet.
 
-SubWallet é uma carteira Web3 abrangente que suporta nativamente contas Substrate (Polkadot) e Ethereum. Este tutorial se concentra na API do Ethereum, mas você pode consultar um [tutorial semelhante para interagir com o SubWallet usando a API do Substrate](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}. A extensão da carteira do navegador SubWallet [pode ser baixada](https://www.subwallet.app/download.html){target=\_blank} para todos os navegadores suportados, incluindo Chrome, Brave, Firefox e MS Edge. O SubWallet também possui um aplicativo móvel para iOS e Android, mas isso está além do escopo deste guia. Um painel de ativos online completo é acessível em [web.subwallet.app](https://web.subwallet.app){target=\_blank}.
+SubWallet é uma carteira Web3 abrangente que suporta nativamente contas Substrate (Polkadot) e Ethereum. Este tutorial se concentra na API do Ethereum, mas você pode consultar um [tutorial semelhante para interagir com o SubWallet usando a API do Substrate](/pt/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}. A extensão da carteira do navegador SubWallet [pode ser baixada](https://www.subwallet.app/download.html){target=\_blank} para todos os navegadores suportados, incluindo Chrome, Brave, Firefox e MS Edge. O SubWallet também possui um aplicativo móvel para iOS e Android, mas isso está além do escopo deste guia. Um painel de ativos online completo é acessível em [web.subwallet.app](https://web.subwallet.app){target=\_blank}.
 
 Este guia leva você por todas as etapas necessárias, desde a instalação do SubWallet até a configuração de uma carteira, conectando-a à sua rede EVM Tanssi e enviando fundos.
 
@@ -64,13 +64,13 @@ Por padrão, todos os saldos são ocultos no SubWallet, mas se você pressionar 
 Para transferir o token nativo da sua rede Tanssi, siga estas etapas:
 
 1. Especifique o ativo a ser enviado
-1. Especifique a cadeia de destino (neste caso, a mesma cadeia da qual você está enviando)
-1. Insira o endereço de destino
-1. Insira o número de tokens a serem enviados
-1. Veja os detalhes da transação e pressione **Transferir** e, em seguida, **Aprovar**
+2. Especifique a cadeia de destino (neste caso, a mesma cadeia da qual você está enviando)
+3. Insira o endereço de destino
+4. Insira o número de tokens a serem enviados
+5. Veja os detalhes da transação e pressione **Transferir** e, em seguida, **Aprovar**
 
 ![Envie fundos em sua Rede EVM Tanssi](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-7.webp)
 
-Este guia se concentrou especificamente na configuração do SubWallet para trabalhar com sua rede EVM Tanssi, mas o SubWallet também é uma carteira completa para contas Substrate (Polkadot). Na seção da API do Substrate, você encontrará um [guia semelhante para configurar o SubWallet para uso com sua rede Substrate](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
+Este guia se concentrou especificamente na configuração do SubWallet para trabalhar com sua rede EVM Tanssi, mas o SubWallet também é uma carteira completa para contas Substrate (Polkadot). Na seção da API do Substrate, você encontrará um [guia semelhante para configurar o SubWallet para uso com sua rede Substrate](/pt/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

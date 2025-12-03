@@ -33,7 +33,7 @@ Verifique o suporte ao recurso Landlock em seu sistema executando o seguinte com
 
 A saída deve ser semelhante a:
 
---8\<-- 'code/node-operators/terminal/check-landlock.md'
+--8<-- 'code/node-operators/terminal/check-landlock.md'
 
 Se o Landlock estiver desabilitado em seu sistema, atualize o kernel para a versão 5.13 ou superior.
 
@@ -41,7 +41,7 @@ Se o Landlock estiver desabilitado em seu sistema, atualize o kernel para a vers
 
 Para começar, baixe a versão binária mais recente e torne-a executável executando o seguinte comando:
 
---8\<-- 'text/node-operators/optimized-binaries-note.md'
+--8<-- 'text/node-operators/pt/optimized-binaries-note.md'
 
 === "Genérico"
 
@@ -84,20 +84,22 @@ wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions
 chmod +x ./tanssi-relay*
 
 ```
-````
 
---8\<-- 'text/node-operators/set-up-systemd-service.md'
 
---8\<-- 'text/node-operators/generate-node-keys-systemd.md'
+--8<-- 'text/node-operators/pt/set-up-systemd-service.md'
 
---8\<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
+--8<-- 'text/node-operators/pt/generate-node-keys-systemd.md'
+
+--8<-- 'text/node-operators/pt/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
     ```bash
---8\<-- 'text/node-operators/create-systemd-config-file.md'
+--8<-- 'text/node-operators/pt/create-systemd-config-file.md'
+    ```
+
+
 
 === "Tanssi MainNet"
 
-````
 
 ```bash
 [Unit]
@@ -192,11 +194,11 @@ Você pode visualizar todos os flags disponíveis executando:
 ````
 
 ```
---8\<-- 'text/node-operators/run-the-service-systemd.md'
+--8<-- 'text/node-operators/pt/run-the-service-systemd.md'
 
---8\<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
+--8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
---8\<-- 'text/node-operators/check-logs-systemd.md'
+--8<-- 'text/node-operators/pt/check-logs-systemd.md'
 
 ## Testando Seu Nó {: #testing-your-rpc-node }
 

@@ -8,7 +8,7 @@ footer:
   material_attribution_html: Feito com <a href="https://squidfunk.github.io/mkdocs-material/"
     target="_blank" rel="noopener">Material for MkDocs</a>
 error:
-  404_title: 404 – Não encontrado
+  404_title: 404 - Não encontrado
 home:
   meta:
     title: Tanssi Docs
@@ -36,7 +36,7 @@ home:
     heading:
       prefix: O hub completo da Tanssi
       accent: Construtores
-    description: Explore mais maneiras de se engajar com o ecossistema Tanssi – obtenha
+    description: Explore mais maneiras de se engajar com o ecossistema Tanssi - obtenha
       financiamento, recursos e visibilidade para o seu projeto.
     cards:
       one:

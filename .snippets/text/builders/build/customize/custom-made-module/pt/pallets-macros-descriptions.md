@@ -1,0 +1,7 @@
+- **`#[frame_support::pallet]`** - ponto de entrada que marca o módulo como utilizável no runtime
+- **`#[pallet::pallet]`** - aplicado a uma estrutura usada para recuperar facilmente as informações do módulo
+- **`#[pallet::config]`** - atributo obrigatório que define a configuração para os tipos de dados do módulo
+- **`#[pallet::call]`** - macro usada para definir funções expostas como transações, permitindo que sejam despachadas para o runtime. É aqui que os desenvolvedores adicionam transações e lógica personalizadas
+- **`#[pallet::error]`** - como transações podem falhar (por exemplo, fundos insuficientes) e, por segurança, um módulo nunca deve lançar exceções; todos os possíveis erros devem ser identificados e listados em um enum para serem retornados em execuções malsucedidas
+- **`#[pallet::event]`** - eventos podem ser definidos e usados para fornecer mais informações ao usuário
+- **`#[pallet::storage]`** - macro usada para definir elementos que serão persistidos em armazenamento. Como recursos são escassos em uma blockchain, deve ser usada com cuidado para armazenar apenas informações essenciais

@@ -9,7 +9,7 @@ categories: Operadores
 
 ## Introdução {: #introduction }
 
-Como apresentado na [seção de integração](/node-operators/operators/onboarding/){target=\_blank}, assim que você [optar com sucesso para um cofre habilitado para Tanssi](/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi-vaults){target=\_blank}, [optar para a rede Tanssi](/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi){target=\_blank}, e [preencher o formulário de inscrição](https://www.tanssi.network/node-operators-application){target=\_blank}, esta é a sexta etapa do processo. Após esta etapa, seu nó estará apto a participar do protocolo Tanssi.
+Como apresentado na [seção de integração](/pt/node-operators/operators/onboarding/){target=\_blank}, assim que você [optar com sucesso para um cofre habilitado para Tanssi](/pt/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi-vaults){target=\_blank}, [optar para a rede Tanssi](/pt/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi){target=\_blank}, e [preencher o formulário de inscrição](https://www.tanssi.network/node-operators-application){target=\_blank}, esta é a sexta etapa do processo. Após esta etapa, seu nó estará apto a participar do protocolo Tanssi.
 
 Nesta etapa, você mapeará sua conta de stash do Substrate (a que acompanha suas recompensas) para as chaves de sessão do seu nó (aquelas utilizadas para comunicação e consenso), permitindo que o protocolo inclua seu nó no conjunto ativo.
 
@@ -19,9 +19,9 @@ Este guia te orienta na geração de chaves de sessão para o seu nó, mapeando-
 
 Antes de configurar sua conta, certifique-se de que:
 
-- Você tem um nó corretamente [configurado e em execução](/node-operators/operators/onboarding/run-an-operator/){target=\_blank}
-- Você [se registrou como operador](/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} no registro Symbiotic
-- Você [optou pela Rede Tanssi e um cofre habilitado para Tanssi](/node-operators/operators/onboarding/opt-in-to-tanssi/){target=\_blank}
+- Você tem um nó corretamente [configurado e em execução](/pt/node-operators/operators/onboarding/run-an-operator/){target=\_blank}
+- Você [se registrou como operador](/pt/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} no registro Symbiotic
+- Você [optou pela Rede Tanssi e um cofre habilitado para Tanssi](/pt/node-operators/operators/onboarding/opt-in-to-tanssi/){target=\_blank}
 
 ## Mapear uma Conta para Seu Nó {: #map-account }
 
@@ -45,10 +45,10 @@ Para gerar chaves de sessão, envie uma chamada RPC usando o método `author_rot
 
 Suas chaves de sessão codificadas em hexadecimal serão impressas no terminal no campo `"result"`.
 
---8\<-- 'code/node-operators/operators/onboarding/account-setup/terminal/generate-session-keys.md'
+--8<-- 'code/node-operators/operators/onboarding/account-setup/terminal/generate-session-keys.md'
 
 !!! note
-Certifique-se de anotar suas chaves de sessão. Na próxima seção, você precisará mapeá-las para sua conta.
+  Certifique-se de anotar suas chaves de sessão. Na próxima seção, você precisará mapeá-las para sua conta.
 
 ### Mapear Chaves de Sessão {: #map-session-keys }
 
@@ -69,10 +69,10 @@ Para executar a etapa seguinte e mapear suas chaves de sessão para sua conta, a
 Agora, siga estas etapas:
 
 1. Selecione sua conta, que deve ser a mesma conta que você registrou com a Tanssi anteriormente
-1. Selecione o módulo **session** e a extrínseca **setKeys**
-1. Para **keys**, insira suas chaves de sessão
-1. Para **proof**, insira `0x`
-1. Clique em **Enviar Transação** e assine e envie a transação de sua carteira
+2. Selecione o módulo **session** e a extrínseca **setKeys**
+3. Para **keys**, insira suas chaves de sessão
+4. Para **proof**, insira `0x`
+5. Clique em **Enviar Transação** e assine e envie a transação de sua carteira
 
 ![Crie e envie uma transação para definir as chaves de sessão no Polkadot.js Apps](/images/node-operators/operators/onboarding/account-setup/account-setup-1.webp)
 
@@ -95,10 +95,10 @@ Usar o método `session.keyOwner` permite verificar se suas chaves de sessão fo
 Agora, siga estas etapas:
 
 1. Selecione o módulo **session** e o query **keyOwner**
-1. Insira `gran` no campo **SpCoreCryptoKeyTypeId**
-1. Para **Bytes**, insira os primeiros sessenta e seis caracteres codificados em hexadecimal de suas chaves de sessão (por exemplo, `0x00a12170e0925a9bf98f31bbdd7988550c1bf587766a2d2735e969aa5b4291dc`)
-1. Clique no botão **+** ao lado do campo extrínseco
-1. A conta associada às chaves de sessão, que deve ser sua conta, será exibida na parte inferior da página
+2. Insira `gran` no campo **SpCoreCryptoKeyTypeId**
+3. Para **Bytes**, insira os primeiros sessenta e seis caracteres codificados em hexadecimal de suas chaves de sessão (por exemplo, `0x00a12170e0925a9bf98f31bbdd7988550c1bf587766a2d2735e969aa5b4291dc`)
+4. Clique no botão **+** ao lado do campo extrínseco
+5. A conta associada às chaves de sessão, que deve ser sua conta, será exibida na parte inferior da página
 
 ![Crie e envie uma consulta para verificar as chaves de sessão no portal do desenvolvedor](/images/node-operators/operators/onboarding/account-setup/account-setup-2.webp)
 

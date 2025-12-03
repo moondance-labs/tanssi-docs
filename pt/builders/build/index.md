@@ -27,7 +27,7 @@ flowchart TD
     Test --> Deploy2[Implantar via Tanssi dApp]
 ```
 
-Agora que você explorou os caminhos de implantação, o próximo passo é [aprender mais sobre cada modelo](pt/builders/build/templates) para que você possa escolher aquele que melhor se adapta às suas necessidades.
+Agora que você explorou os caminhos de implantação, o próximo passo é [aprender mais sobre cada modelo](/pt/builders/build/templates) para que você possa escolher aquele que melhor se adapta às suas necessidades.
 
 ## Explore Esta Seção
 

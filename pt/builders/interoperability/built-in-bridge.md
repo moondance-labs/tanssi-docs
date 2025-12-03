@@ -7,34 +7,34 @@ categories: Basics
 
 # Usando a Ponte Tanssi Integrada
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
-O protocolo Tanssi orquestra componentes de infraestrutura, permitindo que os desenvolvedores lancem seus appchains personalizados em minutos e fornecendo a eles segurança econômica de nível Ethereum pronta para uso. Para facilitar todo o processo para os desenvolvedores, uma [arquitetura de primeira classe](pt/learn/tanssi/overview/#tanssi-architecture){target=\_blank} foi projetada e implementada.
+O protocolo Tanssi orquestra componentes de infraestrutura, permitindo que os desenvolvedores lancem seus appchains personalizados em minutos e fornecendo a eles segurança econômica de nível Ethereum pronta para uso. Para facilitar todo o processo para os desenvolvedores, uma [arquitetura de primeira classe](/pt/learn/tanssi/overview/#tanssi-architecture){target=\_blank} foi projetada e implementada.
 
-O [token TANSSI](pt/builders/tanssi-network/tanssi-token/){target=\_blank} é o motor que permite a integração de diferentes componentes de infraestrutura com [provedores de segurança externos](pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} e alinha incentivos entre vários atores, incluindo detentores de tokens, operadores de nós e construtores de appchain. Para atender a diferentes casos de uso, o token tem duas versões: a moeda nativa da rede Tanssi, TANSSI (Substrate), e sua versão ERC-20, no Ethereum.
+O [token TANSSI](/pt/builders/tanssi-network/tanssi-token/){target=\_blank} é o motor que permite a integração de diferentes componentes de infraestrutura com [provedores de segurança externos](/pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} e alinha incentivos entre vários atores, incluindo detentores de tokens, operadores de nós e construtores de appchain. Para atender a diferentes casos de uso, o token tem duas versões: a moeda nativa da rede Tanssi, TANSSI (Substrate), e sua versão ERC-20, no Ethereum.
 
-Os usuários podem converter de uma versão para outra do token usando uma [ponte sem confiança integrada do Tanssi](/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
+Os usuários podem converter de uma versão para outra do token usando uma [ponte sem confiança integrada do Tanssi](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
 
 Neste guia, você aprenderá como mover seus ativos de Tanssi para Ethereum e vice-versa por meio de uma interface web segura e fácil de usar disponível no [Tanssi dApp](https://apps.tanssi.network/bridge){target=\_blank}, tornando as transferências entre cadeias acessíveis a todos.
 
-## Pré-requisitos {: #pré-requisitos }
+## Pré-requisitos {: #prerequisites }
 
 Antes de usar a ponte Tanssi, certifique-se de ter:
 
 Para fazer a ponte de Tanssi para Ethereum:
 
-- Uma [carteira compatível com Substrate](pt/builders/toolkit/substrate-api/wallets/){target=\_blank}, como [Talisman](pt/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}.
+- Uma [carteira compatível com Substrate](/pt/builders/toolkit/substrate-api/wallets/){target=\_blank}, como [Talisman](/pt/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}.
 - Saldo TANSSI (Substrate) para transferir e pagar as taxas de ponte.
 - A conta de destino do tipo Ethereum.
 
 Para fazer a ponte de Ethereum para Tanssi:
 
-- Uma [carteira compatível com Ethereum](pt/builders/toolkit/ethereum-api/wallets/){target=\_blank}, como [MetaMask](pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
+- Uma [carteira compatível com Ethereum](/pt/builders/toolkit/ethereum-api/wallets/){target=\_blank}, como [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 - Saldo TANSSI (ERC-20) para transferir.
 - Saldo ETH para pagar as taxas de ponte.
 - A conta de destino do tipo Substrate.
 
-## Fazendo a ponte de tokens TANSSI para Ethereum {: #a-ponte-para-ethereum}
+## Fazendo a ponte de tokens TANSSI para Ethereum {: #bridge-to-ethereum}
 
 Se você deseja converter seus tokens TANSSI (Substrate) para TANSSI (ERC-20) no Ethereum, acesse o Tanssi dApp, abra a [seção da ponte](https://apps.tanssi.network/bridge){target=\_blank} e siga estas etapas:
 
@@ -57,7 +57,7 @@ E é isso! Seus tokens serão transferidos quando a próxima sessão começar. V
     - Você pode adicionar facilmente o endereço do contrato TANSSI ERC-20 à sua carteira clicando no ícone **+** mostrado ao lado do seu saldo.
     - As taxas para converter seus tokens TANSSI (Substrate) para TANSSI (ERC-20) podem flutuar ao longo do tempo e devem ser pagas usando TANSSI.
 
-## Fazendo a ponte de ERC-20 TANSSI para a Rede Tanssi {: ##a-ponte-para-tanssi }
+## Fazendo a ponte de ERC-20 TANSSI para a Rede Tanssi {: #bridge-to-tanssi }
 
 Se você deseja converter seus tokens TANSSI (ERC-20) para TANSSI (Substrate) nativo na rede Tanssi, acesse o Tanssi dApp, abra a [seção da ponte](https://apps.tanssi.network/bridge){target=\_blank} e siga estas etapas:
 

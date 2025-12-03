@@ -7,23 +7,23 @@ categories: Appchain
 
 # Pagamento dos Serviços de Produção de Blocos
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
-Como apresentado no artigo [Produção de Blocos como Serviço](pt/learn/tanssi/network-services/block-production/#block-production-fees){target=\_blank}, existem dois custos principais associados que o governador da rede deve cobrir:
+Como apresentado no artigo [Produção de Blocos como Serviço](/pt/learn/tanssi/network-services/block-production/#block-production-fees){target=\_blank}, existem dois custos principais associados que o governador da rede deve cobrir:
 
 - **Sequencers assignment** - para a atribuição de sequenciadores pelo protocolo Tanssi, que acontece uma vez por sessão
 - **Block production** - para cada bloco que é produzido em nome da rede
 
 Neste guia, você aprenderá como usar o [Tanssi dApp](https://apps.tanssi.network){target=\_blank} para recarregar sua conta e manter a atividade da sua rede.
 
-## Verificando os Pré-requisitos {: #verificando-os-pré-requisitos }
+## Verificando os Pré-requisitos {: #checking-prerequisites }
 
 Para os exemplos neste guia, você precisará do seguinte:
 
 - Uma rede com tecnologia Tanssi (Teste Rápido ou Dedicado)
-- A conta que você usou ao registrar a rede, importada em qualquer uma das [carteiras suportadas](pt/builders/deploy/dapp/#supported-wallets){target=\_blank}
+- A conta que você usou ao registrar a rede, importada em qualquer uma das [carteiras suportadas](/pt/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
---8<-- 'text/builders/manage/dapp/locate-registration-account.md'
+--8<-- 'text/builders/manage/dapp/pt/locate-registration-account.md'
 
 ## Topping-Up os Créditos da Sua Rede {: #topping-up }
 

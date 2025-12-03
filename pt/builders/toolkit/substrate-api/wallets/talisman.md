@@ -9,7 +9,7 @@ categories: Substrate-Template
 
 ## Introdução {: #introduction }
 
-Desenvolvedores e usuários de redes Substrate, como a rede Tanssi ou appchains Substrate com tecnologia Tanssi, têm uma variedade de opções quando se trata de carteiras. Talisman é uma ótima opção, pois oferece suporte nativo total para contas Substrate e Ethereum. Este guia se concentra na API Substrate. Você também pode conferir um [guia semelhante para configurar o Talisman para uso com sua rede Tanssi EVM](/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
+Desenvolvedores e usuários de redes Substrate, como a rede Tanssi ou appchains Substrate com tecnologia Tanssi, têm uma variedade de opções quando se trata de carteiras. Talisman é uma ótima opção, pois oferece suporte nativo total para contas Substrate e Ethereum. Este guia se concentra na API Substrate. Você também pode conferir um [guia semelhante para configurar o Talisman para uso com sua rede Tanssi EVM](/pt/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
 
 Talisman é uma carteira Web3 que suporta nativamente contas Substrate e Ethereum. A extensão do navegador da carteira Talisman está disponível no [Google Chrome, Brave e outros navegadores baseados em Chromium](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, bem como no [Firefox](https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet-extension/){target=\_blank}. Um painel de ativos é acessível em [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 

@@ -1,8 +1,8 @@
-title: Tanssi-Powered Networks
+title: Redes alimentadas por Tanssi
 hide: false
 nav:
   - index.md
-  - 'Overview': 'overview.md'
-  - 'Included Templates': 'included-templates.md'
-  - 'Core Runtime Features': 'runtime-features.md'
-  - 'Transaction Fees': 'tx-fees.md'
+  - Visão geral: overview.md
+  - Modelos incluídos: included-templates.md
+  - Funcionalidades principais do runtime: runtime-features.md
+  - Taxas de transação: tx-fees.md

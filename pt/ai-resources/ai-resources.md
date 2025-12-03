@@ -1,6 +1,5 @@
 ---
 title: Pendente
-template: subsection-index-page.html
 ---
-
+Fun things coming soon!
 _Tradução em andamento._

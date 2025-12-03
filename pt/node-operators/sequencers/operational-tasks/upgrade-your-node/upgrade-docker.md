@@ -11,9 +11,9 @@ categories: Sequencers
 
 Manter seu nó atualizado é uma parte importante de ser um sequencer Tanssi. Não só ajuda a garantir que seu nó sequencer permaneça saudável, mas também contribui para manter toda a Rede Tanssi funcionando sem problemas.
 
-Este tutorial aborda a atualização do seu sequencer Tanssi que foi configurado usando o Docker. Ele pressupõe que você já configurou sua conta e lançou um [sequencer usando Docker](/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
+Este tutorial aborda a atualização do seu sequencer Tanssi que foi configurado usando o Docker. Ele pressupõe que você já configurou sua conta e lançou um [sequencer usando Docker](/pt/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
 
---8\<-- 'text/node-operators/github-release-notifications.md'
+--8<-- 'text/node-operators/pt/github-release-notifications.md'
 
 ## Atualizando Nós Docker {: #upgrading-docker-nodes }
 
@@ -31,13 +31,13 @@ A ID do contêiner é a primeira coluna e, se você estiver executando vários c
 
 A sua interação com o terminal será semelhante ao seguinte:
 
---8\<-- 'code/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/terminal/docker-stop.md'
+--8<-- 'code/node-operators/sequencers/operational-tasks/upgrade-your-node/upgrade-docker/terminal/docker-stop.md'
 
 Para reiniciar o nó, você pode usar o mesmo comando que usou ao iniciar seu nó pela primeira vez. O comando extrai a imagem e o nó retomará a sincronização de blocos de onde parou quando o processo Docker foi interrompido.
 
 === "Genérico"
 
-````
+
     ```bash
 
 docker run --network="host" -v "/var/lib/dancebox:/data" \
@@ -46,12 +46,12 @@ docker run --network="host" -v "/var/lib/dancebox:/data" \
 --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
 
     ```
-````
+
 
 === "Intel Skylake"
 
     ```bash
-````
+
 
 ```bash
 docker run --network="host" -v "/var/lib/dancebox:/data" \
@@ -66,7 +66,7 @@ docker run --network="host" -v "/var/lib/dancebox:/data" \
 
 === "AMD Zen3"
 
-````
+
 ```bash
 
     ```
@@ -76,7 +76,7 @@ docker run --network="host" -v "/var/lib/dancebox:/data" \
 --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
 ```
 
-````
+
 
 ### Especificando uma Tag de Versão {: #specifying-a-version-tag }
 

@@ -1,7 +1,7 @@
 ---
-title: Pendente
-description: Learn about Tanssi protocol and how it helps developers to build and deploy networks by handling infrastructure complexities and providing key integrations.
-template: subsection-index-page.html
+title: Aprenda
+description: Conheça o protocolo Tanssi e como ele ajuda os desenvolvedores a construir e implantar redes, lidando com as complexidades de infraestrutura e fornecendo integrações essenciais.
+template: root-index-page.html
 ---
 
 # Aprenda

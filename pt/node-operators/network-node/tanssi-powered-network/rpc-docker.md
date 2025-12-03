@@ -9,26 +9,26 @@ categories: RPC-Data-Preservers
 
 ## Introdução {: #introduction }
 
---8\<-- 'text/node-operators/network-node/intro.md'
+--8\<-- 'text/node-operators/pt/network-node/intro.md'
 
 Neste guia, você aprenderá como iniciar rapidamente um nó appchain Tanssi usando [Docker](https://www.docker.com){target=\_blank} em um computador Linux. No entanto, ele pode ser adaptado a outros sistemas operacionais.
 
 !!! note
-Não é possível executar um nó RPC para appchains de teste rápidas, pois elas são executadas em uma rede privada e, portanto, seus nós são inacessíveis para sincronização.
+    Não é possível executar um nó RPC para appchains de teste rápidas, pois elas são executadas em uma rede privada e, portanto, seus nós são inacessíveis para sincronização.
 
 ## Verificação de Pré-requisitos {: #checking-prerequisites }
 
---8\<-- 'text/node-operators/installing-docker.md'
+--8<-- 'text/node-operators/pt/installing-docker.md'
 
---8\<-- 'text/node-operators/network-node/getting-specs-files.md'
+--8<-- 'text/node-operators/pt/network-node/getting-specs-files.md'
 
---8\<-- 'text/node-operators/appchains-docker-data-directory.md'
+--8<-- 'text/node-operators/pt/appchains-docker-data-directory.md'
 
 ## Extraindo a Imagem Docker {: #pulling-docker-image }
 
 Duas imagens Docker são criadas e publicadas como parte do processo de implantação automatizada para cada lançamento: uma para appchains compatíveis com EVM e outra para appchains Substrate.
 
-Essas imagens Docker incluem todos os arquivos binários necessários para executar a versão estável mais recente do [nó do cliente](/learn/framework/architecture/#architecture){target=\_blank}.
+Essas imagens Docker incluem todos os arquivos binários necessários para executar a versão estável mais recente do [nó do cliente](/pt/learn/framework/architecture/#architecture){target=\_blank}.
 
 Dependendo do tipo de appchain para o qual você deseja executar o nó, extraia a imagem correspondente.
 
@@ -59,7 +59,7 @@ docker pull moondancelabs/container-chain-evm-template
 
 O comando fará o download e extrairá a imagem e mostrará o status após a execução:
 
---8\<-- 'code/node-operators/network-node/rpc-docker/terminal/pulling-docker-image.md'
+--8<-- 'code/node-operators/network-node/rpc-docker/terminal/pulling-docker-image.md'
 
 ### Appchains Substrate Simples {: #pulling-substrate-docker-image }
 
@@ -95,7 +95,7 @@ O comando fará o download e extrairá a imagem e mostrará o status após a exe
 Para iniciar seu nó, você deve executar a imagem Docker com o comando `docker run`. Observe que você precisará modificar os seguintes parâmetros:
 
         ```bash
-  --8\<-- 'text/node-operators/network-node/bootnode-item.md'
+  --8<-- 'text/node-operators/pt/network-node/bootnode-item.md'
 
 === "Tanssi MainNet"
 
@@ -149,7 +149,7 @@ Para iniciar seu nó, você deve executar a imagem Docker com o comando `docker 
 
 Somente o estado histórico dos últimos 256 blocos finalizados é mantido no banco de dados local por padrão. Para executar um nó de arquivo completo, você deve definir o sinalizador `--state-pruning archive`. Mais informações estão na [seção de sinalizadores](#run-flags).
 
---8\<-- 'text/node-operators/network-node/fetching-bootnode-section.md'
+--8<-- 'text/node-operators/pt/network-node/fetching-bootnode-section.md'
 
 ### Exemplo de nó completo para Demo EVM Appchain {: #example-demo-evm-appchain }
 
@@ -193,7 +193,7 @@ moondancelabs/container-chain-evm-template \
 As flags usadas no comando `docker run` podem ser ajustadas de acordo com suas preferências e configuração de hardware. Os seguintes são alguns dos mais notáveis:
     ```
 
---8\<-- 'text/node-operators/network-node/run-flags.md'
+--8<-- 'text/node-operators/pt/network-node/run-flags.md'
 
 === "Appchain compatível com EVM"
 
@@ -219,7 +219,7 @@ docker run -ti moondancelabs/container-chain-simple-template --help
 
 Depois que seu nó iniciar, o processo de sincronização exibirá muitas informações de log, tanto do nó quanto do appchain Tanssi. Alguns erros devem ser exibidos no início do processo, desaparecendo assim que a cadeia for sincronizada com o último bloco.
 
---8\<-- 'code/node-operators/terminal/syncing-process.md'
+--8<-- 'code/node-operators/terminal/syncing-process.md'
 
 !!! note
-A duração do processo de sincronização é diretamente proporcional ao tamanho da cadeia que você está sincronizando.
+    A duração do processo de sincronização é diretamente proporcional ao tamanho da cadeia que você está sincronizando.

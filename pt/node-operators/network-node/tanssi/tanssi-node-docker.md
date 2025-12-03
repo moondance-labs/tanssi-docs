@@ -13,13 +13,13 @@ Neste guia, você aprenderá como iniciar um nó Tanssi usando a imagem oficial 
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
---8\<-- 'text/node-operators/installing-docker.md'
+--8<-- 'text/node-operators/pt/installing-docker.md'
 
 ### Puxar a Imagem Docker {: #pull-docker-image }
 
 Para cada versão, uma imagem Docker é construída e publicada. Ele contém todas as dependências necessárias que um nó Tanssi exige e o próprio arquivo binário.
 
-Uma imagem Docker combina o binário correspondente à versão estável mais recente do [nó cliente](/learn/framework/architecture/#architecture){target=\_blank}, juntamente com o arquivo de especificação do orquestrador Tanssi.
+Uma imagem Docker combina o binário correspondente à versão estável mais recente do [nó cliente](/pt/learn/framework/architecture/#architecture){target=\_blank}, juntamente com o arquivo de especificação do orquestrador Tanssi.
 
 Execute o seguinte comando para puxar a imagem Docker:
 
@@ -46,9 +46,9 @@ docker pull {{ networks.dancelight.operator_docker_image }}
 
 O comando irá baixar e extrair a imagem e mostrar o status após a execução:
 
---8\<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/terminal/pulling-docker-image.md'
+--8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/terminal/pulling-docker-image.md'
 
---8\<-- 'text/node-operators/set-up-data-directory.md'
+--8<-- 'text/node-operators/pt/set-up-data-directory.md'
 
 ### Gerar a Chave do Nó {: #generate-node-key }
 
@@ -80,7 +80,7 @@ docker run --network="host" -v "/var/lib/dancelight-data:/data" \
 
 ````
 
---8\<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
+--8<-- 'text/node-operators/pt/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
 ## Inicie Seu Nó {: #start-your-node }
 
@@ -89,7 +89,7 @@ Para iniciar seu nó, você deve executar a imagem Docker com o comando `docker 
 Substitua `INSERT_YOUR_TANSSI_NODE_NAME` por um nome legível por humanos e defina `INSERT_YOUR_IP_ADDRESS` com seu endereço IP público.
         ```bash
 
---8\<-- 'text/node-operators/optimized-binaries-note.md'
+--8<-- 'text/node-operators/pt/optimized-binaries-note.md'
 
 === "Tanssi MainNet"
 
@@ -138,7 +138,7 @@ Substitua `INSERT_YOUR_TANSSI_NODE_NAME` por um nome legível por humanos e defi
 === "Dancelight TestNet"
 
         ```
-````
+
 
 === "Genérico"
 
@@ -171,7 +171,7 @@ Substitua `INSERT_YOUR_TANSSI_NODE_NAME` por um nome legível por humanos e defi
     --8<-- 'code/node-operators/network-node/tanssi/docker-command.md'
     ```
 
-````
+
 
 ### Executar Flags {: #run-flags }
 
@@ -185,38 +185,38 @@ As flags usadas no comando `docker run` podem ser ajustadas de acordo com suas p
     ```
 
 !!! warning
-A flag `--unsafe-rpc-external` abre seu nó RPC para conexões externas. Em ambientes de produção, você deve implementar medidas de segurança adicionais, como um proxy reverso com limitação de taxa e autenticação.
+    A flag `--unsafe-rpc-external` abre seu nó RPC para conexões externas. Em ambientes de produção, você deve implementar medidas de segurança adicionais, como um proxy reverso com limitação de taxa e autenticação.
     ```bash
 
 Você pode visualizar todas as flags disponíveis executando:
 
-    ```
+  
 === "Tanssi MainNet"
 
-````
+
 
 ```bash
 docker run -ti {{ networks.dancelight.operator_docker_image }} --help
 ```
 
-````
+
 
 === "Dancelight TestNet"
 
-````
+
 
 ```bash
 docker run -ti {{ networks.dancelight.operator_docker_image }} --help
-```bash
-
-````
 ```
+
+
+
 
 ## Sincronizando Seu Nó {: #syncing-your-node }
 
 A primeira vez que seu nó é iniciado, o processo de sincronização exibe muitas informações de log da configuração do nó e dos blocos da cadeia sendo sincronizados. Alguns erros devem ser exibidos no início do processo, desaparecendo assim que a cadeia é sincronizada com o último bloco.
 
---8\<-- 'code/node-operators/terminal/syncing-process.md'
+--8<-- 'code/node-operators/terminal/syncing-process.md'
 
 Quando o processo de sincronização for concluído, seu nó estará pronto para atender às solicitações de API.
 

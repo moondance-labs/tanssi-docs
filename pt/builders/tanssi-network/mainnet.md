@@ -1,5 +1,5 @@
 ---
-title: Get Started with Tanssi MainNet
+title: Comece com a Tanssi MainNet
 description: A Tanssi Network MainNet está ativa, permitindo que os desenvolvedores aproveitem o protocolo descentralizado para lançar appchains com segurança de nível Ethereum em minutos.
 icon: octicons-star-24
 ---
@@ -22,30 +22,21 @@ A Tanssi MainNet possui dois tipos de endpoints disponíveis para os usuários s
 
 === "HTTPS"
 
-````
     ```text
-
-https://{{ networks.mainnet.dns_name }}/
-
+    https://{{ networks.mainnet.dns_name }}/
     ```
-````
 
 === "WSS"
 
     ```text
-````
-
+    wss://{{ networks.mainnet.dns_name }}
     ```
-wss://{{ networks.mainnet.dns_name }}
-```
-
-````
 
 ## Exploradores de Blocos {: #tanssi-block-explorers }
 
 Para a Tanssi MainNet, você pode usar o seguinte explorador de blocos:
 
-- \[Tanssi Network Subscan\]({{ networks.mainnet.subscan_url }}){target=\_blank}
-- \[Polkadot.js Apps\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/explorer){target=\_blank}
+- [Tanssi Network Subscan]({{ networks.mainnet.subscan_url }}){target=\_blank}
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/explorer){target=\_blank}
 
 O suporte para exploradores de blocos adicionais está em andamento e, à medida que mais exploradores suportarem a Tanssi MainNet, esta seção será atualizada de acordo.

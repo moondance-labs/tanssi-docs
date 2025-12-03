@@ -83,28 +83,28 @@ A resposta para ambas as funções consiste nos seguintes dados, agrupados em um
 
 Nesta seção, usaremos o remix para buscar o preço do par `ETH/USD`.
 
-Primeiro, certifique-se de ter uma [carteira compatível com EVM](/builders/toolkit/ethereum-api/wallets/){target=\_blank} conectada à [rede de demonstração EVM](https://apps.tanssi.network/demo){target=\_blank}. [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} é usado como exemplo neste guia. Agora, acesse o [Remix](https://remix.ethereum.org/){target=\_blank}, cole a interface [`IStdReference`](#setup-on-demo-evm-network) em um novo arquivo e compile-o.
+Primeiro, certifique-se de ter uma [carteira compatível com EVM](/pt/builders/toolkit/ethereum-api/wallets/){target=\_blank} conectada à [rede de demonstração EVM](https://apps.tanssi.network/demo){target=\_blank}. [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} é usado como exemplo neste guia. Agora, acesse o [Remix](https://remix.ethereum.org/){target=\_blank}, cole a interface [`IStdReference`](#setup-on-demo-evm-network) em um novo arquivo e compile-o.
 
 ![Compile interface contract](/images/builders/toolkit/integrations/oracles/band/band-1.webp)
 
 Em seguida, siga estas etapas:
 
 1. Vá para a aba **Deploy & Run Transactions**
-1. Defina o **ENVIRONMENT** como **Injected Provider -- MetaMask**
-1. Selecione o contrato `IStdReference.sol` no menu suspenso **CONTRACT**
-1. Insira o endereço do contrato do feed de dados, que é `{{ networks.demo_evm.oracles.band.smart_contract }}` na rede de demonstração EVM no campo **At Address** e clique no botão **At Address**
+2. Defina o **ENVIRONMENT** como **Injected Provider -- MetaMask**
+3. Selecione o contrato `IStdReference.sol` no menu suspenso **CONTRACT**
+4. Insira o endereço do contrato do feed de dados, que é `{{ networks.demo_evm.oracles.band.smart_contract }}` na rede de demonstração EVM no campo **At Address** e clique no botão **At Address**
 
 ![Access Interface contract](/images/builders/toolkit/integrations/oracles/band/band-2.webp)
 
 O contrato agora deve estar acessível. Para interagir com ele, siga estas etapas:
 
 1. Expanda o contrato **IStdReference** para revelar as funções disponíveis
-1. Expanda **getReferenceData** e defina os parâmetros de entrada `_base` e `_quote` como `ETH` e `USD`, respectivamente
-1. Clique em **Call**
-1. O resultado mostrará três valores: o preço, a hora da atualização para o parâmetro `_base` e a hora da atualização para o parâmetro `_quote`
+2. Expanda **getReferenceData** e defina os parâmetros de entrada `_base` e `_quote` como `ETH` e `USD`, respectivamente
+3. Clique em **Call**
+4. O resultado mostrará três valores: o preço, a hora da atualização para o parâmetro `_base` e a hora da atualização para o parâmetro `_quote`
 
 ![Check price data](/images/builders/toolkit/integrations/oracles/band/band-3.webp)
 
 Observe que, para obter um preço legível do feed de preços, é essencial ajustar as casas decimais do feed, que são dezoito. Por exemplo, o exemplo acima mostra um valor de `2361167929271984201806`, correspondente a um preço de `ETH` de `$2,361.167929271984201806` expresso em `USD`. Além disso, observe que os valores do carimbo de data/hora da atualização são expressos em tempo de época UNIX, expresso como o número de segundos que se passaram desde `01-01-1970 00:00:00 UT`.
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

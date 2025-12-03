@@ -11,7 +11,7 @@ O portal do desenvolvedor permite que você gerencie com eficiência suas opera�
 
 ## Como Conectar ao Portal do Desenvolvedor
 
-Antes de começar, você precisa recuperar a WS URL da sua rede. Esta informação está disponível no **Painel** da sua rede no dApp Tanssi, na seção **Propriedades**.
+Antes de começar, você precisa recuperar a WS URL da sua rede. Esta informação está disponível no **Dashboard** da sua rede no dApp Tanssi, na seção **Properties**.
 
 ![Recupere sua URL WS do painel Tanssi](/images/builders/manage/developer-portal/index-1.webp)
 
@@ -22,9 +22,9 @@ Agora você está pronto para conectar sua rede alimentada pela Tanssi ao portal
 Para configurar sua rede, siga estes passos:
 
 1. Role para baixo no menu do lado esquerdo até ver **Development** (Desenvolvimento). Clique nisso para expandir as opções
-1. Clique em **Local Node** (Nó Local)
-1. Insira sua URL RPC no campo de entrada do **custom endpoint** (ponto de extremidade personalizado)
-1. Clique no botão salvar. O portal será recarregado e você deverá estar conectado à sua rede
+2. Clique em **Local Node** (Nó Local)
+3. Insira sua URL RPC no campo de entrada do **custom endpoint** (ponto de extremidade personalizado)
+4. Clique no botão salvar. O portal será recarregado e você deverá estar conectado à sua rede
 
 ![](/images/builders/manage/developer-portal/index-3.webp)
 

@@ -11,9 +11,9 @@ categories: Sequenciadores
 
 Antes de começar a produzir blocos em redes com tecnologia Tanssi, você precisará configurar sua conta e estabelecer sua elegibilidade.
 
-Você deve ter iniciado um [nó Sequenciador](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} para realizar as etapas de configuração da conta neste guia.
+Você deve ter iniciado um [nó Sequenciador](/pt/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} para realizar as etapas de configuração da conta neste guia.
 
-Você precisará configurar sua conta gerando [chaves de sessão](https://wiki.polkadot.com/learn/learn-cryptography/#session-keys){target=\_blank} e mapeando essas chaves de sessão para sua conta. Esta conta é aquela para a qual os delegadores escolherão delegar e onde suas recompensas serão distribuídas. Opcionalmente, você pode [configurar uma conta proxy](/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} para segurança adicional.
+Você precisará configurar sua conta gerando [chaves de sessão](https://wiki.polkadot.com/learn/learn-cryptography/#session-keys){target=\_blank} e mapeando essas chaves de sessão para sua conta. Esta conta é aquela para a qual os delegadores escolherão delegar e onde suas recompensas serão distribuídas. Opcionalmente, você pode [configurar uma conta proxy](/pt/node-operators/sequencers/operational-tasks/proxy-accounts/){target=\_blank} para segurança adicional.
 
 Para estabelecer a elegibilidade, você deve se delegar como um sequenciador e atender aos requisitos mínimos de garantia.
 
@@ -49,7 +49,7 @@ Você precisará criar chaves de sessão para seus servidores primário e de bac
 
 ### Gerar chaves de sessão {: #generate-session-keys }
 
-Antes de gerar chaves de sessão, você deve estar [executando um nó sequenciador](/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank}.
+Antes de gerar chaves de sessão, você deve estar [executando um nó sequenciador](/pt/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank}.
 
 Para gerar chaves de sessão, você enviará uma chamada RPC, usando o método `author_rotateKeys`, para o endpoint HTTP do seu nó. Como referência, se o endpoint HTTP do seu sequenciador estiver na porta `9945`, a chamada JSON-RPC pode ter esta aparência:
 
@@ -65,29 +65,29 @@ Para gerar chaves de sessão, você enviará uma chamada RPC, usando o método `
 
 Suas chaves de sessão codificadas em hexadecimal serão impressas no terminal no campo `"result"`.
 
---8\<-- 'code/node-operators/sequencers/onboarding/account-setup/terminal/generate-session-keys.md'
+--8<-- 'code/node-operators/sequencers/onboarding/account-setup/terminal/generate-session-keys.md'
 
 Certifique-se de anotar suas chaves de sessão; você precisará mapear suas chaves de sessão para sua conta na próxima seção.
 
 ### Mapear chaves de sessão {: #map-session-keys }
 
-Para executar a próxima etapa e mapear suas chaves de sessão para sua conta, acesse o \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Developer**, selecione **Extrinsics** no menu suspenso e siga as etapas a seguir:
+Para executar a próxima etapa e mapear suas chaves de sessão para sua conta, acesse o [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Developer**, selecione **Extrinsics** no menu suspenso e siga as etapas a seguir:
 
 1. Selecione sua conta, que deve ser a mesma conta que você autodelegou anteriormente
-1. Selecione o módulo **session** e o extrínseco **setKeys**
-1. Para **keys**, insira suas chaves de sessão
-1. Para **proof**, insira `0x`
-1. Clique em **Submit Transaction** e assine e envie a transação de sua carteira
+2. Selecione o módulo **session** e o extrínseco **setKeys**
+3. Para **keys**, insira suas chaves de sessão
+4. Para **proof**, insira `0x`
+5. Clique em **Submit Transaction** e assine e envie a transação de sua carteira
 
 ![Criar e enviar uma transação para definir chaves de sessão no Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-1.webp)
 
-Usando o método `session.keyOwner`, você pode verificar se suas chaves de sessão foram mapeadas para sua conta conforme o esperado. Para fazer isso no \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Developer**, selecione **Chain state** no menu suspenso e siga as etapas a seguir:
+Usando o método `session.keyOwner`, você pode verificar se suas chaves de sessão foram mapeadas para sua conta conforme o esperado. Para fazer isso no [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Developer**, selecione **Chain state** no menu suspenso e siga as etapas a seguir:
 
 1. Selecione o módulo **session** e a consulta **keyOwner**
-1. Insira `nmbs` no campo **SpCoreCryptoKeyTypeId**
-1. Para **Bytes**, insira suas chaves de sessão codificadas em hexadecimal
-1. Clique no botão **+** ao lado do campo extrínseco
-1. A conta associada às chaves de sessão, que deve ser sua conta, será exibida na parte inferior da página
+2. Insira `nmbs` no campo **SpCoreCryptoKeyTypeId**
+3. Para **Bytes**, insira suas chaves de sessão codificadas em hexadecimal
+4. Clique no botão **+** ao lado do campo extrínseco
+5. A conta associada às chaves de sessão, que deve ser sua conta, será exibida na parte inferior da página
 
 ![Criar e enviar consulta para verificar chaves de sessão no portal do desenvolvedor](/images/node-operators/sequencers/onboarding/account-setup/setup-2.webp)
 
@@ -101,26 +101,25 @@ Os sequenciadores são atribuídos a cada sessão. Os sequenciadores que partici
 
 ### Solicitar Delegado {: #request-delegate }
 
-Acesse o \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Developer**, selecione **Extrinsics** no menu suspenso e siga as etapas a seguir:
+Acesse o [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Developer**, selecione **Extrinsics** no menu suspenso e siga as etapas a seguir:
 
 1. Selecione a conta da qual você deseja enviar a transação. Esta conta deve ser a mesma conta para a qual você está delegando e é a conta que você deseja se tornar um sequenciador
-1. Selecione o módulo **pooledStaking** e o extrínseco **requestDelegate**
-1. Insira sua conta, que é, novamente, a mesma conta da qual você está enviando a transação e a conta que você deseja se tornar um sequenciador
-1. Escolha o pool de destino. O pool pode ser o pool de composição automática, que compõe automaticamente as recompensas de delegação, ou o pool de recompensas manuais, no qual todas as ações relacionadas às recompensas são manuais
-1. Insira o valor a ser apostado. Este valor deve atender ao mínimo, que é {{ networks.mainnet.sequencers.minimum_self_delegation }} {{ networks.mainnet.token_symbol }} tokens para Tanssi MainNet. A Tanssi Network usa doze casas decimais, portanto, ao enviar o valor, certifique-se de adicionar as casas decimais à autodelegação. Para MainNet, o valor seria `{{ networks.mainnet.sequencers.minimum_self_delegation }}000000000000`
-1. Clique em **Submit Transaction** e assine e envie a transação de sua carteira
-
+2. Selecione o módulo **pooledStaking** e o extrínseco **requestDelegate**
+3. Insira sua conta, que é, novamente, a mesma conta da qual você está enviando a transação e a conta que você deseja se tornar um sequenciador
+4. Escolha o pool de destino. O pool pode ser o pool de composição automática, que compõe automaticamente as recompensas de delegação, ou o pool de recompensas manuais, no qual todas as ações relacionadas às recompensas são manuais
+5. Insira o valor a ser apostado. Este valor deve atender ao mínimo, que é {{ networks.mainnet.sequencers.minimum_self_delegation }} {{ networks.mainnet.token_symbol }} tokens para Tanssi MainNet. A Tanssi Network usa doze casas decimais, portanto, ao enviar o valor, certifique-se de adicionar as casas decimais à autodelegação. Para MainNet, o valor seria `{{ networks.mainnet.sequencers.minimum_self_delegation }}000000000000`
+6. Clique em **Submit Transaction** e assine e envie a transação de sua carteira
 ![Criar e enviar uma transação para autodelegar no Polkadot.js Apps](/images/node-operators/sequencers/onboarding/account-setup/setup-3.webp)
 
 ### Executar a solicitação pendente {: #execute-pending-request }
 
-Antes de executar a solicitação pendente, você precisará recuperar a sessão na qual você enviou a solicitação para delegar. Para fazer isso, acesse o \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Developer**, selecione **Chain state** no menu suspenso e siga as etapas a seguir:
+Antes de executar a solicitação pendente, você precisará recuperar a sessão na qual você enviou a solicitação para delegar. Para fazer isso, acesse o [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Developer**, selecione **Chain state** no menu suspenso e siga as etapas a seguir:
 
 1. Selecione o módulo **pooledStaking** e a consulta **pendingOperations**
-1. Insira sua conta
-1. Desative o controle deslizante **include option**
-1. Clique no botão **+** ao lado do campo extrínseco
-1. A solicitação pendente será exibida na parte inferior da página
+2. Insira sua conta
+3. Desative o controle deslizante **include option**
+4. Clique no botão **+** ao lado do campo extrínseco
+5. A solicitação pendente será exibida na parte inferior da página
 
 ![Consulta da solicitação de autodelegação pendente no portal do desenvolvedor](/images/node-operators/sequencers/onboarding/account-setup/setup-4.webp)
 
@@ -139,12 +138,12 @@ Você pode executar outra consulta na página **Chain state** para verificar a s
 Se a solicitação puder ser executada, selecione **Extrinsics** no menu suspenso **Developer** e siga as etapas a seguir:
 
 1. Selecione a conta da qual você deseja enviar a transação
-1. Selecione o módulo **pooledStaking** e a transação **executePendingOperations**
-1. Para **delegator**, insira sua conta, que é a mesma conta da qual você enviou a solicitação de autodelegação
-1. Para **operation**, selecione o tipo de operação a ser executada. Este deve ser **JoiningAutoCompounding** ou **JoiningManualRewards**, dependendo do pool de destino selecionado no momento do envio da solicitação de autodelegação
-1. Para **candidate**, insira a mesma conta que você fez no campo **delegator**
-1. Para **at**, insira o id da sessão em que você enviou a solicitação de delegação
-1. Clique em **Submit Transaction** e assine e envie a transação de sua carteira
+2. Selecione o módulo **pooledStaking** e a transação **executePendingOperations**
+3. Para **delegator**, insira sua conta, que é a mesma conta da qual você enviou a solicitação de autodelegação
+4. Para **operation**, selecione o tipo de operação a ser executada. Este deve ser **JoiningAutoCompounding** ou **JoiningManualRewards**, dependendo do pool de destino selecionado no momento do envio da solicitação de autodelegação
+5. Para **candidate**, insira a mesma conta que você fez no campo **delegator**
+6. Para **at**, insira o id da sessão em que você enviou a solicitação de delegação
+7. Clique em **Submit Transaction** e assine e envie a transação de sua carteira
 
 ![Criar e enviar uma transação para executar a solicitação de autodelegação pendente no portal do desenvolvedor](/images/node-operators/sequencers/onboarding/account-setup/setup-6.webp)
 
@@ -152,11 +151,11 @@ Agora, você concluiu toda a configuração da conta necessária para ser elegí
 
 ## Verifique se sua conta está na lista de candidatos elegíveis {: #verify }
 
-Se você seguiu todas as etapas deste guia e sincronizou totalmente seu sequenciador, agora você está elegível para produzir blocos. Para verificar se você está na lista de candidatos elegíveis, você pode acessar o \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clicar na aba **Developer**, selecionar **Chain state** no menu suspenso e seguir as etapas a seguir:
+Se você seguiu todas as etapas deste guia e sincronizou totalmente seu sequenciador, agora você está elegível para produzir blocos. Para verificar se você está na lista de candidatos elegíveis, você pode acessar o [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clicar na aba **Developer**, selecionar **Chain state** no menu suspenso e seguir as etapas a seguir:
 
 1. Selecione o módulo **pooledStaking** e a consulta **sortedEligibleCandidates**
-1. Clique no botão **+** ao lado do campo extrínseco
-1. Uma lista dos candidatos elegíveis e sua participação será exibida na parte inferior da página. Você pode pesquisar seu endereço para garantir que está qualificado para produzir blocos
+2. Clique no botão **+** ao lado do campo extrínseco
+3. Uma lista dos candidatos elegíveis e sua participação será exibida na parte inferior da página. Você pode pesquisar seu endereço para garantir que está qualificado para produzir blocos
 
 ![Consultar a lista atual de candidatos elegíveis no portal do desenvolvedor](/images/node-operators/sequencers/onboarding/account-setup/setup-7.webp)
 

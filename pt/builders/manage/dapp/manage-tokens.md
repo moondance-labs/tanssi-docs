@@ -7,7 +7,7 @@ categories: Appchain
 
 # Gerenciar Tokens
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
 Qualquer rede implantada através do Tanssi é soberana e livre para definir o modelo de governança que melhor se adapta ao seu caso de uso. O governador da rede tem superpoderes sobre a administração da cadeia. Consequentemente, eles podem chamar funções privilegiadas, como atualizar o tempo de execução e gerenciar operações relacionadas a tokens nativos, entre outras ações.
 
@@ -20,14 +20,14 @@ Existem algumas ações relacionadas ao gerenciamento de tokens nativos que est�
 
 Neste guia, você aprenderá como executar as ações listadas anteriormente usando o [Tanssi dApp](https://apps.tanssi.network){target=\_blank}.
 
-## Verificando Pré-requisitos {: #verificando-pré-requisitos }
+## Verificando Pré-requisitos {: #checking-prerequisites  }
 
 Para os exemplos neste guia, você precisará ter o seguinte:
 
 - Uma rede com tecnologia Tanssi (Teste Rápido ou Dedicado)
---8<-- 'text/builders/manage/dapp/prerequisites.md'
+--8<-- 'text/builders/manage/dapp/pt/prerequisites.md'
 
-## Acessando o Painel de Gerenciamento de Tokens {: #acessando-o-painel-de-gerenciamento-de-tokens }
+## Acessando o Painel de Gerenciamento de Tokens {: #accesing-token-management-panel }
 
 O Tanssi dApp implementa uma interface suave, permitindo que o governador da rede acesse e execute funções privilegiadas. Para fazer isso, vá para o [Tanssi dApp](https://apps.tanssi.network/){target=\_blank} e, em seguida:
 
@@ -46,7 +46,7 @@ Agora você tem acesso direto às ações apresentadas na introdução:
 ![O painel de gerenciamento de tokens](/images/builders/manage/dapp/token-management/token-management-2.webp)
 
 !!! note
-   Se você não vir os detalhes da sua rede no painel, certifique-se de cumprir os [pré-requisitos](#verificando-pré-requisitos).
+   Se você não vir os detalhes da sua rede no painel, certifique-se de cumprir os [pré-requisitos](#checking-prerequisites).
 
 ### Minting Tokens {: #minting-tokens }
 

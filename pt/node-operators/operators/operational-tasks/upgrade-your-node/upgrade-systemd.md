@@ -13,7 +13,7 @@ A manutenção do seu nó atualizado é uma parte importante de ser um operador 
 
 Este tutorial aborda a atualização do seu nó operador Tanssi que foi configurado usando o Systemd. Ele pressupõe que você já configurou sua conta e iniciou um [nó operador usando Systemd](/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
---8\<-- 'text/node-operators/github-release-notifications.md'
+--8\<-- 'text/node-operators/pt/github-release-notifications.md'
 
 ## Atualizando Seu Nó Systemd {: #upgrading-your-systemd-node }
 

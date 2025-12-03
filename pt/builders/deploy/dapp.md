@@ -10,11 +10,11 @@ categories: Appchain
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/W40oqavpZJ8' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
 
-## Introdução {: #Introdução }
+## Introdução {: #introduction }
 
 A Tanssi tem como objetivo reduzir a barreira de entrada para a construção de appchains descentralizadas, simplificando o processo de integração e abstraindo os detalhes técnicos do lançamento de uma appchain com tecnologia Tanssi. O [Tanssi dApp](https://apps.tanssi.network){target=\_blank} permite que você inicie uma appchain em apenas alguns minutos. Este guia mostra as etapas necessárias para lançar uma appchain na Dancelight, a Tanssi TestNet, usando o Tanssi dApp.
 
-## Testes rápidos vs. appchains dedicadas {: #testes-rápidos-vs-appchains-dedicadas  }
+## Testes rápidos vs. appchains dedicadas {: #quick-trial-vs-dedicated-appchains  }
 
 [O Tanssi dApp](https://apps.tanssi.network){target=\_blank} suporta a criação de dois tipos de appchains:
 
@@ -27,9 +27,9 @@ As capturas de tela e o conteúdo deste guia usam appchains de teste rápido, ma
 
 ![Painel inicial do apps.tanssi.network](/images/builders/deploy/dapp/dapp-1.webp)
 
-## Pré-requisitos {: #pré-requisitos }
+## Pré-requisitos {: #prerequisites }
 
-### Carteiras suportadas {: #carteiras-suportadas }
+### Carteiras suportadas {: #supported-wallets }
 
 Como a Tanssi é construída com Substrate, você precisará de uma carteira compatível com Substrate para implantar e gerenciar sua appchain Tanssi. Carteiras suportadas:
 
@@ -38,11 +38,11 @@ Como a Tanssi é construída com Substrate, você precisará de uma carteira com
 - [Enkrypt](https://www.enkrypt.com){target=\_blank}
 - [Extensão Polkadot.js](https://polkadot.js.org/extension){target=\_blank}
 
-Se você implantar uma appchain EVM com tecnologia Tanssi, os usuários poderão usar carteiras Ethereum, como [MetaMask](pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}, sem precisar de carteira Substrate.
+Se você implantar uma appchain EVM com tecnologia Tanssi, os usuários poderão usar carteiras Ethereum, como [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}, sem precisar de carteira Substrate.
 
 ![Tela de conexão para várias carteiras Substrate](/images/builders/deploy/dapp/dapp-2.webp)
 
-### Conecte sua carteira ao DApp {: #conecte-sua-carteira-ao-dapp }
+### Conecte sua carteira ao DApp {: #connect-wallet  }
 
 Para conectar sua carteira ao Tanssi dApp, clique em **Connect Wallet** no canto superior direito e escolha o tipo de carteira. Depois:
 
@@ -53,13 +53,13 @@ Para conectar sua carteira ao Tanssi dApp, clique em **Connect Wallet** no canto
 
 Após conectar, seu endereço aparecerá no canto superior direito. Se tiver várias contas conectadas, clique no endereço para trocar.
 
-## Configure sua appchain {: #configure-sua-appchain }
+## Configure sua appchain {: #configure-your-appchain }
 
-Na [página inicial](https://apps.tanssi.network/){target=\_blank} do dApp, clique em **Start Building** no bloco **Launch Network** para configurar sua appchain imediatamente. Escolha entre **Quick Trial** ou **Dedicated**. Veja as diferenças em [Testes rápidos vs. appchains dedicadas](#testes-rápidos-vs-appchains-dedicadas).
+Na [página inicial](https://apps.tanssi.network/){target=\_blank} do dApp, clique em **Start Building** no bloco **Launch Network** para configurar sua appchain imediatamente. Escolha entre **Quick Trial** ou **Dedicated**. Veja as diferenças em [Testes rápidos vs. appchains dedicadas](#quick-trial-vs-dedicated-appchains).
 
 ![Seção Launch Network do dApp](/images/builders/deploy/dapp/dapp-1.webp)
 
-Em seguida, selecione o template que melhor atende ao seu caso de uso e configure as propriedades da appchain. Você pode escolher o template EVM ou Substrate ou enviar um arquivo de especificação bruta. Consulte [Templates](pt/builders/build/templates/overview/){target=\_blank} para detalhes.
+Em seguida, selecione o template que melhor atende ao seu caso de uso e configure as propriedades da appchain. Você pode escolher o template EVM ou Substrate ou enviar um arquivo de especificação bruta. Consulte [Templates](/pt/builders/build/templates/overview/){target=\_blank} para detalhes.
 
 ### Template EVM {: #evm-template }
 
@@ -84,7 +84,7 @@ Para configurar:
 
 ### Template Substrate {: #substrate-template }
 
-O [template Substrate](pt/builders/build/templates/overview/#baseline-network-template){target=\_blank} traz as configurações básicas para integrar com a Tanssi e pode servir como base para uma appchain personalizada.
+O [template Substrate](/pt/builders/build/templates/overview/#baseline-network-template){target=\_blank} traz as configurações básicas para integrar com a Tanssi e pode servir como base para uma appchain personalizada.
 
 Para configurar:
 
@@ -102,8 +102,8 @@ Se você já possui um runtime Substrate e vai enviar um arquivo de especificaç
 
 Seu runtime deve implementar o seguinte:
 
-- Inclua o SDK Cumulus conforme [Base Setup to Connect to Polkadot](pt/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank}
-- Inclua os módulos Tanssi de produção de blocos conforme [Base Setup to Support the Tanssi Protocol](/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank}
+- Inclua o SDK Cumulus conforme [Base Setup to Connect to Polkadot](/pt/builders/build/templates/overview/#base-setup-to-polkadot){target=\_blank}
+- Inclua os módulos Tanssi de produção de blocos conforme [Base Setup to Support the Tanssi Protocol](/pt/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank}
 
 Outras exigências no runtime:
 
@@ -132,7 +132,7 @@ Outras exigências no runtime:
     pub type AuraExt = cumulus_pallet_aura_ext;
     ```
 
-Por fim, [gere e edite](pt/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs){target=\_blank} a especificação da cadeia, prestando atenção especial a:
+Por fim, [gere e edite](/pt/builders/build/customize/customizing-chain-specs/#editing-json-chain-specs){target=\_blank} a especificação da cadeia, prestando atenção especial a:
 
 - `para_id`: você precisa de um ID pré-registrado; obtenha-o no passo **Reserve your Network ID** e retorne para prosseguir
 - `is_ethereum`: defina como `true` se precisar expor RPCs compatíveis com Ethereum
@@ -186,7 +186,7 @@ Depois, selecione o template **Custom** e envie o arquivo JSON de especificaçã
 !!! note
     O arquivo de especificação bruta não deve exceder 2 MB.
 
-## Checar saldos {: #checar-saldos}
+## Checar saldos {:  #check-balances}
 
 Verifique se você tem saldo suficiente. Caso não tenha, clique em **Request Tokens** e faça login com GitHub ou Google, responda às perguntas rápidas e solicite os tokens para a carteira conectada.
 
@@ -225,13 +225,13 @@ Após a transação, o ID aparecerá no dApp; clique em **Continue**. Parte dos 
 
 ![ID reservado com sucesso](/images/builders/deploy/dapp/dapp-9.webp)
 
-## Gere seus arquivos de appchain {: #gere-seus-arquivos-de-appchain  }
+## Gere seus arquivos de appchain {: #generate-appchain-files  }
 
 Antes de implantar, gere três arquivos:
 
-- [Especificação bruta](pt/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=\_blank}
-- [Genesis state header](pt/builders/build/customize/customizing-chain-specs/#genesis-state){target=\_blank}
-- [Genesis Wasm](pt/learn/framework/architecture/#runtime){target=\_blank}
+- [Especificação bruta](/pt/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=\_blank}
+- [Genesis state header](/pt/builders/build/customize/customizing-chain-specs/#genesis-state){target=\_blank}
+- [Genesis Wasm](/pt/learn/framework/architecture/#runtime){target=\_blank}
 
 Eles são gerados automaticamente com base no seu ID e configurações. Clique em **Generate**.
 
@@ -239,7 +239,7 @@ Eles são gerados automaticamente com base no seu ID e configurações. Clique e
 
 Quando prontos, clique em **Continue** para o passo final.
 
-## Faça o deploy da sua appchain {: #o-deploy-da-sua-appchain }
+## Faça o deploy da sua appchain {: #deploy-your-appchain}
 
 No caso de teste rápido, são duas transações: registrar na camada de orquestração e na Tanssi TestNet.
 

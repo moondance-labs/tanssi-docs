@@ -17,7 +17,7 @@ Neste guia, você aprenderá como iniciar um operador Tanssi usando a versão of
 
 ## Verificando Pré-Requisitos {: #checking-prerequisites }
 
---8\<-- 'text/node-operators/installing-docker.md'
+--8\<-- 'text/node-operators/pt/installing-docker.md'
 
 ### Puxar a Imagem Docker {: #pull-docker-image }
 
@@ -52,7 +52,7 @@ O comando fará o download e extrairá a imagem e mostrará o status após a exe
 
 --8\<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/terminal/pulling-docker-image.md'
 
---8\<-- 'text/node-operators/set-up-data-directory.md'
+--8\<-- 'text/node-operators/pt/set-up-data-directory.md'
 
 ### Gerar a Chave do Nó {: #generate-node-key }
 
@@ -84,7 +84,7 @@ docker run --network="host" -v "/var/lib/dancelight-data:/data" \
 
 ````
 
---8\<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
+--8\<-- 'text/node-operators/pt/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
 ## Inicie Seu Nó {: #start-your-node }
 
@@ -93,7 +93,7 @@ Para iniciar seu nó, você deve executar a imagem Docker com o comando `docker 
 Substitua `INSERT_YOUR_TANSSI_NODE_NAME` por um nome legível por humanos e defina `INSERT_YOUR_IP_ADDRESS` com seu endereço IP público.
         ```bash
 
---8\<-- 'text/node-operators/optimized-binaries-note.md'
+--8\<-- 'text/node-operators/pt/optimized-binaries-note.md'
 
 === "Tanssi MainNet"
 
@@ -183,7 +183,7 @@ Substitua `INSERT_YOUR_TANSSI_NODE_NAME` por um nome legível por humanos e defi
 As flags usadas no comando `docker run` podem ser ajustadas de acordo com suas preferências e configuração de hardware. As seguintes são algumas das mais notáveis:
 
     ```bash
---8\<-- 'text/node-operators/network-node/run-flags.md'
+--8\<-- 'text/node-operators/pt/network-node/run-flags.md'
     ```
 
 === "Tanssi MainNet"

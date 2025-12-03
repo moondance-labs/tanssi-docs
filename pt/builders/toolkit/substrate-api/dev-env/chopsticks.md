@@ -9,14 +9,14 @@ categories: Substrate-Template, EVM-Template
 
 ## Introdução {: #introduction }
 
-[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} fornece um método amigável para desenvolvedores de bifurcar localmente as cadeias [Substrate-based](/learn/framework/overview/){target=\_blank} existentes. Ele permite a reprodução de blocos para examinar facilmente como as transações afetam o estado, a bifurcação de várias redes Tanssi para testes XCM e muito mais. Isso capacita os desenvolvedores a testar e experimentar suas configurações de blockchain personalizadas em um ambiente de desenvolvimento local sem implantar uma rede ao vivo.
+[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} fornece um método amigável para desenvolvedores de bifurcar localmente as cadeias [Substrate-based](/pt/learn/framework/overview/){target=\_blank} existentes. Ele permite a reprodução de blocos para examinar facilmente como as transações afetam o estado, a bifurcação de várias redes Tanssi para testes XCM e muito mais. Isso capacita os desenvolvedores a testar e experimentar suas configurações de blockchain personalizadas em um ambiente de desenvolvimento local sem implantar uma rede ao vivo.
 
 No geral, o Chopsticks visa simplificar o processo de construção de aplicativos blockchain no Substrate e torná-lo acessível a uma gama mais ampla de desenvolvedores.
 
 Este artigo abordará o uso do Chopsticks para bifurcar e interagir com uma cópia local de uma rede Tanssi.
 
 !!! note
-O Chopsticks atualmente não oferece suporte a chamadas feitas via Ethereum JSON-RPC. Consequentemente, você não pode bifurcar sua cadeia usando o Chopsticks e conectar o Metamask a ela.
+    O Chopsticks atualmente não oferece suporte a chamadas feitas via Ethereum JSON-RPC. Consequentemente, você não pode bifurcar sua cadeia usando o Chopsticks e conectar o Metamask a ela.
 
 ## Pré-requisitos {: #prerequisites }
 
@@ -46,9 +46,9 @@ Para bifurcar uma rede Tanssi usando o Chopsticks, execute o comando com apenas 
 
 Este comando iniciará um clone local da cadeia como estava no bloco mais recente.
 
---8\<-- 'code/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.md'
+--8<-- 'code/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.md'
 
-Normalmente, os parâmetros de configuração são armazenados em um arquivo de configuração, como são as configurações na pasta `configs` do repositório para as cadeias de retransmissão e parachains implantadas no ecossistema Dotsama. O seguinte arquivo de configuração funciona para a [rede EVM de demonstração](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}, substituindo a conta sudo da cadeia pela de Alith e, adicionalmente, financiando a conta com tokens:
+Normalmente, os parâmetros de configuração são armazenados em um arquivo de configuração, como são as configurações na pasta `configs` do repositório para as cadeias de retransmissão e parachains implantadas no ecossistema Dotsama. O seguinte arquivo de configuração funciona para a [rede EVM de demonstração](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}, substituindo a conta sudo da cadeia pela de Alith e, adicionalmente, financiando a conta com tokens:
 
 ```yaml
 mock-signature-host: true
@@ -149,7 +149,7 @@ Você pode interagir com a parachain por meio de bibliotecas como [Polkadot.js](
 Você deve ser capaz de interagir com a cadeia bifurcada como faria com a real.
 
 !!! note
-Se seu navegador não puder se conectar ao endpoint WebSocket fornecido pelo Chopsticks, talvez seja necessário permitir conexões inseguras para o URL do Polkadot.js Apps. Outra solução é executar a [versão Docker do Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
+    Se seu navegador não puder se conectar ao endpoint WebSocket fornecido pelo Chopsticks, talvez seja necessário permitir conexões inseguras para o URL do Polkadot.js Apps. Outra solução é executar a [versão Docker do Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
 
 ## Reexecutando blocos {: #replaying-blocks }
 
@@ -263,4 +263,4 @@ Estes são os métodos que podem ser invocados e seus parâmetros:
 
 ````
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.pt.md'

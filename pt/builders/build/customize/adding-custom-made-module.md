@@ -5,16 +5,16 @@ icon: octicons-terminal-24
 categories: Custom-Runtime
 ---
   
-# Adicionar um módulo personalizado {: #adicionar-um-módulo-personalizado }
+# Adicionar um módulo personalizado {: #adding-custom-made-module }
   
-## Introduction {: #introdução }
+## Introduction {:  #introduction }
   
 Ao fornecer uma biblioteca abrangente de módulos pré-construídos que abordam muitos requisitos comuns, a estrutura simplifica enormemente o processo de construção de um blockchain e acelera a implantação e evolução em uma rede com tecnologia Tanssi. No entanto, abordar um caso de uso inovador geralmente exige um esforço de desenvolvimento para atender totalmente aos requisitos e, no Substrate, adicionar lógica personalizada se traduz em escrever e integrar módulos de tempo de execução.
   
-O exemplo apresentado no artigo [Modularidade](pt/learn/framework/modules/#custom-module-example){target=\_blank} mostra um módulo de loteria simples que expõe duas transações:
+O exemplo apresentado no artigo [Modularidade](/pt/learn/framework/modules/#custom-module-example){target=\_blank} mostra um módulo de loteria simples que expõe duas transações:
   
-- **Comprar bilhetes** - esta função gerencia a entrada de um usuário na loteria. Essencialmente, ela verifica se o participante tem saldo suficiente, não está participando e cuida da transferência de fundos para registrar o usuário na loteria
-- **Prêmio de atribuição** - esta função que lida com um usuário que entra na loteria. Em alto nível, ela busca um número pseudo-aleatório para obter um vencedor e lida com a distribuição do prêmio
+- **Buy tickets** - esta função gerencia a entrada de um usuário na loteria. Essencialmente, ela verifica se o participante tem saldo suficiente, não está participando e cuida da transferência de fundos para registrar o usuário na loteria
+- **Award prize** - esta função que lida com um usuário que entra na loteria. Em alto nível, ela busca um número pseudo-aleatório para obter um vencedor e lida com a distribuição do prêmio
   
 A implementação dessas transações também usa armazenamento, emite eventos, define erros personalizados e depende de outros módulos para lidar com a moeda (para cobrar pelos bilhetes e transferir o valor total para o vencedor) e aleatorizar a seleção do vencedor.
   
@@ -25,14 +25,16 @@ Neste artigo, as seguintes etapas, necessárias para construir e adicionar o mó
 3. Adicionar lógica personalizada.
 4. Configurar o tempo de execução com o novo módulo.
 
---8<-- 'text/_common/not-for-production-code-guard.md'
+--8<-- 'text/_common/pt/not-for-production-code-guard.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
 Para seguir as etapas deste guia, você precisará ter o seguinte:
 
 - Clonar o [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank} do Github
-- Compilador Rust e gerenciador de pacotes Cargo\n\nV ocê pode ler mais sobre como instalar o Rust e o Cargo no artigo de [pré-requisitos](pt/builders/build/customize/prerequisites/#installing-rust){target=\_blank}.
+- Compilador Rust e gerenciador de pacotes Cargo
+
+Você pode ler mais sobre como instalar o Rust e o Cargo no artigo de [pré-requisitos](/pt/builders/build/customize/prerequisites/#installing-rust){target=\_blank}.
 
 ## Criando os arquivos do módulo de loteria {: #creating-lottery-module-files }
 
@@ -87,9 +89,9 @@ O exemplo completo do arquivo `Cargo.toml` define, além dos atributos, as depen
 
 ## Adicionando lógica personalizada {: #adding-custom-logic}
 
-Conforme apresentado na seção [módulo personalizado](pt/learn/framework/modules/#custom-modules){target=\_blank} do artigo sobre modularidade, a criação de um módulo envolve a implementação das seguintes macros de atributo, das quais as três primeiras são obrigatórias:
+Conforme apresentado na seção [módulo personalizado](/pt/learn/framework/modules/#custom-modules){target=\_blank} do artigo sobre modularidade, a criação de um módulo envolve a implementação das seguintes macros de atributo, das quais as três primeiras são obrigatórias:
 
---8<-- 'text/builders/build/customize/custom-made-module/pallets-macros-descriptions.md'
+--8<-- 'text/builders/build/customize/custom-made-module/pt/pallets-macros-descriptions.md'
 
 ### Implementando a estrutura básica do módulo {: #implementing-basic-structure }
 
@@ -111,18 +113,19 @@ pub mod pallet {
 A próxima etapa seria adicionar a terceira macro obrigatória (`#[pallet::config]`) e toda a lógica personalizada, conforme mostrado nas seções a seguir.
 
 ### Implementando a configuração do módulo {: #implementing-module-configuration }
+
 Para tornar os módulos altamente adaptáveis, sua configuração é abstrata o suficiente para permitir que sejam adaptados aos requisitos específicos do caso de uso que o tempo de execução implementa.
 
 A implementação da macro `#[pallet::config]` é obrigatória e define a dependência do módulo em outros módulos e os tipos e valores especificados pelas configurações específicas do tempo de execução.
 
 No módulo `lottery-example` personalizado que você está construindo, o módulo depende de outros módulos para gerenciar a moeda e a função aleatória para selecionar o vencedor. O módulo também lê e usa o preço do bilhete e o número máximo de participantes diretamente das configurações do tempo de execução. Consequentemente, a configuração precisa incluir essas dependências:
 
-- **Eventos** - o módulo depende da definição de um evento do tempo de execução para poder emiti-los
-- **Moeda** - o módulo `lottery-example` precisa poder transferir fundos, portanto, precisa da definição do sistema monetário do tempo de execução
-- **Aleatoriedade** - este módulo é usado para selecionar de forma justa o vencedor do prêmio da lista de participantes. Ele gera os números aleatórios usando os hashes de bloco anteriores e o número do bloco atual como semente
-- **Custo do bilhete** - o preço a ser cobrado dos compradores que participam da loteria
-- **Número máximo de participantes** - o limite máximo de participantes permitido em cada rodada da loteria
-- **ID do módulo** - o identificador exclusivo do módulo é necessário para acessar a conta do módulo para manter os fundos dos participantes até serem transferidos para o vencedor
+- **Events** - o módulo depende da definição de um evento do tempo de execução para poder emiti-los
+- **Currency** - o módulo `lottery-example` precisa poder transferir fundos, portanto, precisa da definição do sistema monetário do tempo de execução
+- **Randomness** - este módulo é usado para selecionar de forma justa o vencedor do prêmio da lista de participantes. Ele gera os números aleatórios usando os hashes de bloco anteriores e o número do bloco atual como semente
+- **Ticket coste** - o preço a ser cobrado dos compradores que participam da loteria
+- **Maximum number of participants** - o limite máximo de participantes permitido em cada rodada da loteria
+- **Module Id** - o identificador exclusivo do módulo é necessário para acessar a conta do módulo para manter os fundos dos participantes até serem transferidos para o vencedor
 
 A implementação da configuração descrita para este exemplo é mostrada no seguinte trecho de código:
 
@@ -162,10 +165,12 @@ Chamadas representam o comportamento que um tempo de execução expõe na forma 
 
 Cada chamada está incluída na macro `#[pallet::call]` e apresenta os seguintes elementos:
 
-- **Índice de chamada** - é um identificador exclusivo obrigatório para cada chamada despachável
-- **Peso** - é uma medida do esforço computacional que uma extrínseca leva ao ser processada. Mais sobre pesos está na [documentação do Polkadot](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/#how-fees-are-calculated){target=\_blank}
-- **Origem** - identifica a conta de assinatura que está fazendo a chamada
-- **Resultado** - o valor de retorno da chamada, que pode ser um `Erro` se alguma coisa der errado\n\nA seguinte trecho apresenta a estrutura geral da implementação da macro mencionada e os elementos de chamada:
+- **Call Index** - é um identificador exclusivo obrigatório para cada chamada despachável
+- **Weight** - é uma medida do esforço computacional que uma extrínseca leva ao ser processada. Mais sobre pesos está na [documentação do Polkadot](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/#how-fees-are-calculated){target=\_blank}
+- **Origin** - identifica a conta de assinatura que está fazendo a chamada
+- **Result** - o valor de retorno da chamada, que pode ser um `Erro` se alguma coisa der errado
+
+A seguinte trecho apresenta a estrutura geral da implementação da macro mencionada e os elementos de chamada:
 
 ```rust
 #[pallet::call]
@@ -257,7 +262,7 @@ pub enum Event<T: Config> {
     // Event emitted when there are no participants    
     ThereAreNoParticipants,
     }
-    ```
+```
     
 ### Implementando o armazenamento para persistência de estado {: #implementing-storage }
 
@@ -333,5 +338,5 @@ Com os módulos configurados, adicione a macro `construct_runtime!` (que define 
 
 Com tudo definido, a rede agora tem suporte para uma implementação básica de uma loteria.
     
---8<-- 'text/_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.pt.md'
 

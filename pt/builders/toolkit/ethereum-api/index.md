@@ -13,9 +13,9 @@ Esta seção oferece uma visão geral das principais ferramentas e fluxos de tra
 
 Pronto para mergulhar? Confira algumas das seguintes ferramentas:
 
-- **Ambientes de desenvolvimento** - [Remix](/builders/toolkit/ethereum-api/dev-env/remix/), [Foundry](/builders/toolkit/ethereum-api/dev-env/foundry/) e [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/)
-- **Bibliotecas** - [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/), [viem](/builders/toolkit/ethereum-api/libraries/viem/) e [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/)
-- **Carteiras** - [MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/), [SubWallet](/builders/toolkit/ethereum-api/wallets/subwallet/) e [Talisman](/builders/toolkit/ethereum-api/wallets/talisman/)
+- **Ambientes de desenvolvimento** - [Remix](/pt/builders/toolkit/ethereum-api/dev-env/remix/), [Foundry](/pt/builders/toolkit/ethereum-api/dev-env/foundry/) e [Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/)
+- **Bibliotecas** - [Ethers.js](/pt/builders/toolkit/ethereum-api/libraries/ethersjs/), [viem](/pt/builders/toolkit/ethereum-api/libraries/viem/) e [Web3.js](/pt/builders/toolkit/ethereum-api/libraries/web3js/)
+- **Carteiras** - [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/), [SubWallet](/pt/builders/toolkit/ethereum-api/wallets/subwallet/) e [Talisman](/pt/builders/toolkit/ethereum-api/wallets/talisman/)
 
 ## Explore esta seção
 

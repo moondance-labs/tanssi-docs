@@ -22,7 +22,7 @@ O endereço que representa o contrato ERC-20 é formado com as primeiras trinta 
 
 Por exemplo, para o ativo cujo ID é `1`, as últimas quatro posições devem ser substituídas por `0001`, e para um ativo com um ID de `10`, essas quatro posições devem ser substituídas por `000A`.
 
---8\<-- 'text/builders/toolkit/ethereum-api/precompiles/security-note.md'
+--8\<-- 'text/builders/toolkit/ethereum-api/precompiles/pt/security-note.md'
 
 ## Pré-requisitos {: #prerequisites }
 

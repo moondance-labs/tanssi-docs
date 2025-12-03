@@ -44,7 +44,7 @@ Se o Landlock estiver desabilitado em seu sistema, atualize o kernel para a vers
 
 Para começar, faça o download da versão binária mais recente e torne-a executável executando o seguinte comando:
 
---8\<-- 'text/node-operators/optimized-binaries-note.md'
+--8\<-- 'text/node-operators/pt/optimized-binaries-note.md'
 
 === "Genérico"
 
@@ -89,14 +89,14 @@ chmod +x ./tanssi-relay*
 ```
 ````
 
---8\<-- 'text/node-operators/set-up-systemd-service.md'
+--8\<-- 'text/node-operators/pt/set-up-systemd-service.md'
 
---8\<-- 'text/node-operators/generate-node-keys-systemd.md'
+--8\<-- 'text/node-operators/pt/generate-node-keys-systemd.md'
 
---8\<-- 'text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
+--8\<-- 'text/node-operators/pt/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
     ```bash
---8\<-- 'text/node-operators/create-systemd-config-file.md'
+--8\<-- 'text/node-operators/pt/create-systemd-config-file.md'
 
 === "Tanssi MainNet"
 
@@ -162,7 +162,7 @@ WantedBy=multi-user.target
 
 As flags usadas no comando `ExecStart` podem ser ajustadas de acordo com suas preferências e configuração de hardware. Os seguintes são alguns dos mais notáveis:
 
---8\<-- 'text/node-operators/network-node/run-flags.md'
+--8\<-- 'text/node-operators/pt/network-node/run-flags.md'
 
     ```bash
 === "Tanssi MainNet"
@@ -186,8 +186,8 @@ As flags usadas no comando `ExecStart` podem ser ajustadas de acordo com suas pr
 ```
 ````
 
---8\<-- 'text/node-operators/run-the-service-systemd.md'
+--8\<-- 'text/node-operators/pt/run-the-service-systemd.md'
 
 --8\<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
---8\<-- 'text/node-operators/check-logs-systemd.md'
+--8\<-- 'text/node-operators/pt/check-logs-systemd.md'

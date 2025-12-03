@@ -1,6 +1,6 @@
-title: Tanssi Node
+title: Nó Tanssi
 hide: false
 nav:
   - index.md
-  - 'Using Docker': 'tanssi-node-docker.md'
-  - 'Using Systemd': 'tanssi-node-systemd.md'
+  - 'Usando Docker': 'tanssi-node-docker.md'
+  - 'Usando Systemd': 'tanssi-node-systemd.md'

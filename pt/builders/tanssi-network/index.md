@@ -1,5 +1,5 @@
 ---
-title: Network Essentials
+title: Fundamentos da Rede
 description: Descubra tudo o que você precisa saber sobre o ecossistema Tanssi, suas diferentes redes e seus principais aspectos para começar a desenvolver e interagir com ele.
 icon: octicons-star-24
 template: index-page.html

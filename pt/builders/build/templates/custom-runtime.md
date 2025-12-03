@@ -7,15 +7,15 @@ categories: Custom-Runtime
 
 # Runtime personalizado
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
-Para as equipes que trabalham em um projeto de framework Substrate existente, será necessário incluir alguns módulos e configurações obrigatórias no runtime. Isso garantirá que o runtime existente possa se tornar um runtime de rede Tanssi sem problemas, alinhando-se com as [regras do protocolo](pt/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank}.
+Para as equipes que trabalham em um projeto de framework Substrate existente, será necessário incluir alguns módulos e configurações obrigatórias no runtime. Isso garantirá que o runtime existente possa se tornar um runtime de rede Tanssi sem problemas, alinhando-se com as [regras do protocolo](/pt/builders/build/templates/overview/#base-setup-supporting-tanssi){target=\_blank}.
 
 A falha em fazê-lo pode levar à interoperabilidade reduzida e exposição desnecessária a vulnerabilidades.
 
 ## Requisitos Mínimos
 
-Runtimes Substrate já existentes precisam implementar pelo menos o [framework](#integrando-sua-cadeia-stand-alone) para se comunicar dentro do ecossistema Tanssi, juntamente com os [módulos específicos do Tanssi](#adicionando-suporte-ao-protocolo-tanssi).
+Runtimes Substrate já existentes precisam implementar pelo menos o [framework](#adding-cumulus-support) para se comunicar dentro do ecossistema Tanssi, juntamente com os [módulos específicos do Tanssi](#adding-tanssi-support).
 
 No entanto, as equipes podem já ter implementado certos módulos que podem colidir com algumas funcionalidades relacionadas ao Tanssi, por exemplo, produção de blocos, atribuição de autoridade de bloco e consenso.
 
@@ -31,12 +31,11 @@ AuraExt: cumulus_pallet_aura_ext = 24,
 
 Em qualquer caso, certifique-se de verificar seu runtime e remover todos os módulos que podem interferir na produção de blocos como um recurso de serviço antes de iniciar o processo de registro.
 
-## Integrando Sua Cadeia Stand-Alone {: #integrando-sua-cadeia-stand-alone }
+## Integrando Sua Cadeia Stand-Alone {: #adding-cumulus-support }
 
 Se seu runtime existente estiver configurado como uma cadeia stand-alone, você precisará adicionar um mecanismo de consenso para integrar no ecossistema Tanssi. Verifique qualquer um dos modelos disponíveis no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank} para uma configuração de referência ou a [documentação do framework](https://paritytech.github.io/polkadot-sdk/master/polkadot_sdk_docs/polkadot_sdk/cumulus/index.html){target=\_blank}.
 
-## Adicionando Suporte ao Protocolo Tanssi {: #adicionando-suporte-ao-protocolo-tanssi }
-
+## Adicionando Suporte ao Protocolo Tanssi {: #adding-tanssi-support }
 Para suportar o protocolo Tanssi, será necessário adicionar dois módulos através das seguintes etapas:
 
 1. Inclua as dependências no manifesto `Cargo.toml` (geralmente localizado na pasta raiz). Abra o arquivo `Cargo.toml` e adicione os módulos na seção `dependencies`
@@ -95,6 +94,7 @@ Para suportar o protocolo Tanssi, será necessário adicionar dois módulos atra
         AuthorInherent: pallet_author_inherent = 51,
         ...
     }
+    );
     ```
 
 4. Certifique-se de que seu cabeçalho está configurado da seguinte forma:

@@ -1,13 +1,13 @@
 ---
 title: Adicionando Módulos Substrate Embutidos
-description: Learn how to leverage Substrate's pre-built, ready-to-use modules to efficiently add new features to your network without building from scratch.
+description: Aprenda a aproveitar os módulos pré-construídos e prontos para uso do Substrate para adicionar novas funcionalidades à sua rede de forma eficiente, sem precisar criar tudo do zero.
 icon: octicons-package-24
 categories: Custom-Runtime
 ---
 
-# Adicionando um Módulo Embutido {: #adicionando-um-módulo-embutido }
+# Adicionando um Módulo Embutido {: #adding-builtin-module }
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
 Substrate é uma estrutura de desenvolvimento de software poderosa e modular incluída nos SDKs Polkadot para construir blockchains. Ele fornece um conjunto abrangente de ferramentas e bibliotecas que abstraem funcionalidades complexas de blockchain, permitindo que os desenvolvedores se concentrem na construção de recursos e aplicações inovadoras, focando no runtime, que contém a lógica central e as regras da transição de estado para o caso de uso.
 
@@ -17,14 +17,14 @@ Para casos que exigem apenas compatibilidade com EVM (Ethereum Virtual Machine),
 
 Este artigo enfoca as etapas necessárias para adicionar um módulo embutido ao template EVM.
 
-## Verificando Pré-requisitos {: #verificando pré-requisitos }
+## Verificando Pré-requisitos {: #verifying-prerequisites }
 
 Para seguir as etapas deste guia, você precisará ter o seguinte:
 
 - Um ambiente de desenvolvimento saudável com o compilador Rust e o gerenciador de pacotes Cargo
 - O [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank}, clonado do GitHub
 
-Você pode ler mais sobre como instalar os componentes necessários no [artigo de pré-requisitos](/builders/build/customize/prerequisites/){target=\_blank}.
+Você pode ler mais sobre como instalar os componentes necessários no [artigo de pré-requisitos](/pt/builders/build/customize/prerequisites/){target=\_blank}.
 
 Como este artigo é baseado no template EVM, certifique-se de que ele compile corretamente antes de continuar, executando o seguinte comando:
 
@@ -32,23 +32,23 @@ Como este artigo é baseado no template EVM, certifique-se de que ele compile co
 cargo build -p container-chain-frontier-node --release
 ```
 
-## Adicionando um Módulo Embutido ao Runtime {: #adicionando-um-módulo-embutido-ao-runtime }
+## Adicionando um Módulo Embutido ao Runtime {: #adding-builtin-module-to-runtime }
 
-Como introduzido no artigo de [modularidade](/learn/framework/modules/){target=\_blank}, o framework Substrate já inclui muitos módulos embutidos que abordam uma ampla gama de funcionalidades, prontos para serem usados em seu runtime.
+Como introduzido no artigo de [modularidade](/pt/learn/framework/modules/){target=\_blank}, o framework Substrate já inclui muitos módulos embutidos que abordam uma ampla gama de funcionalidades, prontos para serem usados em seu runtime.
 
 Os módulos são projetados para fornecer a funcionalidade necessária em casos de uso muito diferentes, como DeFi, NFTs ou qualquer outro, e, portanto, são blocos de construção básicos que são inerentemente abstratos e podem ser configurados de acordo com as necessidades específicas da rede com tecnologia Tanssi.
 
 Para adicionar um módulo, as seguintes etapas são necessárias:
 
 1. Tornar a dependência disponível dentro do projeto, declarando-a em [Cargo](https://doc.rust-lang.org/cargo){target=\_blank}, o gerenciador de pacotes da linguagem Rust
-1. Tornar os recursos padrão (`std`) do módulo disponíveis para o compilador
-1. Configurar o módulo
-1. Adicionar o módulo ao runtime
-1. Adicionar a configuração padrão à especificação da cadeia
+2. Tornar os recursos padrão (`std`) do módulo disponíveis para o compilador
+3. Configurar o módulo
+4. Adicionar o módulo ao runtime
+5. Adicionar a configuração padrão à especificação da cadeia
 
 No exemplo a seguir, o popular módulo Substrate `pallet-assets` é adicionado ao runtime do template EVM fornecido, encontrado no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank}, especificamente na pasta `container-chains/templates/frontier/`.
 
-### Declarar a Dependência {: #declarar-a-dependência }
+### Declarar a Dependência {: #declare-dependency }
 
 Cada pacote contém um arquivo de manifesto chamado `Cargo.toml` que declara, entre outras coisas, todas as dependências em que o pacote se baseia, e o runtime da rede com tecnologia Tanssi não é exceção.
 
@@ -66,9 +66,9 @@ pallet-assets = {
 ```
 
 !!! note
-Nossa equipe de engenharia contribui ativamente para o desenvolvimento do Substrate, corrigindo problemas e aprimorando funcionalidades. Como resultado, o repositório fork Tanssi frequentemente fica à frente do oficial. É por isso que este exemplo faz referência a um módulo embutido de um repositório Tanssi em vez do oficial.
+   Nossa equipe de engenharia contribui ativamente para o desenvolvimento do Substrate, corrigindo problemas e aprimorando funcionalidades. Como resultado, o repositório fork Tanssi frequentemente fica à frente do oficial. É por isso que este exemplo faz referência a um módulo embutido de um repositório Tanssi em vez do oficial.
 
-### Tornar os Recursos Padrão Disponíveis para o Compilador {: #tornar-os-recursos-padrão disponíveis-para-o-compilador }
+### Tornar os Recursos Padrão Disponíveis para o Compilador {: #standard-features }
 
 No Cargo, as flags de “recursos” fornecem um mecanismo para dizer ao compilador para incluir ou omitir determinadas partes do código, o que é um mecanismo útil para otimizar o tempo de compilação, minimizar os tamanhos dos arquivos binários ou desabilitar determinado comportamento (por exemplo, não incluir testes unitários ou funcionalidade de benchmarking no runtime pretendido para produção).
 
@@ -86,7 +86,7 @@ std = [
 ]
 ```
 
-### Configurar o Módulo {: #configurar-o-módulo }
+### Configurar o Módulo {:#configure-the-module }
 
 Com a dependência declarada no projeto, o módulo agora pode ser configurado e adicionado ao runtime. Para fazer isso, você precisa editar o arquivo `lib.rs` que está localizado em:
 
@@ -162,7 +162,7 @@ impl pallet_assets::Config for Runtime {
 
 A configuração completa do módulo contém mais parâmetros; para ver uma descrição detalhada de cada um deles, consulte o [trait de configuração oficial para a documentação do módulo Assets](https://paritytech.github.io/substrate/master/pallet_assets/pallet/trait.Config.html){target=\_blank}.
 
-### Adicionar o Módulo ao Runtime {: #adicionar-o-módulo-ao-runtime}
+### Adicionar o Módulo ao Runtime {:#add-module-to-runtime}
 
 In the same `lib.rs` file referenced in the previous section, there is a segment enclosed in the macro `construct_runtime!()`. This is where the pallet must be added to be included in the runtime. Since the example is based on the EVM template, the runtime is already configured to include many modules, including the modules for system support, the modules to add the Ethereum compatibility layer, the modules to support the Tanssi protocol, balances, and now also Assets:
       
@@ -189,7 +189,7 @@ construct_runtime!(
    }
 ```
 
-### Configurar o Módulo na Especificação da Cadeia {: #configurar-o-módulo-na-especificação-da-cadeia }
+### Configurar o Módulo na Especificação da Cadeia {: #configure-chain-specs }
 
 Finally, add the configuration in the chain specification for the genesis state in the file `chain_spec.rs` located at:
 
@@ -198,6 +198,8 @@ container-chains/templates/frontier/node/src/`chain_spec.rs`
 ```
 
 A função `testnet_genesis`, apresentada no seguinte trecho de código, define o estado inicial para os módulos incluídos no runtime (como contas financiadas inicialmente, por exemplo). Depois de adicionar o módulo Assets, é necessário inicializá-lo também e, no exemplo a seguir, seus valores padrão são definidos.
+
+Mais detalhes sobre a especificação da cadeia e como configurá-la serão abordados no artigo [Personalizando Especificações de Cadeia](/pt/builders/build/customize/customizing-chain-specs/){target=_blank}.
 
 ```rust hl_lines="14"
 

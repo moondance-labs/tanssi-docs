@@ -9,18 +9,18 @@ categories: Operadores
 
 ## Introdução {: #introduction }
 
-Como apresentado na [seção de integração](/node-operators/operators/onboarding/){target=\_blank}, registrar no Symbiotic é o segundo passo do processo. Você já deve ter o nó sincronizado e em execução, seja usando [Docker](/node-operators/operators/onboarding/run-an-operator/operators-docker/){target=\_blank} ou [Systemd](/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
+Como apresentado na [seção de integração](/pt/node-operators/operators/onboarding/){target=\_blank}, registrar no Symbiotic é o segundo passo do processo. Você já deve ter o nó sincronizado e em execução, seja usando [Docker](/pt/node-operators/operators/onboarding/run-an-operator/operators-docker/){target=\_blank} ou [Systemd](/pt/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
-O protocolo Tanssi fornece para suas appchains segurança de nível Ethereum desde o início, confiando em provedores de segurança externos, como [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. Para participar como operador no ecossistema Tanssi, você deve primeiro registrar seu nó no protocolo Symbiotic. O processo de registro estabelece seu nó como um operador reconhecido.
+O protocolo Tanssi fornece para suas appchains segurança de nível Ethereum desde o início, confiando em provedores de segurança externos, como [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}. Para participar como operador no ecossistema Tanssi, você deve primeiro registrar seu nó no protocolo Symbiotic. O processo de registro estabelece seu nó como um operador reconhecido.
 
 Este guia irá guiá-lo pelas etapas para registrar com sucesso seu nó como um operador Symbiotic, permitindo que você escolha entre vários métodos, incluindo o uso da CLI Symbiotic, interação direta com contratos inteligentes através do Etherscan ou a utilização do Safe para configurações multisig.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
-Antes de se registrar como operador, certifique-se de já ter [configurado o nó](/node-operators/operators/onboarding/run-an-operator/){target=\_blank} e que ele esteja em execução.
+Antes de se registrar como operador, certifique-se de já ter [configurado o nó](/pt/node-operators/operators/onboarding/run-an-operator/){target=\_blank} e que ele esteja em execução.
 
 Para seguir este guia, você deve interagir com contratos inteligentes.
---8\<-- 'text/node-operators/operators/onboarding/run-an-operator/prerequisites.md'
+--8<-- 'text/node-operators/pt/operators/onboarding/run-an-operator/pt/prerequisites.md'
 
 ## Registrar como Operador {: #registering-operator }
 
@@ -77,12 +77,11 @@ python3 symb.py --chain sepolia register-operator --private-key INSERT_PRIVATE_K
 ````
 
 !!! warning
-Observe que este método exige que você exponha sua chave privada; portanto, não é recomendado.
+	Observe que este método exige que você exponha sua chave privada; portanto, não é recomendado.
 
 ### Registrar usando o Etherscan {: #register-with-etherscan }
 
-Você pode interagir com os contratos inteligentes do Symbiotic usando o Etherscan e assinar a transação usando uma carteira de navegador ([MetaMask](/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, por exemplo).
-
+Você pode interagir com os contratos inteligentes do Symbiotic usando o Etherscan e assinar a transação usando uma carteira de navegador ([MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/#install-the-metamask-extension){target=\_blank}, por exemplo).
 Vá para a página do contrato, abrindo o link:
 
 === "MainNet"
@@ -102,7 +101,7 @@ Clique em **Conectar ao Web3** e selecione sua carteira preferida (por exemplo, 
 ![Conectar à etapa Web3](/images/node-operators/operators/onboarding/register-in-symbiotic/register-in-symbiotic-1.webp)
 
 !!! note
-Você pode configurar o MetaMask para usar uma carteira fria.
+	Você pode configurar o MetaMask para usar uma carteira fria.
 
 Depois de conectado:
 
@@ -225,6 +224,6 @@ Crie um fork deste repositório e, no diretório `operators`, crie um novo diret
 ```
 
 !!! note
-O parâmetro `links` é uma matriz. Adicione quantos links forem necessários.
+	O parâmetro `links` é uma matriz. Adicione quantos links forem necessários.
 
 Finalmente, abra um pull request. A equipe Symbiotic irá revisá-lo e mesclá-lo.

@@ -1,7 +1,7 @@
-title: Node Operators
+title: Operadores de Nós
 hide: false
 nav:
   - index.md
-  - network-node
-  - sequencers
-  - operators
+  - 'Executar um nó': network-node
+  - Sequenciadores: sequencers
+  - Operadores: operators

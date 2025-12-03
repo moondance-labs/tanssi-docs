@@ -1,0 +1,37 @@
+[
+  {
+    "title": "[Execute um nó operador](/pt/node-operators/operators/onboarding/run-an-operator/){target=_blank}",
+    "content": "Configure o nó usando Systemd ou Docker.",
+    "icon": ":fontawesome-solid-1:"
+  },
+  {
+    "title": "[Registre-se no Symbiotic](/pt/node-operators/operators/onboarding/register-in-symbiotic/){target=_blank}",
+    "content": "Adicione sua conta ao registro de operadores do Symbiotic, ponto central para identificar operadores no ecossistema Symbiotic.",
+    "icon": ":fontawesome-solid-2:"
+  },
+  {
+    "title": "[Habilite-se na rede Tanssi](/pt/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi){target=_blank}",
+    "content": "Adicione sua conta ao registro de operadores da rede Tanssi, que identifica quem participa do protocolo Tanssi.",
+    "icon": ":fontawesome-solid-3:"
+  },
+  {
+    "title": "[Habilite-se em um cofre compatível com Tanssi](/pt/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi-vaults){target=_blank}",
+    "content": "Adicione sua conta a um cofre compatível com Tanssi que gerencia e delega ativos em stake aos operadores.",
+    "icon": ":fontawesome-solid-4:"
+  },
+  {
+    "title": "[Preencha o formulário de inscrição](https://www.tanssi.network/node-operators-application){target=_blank}",
+    "content": "Candidate-se como operador. Como esta etapa não é totalmente automatizada, o processamento pode levar até uma semana.",
+    "icon": ":fontawesome-solid-5:"
+  },
+  {
+    "title": "[Configure sua conta](/pt/node-operators/operators/onboarding/account-setup/){target=_blank}",
+    "content": "Mapeie sua conta para o nó e comece a validar no protocolo Tanssi.",
+    "icon": ":fontawesome-solid-6:"
+  },
+  {
+    "title": "[Configure uma identidade on-chain](/pt/builders/account-management/identity/){target=_blank}",
+    "content": "Configure uma identidade para melhorar a visibilidade e o reconhecimento da conta Substrate do operador.",
+    "icon": ":fontawesome-solid-7:"
+  }
+]

@@ -13,7 +13,7 @@ categories: EVM-Template, Substrate-Template
 
 Este guia de início rápido mostrará como criar um projeto Squid e configurá-lo para indexar dados em uma rede alimentada por Tanssi. Há uma seção voltada para [redes Substrate](#index-substrate-networks) e outra para [redes EVM](#index-evm-networks). No entanto, se você estiver construindo em uma rede EVM, você também pode consultar a seção Substrate, se também precisar indexar dados Substrate.
 
-Para um tutorial mais abrangente de ponta a ponta para redes EVM, certifique-se de verificar o tutorial [Indexando Transferências ERC-20 em uma Rede EVM Tanssi](/builders/toolkit/integrations/indexers/sqd/erc20-transfers/){target=\_blank}.
+Para um tutorial mais abrangente de ponta a ponta para redes EVM, certifique-se de verificar o tutorial [Indexando Transferências ERC-20 em uma Rede EVM Tanssi](/pt/builders/toolkit/integrations/indexers/sqd/erc20-transfers/){target=\_blank}.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
@@ -176,6 +176,6 @@ Para começar a indexar dados EVM em uma rede EVM alimentada por Tanssi, você p
 
 E é tudo o que você precisa fazer para configurar seu projeto Squid para indexar dados EVM em sua rede EVM alimentada por Tanssi! Agora você pode atualizar os arquivos `schema.graphql`, `src/main.ts` e `src/processor.ts` para indexar os dados de que você precisa para seu projeto!
 
-Se você estiver interessado em um tutorial mais abrangente passo a passo para começar a indexar dados para sua rede Tanssi, você pode consultar o tutorial [Indexando Transferências ERC-20 em uma Rede EVM Tanssi](/builders/toolkit/integrations/indexers/sqd/erc20-transfers/){target=\_blank}!
+Se você estiver interessado em um tutorial mais abrangente passo a passo para começar a indexar dados para sua rede Tanssi, você pode consultar o tutorial [Indexando Transferências ERC-20 em uma Rede EVM Tanssi](/pt/builders/toolkit/integrations/indexers/sqd/erc20-transfers/){target=\_blank}!
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.pt.md'

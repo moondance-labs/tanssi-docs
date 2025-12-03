@@ -1,13 +1,13 @@
 ---
-title: Set Up and Manage Proxy Accounts
-description: Follow these step-by-step instructions to learn how proxies work and how to create, view, update, and remove proxy accounts from primary (proxied) accounts.
+title: Configurar e Gerenciar Contas de Proxy
+description: Siga estas instruções passo a passo para entender como as proxies funcionam e como criar, visualizar, atualizar e remover contas de proxy a partir das contas primárias (proxiadas).
 icon: octicons-shield-lock-24
 categories: Basics, Appchain
 ---
 
 # Contas Proxy
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
 As contas proxy podem ser configuradas para executar um número limitado de ações em nome das contas primárias e são úteis para manter as contas subjacentes seguras. Sua conta proxy pode atuar como uma "carteira quente" para interagir com a rede em nome de sua conta de "carteira fria". Para maior segurança, você pode rotacionar regularmente a conta proxy.
 
@@ -15,17 +15,17 @@ As contas proxy também podem ajudá-lo a implementar o princípio do privilégi
 
 Este tutorial o guiará pela configuração de uma conta proxy no Dancelight, o Tanssi TestNet, especificamente para transferências de saldo. Em seguida, demonstrará como realizar uma transferência de saldo usando o proxy recém-criado.
 
-## Verificando os Pré-requisitos {: #verificando os pré-requisitos}
+## Verificando os Pré-requisitos {: #verifying-prerequisites }
 
 Para acompanhar este tutorial, você precisará ter:
 
-- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} aberto e conectado ao [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+- [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} aberto e conectado ao [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
 - Crie ou tenha duas contas acessíveis no portal do desenvolvedor.
 - Pelo menos uma das contas precisará ser financiada com tokens `{{ networks.dancelight.token_symbol }}`.
 
-Se precisar de ajuda para importar suas contas para o Polkadot.js Apps, consulte o guia [Conectando-se ao Polkadot.js](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank}.
+Se precisar de ajuda para importar suas contas para o Polkadot.js Apps, consulte o guia [Conectando-se ao Polkadot.js](/pt/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank}.
 
-## Definições Gerais {: #definições gerais }
+## Definições Gerais {: #general-definitions }
 
 Ao configurar uma conta proxy, uma garantia para o proxy é retirada de seu saldo livre e movida para seu saldo reservado. A garantia é necessária, pois a adição de um proxy requer espaço de armazenamento na cadeia e é recalculada para cada proxy que você adiciona ou remove. A garantia é devolvida ao seu saldo livre após a remoção de todos os proxies da sua conta.
 
@@ -56,7 +56,7 @@ Você pode encontrar cada uma das variáveis relevantes abaixo.
     | Fator de depósito | {{ networks.dancelight.proxy.deposit_factor }} {{ networks.dancelight.token_symbol }} |
     |  Máx. de proxies   |                  {{ networks.dancelight.proxy.max_proxies }} proxies                   |
 
-## Tipos de Proxy {: #tipos de proxy }
+## Tipos de Proxy {:  #proxy-types }
 
 Ao criar uma conta proxy, você deve escolher um tipo de proxy que definirá como o proxy pode ser usado. As opções disponíveis são:
 
@@ -72,7 +72,7 @@ Ao criar uma conta proxy, você deve escolher um tipo de proxy que definirá com
 
 Para este guia, você configurará uma conta proxy usando o tipo de proxy de saldos. Como este tipo permite que o proxy gaste fundos em nome da conta primária, você deve ter cuidado e fornecer acesso apenas a contas em que confia. O proxy terá acesso para transferir todos os fundos dentro da conta primária e, se não for confiável, o proxy poderá drenar a conta primária. Certifique-se de manter a supervisão de suas contas proxy e remover todos os proxies que não forem mais necessários.
 
-## Criando uma Conta Proxy {: #criando uma conta proxy  }
+## Criando uma Conta Proxy {: #creating-a-proxy-account   }
 
 Há algumas maneiras de criar contas proxy no [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}, seja na página **Extrinsics** ou na página **Accounts**. No entanto, para criar um proxy com atraso de tempo, você precisará usar a página **Extrinsics**. Um atraso de tempo fornece uma camada adicional de segurança para proxies, especificando um período de atraso com base no número de blocos. Isso impedirá que a conta proxy execute uma transação até o final do período de atraso. O atraso permite tempo para a conta primária que controla o proxy revisar as transações pendentes, possivelmente para ações maliciosas, e cancelar, se necessário, antes da execução.
 
@@ -117,7 +117,7 @@ Em seguida, siga as seguintes etapas:
 
 Na próxima seção, você aprenderá como verificar se sua conta proxy foi configurada com sucesso.
 
-## Verificando sua Conta Proxy {: #verificando-sua-conta-proxy }
+## Verificando sua Conta Proxy {: #verifying-your-proxy-account }
 
 Você pode verificar se sua conta proxy foi configurada com sucesso de algumas maneiras: na página **Accounts** ou na página **Chain state**.
 
@@ -168,7 +168,7 @@ Se a transação for bem-sucedida, você deverá ver alguns pop-ups de notifica�
 
 É isso! Você executou com sucesso uma transação usando uma conta proxy em nome de sua conta primária.
 
-## Removendo uma Conta Proxy {: #removendo-uma-conta-proxy }
+## Removendo uma Conta Proxy {: #removing-a-proxy-account }
 
 Semelhante à adição de uma conta proxy, há algumas maneiras de remover uma conta proxy, seja na página **Extrinsics** ou na página **Accounts**. Independentemente de qual página você usar, você pode optar por remover uma única conta proxy ou todos os proxies associados à sua conta primária.
 
@@ -210,4 +210,4 @@ Na tela de confirmação da transação, siga as seguintes etapas:
 
 Depois que a transação for enviada com sucesso, você pode revisar seus proxies atuais ou, se removeu todos os proxies, notará que o ícone do proxy não está mais sendo exibido ao lado da conta primária. E é isso! Você criou com sucesso um proxy, revisou todas as contas proxy associadas à sua conta primária, executou uma transação proxy e removeu uma conta proxy!
 
---8<-- 'text/_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.pt.md'

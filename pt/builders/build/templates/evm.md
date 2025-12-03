@@ -1,13 +1,13 @@
 ---
-title: Baseline EVM Template
+title: Modelo EVM Base
 description: O repositório Tanssi inclui um modelo EVM que fornece todas as configurações necessárias para lançar uma rede totalmente compatível com o Ethereum.
 icon: material-ethereum
 categories: EVM-Template
 ---
 
-# Baseline EVM Template {: #baseline-evm-template }
+# Modelo EVM Base {: #baseline-evm-template }
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
 O modelo de rede EVM (Ethereum Virtual Machine) da Tanssi foi projetado para equipes que desenvolvem suas aplicações em cima de contratos inteligentes EVM. Ele inclui todos os componentes essenciais necessários para uma rede totalmente compatível com o Ethereum:
 
@@ -21,17 +21,17 @@ O modelo já inclui a configuração necessária para integração perfeita com 
 
 Isso significa que este modelo está pronto para ser implantado como está através da Tanssi, desbloqueando muitos recursos, como:
 
-- Utilizar a [produção de blocos como serviço](pt/learn/tanssi/network-services/block-production/){target=\_blank} da Tanssi
+- Utilizar a [produção de blocos como serviço](/pt/learn/tanssi/network-services/block-production/){target=\_blank} da Tanssi
 - Obter finalidade de transação determinística em segundos
 - Escolher o provedor de segurança que melhor se adapta às suas necessidades. Por exemplo, aproveitar a segurança de nível Ethereum do [Symbiotic](https://symbiotic.fi/){target=\_blank}
-- Construir dApps interagindo com sua rede através de uma [API](pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}
-- Conectar qualquer carteira Ethereum, como [Metamask](pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} e Ledger
-- Usar bibliotecas Ethereum bem conhecidas como [Ethers.js](pt/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](pt/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, [Web3.py](pt/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, e mais
+- Construir dApps interagindo com sua rede através de uma [API](/pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}
+- Conectar qualquer carteira Ethereum, como [Metamask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} e Ledger
+- Usar bibliotecas Ethereum bem conhecidas como [Ethers.js](/pt/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](pt/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, [Web3.py](/pt/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, e mais
 - Implantar contratos inteligentes EVM com ferramentas como [Remix](https://remix.ethereum.org){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, e mais
 
-## Módulos Incluídos {: #módulos-incluídos }
+## Módulos Incluídos {: #included-modules }
 
-Alem dos módulos e configurações que tornam o modelo de rede Tanssi EVM compatível com o protocolo Tanssi, ele também inclui [muitos módulos](pt/builders/build/templates/overview/#included-modules){target=\_blank} para fornecer funcionalidades básicas.
+Alem dos módulos e configurações que tornam o modelo de rede Tanssi EVM compatível com o protocolo Tanssi, ele também inclui [muitos módulos](/pt/builders/build/templates/overview/#included-modules){target=\_blank} para fornecer funcionalidades básicas.
 
 Para atingir a compatibilidade total com o Ethereum, esses módulos específicos também estão incluídos:
 

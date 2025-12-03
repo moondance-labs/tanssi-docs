@@ -5,18 +5,18 @@ icon: octicons-link-24
 categories: Appchain
 ---
 
-# Customizando as Especificações da Cadeia {: #customizando-as-especificações-da-cadeia }
+# Customizando as Especificações da Cadeia {: #customizing-chain-specifications }
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
 A especificação da cadeia refere-se a um conjunto de parâmetros e configurações que definem as características e o comportamento de uma nova rede com tecnologia Tanssi. Ela define as configurações e o estado iniciais sobre os quais todos os nós participantes da rede devem concordar para alcançar o consenso e produzir blocos. Muitas configurações iniciais não podem ser alteradas após o lançamento da rede sem gerar uma cadeia completamente diferente.
 
 A especificação contém duas seções principais:
 
-- **A especificação do cliente** - inclui os parâmetros de rede, por exemplo, os nós de inicialização com os quais o cliente se conecta ao ingressar na rede
-- **O estado da gênese** - representa o estado inicial em que todas as transações e transições de estado ocorrem. Inclui detalhes como as contas registradas iniciais e seus saldos, bem como a conta com privilégios de administrador (sudo, se aplicável), entre outras informações relevantes
+- **The client specification** - inclui os parâmetros de rede, por exemplo, os nós de inicialização com os quais o cliente se conecta ao ingressar na rede
+- **The client specification** - representa o estado inicial em que todas as transações e transições de estado ocorrem. Inclui detalhes como as contas registradas iniciais e seus saldos, bem como a conta com privilégios de administrador (sudo, se aplicável), entre outras informações relevantes
 
-Essas informações que a especificação da cadeia contém podem ser armazenadas em um arquivo Rust (que pode ser encontrado nos [templates](pt/builders/build/templates/overview/){target=\_blank} incluídos no repositório Tanssi) ou em um arquivo JSON.
+Essas informações que a especificação da cadeia contém podem ser armazenadas em um arquivo Rust (que pode ser encontrado nos [templates](/pt/builders/build/templates/overview/){target=\_blank} incluídos no repositório Tanssi) ou em um arquivo JSON.
 
 Este artigo aborda as seções e atributos dentro de um arquivo de especificação de cadeia e explica como obtê-lo, caso você queira lançar sua rede Tanssi carregando um arquivo de especificações personalizadas.
 
@@ -25,30 +25,30 @@ Este artigo aborda as seções e atributos dentro de um arquivo de especificaç�
 
     Esses atributos não significam que uma rede com tecnologia Tanssi é uma parachain Polkadot. Tanssi é um protocolo de infraestrutura de appchain independente, construído com Substrate e alinhado com a segurança apoiada pelo Ethereum. Você pode encontrar termos relacionados ao Polkadot em arquivos de configuração por causa das origens compartilhadas do Substrate, mas as appchains com tecnologia Tanssi não exigem slots Polkadot ou mecânica de cadeia de retransmissão.
 
-## A Especificação do Cliente {: #a-especificação-do-cliente }
+## A Especificação do Cliente {: #client-specification }
 
 A especificação do cliente contém a configuração da rede e outras configurações (excluindo as relacionadas ao estado do tempo de execução):
 
-- **Nome** - nome para as especificações
+- **Name** - nome para as especificações
 - **Id** - um ID simples exclusivo para a rede usado para definir o caminho de armazenamento no nó
-- **ID da Fork** - parâmetro opcional para um identificador de fork de rede
-- **Tipo de Cadeia** - um parâmetro que pode ser definido para definir o tipo de cadeia e exibir informações adicionais ou habilitar recursos adicionais (pode ser definido como Desenvolvimento, Local, Live ou um tipo personalizado)
-- **Nós de Inicialização** - conjunto de nós de inicialização que serão usados ​​quando o novo nó entrar na rede e sincronizar
-- **Endpoints de Telemetria** - uma lista opcional de endpoints para enviar informações e monitorar a operação da rede
-- **ID do Protocolo** - um nome exclusivo que define o protocolo de rede
-- **Cadeia de Retransmissão** - define a ID da cadeia de orquestração com a qual a rede Tanssi interage
-- **ID da Parachain** - define uma ID exclusiva que identifica a rede Tanssi
-- **Substituições de Código** - um recurso de emergência para substituir o tempo de execução quando uma rede Tanssi não consegue executar uma atualização de tempo de execução
-- **Propriedades** - propriedades chave-valor que podem ser personalizadas e são úteis para melhorar a experiência do usuário
+- **Fork ID** - parâmetro opcional para um identificador de fork de rede
+- **Chain type** - um parâmetro que pode ser definido para definir o tipo de cadeia e exibir informações adicionais ou habilitar recursos adicionais (pode ser definido como Desenvolvimento, Local, Live ou um tipo personalizado)
+- **Boot Nodes** - conjunto de nós de inicialização que serão usados ​​quando o novo nó entrar na rede e sincronizar
+- **Telemetry Endpoints** - uma lista opcional de endpoints para enviar informações e monitorar a operação da rede
+- **Protocol ID** - um nome exclusivo que define o protocolo de rede
+- **Relay Chain** - define a ID da cadeia de orquestração com a qual a rede Tanssi interage
+- **Parachain ID** - define uma ID exclusiva que identifica a rede Tanssi
+- **Code Substitutes** - um recurso de emergência para substituir o tempo de execução quando uma rede Tanssi não consegue executar uma atualização de tempo de execução
+- **Properties** - propriedades chave-valor que podem ser personalizadas e são úteis para melhorar a experiência do usuário
 
-No atributo `properties`, as seguintes configurações são usadas por várias bibliotecas front-end, incluindo a [API Polkadot.js](pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
+No atributo `properties`, as seguintes configurações são usadas por várias bibliotecas front-end, incluindo a [API Polkadot.js](/pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
 
 - **Símbolo do Token** - um nome para o símbolo do token da sua própria rede Tanssi
 - **Formato SS58** - um inteiro que identifica exclusivamente as contas em sua rede. A [codificação SS58](https://docs.polkadot.com/polkadot-protocol/parachain-basics/accounts/#address-formats){target=\_blank} transforma a conta subjacente de 32 bytes em uma representação específica da rede. Este atributo não se aplica nem interfere nas contas Ethereum ECDSA em redes compatíveis com EVM
 - **Decimais do Token** - representam o quão divisível um token pode ser e qual é a menor representação do token. Ele é definido como `18` para redes compatíveis com EVM
 - **É Ethereum** - um booleano que identifica a rede como compatível com EVM ou não
 
-## O Estado da Gênese {: #O-estado-da-gênese }
+## O Estado da Gênese {: #genesis-state }
 
 Todos os sequenciadores atribuídos à rede Tanssi devem concordar com o estado inicial para que possam executar as extrínsecas de entrada, chegar aos mesmos resultados e, finalmente, chegar a um consenso sobre o novo estado válido.
 
@@ -56,7 +56,7 @@ Este estado da gênese definirá o ponto de partida da rede Tanssi. Ele inclui u
 
 Por exemplo, nos modelos incluídos, a especificação da cadeia define as contas iniciais e os saldos de tokens no módulo `Balances`. Além disso, o template também tem uma conta sudo (que **deve ser modificado**) para o módulo `Sudo`, que fornece privilégios exclusivos à conta fornecida, e que pode ser removido assim que um módulo de democracia na cadeia for conectado.
 
-## Gerando um Arquivo de Especificação de Cadeia JSON {: #gerando-um-arquivo-de-especificação-de-cadeia-JSON}
+## Gerando um Arquivo de Especificação de Cadeia JSON {: #generating-json-chain-specs}
 
 Os seguintes comandos construirão e gerarão a especificação da cadeia para o modelo compatível com EVM com base na configuração expressa em `chain_spec.rs`, localizado em `*/container-chains/templates/frontier/node/src/chain_spec.rs`. Este exemplo pode ser adaptado a qualquer outro modelo ou tempo de execução personalizado.
 
@@ -100,7 +100,7 @@ E agora o arquivo `chain_spec.json` contendo a especificação do cliente e o es
 !!! note
     As especificações da cadeia JSON podem ser geradas em duas versões diferentes: a legível por humanos, que é a gerada seguindo as etapas anteriores, e a versão bruta, que é a necessária para implantar a rede por meio do Tanssi. Mais sobre como gerar a versão bruta [posteriormente](#generating-raw-specs-file) neste artigo.
 
-### Editando o arquivo de especificação da cadeia JSON {: #editando-o-arquivo-de-especificação-da-cadeia-JSON }
+### Editando o arquivo de especificação da cadeia JSON {: #editing-json-chain-specs }
 
 O arquivo `chain_spec.json` gerado reflete os parâmetros definidos no arquivo de especificações da cadeia Rust. Sendo um arquivo JSON, é fácil de ler e, caso algum parâmetro precise ser alterado, fácil de editar.
 
@@ -206,11 +206,11 @@ A outra seção importante do arquivo está dentro do atributo `genesis`, que co
 
 Um exemplo de um atributo não editável manualmente é o tempo de execução Wasm (na seção de estado da gênese), que é uma representação hexadecimal de um blob binário gerado pelo compilador. Ainda assim, além disso, a maioria das propriedades são fáceis de editar antes de iniciar a rede.
 
-## Gerando um arquivo de especificação de cadeia JSON bruto {: #Gerando-um-arquivo-de especificação-de-cadeia-JSON-bruto }
+## Gerando um arquivo de especificação de cadeia JSON bruto {: #generating-raw-specs-file }
 
 Uma etapa final antes de implantar a rede Tanssi é converter o arquivo de especificação JSON em um formato bruto, que é uma versão compacta e menos legível do mesmo arquivo, necessária para inicializar um nó.
 
-Depois de passar pelas [etapas para gerar o arquivo de especificação da cadeia JSON](#gerando-um-arquivo-de-especificação-de-cadeia-JSON) e editar seus valores, o seguinte comando converterá o arquivo de especificações da cadeia no formato bruto necessário:
+Depois de passar pelas [etapas para gerar o arquivo de especificação da cadeia JSON](#generating-json-chain-specs) e editar seus valores, o seguinte comando converterá o arquivo de especificações da cadeia no formato bruto necessário:
 
 ```bash
 ./target/release/container-chain-frontier-node \

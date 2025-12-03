@@ -18,10 +18,10 @@ Neste guia, você aprenderá como usar o Sudo para atualizar o runtime da sua ap
 Para o exemplo neste guia, você precisará ter o seguinte:
 
 - Uma appchain com tecnologia Tanssi (Quick Trial, Dedicated ou MainNet).
-- A conta Sudo da sua appchain conectada ao portal do desenvolvedor da sua appchain. Você pode consultar o [guia de Gerenciamento do Sudo](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar a sua conta Sudo no portal do desenvolvedor.
-- O novo ficheiro binário de [runtime Wasm](/learn/framework/architecture/#runtime){target=\_blank}, compilado com uma versão superior à atual.
+- A conta Sudo da sua appchain conectada ao portal do desenvolvedor da sua appchain. Você pode consultar o [guia de Gerenciamento do Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar a sua conta Sudo no portal do desenvolvedor.
+- O novo ficheiro binário de [runtime Wasm](/pt/learn/framework/architecture/#runtime){target=\_blank}, compilado com uma versão superior à atual.
 
---8\<-- 'text/builders/manage/locate-sudo-account.md'
+--8<-- 'text/builders/manage/pt/locate-sudo-account.md'
 
 ## Obtendo o Runtime Wasm {: #obtaining-wasm-runtime }
 
@@ -48,10 +48,10 @@ Se a sua cadeia for baseada em um dos modelos oficiais, você pode baixar o arqu
 Você deve sempre atualizar o tempo de execução seguindo as versões de forma ordenada, aplicando uma versão após a outra sem pular nenhuma delas. Para isso, você precisa saber a versão atual do tempo de execução da sua appchain, que você encontrará no seu [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} na seção **Propriedades**. Por exemplo, se a versão do seu tempo de execução for `1000`, você deverá atualizar primeiro para `1100`, depois para `1201`, depois para `1300` e assim por diante até a versão mais recente disponível.
 
 !!! warning
-Aplicar as atualizações em ordem garante que as alterações (migrações) nas estruturas de dados internas sejam aplicadas, preservando a consistência dos dados. Caso contrário, pode **paralisar** sua appchain.
+    Aplicar as atualizações em ordem garante que as alterações (migrações) nas estruturas de dados internas sejam aplicadas, preservando a consistência dos dados. Caso contrário, pode **paralisar** sua appchain.
 
 !!! note
-Se estiver compilando o tempo de execução manualmente, certifique-se de usar a versão Wasm `compact` e `compressed`, que é otimizada e mais leve.
+    Se estiver compilando o tempo de execução manualmente, certifique-se de usar a versão Wasm `compact` e `compressed`, que é otimizada e mais leve.
 
 ## Atualizando Seu Runtime {: #upgrading-your-runtime }
 
@@ -60,24 +60,23 @@ Para começar, acesse o portal do desenvolvedor da sua appchain Tanssi, que pode
 ![Localizar seu Link do Portal do Desenvolvedor em apps.tanssi.network](/images/builders/manage/developer-portal/upgrade/upgrade-1.webp)
 
 !!! warning
-Se a sua appchain foi implantada usando um modelo oficial e a atualização pretendida é um runtime personalizado, certifique-se de ter alterado o nome padrão da especificação (*frontier-template* ou *container-chain-template*) para um diferente antes de construir o arquivo Wasm. Você também precisará executar a extrínseca `setCodeWithoutChecks` em vez de `setCode`.
+    Se a sua appchain foi implantada usando um modelo oficial e a atualização pretendida é um runtime personalizado, certifique-se de ter alterado o nome padrão da especificação (*frontier-template* ou *container-chain-template*) para um diferente antes de construir o arquivo Wasm. Você também precisará executar a extrínseca `setCodeWithoutChecks` em vez de `setCode`.
 
-Com o seu [tempo de execução Wasm](/learn/framework/architecture/#runtime){target=\_blank} pronto para ser carregado e a sua [conta Sudo acessível no portal do desenvolvedor](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}, siga as seguintes etapas:
+Com o seu [tempo de execução Wasm](/learn/framework/architecture/#runtime){target=\_blank} pronto para ser carregado e a sua [conta Sudo acessível no portal do desenvolvedor](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}, siga as seguintes etapas:
 
 1. Navegue até a aba **Desenvolvedor** do portal do desenvolvedor da sua appchain Tanssi.
-1. Clique em **Sudo**. Se você não vir **Sudo** neste menu, é porque você não associou a conta Sudo ao portal do desenvolvedor. Certifique-se de que a sua [conta Sudo está injetada pela sua carteira e conectada ao portal do desenvolvedor](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}.
-1. Selecione o pallet **system**.
-1. Selecione **setCode**.
-1. Alterne a chave **fileUpload** para habilitar o upload do seu arquivo de runtime Wasm.
-1. Faça o upload do seu runtime Wasm.
-1. Pressione **Enviar Sudo** e confirme a transação na sua carteira.
-
+2. Clique em **Sudo**. Se você não vir **Sudo** neste menu, é porque você não associou a conta Sudo ao portal do desenvolvedor. Certifique-se de que a sua [conta Sudo está injetada pela sua carteira e conectada ao portal do desenvolvedor](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}.
+3. Selecione o pallet **system**.
+4. Selecione **setCode**.
+5. Alterne a chave **fileUpload** para habilitar o upload do seu arquivo de runtime Wasm.
+6. Faça o upload do seu runtime Wasm.
+7. Pressione **Enviar Sudo** e confirme a transação na sua carteira.
 ![Atualizando seu Runtime no Portal do Desenvolvedor](/images/builders/manage/developer-portal/upgrade/upgrade-2.webp)
 
 Você pode verificar se a atualização do seu runtime foi bem-sucedida verificando a versão do runtime no canto superior esquerdo. Nesse caso, você pode ver que o runtime da appchain com tecnologia Tanssi foi atualizado com sucesso para a versão `400`.
 
 ![Verificar a versão do Runtime no Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-3.webp)
 
-E é isso! A seção [portal do desenvolvedor](/builders/manage/developer-portal/) tem muitos outros guias sobre como gerenciar sua appchain Tanssi.
+E é isso! A seção [portal do desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos outros guias sobre como gerenciar sua appchain Tanssi.
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.pt.md'

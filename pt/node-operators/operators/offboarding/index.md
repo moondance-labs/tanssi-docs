@@ -9,10 +9,10 @@ template: index-page.html
 
 Deixar de ser um operador requer seguir os procedimentos adequados para garantir uma transição tranquila. Esta seção fornece instruções claras sobre como desativar seu operador da rede Tanssi.
 
-\[timeline left (tanssi-docs/.snippets/text/node-operators/operators/offboarding/offboarding-timeline.json)\]
+[timeline left (tanssi-docs/.snippets/text/node-operators/pt/operators/offboarding/pt/offboarding-timeline.json)]
 
 !!! tip "Retornando como Operador"
-Se você decidir retornar como um validador Tanssi no futuro, poderá facilmente se cadastrar novamente seguindo as etapas descritas no guia [Onboarding](/node-operators/operators/onboarding/).
+    Se você decidir retornar como um validador Tanssi no futuro, poderá facilmente se cadastrar novamente seguindo as etapas descritas no guia [Onboarding](/pt/node-operators/operators/onboarding/).
 
 ## Explore esta seção
 

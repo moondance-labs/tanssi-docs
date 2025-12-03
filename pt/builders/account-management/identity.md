@@ -7,15 +7,15 @@ categories: Basics, Appchain
 
 # Configurar uma Identidade On-Chain
 
-## Introdução {: #Introdução }
+## Introdução {: #introduction }
 
-O [Substrate](/learn/framework/overview/#substrate-framework){target=\_blank} Identity [module](/learn/framework/modules/){target=\_blank} é uma solução pronta para uso para adicionar informações pessoais à sua conta on-chain. O estabelecimento de uma identidade torna mais fácil para sua conta ser reconhecida por outros, pois seu nome de exibição preencherá automaticamente quando alguém colar seu endereço em um campo no \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank}.
+O [Substrate](/pt/learn/framework/overview/#substrate-framework){target=\_blank} Identity [module](/pt/learn/framework/modules/){target=\_blank} é uma solução pronta para uso para adicionar informações pessoais à sua conta on-chain. O estabelecimento de uma identidade torna mais fácil para sua conta ser reconhecida por outros, pois seu nome de exibição preencherá automaticamente quando alguém colar seu endereço em um campo no \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank}.
 
 A identidade que você configura vai além de um simples nome de exibição. As informações pessoais podem incluir campos padrão, como seu nome legal, nome de exibição, site, identificador do Twitter, Discord e nome do Riot (agora conhecido como Element). Você também pode usar campos personalizados para incluir quaisquer outras informações relevantes.
 
 Este guia demonstrará como configurar uma identidade com um nome de exibição e parâmetros adicionais, aprimorando sua visibilidade e reconhecimento.
 
-## Definições Gerais {: #Definições Gerais }
+## Definições Gerais {: #general-definitions }
 
 Para armazenar suas informações on-chain, você deve vincular alguns fundos, que, eventualmente, serão devolvidos assim que a identidade for limpa. Existem duas categorias de campos: padrão e personalizado. Uma quantia básica de depósito é reservada após a criação da identidade e um depósito de armazenamento é necessário para cada byte adicional de dados armazenados on-chain.
 
@@ -47,7 +47,7 @@ Para armazenar suas informações on-chain, você deve vincular alguns fundos, q
 |    Subcontas máx.    |   Número máximo de subcontas que podem ser definidas sob uma identidade de conta    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
 ```
 
-## Verificando os Pré-requisitos { : #Verificando os Pré-requisitos }
+## Verificando os Pré-requisitos { : #checking-prerequisites }
 
 Para acompanhar este guia, você precisará do seguinte:
 
@@ -65,22 +65,21 @@ Para acompanhar este guia, você precisará do seguinte:
 - Pelo menos uma conta financiada com tokens `{{ networks.dancelight.token_symbol }}`.
 ```
 
-Se precisar de ajuda para importar suas contas para o portal do desenvolvedor, consulte o guia [Conectando-se ao portal do desenvolvedor](/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank}.
+Se precisar de ajuda para importar suas contas para o portal do desenvolvedor, consulte o guia [Conectando-se ao portal do desenvolvedor](/pt/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank}.
 
-## Comece {: #Comece }
+## Comece {: #get-started }
 
 Dependendo das informações a serem incluídas, existem algumas maneiras diferentes de definir e limpar uma identidade usando o portal do desenvolvedor. Se você pretende registrar sua identidade usando apenas os campos padrão, pode seguir as instruções da página [Gerenciando uma Identidade via Contas](#manage-via-accounts). **Esta é a maneira recomendada de definir e gerenciar sua identidade**.
 
 Se você deseja adicionar campos personalizados além dos campos padrão, siga as instruções para a página [Gerenciando uma Identidade via Extrinsics](#manage-via-extrinsics).
 
 !!! note
-Observe que o uso da página **Contas** no portal do desenvolvedor é recomendado para gerenciar sua identidade, pois ela fornece uma interface fácil de usar que impõe limites de caracteres. Se você usar a página **Extrinsics**, esteja ciente de que sua entrada para cada campo (ou seja, nome, e-mail, etc.) deve ter 32 caracteres ou menos; caso contrário, suas informações serão cortadas.
+    Observe que o uso da página **Contas** no portal do desenvolvedor é recomendado para gerenciar sua identidade, pois ela fornece uma interface fácil de usar que impõe limites de caracteres. Se você usar a página **Extrinsics**, esteja ciente de que sua entrada para cada campo (ou seja, nome, e-mail, etc.) deve ter 32 caracteres ou menos; caso contrário, suas informações serão cortadas.
 
-## Gerenciar uma Identidade via Contas {: #Gerenciar uma Identidade via Contas }
+## Gerenciar uma Identidade via Contas {: #manage-via-accounts }
 
-### Definir uma Identidade {: #Definir uma Identidade via Contas }
-
-Para começar a definir uma identidade usando a página Contas, vá para a guia \[**Contas**\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} do portal do desenvolvedor.
+### Definir uma Identidade {: #set-identity-via-accounts }
+Para começar a definir uma identidade usando a página Contas, vá para a guia [**Contas**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} do portal do desenvolvedor.
 
 Você já deve ter uma conta conectada, então você pode clicar no nome da sua conta para verificar e observar seus saldos. Depois de enviar a transação para definir uma identidade, os depósitos que você enviou serão movidos do seu saldo transferível para seu saldo reservado.
 
@@ -89,17 +88,17 @@ Você já deve ter uma conta conectada, então você pode clicar no nome da sua 
 Para definir sua identidade, você precisará:
 
 1. Clique nos três pontos verticais ao lado da conta para a qual deseja definir uma identidade
-1. Um menu aparecerá. Clique em **Definir identidade on-chain**
+2. Um menu aparecerá. Clique em **Set on-chain identity**
 
 ![Definir identidade on-chain](/images/builders/account-management/identity/identity-2.webp)
 
 Em seguida, o menu para registrar e definir sua identidade aparecerá e você poderá começar a preencher suas informações. Você não é obrigado a inserir informações para todos os campos; você pode escolher preencher apenas um campo ou todos eles; a escolha é sua. Para este exemplo:
 
 1. Defina seu nome de exibição
-1. Clique no botão **incluir campo** para e-mail e depois insira seu e-mail
-1. Clique no botão **incluir campo** para web e depois insira a URL do seu site
-1. Clique no botão **incluir campo** para Twitter e depois insira seu identificador do Twitter
-1. Reveja os campos de dados anteriores e clique em **Definir identidade**
+2. Clique no botão **include field** para e-mail e depois insira seu e-mail
+3. Clique no botão **include field** para web e depois insira a URL do seu site
+4. Clique no botão **include field** para Twitter e depois insira seu identificador do Twitter
+5. Reveja os campos de dados anteriores e clique em **Set Identity**
 
 ![Definir sua identidade](/images/builders/account-management/identity/identity-3.webp)
 
@@ -113,53 +112,52 @@ Se as informações de identidade corresponderem ao que você inseriu, você def
 
 Depois de limpar sua identidade, o depósito em seu saldo reservado será transferido de volta para seu saldo transferível. Se você precisar alterar sua identidade, pode passar pelo processo de configuração da sua identidade novamente. Observe que você deve garantir que todos os campos sejam reinseridos, mesmo que apenas um campo precise ser alterado, ou eles serão substituídos. Você não precisará pagar outro depósito, a menos que campos personalizados sejam usados, mas precisará pagar taxas de gás.
 
-## Gerenciar uma Identidade via Extrinsics {: #Gerenciar uma Identidade via Extrinsics}
+## Gerenciar uma Identidade via Extrinsics {: #manage-via-extrinsics}
 
-### Definir uma Identidade {: #Definir uma Identidade via Extrinsics }
+### Definir uma Identidade {:#set-identity-extrinsics }
 
-Para registrar uma identidade usando a página de extrínsecos, navegue até a página \[**Extrinsics**\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/extrinsics){target=\_blank} do portal do desenvolvedor. Certifique-se de que sua entrada não exceda 32 caracteres para cada campo de identidade. Para concluir sua identidade, siga as etapas a seguir:
+Para registrar uma identidade usando a página de extrínsecos, navegue até a página [**Extrinsics**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/extrinsics){target=\_blank} do portal do desenvolvedor. Certifique-se de que sua entrada não exceda 32 caracteres para cada campo de identidade. Para concluir sua identidade, siga as etapas a seguir:
 
 1. Selecione sua conta
-1. Selecione identidade no menu suspenso **enviar o seguinte extrínseco**
-1. Em seguida, selecione a função **setIdentity(info)**
-1. Selecione **Raw** como o formato de dados para inserir seu **Nome de Exibição**
-1. Insira os dados para **Exibição** no formato selecionado
-1. Selecione **Raw** como o formato de dados para inserir seu endereço da web
-1. Insira a URL do seu site no formato selecionado
-1. Selecione **Raw** como o formato de dados para inserir seu e-mail
-1. Insira seu endereço de e-mail no formato selecionado
-1. Selecione **Raw** como o formato de dados para inserir seu identificador do Twitter
-1. Insira seu Twitter no formato selecionado. Insira apenas o nome de usuário, começando com o símbolo `@`
-1. Reveja os campos preparados e pressione **Enviar Transação**
-
+2. Selecione identidade no menu suspenso **enviar o seguinte extrínseco**
+3. Em seguida, selecione a função **setIdentity(info)**
+4. Selecione **Raw** como o formato de dados para inserir seu **Nome de Exibição**
+5. Insira os dados para **Exibição** no formato selecionado
+6. Selecione **Raw** como o formato de dados para inserir seu endereço da web
+7. Insira a URL do seu site no formato selecionado
+8. Selecione **Raw** como o formato de dados para inserir seu e-mail
+9. Insira seu endereço de e-mail no formato selecionado
+10. Selecione **Raw** como o formato de dados para inserir seu identificador do Twitter
+11. Insira seu Twitter no formato selecionado. Insira apenas o nome de usuário, começando com o símbolo `@`
+12. Reveja os campos preparados e pressione **Enviar Transação**
 ![Definir identidade on-chain](/images/builders/account-management/identity/identity-5.webp)
 
 Opcionalmente, se você quiser inserir campos personalizados, siga as seguintes etapas:
 
-1. Role para o topo e clique em **Adicionar item**
-1. Dois campos aparecerão: o primeiro para o nome do campo e o segundo para o valor. Selecione **Raw** como o formato de dados para inserir o nome do campo
-1. Insira o nome do campo no formato especificado
-1. Selecione **Raw** como o formato de dados para inserir o valor personalizado
-1. Insira o valor personalizado no formato especificado
+1. Role para o topo e clique em **Add item**
+2. Dois campos aparecerão: o primeiro para o nome do campo e o segundo para o valor. Selecione **Raw** como o formato de dados para inserir o nome do campo
+3. Insira o nome do campo no formato especificado
+4. Selecione **Raw** como o formato de dados para inserir o valor personalizado
+5. Insira o valor personalizado no formato especificado
 
 ![Adicionar campos personalizados](/images/builders/account-management/identity/identity-6.webp)
 
-Finalmente, depois que todas as informações de identidade forem adicionadas, você pode rolar para a parte inferior da página e clicar em **Enviar Transação**.
+Finalmente, depois que todas as informações de identidade forem adicionadas, você pode rolar para a parte inferior da página e clicar em **Submit Transaction**.
 
 Você será solicitado a assinar a transação. Lembre-se, um depósito adicional é necessário para cada campo personalizado adicional. Se tudo estiver correto, assine a transação.
 
 Você deve ver as notificações de status aparecerem no canto superior direito confirmando a transação. Se bem-sucedido, você definiu uma identidade! Parabéns! Para garantir que tudo tenha sido concluído e que suas informações de identidade tenham uma boa aparência, você pode verificar sua identidade.
 
-### Confirmar uma Identidade {: #Confirmar uma Identidade via Extrinsics }
+### Confirmar uma Identidade {: #confirm-identity-extrinsics }
 
-Para verificar a adição de suas informações de identidade, você pode clicar na guia **Desenvolvedor** e, em seguida, navegar até o \[**Chain state**\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/chainstate){target=\_blank}.
+Para verificar a adição de suas informações de identidade, você pode clicar na guia **Developer** e, em seguida, navegar até o [**Chain state**](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/chainstate){target=\_blank}.
 
-Na página **Chain State**, certifique-se de que **Armazenamento** esteja selecionado. Em seguida, você pode começar a solicitar suas informações de identidade:
+Na página **Chain State**, certifique-se de que **Storage** esteja selecionado. Em seguida, você pode começar a solicitar suas informações de identidade:
 
-1. Defina a **consulta de estado selecionada** como **identity**
-1. Selecione a função **identityOf(AccountId)**
-1. Selecione sua conta
-1. Clique no botão **+** para obter suas informações de identidade
+1. Defina a **selected state query** como **identity**
+2. Selecione a função **identityOf(AccountId)**
+3. Selecione sua conta
+4. Clique no botão **+** para obter suas informações de identidade
 
 ![Solicitar informações de identidade](/images/builders/account-management/identity/identity-7.webp)
 

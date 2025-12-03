@@ -35,7 +35,7 @@ Após instalar [MetaMask](https://metamask.io){target=\_blank}, a configuração
 Depois de clicar na opção que se adapta às suas necessidades, siga as etapas e você deverá estar totalmente configurado.
 
 !!! note
-Várias contas podem ser derivadas de uma frase semente alterando o que é conhecido como o índice de endereço. Por padrão, ao criar ou importar uma conta a partir da frase semente, você obtém a conta com o índice de endereço 0. Você pode obter os outros índices apenas adicionando novas contas na tela principal da Metamask.
+    Várias contas podem ser derivadas de uma frase semente alterando o que é conhecido como o índice de endereço. Por padrão, ao criar ou importar uma conta a partir da frase semente, você obtém a conta com o índice de endereço 0. Você pode obter os outros índices apenas adicionando novas contas na tela principal da Metamask.
 
 ## Importar Contas {: #import-accounts }
 
@@ -83,12 +83,11 @@ Aqui, você pode configurar a MetaMask para as seguintes redes:
 Para fazer isso, preencha as seguintes informações:
 
 1. **Nome da rede** - nome que representa a rede à qual você está se conectando
-1. **RPC URL** - Endpoint RPC da rede
-1. **Chain ID** - ID da cadeia da rede compatível com Ethereum
-1. **Símbolo** - (opcional) símbolo do token nativo da rede
-1. **Explorador de Blocos** - (opcional) URL do explorador de blocos
-1. Depois de verificar todas as informações, clique em **Salvar**
-
+2. **RPC URL** - Endpoint RPC da rede
+3. **Chain ID** - ID da cadeia da rede compatível com Ethereum
+4. **Símbolo** - (opcional) símbolo do token nativo da rede
+5. **Explorador de Blocos** - (opcional) URL do explorador de blocos
+6. Depois de verificar todas as informações, clique em **Salvar**
 ![Adicionar rede na Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-8.webp)
 
 Depois de adicionar a rede, você será redirecionado para uma tela informando que você adicionou uma rede com sucesso. Além disso, você será solicitado a **Mudar para Tanssi demo EVM appchain**, a rede adicionada neste exemplo.
@@ -99,9 +98,9 @@ Depois de adicionar a rede, você será redirecionado para uma tela informando q
 
 Depois de [conectar a Metamask](#connect-metamask-to-evm-network) à sua rede EVM Tanssi, você pode começar a usar sua carteira por:
 
-- Solicitando tokens {{ networks.dancelight.demo_evm_token_symbol }} do [demo EVM network faucet](/builders/tanssi-network/testnet/demo-evm-network/#faucet)
+- Solicitando tokens {{ networks.dancelight.demo_evm_token_symbol }} do [demo EVM network faucet](/pt/builders/tanssi-network/testnet/demo-evm-network/#faucet)
 - Enviando uma transferência de token para outro endereço
 - Adicionando ERC-20s à Metamask e interagindo com eles
 - Adicionando ERC-721s à Metamask e interagindo com eles
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

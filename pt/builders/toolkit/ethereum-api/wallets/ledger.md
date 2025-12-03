@@ -22,8 +22,8 @@ Se você tem um dispositivo Ledger novo, consulte o [site oficial](https://suppo
 Agora, com seu Ledger já iniciado, instale o aplicativo _Ethereum_ seguindo as seguintes etapas:
 
 1. Abra o aplicativo Ledger Live em seu computador.
-1. Vá para My Ledger.
-1. Conecte e desbloqueie o dispositivo.
+2. Vá para My Ledger.
+3. Conecte e desbloqueie o dispositivo.
 
 Por fim, procure o aplicativo **Ethereum (ETH)** no Ledger Live e instale-o em seu dispositivo.
 
@@ -35,7 +35,7 @@ E é isso. Seu dispositivo agora tem uma conta Ethereum e é capaz de assinar tr
 
 Conforme apresentado na [introdução](#introduction), uma carteira de hardware Ledger fornece armazenamento seguro offline para chaves privadas, permitindo que os usuários verifiquem e assinem transações. No entanto, por design, ela não pode interagir com blockchains ou dApps sozinha, nem oferece uma interface do usuário para gerenciar ativos. Para complementar o dispositivo, uma carteira quente é necessária. O usuário pode escolher qualquer carteira compatível com Ethereum.
 
-Para fins de demonstração, mostraremos como configurar [Metamask](/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} para funcionar com sua carteira de hardware, mas essas etapas são geralmente aplicáveis a qualquer outra carteira que suporte Ledger. Para seguir as etapas, certifique-se de ter o Metamask instalado em seu navegador, abra a extensão e clique no ícone suspenso ao lado do nome da conta.
+Para fins de demonstração, mostraremos como configurar [Metamask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} para funcionar com sua carteira de hardware, mas essas etapas são geralmente aplicáveis a qualquer outra carteira que suporte Ledger. Para seguir as etapas, certifique-se de ter o Metamask instalado em seu navegador, abra a extensão e clique no ícone suspenso ao lado do nome da conta.
 
 ![Conectar Ledger](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-2.webp)
 
@@ -50,10 +50,10 @@ Selecione **Carteira de hardware** nas opções disponíveis.
 Na tela seguinte:
 
 1. Selecione a caixa **LEDGER**. Você será solicitado a conectar seu Ledger, desbloqueá-lo e abrir o aplicativo Ethereum.
-1. Clique em **Continuar**.
+2. Clique em **Continuar**.
 
 ![Conectar Ledger](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-5.webp)
 
 Finalmente, você será apresentado com uma lista de contas derivadas. Selecione aquela que você deseja importar, clique em **Desbloquear** e pronto! Sua carteira Metamask agora pode assinar transações usando seu dispositivo Ledger.
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

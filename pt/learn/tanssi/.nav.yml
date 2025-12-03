@@ -1,11 +1,11 @@
-title: Introduction to Tanssi
+title: Introdução ao Tanssi
 hide: false
 nav:
   - index.md
-  - 'Overview': 'overview.md'
-  - 'network-services'
-  - 'external-security-providers'
-  - 'network-features'
-  - 'Account Types in Tanssi': 'account-types.md'
-  - 'Tanssi-Ethereum Bridge': 'tanssi-ethereum-bridge.md'
-  - 'Glossary': 'glossary.md'
+  - Visão geral: overview.md
+  - network-services
+  - external-security-providers
+  - network-features
+  - Tipos de conta no Tanssi: account-types.md
+  - Ponte Tanssi-Ethereum: tanssi-ethereum-bridge.md
+  - Glossário: glossary.md

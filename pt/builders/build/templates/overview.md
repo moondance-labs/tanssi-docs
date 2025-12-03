@@ -7,12 +7,11 @@ categories: Noções básicas, Appchain
 
 # Visão Geral dos Modelos {: #templates-overview }
 
-## Introdução {: #introdução}
+## Introdução {: #introduction }
 
 As redes implantadas através do Tanssi são blockchains totalmente personalizáveis, beneficiando-se de um conjunto compartilhado de sequenciadores e da segurança de um provedor de sua escolha. Os modelos apresentados neste artigo implementam as funcionalidades e configurações necessárias para suportar o protocolo Tanssi, tornando o desenvolvimento mais fácil.
 
-## Configuração Base para Suportar o Protocolo Tanssi {: #configuração-base-para-suportar-o-protocolo-Tanssi }
-
+## Configuração Base para Suportar o Protocolo Tanssi {: #base-setup-supporting-tanssi }
 As redes Tanssi devem implementar os seguintes módulos para suportar o protocolo e se beneficiar com segurança da produção de blocos do Tanssi como um serviço:
 
 - **Author Noting** - registra o conjunto de sequenciadores atribuídos à rede pelo Tanssi
@@ -26,7 +25,7 @@ Além da produção de blocos, há outros aspectos essenciais para qualquer rede
 - **Interoperabilidade de Redes** - lida com a ingestão e envio de mensagens descendentes e laterais de entrada, permitindo que uma rede Tanssi se comunique e interaja com as outras cadeias dentro do ecossistema
 - **Atualizações de tempo de execução** - uma atualização de tempo de execução em uma rede Tanssi deve ser informada aos operadores do provedor de segurança para permitir que eles verifiquem os blocos produzidos pelos sequenciadores das redes Tanssi
 
-## Módulos Incluídos {: #módulos-incluídos }
+## Módulos Incluídos {: #included-modules  }
 
 Além dos módulos necessários para suportar a operação de uma rede Tanssi, muitos outros módulos fornecem comportamento funcional com o qual os usuários podem interagir.
 
@@ -39,9 +38,9 @@ Estes são alguns dos módulos funcionais que expõem um comportamento aos usuá
 - **[Tx Pause](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank}** - o módulo Tx Pause permite que uma origem válida (normalmente Root) pause (e cancele a pausa) um módulo inteiro ou uma única transação. Uma transação em pausa (ou todas as transações incluídas em um módulo em pausa) falhará quando chamada até que seja despausada. Este módulo fornece um grau maior de granularidade em comparação com o modo de manutenção, tornando-o particularmente útil quando uma transação defeituosa ou vulnerável é identificada no tempo de execução
 - **[Multisig](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/multisig/src/lib.rs){target=\_blank}** - o módulo Multisig permite despachos de transações que exigem -tipicamente- mais de uma assinatura. Uma transação multisig define um conjunto de contas autorizadas e um limite para sua aprovação, exigindo consenso entre várias partes
 
-## Comece a Construir {: #comece-a-construir  }
+## Comece a Construir {: #getting-started  }
 
-Para começar a construir sobre os modelos fornecidos, seja o [modelo de rede Tanssi base](pt/builders/build/templates/substrate/){target=\_blank} ou o [modelo EVM (Ethereum Virtual Machine) base](pt/builders/build/templates/evm/){target=\_blank}, a abordagem recomendada é bifurcar o [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank} e começar a adicionar [módulos integrados](pt/builders/build/customize/adding-built-in-module/){target=\_blank} ou [módulos personalizados](pt/builders/build/customize/adding-custom-made-module/){target=\_blank} sobre a tag [versão mais recente](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank}.
+Para começar a construir sobre os modelos fornecidos, seja o [modelo de rede Tanssi base](/pt/builders/build/templates/substrate/){target=\_blank} ou o [modelo EVM (Ethereum Virtual Machine) base](/pt/builders/build/templates/evm/){target=\_blank}, a abordagem recomendada é bifurcar o [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank} e começar a adicionar [módulos integrados](/pt/builders/build/customize/adding-built-in-module/){target=\_blank} ou [módulos personalizados](/pt/builders/build/customize/adding-custom-made-module/){target=\_blank} sobre a tag [versão mais recente](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank}.
 
 Esta abordagem tem algumas vantagens, como:
 
@@ -51,4 +50,4 @@ Esta abordagem tem algumas vantagens, como:
 - Execute os testes incluídos, garantindo que a produção de blocos em sua rede Tanssi funcione conforme o esperado
 - Execute um ambiente local completo com a configuração [Zombienet](https://paritytech.github.io/zombienet){target=\_blank} incluída
 
-Se os modelos já cobrem as necessidades do seu caso de uso ou após construir e testar sua cadeia, você pode continuar com o artigo [Implantar sua rede via o Tanssi DApp](pt/builders/deploy/dapp/){target=\_blank} para saber como usar o Tanssi dApp para registrar e colocar sua cadeia em funcionamento.
+Se os modelos já cobrem as necessidades do seu caso de uso ou após construir e testar sua cadeia, você pode continuar com o artigo [Implantar sua rede via o Tanssi DApp](/pt/builders/deploy/dapp/){target=\_blank} para saber como usar o Tanssi dApp para registrar e colocar sua cadeia em funcionamento.

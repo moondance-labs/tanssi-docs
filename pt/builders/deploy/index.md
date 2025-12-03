@@ -13,7 +13,7 @@ Com o Tanssi, lançar sua appchain é simples e eficiente. A plataforma simplifi
 
 A implantação de uma appchain com tecnologia Tanssi via [Tanssi dApp](https://apps.tanssi.network){target=\_blank} é realizada como um fluxo único e simplificado, consistindo em cinco etapas distintas:
 
-1. Selecione um [template](/builders/build/templates/overview/){target=\_blank} e configure-o
+1. Selecione um [template](/pt/builders/build/templates/overview/){target=\_blank} e configure-o
 2. Satisfaça os saldos mínimos de token necessários
 3. Reserve seu Tanssi appchain ID
 4. Gere seus arquivos de appchain personalizados
@@ -24,7 +24,7 @@ A implantação de uma appchain com tecnologia Tanssi via [Tanssi dApp](https://
 !!! note
     Para implantações de _Quick Trial appchains_ e _Dedicated appchains_ no Tanssi TestNet, a equipe Tanssi concluirá a verificação manualmente. Após a verificação, geralmente leva cerca de dez minutos para sua quick trial appchain ficar pronta e cerca de duas horas para uma dedicada. Para o Tanssi MainNet, o processo será totalmente descentralizado e sem permissão.
 
-Para começar, visite [Usando o Tanssi DApp](pt/builders/deploy/dapp/).
+Para começar, visite [Usando o Tanssi DApp](/pt/builders/deploy/dapp/).
 
 ## Explore esta seção
 

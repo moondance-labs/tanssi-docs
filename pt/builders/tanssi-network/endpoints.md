@@ -1,6 +1,6 @@
 ---
-title: Network Endpoints
-description: Tanssi networks have two endpoints available for users to connect to, one for HTTPS and one for WSS. This page has the RPC endpoints you need to get started.
+title: Endpoints da Rede
+description: As redes Tanssi têm dois endpoints disponíveis para os usuários se conectarem, um para HTTPS e outro para WSS. Esta página traz os endpoints RPC de que você precisa para começar.
 icon: octicons-share-android-24
 categories: Reference
 ---
@@ -15,53 +15,33 @@ Os pontos finais HTTPS e WSS da Tanssi Network MainNet são os seguintes:
 
 === "HTTPS"
 
-````
     ```text
-
-https://{{ networks.mainnet.dns_name }}
-
+    https://{{ networks.mainnet.dns_name }}
     ```
-````
 
 === "WSS"
 
     ```text
-````
-
+    wss://{{ networks.mainnet.dns_name }}
     ```
-wss://{{ networks.mainnet.dns_name }}
-```
 
-````
 
 ## Dancelight
 
 Os pontos finais HTTPS e WSS da Tanssi TestNet são os seguintes:
-    ```text
 
 === "HTTPS"
 
-    ```
-````
-
-```text
-https://{{ networks.dancelight.dns_name }}
     ```text
-
-````
+    https://{{ networks.dancelight.dns_name }}
     ```
 
 === "WSS"
 
-````
-```text
-
-wss://{{ networks.dancelight.dns_name }}
-
-```
-````
-
     ```text
+    wss://{{ networks.dancelight.dns_name }}
+    ```
+
 ### Rede Demo EVM
     ```
 
@@ -70,20 +50,11 @@ Os pontos finais HTTPS e WSS da rede Demo EVM são os seguintes:
 === "HTTPS"
 
     ```text
-````
-
+    {{ networks.dancelight.demo_evm_rpc_url }}
     ```
-{{ networks.dancelight.demo_evm_rpc_url }}
-```
-
-````
 
 === "WSS"
 
-````
-
-```text
-{{ networks.dancelight.demo_evm_rpc_wss_url }}
-```
-
-````
+    ```text
+    {{ networks.dancelight.demo_evm_rpc_wss_url }}
+    ```

@@ -13,9 +13,9 @@ Quer você esteja construindo aplicações descentralizadas (dApps), implantando
 
 Pronto para mergulhar? Confira algumas das seguintes ferramentas:
 
-- **Ambientes de desenvolvimento** - [Chopsticks](/builders/toolkit/substrate-api/dev-env/chopsticks/)
-- **Bibliotecas** - [API Polkadot.js](/builders/toolkit/substrate-api/libraries/polkadot-js-api/) e [API REST Sidecar](/builders/toolkit/substrate-api/libraries/sidecar-api/)
-- **Carteiras** - [SubWallet](/builders/toolkit/ethereum-api/wallets/subwallet/) e [Talisman](/builders/toolkit/ethereum-api/wallets/talisman/)
+- **Ambientes de desenvolvimento** - [Chopsticks](/pt/builders/toolkit/substrate-api/dev-env/chopsticks/)
+- **Bibliotecas** - [API Polkadot.js](/pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/) e [API REST Sidecar](/pt/builders/toolkit/substrate-api/libraries/sidecar-api/)
+- **Carteiras** - [SubWallet](/pt/builders/toolkit/ethereum-api/wallets/subwallet/) e [Talisman](/pt/builders/toolkit/ethereum-api/wallets/talisman/)
 
 ## Explore esta seção
 

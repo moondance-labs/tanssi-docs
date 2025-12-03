@@ -11,9 +11,9 @@ Descubra integrações que permitem estender a funcionalidade de seus dApps dese
 
 Pronto para começar a construir? Confira as seguintes integrações:
 
-- **Oracles** - [Acurast](/builders/toolkit/integrations/oracles/acurast/), [Band](/builders/toolkit/integrations/oracles/band/) e [Phala](/builders/toolkit/integrations/oracles/phala/)
-- **Indexadores** - [SQD](/builders/toolkit/integrations/indexers/sqd/quick-start/)
-- **Carteiras** - [RainbowKit](/builders/toolkit/integrations/wallet-integrations/rainbowkit/)
+- **Oracles** - [Acurast](/pt/builders/toolkit/integrations/oracles/acurast/), [Band](/pt/builders/toolkit/integrations/oracles/band/) e [Phala](/pt/builders/toolkit/integrations/oracles/phala/)
+- **Indexadores** - [SQD](/pt/builders/toolkit/integrations/indexers/sqd/quick-start/)
+- **Carteiras** - [RainbowKit](/pt/builders/toolkit/integrations/wallet-integrations/rainbowkit/)
 
 ## Explore esta seção
 

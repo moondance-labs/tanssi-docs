@@ -5,17 +5,17 @@ icon: octicons-plug-24
 categories: Custom-Runtime
 ---
 
-# Adicionar um Módulo Externo {: #adicionar-um-módulo-externo }
+# Adicionar um Módulo Externo {: #adding-external-module }
 
-## Introdução {: #introdução }
+## Introdução {: #introduction }
 
-Desenvolvedores construindo sobre os [Templates oferecidos pela Tanssi](pt/builders/build/templates/){target=\_blank} podem querer adicionar alguns módulos/dependências externos em seu tempo de execução para expandir certas funcionalidades.
+Desenvolvedores construindo sobre os [Templates oferecidos pela Tanssi](/pt/builders/build/templates/){target=\_blank} podem querer adicionar alguns módulos/dependências externos em seu tempo de execução para expandir certas funcionalidades.
 
 O repositório Tanssi e os modelos pegam todas as dependências de [um fork](https://github.com/moondance-labs/polkadot-sdk){target=\_blank} do repositório oficial do Polkadot SDK. Este fork é mantido pela equipe de engenharia da Tanssi, que geralmente contribui ativamente para o desenvolvimento da Substrate, corrigindo problemas e aprimorando funcionalidades, e, como resultado, o repositório do fork frequentemente fica temporariamente à frente do oficial.
 
 Um problema de dupla referência pode surgir ao adicionar uma dependência externa, como uma pallet de terceiros. Isso acontece se um módulo Tanssi faz referência a uma dependência do repositório fork do Polkadot SDK, e a terceiros faz referência à mesma dependência do repositório oficial do Polkadot SDK. Para resolver esse problema, as referências às dependências devem ser unificadas.
 
-## Resolvendo Conflitos de Dependências com Diener {: #resolvendo-conflitos-de-dependências-com-diener }
+## Resolvendo Conflitos de Dependências com Diener {: #solving-dependencies-conflicts-diener }
 
 Para lidar de forma eficiente com as dependências e suas origens, você pode conferir a ferramenta [diener](https://github.com/paritytech/diener){target=\_blank}.
 
@@ -31,19 +31,19 @@ Este comando aplica as alterações ao arquivo `Cargo.toml`, corrigindo as depen
 
 Você pode visitar a [documentação do diener](https://docs.rs/crate/diener/latest){target=\_blank} para saber mais sobre a ferramenta e outras funções extras que ela oferece.
 
-## Exemplo do Problema de Dupla Referência {: #problema-de-dupla-referência }
+## Exemplo do Problema de Dupla Referência {: #double-reference-issue }
 
 Para ilustrar a situação, as seguintes etapas adicionam um [módulo externo](https://github.com/papermoonio/pallet-toggle){target=\_blank} de demonstração a um tempo de execução personalizado com base no [modelo de rede com tecnologia Tanssi de linha de base](/builders/build/templates/substrate/){target=\_blank}. Uma maneira de seguir este tutorial é clonar o [repositório Tanssi Github](https://github.com/moondance-labs/tanssi){target=\_blank}, que atuará como o repositório raiz do projeto.
 
 Este tutorial gerará um erro de tempo de compilação de referência múltipla. Finalmente, as etapas mostrarão como corrigir o erro de compilação corrigindo as dependências com a ferramenta `diener`, o tempo de execução será compilado com sucesso e funcionará conforme o esperado.
 
-### Adicionar uma Dependência de Terceiros {: #adicionar-uma-dependência-de-terceiros }
+### Adicionar uma Dependência de Terceiros {: #add-third-party-dependency }
 
-Semelhante ao que é descrito no artigo [módulo embutido](pt/builders/build/customize/adding-built-in-module/#adding-a-built-in-module-to-runtime){target=\_blank}, a adição de um módulo de terceiros requer as seguintes etapas:
+Semelhante ao que é descrito no artigo [módulo embutido](/pt/builders/build/customize/adding-built-in-module/#adding-a-built-in-module-to-runtime){target=\_blank}, a adição de um módulo de terceiros requer as seguintes etapas:
 
 1. Declare a dependência no arquivo `Cargo.toml` raiz
-1. Torne as características padrão disponíveis para o compilador
-1. Configure e adicione o módulo ao tempo de execução
+2. Torne as características padrão disponíveis para o compilador
+3. Configure e adicione o módulo ao tempo de execução
 
 Se o módulo de terceiros fizer referência a alguma dependência já referenciada de uma fonte ou versão distinta, a compilação falhará.
 
@@ -55,7 +55,7 @@ Para resolver este problema, será necessário aplicar um patch para que as refe
 
 ![Referência corrigida](/images/builders/build/external-module/external-module-2.webp)
 
-### Declarando a Dependência {: #declarando-a-dependência }
+### Declarando a Dependência {: #declaring-dependency }
 
 A primeira etapa para reproduzir o problema de dupla referência é declarar a dependência no arquivo `Cargo.toml` localizado na pasta raiz do repositório, na seção `[dependencies]`. Para este exemplo, um simples [módulo de alternância](https://github.com/papermoonio/pallet-toggle){target=\_blank} é usado.
 
@@ -70,7 +70,7 @@ pallet-toggle = {
 ...
 ```
 
-### Tornando os Recursos Padrão Disponíveis para o Compilador {: #adicionar-recursos-padrão  }
+### Tornando os Recursos Padrão Disponíveis para o Compilador {: #add-standard-features }
 
 Tendo declarado o módulo no arquivo `Cargo.toml` do espaço de trabalho, a dependência pode agora ser adicionada ao arquivo `Cargo.toml` do modelo específico, que, para este exemplo que usa o repositório Tanssi GitHub, está localizado na pasta `container-chains/templates/simple/runtime`.
 
@@ -105,7 +105,7 @@ try-runtime = [
 ]
 ```
 
-### Configurar e Adicionar o Módulo ao Tempo de Execução {: #configurar-o-módulo-ao-tempo-de-execução }
+### Configurar e Adicionar o Módulo ao Tempo de Execução {: #configure-module-in-the-runtime }
 
 Em seguida, adicione o seguinte snippet ao arquivo `lib.rs` dentro da pasta de tempo de execução. Isso configura o módulo e adiciona o módulo dentro da macro `construct_runtime!`.
 
@@ -125,7 +125,7 @@ construct_runtime!(
 );
 ```
 
-### Compilar o Tempo de Execução {: #compilar-o-tempo de execução }
+### Compilar o Tempo de Execução {: #compile-runtime }
 
 Após concluir as etapas anteriores, o módulo é declarado uma dependência no projeto, configurado e adicionado ao tempo de execução.
 
@@ -141,7 +141,7 @@ A saída do terminal exibirá um erro, semelhante ao seguinte, causado por difer
 error: failed to select a version for `syn`.
 ```
 
-### Dependências de Patch {: #dependências-de-patch}
+### Dependências de Patch {: #patch-dependencies }
 
 Finalmente, a execução do [comando](#solving-dependencies-conflicts-diener) `diener` adicionará uma seção `patch` ao seu arquivo `Cargo.toml` do espaço de trabalho, substituindo as dependências e unificando as origens e versões.
 

@@ -17,11 +17,11 @@ Esta página de referência rápida oferece todos os elementos essenciais que vo
 Os tokens {{ networks.dancelight.token_symbol }} servem como a moeda nativa dentro da Tanssi Network. Para iniciar a implantação de uma rede no Dancelight, você precisará obter tokens {{ networks.dancelight.token_symbol }}. Siga estas etapas:
 
 1. Visite o site [Tanssi Network](https://www.tanssi.network/claim-dance-tokens){target=\_blank}.
-1. Preencha o formulário, fornecendo informações básicas e seu endereço baseado em Substrate.
-1. Em até um dia útil após o envio do formulário, você receberá tokens {{ networks.dancelight.token_symbol }} para testes.
+2. Preencha o formulário, fornecendo informações básicas e seu endereço baseado em Substrate.
+3. Em até um dia útil após o envio do formulário, você receberá tokens {{ networks.dancelight.token_symbol }} para testes.
 
 !!! note
-Os tokens {{ networks.dancelight.token_symbol }} não têm valor. Por favor, não envie solicitações desnecessárias.
+    Os tokens {{ networks.dancelight.token_symbol }} não têm valor. Por favor, não envie solicitações desnecessárias.
 
 ## Pontos de extremidade da rede {: #dancelight-network-endpoints }
 
@@ -29,30 +29,21 @@ Dancelight tem dois tipos de pontos de extremidade disponíveis para os usuário
 
 === "HTTPS"
 
-````
     ```text
-
-https://{{ networks.dancelight.dns_name }}
-
+    https://{{ networks.dancelight.dns_name }}
     ```
-````
 
 === "WSS"
 
     ```text
-````
-
+    wss://{{ networks.dancelight.dns_name }}
     ```
-wss://{{ networks.dancelight.dns_name }}
-```
-
-````
 
 ## Exploradores de Blocos {: #dancelight-block-explorers }
 
 Para o Dancelight, você pode usar os seguintes exploradores de blocos:
 
-- \[Subscan\]({{ networks.dancelight.subscan_url }}){target=\_blank}.
-- \[O portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/explorer){target=\_blank}.
+- [Subscan]({{ networks.dancelight.subscan_url }}){target=\_blank}.
+- [O portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/explorer){target=\_blank}.
 
 O suporte para exploradores de blocos adicionais está em andamento e, à medida que mais exploradores suportarem o Dancelight, esta seção será atualizada de acordo.
