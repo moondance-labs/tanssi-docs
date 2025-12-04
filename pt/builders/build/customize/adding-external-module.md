@@ -22,6 +22,7 @@ Para lidar de forma eficiente com as dependências e suas origens, você pode co
 Se o arquivo executável `diener`, o [repositório do Polkadot SDK](https://github.com/paritytech/polkadot-sdk){target=\_blank} clonado e seu fork Tanssi estiverem localizados na mesma pasta, entre na pasta do fork Tanssi e execute o seguinte comando:
 
 ```bash
+../diener patch --crates-to-patch ../polkadot-sdk \
     --target https://github.com/paritytech/polkadot-sdk \
     --point-to-git https://github.com/moondance-labs/polkadot-sdk \
     --point-to-git-branch {{ repository.tanssi.release_branch }}
@@ -33,7 +34,7 @@ Você pode visitar a [documentação do diener](https://docs.rs/crate/diener/lat
 
 ## Exemplo do Problema de Dupla Referência {: #double-reference-issue }
 
-Para ilustrar a situação, as seguintes etapas adicionam um [módulo externo](https://github.com/papermoonio/pallet-toggle){target=\_blank} de demonstração a um tempo de execução personalizado com base no [modelo de rede com tecnologia Tanssi de linha de base](/builders/build/templates/substrate/){target=\_blank}. Uma maneira de seguir este tutorial é clonar o [repositório Tanssi Github](https://github.com/moondance-labs/tanssi){target=\_blank}, que atuará como o repositório raiz do projeto.
+Para ilustrar a situação, as seguintes etapas adicionam um [módulo externo](https://github.com/papermoonio/pallet-toggle){target=\_blank} de demonstração a um tempo de execução personalizado com base no [modelo de rede com tecnologia Tanssi de linha de base](/pt/builders/build/templates/substrate/){target=\_blank}. Uma maneira de seguir este tutorial é clonar o [repositório Tanssi Github](https://github.com/moondance-labs/tanssi){target=\_blank}, que atuará como o repositório raiz do projeto.
 
 Este tutorial gerará um erro de tempo de compilação de referência múltipla. Finalmente, as etapas mostrarão como corrigir o erro de compilação corrigindo as dependências com a ferramenta `diener`, o tempo de execução será compilado com sucesso e funcionará conforme o esperado.
 
@@ -62,6 +63,7 @@ A primeira etapa para reproduzir o problema de dupla referência é declarar a d
 Este módulo `toggle`, construído para fins de teste e educacionais, adiciona lógica básica ao tempo de execução, permitindo que os usuários alternem um estado entre verdadeiro e falso.
 
 ```toml
+[dependencies]
 ...
 pallet-toggle = { 
     git = "https://github.com/papermoonio/pallet-toggle", 
@@ -110,6 +112,7 @@ try-runtime = [
 Em seguida, adicione o seguinte snippet ao arquivo `lib.rs` dentro da pasta de tempo de execução. Isso configura o módulo e adiciona o módulo dentro da macro `construct_runtime!`.
 
 ```rust
+...
 impl pallet_toggle::Config for Runtime {
     type RuntimeEvent = RuntimeEvent;
     type WeightInfo = pallet_toggle::weights::SubstrateWeight<Runtime>;
@@ -152,6 +155,7 @@ Finalmente, a execução do [comando](#solving-dependencies-conflicts-diener) `d
 Como mostrado na saída do terminal, `diener` adiciona um patch para as dependências, criando uma seção `patch` em seu `toml` substituindo sua origem:
 
 ```toml
+[patch."https://github.com/paritytech/polkadot-sdk"]
 bridge-runtime-common = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch = "tanssi-polkadot-v1.3.0" }
 bp-header-chain = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch = "tanssi-polkadot-v1.3.0" }
 bp-runtime = { git = "https://github.com/moondance-labs/polkadot-sdk" , branch = "tanssi-polkadot-v1.3.0" }

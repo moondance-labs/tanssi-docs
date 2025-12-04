@@ -52,7 +52,7 @@ O formato Wasm oferece muitas vantagens para uma rede Tanssi implantada, incluin
 - **Execução Determinística** - o formato Wasm garante a execução determinística do código, o que significa que a mesma entrada sempre produzirá a mesma saída. A determinância é um aspecto crítico em blockchains para obter as mesmas transições de estado em todos os nós da rede e alcançar um consenso
 - **Atualização sem fork** - Substrate armazena o blob Wasm do runtime on-chain, o que significa que o próprio runtime se torna parte do estado. Este projeto permite a atualização da lógica do runtime de forma sem fork usando uma transação
 
-Além do formato, internamente, um runtime Substrate é construído compondo diferentes módulos, fornecidos e prontos para uso pelo Substrate ou feitos sob medida. Cada um desses módulos define, entre outras coisas, as transações que expõem, a lógica por trás delas, o que precisa ser armazenado no estado da cadeia, o melhor formato para fazê-lo e como eles cooperam com outros módulos para compor a funcionalidade. Mais detalhes sobre a construção de um runtime serão abordados na seção [módulos](/learn/framework/modules/){target=\_blank}.
+Além do formato, internamente, um runtime Substrate é construído compondo diferentes módulos, fornecidos e prontos para uso pelo Substrate ou feitos sob medida. Cada um desses módulos define, entre outras coisas, as transações que expõem, a lógica por trás delas, o que precisa ser armazenado no estado da cadeia, o melhor formato para fazê-lo e como eles cooperam com outros módulos para compor a funcionalidade. Mais detalhes sobre a construção de um runtime serão abordados na seção [módulos](/pt/learn/framework/modules/){target=\_blank}.
 
 ## Comunicação Cliente-Runtime {: #client-runtime-communication }
 

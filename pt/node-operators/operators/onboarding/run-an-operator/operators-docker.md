@@ -1,6 +1,6 @@
 ---
 title: Executar um Nó Operador Usando Docker
-description: Aprenda como configurar e executar um operador (também conhecido como validador) para a rede Tanssi usando o Docker para participar do protocolo, proteger redes e ganhar recompensas.
+description: Aprenda como configurar e executar um operador (também conhecido como validador) para a rede Tanssi usando o Docker, participando do protocolo, protegendo redes e ganhando recompensas.
 icon: simple-docker
 categories: Operadores
 ---
@@ -9,207 +9,170 @@ categories: Operadores
 
 ## Introdução {: #introduction }
 
-Os operadores são um componente crucial do ecossistema Tanssi, fornecendo serviços de segurança e validação para redes baseadas em Tanssi. Como operador, você participa do mecanismo de consenso que protege a rede, enquanto ganha recompensas por sua contribuição.
+Os operadores são fundamentais no ecossistema Tanssi, fornecendo segurança e validação para redes baseadas em Tanssi. Como operador, você participa do consenso que protege a rede e ganha recompensas.
 
-Conforme apresentado na [seção de integração](/node-operators/operators/onboarding/){target=\_blank}, a execução do nó real é o primeiro passo para sua participação ativa no protocolo.
+Conforme apresentado na [seção de integração](/pt/node-operators/operators/onboarding/){target=_blank}, executar o nó é o primeiro passo da sua participação ativa no protocolo.
 
-Neste guia, você aprenderá como iniciar um operador Tanssi usando a versão oficial da imagem com [Docker](https://www.docker.com){target=\_blank} em sistemas Linux.
+Este guia mostra como iniciar um operador Tanssi usando a imagem oficial com [Docker](https://www.docker.com){target=_blank} em sistemas Linux.
 
 ## Verificando Pré-Requisitos {: #checking-prerequisites }
 
---8\<-- 'text/node-operators/pt/installing-docker.md'
+--8<-- 'text/node-operators/pt/installing-docker.md'
 
 ### Puxar a Imagem Docker {: #pull-docker-image }
 
-Uma imagem Docker é construída e publicada em cada versão, contendo todas as dependências necessárias que um operador Tanssi requer e o próprio arquivo binário.
+Uma imagem Docker é construída e publicada em cada versão, contendo todas as dependências necessárias e o binário do operador.
 
-Uma imagem Docker combina o binário correspondente à versão estável mais recente do [nó cliente](/learn/framework/architecture/#architecture){target=\_blank}, juntamente com o arquivo de especificação do orquestrador Tanssi.
+A imagem combina o binário estável mais recente do [nó cliente](/pt/learn/framework/architecture/#architecture){target=_blank} com o arquivo de especificação do orquestrador Tanssi.
 
-O seguinte comando para puxar a imagem Docker:
+Execute o comando a seguir para puxar a imagem Docker:
 
 === "Tanssi MainNet"
 
-````
     ```bash
-
-docker pull {{ networks.dancelight.operator_docker_image }}
-
+    docker pull {{ networks.dancelight.operator_docker_image }}
     ```
-````
 
 === "Dancelight TestNet"
 
     ```bash
-````
-
+    docker pull {{ networks.dancelight.operator_docker_image }}
     ```
-docker pull {{ networks.dancelight.operator_docker_image }}
-```
 
-````
+O comando fará download/extrair a imagem e exibirá o status após a execução:
 
-O comando fará o download e extrairá a imagem e mostrará o status após a execução:
+--8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/terminal/pulling-docker-image.md'
 
---8\<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/terminal/pulling-docker-image.md'
-
---8\<-- 'text/node-operators/pt/set-up-data-directory.md'
+--8<-- 'text/node-operators/pt/set-up-data-directory.md'
 
 ### Gerar a Chave do Nó {: #generate-node-key }
 
-Para gerar e armazenar em disco as chaves de sessão que serão referenciadas no comando de inicialização, execute o seguinte comando:
-    ```bash
+Para gerar e armazenar as chaves de sessão em disco (referenciadas no comando de inicialização), execute:
 
 === "Tanssi MainNet"
 
-````
-    ```
-
-docker run --network="host" -v "/var/lib/tanssi-data:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
-
     ```bash
-````
+    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
+    ```
 
 === "Dancelight TestNet"
 
+    ```bash
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
     ```
-````
 
-```bash
-docker run --network="host" -v "/var/lib/dancelight-data:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
-```
-
-````
-
---8\<-- 'text/node-operators/pt/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
+--8<-- 'text/node-operators/pt/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
 ## Inicie Seu Nó {: #start-your-node }
 
-Para iniciar seu nó, você deve executar a imagem Docker com o comando `docker run`.
+Para iniciar seu nó, execute a imagem Docker com `docker run`.
 
-Substitua `INSERT_YOUR_TANSSI_NODE_NAME` por um nome legível por humanos e defina `INSERT_YOUR_IP_ADDRESS` com seu endereço IP público.
-        ```bash
+Substitua `INSERT_YOUR_TANSSI_NODE_NAME` por um nome legível e `INSERT_YOUR_IP_ADDRESS` pelo IP público.
 
---8\<-- 'text/node-operators/pt/optimized-binaries-note.md'
+--8<-- 'text/node-operators/pt/optimized-binaries-note.md'
 
 === "Tanssi MainNet"
 
-````
+    === "Genérico"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
         ```
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+    === "Intel Skylake"
+
         ```bash
-
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=tanssi \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-
-    ```
-
-=== "Intel Skylake"
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
         ```
 
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
+    === "AMD Zen3"
+
         ```bash
-
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=tanssi \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-
-    ```
-
-=== "AMD Zen3"
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=tanssi \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
         ```
-
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
-    {{ networks.dancelight.operator_docker_image }} \
-        ```bash
-
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-
-    ```
-````
 
 === "Dancelight TestNet"
 
-        ```
-````
-
-=== "Generic"
+    === "Genérico"
 
         ```bash
-    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-    ```
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
 
-=== "Intel Skylake"
+    === "Intel Skylake"
 
-    ```bash
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-    ```
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-skylake" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
 
-=== "AMD Zen3"
+    === "AMD Zen3"
 
-    ```bash
-    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
-    {{ networks.dancelight.operator_docker_image }} \
-    --chain=dancelight \
-    --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
-    ```bash
-
-````
-    ```
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        --entrypoint "/tanssi-relay/tanssi-relay-znver3" \
+        {{ networks.dancelight.operator_docker_image }} \
+        --chain=dancelight \
+        --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
+        ```
 
 ### Flags de Execução {: #run-flags }
 
-As flags usadas no comando `docker run` podem ser ajustadas de acordo com suas preferências e configuração de hardware. As seguintes são algumas das mais notáveis:
+As flags do `docker run` podem ser ajustadas conforme preferências e hardware. Algumas das principais:
 
-    ```bash
---8\<-- 'text/node-operators/pt/network-node/run-flags.md'
-    ```
+- **--state-pruning=archive** - mantém todos os dados de estado (necessário para consultas históricas)
+- **--blocks-pruning=archive** - mantém todos os blocos (necessário para dados históricos de blocos)
+- **--database=paritydb** - usa ParityDB como backend otimizado para desempenho do nó RPC
+- **--unsafe-rpc-external** - permite conexões externas ao RPC; requer medidas adicionais de segurança (proxy reverso, autenticação, firewall)
+
+!!! warning
+    A flag `--unsafe-rpc-external` expõe seu nó RPC externamente. Em produção, proteja com firewall, proxy reverso, autenticação e limitação de taxa.
+
+Você pode visualizar todas as flags disponíveis executando:
 
 === "Tanssi MainNet"
 
-````
-```bash
-
-docker run -ti {{ networks.dancelight.operator_docker_image }} --help
-
-```
-````
+    ```bash
+    docker run -ti {{ networks.dancelight.operator_docker_image }} --help
+    ```
 
 === "Dancelight TestNet"
 
-````
-```bash
-
-docker run -ti {{ networks.dancelight.operator_docker_image }} --help
-
-```
-````
+    ```bash
+    docker run -ti {{ networks.dancelight.operator_docker_image }} --help
+    ```
 
 ## Sincronizando Seu Nó {: #syncing-your-node }
 
-A primeira vez que seu nó é iniciado, o processo de sincronização exibe muitas informações de log da configuração do nó e dos blocos da cadeia sendo sincronizados. Alguns erros devem ser exibidos no início do processo, desaparecendo assim que a cadeia é sincronizada com o último bloco.
+Na primeira execução, o processo de sincronização exibirá muitos logs do nó e da cadeia sendo sincronizada. Alguns erros iniciais são esperados e desaparecem quando a cadeia alcança o último bloco.
 
---8\<-- 'code/node-operators/terminal/syncing-process.md'
+--8<-- 'code/node-operators/terminal/syncing-process.md'
 
-Quando o processo de sincronização for concluído, seu nó estará pronto para as próximas etapas.
+Quando a sincronização terminar, seu nó estará pronto para as próximas etapas.

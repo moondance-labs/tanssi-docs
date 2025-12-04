@@ -68,13 +68,13 @@ Como o módulo funciona como um pacote independente, ele tem seu próprio arquiv
 Por exemplo, você pode usar atributos para especificar detalhes como o nome do módulo, versão, autores e outras informações relevantes. Por exemplo, no módulo `lottery-example`, o arquivo `Cargo.toml` pode ser configurado da seguinte forma:
 
 ```toml
-[package]
-name = "module-lottery-example"
-version = "4.0.0-dev"
-description = "Simple module example"
-authors = [""]
-homepage = ""
-...
+#[pallet::storage]
+#[pallet::getter(fn get_participants)]
+pub(super) type Participants<T: Config> = StorageValue<
+    _,
+    BoundedVec<T::AccountId, T::MaxParticipants>,
+    OptionQuery
+>;
 ```
 
 Este arquivo também define as dependências do módulo, como a funcionalidade principal que permite a integração perfeita com o tempo de execução e outros módulos, acesso ao armazenamento, emissão de eventos e muito mais.
@@ -135,7 +135,7 @@ pub trait Config: frame_system::Config {
 
     // Definição do evento
     type RuntimeEvent: From<Event<Self>>
-    + IsType<<Self as frame_system::Config>::RuntimeEvent>;
+        + IsType<<Self as frame_system::Config>::RuntimeEvent>;
                
     // Moeda
     type Currency: Currency<Self::AccountId>;
@@ -222,11 +222,11 @@ Essas chamadas também emitem eventos para manter o usuário informado e podem r
         
 Aqui está a implementação completa das chamadas com a lógica da loteria personalizada:
         
-    ??? code "Ver o código de chamadas completo"
+??? code "Ver o código de chamadas completo"
         
-        ```rust
-        --8<-- 'code/builders/build/customize/custom-made-module/lottery-example-calls.rs'
-        ```
+    ```rust
+    --8<-- 'code/builders/build/customize/custom-made-module/lottery-example-calls.rs'
+    ```
                     
 ### Implementando erros personalizados {: #implementing-custom-errors}
 
@@ -255,11 +255,11 @@ Como exemplo, para o módulo `lottery-example`, esta macro pode ser configurada 
 #[pallet::generate_deposit(pub(super) fn deposit_event)]
 pub enum Event<T: Config> {
 
-    // Event emitted when a ticket is bought
+    // Evento emitido quando um bilhete é comprado
     TicketBought { who: T::AccountId },
-    // Event emitted when the prize is awarded
+    // Evento emitido quando o prêmio é concedido
     PrizeAwarded { winner: T::AccountId },
-    // Event emitted when there are no participants    
+    // Evento emitido quando não há participantes  
     ThereAreNoParticipants,
     }
 ```
@@ -275,9 +275,9 @@ Neste exemplo, o módulo `lottery-example` precisa de uma estrutura de armazenam
 #[pallet::getter(fn get_participants)]
 pub(super) type Participants<T: Config> = StorageValue<
     _,
-        BoundedVec<T::AccountId, T::MaxParticipants>,
-            OptionQuery
-            >;
+    BoundedVec<T::AccountId, T::MaxParticipants>,
+    OptionQuery
+>;
 ```
 
 ### O módulo completo {: #complete-module }
@@ -325,13 +325,13 @@ Com os módulos configurados, adicione a macro `construct_runtime!` (que define 
     
     
 ```rust
-    construct_runtime!(
-        pub struct Runtime {
-       ...
+construct_runtime!(
+    pub struct Runtime {
+        ...
         // Inclua a lógica personalizada do pallet-template no tempo de execução.
         RandomCollectiveFlip: pallet_insecure_randomness_collective_flip,
         Lottery: pallet_lottery_example,
-                ...
+        ...
 }
 )
 ```

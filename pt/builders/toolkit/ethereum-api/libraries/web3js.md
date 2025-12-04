@@ -45,10 +45,10 @@ Os scripts a seguir usam um provedor Web3 para se conectar à rede.
 2. Crie o provedor definindo a URL RPC (altere para sua rede quando necessário).
 
 ```js
-// 1. Import Web3
+// 1. Importe o Web3
 const Web3 = require('web3');
 
-// 2. Create Web3 provider and insert your RPC url
+// 2. Crie o provider do Web3 e insira sua URL RPC
 const web3 = new Web3(
   '{{ networks.dancelight.demo_evm_rpc_url }}'
 );
@@ -77,16 +77,16 @@ Passos:
 5. Chame `balances()`.
 
 ```js
-// 1. Add the Web3 provider logic here:
+// 1. Adicione aqui a lógica do provider do Web3:
 // {...}
 
-// 2. Create address variables
+// 2. Crie as variáveis de endereço
 const addressFrom = 'INSERIR_ENDERECO_DE';
 const addressTo = 'INSERIR_ENDERECO_PARA';
 
-// 3. Create balances function
+// 3. Crie a função de saldos
 const balances = async () => {
-  // 4. Fetch balance info
+  // 4. Busque as informações de saldo
   const balanceFrom = web3.utils.fromWei(
     await web3.eth.getBalance(addressFrom),
     'ether'
@@ -136,23 +136,23 @@ Passos:
 6. Chame `send()`.
 
 ```js
-// 1. Add the Web3 provider logic here:
+// 1. Adicione aqui a lógica do provider do Web3:
 // {...}
 
-// 2. Create account variables
+// 2. Crie as variáveis da conta
 const accountFrom = {
   privateKey: 'INSERIR_SUA_CHAVE_PRIVADA',
   address: 'INSERIR_ENDERECO_PUBLICO_DA_CHAVE',
 };
-const addressTo = 'INSERIR_ENDERECO_PARA'; // Change to address
+const addressTo = 'INSERIR_ENDERECO_PARA'; // Altere para o endereço desejado
 
-// 3. Create send function
+// 3. Crie a função de envio
 const send = async () => {
   console.log(
     `Tentando enviar a transação de ${accountFrom.address} para ${addressTo}`
   );
 
-  // 4. Sign tx with PK
+  // 4. Assine a tx com a chave privada
   const createTransaction = await web3.eth.accounts.signTransaction(
     {
       gas: 21000,
@@ -162,7 +162,7 @@ const send = async () => {
     accountFrom.privateKey
   );
 
-  // 5. Send tx and wait for receipt
+  // 5. Envie a tx e aguarde o recibo
   const createReceipt = await web3.eth.sendSignedTransaction(
     createTransaction.rawTransaction
   );
@@ -171,7 +171,7 @@ const send = async () => {
   );
 };
 
-// 6. Chamar a função de envio
+// 6. Chame a função de envio
 send();
 ```
 
@@ -219,36 +219,36 @@ Passos:
 10. Chame `deploy()`.
 
 ```js
-// 1. Import contract file
+// 1. Importe o arquivo do contrato
 const contractFile = require('./compile');
 
-// 2. Add the Web3 provider logic here:
+// 2. Adicione aqui a lógica do provider do Web3:
 // {...}
 
-// 3. Create address variables
+// 3. Crie as variáveis de endereço
 const accountFrom = {
   privateKey: 'INSERIR_CHAVE_PRIVADA',
   address: 'INSERIR_ENDERECO_PUBLICO_DA_CHAVE_PRIVADA',
 };
 
-// 4. Get bytecode and ABI
+// 4. Obtenha o bytecode e o ABI
 const bytecode = contractFile.evm.bytecode.object;
 const abi = contractFile.abi;
 
-// 5. Create deploy function
+// 5. Crie a função de deploy
 const deploy = async () => {
   console.log(`Tentando implantar da conta ${accountFrom.address}`);
 
-  // 6. Create contract instance
+  // 6. Crie a instância do contrato
   const incrementer = new web3.eth.Contract(abi);
 
-  // 7. Create constructor tx
+  // 7. Crie a tx do construtor
   const incrementerTx = incrementer.deploy({
     data: bytecode,
     arguments: [5],
   });
 
-  // 8. Sign transaction and send
+  // 8. Assine a transação e envie
   const createTransaction = await web3.eth.accounts.signTransaction(
     {
       data: incrementerTx.encodeABI(),
@@ -257,7 +257,7 @@ const deploy = async () => {
     accountFrom.privateKey
   );
 
-  // 9. Send tx and wait for receipt
+  // 9. Envie a tx e aguarde o recibo
   const createReceipt = await web3.eth.sendSignedTransaction(
     createTransaction.rawTransaction
   );
@@ -301,19 +301,19 @@ Passos:
 7. Chame `get()`.
 
 ```js
-// 1. Import contract ABI
+// 1. Importe o ABI do contrato
 const { abi } = require('./compile');
 
-// 2. Add the Web3 provider logic here:
+// 2. Adicione aqui a lógica do provider do Web3:
 // {...}
 
-// 3. Contract address
+// 3. Endereço do contrato
 const contractAddress = 'INSERIR_ENDERECO_DO_CONTRATO';
 
-// 4. Create contract instance
+// 4. Crie a instância do contrato
 const incrementer = new web3.eth.Contract(abi, contractAddress);
 
-// 5. Create get function
+// 5. Crie a função get
 const get = async () => {
   console.log(`Fazendo uma chamada para o contrato no endereço: ${contractAddress}`);
 

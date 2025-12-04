@@ -10,7 +10,7 @@ categories: Operators
 
 ## Introdução {: #introduction }
 
-Esta página detalha a etapa final opcional no processo de desativação de Tanssi: a exclusão voluntária de um vault específico. Embora não seja obrigatória, esta ação permite que os operadores desassocie as suas contas de vaults individuais. Antes de prosseguir com esta etapa, certifique-se de ter cumprido todas as condições descritas no nosso guia de [pré-requisitos](/node-operators/operators/offboarding/prerequisites/){target=\_blank}.
+Esta página detalha a etapa final opcional no processo de desativação de Tanssi: a exclusão voluntária de um vault específico. Embora não seja obrigatória, esta ação permite que os operadores desassocie as suas contas de vaults individuais. Antes de prosseguir com esta etapa, certifique-se de ter cumprido todas as condições descritas no nosso guia de [pré-requisitos](/pt/node-operators/operators/offboarding/prerequisites/){target=\_blank}.
 
 Este guia fornece instruções sobre como cancelar a inscrição usando um dos vários métodos disponíveis e como verificar a conclusão bem-sucedida desta ação.
 
@@ -91,8 +91,8 @@ Certifique-se de selecionar **Contrato** e **Escrever Contrato**, depois clique 
 ![Conectar à etapa Web3](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-4.webp)
 
 1. Expanda a função **optOut**
-1. Insira o `VAULT_ADDRESS` no campo **where** (por exemplo, `{{ networks.symbiotic.contracts.sepolia.vault }}` no Sepolia TestNet)
-1. Clique em **Escrever** e assine a transação
+2. Insira o `VAULT_ADDRESS` no campo **where** (por exemplo, `{{ networks.symbiotic.contracts.sepolia.vault }}` no Sepolia TestNet)
+3. Clique em **Escrever** e assine a transação
 
 ![Cancelar operador](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-5.webp)
 
@@ -139,10 +139,10 @@ Pode verificar o status de exclusão do seu vault no Etherscan:
     ```
 
 1. Selecione a função **isOptedIn**
-1. Cole a conta do seu operador no campo **who**
+2. Cole a conta do seu operador no campo **who**
 
     ```bash
-1. Clique em **Consultar**
+3. Clique em **Consultar**
     ```
 
 Você obterá um resultado `false` se o seu operador tiver cancelado com sucesso o vault e `true` se ainda estiver inscrito.
@@ -177,4 +177,4 @@ A saída mostrará `false` se você tiver cancelado com sucesso o vault e `true`
 
 ## Próximos passos
 
-Depois de concluir o processo de desativação, se pretende voltar no futuro, pode seguir o [processo de ativação](/node-operators/operators/onboarding/){target=\_blank} novamente.
+Depois de concluir o processo de desativação, se pretende voltar no futuro, pode seguir o [processo de ativação](/pt/node-operators/operators/onboarding/){target=\_blank} novamente.

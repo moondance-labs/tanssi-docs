@@ -1,20 +1,20 @@
 ---
-title: Executar um nó Appchain usando Docker
-description: Descubra como configurar e operar um nó appchain com tecnologia Tanssi usando Docker, permitindo que você hospede seu próprio endpoint RPC para interagir com sua appchain.
+title: Executar um Nó Appchain Usando Docker
+description: Descubra como configurar e operar um nó appchain com tecnologia Tanssi usando Docker, permitindo hospedar seu próprio endpoint RPC para interagir com sua appchain.
 icon: material-docker
 categories: RPC-Data-Preservers
 ---
 
-# Executar um nó Appchain usando Docker
+# Executar um Nó Appchain usando Docker
 
 ## Introdução {: #introduction }
 
---8\<-- 'text/node-operators/pt/network-node/intro.md'
+--8<-- 'text/node-operators/pt/network-node/intro.md'
 
-Neste guia, você aprenderá como iniciar rapidamente um nó appchain Tanssi usando [Docker](https://www.docker.com){target=\_blank} em um computador Linux. No entanto, ele pode ser adaptado a outros sistemas operacionais.
+Neste guia, você aprenderá como iniciar rapidamente um nó appchain Tanssi usando [Docker](https://www.docker.com){target=_blank} em um computador Linux. Ele pode ser adaptado para outros sistemas operacionais.
 
 !!! note
-    Não é possível executar um nó RPC para appchains de teste rápidas, pois elas são executadas em uma rede privada e, portanto, seus nós são inacessíveis para sincronização.
+    Não é possível executar um nó RPC para appchains de teste rápidas, pois elas rodam em uma rede privada e, portanto, não estão acessíveis para sincronização.
 
 ## Verificação de Pré-requisitos {: #checking-prerequisites }
 
@@ -26,200 +26,155 @@ Neste guia, você aprenderá como iniciar rapidamente um nó appchain Tanssi usa
 
 ## Extraindo a Imagem Docker {: #pulling-docker-image }
 
-Duas imagens Docker são criadas e publicadas como parte do processo de implantação automatizada para cada lançamento: uma para appchains compatíveis com EVM e outra para appchains Substrate.
+Duas imagens Docker são criadas e publicadas para cada versão: uma para appchains compatíveis com EVM e outra para appchains Substrate.
 
-Essas imagens Docker incluem todos os arquivos binários necessários para executar a versão estável mais recente do [nó do cliente](/pt/learn/framework/architecture/#architecture){target=\_blank}.
+Essas imagens incluem todos os binários necessários para executar a versão estável mais recente do [nó cliente](/pt/learn/framework/architecture/#architecture){target=_blank}.
 
-Dependendo do tipo de appchain para o qual você deseja executar o nó, extraia a imagem correspondente.
+Puxe a imagem correspondente ao tipo de appchain que você deseja executar.
 
 ### Appchains compatíveis com EVM {: #pulling-evm-docker-image }
 
-Se o appchain com tecnologia Tanssi foi registrado no dApp escolhendo o modelo EVM ou carregando uma especificação personalizada representando um appchain compatível com EVM Tanssi, execute o seguinte comando para extrair a imagem Docker:
+Se a appchain foi registrada escolhendo o modelo EVM ou enviando uma especificação personalizada compatível com EVM, execute:
 
 === "Tanssi MainNet"
 
-````
     ```bash
-
-docker pull moondancelabs/container-chain-evm-template
-
+    docker pull moondancelabs/container-chain-evm-template
     ```
-````
 
 === "Dancelight TestNet"
 
     ```bash
-````
-
+    docker pull moondancelabs/container-chain-evm-template
     ```
-docker pull moondancelabs/container-chain-evm-template
-```
 
-````
-
-O comando fará o download e extrairá a imagem e mostrará o status após a execução:
+O comando fará download e extração da imagem e exibirá o status após a execução:
 
 --8<-- 'code/node-operators/network-node/rpc-docker/terminal/pulling-docker-image.md'
 
 ### Appchains Substrate Simples {: #pulling-substrate-docker-image }
 
-Se o appchain foi registrado no dApp escolhendo o modelo Substrate básico ou carregando um arquivo de especificação personalizado que representa um appchain Substrate, execute o seguinte comando para extrair a imagem Docker:
-    ```bash
+Se a appchain foi registrada escolhendo o modelo Substrate básico ou enviando uma especificação personalizada Substrate, execute:
 
 === "Tanssi MainNet"
 
-    ```
-````
-
-```bash
-docker pull moondancelabs/container-chain-simple-template
     ```bash
-
-````
+    docker pull moondancelabs/container-chain-simple-template
     ```
 
 === "Dancelight TestNet"
 
-````
-```bash
+    ```bash
+    docker pull moondancelabs/container-chain-simple-template
+    ```
 
-docker pull moondancelabs/container-chain-simple-template
-
-```
-````
-
-O comando fará o download e extrairá a imagem e mostrará o status após a execução, mostrando uma saída semelhante à imagem do terminal anterior.
+O comando fará download e extração da imagem e exibirá o status após a execução, semelhante ao exemplo anterior.
 
 ## Comando de Inicialização {: #start-up-command }
 
-Para iniciar seu nó, você deve executar a imagem Docker com o comando `docker run`. Observe que você precisará modificar os seguintes parâmetros:
+Para iniciar seu nó, execute a imagem Docker com `docker run`. Altere conforme necessário:
 
-        ```bash
-  --8<-- 'text/node-operators/pt/network-node/bootnode-item.md'
+- `Arquivo de especificações da appchain` - substitua `INSERT_YOUR_APPCHAIN_SPECS_FILE` pelo nome do arquivo de specs baixado na etapa de [obtenção das especificações](#checking-prerequisites).
+--8<-- 'text/node-operators/pt/network-node/bootnode-item.md'
 
 === "Tanssi MainNet"
 
-        ```
-
-=== "Appchain compatível com EVM"
-
-    ```bash
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/container-chain-evm-template \
-    --8<-- 'code/node-operators/network-node/rpc-docker/docker-command-mainnet.md'
-    ```
-
-=== "Appchain Substrate Simples"
-
-    ```bash
-    docker run --network="host" -v "/var/lib/tanssi-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-        ```bash
-
-    --8<-- 'code/node-operators/network-node/rpc-docker/docker-command-mainnet.md'
-
-    ```
-````
-
-        ```
-
-````
-
-=== "Appchain compatível com EVM"
+    === "Appchain compatível com EVM"
 
         ```bash
-    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/container-chain-evm-template \
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        moondancelabs/container-chain-evm-template \
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command-mainnet.md'
         ```
 
+    === "Appchain Substrate Simples"
 
-=== "Appchain Substrate Simples"
+        ```bash
+        docker run --network="host" -v "/var/lib/tanssi-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        moondancelabs/container-chain-simple-template \
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command-mainnet.md'
+        ```
 
-    ```bash
-    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
-    -u $(id -u ${USER}):$(id -g ${USER}) \
-    moondancelabs/container-chain-simple-template \
-    --8<-- 'code/node-operators/network-node/rpc-docker/docker-command-testnet.md'
-    ```
+=== "Dancelight TestNet"
 
-````
+    === "Appchain compatível com EVM"
 
-    ```bash
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        moondancelabs/container-chain-evm-template \
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command-testnet.md'
+        ```
 
-Somente o estado histórico dos últimos 256 blocos finalizados é mantido no banco de dados local por padrão. Para executar um nó de arquivo completo, você deve definir o sinalizador `--state-pruning archive`. Mais informações estão na [seção de sinalizadores](#run-flags).
+    === "Appchain Substrate Simples"
+
+        ```bash
+        docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+        -u $(id -u ${USER}):$(id -g ${USER}) \
+        moondancelabs/container-chain-simple-template \
+        --8<-- 'code/node-operators/network-node/rpc-docker/docker-command-testnet.md'
+        ```
+
+!!! note
+    Por padrão, apenas o estado histórico dos últimos 256 blocos finalizados é mantido. Para executar um nó de arquivo completo, defina a flag `--state-pruning archive`. Mais informações na [seção de sinalizadores](#run-flags).
 
 --8<-- 'text/node-operators/pt/network-node/fetching-bootnode-section.md'
 
-### Exemplo de nó completo para Demo EVM Appchain {: #example-demo-evm-appchain }
+### Exemplo de Nó Completo para Demo EVM Appchain {: #example-demo-evm-appchain }
 
-O exemplo a seguir inicia um nó RPC de arquivo completo para a [rede demo EVM](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank} implantada no Dancelight com um ID de `2001`. Este exemplo assume que os arquivos de especificações foram baixados e estão localizados na pasta de dados.
+O exemplo abaixo inicia um nó RPC de arquivo completo para a [rede demo EVM](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=_blank} implantada no Dancelight (ID `2001`). Assume que os arquivos de specs estão na pasta de dados.
 
 === "Demo EVM Appchain (Dancelight)"
 
-````
-```bash
-
-docker run --network="host" -v "/var/lib/dancelight-data:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-moondancelabs/container-chain-evm-template \
---chain=/data/container-2001-raw-specs.json \
---rpc-port=9944 \
---name=demoAppchain \
---state-pruning=archive \
---blocks-pruning=archive \
---database=paritydb \
-
-    ```
---bootnodes=/dns4/ukl-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWKDotMgTRpURvoZHsLWP4K9ymhkBByi1EJjMQAnCmqg8E \
---bootnodes=/dns4/qco-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWB3kqqNhYgGtGbsdtgD18wUoFVeuXVXgWLXTFs91RNgAx \
--- \
---chain=/data/dancelight-raw-specs.json \
---rpc-port=9945 \
---name=relay \
---sync=fast \
---database=paritydb \
---bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
     ```bash
-
---bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
-
+    docker run --network="host" -v "/var/lib/dancelight-data:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    moondancelabs/container-chain-evm-template \
+    --chain=/data/container-2001-raw-specs.json \
+    --rpc-port=9944 \
+    --name=demoAppchain \
+    --state-pruning=archive \
+    --blocks-pruning=archive \
+    --database=paritydb \
+    --unsafe-rpc-external \
+    --bootnodes=/dns4/ukl-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWKDotMgTRpURvoZHsLWP4K9ymhkBByi1EJjMQAnCmqg8E \
+    --bootnodes=/dns4/qco-dancelight-2001-rpc-1.rv.dancelight.tanssi.network/tcp/30333/p2p/12D3KooWB3kqqNhYgGtGbsdtgD18wUoFVeuXVXgWLXTFs91RNgAx \
+    -- \
+    --chain=/data/dancelight-raw-specs.json \
+    --rpc-port=9945 \
+    --name=relay \
+    --sync=fast \
+    --database=paritydb \
+    --bootnodes=/dns4/qco-dancelight-boot-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWCekAqk5hv2fZprhqVz8povpUKdJEiHSd3MALVDWNPFzY \
+    --bootnodes=/dns4/qco-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWEwhUb3tVR5VhRBEqyH7S5hMpFoGJ9Anf31hGw7gpqoQY \
+    --bootnodes=/dns4/ukl-dancelight-rpc-1.rv.dancelight.tanssi.network/tcp/30334/p2p/12D3KooWPbVtdaGhcuDTTQ8giTUtGTEcUVWRg8SDWGdJEeYeyZcT
     ```
-````
 
 ### Executar Sinalizadores {: #run-flags }
 
-    ```bash
-As flags usadas no comando `docker run` podem ser ajustadas de acordo com suas preferências e configuração de hardware. Os seguintes são alguns dos mais notáveis:
-    ```
+As flags usadas no `docker run` podem ser ajustadas conforme suas preferências e hardware. Algumas das principais:
 
 --8<-- 'text/node-operators/pt/network-node/run-flags.md'
 
 === "Appchain compatível com EVM"
 
-````
-```bash
-
-docker run -ti moondancelabs/container-chain-evm-template --help
-
-```
-````
+    ```bash
+    docker run -ti moondancelabs/container-chain-evm-template --help
+    ```
 
 === "Appchain Substrate Simples"
 
-````
-```bash
-
-docker run -ti moondancelabs/container-chain-simple-template --help
-
-```
-````
+    ```bash
+    docker run -ti moondancelabs/container-chain-simple-template --help
+    ```
 
 ## Sincronizando seu nó {: #syncing-your-node }
 
-Depois que seu nó iniciar, o processo de sincronização exibirá muitas informações de log, tanto do nó quanto do appchain Tanssi. Alguns erros devem ser exibidos no início do processo, desaparecendo assim que a cadeia for sincronizada com o último bloco.
+Após iniciar, o processo de sincronização exibirá muitos logs do nó e da appchain Tanssi. Alguns erros iniciais são esperados e desaparecem quando a cadeia alcança o último bloco.
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
 !!! note
-    A duração do processo de sincronização é diretamente proporcional ao tamanho da cadeia que você está sincronizando.
+    A duração da sincronização é proporcional ao tamanho da cadeia que está sendo sincronizada.

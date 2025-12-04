@@ -50,19 +50,19 @@ Os scripts a seguir usam um [provedor Ethers](https://docs.ethers.org/v6/api/pro
 3. Crie o `provider` com `ethers.JsonRpcProvider`
 
 ```js
-// 1. Import ethers
+// 1. Importe ethers
 import { ethers } from "ethers";
 
-// 2. Define network configurations
+// 2. Defina as configurações da rede
 const providerRPC = {
   evmNetwork: {
     name: 'dancelight-evm-network',
-    // Insert your RPC URL here
+    // Insira aqui sua URL RPC
     rpc: '{{ networks.dancelight.demo_evm_rpc_url }}',
-    chainId: {{ networks.dancelight.demo_evm_chain_id }}, // {{ networks.dancelight.demo_evm_chain_hex_id }} in hex,
+    chainId: {{ networks.dancelight.demo_evm_chain_id }}, // {{ networks.dancelight.demo_evm_chain_hex_id }} em hexadecimal,
   },
 };
-// 3. Create ethers provider
+// 3. Crie o provider do ethers
 const provider = new ethers.JsonRpcProvider(
   providerRPC.evmNetwork.rpc, 
   {
@@ -95,16 +95,16 @@ Depois monte o script:
 5. Chame `balances()`
 
 ```js
-// 1. Add the Ethers provider logic here:
+// 1. Adicione aqui a lógica do provider do Ethers:
 // {...}
 
-// 2. Create address variables
+// 2. Crie as variáveis de endereço
 const addressFrom = 'INSERT_ADDRESS_FROM';
 const addressTo = 'INSERT_ADDRESS_TO';
 
-// 3. Create balances function
+// 3. Crie a função de saldos
 const balances = async () => {
-  // 4. Fetch balances
+  // 4. Busque os saldos
   const balanceFrom = ethers.formatEther(await provider.getBalance(addressFrom));
   const balanceTo = ethers.formatEther(await provider.getBalance(addressTo));
 
@@ -151,35 +151,35 @@ Passos:
 7. Chame `send()`
 
 ```js
-// 1. Add the Ethers provider logic here:
+// 1. Adicione aqui a lógica do provider do Ethers:
 // {...}
 
-// 2. Create account variables
+// 2. Crie as variáveis da conta
 const accountFrom = {
   privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
 const addressTo = 'INSERT_ADDRESS_TO';
 
-// 3. Create wallet
+// 3. Crie a wallet
 let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
-// 4. Create send function
+// 4. Crie a função de envio
 const send = async () => {
   console.log(`Attempting to send transaction from ${wallet.address} to ${addressTo}`);
 
-  // 5. Create tx object
+  // 5. Crie o objeto da tx
   const tx = {
     to: addressTo,
     value: ethers.parseEther('1'),
   };
 
-  // 6. Sign and send tx - wait for receipt
+  // 6. Assine e envie a tx — aguarde o recibo
   const createReceipt = await wallet.sendTransaction(tx);
   await createReceipt.wait();
   console.log(`Transaction successful with hash: ${createReceipt.hash}`);
 };
 
-// 7. Chamar a função de envio
+// 7. Chame a função de envio
 send();
 ```
 
@@ -228,39 +228,39 @@ Passos:
 9. Chame `deploy()`
 
 ```js
-// 1. Import the contract file
+// 1. Importe o arquivo do contrato
 import contractFile from './compile';
 
-// 2. Add the Ethers provider logic here:
+// 2. Adicione aqui a lógica do provider do Ethers:
 // {...}
 
-// 3. Create account variables
+// 3. Crie as variáveis da conta
 const accountFrom = {
   privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
 
-// 4. Save the bytecode and ABI
+// 4. Salve o bytecode e o ABI
 const bytecode = contractFile.evm.bytecode.object;
 const abi = contractFile.abi;
 
-// 5. Create wallet
+// 5. Crie a wallet
 let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
-// 6. Create contract instance with signer
+// 6. Crie a instância do contrato com o assinante
 const incrementer = new ethers.ContractFactory(abi, bytecode, wallet);
 
-// 7. Create deploy function
+// 7. Crie a função de deploy
 const deploy = async () => {
   console.log(`Attempting to deploy from account: ${wallet.address}`);
 
-  // 8. Send tx (initial value set to 5) and wait for receipt
+  // 8. Envie a tx (valor inicial definido como 5) e aguarde o recibo
   const contract = await incrementer.deploy(5);
   const txReceipt = await contract.deploymentTransaction().wait();
 
   console.log(`Contract deployed at address: ${txReceipt.contractAddress}`);
 };
 
-// 9. Chamar a função de deploy
+// 9. Chame a função de deploy
 deploy();
 ```
 
@@ -299,33 +299,33 @@ Passos:
 7. Chame `get()`
 
 ```js
-// 1. Import the ABI
+// 1. Importe o ABI do contrato
 import contractFile from './compile';
 
-// 2. Add the Ethers provider logic here:
+// 2. Adicione aqui a lógica do provider do Ethers:
 // {...}
 
-// 3. Contract address variable
+// 3. Variável do endereço do contrato
 const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 
-// 4. Create contract instance
+// 4. Crie a instância do contrato
 const incrementer = new ethers.Contract(
   contractAddress,
   contractFile.abi,
   provider
 );
 
-// 5. Create get function
+// 5. Crie a função get
 const get = async () => {
   console.log(`Fazendo uma chamada para o contrato no endereço: ${contractAddress}`);
 
-  // 6. Chamar o contrato 
+  // 6. Chame o contrato 
   const data = await incrementer.number();
 
   console.log(`The current number stored is: ${data}`);
 };
 
-// 7. Chamar a função get
+// 7. Chame a função get
 get();
 ```
 
@@ -363,43 +363,43 @@ touch increment.js reset.js
 8. Chame `increment()`
 
 ```js
-// 1. Import the contract ABI
+// 1. Importe o ABI do contrato
 import contractFile from './compile';
 
-// 2. Add the Ethers provider logic here:
+// 2. Adicione aqui a lógica do provider do Ethers:
 // {...}
 
-// 3. Create variables
+// 3. Crie as variáveis
 const accountFrom = {
   privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
 const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 const _value = 3;
 
-// 4. Create wallet
+// 4. Crie a wallet
 let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
-// 5. Create contract instance with signer
+// 5. Crie a instância do contrato com o assinante
 const incrementer = new ethers.Contract(
   contractAddress,
   contractFile.abi,
   wallet
 );
 
-// 6. Create increment function
+// 6. Crie a função de incremento
 const increment = async () => {
   console.log(
     `Chamando a função de incremento por ${_value} no contrato no endereço: ${contractAddress}`
   );
 
-  // 7. Sign and send tx and wait for receipt
+  // 7. Assine e envie a tx e aguarde o recibo
   const createReceipt = await incrementer.increment(_value);
   await createReceipt.wait();
 
   console.log(`Tx successful with hash: ${createReceipt.hash}`);
 };
 
-// 8. Chamar a função de incremento
+// 8. Chame a função de incremento
 increment();
 ```
 
@@ -421,40 +421,40 @@ increment();
 8. Chame `reset()`
 
 ```js
-// 1. Import the contract ABI
+// 1. Importe o ABI do contrato
 import contractFile from './compile';
 
-// 2. Add the Ethers provider logic here:
+// 2. Adicione aqui a lógica do provider do Ethers:
 // {...}
 
-// 3. Create variables
+// 3. Crie as variáveis
 const accountFrom = {
   privateKey: 'INSERT_YOUR_PRIVATE_KEY',
 };
 const contractAddress = 'INSERT_CONTRACT_ADDRESS';
 
-// 4. Create wallet
+// 4. Crie a wallet
 let wallet = new ethers.Wallet(accountFrom.privateKey, provider);
 
-// 5. Create contract instance with signer
+// 5. Crie a instância do contrato com o assinante
 const incrementer = new ethers.Contract(
   contractAddress,
   contractFile.abi,
   wallet
 );
 
-// 6. Create reset function
+// 6. Crie a função de reset
 const reset = async () => {
   console.log(`Chamando a função de reset no contrato no endereço: ${contractAddress}`);
 
-  // 7. sign and send tx and wait for receipt
+  // 7. Assine e envie a tx e aguarde o recibo
   const createReceipt = await incrementer.reset();
   await createReceipt.wait();
 
   console.log(`Tx successful with hash: ${createReceipt.hash}`);
 };
 
-// 8. Chamar a função de reset
+// 8. Chame a função de reset
 reset();
 ```
 

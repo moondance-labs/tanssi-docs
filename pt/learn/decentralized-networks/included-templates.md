@@ -9,7 +9,7 @@ categories: Basics
 
 ## Introdução {: #introduction }
 
-A construção de uma nova rede do zero pode ser uma tarefa assustadora. Felizmente, graças ao [framework de desenvolvimento de rede](/learn/framework/overview/){target=\_blank} usado pelo Tanssi e sua arquitetura orientada a módulos, os desenvolvedores podem aproveitar alguns modelos de rede pré-empacotados que os ajudam a dar o pontapé inicial no processo e se beneficiar em alguns aspectos, como:
+A construção de uma nova rede do zero pode ser uma tarefa assustadora. Felizmente, graças ao [framework de desenvolvimento de rede](/pt/learn/framework/overview/){target=\_blank} usado pelo Tanssi e sua arquitetura orientada a módulos, os desenvolvedores podem aproveitar alguns modelos de rede pré-empacotados que os ajudam a dar o pontapé inicial no processo e se beneficiar em alguns aspectos, como:
 
 - **Head Start** - Os modelos de rede Tanssi fornecem um ponto de partida para seu projeto, economizando tempo e esforço significativos, fornecendo uma estrutura básica e um conjunto de funcionalidades testadas e prontas para uso. Ele permite que os desenvolvedores acelerem a construção de protótipos ou produtos minimamente viáveis (MVPs) e reduzam o tempo de lançamento
 
@@ -28,8 +28,8 @@ Para começar a construir uma rede descentralizada para implantação em Tanssi,
 O processo é tão simples quanto:
 
 1. Selecione um dos modelos
-1. Adicione a lógica específica para adaptar o tempo de execução aos requisitos do caso de uso
-1. Implante no Tanssi
+2. Adicione a lógica específica para adaptar o tempo de execução aos requisitos do caso de uso
+3. Implante no Tanssi
 
 ![Usando Modelos para Acelerar o Processo de Desenvolvimento](/images/learn/decentralized-networks/templates/templates-1.webp)
 
@@ -37,7 +37,7 @@ Os dois modelos incluídos são o *modelo de rede de linha de base* e o *modelo 
 
 ### Baseline Network Template {: #baseline-network-template }
 
-Conforme apresentado no artigo [Visão geral](/learn/tanssi/overview/){target=\_blank}, as redes implantadas por meio do Tanssi são blockchains totalmente soberanas e personalizáveis.
+Conforme apresentado no artigo [Visão geral](/pt/learn/tanssi/overview/){target=\_blank}, as redes implantadas por meio do Tanssi são blockchains totalmente soberanas e personalizáveis.
 
 Como parte do ecossistema Tanssi, as redes devem incluir os componentes essenciais para implementar o mecanismo de consenso e ser capazes de interagir e sincronizar com o provedor de segurança de sua escolha (por exemplo, [Symbiotic](https://symbiotic.fi/){target=\_blank} no Ethereum). O modelo de rede Tanssi de linha de base inclui toda a funcionalidade necessária para a lógica de sequenciadores, p2p, banco de dados e camadas de sincronização entre a rede e o provedor de segurança, permitindo que os desenvolvedores se concentrem exclusivamente na personalização de seu produto.
 

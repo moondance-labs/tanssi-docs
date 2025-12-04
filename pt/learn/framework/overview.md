@@ -35,7 +35,7 @@ Ao desenvolver uma rede, Substrate representa uma grande vantagem ao fornecer um
 
 - **Algoritmos de Consenso** - existem vários mecanismos de consenso integrados, como Aura (Prova de Autoridade), Babe (Prova de Participação) e Grandpa (finalidade de bloco), mas devido ao alto grau de personalização que Substrate oferece, as equipes podem sempre optar por desenvolver seu consenso específico para se adaptar às necessidades do caso de uso, como a equipe Moonbeam fez com a [Estrutura de Consenso Nimbus Parachain](https://docs.moonbeam.network/learn/features/consensus){target=\_blank}
 
-- **Módulos de Tempo de Execução** - muitos módulos integrados (explicados em detalhes na seção [modules](/learn/framework/modules/){target=\_blank}) podem ser selecionados e configurados em sua rede, como contas, saldos, staking, governança, identidade e muito mais
+- **Módulos de Tempo de Execução** - muitos módulos integrados (explicados em detalhes na seção [modules](/pt/learn/framework/modules/){target=\_blank}) podem ser selecionados e configurados em sua rede, como contas, saldos, staking, governança, identidade e muito mais
 
 - **Rede** - protocolos e bibliotecas integradas para estabelecer conexões, propagar transações e blocos, sincronizar o estado da blockchain e gerenciar interações de rede
 

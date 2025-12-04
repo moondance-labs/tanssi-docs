@@ -1,6 +1,6 @@
 ---
 title: Serviços de Produção de Blocos
-description: Tanssi abstracts away infrastructure complexities, such as block production, allowing developers to launch decentralized networks with Ethereum-grade security.
+description: A Tanssi abstrai as complexidades de infraestrutura, como a produção de blocos, permitindo lançar redes descentralizadas com segurança de nível Ethereum.
 icon: octicons-container-24
 categories: Basics
 ---
@@ -9,13 +9,13 @@ categories: Basics
 
 ## Introdução {: #introduction }
 
-Como apresentado no artigo [Visão Geral](/learn/tanssi/overview/){target=\_blank}, Tanssi é um protocolo de infraestrutura que agiliza a implantação de redes descentralizadas com lógica personalizada que se adequa a uma ampla gama de casos de uso, incluindo DeFi, NFTs, Jogos e qualquer outro caso de uso que as equipes de desenvolvimento possam querer abordar.
+Como apresentado no artigo [Visão Geral](/pt/learn/tanssi/overview/){target=\_blank}, Tanssi é um protocolo de infraestrutura que agiliza a implantação de redes descentralizadas com lógica personalizada que se adequa a uma ampla gama de casos de uso, incluindo DeFi, NFTs, Jogos e qualquer outro caso de uso que as equipes de desenvolvimento possam querer abordar.
 
 A infraestrutura representa um enorme desafio para os desenvolvedores, exigindo que eles inicializem sequenciadores, preservadores de dados e endpoints RPC, além de gerenciar integrações, interoperabilidade e segurança. Isso exige tempo e recursos valiosos, desviando o foco do que realmente importa: entregar valor aos seus usuários.
 
 Tanssi orquestra recursos, permitindo que os desenvolvedores implantem redes descentralizadas (também conhecidas como serviços validados ativamente ou AVSs) que são totalmente adaptáveis a qualquer aplicativo ou caso de uso específico. Nesta analogia, a rede Tanssi se assemelha ao [Kubernetes](https://kubernetes.io){target=\_blank} em seu papel como orquestrador, gerenciando recursos para garantir a atividade e o desempenho das redes.
 
-O protocolo também aborda a frente de segurança, permitindo que as redes selecionem e se conectem a provedores de segurança externos (como [Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}), garantindo segurança de nível Ethereum desde o início.
+O protocolo também aborda a frente de segurança, permitindo que as redes selecionem e se conectem a provedores de segurança externos (como [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}), garantindo segurança de nível Ethereum desde o início.
 
 Este artigo aborda os aspectos necessários a serem considerados ao construir e implantar seu próprio blockchain modular, juntamente com os aspectos técnicos mais relevantes do protocolo Tanssi.
 
@@ -80,7 +80,7 @@ Assim que o número necessário de sequenciadores para uma determinada sessão f
 
 O primeiro mecanismo é através do módulo *Invulneráveis*, que define uma lista de sequenciadores fixos priorizados pelo protocolo e garante a estabilidade da produção de blocos em certos cenários, como TestNets.
 
-O segundo mecanismo é através do [módulo de staking do Tanssi](/learn/tanssi/network-features/staking/){target=\_blank}. O módulo ajuda a criar um conjunto descentralizado de sequenciadores para todas as redes Tanssi, fornecendo ao protocolo uma lista de sequenciadores classificados por valor apostado. O Tanssi anexa a lista classificada por aposta de sequenciadores aos invulneráveis (se houver), em seguida, pega da lista apenas a quantidade exata de sequenciadores necessária, começando do topo, deixando de fora da próxima sessão aqueles sequenciadores que têm menos valor apostado, para finalmente iniciar o processo de atribuição do sequenciador.
+O segundo mecanismo é através do [módulo de staking do Tanssi](/pt/learn/tanssi/network-features/staking/){target=\_blank}. O módulo ajuda a criar um conjunto descentralizado de sequenciadores para todas as redes Tanssi, fornecendo ao protocolo uma lista de sequenciadores classificados por valor apostado. O Tanssi anexa a lista classificada por aposta de sequenciadores aos invulneráveis (se houver), em seguida, pega da lista apenas a quantidade exata de sequenciadores necessária, começando do topo, deixando de fora da próxima sessão aqueles sequenciadores que têm menos valor apostado, para finalmente iniciar o processo de atribuição do sequenciador.
 
 ### Atribuição de Sequenciadores {: #block_producers-assignment }
 
@@ -92,7 +92,7 @@ Cada nova atribuição funciona intencionalmente com um atraso de uma sessão, p
 
 Quando uma nova sessão começa, o protocolo Tanssi colocará a atribuição na fila em vigor. Os sequenciadores mudarão automaticamente e começarão a produzir blocos na nova rede Tanssi a que foram atribuídos, descartando o estado da cadeia da atribuição anterior. O Tanssi também calculará a nova atribuição, considerando as alterações nas redes Tanssi que podem ter sido ativadas ou desativadas e os sequenciadores que podem ter sido adicionados ou removidos do pool ou alterado o valor total apostado. Esta nova atribuição será enfileirada para a próxima sessão.
 
-![Sessões](/images/learn/tanssi/network-services/block-production/block-production-1.webp)
+![Sessões](/images/pt/learn/tanssi/network-services/block-production/block-production-1.webp)
 
 ### O Papel da Rede Tanssi {: #tanssi-newtwork }
 
@@ -104,7 +104,7 @@ Finalmente, o Tanssi pode verificar se o autor de um bloco de rede foi o esperad
 
 O diagrama a seguir mostra um modelo simplificado dos dados que o Tanssi armazena em seu estado interno. Para cada rede ativa (neste exemplo, duas), o Tanssi armazena os sequenciadores atribuídos, que são os únicos autorizados a produzir blocos em nome da rede, prova de validade (recibos de candidatos) estendidos pelos operadores do provedor de segurança, a raiz do estado mais recente e o sequenciador mais recente.
 
-![Estado interno do Tanssi](/images/learn/tanssi/network-services/block-production/block-production-2.webp)
+![Estado interno do Tanssi](/images/pt/learn/tanssi/network-services/block-production/block-production-2.webp)
 
 ### O Papel da Rede com Tecnologia Tanssi {: #network }
 
@@ -114,7 +114,7 @@ Aproveitando essa capacidade de acessar os estados, o sequenciador atual com a a
 
 Depois que o bloco for preenchido com as transações da rede, ele será proposto como candidato e entregue à cadeia Tanssi, onde os operadores do provedor de segurança garantirão que as provas de estado incluídas correspondam às provas de estado do último estado do Tanssi (impedindo a produção não autorizada de blocos) e que as transações produziram transições de estado válidas. Tendo verificado o trabalho do sequenciador, os operadores finalizarão o bloco proposto, incluindo seu recibo de candidato em um bloco de rede Tanssi.
 
-![Bloco de rede com tecnologia Tanssi](/images/learn/tanssi/network-services/block-production/block-production-3.webp)
+![Bloco de rede com tecnologia Tanssi](/images/pt/learn/tanssi/network-services/block-production/block-production-3.webp)
 
 ## Taxas de Produção de Blocos  {: #block-production-fees }
 
@@ -154,8 +154,8 @@ A configuração atual é definida da seguinte forma:
 
 Para garantir a produção de blocos na próxima sessão, o saldo total deve ser pelo menos suficiente para cobrir o custo de atribuição de sequenciadores mais o custo de produção dos {{ networks.mainnet.session.blocks }} blocos que compõem uma sessão inteira.
 
-!!! nota
-Embora os custos de atribuição de sequenciadores e produção de blocos sejam atualmente fixos, à medida que o desenvolvimento do protocolo progride, eles podem se tornar dinâmicos, variando em resposta à carga de trabalho da rede.
+!!! note
+    Embora os custos de atribuição de sequenciadores e produção de blocos sejam atualmente fixos, à medida que o desenvolvimento do protocolo progride, eles podem se tornar dinâmicos, variando em resposta à carga de trabalho da rede.
 
 ### Gorjetas {: #tipping }
 

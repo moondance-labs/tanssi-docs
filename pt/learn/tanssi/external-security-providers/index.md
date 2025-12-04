@@ -1,5 +1,5 @@
 ---
-title: External Security Providers
+title: Provedores de Segurança Externos
 description: Aprenda sobre o design do Tanssi, que permite que os desenvolvedores se conectem a provedores de segurança externos e se beneficiem da segurança em nível Ethereum desde o início.
 icon: octicons-shield-check-24
 template: index-page.html

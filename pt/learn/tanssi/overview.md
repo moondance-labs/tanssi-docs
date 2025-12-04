@@ -35,7 +35,7 @@ Tanssi aborda os pontos problemáticos mais comuns da appchain:
 
 - **Segurança Econômica por Meio de Provedores Externos**: As appchains implantadas por meio do Tanssi aproveitam a segurança de um provedor de escolha (por exemplo, [Symbiotic](https://symbiotic.fi/){target=\_blank} para Ethereum). O protocolo foi projetado para finalizar as transações de forma determinística em segundos por meio de um conjunto descentralizado de operadores.
 
-- **Tanssi/Ethereum Bridge**: Mova a liquidez de e para o Ethereum usando a [ponte integrada](/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} com base no Snowbridge.
+- **Tanssi/Ethereum Bridge**: Mova a liquidez de e para o Ethereum usando a [ponte integrada](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} com base no Snowbridge.
 
 - **Integrações Chave**: As appchains construídas com Tanssi podem acessar componentes de infraestrutura importantes, juntamente com a produção de blocos, de forma totalmente automatizada e padronizada. As appchains com tecnologia Tanssi vêm com suporte integrado para ferramentas essenciais, incluindo carteiras, exploradores de blocos, indexadores, provedores RPC e muito mais, economizando o esforço dos desenvolvedores de integrar esses componentes.
 
@@ -65,7 +65,7 @@ Uma visão geral de alto nível da arquitetura é apresentada abaixo, apresentan
 
 ![Visão geral de alto nível de uma appchain e Tanssi](/images/learn/tanssi/overview/overview-1.webp)
 
-O protocolo Tanssi gerencia e orquestra um conjunto descentralizado de sequenciadores atribuídos a fornecer serviços de produção de blocos para appchains com tecnologia Tanssi. Os sequenciadores executam transações e as incluem em blocos, que os operadores do provedor de segurança prosseguem para validar. O protocolo de restaking da Symbiotic permite que seus operadores ofereçam segurança econômica de nível Ethereum. O mecanismo de como isso funciona é explicado em dois artigos separados: [Serviços de Produção de Blocos](/learn/tanssi/network-services/block-production/){target=\_blank} e [Ethereum com Symbiotic](/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}.
+O protocolo Tanssi gerencia e orquestra um conjunto descentralizado de sequenciadores atribuídos a fornecer serviços de produção de blocos para appchains com tecnologia Tanssi. Os sequenciadores executam transações e as incluem em blocos, que os operadores do provedor de segurança prosseguem para validar. O protocolo de restaking da Symbiotic permite que seus operadores ofereçam segurança econômica de nível Ethereum. O mecanismo de como isso funciona é explicado em dois artigos separados: [Serviços de Produção de Blocos](/pt/learn/tanssi/network-services/block-production/){target=\_blank} e [Ethereum com Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}.
 
 Embora os sequenciadores que fornecem serviços de produção de blocos sejam rotacionados e realocados para uma appchain diferente a cada mudança de sessão, cada appchain terá seu próprio conjunto de Preservadores de Dados executando nós de arquivo completos, garantindo a disponibilidade de dados. Esses Preservadores de Dados fornecerão a infraestrutura RPC para aplicativos e usuários que interagem com appchains com tecnologia Tanssi.
 
@@ -74,4 +74,4 @@ Embora os sequenciadores que fornecem serviços de produção de blocos sejam ro
 ## O que vem a seguir? {: #whats-next }
 
 - Vá para o [Tanssi dApp](https://apps.tanssi.network){target=\_blank} e lance sua appchain.
-- Interaja com uma appchain com tecnologia Tanssi ao vivo: a [Tanssi Demo EVM appchain](/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}.
+- Interaja com uma appchain com tecnologia Tanssi ao vivo: a [Tanssi Demo EVM appchain](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}.

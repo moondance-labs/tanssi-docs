@@ -23,7 +23,7 @@ Hardware recomendado:
 - **Rede Recomendada** - conexão de 1 Gbps
 
 !!! warning
-Manter o desempenho do seu Nó Tanssi, mantê-lo atualizado e garantir sua segurança são cruciais para uma operação confiável.
+    Manter o desempenho do seu Nó Tanssi, mantê-lo atualizado e garantir sua segurança são cruciais para uma operação confiável.
 
 ### Portas de Rede Necessárias
 

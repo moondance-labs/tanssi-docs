@@ -17,7 +17,7 @@ As redes Tanssi devem implementar os seguintes módulos para suportar o protocol
 - **Author Noting** - registra o conjunto de sequenciadores atribuídos à rede pelo Tanssi
 - **Author Inherent** - permite que o sequenciador que está criando o bloco inclua sua identidade para ser validado e recompensado
 
-Se você não incluir esses módulos no tempo de execução da rede Tanssi, não haverá um método para confirmar que os blocos estão sendo gerados por sequenciadores confiáveis designados pelo orquestrador Tanssi. Isso poderia criar uma vulnerabilidade para que atores mal-intencionados explorem e comprometam a rede. Para obter mais informações sobre a produção de blocos do Tanssi como um serviço, consulte o artigo [Serviços de Produção de Blocos](pt/learn/tanssi/network-services/block-production/){target=\_blank}.
+Se você não incluir esses módulos no tempo de execução da rede Tanssi, não haverá um método para confirmar que os blocos estão sendo gerados por sequenciadores confiáveis designados pelo orquestrador Tanssi. Isso poderia criar uma vulnerabilidade para que atores mal-intencionados explorem e comprometam a rede. Para obter mais informações sobre a produção de blocos do Tanssi como um serviço, consulte o artigo [Serviços de Produção de Blocos](/pt/learn/tanssi/network-services/block-production/){target=\_blank}.
 
 Além da produção de blocos, há outros aspectos essenciais para qualquer rede coberta nos modelos, como:
 

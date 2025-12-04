@@ -1,4 +1,4 @@
-title: Ethereum Tools
+title: Ferramentas Ethereum
 hide: false
 nav:
   - index.md
@@ -6,4 +6,4 @@ nav:
   - dev-env
   - libraries
   - precompiles
-  - 'JSON-RPC Methods' : 'rpc.md'
+  - 'Métodos JSON RPC ' : 'rpc.md'

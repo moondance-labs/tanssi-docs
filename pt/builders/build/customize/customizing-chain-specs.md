@@ -87,7 +87,7 @@ Para construir e gerar as especificações da cadeia, siga estas etapas:
 4. Gerar a especificação da cadeia
 
     ```bash
-   ./target/release/container-chain-frontier-node \
+    ./target/release/container-chain-frontier-node \
         build-spec > chain_spec.json
     ```
 

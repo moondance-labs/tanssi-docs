@@ -34,19 +34,19 @@ Aqui está uma lista de alguns dos módulos mais populares:
 Além daqueles já listados, outros módulos como [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=\_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=\_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=\_blank}, e muitos outros que estão livremente disponíveis podem acelerar o desenvolvimento da rede Tanssi e, consequentemente, o tempo de lançamento.
 
 !!! note
-O framework também inclui outros módulos que fornecem funcionalidades essenciais de protocolo, como consenso e codificação de dados de baixo nível.
+    O framework também inclui outros módulos que fornecem funcionalidades essenciais de protocolo, como consenso e codificação de dados de baixo nível.
 
 ## Módulos Feitos sob Medida {: #custom-modules }
 
 Os desenvolvedores que criam novos módulos desfrutam de total liberdade para expressar qualquer comportamento desejado na lógica principal da blockchain, como expor novas transações, armazenar informações sensíveis e validar e impor lógica de negócios.
 
-Como explicado no artigo [Arquitetura](/learn/framework/architecture/#client-runtime-communication){target=\_blank}, um módulo precisa ser capaz de se comunicar com o cliente principal, expondo e integrando com uma API muito específica que permite que o tempo de execução exponha transações, acesse o armazenamento e code e decodifique informações armazenadas na cadeia. Também precisa incluir muitos outros códigos de ligação necessários que fazem o módulo funcionar no nó.
+Como explicado no artigo [Arquitetura](/pt/learn/framework/architecture/#client-runtime-communication){target=\_blank}, um módulo precisa ser capaz de se comunicar com o cliente principal, expondo e integrando com uma API muito específica que permite que o tempo de execução exponha transações, acesse o armazenamento e code e decodifique informações armazenadas na cadeia. Também precisa incluir muitos outros códigos de ligação necessários que fazem o módulo funcionar no nó.
 
 Para melhorar a experiência do desenvolvedor ao escrever módulos, o Substrate depende muito de [macros Rust](https://doc.rust-lang.org/book/ch19-06-macros.html){target=\_blank}. As macros são instruções especiais que se expandem automaticamente para o código Rust pouco antes do tempo de compilação, permitindo que os módulos mantenham até sete vezes a quantidade de código fora da vista dos desenvolvedores. Isto permite que os desenvolvedores se concentrem nos requisitos funcionais específicos ao escrever módulos, em vez de lidar com tecnicidades e o código de suporte necessário.
 
 Todos os módulos no Substrate, incluindo os feitos sob medida, implementam estas macros de atributo, das quais as três primeiras são obrigatórias:
 
---8\<-- 'text/builders/build/customize/custom-made-module/pt/pallets-macros-descriptions.md'
+--8<-- 'text/builders/build/customize/custom-made-module/pt/pallets-macros-descriptions.md'
 
 Todas estas macros atuam como atributos que devem ser aplicados ao código logo acima dos módulos, funções, estruturas, enums, tipos, etc., Rust, permitindo que o módulo seja construído e adicionado ao tempo de execução, que, com o tempo, irá expor a lógica personalizada ao mundo exterior, conforme exposto na seção seguinte.
 
@@ -59,6 +59,7 @@ Como exemplo de um módulo personalizado, o seguinte código (não destinado a u
 - **award_prize** - esta transação gera um número aleatório para escolher o vencedor da lista de participantes. O vencedor recebe a quantia total dos fundos transferidos para a conta especial do módulo
 
 ```rust
+--8<-- 'code/builders/build/customize/custom-made-module/lottery-example.rs'
 ```
 
-Para mais informações sobre o processo passo a passo de criação de um módulo feito sob medida para o tempo de execução, consulte [Adding a Custom-Made Module](/builders/build/customize/adding-custom-made-module/){target=\_blank} na secção de Construtor.
+Para mais informações sobre o processo passo a passo de criação de um módulo feito sob medida para o tempo de execução, consulte [Adding a Custom-Made Module](/pt/builders/build/customize/adding-custom-made-module/){target=\_blank} na secção de Construtor.

@@ -63,7 +63,7 @@ Em seguida, selecione o template que melhor atende ao seu caso de uso e configur
 
 ### Template EVM {: #evm-template }
 
-O [template EVM](/builders/build/templates/evm/){target=\_blank} adiciona a camada de compatibilidade Ethereum à sua appchain Tanssi.
+O [template EVM](/pt/builders/build/templates/evm/){target=\_blank} adiciona a camada de compatibilidade Ethereum à sua appchain Tanssi.
 
 Você precisará de um ID de cadeia EVM exclusivo ([EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md){target=\_blank}). Verifique se o ID está livre em [Chainlist](https://chainid.network){target=\_blank}. Ao lançar em produção, abra um PR para reservar o ID no repositório [`ethereum-lists/chains`](https://github.com/ethereum-lists/chains){target=\_blank} assim que o endpoint RPC estiver ativo.
 
@@ -78,7 +78,7 @@ Para configurar:
 4. Em **Accounts**, forneça o endereço (estilo Ethereum) da conta sudo e o saldo inicial. Só existe uma conta sudo por vez; ela pode ser trocada depois e a rede pode migrar para um modelo descentralizado
 5. Opcional: em **Advanced**, clique em **Add** para adicionar contas e saldos de gênese
 6. Opcional: em **Genesis Smart Contracts**, clique em **Add** para incluir contratos gênese (remova `0x` do bytecode)
-7. Ao finalizar o template, clique em **Continue** e siga para [Checar saldos](#Checar-saldos)
+7. Ao finalizar o template, clique em **Continue** e siga para [Checar saldos](#check-balances)
 
 ![Criar appchain EVM no Tanssi dApp](/images/builders/deploy/dapp/dapp-4.webp)
 
@@ -92,7 +92,7 @@ Para configurar:
 2. Em **Gas Token**, informe decimais, símbolo e [formato SS58](https://github.com/paritytech/ss58-registry/blob/main/ss58-registry.json){target=\_blank}
 3. Em **Accounts**, informe o endereço (estilo Substrate) da conta sudo e o saldo inicial. Só existe uma conta sudo por vez; pode ser trocada depois e a rede pode migrar para governança descentralizada
 4. Opcional: em **Advanced**, clique em **Add** para adicionar contas e saldos de gênese
-5. Clique em **Continue** para seguir para [Checar saldos](#Checar-saldos)
+5. Clique em **Continue** para seguir para [Checar saldos](#check-balances)
 
 ![Criar appchain Substrate no Tanssi dApp](/images/builders/deploy/dapp/dapp-5.webp)
 
@@ -119,7 +119,7 @@ Outras exigências no runtime:
 - Remova módulos de produção de blocos/consenso (Aura, Grandpa etc.), deixando a Tanssi assumir. Por exemplo, removendo:
 
     ```rust
-    // Collator support. The order of these 4 are important and shall not change.
+    // Suporte a collators. A ordem destes 4 é importante e não deve mudar.
     #[runtime::pallet_index(20)]
     pub type Authorship = pallet_authorship;
     #[runtime::pallet_index(21)]
@@ -229,10 +229,9 @@ Após a transação, o ID aparecerá no dApp; clique em **Continue**. Parte dos 
 
 Antes de implantar, gere três arquivos:
 
-- [Especificação bruta](/pt/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=\_blank}
-- [Genesis state header](/pt/builders/build/customize/customizing-chain-specs/#genesis-state){target=\_blank}
-- [Genesis Wasm](/pt/learn/framework/architecture/#runtime){target=\_blank}
-
+- [A especificação da cadeia bruta](/pt/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=\_blank} - uma versão compacta do arquivo de especificação JSON, que define as configurações iniciais e o estado que todos os nós participantes da rede devem concordar para alcançar consenso e produzir blocos
+- [O cabeçalho do estado gênese](/pt/builders/build/customize/customizing-chain-specs/#genesis-state){target=\_blank} - define o estado inicial sobre o qual todas as transações e transições de estado são executadas
+- [O Gênesis Wasm](/pt/learn/framework/architecture/#runtime){target=\_blank} - um objeto WebAssembly (Wasm) que define a lógica de tempo de execução.
 Eles são gerados automaticamente com base no seu ID e configurações. Clique em **Generate**.
 
 ![Gerar arquivos da appchain](/images/builders/deploy/dapp/dapp-10.webp)

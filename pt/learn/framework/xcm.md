@@ -55,10 +55,10 @@ A interoperabilidade nativa que o XCM fornece permite que uma rede envie uma men
 Conforme mencionado na [seção de taxas](#fees), para que qualquer solicitação na cadeia seja executada, é necessário cobrir suas taxas associadas. No XCM, a execução remota pode ser comprada com duas etapas:
 
 1. Reservar alguns ativos usando a instrução `WithdrawAsset` XCM, que retira fundos da origem da chamada e os coloca em um registro de retenção
-1. Pagar pela execução na cadeia, usando a instrução `BuyExecution` XCM, que usa os ativos previamente retirados
+2. Pagar pela execução na cadeia, usando a instrução `BuyExecution` XCM, que usa os ativos previamente retirados
 
 !!! note
-Quando uma rede envia uma mensagem XCM, sua fonte padrão no lado receptor é a conta soberana da rede de origem. A rede remetente pode adicionar uma instrução XCM chamada `DescendOrigin` à mensagem, alterando a conta de origem para corresponder à conta do usuário que assina, garantindo que a execução ocorra em nome da mesma entidade que inicia a mensagem XCM na cadeia de origem e evitando um cenário potencialmente inseguro.
+    Quando uma rede envia uma mensagem XCM, sua fonte padrão no lado receptor é a conta soberana da rede de origem. A rede remetente pode adicionar uma instrução XCM chamada `DescendOrigin` à mensagem, alterando a conta de origem para corresponder à conta do usuário que assina, garantindo que a execução ocorra em nome da mesma entidade que inicia a mensagem XCM na cadeia de origem e evitando um cenário potencialmente inseguro.
 
 Finalmente, a execução ocorre na cadeia de destino, chamando um contrato inteligente ou qualquer outra transação usando a instrução XCM chamada `Transact`.
 
@@ -79,7 +79,7 @@ Para que a cadeia A se comunique com a cadeia B, a cadeia A deve enviar uma tran
 Depois que o canal é estabelecido, as mensagens cross-chain podem ser enviadas entre as redes. Para transferências de ativos, os ativos também precisarão ser registrados antes de serem transferidos.
 
 !!! note
-XCM é uma linguagem versionada e em constante evolução. Quando duas redes de comunicação usam versões diferentes do XCM, elas devem usar a versão mais recente com suporte do lado menos atualizado. Para descobrir a versão XCM mais recente com a qual uma rede pode trabalhar, outras redes podem consultá-la e assinar atualizações sempre que isso mudar.
+    XCM é uma linguagem versionada e em constante evolução. Quando duas redes de comunicação usam versões diferentes do XCM, elas devem usar a versão mais recente com suporte do lado menos atualizado. Para descobrir a versão XCM mais recente com a qual uma rede pode trabalhar, outras redes podem consultá-la e assinar atualizações sempre que isso mudar.
 
 ## Destinos de Mensagens {: #message-destinations }
 

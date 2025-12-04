@@ -1,5 +1,5 @@
 ---
-title: Run a Sequencer
+title: Executar um Sequenciador
 description: Aprenda como configurar e executar um nó de sequenciador usando Docker ou Systemd para participar do protocolo, fornecendo serviços de produção de blocos e ganhando recompensas.
 icon: octicons-server-24
 template: index-page.html
@@ -20,7 +20,7 @@ Hardware Recomendado:
 - **RAM Recomendada** - 32 GB RAM
 
 !!! warning
-Como um sequenciador, você é responsável por sua própria participação e pela de seus delegadores. Manter o desempenho do seu nó, mantê-lo atualizado e garantir sua segurança são essenciais para maximizar as recompensas e construir uma forte reputação na rede Tanssi.
+    Como um sequenciador, você é responsável por sua própria participação e pela de seus delegadores. Manter o desempenho do seu nó, mantê-lo atualizado e garantir sua segurança são essenciais para maximizar as recompensas e construir uma forte reputação na rede Tanssi.
 
 ### Portas de Rede Necessárias
 

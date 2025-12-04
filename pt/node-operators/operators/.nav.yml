@@ -2,6 +2,6 @@ title: Operadores
 hide: false
 nav:
   - index.md
-  - Integração: onboarding
+  - Onboarding: onboarding
   - 'Tarefas operacionais': operational-tasks
-  - Desligamento: offboarding
+  - Offboarding: offboarding

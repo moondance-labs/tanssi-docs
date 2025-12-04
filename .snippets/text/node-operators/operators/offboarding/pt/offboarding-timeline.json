@@ -1,17 +1,17 @@
 [
   {
     "title": "[Pré-requisitos](/pt/node-operators/operators/offboarding/prerequisites){target=_blank}",
-    "content": "Antes de começar a desativar seu nó Tanssi, verifique os pré-requisitos.",
+    "content": "Antes de iniciar a desativação do seu nó Tanssi, verifique os pré-requisitos.",
     "icon": ":fontawesome-solid-1:"
   },
   {
-    "title": "[Cancelar participação no Tanssi (Obrigatório)](/pt/node-operators/operators/offboarding/opt-out-from-tanssi){target=_blank}",
-    "content": "Cancele sua participação na rede Tanssi na Ethereum.",
+    "title": "[Opt-out da Tanssi (Obrigatório)](/pt/node-operators/operators/offboarding/opt-out-from-tanssi){target=_blank}",
+    "content": "Faça opt-out da rede Tanssi na Ethereum.",
     "icon": ":fontawesome-solid-2:"
   },
   {
-    "title": "[Cancelar participação no cofre (Opcional)](/pt/node-operators/operators/offboarding/vault-opt-out){target=_blank}",
-    "content": "Etapa opcional, necessária apenas se quiser remover totalmente sua associação ao cofre. Ignorar esta etapa não afetará sua capacidade de retornar à rede no futuro.",
+    "title": "[Opt-out do cofre (Opcional)](/pt/node-operators/operators/offboarding/vault-opt-out){target=_blank}",
+    "content": "Etapa opcional, necessária apenas se quiser remover totalmente sua associação com o cofre. Ignorar esta etapa não impede que você retorne à rede no futuro.",
     "icon": ":fontawesome-solid-3:"
   }
 ]

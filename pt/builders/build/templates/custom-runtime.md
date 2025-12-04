@@ -113,4 +113,4 @@ Para suportar o protocolo Tanssi, será necessário adicionar dois módulos atra
         BlockExecutor = pallet_author_inherent::BlockExecutor::<Runtime, Executive>
         CheckInherents = CheckInherents,
     }
-    ```
+```
