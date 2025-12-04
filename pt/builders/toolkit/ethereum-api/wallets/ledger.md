@@ -56,4 +56,4 @@ Na tela seguinte:
 
 Finalmente, você será apresentado com uma lista de contas derivadas. Selecione aquela que você deseja importar, clique em **Desbloquear** e pronto! Sua carteira Metamask agora pode assinar transações usando seu dispositivo Ledger.
 
---8<-- 'text/_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.pt.md'

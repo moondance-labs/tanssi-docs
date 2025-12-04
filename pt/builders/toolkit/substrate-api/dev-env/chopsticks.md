@@ -23,16 +23,19 @@ Este artigo abordará o uso do Chopsticks para bifurcar e interagir com uma cóp
 Para acompanhar este tutorial, você precisará clonar o repositório junto com seus submódulos([Smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
 
 ```bash
+git clone --recurse-submodules https://github.com/AcalaNetwork/chopsticks.git
 ```
 
 Em seguida, entre na pasta e instale as dependências usando [yarn](https://classic.yarnpkg.com/en/docs/install){target=\_blank}:
 
 ```bash
+ cd chopsticks && yarn
 ```
 
 Finalmente, construa o projeto:
 
 ```bash
+yarn build-wasm
 ```
 
 Agora o ambiente de desenvolvimento está pronto para começar a testar e depurar redes implantadas na Tanssi.
@@ -42,6 +45,7 @@ Agora o ambiente de desenvolvimento está pronto para começar a testar e depura
 Para bifurcar uma rede Tanssi usando o Chopsticks, execute o comando com apenas o endpoint RPC como um parâmetro:
 
 ```bash
+yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}
 ```
 
 Este comando iniciará um clone local da cadeia como estava no bloco mais recente.
@@ -51,6 +55,7 @@ Este comando iniciará um clone local da cadeia como estava no bloco mais recent
 Normalmente, os parâmetros de configuração são armazenados em um arquivo de configuração, como são as configurações na pasta `configs` do repositório para as cadeias de retransmissão e parachains implantadas no ecossistema Dotsama. O seguinte arquivo de configuração funciona para a [rede EVM de demonstração](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}, substituindo a conta sudo da cadeia pela de Alith e, adicionalmente, financiando a conta com tokens:
 
 ```yaml
+endpoint: {{ networks.dancelight.demo_evm_rpc_wss_url }}
 mock-signature-host: true
 allow-unresolved-imports: true
 db: ./tmp/db_ftrcon.sqlite
@@ -88,58 +93,41 @@ O arquivo de configuração aceita todos os seguintes parâmetros:
 
 Você pode executar o comando `yarn start` para bifurcar cadeias, especificando um arquivo de configuração local. Alternativamente, o nome ou a URL do GitHub podem ser usados ​​se a cadeia estiver listada na pasta `configs` do repositório.
 
+
 === "Caminho do arquivo local"
 
-````
     ```bash
-
-bash
-
+    yarn start --config=configs/polkadot.yml
     ```
-````
 
 === "Nome da cadeia"
 
     ```bash
-````
-
+    yarn start --config=polkadot
     ```
-bash
-```
-
-````
-    ```bash
 
 === "URL do GitHub"
 
+    ```bash
+    yarn start \
+    --config=https://github.com/AcalaNetwork/chopsticks.git/master/configs/polkadot.yml
     ```
-```bash
 
-bash
-yarn start \
-
-```bash
-````
-
-```
 Todas as configurações (exceto `genesis` e `timestamp`) também podem ser passadas como flags para configurar o ambiente completamente na linha de comando. Por exemplo, o seguinte comando bifurca a rede EVM de demonstração no bloco 100.
 
 ```bash
-
-bash
-
+yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }} --block 100
 ```
-```text
+
+
 
 ### Interagindo com uma bifurcação {: #interacting-with-a-fork }
 
-```
+
 Ao executar uma bifurcação, por padrão, ela estará acessível em:
 
 ```text
-
-text
-
+ws://localhost:8000
 ```
 
 Você pode interagir com a parachain por meio de bibliotecas como [Polkadot.js](https://github.com/polkadot-js/common){target=\_blank} e sua [interface de usuário, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}.
@@ -163,17 +151,15 @@ Se você deseja reproduzir um bloco e recuperar suas informações para dissecar
 |            `db`            |    Caminho para o nome do arquivo que armazena ou armazenará o banco de dados da parachain.    |
 |          `config`          |                            Caminho ou URL do arquivo de configuração.                             |
 | `output-path=/[file_path]` |   Use para imprimir os resultados em um arquivo JSON em vez de imprimi-lo no console.   |
-```bash
-
 |           `open`           |                        Se deve abrir a representação HTML.                        |
 
 Por exemplo, a execução do seguinte comando reexecutará o bloco 1000 das redes EVM de demonstração e gravará a diferença de armazenamento e outros dados em um arquivo `chain-output.json`:
 
-```
-bash
+```bash
 yarn start run-block  \
 --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}  \
 --output-path=./chain-output.json  \
+--block 1000
 ```
 
 ## Comandos WebSocket {: #websocket-commands }
@@ -184,83 +170,67 @@ Estes são os métodos que podem ser invocados e seus parâmetros:
 
 ???+ function "**dev_newBlock** (options) — Gera um ou mais blocos novos"
 
-````
+    === "Parâmetros"
+
+        - **options** - `{ "to": number, "count": number }` - um objeto JSON onde `\"to\"` criará blocos até um determinado valor, e `\"count\"` aumentará em um certo número de blocos. Use apenas uma entrada por vez dentro do objeto JSON
+
+    === "Exemplo"
+
         ```js
+        import { WsProvider } from '@polkadot/api'
+        const ws = new WsProvider(`ws://localhost:8000`)
+        // Cria cinco novos blocos
+        await ws.send('dev_newBlock', [{ count: 5 }])
 
-    - **options** - `{ \"to\": number, \"count\": number }` - um objeto JSON onde `\"to\"` criará blocos até um determinado valor, e `\"count\"` aumentará em um certo número de blocos. Use apenas uma entrada por vez dentro do objeto JSON
 
-=== "Exemplo"
-
-        ```
-    ```js
-
-    js
-    import { WsProvider } from '@polkadot/api'
-    const ws = new WsProvider(`ws://localhost:8000`)
-    // Cria cinco novos blocos
-
-    ```
-````
 
 ??? function "**dev_setStorage** (values, blockHash) — Cria ou sobrescreve o valor de qualquer armazenamento"
 
-        ```js
-=== "Parâmetros"
+    === "Parâmetros"
 
-     - **values** - Object - um objeto JSON semelhante ao caminho para um valor de armazenamento, semelhante ao que você recuperaria via Polkadot.js  
-    - **blockHash** - String - opcional, o hash do bloco em que o valor do armazenamento é alterado  
-    
-=== "Exemplo"
+         - **values** - Object - um objeto JSON semelhante ao caminho para um valor de armazenamento, semelhante ao que você recuperaria via Polkadot.js  
+        - **blockHash** - String - opcional, o hash do bloco em que o valor do armazenamento é alterado  
+        
+    === "Exemplo"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Substitui a chave sudo
+        await ws.send('dev_setStorage', 
+            [{"Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" }}]
+        );
         ```
-
-    ```js
-    js
-    import { WsProvider } from '@polkadot/api';
-    const ws = new WsProvider(`ws://localhost:8000`);
-    // Substitui a chave sudo
-    await ws.send('dev_setStorage', 
-        [{"Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" }}]
-    ```
-
-````
-        ```js
 
 ??? function "**dev_timeTravel** (date) — Define o carimbo de data/hora do bloco para o valor da data"
 
-````
-=== "Parâmetros"
-        ```
+    === "Parâmetros"
 
-     - **date** - Date - uma string compatível com a biblioteca JavaScript Date que mudará o carimbo de data/hora em que os próximos blocos a serem criados serão. Todos os blocos futuros serão criados sequencialmente após esse ponto no tempo  
+         - **date** - Date - uma string compatível com a biblioteca JavaScript Date que mudará o carimbo de data/hora em que os próximos blocos a serem criados serão. Todos os blocos futuros serão criados sequencialmente após esse ponto no tempo  
 
-=== "Exemplo"
+    === "Exemplo"
 
-    ```js
-    js
-    import { WsProvider } from '@polkadot/api';
-    const ws = new WsProvider(`ws://localhost:8000`);
-    // Define o carimbo de data/hora do bloco para 15 de agosto de 2030
         ```js
-
-````
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Define o carimbo de data/hora do bloco para 15 de agosto de 2030
+        await ws.send('dev_timeTravel', ["2030-08-15T00:00:00"]);
+        ```
 
 ??? function "**dev_setHead** (hashOrNumber) — Define o cabeçalho do blockchain para um hash ou número específico"
 
+
+    === "Parâmetros"
+
+         - **hashOrNumber** - number | string - se encontrado, o cabeçalho da cadeia será definido para o bloco com o número do bloco ou hash do bloco deste valor
+        
+    === "Exemplo"
+
+        ```js
+        import { WsProvider } from '@polkadot/api';
+        const ws = new WsProvider(`ws://localhost:8000`);
+        // Define o cabeçalho para o número do bloco 500
+        await ws.send('dev_setHead', [500]);
         ```
-
-=== "Parâmetros"
-
-     - **hashOrNumber** - number | string - se encontrado, o cabeçalho da cadeia será definido para o bloco com o número do bloco ou hash do bloco deste valor
-    
-=== "Exemplo"
-
-    ```js
-    js
-    import { WsProvider } from '@polkadot/api';
-    const ws = new WsProvider(`ws://localhost:8000`);
-    // Define o cabeçalho para o número do bloco 500
-    ```
-
-````
 
 --8<-- 'text/_disclaimers/third-party-content.pt.md'

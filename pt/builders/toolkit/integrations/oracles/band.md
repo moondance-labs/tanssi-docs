@@ -29,49 +29,46 @@ O oráculo do Band Protocol já está implantado na rede de demonstração EVM d
 Os feeds de preços são enviados regularmente para um contrato inteligente que pode ser acessado no seguinte endereço:
 
 ```text
+{{ networks.demo_evm.oracles.band.smart_contract }}
 ```
 
 O smart pode ser interagir com usando a interface:
 
 ???+ code "IStdReference.sol"
 
-````
     ```solidity
-
---8<-- 'code/builders/toolkit/integrations/oracles/band/IStdReference.sol'
-
+    --8<-- 'code/builders/toolkit/integrations/oracles/band/IStdReference.sol'
     ```
-````
 
 Como visto acima na interface, existem duas funções para buscar dados:
 
-???+ function "**getReferenceData** (\_base, \_quote) — busca o preço de um determinado par base/cotação"
+???+ function "**getReferenceData** (_base, _quote) — busca o preço de um determinado par base/cotação"
 
-```
-=== "Parâmetros"
 
-    - `_base` ++"string memory"++ - o token para o qual você deseja obter o preço
-    - `_quote` ++"string memory"++ - o token (ou `USD`) no qual o preço é expresso
-    
-=== "Exemplo"
+    === "Parâmetros"
 
-    - `_base` - ETH
-    - `_quote` - USD
-```
+        - `_base` ++"string memory"++ - o token para o qual você deseja obter o preço
+        - `_quote` ++"string memory"++ - o token (ou `USD`) no qual o preço é expresso
+        
+    === "Exemplo"
 
-??? function "**getReferenceDataBulk** (\_bases, \_quotes) — busca preços para os pares base/cotação fornecidos simultaneamente"
+        - `_base` - ETH
+        - `_quote` - USD
 
-```
-=== "Parâmetros"
 
-    - `_bases` ++"string[] memory"++ - a lista de tokens base para os quais você deseja obter os preços
-    - `_quotes` ++"string[] memory"++ - a lista de tokens (ou `USD`) nos quais os preços são expressos
+??? function "**getReferenceDataBulk** (_bases, _quotes) — busca preços para os pares base/cotação fornecidos simultaneamente"
 
-=== "Exemplo"
 
-    - `_bases` - ["ETH", "DOT"]
-    - `_quotes` - ["USD", "USD"]
-```
+    === "Parâmetros"
+
+        - `_bases` ++"string[] memory"++ - a lista de tokens base para os quais você deseja obter os preços
+        - `_quotes` ++"string[] memory"++ - a lista de tokens (ou `USD`) nos quais os preços são expressos
+
+    === "Exemplo"
+
+        - `_bases` - ["ETH", "DOT"]
+        - `_quotes` - ["USD", "USD"]
+
 
 A resposta para ambas as funções consiste nos seguintes dados, agrupados em uma tupla no caso de `getReferenceData` e uma lista de tuplas (uma tupla por par) no caso de `getReferenceDataBulk`:
 

@@ -56,45 +56,45 @@ Para suportar o protocolo Tanssi, será necessário adicionar dois módulos atra
 
 2. Configure os módulos. Abra o arquivo `lib.rs` localizado na pasta `*/runtime/src` e adicione a configuração para ambos os módulos:
 
-   ```rust
-    impl pallet_author_inherent::Config for Runtime {
-        type AuthorId = NimbusId;
-        type AccountLookup = tp_consensus::NimbusLookUp;
-        type CanAuthor = pallet_cc_authorities_noting::CanAuthor<Runtime>;
-        type SlotBeacon = tp_consensus::AuraDigestSlotBeacon<Runtime>;
-        type WeightInfo = 
-            pallet_author_inherent::weights::SubstrateWeight<Runtime>;
-    }
+    ```rust
+        impl pallet_author_inherent::Config for Runtime {
+            type AuthorId = NimbusId;
+            type AccountLookup = tp_consensus::NimbusLookUp;
+            type CanAuthor = pallet_cc_authorities_noting::CanAuthor<Runtime>;
+            type SlotBeacon = tp_consensus::AuraDigestSlotBeacon<Runtime>;
+            type WeightInfo = 
+                pallet_author_inherent::weights::SubstrateWeight<Runtime>;
+        }
 
-    impl pallet_cc_authorities_noting::Config for Runtime {
-        type RuntimeEvent = RuntimeEvent;
-        type SelfParaId = parachain_info::Pallet<Runtime>;
-        type RelayChainStateProvider = 
-            cumulus_pallet_parachain_system::RelaychainDataProvider<Self>;
-        type AuthorityId = NimbusId;
-        type WeightInfo = 
-            pallet_cc_authorities_noting::weights::SubstrateWeight<Runtime>;
-    }
+        impl pallet_cc_authorities_noting::Config for Runtime {
+            type RuntimeEvent = RuntimeEvent;
+            type SelfParaId = parachain_info::Pallet<Runtime>;
+            type RelayChainStateProvider = 
+                cumulus_pallet_parachain_system::RelaychainDataProvider<Self>;
+            type AuthorityId = NimbusId;
+            type WeightInfo = 
+                pallet_cc_authorities_noting::weights::SubstrateWeight<Runtime>;
+        }
     ```
 
-   Observe que essa configuração é agnóstica do caso de uso
+    Observe que essa configuração é agnóstica do caso de uso
 
 3. Declare os módulos como parte do runtime. No mesmo arquivo `lib.rs`, localizado na pasta `*/runtime/src`, adicione os módulos à construção do runtime:
 
-   ```rust
-    construct_runtime!(
-    pub enum Runtime where
-        Block = Block,
-        NodeBlock = opaque::Block,
-        UncheckedExtrinsic = UncheckedExtrinsic,
-    {
-        ...
-        // Tanssi network
-        AuthoritiesNoting: pallet_cc_authorities_noting = 50,
-        AuthorInherent: pallet_author_inherent = 51,
-        ...
-    }
-    );
+    ```rust
+            construct_runtime!(
+            pub enum Runtime where
+                Block = Block,
+                NodeBlock = opaque::Block,
+                UncheckedExtrinsic = UncheckedExtrinsic,
+            {
+                ...
+                // Tanssi network
+                AuthoritiesNoting: pallet_cc_authorities_noting = 50,
+                AuthorInherent: pallet_author_inherent = 51,
+                ...
+            }
+            );
     ```
 
 4. Certifique-se de que seu cabeçalho está configurado da seguinte forma:

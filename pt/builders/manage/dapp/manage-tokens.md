@@ -46,7 +46,7 @@ Agora você tem acesso direto às ações apresentadas na introdução:
 ![O painel de gerenciamento de tokens](/images/builders/manage/dapp/token-management/token-management-2.webp)
 
 !!! note
-   Se você não vir os detalhes da sua rede no painel, certifique-se de cumprir os [pré-requisitos](#checking-prerequisites).
+    Se você não vir os detalhes da sua rede no painel, certifique-se de cumprir os [pré-requisitos](#checking-prerequisites).
 
 ### Minting Tokens {: #minting-tokens }
 
@@ -54,8 +54,8 @@ O governador da rede pode cunhar novos tokens, aumentando sua oferta total. Para
 
 1. Insira o endereço que conterá os tokens recém-cunhados
 
-   !!! note
-      O endereço de destino deve ser do tipo Ethereum se a cadeia for compatível com EVM e do tipo Substrate caso contrário.
+    !!! note
+        O endereço de destino deve ser do tipo Ethereum se a cadeia for compatível com EVM e do tipo Substrate caso contrário.
 
 2. Insira a quantidade de tokens a serem cunhados
 3. Clique em **Mint**
@@ -70,8 +70,8 @@ O governador da rede pode aumentar ou diminuir o saldo de qualquer conta, afetan
 
 1. Insira o endereço que conterá os tokens recém-cunhados. Depois de inserir o endereço, seu saldo atual será exibido
 
-   !!! note
-      O endereço de destino deve ser do tipo Ethereum se a cadeia for compatível com EVM e do tipo Substrate caso contrário.
+    !!! note
+        O endereço de destino deve ser do tipo Ethereum se a cadeia for compatível com EVM e do tipo Substrate caso contrário.
 
 2. Insira o novo saldo que o endereço conterá
 3. Clique em **Update**
@@ -87,8 +87,8 @@ O governador da rede pode reatribuir saldos, forçando uma transferência de tok
 1. Insira o endereço de origem que transferirá seus tokens
 2. Insira o endereço de destino que receberá os tokens
 
-   !!! note
-      Os endereços de origem e destino devem ser do tipo Ethereum se a cadeia for compatível com EVM e do tipo Substrate caso contrário.
+    !!! note
+        Os endereços de origem e destino devem ser do tipo Ethereum se a cadeia for compatível com EVM e do tipo Substrate caso contrário.
 
 3. Insira a quantidade de tokens a serem transferidos
 4. Clique em **Transfer**
@@ -100,7 +100,7 @@ Você será solicitado a assinar a transação com a conta do governador da rede
 ### Definindo a Gas Dynamics{: #definindo-gas }
 
 !!! note
-   Esta opção se aplica apenas a redes compatíveis com EVM.
+    Esta opção se aplica apenas a redes compatíveis com EVM.
 
 O governador de uma rede compatível com EVM com tecnologia Tanssi pode alterar sua configuração [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank}, afetando o mecanismo de precificação da transação. Para fazer isso, no painel **Token Management**, clique no botão **Gas Dynamics** e, em seguida:
 

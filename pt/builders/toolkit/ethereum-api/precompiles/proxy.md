@@ -42,7 +42,6 @@ Para acompanhar o conteúdo deste guia, você precisará:
 
 ??? code "Proxy.sol"
 
-
     ```solidity
 
     --8<-- 'code/builders/toolkit/ethereum-api/precompiles/proxy/proxy.sol'
@@ -54,53 +53,54 @@ A interface inclui as estruturas de dados necessárias, juntamente com as seguin
 
 ???+ function "**addProxy**(delegate, proxyType, delay) — registra uma conta proxy para o remetente após um número especificado de blocos `delay` (geralmente zero). Falhará se um proxy para o chamador já existir"
 
-```
-=== "Parâmetros"
+    === "Parâmetros"
 
-    - `delegate` ++"address"++ - o endereço do proxy
-    - `proxyType` ++"ProxyType"++ - o tipo de delegação que define as funções específicas que o proxy terá permissão para executar
-    - `delay` ++"uint32"++ - número de blocos a esperar até que o proxy seja habilitado
+        - `delegate` ++"address"++ - o endereço do proxy
+        - `proxyType` ++"ProxyType"++ - o tipo de delegação que define as funções específicas que o proxy terá permissão para executar
+        - `delay` ++"uint32"++ - número de blocos a esperar até que o proxy seja habilitado
 
-=== "Exemplo"
+    === "Exemplo"
 
-    - `delegate` - 0x3f0Aef9Bd799F1291b80376aD57530D353ab0217
-    - `proxyType` - "Any"
-    - `delay` - 0
-```
+        - `delegate` - 0x3f0Aef9Bd799F1291b80376aD57530D353ab0217
+        - `proxyType` - "Any"
+        - `delay` - 0
+
 
 ??? function "**removeProxy**(delegate, proxyType, delay) — remove um proxy registrado para o remetente"
 
-```
-=== "Parâmetros"
+    
+    === "Parâmetros"
 
-    - `delegate` ++"address"++ - o endereço do proxy a ser removido
-    - `proxyType` ++"ProxyType"++ - o tipo de delegação a ser removido
-    - `delay` ++"uint32"++ - número de blocos a esperar até que a remoção entre em vigor
+        - `delegate` ++"address"++ - o endereço do proxy a ser removido
+        - `proxyType` ++"ProxyType"++ - o tipo de delegação a ser removido
+        - `delay` ++"uint32"++ - número de blocos a esperar até que a remoção entre em vigor
 
-=== "Exemplo"
+    === "Exemplo"
 
-    - `delegate` - 0x3f0Aef9Bd799F1291b80376aD57530D353ab0217
-    - `proxyType` - "Any"
-    - `delay` - 0
-```
+        - `delegate` - 0x3f0Aef9Bd799F1291b80376aD57530D353ab0217
+        - `proxyType` - "Any"
+        - `delay` - 0
+    
 
 ??? function "**removeProxies**() — remove todas as contas proxy delegadas ao remetente"
 
 ??? function "**isProxy**(real, delegate, proxyType, delay) — retorna `true` se o endereço delegado for um proxy do tipo `proxyType`, para o endereço `real`, com o `delay` especificado"
 
-```
-=== "Parâmetros"
+    
+    === "Parâmetros"
 
-    - `real` ++"address"++ - a conta que concede permissões ao proxy
-    - `delegate` ++"address"++ - o endereço do proxy
-    - `proxyType` ++"ProxyType"++ - o tipo de delegação
-    - `delay` ++"uint32"++ - número de blocos a aguardar
+        - `real` ++"address"++ - a conta que concede permissões ao proxy
+        - `delegate` ++"address"++ - o endereço do proxy
+        - `proxyType` ++"ProxyType"++ - o tipo de delegação
+        - `delay` ++"uint32"++ - número de blocos a aguardar
 
-=== "Exemplo"
+    === "Exemplo"
 
-    - `delegate` - 0xbB8919d5DDfc85F4D15820a9e58018f1cfB39a2F
-    - `proxyType` - "Any"
-    - `delay` - 0
+        - `delegate` - 0xbB8919d5DDfc85F4D15820a9e58018f1cfB39a2F
+        - `proxyType` - "Any"
+        - `delay` - 0
+
+    
 
 [O parâmetro `proxyType`](#proxy-types) é definido pela seguinte enumeração `ProxyType`, onde os valores começam em `0` com o tipo de proxy mais permissivo e são representados como valores `uint8`:
 
@@ -196,7 +196,7 @@ A função `isProxy` verifica se uma conta proxy existe. Após criar um proxy na
 Você pode revogar uma permissão de proxy quando não for mais necessária. Após criar um proxy na [Adicionar Proxy](#add-proxy), etapa, ele pode ser removido seguindo estas etapas:
 
 1. Expanda a função **removeProxy**
-2. Insira a conta proxy como **delegate**, `0` como **proxyType**, `0` e como **delay**
+2. Insira a conta proxy como **delegate**, `0` como **proxyType** e `0` como **delay**
 3. Clique em **transact**
 4. O MetaMask aparecerá e você será solicitado a revisar os detalhes da transação. Clique em Confirmar para executar a transação
 
@@ -206,4 +206,4 @@ Depois que a transação for confirmada, se você repetir as etapas para [verifi
 
 E é isso! Você interagiu com sucesso com a precompilação do Proxy usando MetaMask e Remix!
 
---8<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

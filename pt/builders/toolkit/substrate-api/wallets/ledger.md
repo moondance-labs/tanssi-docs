@@ -22,13 +22,13 @@ Se você tiver um dispositivo Ledger novo, consulte o [site oficial](https://sup
 Agora, com seu Ledger já iniciado, instale o aplicativo _Polkadot_ seguindo estas etapas:
 
 1. Abra o aplicativo Ledger Live no seu computador.
-1. Vá para My Ledger.
-1. Conecte e desbloqueie o dispositivo.
+2. Vá para My Ledger.
+3. Conecte e desbloqueie o dispositivo.
 
 Por fim, procure o aplicativo **Polkadot (DOT)** no Ledger Live e instale-o em seu dispositivo.
 
-!!! note
-Por que Polkadot? Tanssi é construído usando Substrate, a mesma estrutura que alimenta Polkadot. Como resultado, embora Tanssi e Polkadot sejam redes separadas, eles compartilham o mesmo esquema de assinatura criptográfica. Isso significa que o aplicativo Ledger chamado **Polkadot (DOT)** é totalmente compatível com Tanssi.
+!!! nota
+    Por que Polkadot? Tanssi é construído usando Substrate, a mesma estrutura que alimenta Polkadot. Como resultado, embora Tanssi e Polkadot sejam redes separadas, eles compartilham o mesmo esquema de assinatura criptográfica. Isso significa que o aplicativo Ledger chamado **Polkadot (DOT)** é totalmente compatível com Tanssi.
 
 ![Instalar Polkadot no Ledger Live](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-1.webp)
 
@@ -41,21 +41,21 @@ Conforme apresentado na [introdução](#introduction), uma carteira de hardware 
 Para fins de demonstração, mostraremos como configurar o Talisman para funcionar com sua carteira de hardware, mas essas etapas são geralmente aplicáveis a qualquer outra carteira habilitada para Substrate que suporte Ledger. Para acompanhar as etapas, certifique-se de ter [o Talisman instalado](/builders/toolkit/substrate-api/wallets/talisman/#setting-up-talisman){target=\_blank} no seu navegador, em seguida, abra a extensão e:
 
 1. Pressione o ícone **+** (Adicionar conta).
-1. Clique na guia **Conectar**.
-1. Selecione **Conectar Ledger**.
+2. Clique na guia **Conectar**.
+3. Selecione **Conectar Ledger**.
 
 ![Conectar Ledger](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-2.webp)
 
 Na tela seguinte, siga estas etapas:
 
 1. Selecione **Polkadot**. Outras opções serão apresentadas abaixo.
-1. Selecione **Polkadot** no menu suspenso.
-1. Selecione **Aplicativo Polkadot** na caixa. Você será solicitado a conectar seu ledger e abrir o aplicativo Polkadot.
-1. Certifique-se de que seu ledger está conectado com sucesso.
-1. Clique em **Continuar**.
+2. Selecione **Polkadot** no menu suspenso.
+3. Selecione **Aplicativo Polkadot** na caixa. Você será solicitado a conectar seu ledger e abrir o aplicativo Polkadot.
+4. Certifique-se de que seu ledger está conectado com sucesso.
+5. Clique em **Continuar**.
 
 ![Conectar Ledger](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-3.webp)
 
 Na próxima etapa, você será apresentado a uma lista de contas derivadas. Selecione aquela que você deseja importar, clique em **Continuar**, e pronto! Sua carteira Talisman agora pode assinar transações usando seu dispositivo Ledger.
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.pt.md'

@@ -30,8 +30,8 @@ Na tela seguinte, você será solicitado a criar uma senha para proteger sua nov
 Para criar sua primeira conta Ethereum, siga as seguintes etapas:
 
 1. Selecione a opção **Ethereum**
-1. Dê um nome à sua conta
-1. Pressione **Criar**
+2. Dê um nome à sua conta
+3. Pressione **Criar**
 
 ![Crie sua primeira conta Ethereum no Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-3.webp)
 
@@ -40,15 +40,15 @@ Após criar sua primeira conta, você será solicitado a fazer backup de sua fra
 ![Faça backup de sua frase de semente](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-4.webp)
 
 !!! note
-Você nunca deve compartilhar sua frase de semente (mnemônico) ou chave privada com ninguém. Isso lhes dá acesso direto aos seus fundos. Este guia é apenas para fins educacionais.
+    Você nunca deve compartilhar sua frase de semente (mnemônico) ou chave privada com ninguém. Isso lhes dá acesso direto aos seus fundos. Este guia é apenas para fins educacionais.
 
 ## Importando uma Conta EVM Existente {: #importing-an-existing-evm-account }
 
 É claro que você pode importar uma conta EVM existente para o Talisman. Para fazer isso, siga as seguintes etapas:
 
 1. Pressione **Adicionar conta**
-1. Pressione **Importar**
-1. Selecione **Importar via frase de recuperação** (observe que isso funciona para sementes e chaves privadas)
+2. Pressione **Importar**
+3. Selecione **Importar via frase de recuperação** (observe que isso funciona para sementes e chaves privadas)
 
 ![Configuração de importação de conta existente](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-9.webp)
 
@@ -75,9 +75,9 @@ Para configurar o Talisman para sua rede EVM Tanssi, abra a extensão Talisman e
 Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede alimentada pela Tanssi. Para fins de demonstração, a rede EVM de demonstração é usada aqui, mas você pode substituir esses detalhes por sua própria rede. Para adicionar sua rede ao Talisman, siga as seguintes etapas:
 
 1. Cole a URL RPC da sua rede alimentada pela Tanssi. A URL RPC da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_rpc_url }}`. Outros parâmetros serão preenchidos automaticamente
-1. Cole a URL do explorador de blocos da sua rede alimentada pela Tanssi. A URL do explorador de blocos da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`
-1. Marque a caixa **Esta é uma testnet**, se aplicável
-1. Pressione **Adicionar Rede**
+2. Cole a URL do explorador de blocos da sua rede alimentada pela Tanssi. A URL do explorador de blocos da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`
+3. Marque a caixa **Esta é uma testnet**, se aplicável
+4. Pressione **Adicionar Rede**
 
 ![Adicione os Detalhes da Sua Rede Alimentada por Tanssi](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-7.webp)
 
@@ -97,4 +97,4 @@ Para transferir o token nativo da sua rede Tanssi, siga as seguintes etapas:
 
 Este guia se concentrou especificamente na configuração do Talisman para trabalhar com sua rede EVM alimentada pela Tanssi, mas o Talisman também é uma carteira completa para contas Substrate (Polkadot). Na seção da API Substrate, você encontrará um tutorial semelhante para configurar o Talisman para trabalhar com cadeias baseadas em Substrate.
 
---8<-- 'text/_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.pt.md'

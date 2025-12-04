@@ -9,8 +9,8 @@ template: index-page.html
 
 A sua jornada como um sequenciador começa aqui. Siga estes passos para configurar o seu nó e preparar a sua conta para a participação ativa na rede Tanssi.
 
-[timeline left (tanssi-docs/.snippets/text/pt/node-operators/sequencers/onboarding/onboarding-timeline.json)]
-
+[timeline left (text/pt/node-operators/sequencers/onboarding/onboarding-timeline.json)]
+n
 
 ## Explore esta Seção
 

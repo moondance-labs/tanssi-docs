@@ -30,14 +30,14 @@ Você será solicitado a fazer backup de sua frase semente. Esta é uma etapa im
 ![Faça backup de sua frase semente no SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-3.webp)
 
 !!! note
-Você nunca deve compartilhar sua frase semente (mnemônico) ou chave privada com ninguém. Isso lhes dá acesso direto aos seus fundos. Este guia é apenas para fins educacionais.
+    Você nunca deve compartilhar sua frase semente (mnemônico) ou chave privada com ninguém. Isso lhes dá acesso direto aos seus fundos. Este guia é apenas para fins educacionais.
 
 ## Importando uma Conta EVM Existente {: #importing-an-existing-evm-account }
 
 É claro que você pode importar uma conta EVM existente para o SubWallet. Para começar, siga estas etapas:
 
 1. Pressione o botão **Todas as contas** na parte superior
-1. Pressione o ícone **Importar conta**
+2. Pressione o ícone **Importar conta**
 
 ![Importar conta parte 1](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-4.webp)
 
@@ -52,8 +52,8 @@ Na tela seguinte, você poderá fornecer a frase semente relevante, a chave priv
 Para configurar o SubWallet para sua rede EVM alimentada por Tanssi, pressione o ícone **Mais opções** no canto superior esquerdo. Em seguida, clique em **Gerenciar redes**. Pressione o ícone **+**. Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede Tanssi. Para fins de demonstração, a rede EVM de demonstração é usada aqui, mas você pode substituir esses detalhes pelos detalhes da sua própria rede Tanssi. Para adicionar sua rede Tanssi ao SubWallet, siga estas etapas:
 
 1. Cole a URL HTTPS RPC de sua rede Tanssi. A URL RPC da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_rpc_url }}`. Outros parâmetros serão preenchidos automaticamente
-1. Cole a URL do explorador de blocos de sua rede Tanssi. A URL do explorador de blocos da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`
-1. Pressione **Salvar**
+2. Cole a URL do explorador de blocos de sua rede Tanssi. A URL do explorador de blocos da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`
+3. Pressione **Salvar**
 
 ![Adicione os Detalhes da Rede Alimentada pelo Tanssi no SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-6.webp)
 
@@ -73,4 +73,4 @@ Para transferir o token nativo da sua rede Tanssi, siga estas etapas:
 
 Este guia se concentrou especificamente na configuração do SubWallet para trabalhar com sua rede EVM Tanssi, mas o SubWallet também é uma carteira completa para contas Substrate (Polkadot). Na seção da API do Substrate, você encontrará um [guia semelhante para configurar o SubWallet para uso com sua rede Substrate](/pt/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
 
---8<-- 'text/_disclaimers/third-party-content.md'
+--8<-- 'text/_disclaimers/third-party-content.pt.md'
