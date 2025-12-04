@@ -22,60 +22,48 @@ Se você estiver executando seu sequencer através do serviço Systemd, você pr
 Você pode parar seu serviço Tanssi Systemd com o seguinte comando:
 
 ```bash
+systemctl stop tanssi.service
 ```
 
 Em seguida, navegue até o diretório onde seu binário Tanssi está armazenado e remova-o.
 
 ```bash
+cd /var/lib/tanssi-data
 ```
 
 Seu arquivo binário Tanssi provavelmente será nomeado `tanssi-node`. Caso contrário, você pode substituir `tanssi-node` abaixo pelo nome correto do seu arquivo binário Tanssi.
 
 ```bash
+rm tanssi-node
 ```
 
 Para baixar a versão mais recente e alterar as permissões para que o serviço Tanssi possa usá-la, execute o seguinte comando que corresponde ao seu ambiente:
 
 === "Genérico"
 
-````
     ```bash
-
-wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node && \
-chmod +x ./tanssi-node
-
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node && \
+    chmod +x ./tanssi-node
     ```
-````
 
 === "Intel Skylake"
 
     ```bash
-````
-
-```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node-skylake -O tanssi-node && \
+    chmod +x ./tanssi-node
     ```
 
-chmod +x ./tanssi-node
-
-```
-````
-
-    ```bash
 === "AMD Zen3"
 
+    ```bash
+    wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node-znver3 -O tanssi-node && \
+    chmod +x ./tanssi-node
     ```
-
-```bash
-wget https://github.com/moondance-labs/tanssi/releases/download/{{ node_versions.para_client_version }}/tanssi-node-znver3 -O tanssi-node && \
-chmod +x ./tanssi-node
-```bash
-
-````
-```
 
 Você pode reiniciar seu serviço Tanssi Systemd com o seguinte comando:
 
 ```bash
+systemctl start tanssi.service
 ```
 
 O nó retomará a sincronização de blocos de onde parou quando o serviço Systemd foi interrompido. Para verificar se está funcionando corretamente, você pode usar o seguinte comando para verificar os logs:

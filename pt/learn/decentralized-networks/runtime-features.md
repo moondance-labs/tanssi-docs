@@ -52,6 +52,6 @@ O módulo [SUDO](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/pa
 
 - Cunhar novos tokens nativos.
 - Executar [atualizações de runtime sem fork](#forkless-upgrades).
-- Enviar chamadas em nome de outros [tipos de origem](#origins).
+- Enviar chamadas em nome de outros [tipos de origens](#origins).
 
 SUDO é útil em testnets para mudanças rápidas, mas traz riscos de centralização em produção; recomenda-se guarda segura das chaves e uso de proxys. Avalie cuidadosamente antes de manter SUDO ativo em ambientes produtivos.

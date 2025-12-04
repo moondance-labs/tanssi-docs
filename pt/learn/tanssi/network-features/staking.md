@@ -17,7 +17,8 @@ Este conteúdo apresenta os conceitos fundamentais do staking da Tanssi e como e
 
 <div style="text-align: center; justify-content:center;" class="row hero-buttons">
   <a href="https://www.tanssi.network/post/staking-tanssi" aria-label="Learn How to Stake on Tanssi Apps" style="margin: .5em;">
-    <button class="md-button primary-button" style="padding: 1em; font-size: 1em;">Learn How to Stake -></button>
+    <button class="md-button primary-button" style="padding: 1em; font-size: 1em;">
+Aprenda como Fazer Estacas -></button>
   </a>
 </div>
 
@@ -39,7 +40,7 @@ As chamadas de delegar e undelegar precisam ser enviadas pelo próprio delegador
 
 O diagrama a seguir resume o fluxo de delegar e undelegar para um sequenciador; ações do usuário em ciano e pools em coral.
 
-![Tanssi Staking Flow](/images/learn/tanssi/network-features/staking/staking-1.webp)
+![Tanssi Staking Flow](/images/learn/tanssi/staking/staking-1.webp)
 
 ## Visão Geral do Módulo {: #pallet-overview }
 
@@ -51,7 +52,7 @@ O módulo de staking da Tanssi mantém um inventário de sequenciadores, delegad
 - **`JoiningPools`**: operações pendentes de entrada em um sequenciador; usuários movem fundos aqui antes de irem ao pool de destino.
 - **`LeavingPool`**: operações pendentes de saída; delegadores movem fundos para sair de todos os pools.
 
-![Tanssi Staking Pallet Overview](/images/learn/tanssi/network-features/staking/staking-2.webp)
+![Tanssi Staking Pallet Overview](/images/learn/tanssi/staking/staking-2.webp)
 
 ## Fluxo de Entradas e Saídas {: #delegator-in-and-out }
 
@@ -68,7 +69,7 @@ Há três pools de recompensa por sequenciador:
 - **Manual Rewards Pool**: recompensas precisam ser reivindicadas manualmente.
 - **Auto-Compound Rewards Pool**: recompensas são automaticamente reinvestidas a cada bloco Tanssi.
 
-![Tanssi Reward Pools](/images/learn/tanssi/network-features/staking/staking-3.webp)
+![Tanssi Reward Pools](/images/learn/tanssi/staking/staking-3.webp)
 
 ## Distribuição de Recompensas {: #reward-distribution }
 

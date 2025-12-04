@@ -63,7 +63,7 @@ Cada vault é atrelado a um token ERC-20 aceito como garantia. Os fundos são re
 
 Três módulos compõem um vault:
 
-- **Slasher** – implementa a lógica de [corte](#slashing-process).
+- **Slasher** – implementa a lógica de [corte](#slashing).
 - **Delegator** – define como os fundos são delegados entre operadores e redes; diferentes [estratégias](https://docs.symbiotic.fi/modules/vault/delegator){target=\_blank} podem ser usadas.
 - **Accounting** – lida com depósitos, saques, saldos e eventos de corte; a implementação padrão é [ERC-4626](https://ethereum.org/developers/docs/standards/tokens/erc-4626/){target=\_blank}.
 

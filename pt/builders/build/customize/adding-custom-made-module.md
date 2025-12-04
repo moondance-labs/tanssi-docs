@@ -7,7 +7,7 @@ categories: Custom-Runtime
   
 # Adicionar um módulo personalizado {: #adding-custom-made-module }
   
-## Introduction {:  #introduction }
+## Introdução {:  #introduction }
   
 Ao fornecer uma biblioteca abrangente de módulos pré-construídos que abordam muitos requisitos comuns, a estrutura simplifica enormemente o processo de construção de um blockchain e acelera a implantação e evolução em uma rede com tecnologia Tanssi. No entanto, abordar um caso de uso inovador geralmente exige um esforço de desenvolvimento para atender totalmente aos requisitos e, no Substrate, adicionar lógica personalizada se traduz em escrever e integrar módulos de tempo de execução.
   
@@ -27,7 +27,7 @@ Neste artigo, as seguintes etapas, necessárias para construir e adicionar o mó
 
 --8<-- 'text/pt/_common/not-for-production-code-guard.md'
 
-## Checking Prerequisites {: #checking-prerequisites }
+## Verificando Pré-requisitos {: #checking-prerequisites }
 
 Para seguir as etapas deste guia, você precisará ter o seguinte:
 

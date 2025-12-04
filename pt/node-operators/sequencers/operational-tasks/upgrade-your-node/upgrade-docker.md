@@ -22,11 +22,13 @@ Se você estiver executando seu sequencer com o Docker, atualizar seu nó é tã
 Primeiro, obtenha a ID do contêiner do seu nó sequencer Tanssi com o seguinte comando:
 
 ```bash
+docker ps -a
 ```
 
 A ID do contêiner é a primeira coluna e, se você estiver executando vários contêineres Docker, pode identificá-lo pelo nome da imagem de `{{ node_versions.docker_sequencer_image_name }}`. Você pode executar o comando de parada da seguinte forma:
 
 ```bash
+docker stop INSERT_YOUR_CONTAINER_ID
 ```
 
 A sua interação com o terminal será semelhante ao seguinte:
@@ -37,47 +39,33 @@ Para reiniciar o nó, você pode usar o mesmo comando que usou ao iniciar seu n�
 
 === "Genérico"
 
-
     ```bash
-
-docker run --network="host" -v "/var/lib/dancebox:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
-{{ node_versions.docker_sequencer_image_name }} \
---8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
-
+    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    {{ node_versions.docker_sequencer_image_name }} \
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
-
 
 === "Intel Skylake"
 
     ```bash
-
-
-```bash
-docker run --network="host" -v "/var/lib/dancebox:/data" \
--u $(id -u ${USER}):$(id -g ${USER}) \
---entrypoint "/tanssi/tanssi-node-skylake" \
+    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    --entrypoint "/tanssi/tanssi-node-skylake" \
+    {{ node_versions.docker_sequencer_image_name }} \
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
-
---8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
-
-```
-    ```bash
 
 === "AMD Zen3"
 
-
-```bash
-
+    ```bash
+    docker run --network="host" -v "/var/lib/dancebox:/data" \
+    -u $(id -u ${USER}):$(id -g ${USER}) \
+    --entrypoint "/tanssi/tanssi-node-znver3" \
+    {{ node_versions.docker_sequencer_image_name }} \
+    --8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
     ```
--u $(id -u ${USER}):$(id -g ${USER}) \
---entrypoint "/tanssi/tanssi-node-znver3" \
-{{ node_versions.docker_sequencer_image_name }} \
---8<-- 'code/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/docker-command.md'
-```
-
-
-
+    
 ### Especificando uma Tag de Versão {: #specifying-a-version-tag }
 
 Se você quiser especificar uma [tag de versão específica](https://hub.docker.com/r/moondancelabs/tanssi/tags){target=\_blank}, você pode fazer isso substituindo a tag de versão anexada ao nome da imagem. Por exemplo, se você quisesse buscar a versão `3`, você substituiria o `2` em `{{ node_versions.docker_sequencer_image_name }}`.
