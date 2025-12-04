@@ -18,7 +18,7 @@ The protocol is built on top of BandChain, a network designed to be compatible w
 - Scalable, designed to handle high volumes of data requests
 - Affordable, allowing users to request data only when they need to and pay the associated fees
 
-Band protocol is currently deployed on many blockchains ([Moonbeam](https://docs.moonbeam.network/builders/integrations/oracles/band-protocol/){target=\_blank}, for example) across different ecosystems. To deploy the oracle onto your network, reach out to the [Band Protocol](https://www.bandprotocol.com/){target=\_blank} team directly.
+To deploy the oracle onto your network, reach out to the [Band Protocol](https://www.bandprotocol.com/){target=\_blank} team directly.
 
 This tutorial will walk through the steps to interact with price feeds using the Band protocol's oracle on the [Tanssi demo EVM-compatible network](https://apps.tanssi.network/demo){target=\_blank}. 
 
