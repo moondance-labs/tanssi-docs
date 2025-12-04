@@ -1,0 +1,37 @@
+[
+    {
+      "title": "[Execute um nó operador](/pt/node-operators/operators/onboarding/run-an-operator/){target=_blank}",
+      "content": "Configure o nó usando Systemd ou Docker.",
+      "icon": ":fontawesome-solid-1:"
+    },
+    {
+      "title": "[Registrar no Symbiotic](/pt/node-operators/operators/onboarding/register-in-symbiotic/){target=_blank}",
+      "content": "Adicione sua conta ao registro de operadores do Symbiotic. Esse registro é o ponto central para identificar operadores dentro do ecossistema Symbiotic.",
+      "icon": ":fontawesome-solid-2:"
+    },
+    {
+      "title": "[Fazer opt-in na Tanssi Network](/pt/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi){target=_blank}",
+      "content": "Adicione sua conta ao registro de operadores da rede Tanssi. Esse registro é o ponto central para identificar operadores que participam do protocolo Tanssi.",
+      "icon": ":fontawesome-solid-3:"
+    },
+    {
+        "title": "[Fazer opt-in em um cofre habilitado para Tanssi](/pt/node-operators/operators/onboarding/opt-in-to-tanssi/#opt-in-tanssi-vaults){target=_blank}",
+        "content": "Adicione sua conta a um cofre habilitado para Tanssi. Operadores devem fazer opt-in (e serem admitidos) em um cofre que gerencia e delega os ativos em stake aos operadores.",
+        "icon": ":fontawesome-solid-4:"
+    },
+    {
+      "title": "[Preencha o formulário de inscrição](https://www.tanssi.network/node-operators-application){target=_blank}",
+      "content": "Preencha o formulário para se candidatar como operador. Como esta etapa não é totalmente automatizada, o processamento pode levar até uma semana.",
+      "icon": ":fontawesome-solid-5:"
+    },
+    {
+      "title": "[Configure sua conta](/pt/node-operators/operators/onboarding/account-setup/){target=_blank}",
+      "content": "Associe sua conta ao seu nó para começar a validar no protocolo Tanssi.",
+      "icon": ":fontawesome-solid-6:"
+    },
+    {
+      "title": "[Configure uma identidade on-chain](/pt/builders/account-management/identity/){target=_blank}",
+      "content": "Defina uma identidade para melhorar a visibilidade e o reconhecimento da conta Substrate do seu operador.",
+      "icon": ":fontawesome-solid-7:"
+    }
+]

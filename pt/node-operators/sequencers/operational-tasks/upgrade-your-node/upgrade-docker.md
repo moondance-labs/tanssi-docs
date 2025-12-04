@@ -13,7 +13,7 @@ Manter seu nó atualizado é uma parte importante de ser um sequencer Tanssi. N�
 
 Este tutorial aborda a atualização do seu sequencer Tanssi que foi configurado usando o Docker. Ele pressupõe que você já configurou sua conta e lançou um [sequencer usando Docker](/pt/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-docker/){target=\_blank}.
 
---8<-- 'text/node-operators/pt/github-release-notifications.md'
+--8<-- 'text/pt/node-operators/github-release-notifications.md'
 
 ## Atualizando Nós Docker {: #upgrading-docker-nodes }
 

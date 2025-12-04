@@ -13,7 +13,7 @@ A manutenção do seu nó atualizado é uma parte importante de ser um operador 
 
 Este tutorial aborda a atualização do seu nó operador Tanssi que foi configurado usando o Docker. Ele pressupõe que você já configurou sua conta e lançou um [nó operador usando o Systemd](/pt/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
---8<-- 'text/node-operators/pt/github-release-notifications.md'
+--8<-- 'text/pt/node-operators/github-release-notifications.md'
 
 ## Atualizando Nós Docker {: #upgrading-docker-nodes }
 
@@ -105,7 +105,7 @@ Para reiniciar o nó, use o mesmo comando que usou ao iniciá-lo pela primeira v
         --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/docker-command.md'
         ```
 
---8<-- 'text/node-operators/pt/optimized-binaries-note.md'
+--8<-- 'text/pt/node-operators/optimized-binaries-note.md'
 
 ### Especifique uma Tag de Versão {: #specifying-a-version-tag }
 

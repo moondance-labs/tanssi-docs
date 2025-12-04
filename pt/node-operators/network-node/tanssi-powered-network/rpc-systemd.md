@@ -9,7 +9,7 @@ categories: RPC-Data-Preservers
 
 ## Introdução {: #introduction }
 
---8<-- 'text/node-operators/pt/network-node/intro.md'
+--8<-- 'text/pt/node-operators/network-node/intro.md'
 
 Neste guia, você aprenderá a iniciar um nó appchain da Tanssi usando um binário executável e gerenciar o serviço com [Systemd](https://systemd.io){target=_blank} em sistemas Linux.
 
@@ -25,7 +25,7 @@ Para começar, você precisará de acesso a um computador executando Ubuntu Linu
 - **Arquivo binário do nó** - as instruções executam a [versão estável mais recente](https://github.com/moondance-labs/tanssi/releases/latest){target=_blank}. Se quiser compilar e rodar o seu próprio arquivo, siga as instruções para [construir seu nó appchain](/pt/builders/build/customize/prerequisites/){target=_blank}.
 - **Arquivos de especificações de cadeia** - o nó precisa de informações sobre duas blockchains diferentes para sincronizar e executar corretamente. A seção a seguir mostra como obtê-los.
 
---8<-- 'text/node-operators/pt/network-node/getting-specs-files.md'
+--8<-- 'text/pt/node-operators/network-node/getting-specs-files.md'
 
 ## Baixe a Versão Mais Recente {: #download-latest-release }
 
@@ -45,9 +45,9 @@ Cada nova versão inclui dois binários, um para redes compatíveis com EVM e ou
     chmod +x ./container-chain-simple-node
     ```
 
---8<-- 'text/node-operators/pt/optimized-binaries-note.md'
+--8<-- 'text/pt/node-operators/optimized-binaries-note.md'
 
---8<-- 'text/node-operators/pt/appchains-systemd-data-directory.md'
+--8<-- 'text/pt/node-operators/appchains-systemd-data-directory.md'
 
 Mova também o binário do nó:
 
@@ -97,7 +97,7 @@ Note que o comando `ExecStart` tem parâmetros que precisam ser ajustados para s
 
 - `Arquivo de especificação` - substitua `INSERT_YOUR_APPCHAIN_SPECS_FILE_NAME` pelo nome do arquivo do seu appchain. Para um appchain MainNet, o caminho será parecido com `/var/lib/tanssi-data/SEU_ARQUIVO.json`.
 
---8<-- 'text/node-operators/pt/network-node/bootnode-item.md'
+--8<-- 'text/pt/node-operators/network-node/bootnode-item.md'
 
 === "Tanssi MainNet"
 
@@ -195,7 +195,7 @@ Note que o comando `ExecStart` tem parâmetros que precisam ser ajustados para s
         WantedBy=multi-user.target
         ```
 
---8<-- 'text/node-operators/pt/network-node/fetching-bootnode-section.md'
+--8<-- 'text/pt/node-operators/network-node/fetching-bootnode-section.md'
 
 ### Exemplo de Configuração Completa para a Rede EVM de Demonstração {: #example-demo-evm-network }
 
@@ -248,7 +248,7 @@ O arquivo de especificação de cadeia bruta é necessário para executar o nó 
 
 As flags usadas no comando `ExecStart` podem ser ajustadas conforme suas preferências e configuração de hardware. Algumas das mais importantes:
 
---8<-- 'text/node-operators/pt/network-node/run-flags.md'
+--8<-- 'text/pt/node-operators/network-node/run-flags.md'
 
 === "Rede compatível com EVM"
 

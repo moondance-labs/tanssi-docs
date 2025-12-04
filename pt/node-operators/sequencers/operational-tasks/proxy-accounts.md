@@ -120,4 +120,4 @@ Depois de mapear suas chaves de sessão e executar a solicitação de delegaçã
 
 É isso! Você executou com sucesso uma transação usando uma conta proxy em nome de sua conta sequenciadora primária.
 
---8<-- 'text/_disclaimers/third-party-content.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

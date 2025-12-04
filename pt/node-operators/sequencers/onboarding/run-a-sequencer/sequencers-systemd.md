@@ -9,7 +9,7 @@ categories: Sequencers
 
 ## Introdução {: #introduction }
 
---8<-- 'tanssi-docs/.snippets/text/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
+--8<-- 'text/pt/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
 
 Neste guia, você aprenderá como iniciar um sequenciador Tanssi para fazer parte do pool compartilhado de sequenciadores usando o binário estável mais recente e gerenciando o serviço com [Systemd](https://systemd.io){target=\_blank} em sistemas Linux.
 
@@ -26,7 +26,7 @@ Para começar, você precisará de um computador executando Ubuntu Linux com pri
 
 Para começar, faça o download e torne executável a versão mais recente do binário executando o seguinte comando:
 
---8<-- 'tanssi-docs/.snippets/text/node-operators/optimized-binaries-note.md'
+--8<-- 'text/pt/node-operators/optimized-binaries-note.md'
 
 === "Tanssi MainNet"
 
@@ -74,9 +74,9 @@ Para começar, faça o download e torne executável a versão mais recente do bi
         chmod +x ./tanssi-node
         ```
 
---8<-- 'tanssi-docs/.snippets/text/node-operators/sequencers/onboarding/run-a-sequencer/download-specs.md'
+--8<-- 'text/pt/node-operators/sequencers/onboarding/run-a-sequencer/download-specs.md'
 
---8<-- 'tanssi-docs/.snippets/text/node-operators/appchains-systemd-data-directory.md'
+--8<-- 'text/pt/node-operators/appchains-systemd-data-directory.md'
 
 Por fim, mova o binário para a pasta:
 
@@ -94,7 +94,7 @@ Por fim, mova o binário para a pasta:
 
 ### Gerar a Chave do Nó {: #generate-node-key }
 
---8<-- 'tanssi-docs/.snippets/text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-intro.md'
+--8<-- 'text/pt/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-intro.md'
 
 === "Tanssi MainNet"
 
@@ -108,7 +108,7 @@ Por fim, mova o binário para a pasta:
     /var/lib/dancelight-data/tanssi-node key generate-node-key --file /var/lib/dancelight-data/node-key
     ```
 
---8<-- 'tanssi-docs/.snippets/text/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
+--8<-- 'text/pt/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
 ### Criar o Arquivo de Configuração do Systemd {: #create-systemd-configuration }
 
@@ -256,7 +256,7 @@ Agora abra o arquivo com seu editor de texto favorito (vim, emacs, nano etc.) e 
 
 Os flags usados no comando `ExecStart` podem ser ajustados conforme suas preferências e configuração de hardware. Alguns dos mais importantes são:
 
---8<-- 'tanssi-docs/.snippets/text/node-operators/network-node/run-flags.md'
+--8<-- 'text/pt/node-operators/network-node/run-flags.md'
 
 === "Tanssi MainNet"
 

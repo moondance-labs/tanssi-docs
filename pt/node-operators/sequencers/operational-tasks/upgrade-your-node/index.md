@@ -9,7 +9,7 @@ template: index-page.html
 
 A manutenção do seu nó atualizado é fundamental para manter a compatibilidade com as últimas alterações do protocolo Tanssi e garantir o desempenho ideal. Nós desatualizados podem levar à dessincronização, redução da eficiência ou até mesmo à incapacidade de participar da produção de blocos. Ao manter-se atualizado com os lançamentos de clientes, você pode garantir que seu nó opere de forma segura e confiável na rede.
 
---8<-- 'text/node-operators/pt/github-release-notifications.md'
+--8<-- 'text/pt/node-operators/github-release-notifications.md'
 
 ## Explore o Que Esta Seção Cobre
 

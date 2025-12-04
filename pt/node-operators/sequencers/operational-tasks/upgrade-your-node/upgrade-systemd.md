@@ -13,7 +13,7 @@ Manter seu nó atualizado é uma parte importante de ser um sequencer Tanssi. Is
 
 Este tutorial aborda a atualização do seu nó sequencer Tanssi que foi configurado usando o Systemd. Ele pressupõe que você já configurou sua conta e lançou um [nó sequencer usando Systemd](/pt/node-operators/sequencers/onboarding/run-a-sequencer/sequencers-systemd/){target=\_blank}.
 
---8<-- 'text/node-operators/pt/github-release-notifications.md'
+--8<-- 'text/pt/node-operators/github-release-notifications.md'
 
 ## Atualizando seu Nó Systemd {: #upgrading-your-systemd-node }
 

@@ -45,7 +45,7 @@ Se o Landlock estiver desabilitado, atualize o kernel para a versão 5.13 ou sup
 
 Baixe os binários mais recentes e torne-os executáveis:
 
---8<-- 'text/node-operators/pt/optimized-binaries-note.md'
+--8<-- 'text/pt/node-operators/optimized-binaries-note.md'
 
 === "Genérico"
 
@@ -74,13 +74,13 @@ Baixe os binários mais recentes e torne-os executáveis:
     chmod +x ./tanssi-relay*
     ```
 
---8<-- 'text/node-operators/pt/set-up-systemd-service.md'
+--8<-- 'text/pt/node-operators/set-up-systemd-service.md'
 
---8<-- 'text/node-operators/pt/generate-node-keys-systemd.md'
+--8<-- 'text/pt/node-operators/generate-node-keys-systemd.md'
 
---8<-- 'text/node-operators/pt/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
+--8<-- 'text/pt/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
---8<-- 'text/node-operators/pt/create-systemd-config-file.md'
+--8<-- 'text/pt/node-operators/create-systemd-config-file.md'
 
 === "Tanssi MainNet"
 
@@ -156,8 +156,8 @@ Você pode visualizar todas as flags disponíveis executando:
     /var/lib/dancelight-data/tanssi-relay --help
     ```
 
---8<-- 'text/node-operators/pt/run-the-service-systemd.md'
+--8<-- 'text/pt/node-operators/run-the-service-systemd.md'
 
 --8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
---8<-- 'text/node-operators/pt/check-logs-systemd.md'
+--8<-- 'text/pt/node-operators/check-logs-systemd.md'

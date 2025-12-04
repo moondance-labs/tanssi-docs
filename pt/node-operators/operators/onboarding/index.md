@@ -13,7 +13,7 @@ O protocolo Tanssi consegue isso integrando-se a [provedores de segurança exter
 
 Siga estas etapas para configurar seu nó e preparar sua conta para participação ativa no protocolo Tanssi.
 
-[timeline left (tanssi-docs/.snippets/text/node-operators/operators/onboarding/pt/onboarding-timeline.json)]
+[timeline left (text/pt/node-operators/operators/onboarding/pt/onboarding-timeline.json)]
 
 Depois de totalmente integrado, confira as [tarefas operacionais](/pt/node-operators/operators/operational-tasks/){target=\_blank} relacionadas à manutenção do seu nó.
 

@@ -17,7 +17,7 @@ Este guia mostra como iniciar um operador Tanssi usando a imagem oficial com [Do
 
 ## Verificando Pré-Requisitos {: #checking-prerequisites }
 
---8<-- 'text/node-operators/pt/installing-docker.md'
+--8<-- 'text/pt/node-operators/installing-docker.md'
 
 ### Puxar a Imagem Docker {: #pull-docker-image }
 
@@ -43,7 +43,7 @@ O comando fará download/extrair a imagem e exibirá o status após a execução
 
 --8<-- 'code/node-operators/operators/onboarding/run-an-operator/operators-docker/terminal/pulling-docker-image.md'
 
---8<-- 'text/node-operators/pt/set-up-data-directory.md'
+--8<-- 'text/pt/node-operators/set-up-data-directory.md'
 
 ### Gerar a Chave do Nó {: #generate-node-key }
 
@@ -65,7 +65,7 @@ Para gerar e armazenar as chaves de sessão em disco (referenciadas no comando d
     {{ networks.dancelight.operator_docker_image }} key generate-node-key --file /data/node-key
     ```
 
---8<-- 'text/node-operators/pt/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
+--8<-- 'text/pt/node-operators/sequencers/onboarding/run-a-sequencer/generate-node-key-unsafe-note.md'
 
 ## Inicie Seu Nó {: #start-your-node }
 
@@ -73,7 +73,7 @@ Para iniciar seu nó, execute a imagem Docker com `docker run`.
 
 Substitua `INSERT_YOUR_TANSSI_NODE_NAME` por um nome legível e `INSERT_YOUR_IP_ADDRESS` pelo IP público.
 
---8<-- 'text/node-operators/pt/optimized-binaries-note.md'
+--8<-- 'text/pt/node-operators/optimized-binaries-note.md'
 
 === "Tanssi MainNet"
 

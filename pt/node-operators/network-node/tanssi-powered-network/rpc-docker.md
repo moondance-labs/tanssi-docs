@@ -9,7 +9,7 @@ categories: RPC-Data-Preservers
 
 ## Introdução {: #introduction }
 
---8<-- 'text/node-operators/pt/network-node/intro.md'
+--8<-- 'text/pt/node-operators/network-node/intro.md'
 
 Neste guia, você aprenderá como iniciar rapidamente um nó appchain Tanssi usando [Docker](https://www.docker.com){target=_blank} em um computador Linux. Ele pode ser adaptado para outros sistemas operacionais.
 
@@ -18,11 +18,11 @@ Neste guia, você aprenderá como iniciar rapidamente um nó appchain Tanssi usa
 
 ## Verificação de Pré-requisitos {: #checking-prerequisites }
 
---8<-- 'text/node-operators/pt/installing-docker.md'
+--8<-- 'text/pt/node-operators/installing-docker.md'
 
---8<-- 'text/node-operators/pt/network-node/getting-specs-files.md'
+--8<-- 'text/pt/node-operators/network-node/getting-specs-files.md'
 
---8<-- 'text/node-operators/pt/appchains-docker-data-directory.md'
+--8<-- 'text/pt/node-operators/appchains-docker-data-directory.md'
 
 ## Extraindo a Imagem Docker {: #pulling-docker-image }
 
@@ -75,7 +75,7 @@ O comando fará download e extração da imagem e exibirá o status após a exec
 Para iniciar seu nó, execute a imagem Docker com `docker run`. Altere conforme necessário:
 
 - `Arquivo de especificações da appchain` - substitua `INSERT_YOUR_APPCHAIN_SPECS_FILE` pelo nome do arquivo de specs baixado na etapa de [obtenção das especificações](#checking-prerequisites).
---8<-- 'text/node-operators/pt/network-node/bootnode-item.md'
+--8<-- 'text/pt/node-operators/network-node/bootnode-item.md'
 
 === "Tanssi MainNet"
 
@@ -120,7 +120,7 @@ Para iniciar seu nó, execute a imagem Docker com `docker run`. Altere conforme 
 !!! note
     Por padrão, apenas o estado histórico dos últimos 256 blocos finalizados é mantido. Para executar um nó de arquivo completo, defina a flag `--state-pruning archive`. Mais informações na [seção de sinalizadores](#run-flags).
 
---8<-- 'text/node-operators/pt/network-node/fetching-bootnode-section.md'
+--8<-- 'text/pt/node-operators/network-node/fetching-bootnode-section.md'
 
 ### Exemplo de Nó Completo para Demo EVM Appchain {: #example-demo-evm-appchain }
 
@@ -156,7 +156,7 @@ O exemplo abaixo inicia um nó RPC de arquivo completo para a [rede demo EVM](/p
 
 As flags usadas no `docker run` podem ser ajustadas conforme suas preferências e hardware. Algumas das principais:
 
---8<-- 'text/node-operators/pt/network-node/run-flags.md'
+--8<-- 'text/pt/node-operators/network-node/run-flags.md'
 
 === "Appchain compatível com EVM"
 

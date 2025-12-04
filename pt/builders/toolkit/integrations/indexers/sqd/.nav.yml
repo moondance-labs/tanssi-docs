@@ -2,5 +2,5 @@ title: SQD
 hide: false
 nav:
   - index.md
-  - 'Quick Start': 'quick-start.md'
-  - 'Index ERC-20 Transfers': 'erc20-transfers.md'
+  - 'Início Rápido': 'quick-start.md'
+  - 'Índice de transferências ERC-20': 'erc20-transfers.md'
