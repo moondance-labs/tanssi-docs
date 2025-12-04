@@ -20,7 +20,7 @@ Para os exemplos deste guia, você precisará do seguinte:
 - Uma rede com tecnologia Tanssi (Quick Trial ou Dedicated)
 - A conta Sudo da sua rede conectada aos seus Polkadot.js Apps. Você pode consultar o [guia de gerenciamento do Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar sua conta Sudo nos Polkadot.js Apps
 
---8<-- 'text/builders/manage/pt/locate-sudo-account.md'
+--8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
 ## Cunhagem de Tokens {: #minting-tokens }
 
@@ -57,4 +57,4 @@ Para atribuir um saldo de conta a uma conta, certifique-se de ter sua conta Sudo
 
 E é isso! A seção [Portal do Desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerenciar sua rede Tanssi.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

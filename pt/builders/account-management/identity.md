@@ -9,7 +9,7 @@ categories: Basics, Appchain
 
 ## Introdução {: #introduction }
 
-O [Substrate](/pt/learn/framework/overview/#substrate-framework){target=\_blank} Identity [module](/pt/learn/framework/modules/){target=\_blank} é uma solução pronta para uso para adicionar informações pessoais à sua conta on-chain. O estabelecimento de uma identidade torna mais fácil para sua conta ser reconhecida por outros, pois seu nome de exibição preencherá automaticamente quando alguém colar seu endereço em um campo no \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank}.
+O [Substrate](/pt/learn/framework/overview/#substrate-framework){target=\_blank} Identity [module](/pt/learn/framework/modules/){target=\_blank} é uma solução pronta para uso para adicionar informações pessoais à sua conta on-chain. O estabelecimento de uma identidade torna mais fácil para sua conta ser reconhecida por outros, pois seu nome de exibição preencherá automaticamente quando alguém colar seu endereço em um campo no [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank}.
 
 A identidade que você configura vai além de um simples nome de exibição. As informações pessoais podem incluir campos padrão, como seu nome legal, nome de exibição, site, identificador do Twitter, Discord e nome do Riot (agora conhecido como Element). Você também pode usar campos personalizados para incluir quaisquer outras informações relevantes.
 
@@ -27,43 +27,35 @@ Para armazenar suas informações on-chain, você deve vincular alguns fundos, q
 
 === "Tanssi MainNet"
 
-```
-|       Variável        |                                    Definição                                    |                                        Valor                                         |
-|:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
-|     Depósito básico     |                O valor mantido em depósito para a definição de uma identidade                |  {{ networks.mainnet.identity.basic_deposit }} {{ networks.mainnet.token_symbol }}   |
-|   Depósito por byte    | O valor mantido em depósito por byte de armazenamento on-chain usado na definição de uma identidade | {{ networks.mainnet.identity.per_byte_deposit }} {{ networks.mainnet.token_symbol }} |
-| Campos adicionais máx.  |         Número máximo de campos adicionais que podem ser armazenados em um ID          |                      {{ networks.mainnet.identity.max_fields }}                      |
-|    Subcontas máx.    |   Número máximo de subcontas que podem ser definidas sob uma identidade de conta    |                   {{ networks.mainnet.identity.max_subaccounts }}                    |
-```
+    |       Variável        |                                    Definição                                    |                                        Valor                                         |
+    |:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------:|
+    |     Depósito básico   | O valor mantido em depósito para a definição de uma identidade                  |  {{ networks.mainnet.identity.basic_deposit }} {{ networks.mainnet.token_symbol }}   |
+    |   Depósito por byte   | O valor mantido em depósito por byte de armazenamento on-chain usado na definição de uma identidade | {{ networks.mainnet.identity.per_byte_deposit }} {{ networks.mainnet.token_symbol }} |
+    | Campos adicionais máx.| Número máximo de campos adicionais que podem ser armazenados em um ID           |                      {{ networks.mainnet.identity.max_fields }}                      |
+    |    Subcontas máx.     | Número máximo de subcontas que podem ser definidas sob uma identidade de conta  |                   {{ networks.mainnet.identity.max_subaccounts }}                    |
 
 === "Dancelight TestNet"
 
-```
-|       Variável        |                                    Definição                                    |                                           Valor                                            |
-|:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------:|
-|     Depósito básico     |                O valor mantido em depósito para a definição de uma identidade                |  {{ networks.dancelight.identity.basic_deposit }} {{ networks.dancelight.token_symbol }}   |
-|   Depósito por byte    | O valor mantido em depósito por byte de armazenamento on-chain usado na definição de uma identidade | {{ networks.dancelight.identity.per_byte_deposit }} {{ networks.dancelight.token_symbol }} |
-| Campos adicionais máx.  |         Número máximo de campos adicionais que podem ser armazenados em um ID          |                       {{ networks.dancelight.identity.max_fields }}                        |
-|    Subcontas máx.    |   Número máximo de subcontas que podem ser definidas sob uma identidade de conta    |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
-```
+    |       Variável        |                                    Definição                                    |                                           Valor                                            |
+    |:---------------------:|:--------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------:|
+    |     Depósito básico   | O valor mantido em depósito para a definição de uma identidade                  |  {{ networks.dancelight.identity.basic_deposit }} {{ networks.dancelight.token_symbol }}   |
+    |   Depósito por byte   | O valor mantido em depósito por byte de armazenamento on-chain usado na definição de uma identidade | {{ networks.dancelight.identity.per_byte_deposit }} {{ networks.dancelight.token_symbol }} |
+    | Campos adicionais máx.| Número máximo de campos adicionais que podem ser armazenados em um ID           |                       {{ networks.dancelight.identity.max_fields }}                        |
+    |    Subcontas máx.     | Número máximo de subcontas que podem ser definidas sob uma identidade de conta  |                     {{ networks.dancelight.identity.max_subaccounts }}                     |
 
-## Verificando os Pré-requisitos { : #checking-prerequisites }
+## Verificando os Pré-requisitos {: #checking-prerequisites }
 
 Para acompanhar este guia, você precisará do seguinte:
 
 === "Tanssi MainNet"
 
-```
-- O [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} aberto e conectado ao Tanssi MainNet.
-- Pelo menos uma conta financiada com tokens `{{ networks.mainnet.token_symbol }}`.
-```
+    - O [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} aberto e conectado ao Tanssi MainNet.
+    - Pelo menos uma conta financiada com tokens `{{ networks.mainnet.token_symbol }}`.
 
 === "Dancelight TestNet"
-
-```
-- O [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} aberto e conectado ao [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
-- Pelo menos uma conta financiada com tokens `{{ networks.dancelight.token_symbol }}`.
-```
+    
+    - O [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} aberto e conectado ao [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
+    - Pelo menos uma conta financiada com tokens `{{ networks.dancelight.token_symbol }}`.
 
 Se precisar de ajuda para importar suas contas para o portal do desenvolvedor, consulte o guia [Conectando-se ao portal do desenvolvedor](/pt/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank}.
 
@@ -163,7 +155,7 @@ Na página **Chain State**, certifique-se de que **Storage** esteja selecionado.
 
 Você pode ver agora que você definiu com sucesso uma identidade! Depois de limpar sua identidade, o depósito em seu saldo reservado será transferido de volta para seu saldo transferível. Se você precisar alterar sua identidade, pode passar pelo processo de configuração da sua identidade novamente. Observe que você deve garantir que todos os campos sejam reinseridos, mesmo que apenas um campo precise ser alterado, ou eles serão substituídos. Você não precisará pagar outro depósito, a menos que campos personalizados sejam usados, mas precisará pagar taxas de gás.
 
-## Limpar uma Identidade {: #Limpar uma Identidade via Extrinsics }
+## Limpar uma Identidade {: #clear-identity-extrinsics }
 
 Para limpar sua identidade, siga as seguintes etapas na guia **Extrinsics** do portal do desenvolvedor:
 

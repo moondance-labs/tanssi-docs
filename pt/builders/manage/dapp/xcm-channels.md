@@ -19,11 +19,11 @@ Neste guia, você aprenderá como usar o [Tanssi dApp](https://apps.tanssi.netwo
 Para os exemplos deste guia, você precisará ter o seguinte:
 
 - Uma rede Tanssi (Dedicada) executando o [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} ou superior
-  --8<-- 'text/builders/manage/dapp/pt/prerequisites.md'
+  --8<-- 'text/pt/builders/manage/dapp/prerequisites.md'
 
 ## Acessando o Painel de Gerenciamento de Canais {: #accesing-channel-management-panel }
 
---8<-- 'text/builders/manage/dapp/pt/cross-chain-config-panel.md'
+--8<-- 'text/pt/builders/manage/dapp/cross-chain-config-panel.md'
 
 O painel mostrará o status dos canais de comunicação da sua rede, juntamente com várias ações disponíveis. Os elementos que você recebe são:
 

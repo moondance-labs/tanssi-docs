@@ -233,4 +233,4 @@ const uri = await upload({
 
 Com a CLI, o Deploy e os SDKs do thirdweb, você consegue criar, implantar e interagir com contratos na sua rede EVM da Tanssi com rapidez. Consulte a [documentação do thirdweb](https://portal.thirdweb.com){target=_blank} para recursos avançados.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

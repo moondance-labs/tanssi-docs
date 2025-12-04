@@ -110,5 +110,5 @@ Você também pode enviar uma transação por meio da API Substrate diretamente 
 
 Este guia se concentrou especificamente na configuração do SubWallet para funcionar com sua rede Tanssi Substrate, mas o SubWallet também é uma carteira completa para contas EVM. Na seção da API Ethereum, você encontrará um [guia semelhante para configurar o SubWallet para uso com sua rede Tanssi EVM](/pt/builders/toolkit/ethereum-api/wallets/subwallet/){target=\_blank}.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
 

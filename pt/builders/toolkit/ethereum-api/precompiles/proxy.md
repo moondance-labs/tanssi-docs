@@ -25,7 +25,7 @@ A Proxy Precompile está localizada no seguinte endereço:
 {{networks.demo_evm.precompiles.proxy}}
 ```
 
---8<-- 'text/builders/toolkit/ethereum-api/precompiles/pt/security-note.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## Pré-requisitos {: #prerequisites }
 

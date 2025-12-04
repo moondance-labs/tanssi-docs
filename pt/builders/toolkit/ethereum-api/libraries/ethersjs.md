@@ -17,7 +17,7 @@ Neste guia você aprenderá a usar Ethers.js na sua rede EVM da Tanssi. Para dem
 
 Se preferir vídeo, veja os tutoriais no topo desta página sobre [Enviar transações com Ethers.js](#send-a-transaction) e [Implantar contratos com Ethers.js](#deploy-a-contract).
 
---8<-- 'text/_common/pt/general-js-tutorial-check.md'
+--8<-- 'text/pt/_common/general-js-tutorial-check.md'
 
 ## Verificando pré-requisitos {: #checking-prerequisites }
 
@@ -201,11 +201,11 @@ O hash será exibido. Use `balances.js` antes/depois para confirmar a mudança d
 
 ## Implantar um contrato {: #deploy-a-contract }
 
---8<-- 'text/builders/toolkit/ethereum-api/libraries/pt/contract.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/contract.md'
 
 ### Script de compilação {: #compile-contract-script }
 
---8<-- 'text/builders/toolkit/ethereum-api/libraries/pt/compile.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/compile.md'
 
 ### Script de deploy {: #deploy-contract-script }
 
@@ -475,4 +475,4 @@ Use `get.js` junto para confirmar a mudança de valor.
 
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/ethers/terminal/reset.md'
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

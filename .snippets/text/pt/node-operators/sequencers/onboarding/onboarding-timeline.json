@@ -1,22 +1,22 @@
 [
-    {
-      "title": "[Execute um sequenciador](/pt/node-operators/sequencers/onboarding/run-a-sequencer/){target=_blank}",
-      "content": "Configure o nó usando Systemd ou Docker.",
-      "icon": ":fontawesome-solid-1:"
-    },
-    {
-      "title": "[Configure sua conta](/pt/node-operators/sequencers/onboarding/account-setup/#map-account){target=_blank}",
-      "content": "Mapeie sua conta para as chaves de sessão do nó.",
-      "icon": ":fontawesome-solid-2:"
-    },
-    {
-      "title": "[Auto-delegue ativos](/pt/node-operators/sequencers/onboarding/account-setup/#submit-self-delegation){target=_blank}",
-      "content": "Delegue ativos para sua própria conta para se tornar elegível a sequenciar.",
-      "icon": ":fontawesome-solid-3:"
-    },
-    {
-      "title": "[Configure uma identidade on-chain](/pt/builders/account-management/identity/){target=_blank}",
-      "content": "Defina uma identidade para melhorar a visibilidade e o reconhecimento do seu sequenciador.",
-      "icon": ":fontawesome-solid-4:"
-    }
+  {
+    "title": "[Executar um sequenciador](/pt/node-operators/sequencers/onboarding/run-a-sequencer/){target=_blank}",
+    "content": "Configure o nó usando Systemd ou Docker.",
+    "icon": ":fontawesome-solid-1:"
+  },
+  {
+    "title": "[Configurar sua conta](/pt/node-operators/sequencers/onboarding/account-setup/#map-account){target=_blank}",
+    "content": "Mapeie sua conta para as chaves de sessão do seu nó.",
+    "icon": ":fontawesome-solid-2:"
+  },
+  {
+    "title": "[Autodelegar ativos](/pt/node-operators/sequencers/onboarding/account-setup/#submit-self-delegation){target=_blank}",
+    "content": "Delegue ativos para a sua própria conta para se tornar elegível a sequenciamento.",
+    "icon": ":fontawesome-solid-3:"
+  },
+  {
+    "title": "[Configurar uma identidade on-chain](/pt/builders/account-management/identity/){target=_blank}",
+    "content": "Crie uma identidade para melhorar a visibilidade e o reconhecimento do seu sequenciador.",
+    "icon": ":fontawesome-solid-4:"
+  }
 ]

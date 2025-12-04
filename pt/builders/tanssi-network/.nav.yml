@@ -3,6 +3,6 @@ hide: false
 nav:
   - index.md
   - Token TANSSI: tanssi-token.md
-  - Tanssi MainNet: mainnet.md
+  - MainNet Tanssi: mainnet.md
   - testnet
   - Endpoints da rede: endpoints.md

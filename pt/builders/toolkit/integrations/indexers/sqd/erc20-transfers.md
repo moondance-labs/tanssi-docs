@@ -23,7 +23,7 @@ Você precisará de:
 - [Docker Compose instalado](https://docs.docker.com/compose/install){target=\_blank}
 - Um projeto Hardhat vazio (veja [Criando um Projeto Hardhat](/builders/toolkit/ethereum-api/dev-env/hardhat/#creating-a-hardhat-project){target=\_blank})
 
---8<-- 'text/_common/pt/general-js-tutorial-check.md'
+--8<-- 'text/pt/_common/general-js-tutorial-check.md'
 
 ## Implantar um ERC-20 com Hardhat {: #deploy-an-erc20-with-hardhat }
 
@@ -211,4 +211,4 @@ Erros comuns:
 - `ECONNREFUSED`: suba o banco com `sqd up` antes de gerar/apply migrations.  
 - Sem eventos detectados: confirme o endereço do contrato em minúsculas (`.toLowerCase()`) e tópicos corretos.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

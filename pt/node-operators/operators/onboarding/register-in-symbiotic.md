@@ -20,7 +20,7 @@ Este guia mostra as etapas para registrar seu nó como operador Symbiotic, permi
 Antes de se registrar, certifique-se de já ter [configurado o nó](/pt/node-operators/operators/onboarding/run-an-operator/){target=_blank} e que ele esteja em execução.
 
 Para seguir este guia, você deverá interagir com contratos inteligentes.
---8<-- 'text/node-operators/operators/onboarding/run-an-operator/pt/prerequisites.md'
+--8<-- 'text/pt/node-operators/operators/onboarding/run-an-operator/prerequisites.md'
 
 ## Registrar como Operador {: #registering-operator }
 

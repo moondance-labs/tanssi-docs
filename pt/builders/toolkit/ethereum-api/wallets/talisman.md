@@ -97,4 +97,4 @@ Para transferir o token nativo da sua rede Tanssi, siga as seguintes etapas:
 
 Este guia se concentrou especificamente na configuração do Talisman para trabalhar com sua rede EVM alimentada pela Tanssi, mas o Talisman também é uma carteira completa para contas Substrate (Polkadot). Na seção da API Substrate, você encontrará um tutorial semelhante para configurar o Talisman para trabalhar com cadeias baseadas em Substrate.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

@@ -233,4 +233,4 @@ Estes são os métodos que podem ser invocados e seus parâmetros:
         await ws.send('dev_setHead', [500]);
         ```
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

@@ -58,4 +58,4 @@ Na tela seguinte, siga estas etapas:
 
 Na próxima etapa, você será apresentado a uma lista de contas derivadas. Selecione aquela que você deseja importar, clique em **Continuar**, e pronto! Sua carteira Talisman agora pode assinar transações usando seu dispositivo Ledger.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

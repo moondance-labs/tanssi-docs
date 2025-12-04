@@ -21,7 +21,7 @@ Para o exemplo neste guia, você precisará ter o seguinte:
 - A conta Sudo da sua appchain conectada ao portal do desenvolvedor da sua appchain. Você pode consultar o [guia de Gerenciamento do Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar a sua conta Sudo no portal do desenvolvedor.
 - O novo ficheiro binário de [runtime Wasm](/pt/learn/framework/architecture/#runtime){target=\_blank}, compilado com uma versão superior à atual.
 
---8<-- 'text/builders/manage/pt/locate-sudo-account.md'
+--8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
 ## Obtendo o Runtime Wasm {: #obtaining-wasm-runtime }
 
@@ -79,4 +79,4 @@ Você pode verificar se a atualização do seu runtime foi bem-sucedida verifica
 
 E é isso! A seção [portal do desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos outros guias sobre como gerenciar sua appchain Tanssi.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

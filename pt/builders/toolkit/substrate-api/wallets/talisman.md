@@ -130,4 +130,4 @@ Para enviar uma transação por meio da API Substrate, clique em **Enviar** pró
 
 Este guia se concentrou especificamente na configuração do Talisman para funcionar com sua rede Substrate Tanssi, mas o Talisman também é uma carteira completa para contas EVM. Na seção da API Ethereum, você encontrará um [guia semelhante para configurar o Talisman para uso com sua rede Tanssi EVM](/pt/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

@@ -32,4 +32,4 @@ As principais etapas de offboarding, como sinalizar sua intenção de sair ou ca
 
 ### Métodos de interação
 
---8<-- 'text/pt/node-operators/operators/onboarding/run-an-operator/pt/prerequisites.md'
+--8<-- 'text/pt/node-operators/operators/onboarding/run-an-operator/prerequisites.md'

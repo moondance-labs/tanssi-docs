@@ -103,4 +103,4 @@ Depois de [conectar a Metamask](#connect-metamask-to-evm-network) à sua rede EV
 - Adicionando ERC-20s à Metamask e interagindo com eles
 - Adicionando ERC-721s à Metamask e interagindo com eles
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

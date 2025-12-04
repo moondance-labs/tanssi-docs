@@ -25,7 +25,7 @@ Para os exemplos deste guia, você precisará ter o seguinte:
 - Uma rede com tecnologia Tanssi (Teste Rápido ou Dedicado)
 - A conta Sudo da sua rede conectada aos seus Polkadot.js Apps da rede. Você pode consultar o [guia de Gerenciamento do Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar sua conta Sudo nos Polkadot.js Apps
 
---8<-- 'text/builders/manage/pt/locate-sudo-account.md'
+--8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
 ## Habilitando o Modo de Manutenção {: #enabling-maintenance-mode }
 
@@ -58,4 +58,4 @@ Lembre-se que o uso do modo de manutenção é uma ação de emergência que só
 
 E é isso! A seção [Portal do Desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerenciar sua rede com tecnologia Tanssi.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

@@ -23,7 +23,7 @@ Para os exemplos neste guia, precisará do seguinte:
 - Uma rede com tecnologia Tanssi (Quick Trial ou Dedicated)
 - A conta Sudo da sua rede conectada aos Polkadot.js Apps da sua rede. Pode consultar o [Guia de Gerenciamento do Sudo](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar a sua conta Sudo nos Polkadot.js Apps
 
---8<-- 'text/builders/manage/pt/locate-sudo-account.md'
+--8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
 ## Usando o Método Sudo As {: #using-the-sudo-as-method }
 
@@ -71,4 +71,4 @@ A outra conta tinha um saldo inicial de `995` tokens antes da chamada e caiu par
 
 E é isso! A secção [Developer Portal](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerir a sua rede Tanssi.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

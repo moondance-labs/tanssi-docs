@@ -13,7 +13,7 @@ categories: EVM-Template
 
 Neste guia você configura o Web3.js para sua rede EVM da Tanssi e usa a biblioteca para enviar uma transação e implantar um contrato em uma rede de demonstração executando no [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}. Para sua rede, basta trocar o endpoint.
 
---8<-- 'text/_common/pt/general-js-tutorial-check.md'
+--8<-- 'text/pt/_common/general-js-tutorial-check.md'
 
 ## Verificando pré-requisitos {: #checking-prerequisites }
 
@@ -191,11 +191,11 @@ node transaction.js
 
 ## Implantar um contrato {: #deploy-a-contract }
 
---8<-- 'text/builders/toolkit/ethereum-api/libraries/pt/contract.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/contract.md'
 
 ### Script de compilação {: #compile-contract-script }
 
---8<-- 'text/builders/toolkit/ethereum-api/libraries/pt/compile.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/compile.md'
 
 ### Script de deploy {: #deploy-contract-script }
 
@@ -386,4 +386,4 @@ Use `get.js` junto para confirmar as mudanças.
 
 ![Redefinir contrato Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-6.webp)
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

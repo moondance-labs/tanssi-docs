@@ -27,7 +27,7 @@ Para os exemplos deste guia, você precisará ter o seguinte:
 - Uma rede com tecnologia Tanssi compatível com EVM (Teste Rápido ou Dedicado) executando o [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} ou superior. Qualquer nova implantação de rede baseada no [modelo EVM](/pt/builders/build/templates/evm/){target=\_blank} servirá
 - A conta Sudo da sua rede conectada aos seus Polkadot.js Apps da rede. Você pode consultar o [Guia de Gerenciamento de Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar sua conta Sudo nos Polkadot.js Apps
 
---8<-- 'text/builders/manage/pt/locate-sudo-account.md'
+--8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
 ## Começando {: #getting-started }
 

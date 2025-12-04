@@ -112,4 +112,4 @@ Você pode verificar a transação no [explorador da sua rede Tanssi](https://ta
 
 ![Verifique o status da transação no explorador](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-15.webp)
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

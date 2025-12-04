@@ -23,7 +23,7 @@ Para os exemplos neste guia, você precisará do seguinte:
 - Uma rede com tecnologia Tanssi (Teste Rápido ou Dedicado)
 - A conta que você usou ao registrar a rede, importada em qualquer uma das [carteiras suportadas](/pt/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
---8<-- 'text/builders/manage/dapp/pt/locate-registration-account.md'
+--8<-- 'text/pt/builders/manage/dapp/locate-registration-account.md'
 
 ## Topping-Up os Créditos da Sua Rede {: #topping-up }
 

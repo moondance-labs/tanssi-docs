@@ -13,7 +13,7 @@ categories: EVM-Template
 
 Neste guia, você verá como usar viem para enviar uma transação e implantar um contrato na rede EVM de demonstração. O mesmo fluxo se aplica a qualquer rede EVM da Tanssi.
 
---8<-- 'text/_common/pt/general-js-tutorial-check.md'
+--8<-- 'text/pt/_common/general-js-tutorial-check.md'
 
 ## Verificando pré-requisitos {: #checking-prerequisites }
 
@@ -170,11 +170,11 @@ Você verá o hash; use `balances.ts` antes/depois para confirmar saldos.
 
 ## Implantar um contrato {: #deploy-contract }
 
---8<-- 'text/builders/toolkit/ethereum-api/libraries/pt/contract.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/contract.md'
 
 ### Script de compilação {: #compile-contract-script }
 
---8<-- 'text/builders/toolkit/ethereum-api/libraries/pt/compile-ts.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/compile-ts.md'
 
 ```ts
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/viem/compile.ts'
@@ -307,4 +307,4 @@ npx ts-node reset.ts
 
 ![Resultado dos scripts reset e get](/images/builders/toolkit/ethereum-api/libraries/viem/viem-6.webp)
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

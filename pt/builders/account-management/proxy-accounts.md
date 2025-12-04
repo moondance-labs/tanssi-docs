@@ -210,4 +210,4 @@ Na tela de confirmação da transação, siga as seguintes etapas:
 
 Depois que a transação for enviada com sucesso, você pode revisar seus proxies atuais ou, se removeu todos os proxies, notará que o ícone do proxy não está mais sendo exibido ao lado da conta primária. E é isso! Você criou com sucesso um proxy, revisou todas as contas proxy associadas à sua conta primária, executou uma transação proxy e removeu uma conta proxy!
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

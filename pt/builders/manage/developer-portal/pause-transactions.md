@@ -25,7 +25,7 @@ Para os exemplos deste guia, você precisará ter o seguinte:
 - Uma rede alimentada por Tanssi (Quick Trial ou Dedicada) com o módulo Pausa de Transação. Qualquer nova implantação de rede baseada em um dos modelos servirá; caso contrário, certifique-se de [incluir o módulo](/pt/builders/build/customize/adding-built-in-module/){target=\_blank} em seu runtime de rede personalizado
 - A conta Sudo da sua rede conectada aos seus Polkadot.js Apps da rede. Você pode consultar o guia [Managing Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar sua conta Sudo no Polkadot.js Apps
 
---8<-- 'text/builders/manage/pt/locate-sudo-account.md'
+--8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
 ## Nomes de Módulo e Transação {: #modules-transaction-names }
 
@@ -183,4 +183,4 @@ A transação `unpause` é executada com sucesso somente se os parâmetros do m�
 
 E é isso! A seção [Portal do Desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerenciar sua rede Tanssi.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

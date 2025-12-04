@@ -22,7 +22,7 @@ O endereço que representa o contrato ERC-20 é formado com as primeiras trinta 
 
 Por exemplo, para o ativo cujo ID é `1`, as últimas quatro posições devem ser substituídas por `0001`, e para um ativo com um ID de `10`, essas quatro posições devem ser substituídas por `000A`.
 
---8\<-- 'text/builders/toolkit/ethereum-api/precompiles/pt/security-note.md'
+--8\<-- 'text/pt/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## Pré-requisitos {: #prerequisites }
 
@@ -163,4 +163,4 @@ Assim que a transação for concluída, você poderá [verificar seu saldo](#get
 
 E é isso! Você interagiu com sucesso com a pré-compilação de ativos externos ERC-20 usando MetaMask e Remix!
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8\<-- 'text/pt/_disclaimers/third-party-content.pt.md'

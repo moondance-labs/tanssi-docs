@@ -25,7 +25,7 @@ Neste artigo, as seguintes etapas, necessárias para construir e adicionar o mó
 3. Adicionar lógica personalizada.
 4. Configurar o tempo de execução com o novo módulo.
 
---8<-- 'text/_common/pt/not-for-production-code-guard.md'
+--8<-- 'text/pt/_common/not-for-production-code-guard.md'
 
 ## Checking Prerequisites {: #checking-prerequisites }
 
@@ -91,7 +91,7 @@ O exemplo completo do arquivo `Cargo.toml` define, além dos atributos, as depen
 
 Conforme apresentado na seção [módulo personalizado](/pt/learn/framework/modules/#custom-modules){target=\_blank} do artigo sobre modularidade, a criação de um módulo envolve a implementação das seguintes macros de atributo, das quais as três primeiras são obrigatórias:
 
---8<-- 'text/builders/build/customize/custom-made-module/pt/pallets-macros-descriptions.md'
+--8<-- 'text/pt/builders/build/customize/custom-made-module/pallets-macros-descriptions.md'
 
 ### Implementando a estrutura básica do módulo {: #implementing-basic-structure }
 
@@ -338,5 +338,5 @@ construct_runtime!(
 
 Com tudo definido, a rede agora tem suporte para uma implementação básica de uma loteria.
     
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
 

@@ -9,7 +9,7 @@ categories: Reference
 
 As redes Tanssi têm dois pontos finais disponíveis para os utilizadores se conectarem: um para HTTPS e outro para WSS.
 
-## Tanssi MainNet
+## MainNet Tanssi 
 
 Os pontos finais HTTPS e WSS da Tanssi Network MainNet são os seguintes:
 
@@ -43,7 +43,6 @@ Os pontos finais HTTPS e WSS da Tanssi TestNet são os seguintes:
     ```
 
 ### Rede Demo EVM
-    ```
 
 Os pontos finais HTTPS e WSS da rede Demo EVM são os seguintes:
 

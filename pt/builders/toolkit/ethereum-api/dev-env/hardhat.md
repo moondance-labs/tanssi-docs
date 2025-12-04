@@ -232,4 +232,4 @@ Você deverá ver `5` ou o valor armazenado.
 
 Parabéns, você implantou e interagiu com um contrato usando o Hardhat!
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

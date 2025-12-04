@@ -18,7 +18,7 @@ O Call Permit Precompile está localizado no seguinte endereço:
 {{ networks.demo_evm.precompiles.call_permit }}
 ```
 
---8<-- 'text/builders/toolkit/ethereum-api/precompiles/pt/security-note.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## Interface Solidity {: #the-call-permit-interface }
 
@@ -86,4 +86,4 @@ Execute `node getSignature.js` e copie `v`, `r`, `s` para usar na chamada `dispa
 
 Parabéns! Você assinou e despachou uma chamada com o Call Permit Precompile.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

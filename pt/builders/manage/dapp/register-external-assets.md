@@ -20,11 +20,11 @@ Depois que os canais de comunicação da sua rede forem estabelecidos, você pod
 Para os exemplos deste guia, você precisará ter o seguinte:
 
 - Uma rede com tecnologia Tanssi (Dedicada) executando [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} ou superior
-  --8<-- 'text/builders/manage/dapp/pt/prerequisites.md'
+  --8<-- 'text/pt/builders/manage/dapp/prerequisites.md'
 
 ## Acessando o Painel de Registro de Ativos Externos {: #accesing-external-assets-management-panel }
 
---8<-- 'text/builders/manage/dapp/pt/cross-chain-config-panel.md'
+--8<-- 'text/pt/builders/manage/dapp/cross-chain-config-panel.md'
 
 O painel mostrará a configuração cross-chain da sua rede, juntamente com várias ações disponíveis. Em relação aos ativos externos, os elementos relevantes que são apresentados a você são:
 

@@ -148,7 +148,7 @@ A pop-up will appear asking you to authorize and sign the transaction; click on 
 
 That's it! You've successfully executed a transaction using a proxy account on behalf of your primary operator account.
 
-## --8\<-- 'text/\_disclaimers/third-party-content.md' ", "translated_content": "--- title: Configurar uma Conta Proxy de Operador description: Siga este guia passo a passo para permitir que as contas proxy realizem com segurança tarefas operacionais (como rotação de chaves) em nome da sua conta de operador. icon: octicons-shield-lock-24 categories: Operadores
+## --8\<-- 'text/pt/_disclaimers/third-party-content.pt.md' ", "translated_content": "--- title: Configurar uma Conta Proxy de Operador description: Siga este guia passo a passo para permitir que as contas proxy realizem com segurança tarefas operacionais (como rotação de chaves) em nome da sua conta de operador. icon: octicons-shield-lock-24 categories: Operadores
 
 # Configurar uma Conta Proxy de Operador
 
@@ -291,7 +291,7 @@ Uma janela pop-up aparecerá pedindo que autorize e assine a transação; clique
 
 É isso! Execeu com sucesso uma transação usando uma conta proxy em nome da sua conta de operador primária.
 
---8\<-- 'text/\_disclaimers/third-party-content.md'
+--8\<-- 'text/pt/_disclaimers/third-party-content.pt.md'
 ",
 "branch": "origin/main",
 "commit": "730d1002d79d2768953bf457e466ad35881f1040"

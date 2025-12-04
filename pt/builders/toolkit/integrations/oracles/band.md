@@ -104,4 +104,4 @@ O contrato agora deve estar acessível. Para interagir com ele, siga estas etapa
 
 Observe que, para obter um preço legível do feed de preços, é essencial ajustar as casas decimais do feed, que são dezoito. Por exemplo, o exemplo acima mostra um valor de `2361167929271984201806`, correspondente a um preço de `ETH` de `$2,361.167929271984201806` expresso em `USD`. Além disso, observe que os valores do carimbo de data/hora da atualização são expressos em tempo de época UNIX, expresso como o número de segundos que se passaram desde `01-01-1970 00:00:00 UT`.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

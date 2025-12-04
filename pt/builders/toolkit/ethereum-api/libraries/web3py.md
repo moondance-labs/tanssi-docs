@@ -13,7 +13,7 @@ categories: EVM-Template
 
 Neste guia, você configurará o Web3.py para sua rede EVM da Tanssi e usará a biblioteca para enviar uma transação e implantar um contrato em uma appchain de demonstração executando no [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}. Para sua rede, basta trocar o endpoint.
 
---8<-- 'text/_common/pt/general-py-tutorial-check.md'
+--8<-- 'text/pt/_common/general-py-tutorial-check.md'
 
 ## Verificando pré-requisitos {: #checking-prerequisites }
 
@@ -108,7 +108,7 @@ python3 transaction.py
 
 ## Implantar um contrato {: #deploy-a-contract }
 
---8<-- 'text/builders/toolkit/ethereum-api/libraries/pt/contract.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/contract.md'
 
 ### Script de compilação {: #compile-contract-script }
 
@@ -234,4 +234,4 @@ python3 reset.py
 
 ![Redefinir Contrato Web3py](/images/builders/toolkit/ethereum-api/libraries/web3py/web3py-6.webp)
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

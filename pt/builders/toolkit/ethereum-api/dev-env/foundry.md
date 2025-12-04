@@ -277,4 +277,4 @@ Agora `forge build` e `npx hardhat compile` funcionam; `forge test` testa Solidi
 
 Parabéns, você implantou e interagiu com contratos na sua rede EVM Tanssi usando o Foundry! Para saber mais, consulte o [Foundry Book](https://getfoundry.sh/){target=_blank}.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

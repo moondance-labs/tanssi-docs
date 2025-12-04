@@ -22,7 +22,7 @@ O Batch Precompile está localizado no seguinte endereço:
 {{ networks.demo_evm.precompiles.batch }}
 ```
 
---8<-- 'text/builders/toolkit/ethereum-api/precompiles/pt/security-note.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## A interface Solidity em lote {: #the-batch-interface }
 
@@ -155,4 +155,4 @@ As funções do precompile também podem ser usadas por bibliotecas:
 !!! note
     Adapte os exemplos para produção e garanta validação de entradas, controle de gás e tratamento de erros adequados.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

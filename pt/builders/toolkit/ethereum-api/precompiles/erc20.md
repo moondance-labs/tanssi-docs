@@ -24,7 +24,7 @@ A precompilada está localizada no endereço:
 {{networks.demo_evm.precompiles.erc20 }}
 ```
 
---8<-- 'text/builders/toolkit/ethereum-api/precompiles/pt/security-note.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## Interface Solidity do ERC-20 {: #the-erc20-interface }
 
@@ -192,4 +192,4 @@ Depois da transação, confira o saldo do owner e do spender com `balanceOf`. O 
 
 E é isso! Você interagiu com a precompilada ERC-20 usando MetaMask e Remix.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

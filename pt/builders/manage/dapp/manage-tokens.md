@@ -25,7 +25,7 @@ Neste guia, você aprenderá como executar as ações listadas anteriormente usa
 Para os exemplos neste guia, você precisará ter o seguinte:
 
 - Uma rede com tecnologia Tanssi (Teste Rápido ou Dedicado)
---8<-- 'text/builders/manage/dapp/pt/prerequisites.md'
+--8<-- 'text/pt/builders/manage/dapp/prerequisites.md'
 
 ## Acessando o Painel de Gerenciamento de Tokens {: #accesing-token-management-panel }
 

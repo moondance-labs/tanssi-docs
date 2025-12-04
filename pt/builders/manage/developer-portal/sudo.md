@@ -22,7 +22,7 @@ Para os exemplos deste guia, você precisará ter o seguinte:
 - Uma rede com tecnologia Tanssi (Quick Trial ou Dedicated)
 - A conta Sudo da sua rede conectada ao Polkadot.js Apps da sua rede
 
---8<-- 'text/builders/manage/pt/locate-sudo-account.md'
+--8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
 ### Configurando o Polkadot.js Apps { : #configuring-polkadotjs-apps }
 
@@ -60,4 +60,4 @@ Antes de começar, certifique-se de ter sua conta Sudo existente acessível no [
 
 E é isso! A seção [Portal do Desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerenciar sua rede Tanssi.
 
---8<-- 'text/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

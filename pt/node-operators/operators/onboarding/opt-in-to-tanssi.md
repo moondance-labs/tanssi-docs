@@ -22,7 +22,7 @@ Antes de optar por um cofre habilitado para Tanssi e pela rede Tanssi, certifiqu
 
 Para seguir este guia, você deve interagir com contratos inteligentes, um do protocolo central da Symbiotic e o outro da integração da Tanssi com a Symbiotic.
 
---8<-- 'text/node-operators/operators/onboarding/run-an-operator/pt/prerequisites.md'
+--8<-- 'text/pt/node-operators/operators/onboarding/run-an-operator/prerequisites.md'
 
 ## Optar por Cofres Habilitados para Tanssi {: #opt-in-tanssi-vaults }
 
