@@ -78,7 +78,7 @@ python3 symb.py --chain sepolia opt-in-vault {{ networks.symbiotic.contracts.sep
 ```
 ````
 
-!!! warning
+!!! atenção
     Observe que este método exige que você exponha sua chave privada; portanto, não é recomendado.
 
 ### Optar Usando o Etherscan {: #opt-in-tanssi-vaults-with-etherscan }
@@ -103,7 +103,7 @@ Clique em **Conectar ao Web3** e selecione sua carteira preferida (por exemplo, 
 
 ![Etapa Conectar ao Web3](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-1.webp)
 
-!!! note
+!!! nota
     Você pode configurar o MetaMask para usar uma carteira fria.
 
 Após a conexão:
@@ -250,7 +250,7 @@ python3 symb.py --chain sepolia opt-in-network {{ networks.symbiotic.contracts.s
 ```
 ````
 
-!!! warning
+!!! atenção
     Observe que este método exige que você exponha sua chave privada; portanto, não é recomendado.
 
 ### Optar Usando o Etherscan {: #opt-in-tanssi-with-etherscan }
@@ -274,7 +274,7 @@ Clique em **Conectar ao Web3** e selecione sua carteira preferida (por exemplo, 
 
 ![Etapa Conectar ao Web3](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-4.webp)
 
-!!! note
+!!! nota
     Você pode configurar o MetaMask para usar uma carteira fria.
 
 Após a conexão:
@@ -361,5 +361,5 @@ E a saída se parece com:
     <br>
 </div>
 
-!!! note
+!!! nota
     Optar pelas Redes Tanssi requer aprovação da equipe Tanssi. Os pedidos para participar podem levar até uma semana.

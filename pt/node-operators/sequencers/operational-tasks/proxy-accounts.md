@@ -54,7 +54,7 @@ Como mencionado anteriormente, você também pode criar um proxy na página **Ac
 
 ![Selecione o item de menu Add proxy na página Accounts do portal do desenvolvedor](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-2.webp)
 
-!!! note
+!!! nota
     Se a conta já tiver um proxy, **Manage proxies** será exibido como uma opção em vez de **Add proxy**.
 
 Uma janela pop-up aparecerá e você poderá inserir as informações necessárias, como a conta proxy/primária, a conta proxy e o tipo de proxy para criar uma conta proxy. Primeiro, clique em **Add proxy**.

@@ -47,7 +47,7 @@ Suas chaves de sessão codificadas em hexadecimal serão impressas no terminal n
 
 --8<-- 'code/node-operators/operators/onboarding/account-setup/terminal/generate-session-keys.md'
 
-!!! note
+!!! nota
   Certifique-se de anotar suas chaves de sessão. Na próxima seção, você precisará mapeá-las para sua conta.
 
 ### Mapear Chaves de Sessão {: #map-session-keys }

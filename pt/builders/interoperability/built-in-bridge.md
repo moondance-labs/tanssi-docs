@@ -53,7 +53,7 @@ Agora, com sua carteira conectada:
 
 E é isso! Seus tokens serão transferidos quando a próxima sessão começar. Você pode ver quanto tempo resta na sessão atual na barra de progresso.
 
-!!! note
+!!! nota
     - Você pode adicionar facilmente o endereço do contrato TANSSI ERC-20 à sua carteira clicando no ícone **+** mostrado ao lado do seu saldo.
     - As taxas para converter seus tokens TANSSI (Substrate) para TANSSI (ERC-20) podem flutuar ao longo do tempo e devem ser pagas usando TANSSI.
 
@@ -76,5 +76,5 @@ Agora, com sua carteira conectada:
 
 E é isso! Seus tokens serão transferidos quando a próxima sessão começar. Você pode ver quanto tempo resta na sessão atual na barra de progresso.
 
-!!! note
+!!! nota
     As taxas para converter seus tokens TANSSI (ERC-20) para TANSSI (Substrate) nativo na rede Tanssi podem flutuar ao longo do tempo e devem ser pagas usando ETH.

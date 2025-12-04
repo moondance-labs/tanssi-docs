@@ -75,7 +75,7 @@ Another method for creating a proxy is by using the **Accounts** section of the 
 
 ![Select the Add proxy menu item from the Accounts page of the developer portal](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-2.webp)
 
-!!! note
+!!! nota
 If the account already has a proxy, **Manage proxies** will be displayed as an option instead of **Add proxy**.
 
 A pop-up will appear where you can enter the required information, such as the proxied/primary account, the proxy account, and the type of proxy to create a proxy account. First, click **Add proxy**.
@@ -116,7 +116,7 @@ You can also check your proxy accounts from the **Accounts** section of the deve
 1. Select the three vertical dots next to the primary account
 1. Select **Manage proxy**
 
-!!! note
+!!! nota
 There should be a proxy symbol next to the primary account. To achieve the same effect, hover over the icon and click **Manage proxies**.
 
 ![Manage your proxies via the Accounts page of the developer portal](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-6.webp)
@@ -218,7 +218,7 @@ Outro método para criar um proxy é usar a seção **Accounts** do portal do de
 
 ![Selecione o item de menu Add proxy na página Accounts do portal do desenvolvedor](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-2.webp)
 
-!!! note
+!!! nota
 Se a conta já tiver um proxy, **Manage proxies** será exibido como uma opção em vez de **Add proxy**.
 
 Uma janela pop-up aparecerá onde pode inserir as informações necessárias, como a conta proxy/primária, a conta proxy e o tipo de proxy para criar uma conta proxy. Primeiro, clique em **Add proxy**.
@@ -259,7 +259,7 @@ Também pode verificar as suas contas proxy na seção **Accounts** do portal do
 1. Selecione os três pontos verticais ao lado da conta primária
 1. Selecione **Manage proxy**
 
-!!! note
+!!! nota
 Deve haver um símbolo de proxy ao lado da conta primária. Para obter o mesmo efeito, passe o cursor sobre o ícone e clique em **Manage proxies**.
 
 ![Gerencie os seus proxies através da página Accounts do portal do desenvolvedor](/images/node-operators/operators/operational-tasks/proxy-accounts/proxy-accounts-6.webp)

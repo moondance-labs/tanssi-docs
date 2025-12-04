@@ -19,7 +19,7 @@ Hardware Recomendado:
 - **NVMe Recomendado** - 1 TB NVMe
 - **RAM Recomendada** - 32 GB RAM
 
-!!! warning
+!!! atenção
     Como um sequenciador, você é responsável por sua própria participação e pela de seus delegadores. Manter o desempenho do seu nó, mantê-lo atualizado e garantir sua segurança são essenciais para maximizar as recompensas e construir uma forte reputação na rede Tanssi.
 
 ### Portas de Rede Necessárias

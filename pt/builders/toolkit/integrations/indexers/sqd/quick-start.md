@@ -118,7 +118,7 @@ Para indexar dados EVM em uma rede EVM Tanssi, crie um projeto Squid e configure
     })
     ```
 
-    !!! note
+    !!! nota
         Para testar na rede EVM de demonstração, você pode usar este RPC:
 
         ```text

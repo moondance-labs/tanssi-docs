@@ -65,7 +65,7 @@ Dependendo das informações a serem incluídas, existem algumas maneiras difere
 
 Se você deseja adicionar campos personalizados além dos campos padrão, siga as instruções para a página [Gerenciando uma Identidade via Extrinsics](#manage-via-extrinsics).
 
-!!! note
+!!! nota
     Observe que o uso da página **Contas** no portal do desenvolvedor é recomendado para gerenciar sua identidade, pois ela fornece uma interface fácil de usar que impõe limites de caracteres. Se você usar a página **Extrinsics**, esteja ciente de que sua entrada para cada campo (ou seja, nome, e-mail, etc.) deve ter 32 caracteres ou menos; caso contrário, suas informações serão cortadas.
 
 ## Gerenciar uma Identidade via Contas {: #manage-via-accounts }

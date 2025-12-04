@@ -121,7 +121,7 @@ Edite o `.env` e insira a chave privada de uma conta financiada na sua rede e o 
 --8<-- 'code/builders/toolkit/integrations/oracles/phala/env.txt'
 ```
 
-!!! note
+!!! nota
     Nunca compartilhe frase semente ou chave privada. Este guia é apenas educacional.
 
 ### Configurar script de implantação {: #configure-deployment-script }

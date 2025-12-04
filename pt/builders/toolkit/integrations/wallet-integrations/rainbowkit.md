@@ -265,7 +265,7 @@ Campos:
 
 Você pode ainda ajustar ícones, textos do modal e posição do botão criando um tema customizado ou sobrescrevendo componentes via props do `ConnectButton`.
 
-!!! tip
+!!! conselho
     Teste temas e cores para combinar com o estilo do seu dApp.
 
 ## Lidar com desconexões

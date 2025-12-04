@@ -33,7 +33,7 @@ Aqui está uma lista de alguns dos módulos mais populares:
 
 Além daqueles já listados, outros módulos como [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=\_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=\_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=\_blank}, e muitos outros que estão livremente disponíveis podem acelerar o desenvolvimento da rede Tanssi e, consequentemente, o tempo de lançamento.
 
-!!! note
+!!! nota
     O framework também inclui outros módulos que fornecem funcionalidades essenciais de protocolo, como consenso e codificação de dados de baixo nível.
 
 ## Módulos Feitos sob Medida {: #custom-modules }

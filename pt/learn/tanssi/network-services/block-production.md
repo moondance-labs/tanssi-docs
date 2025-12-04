@@ -154,7 +154,7 @@ A configuração atual é definida da seguinte forma:
 
 Para garantir a produção de blocos na próxima sessão, o saldo total deve ser pelo menos suficiente para cobrir o custo de atribuição de sequenciadores mais o custo de produção dos {{ networks.mainnet.session.blocks }} blocos que compõem uma sessão inteira.
 
-!!! note
+!!! nota
     Embora os custos de atribuição de sequenciadores e produção de blocos sejam atualmente fixos, à medida que o desenvolvimento do protocolo progride, eles podem se tornar dinâmicos, variando em resposta à carga de trabalho da rede.
 
 ### Gorjetas {: #tipping }

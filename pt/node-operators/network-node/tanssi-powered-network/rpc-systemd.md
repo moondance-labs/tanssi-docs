@@ -15,7 +15,7 @@ Neste guia, você aprenderá a iniciar um nó appchain da Tanssi usando um biná
 
 O artigo segue a boa prática de executar o serviço com uma conta não-root e conceder a essa conta acesso de gravação a um diretório específico. Você pode adaptar as etapas à sua configuração, preferências e políticas de segurança.
 
-!!! note
+!!! nota
     Não é possível executar um nó RPC para appchains de teste rápido, pois eles rodam em uma rede privada e, portanto, não estão acessíveis para sincronização.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }

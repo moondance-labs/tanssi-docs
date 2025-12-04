@@ -37,7 +37,7 @@ Para seguir as próximas seções deste guia, acesse os Polkadot.js Apps para su
 
 Depois de acessar os Polkadot.js Apps, navegue até a guia **Developer** e clique em **Sudo**.
 
-!!! note
+!!! nota
     Se você não vir **Sudo** neste menu, não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada pela sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}.
 
 ## Contas Whitelistadas {: #whitelist-accounts }

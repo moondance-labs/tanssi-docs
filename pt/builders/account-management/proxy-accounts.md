@@ -100,7 +100,7 @@ Como mencionado anteriormente, você também pode criar um proxy na página **Ac
 
 ![Selecione o item de menu Add proxy da página Accounts do Polkadot.js Apps.](/images/builders/account-management/proxy/proxy-2.webp)
 
-!!! note
+!!! nota
     Se a conta já tiver um proxy, **Manage proxies** será exibido como uma opção em vez de **Add proxy**.
 
 Aparecerá um pop-up e você poderá inserir as informações necessárias, como a conta proxy/primária, a conta proxy e o tipo de proxy para criar uma conta proxy. Primeiro, clique em **Add Proxy**.

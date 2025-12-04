@@ -54,7 +54,7 @@ A interface [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/t
     ```
 ````
 
-!!! note
+!!! nota
 A pré-compilação de ativos externos ERC-20 não inclui funções `deposit` e `withdraw` e eventos subsequentes esperados de um contrato de token embrulhado, como WETH.
 
 ## Adicionar Token à uma Carteira EVM {: #add-token-to-evm-wallet }

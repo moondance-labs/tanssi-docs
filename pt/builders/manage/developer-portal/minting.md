@@ -26,7 +26,7 @@ Para os exemplos deste guia, você precisará do seguinte:
 
 Como você sabe, a conta Sudo tem a capacidade de realizar funções privilegiadas, incluindo a cunhagem de tokens adicionais. Ao configurar sua rede no [Tanssi dApp](https://apps.tanssi.network){target=\_blank}, você pode especificar os saldos da conta genesis. Em outras palavras, você tem a capacidade de dotar as contas com saldos iniciais ao iniciar sua rede Tanssi. No entanto, você também pode cunhar novos tokens após o lançamento com a ajuda da conta Sudo.
 
-!!! note
+!!! nota
     Este tutorial demonstra a atribuição de saldos de tokens arbitrários em uma rede TestNet que não tem valor. Você deve considerar cuidadosamente as ramificações de criar tokens adicionais em sua própria rede com tecnologia Tanssi.
 
 ### Verificando o Saldo da Conta Existente {: #checking-existing-account-balance }

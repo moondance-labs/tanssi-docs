@@ -14,7 +14,7 @@ A capacidade de gerenciar a participação dos operadores de nós no ecossistema
 
 Durante o processo de integração, uma etapa foi a participação na rede Tanssi para se tornar um operador. Este guia irá guiá-lo pelo processo de cancelamento. Existem várias maneiras de interagir com os contratos inteligentes envolvidos. Consulte o [artigo de pré-requisitos](/pt/node-operators/operators/offboarding/prerequisites/){target=\_blank} para avaliar qual alternativa é a mais adequada para você.
 
-!!! note "Validação de identidade"
+!!! nota "Validação de identidade"
     Ao cancelar a participação, você assina a transação usando a chave privada ou o dispositivo Ledger associado à sua conta de operador. Essa assinatura serve como prova criptográfica de que você é o proprietário legítimo da conta do operador, garantindo que apenas operadores autorizados possam iniciar o processo de cancelamento.
 
 ## Métodos para cancelar a participação de uma rede Tanssi {: #methods-for-opting-out }
@@ -69,7 +69,7 @@ python3 symb.py --chain sepolia opt-out-network {{ networks.symbiotic.contracts.
 
 ````
 
-!!! warning
+!!! atenção
     Observe que este método exige que você exponha sua chave privada; portanto, não é recomendado.
 
 ### Usando Etherscan {: #opt-out-network-with-etherscan }
@@ -101,7 +101,7 @@ Certifique-se de selecionar **Contrato** e **Escrever Contrato**, depois clique 
 
 ![Cancelar operador](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
 
-!!! warning
+!!! atenção
     Após enviar sua transação de cancelamento, salve o hash da transação. Você precisará desse hash mais tarde para verificação no [formulário de cancelamento de operação](https://www.tanssi.network/operator-offboarding){target=\\\_blank}.
 
 ### Usando Safe para configurações Multisig {: #opt-out-network-with-safe }
@@ -196,7 +196,7 @@ Após cancelar a participação da rede, notifique a equipe Tanssi sobre sua int
 
 Após receber sua solicitação, a remoção do seu operador será agendada. Esta etapa é semiautomática e pode levar algum tempo para ser concluída. Você será notificado por e-mail quando for seguro desativar o nó. Por favor, não desative seu nó até receber essa notificação.
 
-!!! note "Fornecer feedback"
+!!! nota "Fornecer feedback"
     Considere fornecer feedback no [formulário](https://www.tanssi.network/operator-offboarding){target=\\\_blank} de cancelamento sobre sua experiência para ajudar a melhorar a rede Tanssi.
 
 ## Pausar operações (opcional) {: #pause-operations }

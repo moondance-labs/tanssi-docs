@@ -93,7 +93,7 @@ Por padrão, as redes compatíveis com Tanssi EVM são configuradas com os segui
 - **Meta de preenchimento de bloco (Elasticidade)** - o gás usado como meta em um bloco, de modo que o `baseFee` permaneça o mesmo. [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} define esse valor como uma constante definida como 2, o que significa que o uso-alvo é 50% do limite de gás do bloco. Todas as redes compatíveis com Tanssi EVM são configuradas com a mesma meta
 - **Aumento máximo da BaseFee** - a quantidade máxima que o `baseFee` pode aumentar ou diminuir, em pontos percentuais, com base no uso-alvo do bloco anterior. [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} define esse valor como uma constante definida como 12,5%. Consequentemente, se o bloco estiver cheio/vazio, o `baseFee` aumentará/diminuirá em 12,5%, e quaisquer valores intermediários serão ajustados linearmente. Os desenvolvedores podem configurar esse valor para redes compatíveis com Tanssi EVM, mas o valor padrão é 12,5%
 
-!!! note
+!!! nota
   Uma diferença importante na implementação do EIP-1559 nas redes compatíveis com Tanssi EVM é que as taxas de transação são calculadas usando o `baseFee` do bloco anterior.
 
 O custo da taxa de transação EVM associado a todas as redes compatíveis com Tanssi EVM é capturado em um nível de execução EVM. No entanto, as transações EVM consomem tempo de execução do bloco. Portanto, um algoritmo de gás para peso é necessário para contabilizar o peso consumido por uma chamada específica em relação ao gás que ela está consumindo.

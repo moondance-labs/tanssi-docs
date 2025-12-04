@@ -77,7 +77,7 @@ Como o stake dos vaults pode ser cortado, operadores e redes precisam ser aprova
 
 [Redes](https://docs.symbiotic.fi/modules/counterparties/networks){target=\_blank} são blockchains específicas de aplicativo (games, DeFi, RWA etc.) com as quais usuários interagem via dApps. Como operadores optam por atendê-las e vaults precisam aprová-las, cabe aos desenvolvedores definir como integrar, recompensar e cortar operadores.
 
-!!! note
+!!! nota
     Redes implantadas via Tanssi não precisam lidar diretamente com vaults e operadores, pois o protocolo Tanssi cuida dessas complexidades.
 
 ## Tanssi com Symbiotic {: #tanssi-symbiotic }
@@ -86,7 +86,7 @@ Redes lançadas pela Tanssi contam com [serviços de produção de blocos](/pt/l
 
 Gerentes de vault podem oferecer colateral restakeado como segurança para a rede Tanssi; como a Tanssi gerencia as responsabilidades de rede, eles só precisam avaliar e optar pelo protocolo. Operadores que participam de um vault compatível com Tanssi podem usar a mesma configuração para produzir blocos e validar tanto a rede Tanssi quanto todas as redes implantadas via Tanssi.
 
-!!! note
+!!! nota
     O protocolo Tanssi abstrai os detalhes do conjunto ativo de redes: particularidades das redes não exigem configuração extra dos operadores nem criam risco para os ativos dos vaults.
 
 ```mermaid
@@ -131,7 +131,7 @@ O protocolo aplica corte para punir mau comportamento. Tanssi envia solicitaçõ
 - **Corte instantâneo** – reduz o stake imediatamente.
 - **Veto slashing** – requer aprovação de um resolver dentro de uma janela de veto; se não houver veto, o corte é aplicado.
 
-!!! note
+!!! nota
     Eventos de corte só podem ser disparados por mau comportamento de operadores na rede Tanssi; redes atendidas são isoladas em sandbox.
 
 ### Burner {: #burner }

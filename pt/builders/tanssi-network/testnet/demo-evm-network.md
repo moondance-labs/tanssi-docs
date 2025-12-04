@@ -27,7 +27,7 @@ Em seguida, siga estas etapas:
 
 ![Solicitar tokens](/images/builders/tanssi-network/testnet/demo-evm-network/demo-2.webp)
 
-!!! note
+!!! nota
     Tokens {{ networks.dancelight.demo_evm_token_symbol }} não têm valor. Por favor, não envie spam para a faucet com solicitações desnecessárias.
 
 Seus tokens serão distribuídos em breve, e você pode verificar seu saldo de tokens {{ networks.dancelight.demo_evm_token_symbol }} pesquisando seu endereço no \[explorador\]({{ networks.dancelight.demo_evm_blockscout_url }}){target=\_blank}.

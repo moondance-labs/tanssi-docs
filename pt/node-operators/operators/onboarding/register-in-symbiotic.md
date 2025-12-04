@@ -56,7 +56,7 @@ Se preferir assinar diretamente com a chave privada da conta, execute (substitua
     python3 symb.py --chain sepolia register-operator --private-key INSERT_PRIVATE_KEY
     ```
 
-!!! warning
+!!! atenção
     Este método exige expor sua chave privada; não é recomendado.
 
 ### Registrar usando o Etherscan {: #register-with-etherscan }
@@ -77,7 +77,7 @@ Clique em **Conectar ao Web3** e selecione sua carteira preferida (por exemplo, 
 
 ![Conectar à etapa Web3](/images/node-operators/operators/onboarding/register-in-symbiotic/register-in-symbiotic-1.webp)
 
-!!! note
+!!! nota
     Você pode configurar o MetaMask para usar uma carteira fria.
 
 Depois de conectado:
@@ -180,7 +180,7 @@ Crie um fork do repositório e, no diretório `operators`, crie uma pasta com o 
 }
 ```
 
-!!! note
+!!! nota
     O parâmetro `links` é um array. Adicione quantos links forem necessários.
 
 Por fim, abra um pull request. A equipe Symbiotic revisará e fará o merge.

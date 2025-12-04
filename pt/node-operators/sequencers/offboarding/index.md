@@ -14,7 +14,7 @@ O que você aprenderá:
 - [**Removendo sua autodelegação**](/pt/node-operators/sequencers/offboarding/account/#request-undelegation) - etapas para remover sua participação auto-vinculada e garantir que seu sequenciador não seja mais listado como um participante elegível
 - [**Removendo as chaves de sessão**](/pt/node-operators/sequencers/offboarding/account/#unmap-session-keys) - como remover suas chaves de sessão, interrompendo adequadamente a conexão entre seu nó e sua conta
 
-!!! tip "Retornando como um Sequenciador"
+!!! conselho "Retornando como um Sequenciador"
     Se você decidir retornar como um sequenciador Tanssi no futuro, poderá embarcar novamente facilmente seguindo as etapas descritas no guia [Onboarding](/pt/node-operators/sequencers/onboarding/).
     
 ## Explore esta seção

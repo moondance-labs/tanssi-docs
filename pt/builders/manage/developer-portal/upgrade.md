@@ -47,10 +47,10 @@ Se a sua cadeia for baseada em um dos modelos oficiais, você pode baixar o arqu
 
 Você deve sempre atualizar o tempo de execução seguindo as versões de forma ordenada, aplicando uma versão após a outra sem pular nenhuma delas. Para isso, você precisa saber a versão atual do tempo de execução da sua appchain, que você encontrará no seu [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} na seção **Propriedades**. Por exemplo, se a versão do seu tempo de execução for `1000`, você deverá atualizar primeiro para `1100`, depois para `1201`, depois para `1300` e assim por diante até a versão mais recente disponível.
 
-!!! warning
+!!! atenção
     Aplicar as atualizações em ordem garante que as alterações (migrações) nas estruturas de dados internas sejam aplicadas, preservando a consistência dos dados. Caso contrário, pode **paralisar** sua appchain.
 
-!!! note
+!!! nota
     Se estiver compilando o tempo de execução manualmente, certifique-se de usar a versão Wasm `compact` e `compressed`, que é otimizada e mais leve.
 
 ## Atualizando Seu Runtime {: #upgrading-your-runtime }
@@ -59,7 +59,7 @@ Para começar, acesse o portal do desenvolvedor da sua appchain Tanssi, que pode
 
 ![Localizar seu Link do Portal do Desenvolvedor em apps.tanssi.network](/images/builders/manage/developer-portal/upgrade/upgrade-1.webp)
 
-!!! warning
+!!! atenção
     Se a sua appchain foi implantada usando um modelo oficial e a atualização pretendida é um runtime personalizado, certifique-se de ter alterado o nome padrão da especificação (*frontier-template* ou *container-chain-template*) para um diferente antes de construir o arquivo Wasm. Você também precisará executar a extrínseca `setCodeWithoutChecks` em vez de `setCode`.
 
 Com o seu [tempo de execução Wasm](/learn/framework/architecture/#runtime){target=\_blank} pronto para ser carregado e a sua [conta Sudo acessível no portal do desenvolvedor](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}, siga as seguintes etapas:

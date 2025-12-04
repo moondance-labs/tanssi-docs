@@ -135,7 +135,7 @@ As flags usadas no `ExecStart` podem ser ajustadas conforme suas preferências e
 - **--database=paritydb** - usa ParityDB como back-end otimizado para desempenho de nó RPC
 - **--unsafe-rpc-external** - permite conexões externas ao RPC; requer medidas adicionais de segurança em produção (proxy reverso, autenticação, firewall)
 
-!!! warning
+!!! atenção
     A flag `--unsafe-rpc-external` expõe o RPC externamente. Em produção, proteja com firewall, proxy reverso, autenticação e limitação de taxa.
 
 Você pode visualizar todas as flags disponíveis executando:

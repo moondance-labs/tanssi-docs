@@ -15,7 +15,7 @@ No geral, o Chopsticks visa simplificar o processo de construção de aplicativo
 
 Este artigo abordará o uso do Chopsticks para bifurcar e interagir com uma cópia local de uma rede Tanssi.
 
-!!! note
+!!! nota
     O Chopsticks atualmente não oferece suporte a chamadas feitas via Ethereum JSON-RPC. Consequentemente, você não pode bifurcar sua cadeia usando o Chopsticks e conectar o Metamask a ela.
 
 ## Pré-requisitos {: #prerequisites }
@@ -136,7 +136,7 @@ Você pode interagir com a parachain por meio de bibliotecas como [Polkadot.js](
 
 Você deve ser capaz de interagir com a cadeia bifurcada como faria com a real.
 
-!!! note
+!!! nota
     Se seu navegador não puder se conectar ao endpoint WebSocket fornecido pelo Chopsticks, talvez seja necessário permitir conexões inseguras para o URL do Polkadot.js Apps. Outra solução é executar a [versão Docker do Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
 
 ## Reexecutando blocos {: #replaying-blocks }

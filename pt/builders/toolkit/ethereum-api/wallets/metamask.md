@@ -13,14 +13,14 @@ Desenvolvedores que constroem dApps em cima de redes EVM alimentadas por Tanssi 
 
 Este guia leva você por todas as etapas necessárias: desde a instalação da Metamask, configuração de uma carteira e, finalmente, conectando-a à sua rede EVM Tanssi.
 
-!!! note
+!!! nota
     Você nunca deve compartilhar sua frase semente (mnemônico) ou chave privada com ninguém. Isso lhes dá acesso direto aos seus fundos. Este guia é apenas para fins educacionais.
 
 ## Instale a Extensão MetaMask {: #install-the-metamask-extension }
 
 Primeiro, você começará com uma instalação [MetaMask](https://metamask.io){target=\_blank} nova e padrão da Chrome store. Após baixar, instalar e inicializar a extensão, siga as etapas de **Começar** para [configurar a carteira](#setup-a-wallet). Lá, você precisa criar uma carteira, definir uma senha e armazenar sua frase secreta de backup (isso dá acesso direto aos seus fundos, portanto, certifique-se de armazená-los em um local seguro).
 
-!!! note
+!!! nota
     A extensão do navegador Metamask é compatível com Chrome, navegadores baseados em Chromium (como Microsoft Edge e Opera) e Firefox. Metamask também está disponível como um aplicativo móvel para dispositivos iOS e Android.
 
 ## Configurar uma Carteira {: #setup-a-wallet }
@@ -34,7 +34,7 @@ Após instalar [MetaMask](https://metamask.io){target=\_blank}, a configuração
 
 Depois de clicar na opção que se adapta às suas necessidades, siga as etapas e você deverá estar totalmente configurado.
 
-!!! note
+!!! nota
     Várias contas podem ser derivadas de uma frase semente alterando o que é conhecido como o índice de endereço. Por padrão, ao criar ou importar uma conta a partir da frase semente, você obtém a conta com o índice de endereço 0. Você pode obter os outros índices apenas adicionando novas contas na tela principal da Metamask.
 
 ## Importar Contas {: #import-accounts }

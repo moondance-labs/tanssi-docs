@@ -49,7 +49,7 @@ Gere o `tsconfig`:
 npx tsc --init
 ```
 
-!!! note
+!!! nota
     Tutorial criado usando Node.js v18.18.0.
 
 ## Configurar um cliente viem (provedor) {: #setting-up-a-viem-provider }
@@ -88,7 +88,7 @@ Passos:
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/viem/write-chain-data.ts'
 ```
 
-!!! note
+!!! nota
     Para carteiras de navegador, veja este exemplo (onde `demo` é a rede definida em `defineChain`):
     ```ts
     --8<-- 'code/builders/toolkit/ethereum-api/libraries/viem/browser-based-wallets.ts'

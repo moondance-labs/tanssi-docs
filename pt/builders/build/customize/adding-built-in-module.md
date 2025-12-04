@@ -65,7 +65,7 @@ pallet-assets = {
 ...
 ```
 
-!!! note
+!!! nota
       Nossa equipe de engenharia contribui ativamente para o desenvolvimento do Substrate, corrigindo problemas e aprimorando funcionalidades. Como resultado, o repositório fork Tanssi frequentemente fica à frente do oficial. É por isso que este exemplo faz referência a um módulo embutido de um repositório Tanssi em vez do oficial.
 
 ### Tornar os Recursos Padrão Disponíveis para o Compilador {: #standard-features }

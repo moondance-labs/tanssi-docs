@@ -25,7 +25,7 @@ Para instalar o serviço localmente no diretório atual, execute:
 npm install @substrate/api-sidecar@{{ networks.mainnet.substrate_api_sidecar.stable_version }}
 ```
 
-!!! note
+!!! nota
     Se a pasta não tiver um projeto Node.js, crie manualmente `node_modules` com `mkdir node_modules`.
 
 A versão estável v{{ networks.mainnet.substrate_api_sidecar.stable_version }} foi testada com redes Tanssi. Verifique a instalação a partir da raiz do diretório:
@@ -352,7 +352,7 @@ Transferências ERC-20 emitem o evento [`Transfer`](https://eips.ethereum.org/EI
 
 Outros eventos EVM podem ser decodificados de forma semelhante; tópicos e dados variam conforme o evento.
 
-!!! note
+!!! nota
     O valor transferido considera decimais e está em formato hexadecimal.
 
 ## Taxas de transação (Substrate) {: #substrate-api-transaction-fees }

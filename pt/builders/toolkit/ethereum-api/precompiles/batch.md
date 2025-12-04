@@ -152,7 +152,7 @@ As funções do precompile também podem ser usadas por bibliotecas:
      --8<-- 'code/builders/toolkit/ethereum-api/precompiles/batch/web3py-batch.py'
      ```
 
-!!! note
+!!! nota
     Adapte os exemplos para produção e garanta validação de entradas, controle de gás e tratamento de erros adequados.
 
 --8<-- 'text/pt/_disclaimers/third-party-content.pt.md'

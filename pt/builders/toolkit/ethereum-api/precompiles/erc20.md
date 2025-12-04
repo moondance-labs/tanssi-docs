@@ -36,7 +36,7 @@ A interface [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/t
     --8<-- 'code/builders/toolkit/ethereum-api/precompiles/erc20/erc20.sol'
     ```
 
-!!! note
+!!! nota
     A precompilada ERC-20 não inclui as funções `deposit` e `withdraw` nem os eventos associados esperados de um token embrulhado, como o WETH.
 
 ## Interagir com a interface Solidity {: #interact-with-the-solidity-interface }

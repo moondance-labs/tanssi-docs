@@ -15,7 +15,7 @@ Este módulo permite que um governador de rede evite temporariamente a execuçã
 
 Em um cenário de emergência, quando um exploit crítico é descoberto, este módulo permite que a rede isole e pare apenas a funcionalidade afetada, minimizando efetivamente o impacto geral.
 
-!!! warning
+!!! atenção
     No momento em que este artigo foi escrito, este módulo ainda não foi auditado; portanto, não é recomendado para uso em produção.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
@@ -162,7 +162,7 @@ Para verificar se a transação foi efetivamente pausada, tente executá-la. Voc
 
 ![Check that the transaction is paused](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-3.webp)
 
-!!! warning
+!!! atenção
     A transação `pause` não verifica os nomes dos módulos ou transações e diferencia maiúsculas de minúsculas, portanto, qualquer erro de digitação passará despercebido e a transação será executada com sucesso. Você sempre deve verificar se a transação foi efetivamente pausada.
 
 ## Despausando Transações {: #unpausing-transactions }

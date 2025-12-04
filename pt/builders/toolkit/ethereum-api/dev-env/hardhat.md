@@ -48,7 +48,7 @@ Se ainda não tiver um projeto Hardhat, crie um seguindo os passos:
     npx hardhat init
     ```
 
-    !!! note
+    !!! nota
         `npx` executa binários instalados localmente no projeto. Embora seja possível instalar o Hardhat globalmente, é recomendável instalá-lo localmente para controlar a versão por projeto.
 
 5. Um menu aparecerá permitindo criar um novo projeto ou usar um exemplo. Para este guia, escolha **Create an empty hardhat.config.js**
@@ -227,7 +227,7 @@ await box.retrieve();
 
 Você deverá ver `5` ou o valor armazenado.
 
-!!! note
+!!! nota
     Se executar o retrieve imediatamente após armazenar, pode ver o valor antigo. Tente novamente após alguns instantes.
 
 Parabéns, você implantou e interagiu com um contrato usando o Hardhat!

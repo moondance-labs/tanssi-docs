@@ -68,7 +68,7 @@ python3 symb.py --chain sepolia opt-out-vault {{ networks.symbiotic.contracts.se
 ```
 ````
 
-!!! warning
+!!! atenção
 Observe que este método requer que você exponha sua chave privada; portanto, não é recomendado.
 
 ### Usando o Etherscan {: #opt-out-vault-with-etherscan }

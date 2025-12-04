@@ -13,7 +13,7 @@ categories: Appchain
 
 Neste guia, aprenderá como usar Sudo para personificar outras contas. Por exemplo, este guia usará a conta Sudo para se apresentar como uma conta arbitrária e transferir fundos dessa conta.
 
-!!! warning
+!!! atenção
     A transferência de saldo demonstrada neste guia é duvidosa e é mostrada apenas como um exemplo de uso do Sudo.
 
 ## Verificação de Pré-requisitos {: #checking-prerequisites }

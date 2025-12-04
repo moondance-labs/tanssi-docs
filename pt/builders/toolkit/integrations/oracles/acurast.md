@@ -72,7 +72,7 @@ Saída de exemplo:
 
 --8<-- 'code/builders/toolkit/integrations/oracles/acurast/terminal/api.md'
 
-!!! note
+!!! nota
     Este exemplo usa apenas uma fonte (uma exchange). É possível construir scripts que agreguem múltiplas fontes.
 
 Por design, a Acurast pode suportar o feed de qualquer ativo acessível por API.
@@ -105,7 +105,7 @@ O contrato de demo `InsecureDummyPriceFeed.sol` emite eventos quando o preço é
     --8<-- 'code/builders/toolkit/integrations/oracles/acurast/InsecureDummyPriceFeed.sol'
     ```
 
-!!! warning
+!!! atenção
     O contrato de demonstração tem vulnerabilidades e não possui controles de acesso; não use em produção.
 
 Antes de prosseguir, implante o contrato do seu feed na rede EVM do Tanssi (ou na rede demo). Guarde o endereço, pois será usado no script Acurast.

@@ -152,7 +152,7 @@ As flags do `docker run` podem ser ajustadas conforme preferências e hardware. 
 - **--database=paritydb** - usa ParityDB como backend otimizado para desempenho do nó RPC
 - **--unsafe-rpc-external** - permite conexões externas ao RPC; requer medidas adicionais de segurança (proxy reverso, autenticação, firewall)
 
-!!! warning
+!!! atenção
     A flag `--unsafe-rpc-external` expõe seu nó RPC externamente. Em produção, proteja com firewall, proxy reverso, autenticação e limitação de taxa.
 
 Você pode visualizar todas as flags disponíveis executando:

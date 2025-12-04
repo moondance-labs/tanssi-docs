@@ -111,7 +111,7 @@ export const client = createThirdwebClient({
 });
 ```
 
-!!! note
+!!! nota
     Se não definir o Client ID corretamente no `.env`, o app pode aparecer em branco. Corrija o Client ID primeiro.
 
 ### Rodar localmente {: #run-locally }
