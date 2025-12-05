@@ -1643,7 +1643,7 @@ The bridge is more than an asset exchange. It’s a secure, standardized protoco
 
 This article introduces the Tanssi-Ethereum bridge as a key interoperability layer between the two networks. You’ll learn how it works, including its architecture, operator management, economic model, slashing mechanisms, and asset transfers.
 
-You'll also learn about the consensus layers that secure communication ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} on [Tanssi](https://docs.tanssi.network/learn/tanssi/){target=\_blank} and the [Ethereum Beacon Chain](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
+You'll also learn about the consensus layers that secure communication ([BEEFY](https://docs.snowbridge.network/architecture/relayers#beefy-relay){target=\_blank} on [Tanssi](https://docs.tanssi.network/learn/tanssi/){target=\_blank} and the [Ethereum Beacon Chain](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
 
 ## Core Functions { : #core-functions }
 
