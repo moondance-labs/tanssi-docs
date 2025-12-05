@@ -1,13 +1,6 @@
 name: Rose
 
 on:
-  pull_request:
-    types:
-      - closed
-    branches:
-      - main
-      - dev
-      - master
   workflow_dispatch:
     inputs:
       base_ref:
