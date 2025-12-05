@@ -1,11 +1,11 @@
 ---
-title: Appchain Development Framework
+title: Estrutura de Desenvolvimento de Rede
 description: Saiba mais sobre o framework de desenvolvimento de rede, a linguagem de programação Rust, o Substrate e suas funcionalidades, incluindo XCM e pallets prontos para usar para seu tempo de execução.
 icon: octicons-code-24
 template: index-page.html
 ---
 
-# Network Development Framework
+# Estrutura de Desenvolvimento de Rede
 
 A construção de uma blockchain do zero é um processo intrincado que exige um profundo conhecimento de algoritmos de consenso, criptografia, estruturas de dados, governança e muito mais. Tanssi simplifica esse processo, aproveitando o Substrate, um poderoso framework de desenvolvimento de blockchain que fornece todos os componentes essenciais para a criação de blockchains personalizadas.
 
