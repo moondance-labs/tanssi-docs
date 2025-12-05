@@ -3,4 +3,4 @@ hide: false
 nav:
   - index.md
   - upgrade-your-node
-  - 'Set Up a Proxy Account': 'proxy-accounts.md'
+  - 'Configurando uma Conta de Proxy': 'proxy-accounts.md'

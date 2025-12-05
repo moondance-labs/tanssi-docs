@@ -92,7 +92,7 @@ Cada nova atribuição funciona intencionalmente com um atraso de uma sessão, p
 
 Quando uma nova sessão começa, o protocolo Tanssi colocará a atribuição na fila em vigor. Os sequenciadores mudarão automaticamente e começarão a produzir blocos na nova rede Tanssi a que foram atribuídos, descartando o estado da cadeia da atribuição anterior. O Tanssi também calculará a nova atribuição, considerando as alterações nas redes Tanssi que podem ter sido ativadas ou desativadas e os sequenciadores que podem ter sido adicionados ou removidos do pool ou alterado o valor total apostado. Esta nova atribuição será enfileirada para a próxima sessão.
 
-![Sessões](/images/pt/learn/tanssi/network-services/block-production/block-production-1.webp)
+![Sessões](/images/learn/tanssi/network-services/block-production/block-production-1.webp)
 
 ### O Papel da Rede Tanssi {: #tanssi-newtwork }
 

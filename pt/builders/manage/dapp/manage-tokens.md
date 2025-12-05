@@ -1,6 +1,6 @@
 ---
 title: Gerenciar Tokens
-description: Learn how the network governor can manage the token of a Tanssi-powered network using the dApp to mint them, configure the EIP-1559 fee market, and more.
+description: Aprenda como o governador da rede pode gerenciar o token de uma rede alimentada pelo Tanssi usando o dApp para cunhá-lo, configurar o mercado de taxas EIP-1559 e muito mais.
 icon: octicons-database-24
 categories: Appchain
 ---

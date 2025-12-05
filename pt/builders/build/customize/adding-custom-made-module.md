@@ -1,6 +1,6 @@
 ---
 title: Adicionar um módulo personalizado
-description: Discover how to incorporate custom-made modules to add unique or specialized features to your network that go beyond the capabilities of the built-in modules.
+description: Descubra como incorporar módulos feitos sob medida para adicionar recursos únicos ou especializados à sua rede que vão além das capacidades dos módulos embutidos.
 icon: octicons-terminal-24
 categories: Custom-Runtime
 ---

@@ -1,6 +1,6 @@
 ---
 title: Habilitando o Modo de Manutenção
-description: Learn how to use Sudo to turn on and off maintenance mode, which effectively pauses your network while still producing blocks and allowing select calls.
+description: Aprenda a usar o Sudo para ativar e desativar o modo de manutenção, que pausa sua rede enquanto ainda produz blocos e permite chamadas selecionadas.
 icon: octicons-stop-24
 categories: Appchain
 ---

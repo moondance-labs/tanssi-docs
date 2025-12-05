@@ -1,6 +1,6 @@
 ---
 title: Configure sua Conta de Operador
-description: Learn how to map your node's account with your stash account, making your node eligible to secure Tanssi and the Tanssi-powered networks and receive rewards.
+description: Aprenda a mapear a conta do seu nó com sua conta stash, tornando-o elegível para proteger o Tanssi e as redes alimentadas pelo Tanssi e receber recompensas.
 icon: octicons-tools-24
 categories: Operadores
 ---

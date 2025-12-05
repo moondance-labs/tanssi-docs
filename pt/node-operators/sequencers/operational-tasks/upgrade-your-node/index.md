@@ -1,5 +1,5 @@
 ---
-title: Upgrade Sequencers Node
+title: Atualizar Nó de Sequenciador
 description: Siga estas etapas para atualizar seu nó para a versão mais recente do software cliente Tanssi, garantindo a produção contínua de blocos no protocolo de rede Tanssi.
 icon: octicons-rocket-24
 template: index-page.html

@@ -1,6 +1,6 @@
 ---
 title: Fazer-se passar por outras contas com Sudo
-description: Learn how to use the Sudo key to dispatch calls by signing a transaction as if it came from a different account.
+description: Aprenda a usar a chave Sudo para despachar chamadas assinando uma transação como se ela viesse de uma conta diferente.
 icon: octicons-person-add-24
 categories: Appchain
 ---

@@ -1,5 +1,5 @@
 ---
-title: Run a Node
+title: Executar um Nó
 description: Aprenda como configurar e executar nós para Tanssi e redes alimentadas por Tanssi. Isso permitirá que você hospede seus próprios endpoints RPC para interação com a cadeia.
 icon: octicons-globe-24
 template: index-page.html

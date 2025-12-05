@@ -1,6 +1,6 @@
 ---
 title: Configurar uma conta para produzir blocos
-description: Follow these step-by-step instructions on becoming eligible to produce blocks on Tanssi-powered networks and setting up your account for rewards payouts.
+description: Siga estas instruções passo a passo para se tornar elegível a produzir blocos em redes alimentadas pelo Tanssi e configurar sua conta para receber recompensas.
 icon: octicons-person-add-24
 categories: Sequenciadores
 ---
