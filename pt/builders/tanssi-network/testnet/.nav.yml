@@ -1,0 +1,6 @@
+title: TestNet
+hide: false
+nav:
+  - index.md
+  - Dancelight: dancelight.md
+  - Rede EVM de demonstração: demo-evm-network.md

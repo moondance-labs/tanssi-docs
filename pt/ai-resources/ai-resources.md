@@ -1,0 +1,28 @@
+---
+title: Recursos de IA
+description: Baixe arquivos otimizados para LLM com a documentação Tanssi, incluindo conteúdo completo e recursos por categoria para agentes de IA.
+---
+
+# Recursos de IA
+
+A Tanssi fornece arquivos `.txt` contendo o conteúdo da documentação e a estrutura de navegação, otimizados para uso com modelos de linguagem (LLMs) e ferramentas de IA. Esses recursos ajudam a criar assistentes de IA, potencializam buscas em código ou permitem ferramentas personalizadas treinadas na documentação da Tanssi.
+
+Cada arquivo por categoria inclui o conteúdo básico das categorias **Basics** e **Reference** para garantir que os LLMs tenham o contexto necessário.
+
+## Baixar Arquivos para LLM
+
+| Categoria          | Descrição                                                                                                                               | Arquivo                        | Ações                                                                                                                                                                                                  |
+|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Índice             | Índice de navegação de todas as páginas da documentação Tanssi                                                                          | `llms.txt`                     | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms.txt" } [:octicons-download-16:](/llms.txt){ download="llms.txt" }                                                                    |
+| Documentação Completa | Conteúdo completo de todas as páginas da documentação                                                                                   | `llms-full.txt`                | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-full.txt" } [:octicons-download-16:](/llms-full.txt){ download="llms-full.txt" }                                                     |
+| Basics             | Framework, arquitetura e componentes centrais da Tanssi para formar a base de conhecimento geral                                       | `llms-basics.txt`              | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-basics.txt" } [:octicons-download-16:](/llms-files/llms-basics.txt){ download="llms-basics.txt" }                                    |
+| Reference          | Material de referência, incluindo endpoints de rede, métodos JSON RPC e endereços de contratos ou tokens                                | `llms-reference.txt`           | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-reference.txt"} [:octicons-download-16:](/llms-files/llms-reference.txt){ download="llms-reference.txt" }                            |
+| Appchain           | Como lançar e gerenciar uma appchain via dApp ou portal do desenvolvedor                                                               | `llms-appchain.txt`            | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-appchain.txt" } [:octicons-download-16:](/llms-files/llms-appchain.txt){ download="llms-appchain.txt" }                              |
+| Runtime Personalizado | Como personalizar o runtime da sua appchain                                                                                             | `llms-custom-runtime.txt`      | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-custom-runtime.txt" } [:octicons-download-16:](/llms-files/llms-custom-runtime.txt){ download="llms-custom-runtime.txt" }            |
+| Template EVM       | Use o template EVM para lançar appchains compatíveis com Ethereum e conhecer seu tooling associado (carteiras, integrações etc.)       | `llms-evm-template.txt`        | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-evm-template.txt" } [:octicons-download-16:](/llms-files/llms-evm-template.txt){ download="llms-evm-template.txt" }                  |
+| Template Substrate | Use o template Substrate básico e o tooling associado (carteiras, integrações etc.) para lançar appchains                              | `llms-substrate-template.txt`  | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-substrate-template.txt" } [:octicons-download-16:](/llms-files/llms-substrate-template.txt){ download="llms-substrate-template.txt" }|
+| Operadores         | Como configurar e executar um nó para proteger o ecossistema Tanssi                                                                    | `llms-operators.txt`           | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-operators.txt" } [:octicons-download-16:](/llms-files/llms-operators.txt){ download="llms-operators.txt" }                           |
+| Sequenciadores     | Como executar um sequencer para fornecer serviços de produção de blocos às appchains                                                   | `llms-sequencers.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-sequencers.txt" } [:octicons-download-16:](/llms-files/llms-sequencers.txt){ download="llms-sequencers.txt" }                        |
+
+!!! nota
+    O arquivo `llms-full.txt` pode exceder o limite de entrada de alguns modelos de linguagem devido ao seu tamanho. Se você encontrar limitações, considere usar os arquivos por categoria.

@@ -63,17 +63,17 @@ To support the Tanssi protocol, it will be necessary to add two modules through 
         type AccountLookup = tp_consensus::NimbusLookUp;
         type CanAuthor = pallet_cc_authorities_noting::CanAuthor<Runtime>;
         type SlotBeacon = tp_consensus::AuraDigestSlotBeacon<Runtime>;
-        type WeightInfo = 
+        type WeightInfo =
             pallet_author_inherent::weights::SubstrateWeight<Runtime>;
     }
 
     impl pallet_cc_authorities_noting::Config for Runtime {
         type RuntimeEvent = RuntimeEvent;
         type SelfParaId = parachain_info::Pallet<Runtime>;
-        type RelayChainStateProvider = 
+        type RelayChainStateProvider =
             cumulus_pallet_parachain_system::RelaychainDataProvider<Self>;
         type AuthorityId = NimbusId;
-        type WeightInfo = 
+        type WeightInfo =
             pallet_cc_authorities_noting::weights::SubstrateWeight<Runtime>;
     }
     ```
@@ -95,6 +95,7 @@ To support the Tanssi protocol, it will be necessary to add two modules through 
         AuthorInherent: pallet_author_inherent = 51,
         ...
     }
+    );
     ```
 
 4. Make sure your Header is configured as follows:

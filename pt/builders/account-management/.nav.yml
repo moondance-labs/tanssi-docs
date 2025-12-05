@@ -1,0 +1,6 @@
+title: Gestão de contas
+hide: false
+nav:
+  - index.md
+  - Contas proxy: proxy-accounts.md
+  - Identidades on-chain: identity.md

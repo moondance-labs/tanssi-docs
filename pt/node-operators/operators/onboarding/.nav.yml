@@ -1,0 +1,8 @@
+title: Onboarding
+hide: false
+nav:
+  - index.md
+  - run-an-operator
+  - 'Registrar no Symbiotic': 'register-in-symbiotic.md'
+  - 'Optar pelo Tanssi': 'opt-in-to-tanssi.md'
+  - 'Configurar Sua Conta': 'account-setup.md'

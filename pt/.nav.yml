@@ -1,0 +1,9 @@
+nav:
+    - index.md
+    - pt/builders
+    - pt/node-operators
+    - pt/learn
+    - pt/ai-resources
+    - Sobre:
+        - 'Sobre Tanssi': https://www.tanssi.network/
+        - 'Tanssi TestNet': https://apps.tanssi.network/create
