@@ -1643,7 +1643,7 @@ The bridge is more than an asset exchange. It’s a secure, standardized protoco
 
 This article introduces the Tanssi-Ethereum bridge as a key interoperability layer between the two networks. You’ll learn how it works, including its architecture, operator management, economic model, slashing mechanisms, and asset transfers.
 
-You'll also learn about the consensus layers that secure communication ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} on [Tanssi](https://docs.tanssi.network/learn/tanssi/){target=\_blank} and the [Ethereum Beacon Chain](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
+You'll also learn about the consensus layers that secure communication (BEEFY on [Tanssi](https://docs.tanssi.network/learn/tanssi/){target=\_blank} and the [Ethereum Beacon Chain](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), and the roles of provers, verifiers, and relayers, giving you a clear view of how assets and messages move securely between Tanssi and Ethereum.
 
 ## Core Functions { : #core-functions }
 
@@ -1660,7 +1660,7 @@ This interoperability expands the potential of decentralized applications and si
 
 Understanding the bridge's consensus functionality requires examining its core components: provers, verifiers, and relayers. Provers generate cryptographic proofs, verifiers validate them, and relayers move data between chains.
 
-Provers include Tanssi's [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} module and Ethereum's Beacon Chain consensus. They produce consensus data transmitted by specialized relayers.
+Provers include Tanssi's BEEFY module and Ethereum's Beacon Chain consensus. They produce consensus data transmitted by specialized relayers.
 
 Each chain runs a [light client](https://ethereum.org/developers/docs/nodes-and-clients/light-clients/){target=\_blank} of the other, acting as an on-chain verifier for data legitimacy. For instance, when Tanssi sends a message to Ethereum, it generates compact proofs of events or state changes based on its consensus. Ethereum's light client verifies these proofs before acting. This efficient method avoids processing the entire sending chain's state, relying instead on concise cryptographic proof verification.
 
