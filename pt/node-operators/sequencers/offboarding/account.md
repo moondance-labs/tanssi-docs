@@ -13,11 +13,11 @@ Aos sequenciadores, pode chegar o momento de sair graciosamente da rede. A desat
 
 Este guia mostrará como encerrar suas operações como um sequenciador Tanssi corretamente. Isso inclui a não delegação de sua autodelegação para reaver sua garantia e o desmapeamento de suas chaves de sessão para cortar a conexão entre seu nó e sua conta. Naturalmente, este guia assume que você é um sequenciador Tanssi existente com um [nó sequenciador](/pt/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} e [chaves de sessão](https://wiki.polkadot.com/learn/learn-cryptography/#session-keys) mapeadas{target=\_blank}.
 
-## Solicitar a não delegação {: #request-undelegation }
+## Solicitar a Não Delegação {: #request-undelegation }
 
 Ao configurar seu sequenciador Tanssi, você precisou enviar uma garantia de delegação (pelo menos `{{ networks.mainnet.sequencers.minimum_self_delegation }}` {{ networks.mainnet.token_symbol }} para Tanssi MainNet). Para recebê-la de volta e remover seu sequenciador da lista de candidatos elegíveis, você precisará seguir etapas semelhantes às do processo de integração.
 
-### Visualizar a participação existente {: #viewing-existing-stake }
+### Visualizar a Participação Existente {: #viewing-existing-stake }
 
 Antes de não delegar, é útil primeiro ver quanto você apostou, pois precisará fornecer esse valor mais tarde. Para fazer isso, acesse o \[portal do desenvolvedor\](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}, clique na aba **Desenvolvedor**, selecione **Estado da Cadeia** no menu suspenso e siga estas etapas:
 
@@ -33,7 +33,7 @@ Observe que **JoiningShares** retorna apenas o valor inicial que você delegou a
 
 Como exemplo, a participação total de um sequenciador de autocompounding pode ser calculada adicionando **JoiningShares** a **AutoCompoundingShares**. Observe esse valor, pois você precisará dele na próxima seção.
 
-### Enviar solicitação de não delegação {: #submit-undelegation-request }
+### Enviar Solicitação de Não Delegação {: #submit-undelegation-request }
 
 Acesse o [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Desenvolvedor**, selecione **Extrínsecos** no menu suspenso e siga estas etapas:
 
@@ -48,7 +48,7 @@ Acesse o [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ ne
 
 ![Criar e enviar um extrínseco para não delegar no portal do desenvolvedor](/images/node-operators/sequencers/offboarding/account/account-2.webp)
 
-### Executar a solicitação pendente {: #execute-pending-request }
+### Executar a Solicitação Pendente {: #execute-pending-request }
 
 Você precisará esperar antes de executar a solicitação pendente. No caso do Tanssi MainNet, o período de espera é configurado para pelo menos {{ networks.mainnet.staking.leaving_delay_sessions_text }} sessões. Cada sessão é composta por `{{ networks.mainnet.session.blocks }}` blocos e se traduz em cerca de {{ networks.mainnet.session.hours }} hora por sessão. Portanto, {{ networks.mainnet.staking.leaving_delay_sessions_text }} sessões correspondem a aproximadamente {{ networks.mainnet.staking.leaving_delay_hours_text }} horas.
 
@@ -86,7 +86,7 @@ Se pelo menos duas sessões se passaram desde a sessão em que você enviou o ex
 
 ![Criar e enviar um extrínseco para executar a solicitação de autodelegação pendente no portal do desenvolvedor](/images/node-operators/sequencers/offboarding/account/account-5.webp)
 
-### Verifique se sua conta não está na lista de candidatos elegíveis {: #verify }
+### Verifique se Sua Conta Não Está na Lista de Candidatos Elegíveis {: #verify }
 
 Se você quiser, pode verificar se seu sequenciador não está mais na lista de candidatos elegíveis. Para fazer isso, acesse o [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Desenvolvedor**, selecione **Estado da cadeia** no menu suspenso e siga estas etapas:
 
@@ -95,7 +95,7 @@ Se você quiser, pode verificar se seu sequenciador não está mais na lista de 
 3. Uma lista dos candidatos elegíveis e suas apostas será exibida na parte inferior da página. Você pode pesquisar seu endereço para garantir que ele não exista na lista
 ![Consultar a lista atual de candidatos elegíveis no portal do desenvolvedor](/images/node-operators/sequencers/offboarding/account/account-6.webp)
 
-## Desmapear chaves de sessão {: #unmap-session-keys }
+## Desmapear Chaves de Sessão {: #unmap-session-keys }
 
 As chaves de sessão são usadas para realizar operações de rede, como assinar blocos, enquanto sua conta de sequenciador mantém os fundos apostados e tem uma identidade na cadeia. Ao desmapear a chave de sessão para sua conta, você interrompe a associação entre sua conta de sequenciador e seu nó de sequenciador.
 

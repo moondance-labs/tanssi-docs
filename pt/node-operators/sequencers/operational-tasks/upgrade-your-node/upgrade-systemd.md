@@ -1,11 +1,11 @@
 ---
-title: Atualize seu Nó Systemd Sequencer
+title: Atualize Seu Nó Systemd Sequencer
 description: Siga estas instruções para atualizar seu nó sequencer Tanssi em execução via Systemd para a versão mais recente do software cliente Tanssi.
 icon: simple-linux
 categories: Sequencers
 ---
 
-# Atualize seu Nó em Execução via Systemd
+# Atualize Seu Nó em Execução via Systemd
 
 ## Introdução {: #introduction }
 
@@ -15,7 +15,7 @@ Este tutorial aborda a atualização do seu nó sequencer Tanssi que foi configu
 
 --8<-- 'text/pt/node-operators/github-release-notifications.md'
 
-## Atualizando seu Nó Systemd {: #upgrading-your-systemd-node }
+## Atualizando Seu Nó Systemd {: #upgrading-your-systemd-node }
 
 Se você estiver executando seu sequencer através do serviço Systemd, você precisará seguir algumas etapas para atualizar corretamente seu nó. Em suma, você precisará parar o serviço, substituir o binário Tanssi pela versão atualizada e, em seguida, iniciar o serviço.
 
