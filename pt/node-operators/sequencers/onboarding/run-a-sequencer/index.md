@@ -31,6 +31,6 @@ Para produção de blocos bem-sucedida, seu nó deve sincronizar e interagir com
 | Tanssi Chain      | 30334 (TCP) |
 | Rede Designada  | 30333 (TCP) |
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

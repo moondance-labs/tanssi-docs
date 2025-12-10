@@ -27,7 +27,7 @@ Para começar, você precisará de acesso a um computador executando Ubuntu Linu
 
 --8<-- 'text/pt/node-operators/network-node/getting-specs-files.md'
 
-## Baixe a Versão Mais Recente {: #download-latest-release }
+## Baixe a Versão mais Recente {: #download-latest-release }
 
 Cada nova versão inclui dois binários, um para redes compatíveis com EVM e outro para redes Substrate. Para começar, execute o comando que corresponde ao seu tipo de rede e torne-o executável:
 

@@ -79,7 +79,7 @@ Observe que o comando contém duas seções, divididas por `-- \`:
 - **Seção do Sequenciador** - contém os flags para executar o nó sequenciador. É abstrato o suficiente para ser adaptado dinamicamente em tempo de execução à cadeia específica que o nó servirá
 
 Dê um nome legível a cada seção, substituindo as tags `INSERT_YOUR_TANSSI_NODE_NAME` e `INSERT_YOUR_SEQUENCER_NODE_NAME` nos flags `--name`. Esses nomes serão úteis para conectar as entradas de registro e as métricas com o nó que as gera.
-        ```bash
+    
 
 --8<-- 'text/pt/node-operators/optimized-binaries-note.md'
 
@@ -144,7 +144,7 @@ Dê um nome legível a cada seção, substituindo as tags `INSERT_YOUR_TANSSI_NO
 ### Flags de Execução {: #run-flags }
 
 Os flags usados no comando `docker run` podem ser ajustados de acordo com suas preferências e configuração de hardware. Os seguintes são alguns dos mais notáveis:
-    ```bash
+
 
 --8<-- 'text/pt/node-operators/network-node/run-flags.md'
 

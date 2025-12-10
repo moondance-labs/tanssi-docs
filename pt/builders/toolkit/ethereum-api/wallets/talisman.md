@@ -1,11 +1,11 @@
 ---
-title: Como conectar Talisman à Tanssi
+title: Como Conectar Talisman à Tanssi
 description: Este guia mostra como conectar o Talisman, uma carteira abrangente compatível com Polkadot, Substrate e Ethereum, à sua rede compatível com EVM alimentada pela Tanssi.
 icon: material-wallet-outline
 categories: EVM-Template
 ---
 
-# Interagindo com sua Rede EVM Tanssi Usando Talisman
+# Interagindo com Sua Rede EVM Tanssi Usando Talisman
 
 ## Introdução {: #introduction }
 
@@ -62,7 +62,7 @@ Na tela seguinte, siga as seguintes etapas:
 
 ![Etapas finais de importação de conta existente](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-10.webp)
 
-## Configurando o Talisman para sua Rede EVM {: #configuring-talisman-for-your-evm-network }
+## Configurando o Talisman para Sua Rede EVM {: #configuring-talisman-for-your-evm-network }
 
 Para configurar o Talisman para sua rede EVM Tanssi, abra a extensão Talisman e clique na guia **Mais Opções**. Em seguida, siga as seguintes etapas:
 
@@ -97,4 +97,4 @@ Para transferir o token nativo da sua rede Tanssi, siga as seguintes etapas:
 
 Este guia se concentrou especificamente na configuração do Talisman para trabalhar com sua rede EVM alimentada pela Tanssi, mas o Talisman também é uma carteira completa para contas Substrate (Polkadot). Na seção da API Substrate, você encontrará um tutorial semelhante para configurar o Talisman para trabalhar com cadeias baseadas em Substrate.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

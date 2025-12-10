@@ -206,4 +206,4 @@ Depois que a transação for confirmada, se você repetir as etapas para [verifi
 
 E é isso! Você interagiu com sucesso com a precompilação do Proxy usando MetaMask e Remix!
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

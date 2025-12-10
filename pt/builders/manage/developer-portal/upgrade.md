@@ -79,4 +79,4 @@ Você pode verificar se a atualização do seu runtime foi bem-sucedida verifica
 
 E é isso! A seção [portal do desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos outros guias sobre como gerenciar sua appchain Tanssi.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

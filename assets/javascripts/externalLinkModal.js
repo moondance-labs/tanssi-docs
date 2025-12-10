@@ -3,22 +3,19 @@ const main = document.querySelector('main');
 
 /** Simple i18n for modal strings */
 const lang = (document.documentElement.lang || 'en').toLowerCase();
-const modalStrings = {
-  en: {
-    header: `You're Leaving the Tanssi Documentation Website`,
-    message: `A new tab will open and you'll be sent to an independent, third-party website that is not affiliated with Tanssi.`,
-    cancel: 'Cancel',
-    continue: 'Continue to External Site'
-  },
-  pt: {
-    header: 'Você está saindo do site de documentação da Tanssi',
-    message:
-      'Uma nova aba será aberta e você será direcionado a um site independente de terceiros, que não é afiliado à Tanssi.',
-    cancel: 'Cancelar',
-    continue: 'Continuar para o site externo'
-  }
+const injected = (window.__externalLinkModalStrings && window.__externalLinkModalStrings[lang]) || {};
+const fallback = {
+  header: `You're Leaving the Tanssi Documentation Website`,
+  message: `A new tab will open and you'll be sent to an independent, third-party website that is not affiliated with Tanssi.`,
+  cancel: 'Cancel',
+  continue: 'Continue to External Site'
 };
-const t = modalStrings[lang] || modalStrings.en;
+const t = {
+  header: injected.header || fallback.header,
+  message: injected.message || fallback.message,
+  cancel: injected.cancel || fallback.cancel,
+  continue: injected.continue || fallback.continue
+};
 
 /** Create the modal */
 const externalLinkModalContainer = document.createElement('div');

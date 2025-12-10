@@ -34,7 +34,7 @@ Para fazer a ponte de Ethereum para Tanssi:
 - Saldo ETH para pagar as taxas de ponte.
 - A conta de destino do tipo Substrate.
 
-## Fazendo a ponte de tokens TANSSI para Ethereum {: #bridge-to-ethereum}
+## Fazendo a Ponte de Tokens TANSSI para Ethereum {: #bridge-to-ethereum}
 
 Se você deseja converter seus tokens TANSSI (Substrate) para TANSSI (ERC-20) no Ethereum, acesse o Tanssi dApp, abra a [seção da ponte](https://apps.tanssi.network/bridge){target=\_blank} e siga estas etapas:
 
@@ -57,20 +57,20 @@ E é isso! Seus tokens serão transferidos quando a próxima sessão começar. V
     - Você pode adicionar facilmente o endereço do contrato TANSSI ERC-20 à sua carteira clicando no ícone **+** mostrado ao lado do seu saldo.
     - As taxas para converter seus tokens TANSSI (Substrate) para TANSSI (ERC-20) podem flutuar ao longo do tempo e devem ser pagas usando TANSSI.
 
-## Fazendo a ponte de ERC-20 TANSSI para a Rede Tanssi {: #bridge-to-tanssi }
+## Fazendo a Ponte de ERC-20 TANSSI para a Rede Tanssi {: #bridge-to-tanssi }
 
 Se você deseja converter seus tokens TANSSI (ERC-20) para TANSSI (Substrate) nativo na rede Tanssi, acesse o Tanssi dApp, abra a [seção da ponte](https://apps.tanssi.network/bridge){target=\_blank} e siga estas etapas:
 
 1. Selecione **Ethereum** no menu suspenso **From**.
-1. Clique em **Connect Wallet**, selecione sua carteira Ethereum preferida e escolha a conta.
+2. Clique em **Connect Wallet**, selecione sua carteira Ethereum preferida e escolha a conta.
 
 ![Selecione Ethereum e conecte a carteira](/images/builders/interoperability/built-in-bridge/built-in-bridge-3.webp)
 
 Agora, com sua carteira conectada:
 
 1. Insira a conta de destino Substrate no campo **Recipient**.
-1. Insira o valor a ser transferido no campo **Balance**. As taxas estimadas de ponte e transação serão exibidas junto com o valor que a conta de destino receberá.
-1. Clique em **Send** e assine a transação.
+2. Insira o valor a ser transferido no campo **Balance**. As taxas estimadas de ponte e transação serão exibidas junto com o valor que a conta de destino receberá.
+3. Clique em **Send** e assine a transação.
 
 ![Executar a Transação](/images/builders/interoperability/built-in-bridge/built-in-bridge-4.webp)
 

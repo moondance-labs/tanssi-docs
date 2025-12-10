@@ -1,5 +1,5 @@
 ---
-title: Módulos de Rede para o seu Tempo de Execução
+title: Módulos de Rede para o Seu Tempo de Execução
 description: O Substrate é um framework modular de desenvolvimento de blockchain com um conjunto extenso de componentes prontos para uso que podem ser associados à lógica personalizada no Tempo de Execução da rede.
 icon: material-puzzle-outline
 categories: Custom-Runtime, Basics

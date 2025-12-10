@@ -9,6 +9,6 @@ template: index-page.html
 
 Os recursos da rede em Tanssi são projetados para fornecer os mecanismos fundamentais que apoiam a descentralização, a segurança e a escalabilidade. De proteger redes por meio de staking a capacidades futuras, esta seção descreve os elementos principais que capacitam a infraestrutura de rede da Tanssi.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

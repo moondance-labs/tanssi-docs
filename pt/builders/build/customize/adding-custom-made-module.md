@@ -1,11 +1,11 @@
 ---
-title: Adicionar um módulo personalizado
+title: Adicionar um Módulo Personalizado
 description: Descubra como incorporar módulos feitos sob medida para adicionar recursos únicos ou especializados à sua rede que vão além das capacidades dos módulos embutidos.
 icon: octicons-terminal-24
 categories: Custom-Runtime
 ---
   
-# Adicionar um módulo personalizado {: #adding-custom-made-module }
+# Adicionar um Módulo Personalizado {: #adding-custom-made-module }
   
 ## Introdução {:  #introduction }
   
@@ -36,7 +36,7 @@ Para seguir as etapas deste guia, você precisará ter o seguinte:
 
 Você pode ler mais sobre como instalar o Rust e o Cargo no artigo de [pré-requisitos](/pt/builders/build/customize/prerequisites/#installing-rust){target=\_blank}.
 
-## Criando os arquivos do módulo de loteria {: #creating-lottery-module-files }
+## Criando os Arquivos do Módulo de Loteria {: #creating-lottery-module-files }
 
 Antes de iniciar seu processo de codificação, é essencial criar os arquivos que contêm sua lógica. Os módulos Substrate são abstratos e destinados ao reaproveitamento em diferentes tempos de execução com várias personalizações. Para conseguir isso, você usará o Cargo, o gerenciador de pacotes do Rust, para criar o módulo como um novo pacote.
 
@@ -61,7 +61,7 @@ mv lottery-example/src/main.rs lottery-example/src/lib.rs
 
 Depois de executar todos os comandos, o módulo é criado e está pronto para conter a lógica personalizada que você adicionará nas seções a seguir.
 
-## Configurar as dependências do módulo {: #configure-module-dependencies}
+## Configurar as Dependências do Módulo {: #configure-module-dependencies}
 
 Como o módulo funciona como um pacote independente, ele tem seu próprio arquivo Cargo.toml, onde você deve especificar os atributos e dependências do módulo.
 
@@ -87,13 +87,13 @@ O exemplo completo do arquivo `Cargo.toml` define, além dos atributos, as depen
     --8<-- 'code/builders/build/customize/custom-made-module/lottery-example-cargo.toml'
     ```
 
-## Adicionando lógica personalizada {: #adding-custom-logic}
+## Adicionando Lógica Personalizada {: #adding-custom-logic}
 
 Conforme apresentado na seção [módulo personalizado](/pt/learn/framework/modules/#custom-modules){target=\_blank} do artigo sobre modularidade, a criação de um módulo envolve a implementação das seguintes macros de atributo, das quais as três primeiras são obrigatórias:
 
 --8<-- 'text/pt/builders/build/customize/custom-made-module/pallets-macros-descriptions.md'
 
-### Implementando a estrutura básica do módulo {: #implementing-basic-structure }
+### Implementando a Estrutura Básica do Módulo {: #implementing-basic-structure }
 
 As duas primeiras macros obrigatórias, `#[frame_support::pallet]` e `#[pallet::pallet]`, fornecem a estrutura básica do módulo e são necessárias para habilitar o módulo a ser usado em um tempo de execução Substrate.
 
@@ -112,7 +112,7 @@ pub mod pallet {
 
 A próxima etapa seria adicionar a terceira macro obrigatória (`#[pallet::config]`) e toda a lógica personalizada, conforme mostrado nas seções a seguir.
 
-### Implementando a configuração do módulo {: #implementing-module-configuration }
+### Implementando a Configuração do Módulo {: #implementing-module-configuration }
 
 Para tornar os módulos altamente adaptáveis, sua configuração é abstrata o suficiente para permitir que sejam adaptados aos requisitos específicos do caso de uso que o tempo de execução implementa.
 
@@ -228,7 +228,7 @@ Aqui está a implementação completa das chamadas com a lógica da loteria pers
     --8<-- 'code/builders/build/customize/custom-made-module/lottery-example-calls.rs'
     ```
                     
-### Implementando erros personalizados {: #implementing-custom-errors}
+### Implementando Erros Personalizados {: #implementing-custom-errors}
 
 A macro `#[pallet::error]` é usada para anotar uma enumeração de erros potenciais que poderiam ocorrer durante a execução. É crucial para a segurança garantir que todas as situações de erro sejam tratadas com elegância, sem causar a falha do tempo de execução.
 
@@ -244,7 +244,7 @@ pub enum `Error`<T> {
 }
 ```
 
-### Implementando eventos {: #implementing-events }
+### Implementando Eventos {: #implementing-events }
 
 A macro `#[pallet::event]` é aplicada a uma enumeração de eventos para informar o usuário sobre quaisquer alterações no estado ou ações importantes que ocorreram durante a execução no tempo de execução.
 
@@ -264,7 +264,7 @@ pub enum Event<T: Config> {
     }
 ```
     
-### Implementando o armazenamento para persistência de estado {: #implementing-storage }
+### Implementando o Armazenamento para Persistência de Estado {: #implementing-storage }
 
 A macro `#[pallet::storage]` inicializa uma estrutura de armazenamento de tempo de execução. No ambiente altamente restrito de blockchains, decidir o que armazenar e qual estrutura usar pode ser fundamental em termos de desempenho. Mais sobre esse tópico é abordado na [documentação Substrate](https:/docs.polkadot.com/develop/parachains/customize-parachain/make-custom-pallet/#pallet-storage){target=\_blank}.
 
@@ -280,7 +280,7 @@ pub(super) type Participants<T: Config> = StorageValue<
 >;
 ```
 
-### O módulo completo {: #complete-module }
+### O Módulo Completo {: #complete-module }
 
 Para juntar todas as peças, após implementar todas as macros necessárias e adicionar a lógica personalizada, o módulo agora está completo e pronto para ser usado no tempo de execução.
 
@@ -290,7 +290,7 @@ Para juntar todas as peças, após implementar todas as macros necessárias e ad
     --8<-- 'code/builders/build/customize/custom-made-module/lottery-example.rs'
     ```
     
-## Configurar o tempo de execução {: #configure-runtime }
+## Configurar o Tempo de Execução {: #configure-runtime }
 
 Finalmente, com o módulo finalizado, ele pode ser incluído no tempo de execução. Ao fazer isso, as transações `buy_tickets` e `award_prize` serão chamáveis pelos usuários. Isso também significa que a [API Polkadot.js](pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} será decorada com este módulo e todas as chamadas disponíveis que ele contém.\n\nPara configurar o tempo de execução, abra o arquivo `lib.rs`, que contém a definição para o tempo de execução do modelo incluído e está localizado (no caso de usar o compatível com EVM) na pasta:
 
@@ -338,5 +338,5 @@ construct_runtime!(
 
 Com tudo definido, a rede agora tem suporte para uma implementação básica de uma loteria.
     
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'
 

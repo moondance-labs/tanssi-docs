@@ -7,7 +7,7 @@ categories: Reference
 
 # Métodos da API JSON-RPC
 
-## Métodos Ethereum padrão {: #standard-rpc-methods }
+## Métodos Ethereum Padrão {: #standard-rpc-methods }
 
 A compatibilidade EVM da Tanssi é derivada do [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank} e segue de perto a compatibilidade Ethereum do Moonbeam. Os nós da Tanssi suportam uma ampla variedade de métodos JSON-RPC padrão do Ethereum.
 
@@ -53,7 +53,7 @@ Métodos básicos da API Ethereum suportados:
 - **[eth_getFilterLogs](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getfilterlogs){target=\_blank}** — array de logs que correspondem ao filtro com ID fornecido
 - **[eth_uninstallFilter](https://ethereum.org/developers/docs/apis/json-rpc/#eth_uninstallfilter){target=\_blank}** — remove um filtro pelo ID; use quando o polling não for mais necessário (filtros expiram se não forem consultados)
 
-## Métodos JSON-RPC personalizados {: #custom-json-rpc-methods }
+## Métodos JSON-RPC Personalizados {: #custom-json-rpc-methods }
 
 Os nós da Tanssi expõem dois endpoints personalizados: `frnt_isBlockFinalized` e `frnt_isTxFinalized`. Como a Tanssi tem finalização determinística, é possível saber com certeza se um bloco ou transação está finalizado ou não. Esses endpoints ajudam a verificar a finalização de eventos on-chain.
 

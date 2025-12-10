@@ -5,7 +5,7 @@ icon: octicons-browser-24
 categories: Appchain
 ---
 
-# Implemente sua appchain através do Tanssi DApp
+# Implemente Sua Appchain Através do Tanssi DApp
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/W40oqavpZJ8' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
@@ -14,7 +14,7 @@ categories: Appchain
 
 A Tanssi tem como objetivo reduzir a barreira de entrada para a construção de appchains descentralizadas, simplificando o processo de integração e abstraindo os detalhes técnicos do lançamento de uma appchain com tecnologia Tanssi. O [Tanssi dApp](https://apps.tanssi.network){target=\_blank} permite que você inicie uma appchain em apenas alguns minutos. Este guia mostra as etapas necessárias para lançar uma appchain na Dancelight, a Tanssi TestNet, usando o Tanssi dApp.
 
-## Testes rápidos vs. appchains dedicadas {: #quick-trial-vs-dedicated-appchains  }
+## Testes Rápidos vs. Appchains Dedicadas {: #quick-trial-vs-dedicated-appchains  }
 
 [O Tanssi dApp](https://apps.tanssi.network){target=\_blank} suporta a criação de dois tipos de appchains:
 
@@ -42,7 +42,7 @@ Se você implantar uma appchain EVM com tecnologia Tanssi, os usuários poderão
 
 ![Tela de conexão para várias carteiras Substrate](/images/builders/deploy/dapp/dapp-2.webp)
 
-### Conecte sua carteira ao DApp {: #connect-wallet  }
+### Conecte Sua Carteira ao DApp {: #connect-wallet  }
 
 Para conectar sua carteira ao Tanssi dApp, clique em **Connect Wallet** no canto superior direito e escolha o tipo de carteira. Depois:
 
@@ -53,7 +53,7 @@ Para conectar sua carteira ao Tanssi dApp, clique em **Connect Wallet** no canto
 
 Após conectar, seu endereço aparecerá no canto superior direito. Se tiver várias contas conectadas, clique no endereço para trocar.
 
-## Configure sua appchain {: #configure-your-appchain }
+## Configure Sua Appchain {: #configure-your-appchain }
 
 Na [página inicial](https://apps.tanssi.network/){target=\_blank} do dApp, clique em **Start Building** no bloco **Launch Network** para configurar sua appchain imediatamente. Escolha entre **Quick Trial** ou **Dedicated**. Veja as diferenças em [Testes rápidos vs. appchains dedicadas](#quick-trial-vs-dedicated-appchains).
 
@@ -186,7 +186,7 @@ Depois, selecione o template **Custom** e envie o arquivo JSON de especificaçã
 !!! nota
     O arquivo de especificação bruta não deve exceder 2 MB.
 
-## Checar saldos {:  #check-balances}
+## Checar Saldos {:  #check-balances}
 
 Verifique se você tem saldo suficiente. Caso não tenha, clique em **Request Tokens** e faça login com GitHub ou Google, responda às perguntas rápidas e solicite os tokens para a carteira conectada.
 
@@ -210,7 +210,7 @@ Saldos mínimos para lançar:
 !!! nota
     Appchains de teste rápido usam uma camada adicional de orquestração e, portanto, requerem SNAP e UNIT. Para appchains dedicadas, apenas STAR é necessário.
 
-## Reserve seu ID de appchain {: #reserve-appchain-id }
+## Reserve Seu ID de Appchain {: #reserve-appchain-id }
 
 Se ainda não fez isso, você precisa reservar o seu ID de appchain Tanssi, que identificará sua cadeia dentro do ecossistema Tanssi.
 
@@ -225,7 +225,7 @@ Após a transação, o ID aparecerá no dApp; clique em **Continue**. Parte dos 
 
 ![ID reservado com sucesso](/images/builders/deploy/dapp/dapp-9.webp)
 
-## Gere seus arquivos de appchain {: #generate-appchain-files  }
+## Gere Seus Arquivos de Appchain {: #generate-appchain-files  }
 
 Antes de implantar, gere três arquivos:
 
@@ -238,7 +238,7 @@ Eles são gerados automaticamente com base no seu ID e configurações. Clique e
 
 Quando prontos, clique em **Continue** para o passo final.
 
-## Faça o deploy da sua appchain {: #deploy-your-appchain}
+## Faça o Deploy da Sua Appchain {: #deploy-your-appchain}
 
 No caso de teste rápido, são duas transações: registrar na camada de orquestração e na Tanssi TestNet.
 

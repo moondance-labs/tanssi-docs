@@ -1,5 +1,5 @@
 ---
-title: Desativar seu nó Sequenciador
+title: Desativar Seu Nó Sequenciador
 description: Aprenda como desativar corretamente o seu nó sequenciador (também conhecido como produtores de bloco), incluindo a limpeza das chaves de sessão e a delegação de fundos.
 icon: octicons-arrow-down-right-24
 template: index-page.html
@@ -17,6 +17,6 @@ O que você aprenderá:
 !!! conselho "Retornando como um Sequenciador"
     Se você decidir retornar como um sequenciador Tanssi no futuro, poderá embarcar novamente facilmente seguindo as etapas descritas no guia [Onboarding](/pt/node-operators/sequencers/onboarding/).
     
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

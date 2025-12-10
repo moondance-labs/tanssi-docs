@@ -11,6 +11,6 @@ A Tanssi integra provedores de segurança externos para fortalecer a flexibilida
 
 Essa abordagem aborda desafios comuns que os desenvolvedores enfrentam, como garantir recursos econômicos significativos ou negociar com operadores para manter os nós. Por meio da estrutura de segurança colaborativa do Tanssi, os desenvolvedores podem contornar esses obstáculos e se concentrar na inovação, aproveitando uma infraestrutura segura e escalável para otimizar a implantação de redes.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

@@ -19,7 +19,7 @@ Se preferir vídeo, veja os tutoriais no topo desta página sobre [Enviar transa
 
 --8<-- 'text/pt/_common/general-js-tutorial-check.md'
 
-## Verificando pré-requisitos {: #checking-prerequisites }
+## Verificando Pré-requisitos {: #checking-prerequisites }
 
 Para os exemplos deste guia você precisará:
 
@@ -41,7 +41,7 @@ Instale a biblioteca Ethers.js e o compilador Solidity:
     yarn add ethers solc@0.8.0
     ```
 
-## Configurando o provedor Ethers {: #setting-up-the-ethers-provider }
+## Configurando o Provedor Ethers {: #setting-up-the-ethers-provider }
 
 Os scripts a seguir usam um [provedor Ethers](https://docs.ethers.org/v6/api/providers/){target=\_blank} para falar com a rede.
 
@@ -74,11 +74,11 @@ const provider = new ethers.JsonRpcProvider(
 
 Guarde este trecho; ele é reutilizado nos scripts abaixo.
 
-## Enviar uma transação {: #send-a-transaction }
+## Enviar uma Transação {: #send-a-transaction }
 
 Criaremos dois scripts: um para consultar saldos e outro para enviar a transação.
 
-### Script de saldos {: #check-balances-script }
+### Script de Saldos {: #check-balances-script }
 
 Crie o arquivo:
 
@@ -132,7 +132,7 @@ Saldos serão exibidos em {{ networks.dancelight.demo_evm_token_symbol }}.
 
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/ethers/terminal/balances.md'
 
-### Script de envio de transação {: #send-transaction-script }
+### Script de Envio de Transação {: #send-transaction-script }
 
 Crie o arquivo:
 
@@ -199,16 +199,15 @@ O hash será exibido. Use `balances.js` antes/depois para confirmar a mudança d
 
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/ethers/terminal/transaction.md'
 
-## Implantar um contrato {: #deploy-a-contract }
+## Implantar um Contrato {: #deploy-a-contract }
 
 --8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/contract.md'
 
-### Script de compilação {: #compile-contract-script }
+### Script de Compilação {: #compile-contract-script }
 
 --8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/compile.md'
 
-### Script de deploy {: #deploy-contract-script }
-
+### Script de Deploy {: #deploy-contract-script }
 Compile `Incrementer.sol` e depois crie `deploy.js`:
 
 ```bash
@@ -280,7 +279,7 @@ O endereço do contrato será exibido.
 
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/ethers/terminal/deploy.md'
 
-### Ler dados do contrato (calls) {: #read-contract-data }
+### Ler Dados do Contrato (Calls) {: #read-contract-data }
 
 Calls não alteram estado; nenhuma transação é enviada. Crie `get.js`:
 
@@ -343,7 +342,7 @@ node get.js
 
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/ethers/terminal/get.md'
 
-### Interagir com o contrato (send) {: #interact-with-contract }
+### Interagir com o Contrato (Send) {: #interact-with-contract }
 
 Sends alteram estado e exigem transação. Crie `increment.js` e `reset.js`:
 
@@ -475,4 +474,4 @@ Use `get.js` junto para confirmar a mudança de valor.
 
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/ethers/terminal/reset.md'
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

@@ -4,9 +4,9 @@ description: A Tanssi Network MainNet está ativa, permitindo que os desenvolved
 icon: octicons-star-24
 ---
 
-# Comece a usar a Tanssi Network MainNet
+# Comece a Usar a Tanssi Network MainNet
 
-## Introdução
+## Introdução {: #introduction }
 
 A Tanssi Network MainNet está ativa, permitindo que os desenvolvedores embarquem e lancem rapidamente suas appchains em questão de minutos.
 

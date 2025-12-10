@@ -32,7 +32,7 @@ Essas imagens incluem todos os binários necessários para executar a versão es
 
 Puxe a imagem correspondente ao tipo de appchain que você deseja executar.
 
-### Appchains compatíveis com EVM {: #pulling-evm-docker-image }
+### Appchains Compatíveis com EVM {: #pulling-evm-docker-image }
 
 Se a appchain foi registrada escolhendo o modelo EVM ou enviando uma especificação personalizada compatível com EVM, execute:
 
@@ -170,7 +170,7 @@ As flags usadas no `docker run` podem ser ajustadas conforme suas preferências 
     docker run -ti moondancelabs/container-chain-simple-template --help
     ```
 
-## Sincronizando seu nó {: #syncing-your-node }
+## Sincronizando Seu Nó {: #syncing-your-node }
 
 Após iniciar, o processo de sincronização exibirá muitos logs do nó e da appchain Tanssi. Alguns erros iniciais são esperados e desaparecem quando a cadeia alcança o último bloco.
 

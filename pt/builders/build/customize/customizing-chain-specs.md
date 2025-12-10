@@ -100,7 +100,7 @@ E agora o arquivo `chain_spec.json` contendo a especificação do cliente e o es
 !!! nota
     As especificações da cadeia JSON podem ser geradas em duas versões diferentes: a legível por humanos, que é a gerada seguindo as etapas anteriores, e a versão bruta, que é a necessária para implantar a rede por meio do Tanssi. Mais sobre como gerar a versão bruta [posteriormente](#generating-raw-specs-file) neste artigo.
 
-### Editando o arquivo de especificação da cadeia JSON {: #editing-json-chain-specs }
+### Editando o Arquivo de Especificação da Cadeia JSON {: #editing-json-chain-specs }
 
 O arquivo `chain_spec.json` gerado reflete os parâmetros definidos no arquivo de especificações da cadeia Rust. Sendo um arquivo JSON, é fácil de ler e, caso algum parâmetro precise ser alterado, fácil de editar.
 
@@ -206,7 +206,7 @@ A outra seção importante do arquivo está dentro do atributo `genesis`, que co
 
 Um exemplo de um atributo não editável manualmente é o tempo de execução Wasm (na seção de estado da gênese), que é uma representação hexadecimal de um blob binário gerado pelo compilador. Ainda assim, além disso, a maioria das propriedades são fáceis de editar antes de iniciar a rede.
 
-## Gerando um arquivo de especificação de cadeia JSON bruto {: #generating-raw-specs-file }
+## Gerando um Arquivo de Especificação de Cadeia JSON Bruto {: #generating-raw-specs-file }
 
 Uma etapa final antes de implantar a rede Tanssi é converter o arquivo de especificação JSON em um formato bruto, que é uma versão compacta e menos legível do mesmo arquivo, necessária para inicializar um nó.
 

@@ -11,6 +11,6 @@ Carteiras são ferramentas digitais que permitem aos usuários armazenar, gerenc
 
 as páginas desta seção fornecem uma visão geral de como começar a usar vários provedores de carteira. Ela aborda como criar e importar contas, conectar-se à sua rede e começar a interagir com ela.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

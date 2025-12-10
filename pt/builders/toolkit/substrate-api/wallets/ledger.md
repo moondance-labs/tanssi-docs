@@ -1,11 +1,11 @@
 ---
-title: Usando Ledger com sua Substrate Appchain
+title: Usando Ledger com Sua Substrate do Appchain
 description: Este guia orienta você na configuração e uso de um dispositivo Ledger para interagir com a rede Tanssi ou qualquer uma das appchains Substrate alimentadas pela Tanssi.
 icon: material-wallet-outline
 categories: Substrate-Template
 ---
 
-# Interagindo com as Tanssi Chains do Substrate usando Ledger
+# Interagindo com as Tanssi Chains do Substrate Usando Ledger
 
 ## Introdução {: #introduction }
 
@@ -15,7 +15,7 @@ Os dispositivos Ledger são carteiras de hardware projetadas para armazenar as c
 
 Este guia leva você por todas as etapas necessárias para usar seu dispositivo Ledger com as Tanssi Chains do Substrate.
 
-## Configurando seu dispositivo Ledger {: #setting-up-ledger-device }
+## Configurando Seu Dispositivo Ledger {: #setting-up-ledger-device }
 
 Se você tiver um dispositivo Ledger novo, consulte o [site oficial](https://support.ledger.com/article/4404389503889-zd){target=\_blank} para obter um guia sobre como iniciá-lo com a configuração inicial.
 
@@ -34,7 +34,7 @@ Por fim, procure o aplicativo **Polkadot (DOT)** no Ledger Live e instale-o em s
 
 E é isso. Seu dispositivo agora possui uma conta Substrate e é capaz de assinar transações na Tanssi e em qualquer appchain não-EVM alimentada pela Tanssi.
 
-## Adicionando o Ledger a uma carteira quente {: #adding-Ledger-hot-wallet }
+## Adicionando o Ledger a uma Carteira Quente {: #adding-Ledger-hot-wallet }
 
 Conforme apresentado na [introdução](#introduction), uma carteira de hardware Ledger fornece armazenamento seguro offline para chaves privadas, permitindo que os usuários verifiquem e assinem transações. No entanto, por design, ele não pode interagir com blockchains ou dApps por si só, nem oferece uma interface do usuário para gerenciar ativos. Para complementar o dispositivo, uma carteira quente é necessária. O usuário pode escolher qualquer carteira Substrate, como [Talisman](/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank} ou [SubWallet](/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
 
@@ -58,4 +58,4 @@ Na tela seguinte, siga estas etapas:
 
 Na próxima etapa, você será apresentado a uma lista de contas derivadas. Selecione aquela que você deseja importar, clique em **Continuar**, e pronto! Sua carteira Talisman agora pode assinar transações usando seu dispositivo Ledger.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

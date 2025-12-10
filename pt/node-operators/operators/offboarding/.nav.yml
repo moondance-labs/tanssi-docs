@@ -3,5 +3,5 @@ hide: false
 nav:
   - index.md
   - 'Pré-requisitos': 'prerequisites.md'
-  - 'Optar por sair do Tanssi': 'opt-out-from-tanssi.md'
-  - 'Optar por sair do Cofre': 'vault-opt-out.md'
+  - 'Optar por Sair do Tanssi': 'opt-out-from-tanssi.md'
+  - 'Optar por Sair do Cofre': 'vault-opt-out.md'

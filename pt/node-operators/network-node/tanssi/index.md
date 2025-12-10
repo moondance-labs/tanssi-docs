@@ -33,6 +33,6 @@ Para garantir a comunicação adequada com a rede Tanssi, certifique-se de que a
 |------------------|-------------|
 | Tanssi Chain     | 30333 (TCP) |
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

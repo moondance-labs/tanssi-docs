@@ -9,6 +9,6 @@ template: index-page.html
 
 O [Tanssi dApp](https://apps.tanssi.network){target=\_blank} é a sua plataforma de referência para lidar com os aspectos operacionais da sua rede dentro do ecossistema Tanssi. Projetado para facilitar o uso, o dApp permite que os desenvolvedores agilizem tarefas diárias como gerenciar tokens, pagar por serviços de produção de blocos e supervisionar as operações essenciais da rede sem precisar de conhecimento técnico profundo ou configurações avançadas.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

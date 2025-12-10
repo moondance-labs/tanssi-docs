@@ -5,7 +5,7 @@ icon: octicons-code-square-24
 categories: EVM-Template
 ---
 
-# Usando Hardhat para implantar na sua rede EVM
+# Usando Hardhat para Implantar na Sua Rede EVM
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/1Kbs7dxkjJQ?si=n0ipTN2nbvqISLGu' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
@@ -16,12 +16,11 @@ categories: EVM-Template
 
 Este guia mostra como compilar, implantar e interagir com contratos inteligentes Ethereum na rede EVM de demonstração da Tanssi. Você pode adaptar para sua própria rede Tanssi adicionando a URL RPC dela à sua carteira EVM e alternando para essa rede.
 
-## Verificando pré-requisitos {: #checking-prerequisites }
+## Verificando Pré-requisitos {: #checking-prerequisites }
 
 Para este guia, você precisará do MetaMask instalado e configurado para funcionar com sua rede EVM da Tanssi. Você pode seguir [este guia para configurar o MetaMask para a rede EVM de demonstração](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=_blank}.
 
-## Criando um projeto Hardhat {: #creating-a-hardhat-project }
-
+## Criando um Projeto Hardhat {: #creating-a-hardhat-project }
 Se ainda não tiver um projeto Hardhat, crie um seguindo os passos:
 
 1. Crie um diretório para o projeto
@@ -69,7 +68,7 @@ Além disso, instale o plugin `hardhat-ignition-ethers` para implantar contratos
 npm install --save-dev @nomicfoundation/hardhat-ignition-ethers
 ```
 
-## O arquivo do contrato {: #the-contract-file }
+## O Arquivo do Contrato {: #the-contract-file }
 
 Com o projeto vazio criado, crie o diretório `contracts`:
 
@@ -109,7 +108,7 @@ contract Box {
 }
 ```
 
-## O arquivo de configuração do Hardhat {: #hardhat-configuration-file }
+## O Arquivo de Configuração do Hardhat {: #hardhat-configuration-file }
 
 Antes de implantar na sua rede Tanssi, ajuste o `hardhat.config.js` e crie um arquivo seguro para armazenar sua chave privada.
 
@@ -152,7 +151,7 @@ npx hardhat compile
 
 Após a compilação, o diretório `artifacts` é criado com bytecode e metadados (`.json`). Considere adicioná-lo ao `.gitignore`.
 
-## Implantando o contrato {: #deploying-the-contract }
+## Implantando o Contrato {: #deploying-the-contract }
 
 A implantação usará o Hardhat Ignition, um framework declarativo para implantações. Saiba mais na [documentação do Ignition](https://hardhat.org/ignition/docs/getting-started#overview){target=_blank}.
 
@@ -232,4 +231,4 @@ Você deverá ver `5` ou o valor armazenado.
 
 Parabéns, você implantou e interagiu com um contrato usando o Hardhat!
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

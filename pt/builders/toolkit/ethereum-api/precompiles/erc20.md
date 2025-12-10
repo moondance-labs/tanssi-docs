@@ -76,7 +76,7 @@ Você pode interagir com a precompilada ERC-20 usando o [Remix](https://remix.et
 1. Obter uma cópia do [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank}
 2. Colar o conteúdo em um arquivo chamado `IERC20.sol` no Remix
 
-### Compilar o contrato {: #compile-the-contract }
+### Compilar o Contrato {: #compile-the-contract }
 
 Em seguida, compile a interface no Remix:
 
@@ -87,7 +87,7 @@ Em seguida, compile a interface no Remix:
 
 Quando a compilação terminar, aparecerá um check verde ao lado da aba **Compile**.
 
-### Acessar o contrato {: #access-the-contract }
+### Acessar o Contrato {: #access-the-contract }
 
 Em vez de implantar a precompilada, você acessará a interface informando o endereço do contrato já disponibilizado:
 
@@ -101,7 +101,7 @@ Em vez de implantar a precompilada, você acessará a interface informando o end
 
 A precompilada **IERC20** aparecerá na lista de **Deployed Contracts**.
 
-### Obter informações básicas do token {: #get-basic-token-information }
+### Obter Informações Básicas do Token {: #get-basic-token-information }
 
 A interface ERC-20 permite obter rapidamente informações como oferta total, nome, símbolo e casas decimais. Para isso:
 
@@ -115,7 +115,7 @@ A interface ERC-20 permite obter rapidamente informações como oferta total, no
 
 Os resultados de cada chamada aparecem sob as respectivas funções.
 
-### Consultar saldo de uma conta {: #get-account-balance }
+### Consultar Saldo de uma Conta {: #get-account-balance }
 
 Para checar o saldo de qualquer endereço na rede usando `balanceOf`:
 
@@ -127,7 +127,7 @@ Para checar o saldo de qualquer endereço na rede usando `balanceOf`:
 
 O saldo será exibido abaixo da função `balanceOf`.
 
-### Aprovar um gasto {: #approve-a-spend }
+### Aprovar um Gasto {: #approve-a-spend }
 
 Para aprovar uma autorização de gasto, forneça um endereço para o spender e o número de tokens permitidos. O spender pode ser uma EOA ou um contrato inteligente. Exemplo: autorizar 1 UNIT.
 
@@ -141,7 +141,7 @@ Para aprovar uma autorização de gasto, forneça um endereço para o spender e 
 
 Após a confirmação, o saldo da sua conta permanece o mesmo porque apenas a permissão foi concedida; nenhum gasto foi feito. Na próxima seção, usaremos `allowance` para verificar a permissão.
 
-### Verificar a permissão do spender {: #get-allowance-of-spender }
+### Verificar a Permissão do Spender {: #get-allowance-of-spender }
 
 Para checar se o spender recebeu a autorização:
 
@@ -154,7 +154,7 @@ Para checar se o spender recebeu a autorização:
 
 O valor exibido deve equivaler a 1 UNIT (`1000000000000000000`).
 
-### Enviar transferência padrão {: #send-transfer }
+### Enviar Transferência Padrão {: #send-transfer }
 
 Para enviar tokens diretamente da sua conta a outra:
 
@@ -168,7 +168,7 @@ Para enviar tokens diretamente da sua conta a outra:
 
 Após a conclusão, [verifique seu saldo](#get-account-balance) via `balanceOf` ou no MetaMask. O saldo deve ter diminuído em 1 UNIT, e o destinatário deve ter recebido 1 UNIT.
 
-### Enviar transferência a partir de uma conta específica {: #send-transferfrom }
+### Enviar Transferência a partir de uma Conta Específica {: #send-transferfrom }
 
 Até agora, você aprovou 1 UNIT para o spender e enviou 1 UNIT com `transfer`. A função `transferFrom` permite definir de qual endereço sairão os tokens. Para este exemplo, use a conta do spender para transferir o valor autorizado do owner para o spender.
 
@@ -192,4 +192,4 @@ Depois da transação, confira o saldo do owner e do spender com `balanceOf`. O 
 
 E é isso! Você interagiu com a precompilada ERC-20 usando MetaMask e Remix.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

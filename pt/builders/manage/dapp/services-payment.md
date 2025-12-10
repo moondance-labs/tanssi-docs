@@ -43,7 +43,7 @@ Clicar no botão **Top Up** exibe uma barra lateral onde as seguintes informaç�
 Para estender o horizonte projetado da rede, execute as seguintes ações:
 
 1. Insira a quantidade de tokens para comprar serviços de produção de blocos
-1. Clique em **Top Up**
+2. Clique em **Top Up**
 
 ![Barra lateral de recarga](/images/builders/manage/dapp/services-payment/services-payment-2.webp)
 

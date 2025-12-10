@@ -293,4 +293,4 @@ Se desejar suportar redes adicionais, basta adicioná-las em `wagmi.ts` e fornec
 
 Mais opções estão na [docs do RainbowKit](https://rainbowkit.com/docs/introduction){target=_blank}. Código completo no repositório [rainbowkit-manual-build-demo](https://github.com/papermoonio/rainbowkit-manual-build-demo){target=_blank}.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

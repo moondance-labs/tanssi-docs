@@ -22,7 +22,7 @@ O endereço que representa o contrato ERC-20 é formado com as primeiras trinta 
 
 Por exemplo, para o ativo cujo ID é `1`, as últimas quatro posições devem ser substituídas por `0001`, e para um ativo com um ID de `10`, essas quatro posições devem ser substituídas por `000A`.
 
---8\<-- 'text/pt/builders/toolkit/ethereum-api/precompiles/security-note.md'
+--8<-- 'text/pt/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
 ## Pré-requisitos {: #prerequisites }
 
@@ -36,7 +36,7 @@ Para acompanhar o conteúdo deste guia, você precisará:
 Os exemplos neste guia são baseados na rede demo Tanssi EVM, que já possui canais abertos para outras redes e ativos externos registrados, como mostra a imagem a seguir:
 
 1. O ativo externo registrado (UNIT) que será usado nas seções a seguir
-1. Outros ativos externos disponíveis ainda não registrados
+2. Outros ativos externos disponíveis ainda não registrados
 
 ![Tanssi EVM demo network registered external Assets](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-1.webp)
 
@@ -46,16 +46,16 @@ A interface [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/t
 
 ??? code "ERC20.sol"
 
-````
+
     ```solidity
 
---8<-- 'code/builders/toolkit/ethereum-api/precompiles/erc20/erc20.sol'
+    --8<-- 'code/builders/toolkit/ethereum-api/precompiles/erc20/erc20.sol'
 
     ```
-````
+
 
 !!! nota
-A pré-compilação de ativos externos ERC-20 não inclui funções `deposit` e `withdraw` e eventos subsequentes esperados de um contrato de token embrulhado, como WETH.
+    A pré-compilação de ativos externos ERC-20 não inclui funções `deposit` e `withdraw` e eventos subsequentes esperados de um contrato de token embrulhado, como WETH.
 
 ## Adicionar Token à uma Carteira EVM {: #add-token-to-evm-wallet }
 
@@ -65,20 +65,16 @@ Para começar, abra o MetaMask e certifique-se de que você está conectado à s
 
 1. Vá para a aba **Tokens**
 
-1. Clique em **Importar tokens**
+2. Clique em **Importar tokens**
 
    ![Import Tokens from Tokens Tab in MetaMask](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-2.webp)
 
 ```text
-
-```
-
 {{networks.demo_evm.precompiles.external_assets_erc20_example}}
-
 ```
 
 1. Insira o endereço de pré-compilação para o endereço do contrato do token. Ao inserir o endereço, os campos **Símbolo do token** e **Decimais do token** devem ser preenchidos automaticamente. Se não preencherem, você pode inserir `UNIT` para o símbolo e `12` para as casas decimais
-1. Clique em **Próximo**
+2. Clique em **Próximo**
 
 ![Adicionar ativo externo](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-3.webp)
 
@@ -88,48 +84,47 @@ MetaMask solicitará que você confirme a importação. Você pode verificar os 
 
 E é isso! Você adicionou com sucesso o ativo externo do token UNIT como um token ERC-20 personalizado na rede demo Tanssi EVM.
 
-## Interagir com a interface Solidity via Remix {: #interact-with-the-solidity-interface-via-remix }
+## Interagir com a Interface Solidity via Remix {: #interact-with-the-solidity-interface-via-remix }
 
 ### Configuração do Remix {: #remix-set-up }
 
 Você pode interagir com a pré-compilação de ativos externos ERC-20 usando [Remix](https://remix.ethereum.org){target=\_blank}. Para adicionar a pré-compilação ao Remix, você precisará:
 
 1. Obter uma cópia de [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/ERC20.sol){target=\_blank}
-1. Cole o conteúdo do arquivo em um arquivo Remix chamado `IERC20.sol`
+2. Cole o conteúdo do arquivo em um arquivo Remix chamado `IERC20.sol`
 
-### Compilar o contrato {: #compile-the-contract }
+### Compilar o Contrato {: #compile-the-contract }
 
 Em seguida, você precisará compilar a interface no Remix:
 
 1. Clique na aba **Compilar**, a segunda de cima
-1. Compile a interface clicando em **Compilar IERC20.sol**
+2. Compile a interface clicando em **Compilar IERC20.sol**
 
 ![Compilando IERC20.sol](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-5.webp)
 
 Quando a compilação for concluída, você verá uma marca de seleção verde ao lado da aba **Compilar**.
 
-### Acessar o contrato {: #access-the-contract }
+### Acessar o Contrato {: #access-the-contract }
 
 Em vez de implantar o contrato inteligente, você acessará a interface através do endereço da pré-compilação de ativos externos:
 
 1. Clique na aba **Deploy and Run** diretamente abaixo da aba **Compilar** no Remix. Observe que os contratos pré-compilados já estão acessíveis em seus respectivos endereços. Portanto, não há nenhuma etapa de implantação
-1. Certifique-se de que **Injected Web3** esteja selecionado no menu suspenso **ENVIRONMENT**. Depois de selecionar **Injected Web3**, você pode ser solicitado pelo MetaMask para conectar sua conta ao Remix, caso ela ainda não esteja conectada
-1. Certifique-se de que a conta correta seja exibida em **ACCOUNT**
-1. Certifique-se de que **IERC20 - IERC20.sol** esteja selecionado no menu suspenso **CONTRACT**. Dado que é um contrato pré-compilado, não há nenhuma etapa de implantação. Em vez disso, você fornecerá o endereço da pré-compilação no campo **At Address**
-1. Forneça o endereço da pré-compilação ERC-20 (que é `{{networks.demo_evm.precompiles.external_assets_erc20_example}}` neste exemplo) e clique em **At Address**
-1. A pré-compilação **IERC20** aparecerá na lista de **Deployed Contracts**
-
+2. Certifique-se de que **Injected Web3** esteja selecionado no menu suspenso **ENVIRONMENT**. Depois de selecionar **Injected Web3**, você pode ser solicitado pelo MetaMask para conectar sua conta ao Remix, caso ela ainda não esteja conectada
+3. Certifique-se de que a conta correta seja exibida em **ACCOUNT**
+4. Certifique-se de que **IERC20 - IERC20.sol** esteja selecionado no menu suspenso **CONTRACT**. Dado que é um contrato pré-compilado, não há nenhuma etapa de implantação. Em vez disso, você fornecerá o endereço da pré-compilação no campo **At Address**
+5. Forneça o endereço da pré-compilação ERC-20 (que é `{{networks.demo_evm.precompiles.external_assets_erc20_example}}` neste exemplo) e clique em **At Address**
+6. A pré-compilação **IERC20** aparecerá na lista de **Deployed Contracts**
 ![Acessar o endereço](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-6.webp)
 
-### Obter informações básicas do token {: #get-basic-token-information }
+### Obter Informações Básicas do Token {: #get-basic-token-information }
 
 A interface ERC-20 permite obter rapidamente informações sobre o token, incluindo a oferta total do token, nome, símbolo e casas decimais. Você pode recuperar essas informações seguindo estas etapas:
 
 1. Expanda o contrato **IERC20** em **Deployed Contracts**
-1. Clique em **decimals** para obter as casas decimais do token do protocolo nativo da sua rede
-1. Clique em **name** para obter o nome do token
-1. Clique em **symbol** para obter o símbolo do token
-1. Clique em **totalSupply** para obter a oferta total de tokens nativos em sua rede
+2. Clique em **decimals** para obter as casas decimais do token do protocolo nativo da sua rede
+3. Clique em **name** para obter o nome do token
+4. Clique em **symbol** para obter o símbolo do token
+5. Clique em **totalSupply** para obter a oferta total de tokens nativos em sua rede
 
 ![Obter informações básicas do token](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-7.webp)
 
@@ -147,15 +142,15 @@ Você pode verificar o saldo de qualquer endereço em sua rede chamando a funç�
 
 Seu saldo será exibido na função `balanceOf`.
 
-### Enviar transferência {: #send-transfer }
+### Enviar Transferência {: #send-transfer }
 
 Para enviar tokens da sua conta diretamente para outra conta, você pode chamar a função `transfer` seguindo estas etapas:
 
 1. Expanda a função **transfer**
-1. Insira o endereço para enviar tokens UNIT
-1. Insira a quantidade de tokens UNIT para enviar. Para este exemplo, você pode enviar 1 token UNIT (`1000000000000`)
-1. Clique em **transact**
-1. O MetaMask aparecerá e você será solicitado a revisar os detalhes da transação. Clique em **Confirmar** para enviar a transação
+2. Insira o endereço para enviar tokens UNIT
+3. Insira a quantidade de tokens UNIT para enviar. Para este exemplo, você pode enviar 1 token UNIT (`1000000000000`)
+4. Clique em **transact**
+5. O MetaMask aparecerá e você será solicitado a revisar os detalhes da transação. Clique em **Confirmar** para enviar a transação
 
 ![Enviar Transferência Padrão](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-9.webp)
 
@@ -163,4 +158,4 @@ Assim que a transação for concluída, você poderá [verificar seu saldo](#get
 
 E é isso! Você interagiu com sucesso com a pré-compilação de ativos externos ERC-20 usando MetaMask e Remix!
 
---8\<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

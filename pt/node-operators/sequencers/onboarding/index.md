@@ -11,6 +11,6 @@ A sua jornada como um sequenciador começa aqui. Siga estes passos para configur
 
 [timeline left (tanssi-docs/.snippets/text/pt/node-operators/sequencers/onboarding/onboarding-timeline.json)]
 
-## Explore esta Seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

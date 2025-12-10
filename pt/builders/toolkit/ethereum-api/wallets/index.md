@@ -13,6 +13,6 @@ Para redes compatíveis com EVM, você pode usar qualquer carteira que suporte E
 
 As páginas desta seção fornecem uma visão geral de como começar com vários provedores de carteira. Ela aborda como criar e importar contas, conectar-se à sua rede e começar a interagir com ela.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

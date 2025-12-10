@@ -1,12 +1,12 @@
 ---
-title: Começar a usar o Dancelight
+title: Começar a Usar o Dancelight
 description: Dancelight é a Tanssi TestNet, e é a maneira mais fácil de começar a usar a Tanssi Network para implementar sua appchain compatível com Substrate ou EVM.
 icon: octicons-star-24
 ---
 
-# Começar a usar o Dancelight
+# Começar a Usar o Dancelight
 
-## Introdução
+## Introdução {: #introduction }
 
 Dancelight é a primeira Tanssi TestNet pública e foi projetada para otimizar a implantação de redes descentralizadas. Ela permite que as equipes embarquem e lancem rapidamente suas appchains em questão de minutos, fornecendo um ambiente robusto para testes e desenvolvimento.
 
@@ -23,7 +23,7 @@ Os tokens {{ networks.dancelight.token_symbol }} servem como a moeda nativa dent
 !!! nota
     Os tokens {{ networks.dancelight.token_symbol }} não têm valor. Por favor, não envie solicitações desnecessárias.
 
-## Pontos de extremidade da rede {: #dancelight-network-endpoints }
+## Pontos de Extremidade da Rede {: #dancelight-network-endpoints }
 
 Dancelight tem dois tipos de pontos de extremidade disponíveis para os usuários se conectarem: um para HTTPS e outro para WSS.
 

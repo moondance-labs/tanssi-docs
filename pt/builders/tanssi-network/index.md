@@ -16,7 +16,7 @@ Saiba mais sobre a rede Tanssi, as TestNets disponíveis e as principais funcion
 - **Redes com tecnologia Tanssi**: redes construídas na plataforma Tanssi, alavancando seus recursos para criar blockchains personalizadas.
 - **Rede Demo EVM**: uma rede compatível com Ethereum de amostra que demonstra uma rede totalmente operacional com tecnologia Tanssi.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::
 

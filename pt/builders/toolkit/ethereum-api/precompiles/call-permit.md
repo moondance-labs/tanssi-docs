@@ -86,4 +86,4 @@ Execute `node getSignature.js` e copie `v`, `r`, `s` para usar na chamada `dispa
 
 Parabéns! Você assinou e despachou uma chamada com o Call Permit Precompile.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

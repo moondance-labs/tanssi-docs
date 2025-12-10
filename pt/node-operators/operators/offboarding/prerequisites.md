@@ -25,11 +25,11 @@ Antes de iniciar o processo de offboarding, certifique-se de ter o seguinte:
 - Acesso à carteira Ethereum (EVM) que controla sua conta de operador
 - ETH suficiente em sua carteira para cobrir as taxas de gás para as transações
 
-### Por que a interação com contratos inteligentes é necessária {: #why-smart-contracts }
+### Por que a Interação com Contratos Inteligentes é Necessária {: #why-smart-contracts }
 
 Como muitos sistemas descentralizados, o protocolo Tanssi utiliza contratos inteligentes na blockchain Ethereum para gerenciar operações críticas, incluindo registro e staking de operador. Quando um operador decide sair, ele muda seu status e relacionamento com esses contratos principais do protocolo.
 As principais etapas de offboarding, como sinalizar sua intenção de sair ou cancelar formalmente o registro, envolvem transações que atualizam o estado registrado nesses contratos inteligentes.
 
-### Métodos de interação
+### Métodos de Interação
 
 --8<-- 'text/pt/node-operators/operators/onboarding/run-an-operator/prerequisites.md'

@@ -5,7 +5,7 @@ icon: octicons-code-square-24
 categories: EVM-Template
 ---
 
-# Usando Remix para implantar na sua rede EVM da Tanssi
+# Usando Remix para Implantar na sua Rede EVM da Tanssi
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/vSc80mg_L9E?si=qnIXJ6wL0iKU3mU1' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
@@ -16,7 +16,7 @@ Desenvolvedores de dApps em redes EVM baseadas na Tanssi podem usar o [Remix](ht
 
 Este guia mostra como criar e implantar um contrato Solidity na rede EVM de demonstração da Tanssi usando a IDE Remix. Para sua própria rede Tanssi, basta adicionar a URL RPC dela à sua carteira EVM e alternar para essa rede.
 
-## Verificando pré-requisitos {: #checking-prerequisites }
+## Verificando Pré-requisitos {: #checking-prerequisites }
 
 Você precisará do MetaMask instalado e configurado para funcionar com sua rede EVM da Tanssi. Siga [este guia para configurar o MetaMask para a rede EVM de demonstração](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=_blank}.
 
@@ -50,7 +50,7 @@ Para compilar:
 
 ![Compile MyToken.sol](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-4.webp)
 
-## Implantando um contrato com Remix {: #deploying-a-contract-to-your-network-using-remix }
+## Implantando um Contrato com Remix {: #deploying-a-contract-to-your-network-using-remix }
 
 Vá para **Deployment**, mude **ENVIRONMENT** de **JavaScript VM** para **Injected Web3** para usar o provedor do MetaMask apontando para sua rede Tanssi.
 
@@ -112,4 +112,4 @@ Você pode verificar a transação no [explorador da sua rede Tanssi](https://ta
 
 ![Verifique o status da transação no explorador](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-15.webp)
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

@@ -40,7 +40,7 @@ Para transações em que as taxas são tratadas pelo módulo [transaction paymen
 
 Para transações EVM, gás é convertido em peso por meio de um algoritmo de gás para peso para que todas as chamadas EVM possam ser mapeadas para o tempo de execução do bloco. No entanto, as taxas são tratadas em um nível de execução EVM.
 
-### Taxas de transação base {: #baseline-transaction-fees}
+### Taxas de Transação Base {: #baseline-transaction-fees}
 
 <!-- https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/transaction-payment/src/lib.rs#L627-L652 -->
 
@@ -74,7 +74,7 @@ FinalFee = InclusionFee + Tip
 
 Todas as chamadas de função não EVM disponíveis para desenvolvedores usam esses cálculos básicos para taxas de transação. As redes Tanssi EVM têm uma camada extra para traduzir este esquema de taxas em um esquema semelhante ao Ethereum, a partir de uma perspectiva JSON-RPC e EVM do Ethereum.
 
-### Taxas de transação EVM {: #evm-transaction-fees }
+### Taxas de Transação EVM {: #evm-transaction-fees }
 
 <!-- https://github.com/polkadot-evm/frontier/blob/272fe8839f87161ed89350de166b379f1f4c6136/frame/base-fee/src/lib.rs#L126-L199 -->
 

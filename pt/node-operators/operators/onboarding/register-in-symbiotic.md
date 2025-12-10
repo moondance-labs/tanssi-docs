@@ -87,7 +87,7 @@ Depois de conectado:
 
 ![Registrar o operador](/images/node-operators/operators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
 
-### Registrar usando o Safe para Multisig {: #register-with-safe }
+### Registrar Usando o Safe para Multisig {: #register-with-safe }
 
 Se você tiver uma conta [Safe](https://app.safe.global/){target=_blank}, abra o **Transaction builder** e insira o seguinte endereço do contrato:
 
@@ -101,7 +101,7 @@ Se você tiver uma conta [Safe](https://app.safe.global/){target=_blank}, abra o
 
 Por fim, escolha a função **`registerOperator`** e assine a transação.
 
-## Verificar o status do registro {: #check-registration }
+## Verificar o Status do Registro {: #check-registration }
 
 Você pode verificar rapidamente seu status de registro no Etherscan. Abra:
 
@@ -146,7 +146,7 @@ E a saída se parece com:
     <br>
 </div>
 
-## Enviar metadados {: #submitting-metadata }
+## Enviar Metadados {: #submitting-metadata }
 
 Após o registro, você pode adicionar metadados (por exemplo, logotipo) para melhorar a visibilidade no [site Symbiotic](https://app.symbiotic.fi){target=_blank}.
 

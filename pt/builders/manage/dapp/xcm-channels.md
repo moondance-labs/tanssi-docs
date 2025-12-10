@@ -6,7 +6,7 @@ categories: Appchain
 
 # Gerenciar Canais de Comunicação Cross-Chain
 
-## Introdução {: #Introduction}
+## Introdução {: #introduction}
 
 Conforme apresentado no artigo [Comunicação Cross-Chain Nativa](/pt/learn/framework/xcm/){target=\_blank} da seção Aprenda, todas as redes Tanssi têm uma capacidade inerente de se comunicar e interoperar com qualquer outra rede no ecossistema. Esse recurso de comunicação cross-chain nativo é possível graças à infraestrutura única em que as redes são construídas, aproveitando o formato Cross-Consensus Message (XCM para abreviar), que facilita a comunicação entre diferentes sistemas de consenso.
 

@@ -17,6 +17,6 @@ Pronto para mergulhar? Confira algumas das seguintes ferramentas:
 - **Bibliotecas** - [Ethers.js](/pt/builders/toolkit/ethereum-api/libraries/ethersjs/), [viem](/pt/builders/toolkit/ethereum-api/libraries/viem/) e [Web3.js](/pt/builders/toolkit/ethereum-api/libraries/web3js/)
 - **Carteiras** - [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/), [SubWallet](/pt/builders/toolkit/ethereum-api/wallets/subwallet/) e [Talisman](/pt/builders/toolkit/ethereum-api/wallets/talisman/)
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

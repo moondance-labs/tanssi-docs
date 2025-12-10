@@ -9,6 +9,6 @@ template: index-page.html
 
 Explore as soluções cross-chain integradas disponíveis no ecossistema Tanssi, permitindo transferências de ativos e comunicação entre Tanssi e Ethereum.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

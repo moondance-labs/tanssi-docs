@@ -11,7 +11,7 @@ categories: Substrate-Template
 
 O Substrate API Sidecar permite que aplicações acessem blocos, saldos de contas e outras informações de blockchains baseadas em Substrate por meio de uma API REST. Isso é útil para exchanges, carteiras ou outras aplicações que precisam acompanhar saldos e mudanças de estado em uma rede com Tanssi. Esta página descreve como instalar e executar o Sidecar para uma rede Tanssi e os endpoints mais usados.
 
-## Instalando e executando o Substrate API Sidecar {: #installing-and-running-substrate-api-sidecar }
+## Instalando e Executando o Substrate API Sidecar {: #installing-and-running-substrate-api-sidecar }
 
 Há várias formas de instalar e executar o Sidecar. Aqui usamos a instalação local via NPM. Para uso com Docker, ou build a partir do código‑fonte, consulte o [repositório oficial](https://github.com/paritytech/substrate-api-sidecar#readme).
 
@@ -95,7 +95,7 @@ Alguns endpoints comuns:
 
 Para a lista completa, consulte a [documentação oficial](https://paritytech.github.io/substrate-api-sidecar/dist).
 
-## Mapeamento de campos em blocos {: #fields-mapping-in-block-json-object }
+## Mapeamento de Campos em Blocos {: #fields-mapping-in-block-json-object }
 
 O Sidecar retorna blocos em JSON. Parte do objeto é a estrutura aninhada das extrínsecas processadas:
 
@@ -127,7 +127,7 @@ RESPONSE JSON Block Object:
 
 Assim, saber o módulo e método chamados permite extrair informações específicas (por exemplo, transferências de saldo).
 
-## Mapeamento EVM em blocos {: #evm-fields-mapping-in-block-json-object }
+## Mapeamento EVM em Blocos {: #evm-fields-mapping-in-block-json-object }
 
 Para redes EVM do Tanssi, as execuções EVM são identificadas por:
 
@@ -170,7 +170,7 @@ Para transações Substrate, campos como “Nonce” e “Signature” ficam em:
 extrinsics[extrinsic_number]
 ```
 
-### Tipos de transação EVM e payload {: #transaction-types-and-payload }
+### Tipos de Transação EVM e Payload {: #transaction-types-and-payload }
 
 As redes EVM do Tanssi suportam `legacy`, `eip1559` e `eip2930`. Cada tipo contém o seguinte payload:
 
@@ -230,7 +230,7 @@ As redes EVM do Tanssi suportam `legacy`, `eip1559` e `eip2930`. Cada tipo cont�
 
 Para mais detalhes sobre [EIP1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} e [EIP2930](https://eips.ethereum.org/EIPS/eip-2930){target=\_blank}, consulte as especificações oficiais.
 
-### Mapeamento de campos da transação {: #transaction-field-mappings }
+### Mapeamento de Campos da Transação {: #transaction-field-mappings }
 
 Para obter remetente, destinatário e hash EVM de qualquer transação, verifique o evento com:
 
@@ -294,19 +294,18 @@ Logo, os campos “Nonce” e “Signature” no nível Substrate (`extrinsics[e
 
 Uma transação EVM bem-sucedida retorna `succeed: "Stopped"` ou `succeed: "Returned"` no campo de status de execução.
 
-## Monitorar transferências de saldo {: #monitor-transfers }
+## Monitorar Transferências de Saldo {: #monitor-transfers }
 
 Os exemplos a seguir mostram como ouvir transferências do token nativo (enviadas via Substrate ou Ethereum API) e transferências de tokens ERC-20 via Ethereum API usando o Sidecar. Transferências via Ethereum API se aplicam apenas às redes EVM do Tanssi.
 
-### Transferências de token nativo {: #native-token-transfers }
-
+### Transferências de Token Nativo {: #native-token-transfers }
 Redes Tanssi EVM e não‑EVM podem fazer transferências nativas via Substrate. O snippet abaixo usa Axios para consultar [`/blocks/head`](https://paritytech.github.io/substrate-api-sidecar/dist){target=\_blank} e decodifica `from`, `to`, `value`, `tx hash` e `status` de transferências nativas tanto no nível EVM quanto Substrate:
 
 ```typescript
 --8<-- 'code/builders/toolkit/substrate-api/libraries/sidecar/sidecar-transfer.ts'
 ```
 
-### Transferências de tokens ERC-20 {: #erc-20-token-transfers }
+### Transferências de Tokens ERC-20 {: #erc-20-token-transfers }
 
 Eventos emitidos por contratos ERC-20 em redes EVM do Tanssi podem ser decodificados do JSON de bloco. Estrutura:
 
@@ -355,7 +354,7 @@ Outros eventos EVM podem ser decodificados de forma semelhante; tópicos e dados
 !!! nota
     O valor transferido considera decimais e está em formato hexadecimal.
 
-## Taxas de transação (Substrate) {: #substrate-api-transaction-fees }
+## Taxas de Transação (Substrate) {: #substrate-api-transaction-fees }
 
 Para redes Tanssi EVM e não‑EVM, informações de taxa de transações enviadas via Substrate API podem ser extraídas de:
 
@@ -414,7 +413,7 @@ A taxa total para a extrínseca está em:
 extrinsics[extrinsic_number].events[event_number].data[1]
 ```
 
-## Taxas de transação (API Ethereum) {: #ethereum-api-transaction-fees }
+## Taxas de Transação (API Ethereum) {: #ethereum-api-transaction-fees }
 
 Em redes EVM do Tanssi, usuários podem enviar transações via API Ethereum. As taxas podem ser calculadas assim:
 
@@ -515,4 +514,4 @@ E então o `TransactionWeight` está em:
 extrinsics[extrinsic_number].events[event_number].data[0].weight
 ```
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

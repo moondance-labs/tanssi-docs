@@ -5,7 +5,7 @@ icon: octicons-home-24
 categories: Basics
 ---
 
-# O que é Tanssi? {: #what-is-tanssi }
+# O Que é Tanssi? {: #what-is-tanssi }
 
 Tanssi é um protocolo de infraestrutura de appchain descentralizado que permite que os desenvolvedores lancem sua appchain em minutos. Em outras palavras, Tanssi reduz o processo de configuração de seis a doze meses normalmente necessário para qualquer equipe entrar em funcionamento com uma nova cadeia para minutos.
 
@@ -43,7 +43,7 @@ Tanssi aborda os pontos problemáticos mais comuns da appchain:
 
 Em resumo, as appchains implantadas por meio do Tanssi são soluções soberanas de Camada 1 projetadas para serem altamente modulares e interconectadas, com foco na simplificação do processo de implantação e no desenvolvimento da personalização da própria appchain. Isso capacita os desenvolvedores a levar seus aplicativos blockchain ao mercado mais rápido, com segurança e com maior potencial de integração e interação nos ecossistemas blockchain mais amplos.
 
-### Principais aspectos do Tanssi {: #tanssi-key-aspects }
+### Principais Aspectos do Tanssi {: #tanssi-key-aspects }
 
 A tabela a seguir resume os principais benefícios que Tanssi traz para seu projeto:
 
@@ -57,7 +57,7 @@ A tabela a seguir resume os principais benefícios que Tanssi traz para seu proj
 | Personalização          | - Escolha o mecanismo de governança que melhor se adapta ao seu projeto<br/> - Estrutura modular<br/>- Personalização completa do tempo de execução<br/> |
 | Integrações e ferramentas | - Ferramentas essenciais disponíveis desde o início                                                                                        |
 
-## Arquitetura Geral do Tanssi e Appchains com tecnologia Tanssi {: #tanssi-architecture }
+## Arquitetura Geral do Tanssi e Appchains com Tecnologia Tanssi {: #tanssi-architecture }
 
 Como discutido anteriormente, as appchains implantadas por meio do Tanssi são blockchains soberanas e personalizáveis que, entre outros recursos, aproveitam o sequenciamento como serviço e herdam a finalidade do bloco de um provedor de segurança externo.
 
@@ -71,7 +71,7 @@ Embora os sequenciadores que fornecem serviços de produção de blocos sejam ro
 
 ![Preservadores de dados de uma appchain e Tanssi](/images/learn/tanssi/overview/overview-2.webp)
 
-## O que vem a seguir? {: #whats-next }
+## O Que Vem a Seguir? {: #whats-next }
 
 - Vá para o [Tanssi dApp](https://apps.tanssi.network){target=\_blank} e lance sua appchain.
 - Interaja com uma appchain com tecnologia Tanssi ao vivo: a [Tanssi Demo EVM appchain](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}.

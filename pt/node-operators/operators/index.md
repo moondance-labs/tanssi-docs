@@ -11,6 +11,6 @@ Os operadores (também conhecidos como validadores) são responsáveis por mante
 
 Esta seção fornece tudo o que você precisa para começar, desde a configuração inicial até as melhores práticas operacionais e o gerenciamento de contas.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

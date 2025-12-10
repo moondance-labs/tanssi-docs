@@ -17,6 +17,6 @@ Alguns recursos principais de trabalhar com bibliotecas incluem:
 - **Interação com módulos personalizados** - invocar as funções expostas de um módulo, para consultar dados da cadeia ou acionar mudanças de estado
 - **Gerenciamento de contas** - criar pares de chaves criptográficas para assinar transações e gerenciar informações de contas na cadeia, como saldos
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

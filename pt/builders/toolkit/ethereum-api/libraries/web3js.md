@@ -15,7 +15,7 @@ Neste guia você configura o Web3.js para sua rede EVM da Tanssi e usa a bibliot
 
 --8<-- 'text/pt/_common/general-js-tutorial-check.md'
 
-## Verificando pré-requisitos {: #checking-prerequisites }
+## Verificando Pré-requisitos {: #checking-prerequisites }
 
 Você precisará:
 
@@ -37,7 +37,7 @@ Instale Web3.js e o compilador Solidity:
     yarn add web3 solc@0.8.0
     ```
 
-## Configurando o provedor Web3 {: #setting-up-the-web3-provider }
+## Configurando o Provedor Web3 {: #setting-up-the-web3-provider }
 
 Os scripts a seguir usam um provedor Web3 para se conectar à rede.
 
@@ -56,12 +56,11 @@ const web3 = new Web3(
 
 Guarde este trecho; ele será reutilizado.
 
-## Enviar uma transação {: #send-a-transaction }
+## Enviar uma Transação {: #send-a-transaction }
 
 Dois scripts: um para consultar saldos e outro para enviar a transação.
 
-### Script de saldos {: #check-balances-script }
-
+### Script de Saldos {: #check-balances-script }
 Crie o arquivo:
 
 ```bash
@@ -118,7 +117,7 @@ node balances.js
 
 ![Verificar saldo Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-1.webp)
 
-### Script de envio de transação {: #send-transaction-script }
+### Script de Envio de Transação {: #send-transaction-script }
 
 Crie o arquivo:
 
@@ -282,7 +281,7 @@ node deploy.js
 
 ![Implantar contrato Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-3.webp)
 
-### Ler dados do contrato (calls) {: #read-contract-data }
+### Ler Dados do Contrato (Calls) {: #read-contract-data }
 
 Calls não mudam estado; não precisam de transação. Crie `get.js`:
 
@@ -341,7 +340,7 @@ node get.js
 
 ![Obter valor Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-4.webp)
 
-### Interagir com o contrato (sends) {: #interact-with-contract }
+### Interagir com o Contrato (Sends) {: #interact-with-contract }
 
 Sends mudam estado, exigem transação. Crie `increment.js` e `reset.js`:
 
@@ -386,4 +385,4 @@ Use `get.js` junto para confirmar as mudanças.
 
 ![Redefinir contrato Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-6.webp)
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

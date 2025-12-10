@@ -32,6 +32,6 @@ Um operador de sucesso deve ser capaz de sincronizar e interagir com uma rede po
 |------------------|-------------|
 | Tanssi Chain     | 30333 (TCP) |
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

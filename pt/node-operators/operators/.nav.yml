@@ -3,5 +3,5 @@ hide: false
 nav:
   - index.md
   - Onboarding: onboarding
-  - 'Tarefas operacionais': operational-tasks
+  - 'Tarefas Operacionais': operational-tasks
   - Offboarding: offboarding

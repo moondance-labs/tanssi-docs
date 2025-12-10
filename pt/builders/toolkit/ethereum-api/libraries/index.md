@@ -17,6 +17,6 @@ Algumas das principais capacidades de trabalhar com bibliotecas incluem:
 - **Análise de dados de blockchain** - decodificar e interpretar estruturas de dados complexas retornadas por contratos inteligentes
 - **Monitoramento de eventos** - ouvir eventos emitidos por contratos e acionar ações específicas do aplicativo
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

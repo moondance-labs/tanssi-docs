@@ -198,4 +198,4 @@ Para mais informações sobre uso da Phala para dados off-chain, veja os [docs d
 
 Essa abordagem completa (contrato + script + atualização via feeder) garante que os feeds fiquem sincronizados com as fontes da Chainlink no Mainnet e que sua rede Tanssi receba preços confiáveis.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

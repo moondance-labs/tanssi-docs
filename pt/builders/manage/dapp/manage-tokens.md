@@ -97,7 +97,7 @@ O governador da rede pode reatribuir saldos, forçando uma transferência de tok
 
 Você será solicitado a assinar a transação com a conta do governador da rede. Depois que a transação for concluída, a conta de destino terá recebido o número de tokens do endereço de origem.
 
-### Definindo a Gas Dynamics{: #definindo-gas }
+### Definindo a Gas Dynamics{: #setting-gas }
 
 !!! nota
     Esta opção se aplica apenas a redes compatíveis com EVM.

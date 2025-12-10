@@ -24,7 +24,7 @@ O Batch Precompile está localizado no seguinte endereço:
 
 --8<-- 'text/pt/builders/toolkit/ethereum-api/precompiles/security-note.md'
 
-## A interface Solidity em lote {: #the-batch-interface }
+## A Interface Solidity em Lote {: #the-batch-interface }
 
 [`Batch.sol`](https://github.com/moondance-labs/tanssi/blob/master/test/contracts/solidity/Batch.sol){target=\_blank} é a interface Solidity para os três métodos do precompile.
 
@@ -54,15 +54,15 @@ Eventos emitidos:
 - **SubcallSucceeded**(*uint256* index) — emitido quando uma subchamada com o índice informado é bem-sucedida
 - **SubcallFailed**(*uint256* index) — emitido quando uma subchamada com o índice informado falha
 
-## Interaja com a interface Solidity {: #interact-with-the-solidity-interface }
+## Interaja com a Interface Solidity {: #interact-with-the-solidity-interface }
 
-### Verifique os pré-requisitos {: #checking-prerequisites }
+### Verifique os Pré-requisitos {: #checking-prerequisites }
 
 - Carteira compatível com EVM configurada para sua rede (por exemplo, [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank})
 - Conta com tokens nativos suficientes
 - Opcional: rede de demonstração EVM no [Tanssi dApp](https://apps.tanssi.network){target=\_blank}
 
-### Contrato de exemplo {: #example-contract }
+### Contrato de Exemplo {: #example-contract }
 
 Usaremos `SimpleContract.sol` para demonstrar interações em lote:
 
@@ -80,20 +80,20 @@ Usaremos `SimpleContract.sol` para demonstrar interações em lote:
 1. Abra **Batch.sol** e clique em **Compile Batch.sol** (aba **Compile**).  
 2. Repita para **SimpleContract.sol**.
 
-### Acesse o precompile {: #access-the-precompile }
+### Acesse o Precompile {: #access-the-precompile }
 
 1. Na aba **Deploy and Run**, escolha **Injected Provider - MetaMask** em **ENVIRONMENT**.  
 2. Selecione **Batch.sol** em **CONTRACT**.  
 3. No campo **At Address**, insira `{{networks.demo_evm.precompiles.batch}}` e clique em **At Address**.  
    O contrato **BATCH** aparecerá em **Deployed Contracts**.
 
-### Implemente o contrato de exemplo {: #deploy-example-contract }
+### Implemente o Contrato de Exemplo {: #deploy-example-contract }
 
 1. Ainda na aba **Deploy and Run**, selecione **SimpleContract** em **CONTRACT**.  
 2. Clique em **Deploy** e confirme no MetaMask.  
    O **SIMPLECONTRACT** aparecerá em **Deployed Contracts**.
 
-### Envie moeda nativa via precompile {: #send-native-currency-via-precompile }
+### Envie Moeda Nativa via Precompile {: #send-native-currency-via-precompile }
 
 Para usar **batchAll** e enviar tokens nativos de forma atômica:
 
@@ -106,13 +106,13 @@ Para usar **batchAll** e enviar tokens nativos de forma atômica:
    - **gasLimit**: `[]`
 4. Clique em **transact** e confirme no MetaMask.
 
-### Obtenha o call data de uma interação de contrato {: #find-a-contract-interactions-call-data }
+### Obtenha o Call Data de uma Interação de Contrato {: #find-a-contract-interactions-call-data }
 
 1. Em **SIMPLECONTRACT**, expanda **setMessage**.  
 2. Preencha **id** (ex.: `1`) e **message** (ex.: `"tanssi"`).  
 3. Clique no ícone de copiar ao lado de **transact** para obter o call data codificado.
 
-### Interaja com funções via precompile {: #function-interaction-via-precompile }
+### Interaja com Funções via Precompile {: #function-interaction-via-precompile }
 
 Para chamar duas vezes `setMessage` de forma atômica:
 
@@ -126,11 +126,11 @@ Para chamar duas vezes `setMessage` de forma atômica:
 
 Após a execução, consulte a função **messages** do `SimpleContract.sol` para verificar os valores definidos.
 
-### Combinando subtransações {: #combining-subtransactions }
+### Combinando Subtransações {: #combining-subtransactions }
 
 Você pode mesclar transferências nativas e chamadas de contrato na mesma transação em lote. Forneça arrays alinhados (mesmo tamanho ou valores padrão) para `to`, `value`, `callData` e `gasLimit`. O precompile cuida do roteamento e garante a execução conforme a função escolhida (`batchSome`, `batchSomeUntilFailure` ou `batchAll`).
 
-## Bibliotecas de desenvolvimento Ethereum {: #ethereum-development-libraries }
+## Bibliotecas de Desenvolvimento Ethereum {: #ethereum-development-libraries }
 
 As funções do precompile também podem ser usadas por bibliotecas:
 
@@ -155,4 +155,4 @@ As funções do precompile também podem ser usadas por bibliotecas:
 !!! nota
     Adapte os exemplos para produção e garanta validação de entradas, controle de gás e tratamento de erros adequados.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

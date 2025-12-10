@@ -1,11 +1,11 @@
 ---
-title: Configurar uma conta para produzir blocos
+title: Configurar uma Conta para Produzir Blocos
 description: Siga estas instruções passo a passo para se tornar elegível a produzir blocos em redes alimentadas pelo Tanssi e configurar sua conta para receber recompensas.
 icon: octicons-person-add-24
 categories: Sequenciadores
 ---
 
-# Configure sua conta para produzir blocos no Tanssi
+# Configure Sua Conta para Produzir Blocos no Tanssi
 
 ## Introdução {: #introduction }
 
@@ -130,8 +130,8 @@ Anote a operação e o número da sessão em que você enviou a solicitação, p
 Você pode executar outra consulta na página **Chain state** para verificar a sessão atual. Para fazer isso, você pode:
 
 1. Selecione o módulo **session** e a consulta **currentIndex**
-1. Clique no botão **+** ao lado do campo extrínseco
-1. A sessão atual será exibida na parte inferior da página
+2. Clique no botão **+** ao lado do campo extrínseco
+3. A sessão atual será exibida na parte inferior da página
 
 ![Consultar o índice da sessão atual no portal do desenvolvedor](/images/node-operators/sequencers/onboarding/account-setup/setup-5.webp)
 
@@ -149,7 +149,7 @@ Se a solicitação puder ser executada, selecione **Extrinsics** no menu suspens
 
 Agora, você concluiu toda a configuração da conta necessária para ser elegível para produzir blocos!
 
-## Verifique se sua conta está na lista de candidatos elegíveis {: #verify }
+## Verifique se Sua Conta Está na Lista de Candidatos Elegíveis {: #verify }
 
 Se você seguiu todas as etapas deste guia e sincronizou totalmente seu sequenciador, agora você está elegível para produzir blocos. Para verificar se você está na lista de candidatos elegíveis, você pode acessar o [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clicar na aba **Developer**, selecionar **Chain state** no menu suspenso e seguir as etapas a seguir:
 

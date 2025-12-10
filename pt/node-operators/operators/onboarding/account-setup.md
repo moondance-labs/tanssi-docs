@@ -1,11 +1,11 @@
 ---
-title: Configure sua Conta de Operador
+title: Configure Sua Conta de Operador
 description: Aprenda a mapear a conta do seu nó com sua conta stash, tornando-o elegível para proteger o Tanssi e as redes alimentadas pelo Tanssi e receber recompensas.
 icon: octicons-tools-24
 categories: Operadores
 ---
 
-# Configure sua Conta para Proteger o Ecossistema Tanssi
+# Configure Sua Conta para Proteger o Ecossistema Tanssi
 
 ## Introdução {: #introduction }
 
@@ -48,7 +48,7 @@ Suas chaves de sessão codificadas em hexadecimal serão impressas no terminal n
 --8<-- 'code/node-operators/operators/onboarding/account-setup/terminal/generate-session-keys.md'
 
 !!! nota
-  Certifique-se de anotar suas chaves de sessão. Na próxima seção, você precisará mapeá-las para sua conta.
+    Certifique-se de anotar suas chaves de sessão. Na próxima seção, você precisará mapeá-las para sua conta.
 
 ### Mapear Chaves de Sessão {: #map-session-keys }
 
@@ -56,15 +56,13 @@ Para executar a etapa seguinte e mapear suas chaves de sessão para sua conta, a
 
 === "Tanssi MainNet"
 
-```
-[Portal do desenvolvedor da Mainnet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/extrinsics){target=\_blank}
-```
+    [Portal do desenvolvedor da Mainnet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/extrinsics){target=\_blank}
+    
 
 === "Dancelight TestNet"
-
-```
-[Portal do desenvolvedor da TestNet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}
-```
+    
+    [Portal do desenvolvedor da TestNet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}
+    
 
 Agora, siga estas etapas:
 
@@ -82,15 +80,12 @@ Usar o método `session.keyOwner` permite verificar se suas chaves de sessão fo
 
 === "Tanssi MainNet"
 
-```
-[Portal do desenvolvedor da Mainnet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/chainstate){target=\_blank}
-```
+    [Portal do desenvolvedor da Mainnet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/chainstate){target=\_blank}
 
 === "Dancelight TestNet"
 
-```
-[Portal do desenvolvedor da TestNet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}
-```
+    [Portal do desenvolvedor da TestNet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/chainstate){target=\_blank}
+ 
 
 Agora, siga estas etapas:
 

@@ -5,7 +5,7 @@ icon: material-wallet-outline
 categories: Substrate-Template
 ---
 
-# Interagindo com Tanssi ou sua Appchain Substrate usando Talisman
+# Interagindo com Tanssi ou Sua Appchain Substrate Usando Talisman
 
 ## Introdução {: #introduction }
 
@@ -82,7 +82,7 @@ Se você tiver um saldo de tokens Tanssi MainNet ou Dancelight, verá o saldo da
 
 ![Veja os saldos da sua conta TestNet no Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-6.webp)
 
-## Conectando o Talisman à sua Rede Substrate {: #connecting-talisman-to-your-substrate-network }
+## Conectando o Talisman à Sua Rede Substrate {: #connecting-talisman-to-your-substrate-network }
 
 Para configurar o Talisman para sua rede Substrate com tecnologia Tanssi, abra a extensão Talisman e clique na guia **Mais Opções**. Clique em **Configurações** > **Redes e Tokens** > **Gerenciar Redes**.
 
@@ -130,4 +130,4 @@ Para enviar uma transação por meio da API Substrate, clique em **Enviar** pró
 
 Este guia se concentrou especificamente na configuração do Talisman para funcionar com sua rede Substrate Tanssi, mas o Talisman também é uma carteira completa para contas EVM. Na seção da API Ethereum, você encontrará um [guia semelhante para configurar o Talisman para uso com sua rede Tanssi EVM](/pt/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

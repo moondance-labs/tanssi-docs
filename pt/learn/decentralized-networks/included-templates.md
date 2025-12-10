@@ -35,7 +35,7 @@ O processo é tão simples quanto:
 
 Os dois modelos incluídos são o *modelo de rede de linha de base* e o *modelo EVM de linha de base*, que são apresentados nas seções a seguir.
 
-### Baseline Network Template {: #baseline-network-template }
+### Modelo de Rede Baseline {: #baseline-network-template }
 
 Conforme apresentado no artigo [Visão geral](/pt/learn/tanssi/overview/){target=\_blank}, as redes implantadas por meio do Tanssi são blockchains totalmente soberanas e personalizáveis.
 
@@ -45,7 +45,7 @@ Este modelo também inclui o módulo [Author Noting](https://github.com/moondanc
 
 O código fonte para este modelo é público e acessível no [repositório Tanssi GitHub](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}.
 
-### Baseline EVM (Ethereum Virtual Machine) Template {: #baseline-evm-template }
+### Template Baseline EVM (Ethereum Virtual Machine) {: #baseline-evm-template }
 
 Estendendo o [modelo de rede Tanssi de linha de base](#baseline-network-template), este modelo fornece não apenas suporte ao protocolo Tanssi, mas também um EVM e compatibilidade total com Ethereum.
 

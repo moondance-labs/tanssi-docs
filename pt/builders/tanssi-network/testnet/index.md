@@ -11,6 +11,6 @@ Dancelight, a TestNet oficial da Tanssi, permite que os desenvolvedores experime
 
 Quando estiver pronto para ver como seu projeto pode prosperar em um ambiente do mundo real, experimente o ambiente EVM de demonstração. Totalmente compatível com o Ethereum, esta configuração com tecnologia Tanssi apresenta os principais recursos e oferece uma experiência imersiva, dando-lhe um vislumbre do potencial total da sua solução personalizada.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

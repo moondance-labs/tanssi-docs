@@ -2,10 +2,10 @@ title: Usando o Portal do Desenvolvedor
 hide: false
 nav:
   - index.md
-  - Gerenciar a conta Sudo: sudo.md
-  - Enviar atualizações do runtime: upgrade.md
-  - Ativar modo de manutenção: maintenance.md
-  - Pausar transações: pause-transactions.md
-  - Personificar contas: impersonate.md
-  - Emitir tokens: minting.md
-  - EVM inteligente - Lista branca de implantações de contratos: smart-contracts-creation-filter.md
+  - Gerenciar a Conta Sudo: sudo.md
+  - Enviar Atualizações do Runtime: upgrade.md
+  - Ativar Modo de Manutenção: maintenance.md
+  - Pausar Transações: pause-transactions.md
+  - Personificar Contas: impersonate.md
+  - Emitir Tokens: minting.md
+  - EVM Inteligente - Lista Branca de Implantações de Contratos: smart-contracts-creation-filter.md

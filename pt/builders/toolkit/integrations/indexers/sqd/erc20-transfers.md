@@ -211,4 +211,4 @@ Erros comuns:
 - `ECONNREFUSED`: suba o banco com `sqd up` antes de gerar/apply migrations.  
 - Sem eventos detectados: confirme o endereço do contrato em minúsculas (`.toLowerCase()`) e tópicos corretos.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

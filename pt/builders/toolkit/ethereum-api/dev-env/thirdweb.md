@@ -11,7 +11,7 @@ categories: EVM-Template
 
 [thirdweb](https://thirdweb.com){target=_blank} é um framework completo de desenvolvimento Web3 com ferramentas para criar contratos, dApps e muito mais. Você pode usar contratos predefinidos ou criar os seus, implantar via CLI e interagir com SDKs em várias linguagens (React, TypeScript, etc.). Para ver tudo o que o thirdweb oferece, consulte a [documentação oficial](https://portal.thirdweb.com){target=_blank}.
 
-## Criar contrato {: #create-contract }
+## Criar Contrato {: #create-contract }
 
 Para criar um novo contrato com a [CLI do thirdweb](https://portal.thirdweb.com/cli){target=_blank}:
 
@@ -55,7 +55,7 @@ Também é possível implantar contratos prontos (NFT, token, marketplace) diret
 2. Escolha o tipo de contrato
 3. Siga os prompts para configurar e implantar
 
-## Implantar contrato {: #deploy-contract }
+## Implantar Contrato {: #deploy-contract }
 
 O `deploy` do thirdweb implanta contratos em qualquer rede EVM sem expor chave privada ou configurar RPC manualmente.
 
@@ -76,7 +76,7 @@ O `deploy` do thirdweb implanta contratos em qualquer rede EVM sem expor chave p
 
 Mais detalhes em [thirdweb Deploy](https://portal.thirdweb.com/contracts/){target=_blank}.
 
-## Criar aplicação {: #create-application }
+## Criar Aplicação {: #create-application }
 
 O thirdweb oferece SDKs para React, React Native, TypeScript, Unity, etc. Para criar um app:
 
@@ -114,7 +114,7 @@ export const client = createThirdwebClient({
 !!! nota
     Se não definir o Client ID corretamente no `.env`, o app pode aparecer em branco. Corrija o Client ID primeiro.
 
-### Rodar localmente {: #run-locally }
+### Rodar Localmente {: #run-locally }
 
 Para testar local:
 
@@ -124,7 +124,7 @@ yarn dev
 
 Veja o endereço/porta no console e abra no navegador.
 
-### Configurar chain {: #configure-chain }
+### Configurar Chain {: #configure-chain }
 
 Como Tanssi não vem na lista padrão de `@thirdweb/chains`, defina uma chain customizada com [`defineChain`](https://portal.thirdweb.com/references/typescript/v5/defineChain){target=_blank}:
 
@@ -140,7 +140,7 @@ const tanssi = defineChain({
 
 Resumo de métodos comuns do SDK:
 
-### Contas e carteiras {: #accounts-and-wallets }
+### Contas e Carteiras {: #accounts-and-wallets }
 
 Conta (SDK) = um endereço capaz de assinar; não “conecta/desconecta”. Carteira agrupa contas, conecta/desconecta e delega assinatura.
 
@@ -151,7 +151,7 @@ Exemplo: inicializar e conectar MetaMask, assinar e enviar transação. (Ver sni
     --8<-- 'code/builders/toolkit/ethereum-api/dev-env/thirdweb/initialize.ts'
     ```
 
-### Obter contrato {: #get-contract }
+### Obter Contrato {: #get-contract }
 
 Use [`getContract`](https://portal.thirdweb.com/references/typescript/v5/getContract){target=_blank} para conectar-se a um contrato (ex.: incrementer na rede demo EVM da Tanssi):
 
@@ -164,7 +164,7 @@ const contract = await getContract({
 });
 ```
 
-### Ler dados {: #read-data }
+### Ler Dados {: #read-data }
 
 Use [`readContract`](https://portal.thirdweb.com/references/typescript/v5/readContract){target=_blank} para ler estados:
 
@@ -178,7 +178,7 @@ const value = await readContract({
 });
 ```
 
-### Escrever transações {: #write-transactions }
+### Escrever Transações {: #write-transactions }
 
 Use [`sendTransaction`](https://portal.thirdweb.com/references/typescript/v5/sendTransaction){target=_blank} para enviar transações (lembre-se de conectar carteira/conta):
 
@@ -233,4 +233,4 @@ const uri = await upload({
 
 Com a CLI, o Deploy e os SDKs do thirdweb, você consegue criar, implantar e interagir com contratos na sua rede EVM da Tanssi com rapidez. Consulte a [documentação do thirdweb](https://portal.thirdweb.com){target=_blank} para recursos avançados.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

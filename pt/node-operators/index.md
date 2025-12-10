@@ -18,6 +18,6 @@ A compreensão dos papéis de diferentes nós na rede alimentada pelo Tanssi aju
 - [**Sequenciadores**](/pt/node-operators/sequencers/) - responsáveis pela produção de blocos dentro do ecossistema Tanssi, os sequenciadores coletam transações, as executam e as compilam em blocos, mantendo a vivacidade e a continuidade operacional para todas as redes alimentadas pelo Tanssi
 - [**Operadores**](/pt/node-operators/operators/) - também conhecidos como validadores de rede, os operadores são responsáveis por proteger o ecossistema. Eles verificam cada bloco produzido por sequenciadores dentro das redes alimentadas pelo Tanssi, verificando se as transações incluídas são válidas. Os operadores devem se registrar e apostar no provedor de segurança (por exemplo, [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}). Eles também produzem blocos para a própria rede Tanssi, mantendo sua vivacidade
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

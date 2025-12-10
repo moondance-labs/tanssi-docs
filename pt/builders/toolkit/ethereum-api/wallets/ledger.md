@@ -1,11 +1,11 @@
 ---
-title: Usando Ledger com sua EVM Appchain
+title: Usando Ledger com Sua EVM Appchain
 description: Aprenda a configurar e usar carteiras de hardware Ledger com EVM appchains com tecnologia Tanssi para armazenamento seguro de chaves offline e assinatura de transações.
 icon: material-wallet-outline
 categories: EVM-Template
 ---
 
-# Interagindo com EVM appchains com tecnologia Tanssi Usando Ledger
+# Interagindo com EVM appchains com Tecnologia Tanssi Usando Ledger
 
 ## Introdução {: #introduction }
 
@@ -15,7 +15,7 @@ Os dispositivos Ledger são carteiras de hardware projetadas para armazenar as c
 
 Este guia leva você por todas as etapas necessárias para usar seu dispositivo Ledger com EVM appchains com tecnologia Tanssi.
 
-## Configurando seu dispositivo Ledger {: #setting-up-ledger-device }
+## Configurando Seu Dispositivo Ledger {: #setting-up-ledger-device }
 
 Se você tem um dispositivo Ledger novo, consulte o [site oficial](https://support.ledger.com/article/4404389503889-zd){target=\_blank} para obter um guia sobre como iniciá-lo com a configuração inicial.
 
@@ -31,7 +31,7 @@ Por fim, procure o aplicativo **Ethereum (ETH)** no Ledger Live e instale-o em s
 
 E é isso. Seu dispositivo agora tem uma conta Ethereum e é capaz de assinar transações em qualquer EVM appchain com tecnologia Tanssi.
 
-## Adicionando o Ledger a uma carteira quente {: #adding-Ledger-hot-wallet }
+## Adicionando o Ledger a uma Carteira Quente {: #adding-Ledger-hot-wallet }
 
 Conforme apresentado na [introdução](#introduction), uma carteira de hardware Ledger fornece armazenamento seguro offline para chaves privadas, permitindo que os usuários verifiquem e assinem transações. No entanto, por design, ela não pode interagir com blockchains ou dApps sozinha, nem oferece uma interface do usuário para gerenciar ativos. Para complementar o dispositivo, uma carteira quente é necessária. O usuário pode escolher qualquer carteira compatível com Ethereum.
 
@@ -56,4 +56,4 @@ Na tela seguinte:
 
 Finalmente, você será apresentado com uma lista de contas derivadas. Selecione aquela que você deseja importar, clique em **Desbloquear** e pronto! Sua carteira Metamask agora pode assinar transações usando seu dispositivo Ledger.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

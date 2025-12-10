@@ -32,8 +32,8 @@ Para os exemplos deste guia, você precisará ter o seguinte:
 Ainda, a conta Sudo pode realizar funções privilegiadas, como habilitar e desabilitar o modo de manutenção. Para entrar no modo de manutenção e interromper o processamento regular de transações, navegue até a guia **Developer** do Polkadot.js Apps para sua rede com tecnologia Tanssi e clique em **Sudo**. Se você não vir **Sudo** neste menu, você não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada pela sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Então, siga os seguintes passos:
 
 1. Selecione a paleta **maintenanceMode**
-1. Selecione o método **enterMaintenanceMode**
-1. Pressione **Submit Sudo** e confirme a transação no pop-up resultante
+2. Selecione o método **enterMaintenanceMode**
+3. Pressione **Submit Sudo** e confirme a transação no pop-up resultante
 
 ![Habilitar o modo de manutenção](/images/builders/manage/developer-portal/maintenance/maintenance-2.webp)
 
@@ -58,4 +58,4 @@ Lembre-se que o uso do modo de manutenção é uma ação de emergência que só
 
 E é isso! A seção [Portal do Desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerenciar sua rede com tecnologia Tanssi.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

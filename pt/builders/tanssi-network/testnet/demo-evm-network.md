@@ -5,7 +5,7 @@ icon: material-ethereum
 categories: Appchain, EVM-Template
 ---
 
-## Introdução
+## Introdução {: #introduction }
 
 Explore as funcionalidades de uma rede totalmente compatível com Ethereum, implantada através da Tanssi, interagindo com a rede EVM de demonstração em [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}.
 
@@ -22,8 +22,8 @@ Para solicitar tokens da faucet, acesse o [Tanssi dApp](https://apps.tanssi.netw
 Em seguida, siga estas etapas:
 
 1. Pressione **Solicitar Tokens**
-1. Selecione a conta que você gostaria de receber tokens {{ networks.dancelight.demo_evm_token_symbol }} e pressione **Avançar**
-1. Pressione **Conectar**
+2. Selecione a conta que você gostaria de receber tokens {{ networks.dancelight.demo_evm_token_symbol }} e pressione **Avançar**
+3. Pressione **Conectar**
 
 ![Solicitar tokens](/images/builders/tanssi-network/testnet/demo-evm-network/demo-2.webp)
 

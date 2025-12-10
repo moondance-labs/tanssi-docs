@@ -1,15 +1,15 @@
 ---
-title: Implante sua Appchain 
+title: Implante Sua Appchain 
 description: Aprenda como implantar sua appchain no Tanssi como um teste rápido para testes de curto prazo ou como uma dedicada para testes de longo prazo usando o Tanssi dApp.
 template: index-page.html
 icon: octicons-rocket-24
 ---
 
-# Implante sua Appchain em Minutos
+# Implante Sua Appchain em Minutos
 
 Com o Tanssi, lançar sua appchain é simples e eficiente. A plataforma simplifica o processo, para que você possa se concentrar na construção de seu aplicativo.
 
-## Visão geral rápida da implantação via Tanssi DApp
+## Visão Geral Rápida da Implantação via Tanssi DApp
 
 A implantação de uma appchain com tecnologia Tanssi via [Tanssi dApp](https://apps.tanssi.network){target=\_blank} é realizada como um fluxo único e simplificado, consistindo em cinco etapas distintas:
 
@@ -26,6 +26,6 @@ A implantação de uma appchain com tecnologia Tanssi via [Tanssi dApp](https://
 
 Para começar, visite [Usando o Tanssi DApp](/pt/builders/deploy/dapp/).
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

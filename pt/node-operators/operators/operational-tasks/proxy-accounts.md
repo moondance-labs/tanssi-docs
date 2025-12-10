@@ -15,7 +15,7 @@ O tipo de proxy `SessionKeyManagement` permite que a conta gire as chaves de ses
 
 As contas proxy também ajudam a implementar o princípio do privilégio mínimo para controle de acesso. Por exemplo, se você tiver vários membros na equipe, pode conceder o acesso mínimo necessário para realizarem suas tarefas por meio de uma conta proxy específica.
 
-Este tutorial mostra como configurar uma conta proxy `SessionKeyManagement` em [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank} especificamente para ações relacionadas ao operador e como girar suas novas chaves usando o proxy.
+Este tutorial mostra como configurar uma conta proxy `SessionKeyManagement` em [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank} especificamente para ações relacionadas ao operador e como girar suas novas chaves usando o proxy.
 
 ## Verificando os Pré-requisitos {: #checking-prerequisites }
 
@@ -23,17 +23,13 @@ Para acompanhar este tutorial, você precisará:
 
 - Abrir o portal do desenvolvedor
 
-  === "Tanssi MainNet"
+    === "Tanssi MainNet"
 
-  
-  [Portal do desenvolvedor da Mainnet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/){target=_blank}
-  
+        [Portal do desenvolvedor da Mainnet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/){target=_blank}
 
-  === "Dancelight TestNet"
+    === "Dancelight TestNet"
 
-  
-  [Portal do desenvolvedor da TestNet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/){target=_blank}
-  
+        [Portal do desenvolvedor da TestNet](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/){target=_blank}
 
 - Criar ou ter duas contas acessíveis no portal do desenvolvedor
 - Ambas as contas precisam estar financiadas com tokens
@@ -134,4 +130,4 @@ Com o proxy configurado e verificado, você pode executar uma transação em nom
 
 Autorize e assine (**Sign and Submit**). Pronto! Você executou uma transação usando uma conta proxy em nome da conta de operador primária.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

@@ -161,4 +161,4 @@ Pronto! Agora você pode atualizar `schema.graphql`, `src/main.ts` e `src/proces
 
 Para um guia passo a passo mais completo, veja o tutorial [Indexando Transferências ERC-20 em uma Rede EVM Tanssi](/pt/builders/toolkit/integrations/indexers/sqd/erc20-transfers/){target=_blank}.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

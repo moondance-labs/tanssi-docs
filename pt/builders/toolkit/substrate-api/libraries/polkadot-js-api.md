@@ -43,7 +43,7 @@ Instale no diretório do projeto com:
 
 A biblioteca também inclui outros componentes centrais, como o Keyring para gerenciamento de contas e utilitários usados ao longo do guia.
 
-## Criar uma instância do provedor da API {: #creating-an-API-provider-instance }
+## Criar uma Instância do Provedor da API {: #creating-an-API-provider-instance }
 
 Para interagir com sua rede Tanssi usando a Polkadot.js API, crie uma instância da API. Construa o `WsProvider` usando o endpoint WebSocket da sua rede Tanssi.
 
@@ -64,7 +64,7 @@ const main = async () => {
 main();
 ```
 
-### Metadata e decoração dinâmica da API {: #metadata-and-dynamic-api-decoration }
+### Metadata e Decoração Dinâmica da API {: #metadata-and-dynamic-api-decoration }
 
 Quando a API Polkadot.js se conecta a um nó, uma das primeiras ações é recuperar a metadata e decorar a API com base nela. A metadata fornece a estrutura:
 
@@ -81,9 +81,9 @@ Onde `<type>` pode ser:
 
 Nada em `api.{query, tx, rpc, consts}.<module>.<method>` é hardcoded. Isso torna a biblioteca modular e adaptável a qualquer cadeia Substrate com diferentes [módulos](/pt/learn/framework/modules/){target=\_blank}, como sua rede Tanssi.
 
-## Consultar dados on-chain {: #querying-for-information }
+## Consultar Dados On-Chain {: #querying-for-information }
 
-### Consultas de estado {: #state-queries }
+### Consultas de Estado {: #state-queries }
 
 Recuperam informações sobre o estado atual da cadeia. Esses endpoints geralmente têm a forma `api.query.<module>.<method>`, decorados a partir da metadata. Liste endpoints inspecionando `api.query`, por exemplo:
 
@@ -143,7 +143,7 @@ console.log(
     --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/rpc-queries.ts'
     ```
 
-### Consultas por assinatura {: #query-subscriptions }
+### Consultas por Assinatura {: #query-subscriptions }
 
 O `rpc` também oferece endpoints de assinatura. Após [inicializar a API](#creating-an-API-provider-instance), você pode ouvir novos blocos:
 
@@ -181,11 +181,11 @@ await api.query.system.account(addr, ({ nonce, data: balance }) => {
     --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/query-subscriptions.ts'
     ```
 
-## Criar um Keyring para uma conta {: #keyrings }
+## Criar um Keyring para uma Conta {: #keyrings }
 
 O objeto Keyring mantém pares de chaves e assina quaisquer dados, seja transferência, mensagem ou interação com contrato.
 
-### Criar uma instância de Keyring {: #creating-a-keyring-instance }
+### Criar uma Instância de Keyring {: #creating-a-keyring-instance }
 
 Instancie a classe Keyring e defina o tipo padrão de endereço. O padrão é `sr25519`, mas para redes Tanssi compatíveis com EVM use `ethereum`.
 
@@ -200,7 +200,7 @@ const keyringECDSA = new Keyring({ type: 'ethereum' });
 const keyring = new Keyring({ type: 'sr25519' });
 ```
 
-### Adicionar uma conta ao Keyring {: #adding-accounts }
+### Adicionar uma Conta ao Keyring {: #adding-accounts }
 
 Há várias formas de adicionar contas, incluindo frase mnemônica e chave privada curta. Exemplos:
 
@@ -222,7 +222,7 @@ Há várias formas de adicionar contas, incluindo frase mnemônica e chave priva
     --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/adding-accounts-mnemonic-sr25519.ts'
     ```
 
-## Enviando transações {: #transactions }
+## Enviando Transações {: #transactions }
 
 Endpoints de transação têm a forma `api.tx.<module>.<method>`, decorados via metadata. Eles permitem enviar transações para inclusão em blocos — transferências, interações com pallets, ou qualquer coisa suportada. Liste endpoints via:
 
@@ -230,7 +230,7 @@ Endpoints de transação têm a forma `api.tx.<module>.<method>`, decorados via 
 console.log(api.tx);
 ```
 
-### Enviar uma transação básica {: #sending-basic-transactions }
+### Enviar uma Transação Básica {: #sending-basic-transactions }
 
 A Polkadot.js API pode enviar transações. Supondo que você tenha [inicializado a API](#creating-an-API-provider-instance) e um [keyring](#creating-a-keyring-instance), use:
 
@@ -263,7 +263,7 @@ console.log(`Submitted with hash ${txHash}`);
 
 Observe que `signAndSend` aceita parâmetros opcionais, como `nonce`, por exemplo `signAndSend(alice, { nonce: aliceNonce })`. Você pode usar o código da seção [Consultas de estado](#state-queries){target=\_blank} para obter o nonce correto, incluindo transações no mempool.
 
-### Informações de taxa {: #fees}
+### Informações de Taxa {: #fees}
 
 Os endpoints de transação também oferecem um método para obter o peso de um `api.tx.<module>.<method>`. Use `paymentInfo` após montar a transação com o módulo e método específicos.
 
@@ -287,11 +287,11 @@ console.log(`Transaction fee: ${partialFee.toHuman()}`);
     --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/payment-info.ts'
     ```
 
-### Eventos de transação {: #transaction-events }
+### Eventos de Transação {: #transaction-events }
 
 Qualquer transação emite eventos; no mínimo, haverá `system.ExtrinsicSuccess` ou `system.ExtrinsicFailed`, indicando sucesso ou falha na execução. Dependendo da transação, outros eventos podem ser emitidos, por exemplo `balances.Transfer` em uma transferência.
 
-### Agrupar transações {: #batching-transactions }
+### Agrupar Transações {: #batching-transactions }
 
 A Polkadot.js API permite processar transações em lote via `api.tx.utility.batch`. As transações são processadas sequencialmente de um único remetente. A taxa pode ser estimada com `paymentInfo`.
 
@@ -330,7 +330,7 @@ await api.tx.utility
     --8<-- 'code/builders/toolkit/substrate-api/libraries/polkadot-js-api/batch-transactions.ts'
     ```
 
-## Código de exemplo para monitorar transferências do token nativo { #sample-code-for-monitoring-native-token-transfers }
+## Código de Exemplo para Monitorar Transferências do Token Nativo { #sample-code-for-monitoring-native-token-transfers }
 
 Os códigos a seguir mostram como escutar transferências do token nativo, enviadas via Substrate ou Ethereum API, usando a [biblioteca Polkadot.js](https://polkadot.js.org/docs/api/start){target=\_blank} ou o [Substrate API Sidecar](https://github.com/paritytech/substrate-api-sidecar){target=\_blank}. Os snippets são para demonstração e precisam de ajustes e testes antes de produção.
 
@@ -342,7 +342,7 @@ O snippet abaixo usa [`subscribeFinalizedHeads`](https://polkadot.js.org/docs/su
 
 Há mais exemplos de transferências neste [gist](https://gist.github.com/crystalin/b2ce44a208af60d62b5ecd1bad513bce){target=\_blank}.
 
-## Funções utilitárias {: #utilities }
+## Funções Utilitárias {: #utilities }
 
 A API Polkadot.js inclui utilitários para primitivas criptográficas e funções de hash.
 
@@ -385,4 +385,4 @@ console.log(keccakAsHex(encoded_tx));
 
 Consulte o [repositório NPM](https://www.npmjs.com/package/@polkadot/util-crypto){target=\_blank} para a lista de métodos disponíveis em `@polkadot/util-crypto` e suas descrições.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

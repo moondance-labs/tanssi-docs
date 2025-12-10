@@ -1,5 +1,5 @@
 ---
-title: API Substrate
+title: API do Substrate
 description: Aprenda a interagir com sua rede com tecnologia Tanssi usando a API Substrate, alavancando ferramentas como a API Polkadot.js, a API Sidecar, Chopsticks e outras.
 icon: simple-paritysubstrate
 template: index-page.html
@@ -17,6 +17,6 @@ Pronto para mergulhar? Confira algumas das seguintes ferramentas:
 - **Bibliotecas** - [API Polkadot.js](/pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/) e [API REST Sidecar](/pt/builders/toolkit/substrate-api/libraries/sidecar-api/)
 - **Carteiras** - [SubWallet](/pt/builders/toolkit/ethereum-api/wallets/subwallet/) e [Talisman](/pt/builders/toolkit/ethereum-api/wallets/talisman/)
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

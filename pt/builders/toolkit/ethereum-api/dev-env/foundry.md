@@ -20,14 +20,14 @@ Quatro ferramentas compõem o Foundry:
 
 Este guia mostra como usar o Foundry para compilar, implantar e depurar contratos Ethereum na rede EVM de demonstração. Para sua própria rede Tanssi, basta trocar a URL RPC e o Chain ID nos exemplos.
 
-## Verificando pré-requisitos {: #checking-prerequisites }
+## Verificando Pré-requisitos {: #checking-prerequisites }
 
 Você precisará de:
 
  - Uma conta com fundos
  - [Foundry instalado](https://getfoundry.sh/introduction/installation/){target=_blank}
 
-## Criando um projeto Foundry {: #creating-a-foundry-project }
+## Criando um Projeto Foundry {: #creating-a-foundry-project }
 
 Crie um projeto Foundry se ainda não tiver um:
 
@@ -70,7 +70,7 @@ O projeto padrão cria:
 
 Um repositório git e um `.gitignore` pré-preenchido também são criados.
 
-## A pasta `src` {: #the-src-folder }
+## A Pasta `src` {: #the-src-folder }
 
 O repositório padrão inclui `Counter.sol` em `src`, `Counter.s.sol` em `script` e `Counter.t.sol` em `test`. Exclua-os para evitar erros ao compilar/implantar `MyToken.sol`:
 
@@ -109,7 +109,7 @@ forge build
 
 Serão criadas as pastas `out` e `cache` (já ignoradas no `.gitignore`) com ABI e bytecode.
 
-## Implantando o contrato {: #deploying-the-contract }
+## Implantando o Contrato {: #deploying-the-contract }
 
 Para implantar com o Forge é um comando só, mas requer endpoint RPC, chave privada financiada e argumentos do construtor. `MyToken.sol` pede oferta inicial; o exemplo usa 100:
 
@@ -124,7 +124,7 @@ Após alguns segundos o contrato é implantado; o endereço aparece no terminal.
 
 ![Foundry Contract Deploy](/images/builders/toolkit/ethereum-api/dev-environments/foundry/foundry-2.webp)
 
-## Interagindo com o contrato {: #interacting-with-the-contract }
+## Interagindo com o Contrato {: #interacting-with-the-contract }
 
 Use o [Cast](https://getfoundry.sh/cast/overview/){target=_blank} (CLI) para fazer chamadas RPC.
 
@@ -277,4 +277,4 @@ Agora `forge build` e `npx hardhat compile` funcionam; `forge test` testa Solidi
 
 Parabéns, você implantou e interagiu com contratos na sua rede EVM Tanssi usando o Foundry! Para saber mais, consulte o [Foundry Book](https://getfoundry.sh/){target=_blank}.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

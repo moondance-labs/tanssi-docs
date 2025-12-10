@@ -85,7 +85,7 @@ Ao final de cada sessão, a Tanssi calcula recompensas do sequenciador e distrib
   ```
 - Rewards são somados a `available_rewards` de cada pool; depois, no block hook, `available_rewards` é movido para `pending_rewards` e, em seguida, distribuído proporcionalmente às shares dos delegadores.
 
-### Como as shares evoluem {: #shares-evolution }
+### Como as Shares Evoluem {: #shares-evolution }
 
 - Quando um delegador entra em um pool:
   ```math

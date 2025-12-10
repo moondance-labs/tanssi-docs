@@ -1,5 +1,5 @@
 ---
-title: Desativar seu Nó Operador
+title: Desativar Seu Nó Operador
 description: Aprenda como desativar corretamente seu operador, incluindo pausar operações, cancelar a participação na rede e remover você mesmo do registro.
 icon: octicons-arrow-down-right-24
 template: index-page.html
@@ -14,6 +14,6 @@ Deixar de ser um operador requer seguir os procedimentos adequados para garantir
 !!! conselho "Retornando como Operador"
     Se você decidir retornar como um validador Tanssi no futuro, poderá facilmente se cadastrar novamente seguindo as etapas descritas no guia [Onboarding](/pt/node-operators/operators/onboarding/).
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

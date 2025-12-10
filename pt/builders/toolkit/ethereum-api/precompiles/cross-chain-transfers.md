@@ -90,4 +90,4 @@ Use **transferAssetsToRelay** com `beneficiary` SR25519, `assets`, `feeAssetItem
 
 **transferAssetsLocation** aceita `dest`, `beneficiary` e `assets` como multilocations XCM, permitindo destinos mais genéricos. Preencha os arrays conforme a multilocation desejada, o índice do ativo para taxas e o `weight`, então chame **transact**.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

@@ -1,11 +1,11 @@
 ---
-title: Pré-requisitos para a construção de uma rede
+title: Pré-requisitos para a Construção de uma Rede
 description: Instale o conjunto básico de ferramentas e software para configurar um ambiente de desenvolvimento local e ser capaz de compilar, executar e testar sua appchain.
 icon: octicons-checkbox-24
 Categories: Custom-Runtime
 ---
 
-# Pré-requisitos para a construção de uma rede {: #prerequisites}
+# Pré-requisitos para a Construção de uma Rede {: #prerequisites}
 
 ## Introdução {: #introduction }
 
@@ -83,7 +83,7 @@ Para verificar a instalação correta do Git, executar o seguinte comando em um 
     git --version
     ```
 
-## Construindo um modelo Tanssi {: #building-tanssi-template  }
+## Construindo um Modelo Tanssi {: #building-tanssi-template  }
 
 Para construir um nó Substrate, como os modelos incluídos no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank}, é necessário instalar componentes de desenvolvimento adicionais no sistema:
 

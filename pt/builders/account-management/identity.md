@@ -61,7 +61,7 @@ Se precisar de ajuda para importar suas contas para o portal do desenvolvedor, c
 
 ## Comece {: #get-started }
 
-Dependendo das informações a serem incluídas, existem algumas maneiras diferentes de definir e limpar uma identidade usando o portal do desenvolvedor. Se você pretende registrar sua identidade usando apenas os campos padrão, pode seguir as instruções da página [Gerenciando uma Identidade via Contas](#manage-via-accounts). **Esta é a maneira recomendada de definir e gerenciar sua identidade**.
+Dependendo das informações a serem incluídas, existem algumas maneiras diferentes de definir e limpar uma identidade usando o portal do desenvolvedor. Se você pretende registrar sua identidade usando apenas os campos padrão, pode seguir as instruções da página [Gerenciando uma Identidade via Contas](#manage-via-accounts). **Esta é a Maneira Recomendada de Definir e Gerenciar Sua Identidade**.
 
 Se você deseja adicionar campos personalizados além dos campos padrão, siga as instruções para a página [Gerenciando uma Identidade via Extrinsics](#manage-via-extrinsics).
 
@@ -160,9 +160,9 @@ Você pode ver agora que você definiu com sucesso uma identidade! Depois de lim
 Para limpar sua identidade, siga as seguintes etapas na guia **Extrinsics** do portal do desenvolvedor:
 
 1. Selecione sua conta no menu suspenso **usando a conta selecionada**
-1. Selecione **identity** no menu suspenso **enviar o seguinte extrínseco**
-1. Em seguida, selecione a função **clearIdentity()**
-1. Clique em **Enviar Transação**
+2. Selecione **identity** no menu suspenso **enviar o seguinte extrínseco**
+3. Em seguida, selecione a função **clearIdentity()**
+4. Clique em **Enviar Transação**
 
 ![Limpar uma identidade](/images/builders/account-management/identity/identity-8.webp)
 

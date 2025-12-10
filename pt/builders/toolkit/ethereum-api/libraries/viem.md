@@ -15,7 +15,7 @@ Neste guia, você verá como usar viem para enviar uma transação e implantar u
 
 --8<-- 'text/pt/_common/general-js-tutorial-check.md'
 
-## Verificando pré-requisitos {: #checking-prerequisites }
+## Verificando Pré-requisitos {: #checking-prerequisites }
 
 Para os exemplos, você precisará de:
 
@@ -52,7 +52,7 @@ npx tsc --init
 !!! nota
     Tutorial criado usando Node.js v18.18.0.
 
-## Configurar um cliente viem (provedor) {: #setting-up-a-viem-provider }
+## Configurar um Cliente viem (Provedor) {: #setting-up-a-viem-provider }
 
 Você pode criar:
 - um cliente de leitura com `createPublicClient`, para saldos/dados; ou
@@ -60,7 +60,7 @@ Você pode criar:
 
 Primeiro defina a cadeia com `defineChain`, informando todos os campos (incluindo `public` e `default` RPC).
 
-### Para ler dados da cadeia {: #for-reading-chain-data }
+### Para Ler Dados da Cadeia {: #for-reading-chain-data }
 
 Passos:
 
@@ -72,7 +72,7 @@ Passos:
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/viem/read-chain-data.ts'
 ```
 
-### Para gravar dados da cadeia {: #for-writing-chain-data }
+### Para Gravar Dados da Cadeia {: #for-writing-chain-data }
 
 Passos:
 
@@ -94,12 +94,11 @@ Passos:
     --8<-- 'code/builders/toolkit/ethereum-api/libraries/viem/browser-based-wallets.ts'
     ```
 
-## Enviar uma transação {: #send-transaction }
+## Enviar uma Transação {: #send-transaction }
 
 Criaremos dois scripts: um para saldos e outro para enviar a transação.
 
-### Script de saldos {: #check-balances-script }
-
+### Script de Saldos {: #check-balances-script }
 Crie o arquivo:
 
 ```bash
@@ -132,7 +131,7 @@ Saldos em {{ networks.dancelight.demo_evm_token_symbol }} serão exibidos.
 
 ![Resultado do script balances](/images/builders/toolkit/ethereum-api/libraries/viem/viem-1.webp)
 
-### Script de envio {: #send-transaction-script }
+### Script de Envio {: #send-transaction-script }
 
 Crie o arquivo:
 
@@ -168,11 +167,11 @@ Você verá o hash; use `balances.ts` antes/depois para confirmar saldos.
 
 ![Resultado dos scripts transaction e balances](/images/builders/toolkit/ethereum-api/libraries/viem/viem-2.webp)
 
-## Implantar um contrato {: #deploy-contract }
+## Implantar um Contrato {: #deploy-contract }
 
 --8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/contract.md'
 
-### Script de compilação {: #compile-contract-script }
+### Script de Compilação {: #compile-contract-script }
 
 --8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/compile-ts.md'
 
@@ -180,7 +179,7 @@ Você verá o hash; use `balances.ts` antes/depois para confirmar saldos.
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/viem/compile.ts'
 ```
 
-### Script de deploy {: #deploy-contract-script }
+### Script de Deploy {: #deploy-contract-script }
 
 Compile `Incrementer.sol` e crie `deploy.ts`:
 
@@ -216,7 +215,7 @@ O endereço do contrato será exibido.
 
 ![Resultado do script deploy](/images/builders/toolkit/ethereum-api/libraries/viem/viem-3.webp)
 
-### Ler dados do contrato (calls) {: #read-contract-data }
+### Ler Dados do Contrato (Calls) {: #read-contract-data }
 
 Calls não alteram estado; não precisam de transação. Crie `get.ts`:
 
@@ -248,7 +247,7 @@ npx ts-node get.ts
 
 ![Resultado do script get](/images/builders/toolkit/ethereum-api/libraries/viem/viem-4.webp)
 
-### Interagir com o contrato (sends) {: #interact-with-contract }
+### Interagir com o Contrato (Sends) {: #interact-with-contract }
 
 Sends alteram estado e exigem transação. Crie `increment.ts` e `reset.ts`:
 
@@ -307,4 +306,4 @@ npx ts-node reset.ts
 
 ![Resultado dos scripts reset e get](/images/builders/toolkit/ethereum-api/libraries/viem/viem-6.webp)
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

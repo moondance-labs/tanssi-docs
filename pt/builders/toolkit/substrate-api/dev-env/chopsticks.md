@@ -1,11 +1,11 @@
 ---
-title: Como usar Chopsticks para bifurcar sua rede
+title: Como usar Chopsticks para Bifurcar Sua Rede
 description: Aprenda o básico de como usar o Chopsticks para reproduzir blocos, dissecar mudanças de estado, testar interações XCM e criar uma bifurcação local de sua rede Tanssi.
 icon: octicons-code-square-24
 categories: Substrate-Template, EVM-Template
 ---
 
-# Como usar Chopsticks para bifurcar sua rede
+# Como usar Chopsticks para Bifurcar Sua Rede
 
 ## Introdução {: #introduction }
 
@@ -40,7 +40,7 @@ yarn build-wasm
 
 Agora o ambiente de desenvolvimento está pronto para começar a testar e depurar redes implantadas na Tanssi.
 
-## Bifurcando uma rede EVM de demonstração com Chopsticks {: #forking-demo-chain }
+## Bifurcando uma Rede EVM de Demonstração com Chopsticks {: #forking-demo-chain }
 
 Para bifurcar uma rede Tanssi usando o Chopsticks, execute o comando com apenas o endpoint RPC como um parâmetro:
 
@@ -121,7 +121,7 @@ yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }} --block 100
 
 
 
-### Interagindo com uma bifurcação {: #interacting-with-a-fork }
+### Interagindo com uma Bifurcação {: #interacting-with-a-fork }
 
 
 Ao executar uma bifurcação, por padrão, ela estará acessível em:
@@ -139,7 +139,7 @@ Você deve ser capaz de interagir com a cadeia bifurcada como faria com a real.
 !!! nota
     Se seu navegador não puder se conectar ao endpoint WebSocket fornecido pelo Chopsticks, talvez seja necessário permitir conexões inseguras para o URL do Polkadot.js Apps. Outra solução é executar a [versão Docker do Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
 
-## Reexecutando blocos {: #replaying-blocks }
+## Reexecutando Blocos {: #replaying-blocks }
 
 Se você deseja reproduzir um bloco e recuperar suas informações para dissecar os efeitos de uma extrínseca, pode usar o comando `yarn start run-block`. Suas seguintes flags são:
 
@@ -233,4 +233,4 @@ Estes são os métodos que podem ser invocados e seus parâmetros:
         await ws.send('dev_setHead', [500]);
         ```
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

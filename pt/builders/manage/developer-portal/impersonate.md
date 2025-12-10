@@ -5,7 +5,7 @@ icon: octicons-person-add-24
 categories: Appchain
 ---
 
-# Usando Sudo para personificar outras contas
+# Usando Sudo para Personificar Outras Contas
 
 ## Introdução {: #introduction }
 
@@ -25,7 +25,7 @@ Para os exemplos neste guia, precisará do seguinte:
 
 --8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
-## Usando o Método Sudo As {: #using-the-sudo-as-method }
+## Usando Sudo e o Dispatch como Utilitário {: #using-sudo-and-the-dispatch-as-utility }
 
 Como sabe, a conta Sudo pode executar funções privilegiadas, incluindo a personificação de outras contas. Ao enviar uma chamada através de `sudoAs`, o tempo de execução primeiro autenticará a chave Sudo e, em seguida, despachará a chamada de função desejada com a origem `Signed` de uma determinada conta. No exemplo a seguir, o método `sudoAs` orquestrará o envio de alguns tokens para outra conta. Embora o resultado seja semelhante ao uso do Sudo com uma chamada `forceBalanceTransfer`, o exemplo a seguir usa uma chamada de transferência de saldo regular, onde a origem é a conta do remetente e não a conta Sudo.
 
@@ -38,7 +38,7 @@ Para fazer uma chamada `sudoAs` para personificar outra conta, navegue para o se
 5. Selecione o método **transferAllowDeath**
 6. Especifique a conta de destino para a transferência de saldo
 7. Especifique o número de tokens a enviar
-1. Pressione **SubmitSudo** e confirme o pop-up resultante
+8. Pressione **SubmitSudo** e confirme o pop-up resultante
 
 ![Make a Sudo as call](/images/builders/manage/developer-portal/impersonate/impersonate-2.webp)
 
@@ -46,7 +46,7 @@ A outra conta tinha um saldo inicial de `1.000` tokens antes da chamada e, subse
 
 ![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-3.webp)
 
-## Usando Sudo e a Utilidade Dispatch As {: #using-sudo-and-the-dispatch-as-utility }
+## Usando Sudo e o Dispatch como Utilitário {: #using-sudo-and-the-dispatch-as-utility }
 
 A secção a seguir demonstrará o uso do Sudo para despachar chamadas de uma origem arbitrária. Ao enviar uma chamada desta forma, o tempo de execução primeiro autenticará a chave Sudo e, em seguida, despachará a chamada usando a paleta `utility` e a função `dispatchAs`, permitindo que a origem da transação seja exatamente o que deseja.
 
@@ -71,4 +71,4 @@ A outra conta tinha um saldo inicial de `995` tokens antes da chamada e caiu par
 
 E é isso! A secção [Developer Portal](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerir a sua rede Tanssi.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

@@ -73,4 +73,4 @@ Para transferir o token nativo da sua rede Tanssi, siga estas etapas:
 
 Este guia se concentrou especificamente na configuração do SubWallet para trabalhar com sua rede EVM Tanssi, mas o SubWallet também é uma carteira completa para contas Substrate (Polkadot). Na seção da API do Substrate, você encontrará um [guia semelhante para configurar o SubWallet para uso com sua rede Substrate](/pt/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

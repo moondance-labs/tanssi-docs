@@ -9,6 +9,6 @@ template: index-page.html
 
 Os serviços de rede da Tanssi fornecem a infraestrutura essencial para operações de blockchain seguras e eficientes. No cerne desses serviços, o protocolo Tanssi oferece produção de blocos como serviço, garantindo o desempenho contínuo e a escalabilidade de redes descentralizadas.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

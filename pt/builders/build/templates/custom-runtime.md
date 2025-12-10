@@ -1,11 +1,11 @@
 ---
-title: Runtime personalizado
+title: Runtime Personalizado
 description: Qualquer runtime personalizado pode ser adaptado para ser implantado pelo Tanssi, desde que módulos específicos sejam implementados e as configurações necessárias sejam definidas.
 icon: octicons-file-binary-24
 categories: Custom-Runtime
 ---
 
-# Runtime personalizado
+# Runtime Personalizado
 
 ## Introdução {: #introduction }
 

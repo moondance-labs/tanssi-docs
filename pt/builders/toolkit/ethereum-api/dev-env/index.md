@@ -15,6 +15,6 @@ Estabelecer um ambiente de desenvolvimento eficaz é crucial para construir, tes
 
 Cada ambiente de desenvolvimento ajuda você a alcançar o mesmo objetivo, construir e implantar aplicações blockchain, mas eles o fazem de maneiras únicas. Por exemplo, IDEs baseadas em navegador como [Remix](/pt/builders/toolkit/ethereum-api/dev-env/remix/) fornecem uma maneira rápida e acessível de começar a codificar, enquanto ferramentas como [Foundry](/pt/builders/toolkit/ethereum-api/dev-env/foundry/) e [Hardhat](/pt/builders/toolkit/ethereum-api/dev-env/hardhat/) atendem aos desenvolvedores que preferem fluxos de trabalho específicos, como uma abordagem Solidity-first ou integrada ao JavaScript. Escolha aquele que melhor se alinha às suas necessidades e estilo de desenvolvimento.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

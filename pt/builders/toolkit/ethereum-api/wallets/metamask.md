@@ -5,7 +5,7 @@ icon: material-wallet-outline
 categories: EVM-Template
 ---
 
-# Interagindo com sua Rede EVM Tanssi Usando MetaMask
+# Interagindo com Sua Rede EVM Tanssi Usando MetaMask
 
 ## Introdução {: #introduction }
 
@@ -57,12 +57,12 @@ Você deve terminar com uma **Conta 2** importada que se parece com isto:
 
 ![MetaMask mostrando sua nova Conta 2](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-5.webp)
 
-## Conecte a MetaMask à sua Rede EVM Tanssi {: #connect-metamask-to-evm-network }
+## Conecte a MetaMask à Sua Rede EVM Tanssi {: #connect-metamask-to-evm-network }
 
 Depois de ter [MetaMask](https://metamask.io){target=\_blank} instalado e ter criado ou importado uma conta, você pode conectá-la à sua rede EVM Tanssi. Para fazer isso, siga os seguintes passos:
 
 1. Clique no menu do seletor de rede no canto superior esquerdo
-1. Selecione **Adicionar Rede**
+2. Selecione **Adicionar Rede**
 
 ![Adicionar nova rede no menu Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-6.webp)
 
@@ -103,4 +103,4 @@ Depois de [conectar a Metamask](#connect-metamask-to-evm-network) à sua rede EV
 - Adicionando ERC-20s à Metamask e interagindo com eles
 - Adicionando ERC-721s à Metamask e interagindo com eles
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

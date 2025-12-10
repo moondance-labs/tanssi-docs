@@ -1,6 +1,6 @@
-title: Executar um nó
+title: Executar um Nó
 hide: false
 nav:
   - index.md
   - 'Nó Tanssi': tanssi
-  - 'Nó de rede com Tanssi': tanssi-powered-network
+  - 'Nó de Rede com Tanssi': tanssi-powered-network

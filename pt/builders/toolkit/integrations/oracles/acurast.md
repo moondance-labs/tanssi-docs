@@ -144,4 +144,4 @@ Para mais detalhes sobre como construir e acessar feeds de preço na sua rede EV
 
 Com isso você tem um fluxo completo: contrato on-chain, script de atualização e job publicado na Acurast para manter o feed de preços ativo.
 
---8<-- 'text/pt/_disclaimers/third-party-content.pt.md'
+--8<-- 'text/_disclaimers/third-party-content.md'

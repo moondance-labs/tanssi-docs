@@ -30,6 +30,6 @@ Para configurar sua rede, siga estes passos:
 
 Agora que você tem sua rede carregada no portal do desenvolvedor, você pode mergulhar nos seguintes guias para começar a gerenciar sua rede.
 
-## Explore esta Seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

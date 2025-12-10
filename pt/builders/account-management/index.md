@@ -11,6 +11,6 @@ O gerenciamento de contas on-chain oferece aos usuários e desenvolvedores maior
 
 Esta seção descreve algumas das ferramentas e recursos relacionados ao gerenciamento de contas.
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::
