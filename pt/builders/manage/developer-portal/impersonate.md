@@ -13,7 +13,7 @@ categories: Appchain
 
 Neste guia, aprenderá como usar Sudo para personificar outras contas. Por exemplo, este guia usará a conta Sudo para se apresentar como uma conta arbitrária e transferir fundos dessa conta.
 
-!!! atenção
+!!! warning
     A transferência de saldo demonstrada neste guia é duvidosa e é mostrada apenas como um exemplo de uso do Sudo.
 
 ## Verificação de Pré-requisitos {: #checking-prerequisites }
@@ -40,11 +40,11 @@ Para fazer uma chamada `sudoAs` para personificar outra conta, navegue para o se
 7. Especifique o número de tokens a enviar
 8. Pressione **SubmitSudo** e confirme o pop-up resultante
 
-![Make a Sudo as call](/images/builders/manage/developer-portal/impersonate/impersonate-2.webp)
+![Fazer uma chamada Sudo as](/images/builders/manage/developer-portal/impersonate/impersonate-2.webp)
 
 A outra conta tinha um saldo inicial de `1.000` tokens antes da chamada e, subsequentemente, caiu para `995`, como esperado.
 
-![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-3.webp)
+![Verificar saldos no Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-3.webp)
 
 ## Usando Sudo e o Dispatch como Utilitário {: #using-sudo-and-the-dispatch-as-utility }
 
@@ -63,11 +63,11 @@ Para fazer isso, navegue para o separador **Developer** (Desenvolvedor) dos Polk
 9. Especifique a conta de destino para a transferência de saldo
 10. Especifique o número de tokens a enviar
 11. Pressione **SubmitSudo** e confirme o pop-up resultante
-![Use Sudo Dispatch As on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-4.webp)
+![Usar Sudo Dispatch As no Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-4.webp)
 
 A outra conta tinha um saldo inicial de `995` tokens antes da chamada e caiu para `990`, como esperado.
 
-![Check balances on Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-5.webp)
+![Verificar saldos no Polkadot.js Apps](/images/builders/manage/developer-portal/impersonate/impersonate-5.webp)
 
 E é isso! A secção [Developer Portal](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerir a sua rede Tanssi.
 

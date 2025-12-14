@@ -49,5 +49,5 @@ Para estender o horizonte projetado da rede, execute as seguintes ações:
 
 Você será solicitado a assinar a transação e, depois que ela for concluída, sua rede se beneficiará de um horizonte de atividade estendida.
 
-!!! atenção
+!!! warning
     Se sua rede não tiver fundos suficientes para cobrir a atribuição do sequenciador e o valor de blocos de uma sessão, ela travará.

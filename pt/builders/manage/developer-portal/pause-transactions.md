@@ -15,7 +15,7 @@ Este módulo permite que um governador de rede evite temporariamente a execuçã
 
 Em um cenário de emergência, quando um exploit crítico é descoberto, este módulo permite que a rede isole e pare apenas a funcionalidade afetada, minimizando efetivamente o impacto geral.
 
-!!! atenção
+!!! warning
     No momento em que este artigo foi escrito, este módulo ainda não foi auditado; portanto, não é recomendado para uso em produção.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
@@ -68,28 +68,23 @@ pub fn transfer_allow_death(
 
 Ao usar qualquer um dos módulos Substrate embutidos, o nome com o qual ele é referenciado no tempo de execução é totalmente de responsabilidade do desenvolvedor, mas os nomes das transações não são personalizáveis. Aqui está uma lista de alguns dos módulos mais comumente usados com as transações mais comumente usadas que eles contêm. Esses são os nomes das transações a serem usados neste módulo Pausa de Transação.
 
-??? function "[**pallet-ethereum**](https://github.com/polkadot-evm/frontier/blob/master/frame/ethereum/src/lib.rs){target=\_blank} — Este módulo, junto com o módulo EVM, fornece compatibilidade total com o Ethereum para a rede"
+???+ function "[**pallet-ethereum**](https://github.com/polkadot-evm/frontier/blob/master/frame/ethereum/src/lib.rs){target=\_blank} — Este módulo, junto com o módulo EVM, fornece compatibilidade total com o Ethereum para a rede"
 
-    ```
     | Nome da Transação |        Descrição        |
     |:----------------:|:-------------------------:|
     |    `transact`    | Executa uma chamada Ethereum |
-    ```
 
 ??? function "[**pallet_balances**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/balances/src/lib.rs){target=\_blank} — Este módulo fornece funcionalidade para lidar com contas e saldos para a moeda nativa da rede"
 
-    ```
     |    Nome da Transação    |                                                                 Descrição                                                                  |
     |:----------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
     | `transfer_allow_death` |      Executa uma transferência de saldo, excluindo a conta do remetente quando seu saldo final fica abaixo do requisito mínimo de existência      |
     | `transfer_keep_alive`  | Executa uma transferência de saldo, mantendo a conta do remetente ativa mesmo quando seu saldo final fica abaixo do requisito mínimo de existência |
     |     `transfer_all`     |                                              Transfere todos os saldos não bloqueados para um destino                                               |
     |         `burn`         |                                     Queima o saldo da conta de origem, reduzindo a emissão total                                     |
-    ```
 
 ??? function "[**pallet_assets**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/assets/src/lib.rs){target=\_blank} — Este módulo fornece funcionalidade para lidar com tokens fungíveis"
 
-    ```
     |   Nome da Transação    |                                                                Descrição                                                                 |
     |:---------------------:|:------------------------------------------------------------------------------------------------------------------------------------------:|
     |       `create`        |                                                   Emite uma nova classe de ativos fungíveis                                                    |
@@ -107,11 +102,9 @@ Ao usar qualquer um dos módulos Substrate embutidos, o nome com o qual ele é r
     |     `thaw_asset`      |                                                     Permite novamente transferências de um ativo                                                     |
     |    `set_metadata`     |                                                       Define os metadados para um ativo                                                       |
     |   `clear_metadata`    |                                                      Limpa os metadados para um ativo                                                      |
-    ```
 
 ??? function "[**pallet_nfts**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/nfts/src/lib.rs){target=\_blank} — Este módulo fornece funções para lidar com tokens não fungíveis"
 
-    ```
     |      Nome da Transação       |                        Descrição                         |
     |:---------------------------:|:----------------------------------------------------------:|
     |          `create`           |       Emite uma nova coleção de itens não fungíveis        |
@@ -129,18 +122,15 @@ Ao usar qualquer um dos módulos Substrate embutidos, o nome com o qual ele é r
     | `clear_collection_metadata` | Limpa os metadados para uma coleção de itens não fungíveis |
     |         `set_price`         |                 Define o preço de um item                 |
     |         `buy_item`          |        Compre um item, desde que esteja à venda         |
-    ```
 
 ??? function "[**pallet_multisig**](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/multisig/src/lib.rs){target=\_blank} — Este módulo fornece funções para lidar com esquemas de múltiplas assinaturas"
 
-    ```
     |    Nome da Transação    |                                                                 Descrição                                                                  |
     |:----------------------:|:--------------------------------------------------------------------------------------------------------------------------------------------:|
     | `as_multi_threshold_1` |                                           Registra uma chamada de múltiplas assinaturas com uma única aprovação                                            |
     |       `as_multi`       | Registra uma chamada de múltiplas assinaturas a ser feita de uma conta composta, se aprovada pelo limite mínimo especificado dos outros signatários |
     |   `approve_as_multi`   |              Registra a aprovação de uma chamada de múltiplas assinaturas e despacha a chamada quando o limite de signatários é atingido              |
     |   `cancel_as_multi`    |                                         Cancela uma transação de múltiplas assinaturas pré-existente e em andamento                                          |
-    ```
 
 ## Pausando Transações {: #pausing-transactions }
 
@@ -156,13 +146,13 @@ Para pausar uma transação, navegue até a guia **Desenvolvedor** do Polkadot.j
 
 Neste exemplo, a transação pausada é `transfer_allow_death` do módulo `Balances`:
 
-![Pause transaction](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-2.webp)
+![Pausar transação](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-2.webp)
 
 Para verificar se a transação foi efetivamente pausada, tente executá-la. Você deve obter um erro.
 
-![Check that the transaction is paused](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-3.webp)
+![Verificar que a transação está pausada](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-3.webp)
 
-!!! atenção
+!!! warning
     A transação `pause` não verifica os nomes dos módulos ou transações e diferencia maiúsculas de minúsculas, portanto, qualquer erro de digitação passará despercebido e a transação será executada com sucesso. Você sempre deve verificar se a transação foi efetivamente pausada.
 
 ## Despausando Transações {: #unpausing-transactions }
@@ -177,7 +167,7 @@ Para despausar uma transação e retorná-la à operação normal, navegue até 
 
 Neste exemplo, a transação a ser despausada é `transfer_allow_death` do módulo `Balances`:
 
-![Unpause transaction](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-4.webp)
+![Retomar transação](/images/builders/manage/developer-portal/pause-transactions/pause-transactions-4.webp)
 
 A transação `unpause` é executada com sucesso somente se os parâmetros do módulo e da transação tiverem sido pausados ​​anteriormente; caso contrário, ela falha. Após o despausamento bem-sucedido, a transação pode ser chamada e executada novamente.
 

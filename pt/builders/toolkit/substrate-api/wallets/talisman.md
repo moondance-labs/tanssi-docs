@@ -15,7 +15,7 @@ Talisman é uma carteira Web3 que suporta nativamente contas Substrate e Ethereu
 
 Este guia leva você por todas as etapas necessárias, desde a instalação do Talisman até a configuração de uma carteira, conectando-a à sua rede Substrate Tanssi e enviando fundos.
 
-!!! nota "Nota do Editor (Atualização de 2025)"
+!!! note "Nota do Editor (Atualização de 2025)"
     Este guia faz referência a opções como Polkadot.js Apps ou tipo de conta Polkadot porque esses são os rótulos usados em ferramentas Substrate comuns. A própria Tanssi é independente — construída com Substrate e alinhada com a segurança apoiada pela Ethereum.
 
 ## Configurando o Talisman {: #setting-up-talisman }
@@ -36,7 +36,7 @@ Para criar sua primeira conta Substrate no Talisman, siga as seguintes etapas:
 2. Dê um nome para sua conta.
 3. Pressione **Criar**.
 
-!!! nota
+!!! note
     Por que Polkadot? Tanssi e appchains com tecnologia Tanssi são construídos usando Substrate, a mesma estrutura que alimenta Polkadot. Como resultado, embora Tanssi e Polkadot sejam redes separadas, eles compartilham o mesmo esquema de assinatura criptográfica.
 
 ![Crie sua primeira conta Polkadot no Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-3.webp)
@@ -45,7 +45,7 @@ Após criar sua primeira conta, você será solicitado a fazer backup de sua fra
 
 ![Faça backup de sua frase semente](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-4.webp)
 
-!!! nota
+!!! note
     Você nunca deve compartilhar sua frase semente (mnemônico) ou chave privada com ninguém. Isso lhes dá acesso direto aos seus fundos. Este guia é apenas para fins educacionais.
 
 ## Importando uma Conta Substrate Existente {: #importing-an-existing-substrate-account }

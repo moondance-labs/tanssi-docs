@@ -11,7 +11,8 @@ categories: Sequencers
 
 Aos sequenciadores, pode chegar o momento de sair graciosamente da rede. A desativação da sua conta envolve um processo de duas etapas para garantir que seu nó seja devidamente dissociado da sua conta e que você receba sua garantia de volta.
 
-Este guia mostrará como encerrar suas operações como um sequenciador Tanssi corretamente. Isso inclui a não delegação de sua autodelegação para reaver sua garantia e o desmapeamento de suas chaves de sessão para cortar a conexão entre seu nó e sua conta. Naturalmente, este guia assume que você é um sequenciador Tanssi existente com um [nó sequenciador](/pt/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} e [chaves de sessão](https://wiki.polkadot.com/learn/learn-cryptography/#session-keys) mapeadas{target=\_blank}.
+Este guia mostrará como encerrar suas operações como um sequenciador Tanssi corretamente. Isso inclui a não delegação de sua autodelegação para reaver sua garantia e o desmapeamento de suas chaves de sessão para cortar a conexão entre seu nó e sua conta. Naturalmente, este guia assume que você é um sequenciador Tanssi existente com um [nó sequenciador](/pt/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} e [chaves de sessão](https://wiki.polkadot.com/learn/learn-cryptography/#session-keys){target=\_blank} mapeadas.
+
 
 ## Solicitar a Não Delegação {: #request-undelegation }
 
@@ -32,6 +33,7 @@ Antes de não delegar, é útil primeiro ver quanto você apostou, pois precisar
 Observe que **JoiningShares** retorna apenas o valor inicial que você delegou ao configurar seu sequenciador. Para obter o valor total apostado, você precisará repetir as etapas acima para **ManualRewardShares** ou **ManualRewardSharesHeldStake** se você não selecionou Autocompounding, e **AutoCompoundingShares** ou **AutoCompoundingSharesHeldStake** se você configurou Autocompounding. Em seguida, adicione seu valor de ações de autocompounding ou manuais ao **JoiningShares** para obter sua delegação total pendente.
 
 Como exemplo, a participação total de um sequenciador de autocompounding pode ser calculada adicionando **JoiningShares** a **AutoCompoundingShares**. Observe esse valor, pois você precisará dele na próxima seção.
+
 
 ### Enviar Solicitação de Não Delegação {: #submit-undelegation-request }
 
@@ -82,7 +84,7 @@ Se pelo menos duas sessões se passaram desde a sessão em que você enviou o ex
 5. Para **operation**, selecione **Leaving**
 6. Para **candidate**, insira a mesma conta que você fez no campo **delegator**
 7. Para **at**, insira o índice da sessão em que você enviou a solicitação de delegado
-1. Clique em **Enviar Transação** e assine e envie a transação de sua carteira
+8. Clique em **Enviar Transação** e assine e envie a transação de sua carteira
 
 ![Criar e enviar um extrínseco para executar a solicitação de autodelegação pendente no portal do desenvolvedor](/images/node-operators/sequencers/offboarding/account/account-5.webp)
 
@@ -101,6 +103,7 @@ As chaves de sessão são usadas para realizar operações de rede, como assinar
 
 A etapa de desmapeamento é tomada apenas como parte do processo de desativação. Se você precisar girar/alterar suas chaves de sessão, precisará seguir a [geração e mapeamento de novas chaves de sessão](/pt/node-operators/sequencers/onboarding/account-setup/#map-session-keys){target=\_blank}. Você não deve remover suas chaves durante o processo de rotação da chave de sessão.
 
+
 Para desmapear suas chaves de sessão, acesse o [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank}, clique na aba **Desenvolvedor**, selecione **Extrínsecos** no menu suspenso e siga estas etapas:
 
 1. Selecione sua conta de sequenciador Tanssi
@@ -118,6 +121,8 @@ Usando o método `session.keyOwner`, você pode verificar se suas chaves de sess
 4. Para **Bytes**, insira suas chaves de sessão codificadas em hexadecimal
 5. Clique no botão **+** ao lado do campo extrínseco
 6. A consulta não deve retornar nada
+
 ![Verificando se o desmapeamento foi bem-sucedido](/images/node-operators/sequencers/offboarding/account/account-8.webp)
+
 
 E é isso! Você desativou com sucesso um sequenciador Tanssi. Se mudar de ideia a qualquer momento e quiser se integrar novamente como um sequenciador Tanssi, você pode seguir as etapas no [guia de integração](/pt/node-operators/sequencers/onboarding/account-setup/){target=\_blank}.

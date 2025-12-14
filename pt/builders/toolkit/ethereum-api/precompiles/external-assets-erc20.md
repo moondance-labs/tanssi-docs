@@ -38,7 +38,7 @@ Os exemplos neste guia são baseados na rede demo Tanssi EVM, que já possui can
 1. O ativo externo registrado (UNIT) que será usado nas seções a seguir
 2. Outros ativos externos disponíveis ainda não registrados
 
-![Tanssi EVM demo network registered external Assets](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-1.webp)
+![Ativos externos registrados na rede demo EVM da Tanssi](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-1.webp)
 
 ## A Interface Solidity ERC-20 {: #the-erc20-interface }
 
@@ -54,7 +54,7 @@ A interface [`ERC20.sol`](https://github.com/moondance-labs/tanssi/blob/master/t
     ```
 
 
-!!! nota
+!!! note
     A pré-compilação de ativos externos ERC-20 não inclui funções `deposit` e `withdraw` e eventos subsequentes esperados de um contrato de token embrulhado, como WETH.
 
 ## Adicionar Token à uma Carteira EVM {: #add-token-to-evm-wallet }
@@ -67,7 +67,7 @@ Para começar, abra o MetaMask e certifique-se de que você está conectado à s
 
 2. Clique em **Importar tokens**
 
-   ![Import Tokens from Tokens Tab in MetaMask](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-2.webp)
+   ![Importar tokens na aba Tokens do MetaMask](/images/builders/toolkit/ethereum-api/precompiles/external-assets-erc20/external-assets-erc20-2.webp)
 
 ```text
 {{networks.demo_evm.precompiles.external_assets_erc20_example}}

@@ -10,7 +10,7 @@ categories: Appchain
 
 A transferência de ativos entre cadeias é crucial porque permite a movimentação contínua de ativos digitais em diferentes redes, aprimorando a interoperabilidade, a liquidez e a experiência do usuário. Para permitir transferências de ativos de e para duas redes, primeiro, um canal bidirecional deve ser aberto entre elas. Graças ao dApp Tanssi, abrir um canal é uma tarefa fácil e rápida. Consulte o artigo [Gerenciar Canais de Comunicação Cross-Chain](/pt/builders/manage/dapp/xcm-channels/){target=\_blank} para saber como fazer isso.
 
-!!! nota
+!!! note
   Abrir um canal de comunicação bidirecional requer aprovação dos governadores de ambas as redes.
 
 Depois que os canais de comunicação da sua rede forem estabelecidos, você pode registrar os ativos de outras cadeias (ativos externos) para começar a operar. Este guia irá guiá-lo pelo processo de registro de ativos externos usando o [Tanssi dApp](https://apps.tanssi.network){target=\_blank}.
@@ -47,5 +47,5 @@ Você será solicitado a assinar a transação e, assim que ela for concluída, 
 
 ![Registro de ativos](/images/builders/manage/dapp/register-external-assets/register-external-assets-2.webp)
 
-!!! nota
+!!! note
   O dApp apresenta apenas ativos conhecidos de redes conhecidas do ecossistema. Se o ativo que você precisa registrar não estiver listado, você terá que fazê-lo usando o portal do desenvolvedor.

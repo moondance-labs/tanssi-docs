@@ -24,7 +24,7 @@ Você precisará do MetaMask instalado e configurado para funcionar com sua rede
 
 Acesse o [Remix](https://remix.ethereum.org){target=_blank} e vá para a aba **File Explorer**.
 
-![File explorer](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-1.webp)
+![Explorador de arquivos no Remix](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-1.webp)
 
 Crie um novo arquivo para o contrato Solidity:
 
@@ -48,7 +48,7 @@ Para compilar:
 1. Abra a aba **Solidity compiler**
 2. Clique em **Compile MyToken.sol**
 
-![Compile MyToken.sol](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-4.webp)
+![Compile MyToken.sol no Remix](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-4.webp)
 
 ## Implantando um Contrato com Remix {: #deploying-a-contract-to-your-network-using-remix }
 

@@ -15,6 +15,6 @@ As principais características dos oráculos incluem:
 - **Automação** - acionar a execução de contratos com base em condições externas
 - **Flexibilidade** - suportar vários tipos de dados, como feeds de preços, atualizações meteorológicas e resultados esportivos
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

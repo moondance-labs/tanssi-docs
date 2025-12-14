@@ -14,18 +14,18 @@ Comece o desenvolvimento de sua rede com nossos modelos abrangentes. Projetados 
 A Tanssi oferece dois modelos para dar início ao processo de desenvolvimento:
 
 - **Modelo de rede Tanssi Básico** - um modelo que fornece a plataforma básica para começar a adicionar lógica personalizada
-  <br>
+    <br>
 
-  [:octicons-arrow-right-24: Saiba mais sobre o que este modelo fornece](/pt/learn/decentralized-networks/included-templates#baseline-network-template)
+    [:octicons-arrow-right-24: Saiba mais sobre o que este modelo fornece](/pt/learn/decentralized-networks/included-templates#baseline-network-template)
 
-  [:octicons-arrow-right-24: Comece a construir com este modelo](/pt/builders/build/templates/substrate/)
+    [:octicons-arrow-right-24: Comece a construir com este modelo](/pt/builders/build/templates/substrate/)
 
 - **Modelo de Rede EVM (Máquina Virtual Ethereum) Tanssi Básico** - um modelo que fornece compatibilidade total com o Ethereum
-  <br>
+    <br>
 
-  [:octicons-arrow-right-24: Saiba mais sobre o que este modelo fornece](/pt/learn/decentralized-networks/included-templates/#baseline-evm-template)
+    [:octicons-arrow-right-24: Saiba mais sobre o que este modelo fornece](/pt/learn/decentralized-networks/included-templates/#baseline-evm-template)
 
-  [:octicons-arrow-right-24: Comece a construir com este modelo](/pt/builders/build/templates/evm/)
+    [:octicons-arrow-right-24: Comece a construir com este modelo](/pt/builders/build/templates/evm/)
 
 Para saber mais sobre os requisitos mínimos para que sua cadeia funcione na Tanssi e quais módulos são incluídos automaticamente, consulte a página [Visão geral do modelo](/pt/builders/build/templates/overview/).
 

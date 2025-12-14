@@ -1,11 +1,11 @@
 ---
-title: Usando Phala para oráculos de feeds de preço
+title: Usando Phala para Oráculos de Feeds de Preço
 description: Aprenda a usar a rede de computação off-chain da Phala para obter feeds de preço Chainlink (Ethereum Mainnet) na sua rede EVM com tecnologia Tanssi.
 icon: octicons-eye-24
 categories: EVM-Template
 ---
 
-# Lançando feeds de preços com Phala
+# Lançando Feeds de Preço com Phala
 
 ## Introdução {: #introduction }
 
@@ -19,7 +19,7 @@ Se você já usa outro provedor de oráculos, a Phala serve como camada de execu
 
 Além disso, por usar enclaves seguros, a Phala reduz a superfície de ataque ao processar dados sensíveis ou agregados de múltiplas fontes, reforçando a confiança no resultado final consumido pelos dApps.
 
-## Como a Phala habilita feeds de preço {: #how-phala-enables-price-feeds }
+## Como a Phala Habilita Feeds de Preço {: #how-phala-enables-price-feeds }
 
 A Phala espelha os [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds){target=_blank} do Ethereum Mainnet. Esses feeds são amplamente adotados e sua coleta/agragação é feita por vários operadores de nó independentes, evitando dependência de uma única fonte de verdade e reduzindo risco de manipulação.
 
@@ -29,7 +29,7 @@ Além de replicar oráculos existentes, é possível criar novos oráculos busca
 
 Em resumo: a Phala funciona como uma ponte segura entre dados externos e sua rede EVM, permitindo reutilizar feeds consolidados da Chainlink ou construir integrações sob medida usando Phat Contracts.
 
-## Buscar dados de preço {: #fetch-price-data }
+## Buscar Dados de Preço {: #fetch-price-data }
 
 Há vários feeds disponíveis na rede EVM demo. Os feeds habilitados por Phat Contracts usam a mesma interface dos feeds Chainlink. Cada feed fica em um contrato e pode ser consultado pela interface agregadora:
 
@@ -45,7 +45,7 @@ A interface expõe cinco funções: `decimals`, `description`, `version`, `getRo
 
 Essas funções permitem consultar metadados do feed, verificar o par de ativos, e obter o preço mais recente ou de uma rodada específica.
 
-### Ativos suportados {: #supported-assets }
+### Ativos Suportados {: #supported-assets }
 
 A Phala obtém os feeds espelhando os feeds Chainlink do Ethereum Mainnet. Há contratos para a [rede EVM demo](/builders/tanssi-network/testnet/demo-evm-network/){target=_blank} e para o Ethereum Mainnet:
 
@@ -71,7 +71,7 @@ A Phala obtém os feeds espelhando os feeds Chainlink do Ethereum Mainnet. Há c
     | USDC/USD | [0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6](https://etherscan.io/address/0x8fFfFfd4AfB6115b954Bd326cbe7B4BA576818f6){target=_blank} |
     | USDT/USD | [0x3E7d1eAB13ad0104d2750B8863b489D65364e32D](https://etherscan.io/address/0x3E7d1eAB13ad0104d2750B8863b489D65364e32D){target=_blank} |
 
-### Interagir com feeds na rede EVM demo {: #interacting-with-price-feeds-demo-evm-network }
+### Interagir com Feeds na Rede EVM Demo {: #interacting-with-price-feeds-demo-evm-network }
 
 1. Conecte a MetaMask à rede EVM demo (veja o guia [Implantar contratos com Remix](/builders/toolkit/ethereum-api/dev-env/remix/){target=_blank}) e certifique-se de que a MetaMask está nessa rede.  
 2. Cole o [contrato Aggregator](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=_blank} em um novo arquivo no Remix e compile.  
@@ -97,7 +97,7 @@ Se preferir outro feed (DAI, ETH etc.), basta repetir os passos usando o endere�
 
 Caso esteja depurando valores inesperados, valide se o `decimals()` retornado confere com o esperado para aquele par. Divergências de escala são a causa mais comum de leituras “estranhas” no front-end.
 
-## Lançando feeds de preço em uma rede EVM {: #launching-price-feeds-on-an-evm-network }
+## Lançando Feeds de Preço em uma Rede EVM {: #launching-price-feeds-on-an-evm-network }
 
 É fácil lançar feeds em uma rede EVM do Tanssi! As etapas a seguir funcionam para redes Trial e dedicadas em [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=_blank}. Este guia é demonstrativo; para produção, [contate a equipe Phala](https://dashboard.phala.network){target=_blank}.
 
@@ -121,10 +121,10 @@ Edite o `.env` e insira a chave privada de uma conta financiada na sua rede e o 
 --8<-- 'code/builders/toolkit/integrations/oracles/phala/env.txt'
 ```
 
-!!! nota
+!!! note
     Nunca compartilhe frase semente ou chave privada. Este guia é apenas educacional.
 
-### Configurar script de implantação {: #configure-deployment-script }
+### Configurar Script de Implantação {: #configure-deployment-script }
 
 Edite `scripts/OffchainAggregator.s.sol`. Ele recebe `decimals` (mantenha `8`) e a descrição do feed (ex.: `BTC / USD`). Use exatamente as descrições suportadas listadas em [Ativos suportados](#supported-assets), ou o feed não funcionará.
 
@@ -133,6 +133,12 @@ Edite `scripts/OffchainAggregator.s.sol`. Ele recebe `decimals` (mantenha `8`) e
     --8<-- 'code/builders/toolkit/integrations/oracles/phala/OffchainAggregator.s.sol'
     ```
 
+Defina sua cadeia com `defineChain`, informando o RPC e o chainId da sua rede:
+
+```ts
+--8<-- 'code/builders/toolkit/integrations/oracles/phala/define-chain.ts'
+```
+
 Em `feeder.ts`, insira os detalhes da sua cadeia (RPC, chainId). O array `mainnetFeedContracts` (endereços do Mainnet) permanece. Limpe `aggregatorContracts` por enquanto — mais adiante você adicionará os endereços implantados na sua rede.
 
 ???+ code "feeder.ts"
@@ -140,7 +146,7 @@ Em `feeder.ts`, insira os detalhes da sua cadeia (RPC, chainId). O array `mainne
     --8<-- 'code/builders/toolkit/integrations/oracles/phala/feeder.ts'
     ```
 
-### Build e testes {: #build-and-test }
+### Build e Testes {: #build-and-test }
 
 ```bash
 yarn build
@@ -163,7 +169,7 @@ Anote o endereço retornado.
 
 --8<-- 'code/builders/toolkit/integrations/oracles/phala/terminal/deploy.md'
 
-### Acessar o contrato agregador {: #access-aggregator-contract }
+### Acessar o Contrato Agregador {: #access-aggregator-contract }
 
 No Remix, com a MetaMask na sua rede EVM, cole o endereço implantado em **At Address**. Expanda **AggregatorV3Interface** e clique em **latestRoundData** — inicialmente deve retornar `0` (sem preço atualizado ainda).
 
@@ -172,7 +178,7 @@ No Remix, com a MetaMask na sua rede EVM, cole o endereço implantado em **At Ad
 
 Se ainda não tiver sua rede configurada na MetaMask, use o botão **Add to MetaMask** no dashboard do [Tanssi dApp](https://apps.tanssi.network){target=_blank} para adicioná-la rapidamente.
 
-### Disparar atualização de preço {: #Trigger Price Feed Update }
+### Disparar Atualização de Preço {: #Trigger Price Feed Update }
 
 Inclua o endereço do agregador em `aggregatorContracts` no `feeder.ts`:
 

@@ -1,6 +1,6 @@
 ---
 title: Transações e Contratos EVM com Web3.js
-description: Aprenda a usar a biblioteca Ethereum Web3.js para enviar transações e implantar contratos Solidity na sua rede EVM compatível com a Tanssi.
+description: Aprenda a usar a biblioteca Ethereum Web3.js para enviar transações e implantar contratos inteligentes Solidity na sua rede EVM compatível e com tecnologia Tanssi.
 icon: octicons-code-24
 categories: EVM-Template
 ---
@@ -9,21 +9,21 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-[Web3.js](https://web3js.readthedocs.io){target=\_blank} é um conjunto de bibliotecas que permite interagir com nós Ethereum via HTTP, IPC ou WebSocket em JavaScript. As redes EVM da Tanssi expõem uma API compatível com Ethereum/JSON-RPC, então você pode usar Web3.js para falar com um nó EVM da Tanssi como se estivesse no Ethereum. Consulte a [documentação](https://web3js.readthedocs.io/en/v1.10.0){target=\_blank} para mais detalhes.
+[Web3.js](https://web3js.readthedocs.io){target=\_blank} é um conjunto de bibliotecas que permite que desenvolvedores interajam com nós Ethereum usando os protocolos HTTP, IPC ou WebSocket em JavaScript. As redes EVM com tecnologia Tanssi têm uma API semelhante à do Ethereum, totalmente compatível com chamadas JSON RPC no estilo Ethereum. Portanto, os desenvolvedores podem aproveitar essa compatibilidade e usar a biblioteca Web3.js para interagir com um nó EVM da Tanssi como se estivessem no Ethereum. Para saber mais sobre Web3.js, consulte o [site de documentação](https://web3js.readthedocs.io/en/v1.10.0){target=\_blank}.
 
-Neste guia você configura o Web3.js para sua rede EVM da Tanssi e usa a biblioteca para enviar uma transação e implantar um contrato em uma rede de demonstração executando no [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}. Para sua rede, basta trocar o endpoint.
+Neste guia, você aprenderá a configurar a biblioteca Web3.js para sua rede EVM da Tanssi. Em seguida, para mostrar a biblioteca em ação, você usará Web3.js para enviar uma transação e implantar um contrato em uma rede EVM de demonstração da Tanssi executando no [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank}. Este guia pode ser adaptado para sua própria rede EVM da Tanssi simplesmente trocando o endpoint.
 
 --8<-- 'text/pt/_common/general-js-tutorial-check.md'
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
-Você precisará:
+Para os exemplos deste guia, você precisará de:
 
-- De uma conta com fundos na rede EVM Tanssi usada nos testes
+- Uma conta com fundos na rede EVM da Tanssi que estiver usando nos testes
 
-## Instalando Web3.js {: #installing-web3js }
+## Instalando Web3Js {: #installing-web3js }
 
-Instale Web3.js e o compilador Solidity:
+Para este guia, instale a biblioteca Web3.js e o compilador Solidity. Para instalar ambos os pacotes NPM, execute:
 
 === "npm"
 
@@ -39,10 +39,12 @@ Instale Web3.js e o compilador Solidity:
 
 ## Configurando o Provedor Web3 {: #setting-up-the-web3-provider }
 
-Os scripts a seguir usam um provedor Web3 para se conectar à rede.
+Ao longo deste guia, você criará vários scripts com funções diferentes, como enviar uma transação, implantar um contrato e interagir com um contrato implantado. Na maioria desses scripts, você precisará criar um provedor Web3.js para interagir com a rede.
 
-1. Importe `Web3`.
-2. Crie o provedor definindo a URL RPC (altere para sua rede quando necessário).
+Para configurar um provedor Web3, siga estes passos:
+
+1. Importe a biblioteca `Web3`.
+2. Crie o provedor Web3 e defina a URL RPC. Você pode configurar Web3.js para funcionar com a rede EVM de demonstração da Tanssi executando no Dancelight ou com sua própria rede EVM da Tanssi apenas alterando o endpoint.
 
 ```js
 // 1. Importe o Web3
@@ -54,26 +56,29 @@ const web3 = new Web3(
 );
 ```
 
-Guarde este trecho; ele será reutilizado.
+Guarde este snippet, pois ele será necessário nos scripts usados nas seções a seguir.
 
 ## Enviar uma Transação {: #send-a-transaction }
 
-Dois scripts: um para consultar saldos e outro para enviar a transação.
+Nesta seção, você criará alguns scripts. O primeiro verificará os saldos de suas contas antes de tentar enviar uma transação. O segundo script enviará a transação.
 
-### Script de Saldos {: #check-balances-script }
-Crie o arquivo:
+Você também pode usar o script de saldo para verificar os saldos após a transação ser enviada.
+
+### Script para verificar saldos {: #check-balances-script }
+
+Basta um arquivo para verificar os saldos dos dois endereços antes e depois da transação. Para começar, crie o arquivo `balances.js` executando:
 
 ```bash
 touch balances.js
 ```
 
-Passos:
+Em seguida, crie o script deste arquivo seguindo estes passos:
 
-1. Inclua o provedor Web3.
-2. Defina `addressFrom` e `addressTo`.
-3. Crie `balances()`.
-4. Use `web3.eth.getBalance` + `web3.utils.fromWei` para exibir em {{ networks.dancelight.demo_evm_token_symbol }}.
-5. Chame `balances()`.
+1. [Configure o provedor Web3](#setting-up-the-web3-provider)
+2. Defina as variáveis `addressFrom` e `addressTo`
+3. Crie a função assíncrona `balances`, que envolve o método `web3.eth.getBalance`
+4. Use a função `web3.eth.getBalance` para buscar os saldos dos endereços `addressFrom` e `addressTo`. Você também pode usar `web3.utils.fromWei` para transformar o saldo em um número mais legível em `{{ networks.dancelight.demo_evm_token_symbol }}`
+5. Por fim, execute a função `balances`
 
 ```js
 // 1. Adicione aqui a lógica do provider do Web3:
@@ -103,55 +108,57 @@ const balances = async () => {
 balances();
 ```
 
-??? code "Visualizar o script completo"
+??? code "Ver o script completo"
 
     ```js
     --8<-- 'code/builders/toolkit/ethereum-api/libraries/web3js/balances.js'
     ```
 
-Execute:
+Para executar o script e buscar os saldos das contas, rode:
 
 ```bash
 node balances.js
 ```
 
-![Verificar saldo Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-1.webp)
+Se funcionar, os saldos dos endereços de origem e destino serão exibidos no terminal em ETH.
 
-### Script de Envio de Transação {: #send-transaction-script }
+![Verificar saldo no Web3.js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-1.webp)
 
-Crie o arquivo:
+### Script para Enviar Transação {: #send-transaction-script }
+
+Você só precisa de um arquivo para executar uma transação entre contas. Neste exemplo, você transferirá 1 token {{ networks.dancelight.demo_evm_token_symbol }} de um endereço de origem (do qual você possui a chave privada) para outro endereço. Para começar, crie o arquivo `transaction.js` executando:
 
 ```bash
 touch transaction.js
 ```
 
-Passos:
+Em seguida, crie o script deste arquivo seguindo estes passos:
 
-1. Inclua o provedor Web3.
-2. Defina `addressFrom` (com `privateKey`) e `addressTo`. **Não armazene chaves reais em arquivos JS.**
-3. Crie `send()` para assinar e enviar.
-4. Assine com `web3.eth.accounts.signTransaction` (gas, to, value).
-5. Envie com `web3.eth.sendSignedTransaction` e aguarde recibo.
-6. Chame `send()`.
+1. [Configure o provedor Web3](#setting-up-the-web3-provider)
+2. Defina `addressFrom`, incluindo a `privateKey`, e a variável `addressTo`. A chave privada é necessária para criar uma instância de carteira. **Nota: isto é apenas para fins de exemplo. Nunca armazene suas chaves privadas em um arquivo JavaScript**
+3. Crie a função assíncrona `send`, que encapsula o objeto de transação e as funções de assinar e enviar a transação
+4. Crie e assine a transação usando a função `web3.eth.accounts.signTransaction`. Informe o `gas`, o `addressTo` e o `value` da transação, além da `privateKey` do remetente
+5. Envie a transação assinada usando o método `web3.eth.sendSignedTransaction` e passe a transação bruta. Em seguida, use `await` para aguardar o processamento e o retorno do recibo da transação
+6. Por fim, execute a função `send`
 
 ```js
 // 1. Adicione aqui a lógica do provider do Web3:
 // {...}
 
-// 2. Crie as variáveis da conta
+// 2. Crie as variáveis de conta
 const accountFrom = {
-  privateKey: 'INSERIR_SUA_CHAVE_PRIVADA',
-  address: 'INSERIR_ENDERECO_PUBLICO_DA_CHAVE',
+  privateKey: 'INSIRA_SUA_CHAVE_PRIVADA',
+  address: 'INSIRA_O_ENDERECO_PUBLICO_DA_CHAVE',
 };
-const addressTo = 'INSERIR_ENDERECO_PARA'; // Altere para o endereço desejado
+const addressTo = 'INSERIR_ENDERECO_PARA'; // Alterar para o endereço desejado
 
-// 3. Crie a função de envio
+// 3. Crie a função send
 const send = async () => {
   console.log(
-    `Tentando enviar a transação de ${accountFrom.address} para ${addressTo}`
+    `Tentando enviar transação de ${accountFrom.address} para ${addressTo}`
   );
 
-  // 4. Assine a tx com a chave privada
+  // 4. Assine a transação com a chave privada
   const createTransaction = await web3.eth.accounts.signTransaction(
     {
       gas: 21000,
@@ -161,7 +168,7 @@ const send = async () => {
     accountFrom.privateKey
   );
 
-  // 5. Envie a tx e aguarde o recibo
+  // 5. Envie a transação e aguarde o recibo
   const createReceipt = await web3.eth.sendSignedTransaction(
     createTransaction.rawTransaction
   );
@@ -170,52 +177,55 @@ const send = async () => {
   );
 };
 
-// 6. Chame a função de envio
+// 6. Chame a função send
 send();
 ```
 
-??? code "Visualizar o script completo"
+??? code "Ver o script completo"
 
     ```js
     --8<-- 'code/builders/toolkit/ethereum-api/libraries/web3js/transaction.js'
     ```
 
-Execute:
+Para executar o script, rode o seguinte comando no terminal:
 
 ```bash
 node transaction.js
 ```
 
-![Enviar Tx Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-2.webp)
+Se a transação for bem-sucedida, o hash será exibido no terminal.
 
-## Implantar um contrato {: #deploy-a-contract }
+Você também pode usar o script `balances.js` para verificar se os saldos das contas de origem e destino mudaram. O fluxo completo ficaria assim:
+
+![Enviar transação no Web3.js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-2.webp)
+
+## Implantar um Contrato {: #deploy-a-contract }
 
 --8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/contract.md'
 
-### Script de compilação {: #compile-contract-script }
+### Script para Compilar o Contrato {: #compile-contract-script }
 
 --8<-- 'text/pt/builders/toolkit/ethereum-api/libraries/compile.md'
 
-### Script de deploy {: #deploy-contract-script }
-
-Compile `Incrementer.sol` e crie `deploy.js`:
+### Script para Implantar o Contrato {: #deploy-contract-script }
+Com o script para compilar o contrato `Incrementer.sol` pronto, você pode usar os resultados para enviar uma transação assinada que o implanta. Para isso, crie um arquivo para o script de implantação chamado `deploy.js`:
 
 ```bash
 touch deploy.js
 ```
 
-Passos:
+Em seguida, crie o script deste arquivo seguindo estes passos:
 
-1. Importe o contrato de `compile.js`.
-2. Inclua o provedor Web3.
-3. Defina `addressFrom`/`privateKey`. **Não salve chaves reais em JS.**
-4. Guarde `bytecode` e `abi`.
-5. Crie `deploy()`.
-6. Instancie o contrato: `new web3.eth.Contract(abi)`.
-7. Construa o deploy com `deploy({ data: bytecode, arguments: [5] })`.
-8. Assine com `web3.eth.accounts.signTransaction` (data, gas).
-9. Envie com `web3.eth.sendSignedTransaction` e aguarde recibo.
-10. Chame `deploy()`.
+1. Importe o arquivo do contrato a partir de `compile.js`
+2. [Configure o provedor Web3](#setting-up-the-web3-provider)
+3. Defina as variáveis `addressFrom`, incluindo a `privateKey`, e `addressTo`. A chave privada é necessária para criar uma instância de carteira. **Nota: isto é apenas para fins de exemplo. Nunca armazene suas chaves privadas em um arquivo JavaScript**
+4. Salve o `bytecode` e o `abi` do contrato compilado
+5. Crie a função assíncrona `deploy` que será usada para implantar o contrato
+6. Crie a instância do contrato usando a função `web3.eth.Contract`
+7. Crie o construtor e passe o `bytecode` e o valor inicial do incrementer. Neste exemplo, defina o valor inicial como `5`
+8. Crie e assine a transação usando a função `web3.eth.accounts.signTransaction`. Informe o `data` e o `gas` da transação, além da `privateKey` do remetente
+9. Envie a transação assinada usando o método `web3.eth.sendSignedTransaction` e passe a transação bruta. Em seguida, use `await` para aguardar o processamento e o retorno do recibo
+10. Por fim, execute a função `deploy`
 
 ```js
 // 1. Importe o arquivo do contrato
@@ -227,21 +237,21 @@ const contractFile = require('./compile');
 // 3. Crie as variáveis de endereço
 const accountFrom = {
   privateKey: 'INSERIR_CHAVE_PRIVADA',
-  address: 'INSERIR_ENDERECO_PUBLICO_DA_CHAVE_PRIVADA',
+  address: 'INSERIR_ENDERECO_PUBLICO_DA_CHAVE',
 };
 
 // 4. Obtenha o bytecode e o ABI
 const bytecode = contractFile.evm.bytecode.object;
 const abi = contractFile.abi;
 
-// 5. Crie a função de deploy
+// 5. Crie a função deploy
 const deploy = async () => {
-  console.log(`Tentando implantar da conta ${accountFrom.address}`);
+  console.log(`Tentando implantar a partir da conta ${accountFrom.address}`);
 
   // 6. Crie a instância do contrato
   const incrementer = new web3.eth.Contract(abi);
 
-  // 7. Crie a tx do construtor
+  // 7. Crie a transação do construtor
   const incrementerTx = incrementer.deploy({
     data: bytecode,
     arguments: [5],
@@ -256,57 +266,61 @@ const deploy = async () => {
     accountFrom.privateKey
   );
 
-  // 9. Envie a tx e aguarde o recibo
+  // 9. Envie a transação e aguarde o recibo
   const createReceipt = await web3.eth.sendSignedTransaction(
     createTransaction.rawTransaction
   );
   console.log(`Contrato implantado no endereço: ${createReceipt.contractAddress}`);
 };
 
-// 10. Chamar a função de deploy
+// 10. Chame a função deploy
 deploy();
 ```
 
-??? code "Visualizar o script completo"
+??? code "Ver o script completo"
 
     ```js
     --8<-- 'code/builders/toolkit/ethereum-api/libraries/web3js/deploy.js'
     ```
 
-Execute:
+Para executar o script, digite o seguinte comando no terminal:
 
 ```bash
 node deploy.js
 ```
 
-![Implantar contrato Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-3.webp)
+Se der certo, o endereço do contrato será exibido no terminal.
 
-### Ler Dados do Contrato (Calls) {: #read-contract-data }
+![Implantar contrato com Web3.js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-3.webp)
 
-Calls não mudam estado; não precisam de transação. Crie `get.js`:
+### Ler Dados do Contrato (métodos de chamada) {: #read-contract-data }
+
+Métodos de chamada são interações que não modificam o armazenamento do contrato (não alteram variáveis), portanto nenhuma transação precisa ser enviada. Eles simplesmente leem variáveis de armazenamento do contrato implantado.
+
+Para começar, crie um arquivo chamado `get.js`:
 
 ```bash
 touch get.js
 ```
 
-Passos:
+Depois, siga estes passos para criar o script:
 
-1. Importe `abi` de `compile.js`.
-2. Inclua o provedor Web3.
-3. Defina `contractAddress`.
-4. Instancie: `new web3.eth.Contract(abi, contractAddress)`.
-5. Crie `get()`.
-6. Chame `incrementer.methods.number().call()` e exiba.
-7. Chame `get()`.
+1. Importe o `abi` do arquivo `compile.js`
+2. [Configure o provedor Web3](#setting-up-the-web3-provider)
+3. Crie a variável `contractAddress` usando o endereço do contrato implantado
+4. Crie uma instância do contrato usando a função `web3.eth.Contract` e passando o `abi` e o `contractAddress`
+5. Crie a função assíncrona `get`
+6. Use a instância do contrato para chamar um dos métodos do contrato e passe os inputs necessários. Neste exemplo, você chamará o método `number`, que não requer entradas. Use `await`, que retornará o valor solicitado quando a promessa for resolvida
+7. Por fim, chame a função `get`
 
 ```js
-// 1. Importe o ABI do contrato
+// 1. Importe o abi do contrato
 const { abi } = require('./compile');
 
 // 2. Adicione aqui a lógica do provider do Web3:
 // {...}
 
-// 3. Endereço do contrato
+// 3. Crie as variáveis de endereço
 const contractAddress = 'INSERIR_ENDERECO_DO_CONTRATO';
 
 // 4. Crie a instância do contrato
@@ -314,75 +328,189 @@ const incrementer = new web3.eth.Contract(abi, contractAddress);
 
 // 5. Crie a função get
 const get = async () => {
-  console.log(`Fazendo uma chamada para o contrato no endereço: ${contractAddress}`);
+  console.log(`Fazendo uma chamada ao contrato no endereço: ${contractAddress}`);
 
-  // 6. Chamar o contrato
+  // 6. Chame o contrato
   const data = await incrementer.methods.number().call();
 
-  console.log(`O número atual armazenado é: ${data}`);
+  console.log(`O número armazenado atualmente é: ${data}`);
 };
 
-// 7. Chamar a função get
+// 7. Chame a função get
 get();
 ```
 
-??? code "Visualizar o script completo"
+??? code "Ver o script completo"
 
     ```js
     --8<-- 'code/builders/toolkit/ethereum-api/libraries/web3js/get.js'
     ```
 
-Execute:
+Para executar o script, digite o seguinte comando no terminal:
 
 ```bash
 node get.js
 ```
 
-![Obter valor Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-4.webp)
+Se der certo, o valor será exibido no terminal.
 
-### Interagir com o Contrato (Sends) {: #interact-with-contract }
+![Ler valor do contrato no Web3.js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-4.webp)
 
-Sends mudam estado, exigem transação. Crie `increment.js` e `reset.js`:
+### Interagir com o Contrato (métodos de envio) {: #interact-with-contract }
+
+Métodos de envio são interações que modificam o armazenamento do contrato (alteram variáveis), portanto uma transação precisa ser assinada e enviada. Nesta seção, você criará dois scripts: um para incrementar e outro para resetar o incrementer. Para começar, crie um arquivo para cada script e nomeie-os `increment.js` e `reset.js`:
 
 ```bash
 touch increment.js reset.js
 ```
 
-`increment.js`:
+Abra o arquivo `increment.js` e siga estes passos para criar o script:
 
-1. Importe `abi`.
-2. Inclua o provedor.
-3. Defina `privateKey`, `contractAddress`, `_value` (**não salve chaves reais em JS**).
-4. Instancie o contrato.
-5. Construa `incrementTx = incrementer.methods.increment(_value)`.
-6. Crie `increment()`.
-7. Assine com `signTransaction` (to, data, gas) e envie com `sendSignedTransaction`.
-8. Aguarde recibo; exiba o hash.
-9. Chame `increment()`.
+1. Importe o `abi` do arquivo `compile.js`
+2. [Configure o provedor Web3](#setting-up-the-web3-provider)
+3. Defina a `privateKey` da conta de origem, o `contractAddress` do contrato implantado e o `_value` pelo qual incrementar. A chave privada é necessária para criar uma instância de carteira. **Nota: isto é apenas para fins de exemplo. Nunca armazene suas chaves privadas em um arquivo JavaScript**
+4. Crie uma instância do contrato usando a função `web3.eth.Contract` e passando o `abi` e o `contractAddress`
+5. Use a instância do contrato para construir a transação de incremento usando a função `methods.increment` e passando `_value` como entrada
+6. Crie a função assíncrona `increment`
+7. Use a instância do contrato e a transação de incremento criada para assinar a transação com a chave privada do remetente. Use a função `web3.eth.accounts.signTransaction` e especifique o endereço `to`, o `data` e o `gas` da transação
+8. Envie a transação assinada usando o método `web3.eth.sendSignedTransaction` e passe a transação bruta. Em seguida, use `await` para aguardar o processamento e o retorno do recibo
+9. Por fim, chame a função `increment`
 
-??? code "Visualizar o script completo"
+```js
+// 1. Importe o abi do contrato
+const { abi } = require('./compile');
+
+// 2. Adicione aqui a lógica do provider do Web3:
+// {...}
+
+// 3. Crie as variáveis
+const accountFrom = {
+  privateKey: 'INSIRA_SUA_CHAVE_PRIVADA',
+};
+const contractAddress = 'INSERIR_ENDERECO_DO_CONTRATO';
+const _value = 3;
+
+// 4. Crie a instância do contrato
+const incrementer = new web3.eth.Contract(abi, contractAddress);
+
+// 5. Monte a transação de incremento
+const incrementTx = incrementer.methods.increment(_value);
+
+// 6. Crie a função increment
+const increment = async () => {
+  console.log(
+    `Chamando a função increment de ${_value} no contrato no endereço: ${contractAddress}`
+  );
+
+  // 7. Assine a transação com a chave privada
+  const createTransaction = await web3.eth.accounts.signTransaction(
+    {
+      to: contractAddress,
+      data: incrementTx.encodeABI(),
+      gas: await incrementTx.estimateGas(),
+    },
+    accountFrom.privateKey
+  );
+
+  // 8. Envie a transação e aguarde o recibo
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
+  console.log(`Transação bem-sucedida com hash: ${createReceipt.transactionHash}`);
+};
+
+// 9. Chame a função increment
+increment();
+```
+
+??? code "Ver o script completo"
 
     ```js
     --8<-- 'code/builders/toolkit/ethereum-api/libraries/web3js/increment.js'
     ```
 
-`reset.js` segue o mesmo padrão, mas chamando `reset()` sem argumentos:
+Para executar o script, digite o seguinte comando no terminal:
 
-??? code "Visualizar reset.js"
+```bash
+node increment.js
+```
+
+Se der certo, o hash da transação será exibido no terminal. Você pode usar o script `get.js` junto com o `increment.js` para garantir que o valor esteja mudando como esperado.
+
+![Incrementar e conferir valor no Web3.js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-5.webp)
+
+Em seguida, abra o arquivo `reset.js` e siga estes passos para criar o script:
+
+1. Importe o `abi` do arquivo `compile.js`
+2. [Configure o provedor Web3](#setting-up-the-web3-provider)
+3. Defina a `privateKey` da conta de origem e o `contractAddress` do contrato implantado. A chave privada é necessária para criar uma instância de carteira. **Nota: isto é apenas para fins de exemplo. Nunca armazene suas chaves privadas em um arquivo JavaScript**
+4. Crie uma instância do contrato usando a função `web3.eth.Contract` e passando o `abi` e o `contractAddress`
+5. Use a instância do contrato para montar a transação de reset usando a função `methods.reset`
+6. Crie a função assíncrona `reset`
+7. Use a instância do contrato e a transação de reset criada para assinar a transação com a chave privada do remetente. Use a função `web3.eth.accounts.signTransaction` e especifique o endereço `to`, o `data` e o `gas` da transação
+8. Envie a transação assinada usando o método `web3.eth.sendSignedTransaction` e passe a transação bruta. Em seguida, use `await` para aguardar o processamento e o retorno do recibo
+9. Por fim, chame a função `reset`
+
+```js
+// 1. Importe o abi do contrato
+const { abi } = require('./compile');
+
+// 2. Adicione aqui a lógica do provider do Web3:
+// {...}
+
+// 3. Crie as variáveis
+const accountFrom = {
+  privateKey: 'INSIRA_SUA_CHAVE_PRIVADA',
+};
+const contractAddress = 'INSERIR_ENDERECO_DO_CONTRATO';
+
+// 4. Crie a instância do contrato
+const incrementer = new web3.eth.Contract(abi, contractAddress);
+
+// 5. Monte a transação de reset
+const resetTx = incrementer.methods.reset();
+
+// 6. Crie a função reset
+const reset = async () => {
+  console.log(
+    `Chamando a função reset no contrato no endereço: ${contractAddress}`
+  );
+
+  // 7. Assine a transação com a chave privada
+  const createTransaction = await web3.eth.accounts.signTransaction(
+    {
+      to: contractAddress,
+      data: resetTx.encodeABI(),
+      gas: await resetTx.estimateGas(),
+    },
+    accountFrom.privateKey
+  );
+
+  // 8. Envie a transação e aguarde o recibo
+  const createReceipt = await web3.eth.sendSignedTransaction(
+    createTransaction.rawTransaction
+  );
+  console.log(`Transação bem-sucedida com hash: ${createReceipt.transactionHash}`);
+};
+
+// 9. Chame a função reset
+reset();
+```
+
+??? code "Ver o script completo"
 
     ```js
     --8<-- 'code/builders/toolkit/ethereum-api/libraries/web3js/reset.js'
     ```
 
-Execute:
+Para executar o script, digite o seguinte comando no terminal:
 
 ```bash
-node increment.js
 node reset.js
 ```
 
-Use `get.js` junto para confirmar as mudanças.
+Se der certo, o hash da transação será exibido no terminal. Você pode usar o script `get.js` junto com o `reset.js` para garantir que o valor esteja mudando como esperado.
 
-![Redefinir contrato Web3js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-6.webp)
+![Resetar contrato no Web3.js](/images/builders/toolkit/ethereum-api/libraries/web3js/web3js-6.webp)
 
 --8<-- 'text/_disclaimers/third-party-content.md'

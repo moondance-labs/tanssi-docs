@@ -11,7 +11,7 @@ Deixar de ser um operador requer seguir os procedimentos adequados para garantir
 
 [timeline left (tanssi-docs/.snippets/text/pt/node-operators/operators/offboarding/offboarding-timeline.json)]
 
-!!! conselho "Retornando como Operador"
+!!! tip "Retornando como Operador"
     Se você decidir retornar como um validador Tanssi no futuro, poderá facilmente se cadastrar novamente seguindo as etapas descritas no guia [Onboarding](/pt/node-operators/operators/onboarding/).
 
 ## Explore Esta Seção

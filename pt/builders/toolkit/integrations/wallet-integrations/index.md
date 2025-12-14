@@ -16,6 +16,6 @@ As principais características das integrações de carteira incluem:
 - **Componentes de IU pré-construídos** - componentes de IU prontos para usar para conexão de carteira, exibição de conta e gerenciamento de saldo, agilizando o desenvolvimento
 - **Personalização** - personalize a aparência e o comportamento do modal da carteira para corresponder à sua marca e ao design da interface do utilizador
 
-## Explore Esta Secção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

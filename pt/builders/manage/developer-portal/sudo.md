@@ -38,7 +38,7 @@ Em seguida, volte para a guia contas e pressione **Conta**. Você poderá substi
 
 ![Adicionando conta no Polkadot.js Apps](/images/builders/manage/developer-portal/sudo/sudo-3.webp)
 
-!!! atenção
+!!! warning
     O armazenamento de chaves no navegador não é adequado para ambientes de produção. Este exemplo é fornecido apenas para fins de demonstração em um ambiente TestNet.
 
 ## Alterando a Conta Sudo {: #changing-the-sudo-account }
@@ -55,7 +55,7 @@ Antes de começar, certifique-se de ter sua conta Sudo existente acessível no [
 
 ![Alterar a conta Sudo no Polkadot.js Apps](/images/builders/manage/developer-portal/sudo/sudo-4.webp)
 
-!!! nota
+!!! note
     Certifique-se de ter acesso à nova conta Sudo. Assim que o Sudo for transferido, ele não poderá ser desfeito sem acesso à chave Sudo atual.
 
 E é isso! A seção [Portal do Desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerenciar sua rede Tanssi.

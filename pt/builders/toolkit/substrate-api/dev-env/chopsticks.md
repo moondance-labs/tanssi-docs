@@ -1,58 +1,58 @@
 ---
-title: Como usar Chopsticks para Bifurcar Sua Rede
-description: Aprenda o básico de como usar o Chopsticks para reproduzir blocos, dissecar mudanças de estado, testar interações XCM e criar uma bifurcação local de sua rede Tanssi.
+title: Como usar o Chopsticks para bifurcar sua rede
+description: Aprenda o básico de como usar o Chopsticks para reproduzir blocos, dissecar mudanças de estado, testar interações XCM e criar um fork local da sua rede Tanssi.
 icon: octicons-code-square-24
 categories: Substrate-Template, EVM-Template
 ---
 
-# Como usar Chopsticks para Bifurcar Sua Rede
+# Como usar o Chopsticks para bifurcar sua rede
 
 ## Introdução {: #introduction }
 
-[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} fornece um método amigável para desenvolvedores de bifurcar localmente as cadeias [Substrate-based](/pt/learn/framework/overview/){target=\_blank} existentes. Ele permite a reprodução de blocos para examinar facilmente como as transações afetam o estado, a bifurcação de várias redes Tanssi para testes XCM e muito mais. Isso capacita os desenvolvedores a testar e experimentar suas configurações de blockchain personalizadas em um ambiente de desenvolvimento local sem implantar uma rede ao vivo.
+[Chopsticks](https://github.com/AcalaNetwork/chopsticks){target=\_blank} oferece uma forma amigável para desenvolvedores bifurcarem localmente cadeias baseadas em [Substrate](/pt/learn/framework/overview/){target=\_blank}. Ele permite reproduzir blocos para examinar como transações afetam o estado, bifurcar múltiplas redes Tanssi para testes de XCM e muito mais. Isso facilita testar e experimentar configurações personalizadas de blockchain em um ambiente local sem precisar implantar uma rede real.
 
-No geral, o Chopsticks visa simplificar o processo de construção de aplicativos blockchain no Substrate e torná-lo acessível a uma gama mais ampla de desenvolvedores.
+Em resumo, o Chopsticks simplifica o processo de construir aplicações em Substrate e o torna acessível a mais desenvolvedores.
 
-Este artigo abordará o uso do Chopsticks para bifurcar e interagir com uma cópia local de uma rede Tanssi.
+Este artigo mostra como usar o Chopsticks para bifurcar e interagir com uma cópia local de uma rede Tanssi.
 
-!!! nota
-    O Chopsticks atualmente não oferece suporte a chamadas feitas via Ethereum JSON-RPC. Consequentemente, você não pode bifurcar sua cadeia usando o Chopsticks e conectar o Metamask a ela.
+!!! note
+    O Chopsticks atualmente não suporta chamadas via Ethereum JSON-RPC. Portanto, você não pode bifurcar sua cadeia com o Chopsticks e conectar o Metamask a ela.
 
 ## Pré-requisitos {: #prerequisites }
 
-Para acompanhar este tutorial, você precisará clonar o repositório junto com seus submódulos([Smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
+Para seguir este tutorial, clone o repositório com seus submódulos ([Smoldot](https://github.com/smol-dot/smoldot.git){target=\_blank}):
 
 ```bash
 git clone --recurse-submodules https://github.com/AcalaNetwork/chopsticks.git
 ```
 
-Em seguida, entre na pasta e instale as dependências usando [yarn](https://classic.yarnpkg.com/en/docs/install){target=\_blank}:
+Depois, entre na pasta e instale as dependências usando o [yarn](https://classic.yarnpkg.com/en/docs/install){target=\_blank}:
 
 ```bash
  cd chopsticks && yarn
 ```
 
-Finalmente, construa o projeto:
+Por fim, faça o build do projeto:
 
 ```bash
 yarn build-wasm
 ```
 
-Agora o ambiente de desenvolvimento está pronto para começar a testar e depurar redes implantadas na Tanssi.
+Agora o ambiente de desenvolvimento está pronto para começar a testar e depurar redes implantadas com Tanssi.
 
-## Bifurcando uma Rede EVM de Demonstração com Chopsticks {: #forking-demo-chain }
+## Bifurcando uma rede EVM de Demonstração com o Chopsticks {: #forking-demo-chain }
 
-Para bifurcar uma rede Tanssi usando o Chopsticks, execute o comando com apenas o endpoint RPC como um parâmetro:
+Para bifurcar uma rede Tanssi usando o Chopsticks, execute o comando passando apenas o endpoint RPC:
 
 ```bash
 yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }}
 ```
 
-Este comando iniciará um clone local da cadeia como estava no bloco mais recente.
+Esse comando inicia um clone local da cadeia no último bloco.
 
 --8<-- 'code/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.md'
 
-Normalmente, os parâmetros de configuração são armazenados em um arquivo de configuração, como são as configurações na pasta `configs` do repositório para as cadeias de retransmissão e parachains implantadas no ecossistema Dotsama. O seguinte arquivo de configuração funciona para a [rede EVM de demonstração](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}, substituindo a conta sudo da cadeia pela de Alith e, adicionalmente, financiando a conta com tokens:
+Normalmente, os parâmetros de configuração ficam em um arquivo de configuração, como os que estão na pasta `configs` do repositório para relay chains e parachains do ecossistema Dotsama. O arquivo a seguir funciona para a [rede EVM de demonstração](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=\_blank}, sobrescrevendo a conta sudo da cadeia pela conta da Alith e financiando-a com tokens:
 
 ```yaml
 endpoint: {{ networks.dancelight.demo_evm_rpc_wss_url }}
@@ -73,28 +73,27 @@ import-storage:
     Key: "0xf24FF3a9CF04c71Dbc94D0b566f7A27B94566cac"
 ```
 
-O arquivo de configuração aceita todos os seguintes parâmetros:
+O arquivo de configuração aceita todos os parâmetros a seguir:
 
-|           Opção           |                                                 Descrição                                                  |
-|:--------------------------:|:------------------------------------------------------------------------------------------------------------:|
-|         `genesis`          |          O link para um arquivo genesis bruto de uma parachain para construir a bifurcação, em vez de um endpoint.          |
-|        `timestamp`         |                                     Carimbo de data/hora do bloco para bifurcar.                                     |
-|         `endpoint`         |                                    O endpoint da parachain para bifurcar.                                    |
-|          `block`           |                       Use para especificar em qual bloco hash ou número reproduzir a bifurcação.                       |
-|      `wasm-override`       |              Caminho do Wasm para usar como tempo de execução da parachain em vez do tempo de execução do endpoint.              |
-|            `db`            |               Caminho para o nome do arquivo que armazena ou armazenará o banco de dados da parachain.               |
-|          `config`          |                                       Caminho ou URL do arquivo de configuração.                                        |
-|           `port`           |                                      A porta para expor um endpoint em.                                      |
-|     `build-block-mode`     |                       Como os blocos devem ser construídos na bifurcação: batch, manual, instantâneo.                        |
-|      `import-storage`      |              Um caminho de arquivo de armazenamento JSON/YAML predefinido para substituir no armazenamento da parachain.               |
-| `allow-unresolved-imports` |              Se deve permitir importações Wasm não resolvidas ao usar um Wasm para construir a parachain.              |
-|           `html`           |                           Incluir para gerar a visualização de diferença de armazenamento entre os blocos.                           |
-|   `mock-signature-host`    | Simular host de assinatura para que qualquer assinatura comece com `0xdeadbeef` e preenchida por `0xcd` seja considerada válida. |
+|           Opção            |                                                 Descrição                                                  |
+|:--------------------------:|:---------------------------------------------------------------------------------------------------------:|
+|         `genesis`          |      Link para o raw genesis de uma parachain para construir o fork, em vez de usar um endpoint.          |
+|        `timestamp`         |                                   Timestamp do bloco de origem do fork.                                   |
+|         `endpoint`         |                                    Endpoint da parachain a ser bifurcada.                                 |
+|          `block`           |                    Especifica em qual hash ou número de bloco o fork deve ser reproduzido.                 |
+|      `wasm-override`       |          Caminho do Wasm a usar como runtime da parachain em vez do runtime do endpoint.                  |
+|            `db`            |                Caminho para o arquivo que armazena (ou armazenará) o banco de dados da parachain.         |
+|          `config`          |                                       Caminho ou URL do arquivo de configuração.                           |
+|           `port`           |                                      Porta para expor um endpoint.                                         |
+|     `build-block-mode`     |                         Como os blocos devem ser construídos: batch, manual, instant.                      |
+|      `import-storage`      |        Caminho JSON/YAML de um storage predefinido para sobrescrever o storage da parachain.               |
+| `allow-unresolved-imports` |        Se permite imports Wasm não resolvidos ao usar um Wasm para construir a parachain.                  |
+|           `html`           |                        Inclua para gerar preview de diff de storage entre blocos.                         |
+|   `mock-signature-host`    | Mock de assinatura: qualquer assinatura iniciada com `0xdeadbeef` e preenchida com `0xcd` é válida.        |
 
-Você pode executar o comando `yarn start` para bifurcar cadeias, especificando um arquivo de configuração local. Alternativamente, o nome ou a URL do GitHub podem ser usados ​​se a cadeia estiver listada na pasta `configs` do repositório.
+Você pode rodar `yarn start` para bifurcar cadeias informando um arquivo de configuração local. Como alternativa, use o nome ou a URL do GitHub se a cadeia estiver listada na pasta `configs` do repositório.
 
-
-=== "Caminho do arquivo local"
+=== "Caminho de arquivo local"
 
     ```bash
     yarn start --config=configs/polkadot.yml
@@ -113,47 +112,45 @@ Você pode executar o comando `yarn start` para bifurcar cadeias, especificando 
     --config=https://github.com/AcalaNetwork/chopsticks.git/master/configs/polkadot.yml
     ```
 
-Todas as configurações (exceto `genesis` e `timestamp`) também podem ser passadas como flags para configurar o ambiente completamente na linha de comando. Por exemplo, o seguinte comando bifurca a rede EVM de demonstração no bloco 100.
+Todas as configurações (exceto `genesis` e `timestamp`) também podem ser passadas como flags para definir o ambiente apenas pela linha de comando. Por exemplo, o comando a seguir bifurca a rede EVM de demonstração no bloco 100.
 
 ```bash
 yarn start --endpoint {{ networks.dancelight.demo_evm_rpc_wss_url }} --block 100
 ```
 
+### Interagir com um Fork {: #interacting-with-a-fork }
 
-
-### Interagindo com uma Bifurcação {: #interacting-with-a-fork }
-
-
-Ao executar uma bifurcação, por padrão, ela estará acessível em:
+Ao executar um fork, por padrão ele fica acessível em:
 
 ```text
 ws://localhost:8000
 ```
 
-Você pode interagir com a parachain por meio de bibliotecas como [Polkadot.js](https://github.com/polkadot-js/common){target=\_blank} e sua [interface de usuário, Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}.
+Você pode interagir com a parachain via bibliotecas como [Polkadot.js](https://github.com/polkadot-js/common){target=\_blank} e sua interface [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=ws%3A%2F%2F127.0.0.1%3A8000#/explorer){target=\_blank}.
 
 ![Polkadot Js](/images/builders/toolkit/substrate-api/dev-env/chopsticks/chopsticks-1.webp)
 
-Você deve ser capaz de interagir com a cadeia bifurcada como faria com a real.
+Agora você deve conseguir interagir com a cadeia bifurcada como faria com a real.
 
-!!! nota
-    Se seu navegador não puder se conectar ao endpoint WebSocket fornecido pelo Chopsticks, talvez seja necessário permitir conexões inseguras para o URL do Polkadot.js Apps. Outra solução é executar a [versão Docker do Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
+!!! note
+    Se o navegador não conseguir conectar ao endpoint WebSocket do Chopsticks, talvez seja necessário permitir conexões inseguras na URL do Polkadot.js Apps. Outra opção é usar a [versão em Docker do Polkadot.js Apps](https://github.com/polkadot-js/apps#docker){target=\_blank}.
 
-## Reexecutando Blocos {: #replaying-blocks }
+## Reproduzindo Blocos {: #replaying-blocks }
 
-Se você deseja reproduzir um bloco e recuperar suas informações para dissecar os efeitos de uma extrínseca, pode usar o comando `yarn start run-block`. Suas seguintes flags são:
+Se quiser reproduzir um bloco e recuperar suas informações para dissecar os efeitos de um extrínseco, use o comando `yarn start run-block`. Os flags são:
 
-|            Sinalizador            |                                      Descrição                                       |
+|            Flag            |                                       Descrição                                        |
 |:--------------------------:|:--------------------------------------------------------------------------------------:|
-|         `endpoint`         |                         O endpoint da parachain para bifurcar.                         |
-|          `block`           |            Use para especificar em qual bloco hash ou número reproduzir a bifurcação.            |
-|      `wasm-override`       |   Caminho do Wasm para usar como tempo de execução da parachain em vez do tempo de execução do endpoint.   |
-|            `db`            |    Caminho para o nome do arquivo que armazena ou armazenará o banco de dados da parachain.    |
-|          `config`          |                            Caminho ou URL do arquivo de configuração.                             |
-| `output-path=/[file_path]` |   Use para imprimir os resultados em um arquivo JSON em vez de imprimi-lo no console.   |
-|           `open`           |                        Se deve abrir a representação HTML.                        |
+|         `endpoint`         |                          Endpoint da parachain a ser bifurcada.                        |
+|          `block`           |                 Especifica em qual hash ou número de bloco reproduzir o fork.          |
+|      `wasm-override`       |      Caminho do Wasm a usar como runtime da parachain em vez do runtime do endpoint.   |
+|            `db`            |      Caminho para o arquivo que armazena (ou armazenará) o banco de dados da cadeia.   |
+|          `config`          |                             Caminho ou URL do arquivo de configuração.                 |
+| `output-path=/[file_path]` |      Imprime os resultados em um arquivo JSON em vez de exibi-los no console.          |
+|           `html`           |   Inclua para gerar uma representação HTML do diff de storage entre blocos.            |
+|           `open`           |                         Define se abre a representação HTML.                           |
 
-Por exemplo, a execução do seguinte comando reexecutará o bloco 1000 das redes EVM de demonstração e gravará a diferença de armazenamento e outros dados em um arquivo `chain-output.json`:
+Por exemplo, o comando abaixo executa novamente o bloco 1000 da rede EVM de demonstração e grava o diff de storage e outros dados em `chain-output.json`:  
 
 ```bash
 yarn start run-block  \
@@ -164,7 +161,7 @@ yarn start run-block  \
 
 ## Comandos WebSocket {: #websocket-commands }
 
-O servidor WebSocket interno do Chopstick possui endpoints especiais que permitem a manipulação da cadeia Substrate local.
+O servidor WebSocket interno do Chopsticks possui endpoints especiais para manipular a cadeia Substrate local.
 
 Estes são os métodos que podem ser invocados e seus parâmetros:
 
@@ -172,64 +169,62 @@ Estes são os métodos que podem ser invocados e seus parâmetros:
 
     === "Parâmetros"
 
-        - **options** - `{ "to": number, "count": number }` - um objeto JSON onde `\"to\"` criará blocos até um determinado valor, e `\"count\"` aumentará em um certo número de blocos. Use apenas uma entrada por vez dentro do objeto JSON
+        - **options** - `{ "to": number, "count": number }` - objeto JSON em que `"to"` cria blocos até certo valor e `"count"` aumenta em determinado número de blocos. Use apenas uma entrada por vez no objeto
 
     === "Exemplo"
 
         ```js
         import { WsProvider } from '@polkadot/api'
         const ws = new WsProvider(`ws://localhost:8000`)
-        // Cria cinco novos blocos
+        // Cria cinco blocos novos
         await ws.send('dev_newBlock', [{ count: 5 }])
+        ```
 
-
-
-??? function "**dev_setStorage** (values, blockHash) — Cria ou sobrescreve o valor de qualquer armazenamento"
+??? function "**dev_setStorage** (values, blockHash) — Cria ou sobrescreve o valor de qualquer storage"
 
     === "Parâmetros"
 
-         - **values** - Object - um objeto JSON semelhante ao caminho para um valor de armazenamento, semelhante ao que você recuperaria via Polkadot.js  
-        - **blockHash** - String - opcional, o hash do bloco em que o valor do armazenamento é alterado  
+         - **values** - Objeto - JSON semelhante ao caminho para um valor de storage, como você obteria via Polkadot.js  
+        - **blockHash** - String - opcional, hash do bloco no qual o valor de storage é alterado  
         
     === "Exemplo"
 
         ```js
         import { WsProvider } from '@polkadot/api';
         const ws = new WsProvider(`ws://localhost:8000`);
-        // Substitui a chave sudo
+        // Sobrescreve a chave sudo
         await ws.send('dev_setStorage', 
             [{"Sudo": { "Key": "0x6Be02d1d3665660d22FF9624b7BE0551ee1Ac91b" }}]
         );
         ```
 
-??? function "**dev_timeTravel** (date) — Define o carimbo de data/hora do bloco para o valor da data"
+??? function "**dev_timeTravel** (date) — Define o timestamp do bloco para o valor informado"
 
     === "Parâmetros"
 
-         - **date** - Date - uma string compatível com a biblioteca JavaScript Date que mudará o carimbo de data/hora em que os próximos blocos a serem criados serão. Todos os blocos futuros serão criados sequencialmente após esse ponto no tempo  
+         - **date** - Date - string compatível com a biblioteca Date do JavaScript que altera o timestamp dos próximos blocos. Todos os blocos futuros serão criados sequencialmente após esse ponto no tempo  
 
     === "Exemplo"
 
         ```js
         import { WsProvider } from '@polkadot/api';
         const ws = new WsProvider(`ws://localhost:8000`);
-        // Define o carimbo de data/hora do bloco para 15 de agosto de 2030
+        // Define o timestamp para 15 de agosto de 2030
         await ws.send('dev_timeTravel', ["2030-08-15T00:00:00"]);
         ```
 
-??? function "**dev_setHead** (hashOrNumber) — Define o cabeçalho do blockchain para um hash ou número específico"
-
+??? function "**dev_setHead** (hashOrNumber) — Define a head da blockchain para um hash ou número específico"
 
     === "Parâmetros"
 
-         - **hashOrNumber** - number | string - se encontrado, o cabeçalho da cadeia será definido para o bloco com o número do bloco ou hash do bloco deste valor
+         - **hashOrNumber** - number | string - se encontrado, a head será definida para o bloco com esse número ou hash
         
     === "Exemplo"
 
         ```js
         import { WsProvider } from '@polkadot/api';
         const ws = new WsProvider(`ws://localhost:8000`);
-        // Define o cabeçalho para o número do bloco 500
+        // Define a head para o bloco 500
         await ws.send('dev_setHead', [500]);
         ```
 

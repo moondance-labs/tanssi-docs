@@ -15,7 +15,7 @@ Ao criar o Tempo de Execução, que define as regras de transição de estado en
 
 Para construir o Tempo de Execução, o Substrate fornece muitos módulos integrados (também conhecidos como pallets) que podem ser livremente usados como blocos de construção para compor e interagir com quaisquer outros módulos feitos sob medida, permitindo que as equipas criem comportamentos únicos de acordo com os requisitos específicos da sua rede Tanssi.
 
-![Built-in modules](/images/learn/framework/modules/modules-1.webp)
+![Módulos embutidos](/images/learn/framework/modules/modules-1.webp)
 
 ## Módulos Integrados {: #built-in-modules }
 
@@ -33,7 +33,7 @@ Aqui está uma lista de alguns dos módulos mais populares:
 
 Além daqueles já listados, outros módulos como [identity](https://paritytech.github.io/substrate/master/pallet_identity/index.html){target=\_blank}, [smart contracts](https://paritytech.github.io/substrate/master/pallet_contracts/index.html){target=\_blank}, [vesting](https://paritytech.github.io/substrate/master/pallet_vesting/index.html){target=\_blank}, e muitos outros que estão livremente disponíveis podem acelerar o desenvolvimento da rede Tanssi e, consequentemente, o tempo de lançamento.
 
-!!! nota
+!!! note
     O framework também inclui outros módulos que fornecem funcionalidades essenciais de protocolo, como consenso e codificação de dados de baixo nível.
 
 ## Módulos Feitos sob Medida {: #custom-modules }

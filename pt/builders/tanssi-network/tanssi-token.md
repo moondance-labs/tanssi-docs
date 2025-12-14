@@ -29,7 +29,7 @@ O token tem várias utilidades:
 - **Staking em operadores**: os detentores de tokens podem apostar em operadores, recebendo recompensas por seus serviços de validação.
 - **Pagamento de taxas**: use o token para pagar as taxas de interação com a rede Tanssi.
 
-!!! nota
+!!! note
     Todas as taxas de transação na Tanssi são pagas usando o token, com o valor total indo diretamente para financiar a conta do tesouro do protocolo. Esses fundos só podem ser gastos via governança.
 
 ## Representações de Token {: #token-representations }
@@ -80,7 +80,7 @@ O token Tanssi nativo existe na rede Tanssi como um ativo baseado em Substrate e
 
 Este token usa como [conta do tipo Substrate Sr25519](/pt/learn/tanssi/account-types/#key-types-in-tanssi-protocol){target=\_blank}, então requer uma carteira como a [Talisman](/pt/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank} ou qualquer outra [carteira compatível com Substrate](/pt/builders/toolkit/substrate-api/wallets/){target=\_blank}.
 
-!!! nota
+!!! note
     O token nativo Tanssi (Substrate) tem doze (12) casas decimais.
 
 ### Tanssi (ERC-20) - Representação Ethereum {: #tanssi-erc-20 }
@@ -89,7 +89,7 @@ A versão ERC-20 da Tanssi é um token Ethereum padrão que representa o token n
 
 Este token, como qualquer outro ativo Ethereum, usa uma [conta ECDSA](/pt/learn/tanssi/account-types/#key-types-in-tanssi-protocol){target=\_blank}, então requer uma carteira como [Metamask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} ou qualquer outra [carteira compatível com Ethereum](/pt/builders/toolkit/ethereum-api/wallets/){target=\_blank}.
 
-!!! nota
+!!! note
     O Tanssi (ERC-20) tem doze (12) casas decimais.
 
 ### Comparação Tanssi (Substrate) e Tanssi (ERC-20) {: #substrate-erc-20-comparison }

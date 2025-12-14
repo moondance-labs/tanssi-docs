@@ -21,7 +21,7 @@ A implantação de uma appchain com tecnologia Tanssi via [Tanssi dApp](https://
 
 ![Um diagrama mostrando as etapas para implantar uma appchain Tanssi com o Tanssi dApp.](/images/builders/deploy/deploy-1.webp)
 
-!!! nota
+!!! note
     Para implantações de _Quick Trial appchains_ e _Dedicated appchains_ no Tanssi TestNet, a equipe Tanssi concluirá a verificação manualmente. Após a verificação, geralmente leva cerca de dez minutos para sua quick trial appchain ficar pronta e cerca de duas horas para uma dedicada. Para o Tanssi MainNet, o processo será totalmente descentralizado e sem permissão.
 
 Para começar, visite [Usando o Tanssi DApp](/pt/builders/deploy/dapp/).

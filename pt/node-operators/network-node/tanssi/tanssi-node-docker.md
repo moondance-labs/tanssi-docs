@@ -9,7 +9,7 @@ categories: RPC-Data-Preservers
 
 ## Introdução {: #introduction }
 
-Neste guia, você aprenderá como iniciar um nó Tanssi usando a imagem oficial com [Docker](https://www.docker.com){target=_blank} em sistemas Linux. Os nós são cruciais para o ecossistema Tanssi, pois fornecem endpoints de API estáveis aos quais aplicativos e usuários podem se conectar para obter dados da cadeia e enviar transações.
+Neste guia, você aprenderá como iniciar um nó Tanssi usando a imagem oficial com [Docker](https://www.docker.com){target=\_blank} em sistemas Linux. Os nós são cruciais para o ecossistema Tanssi, pois fornecem endpoints de API estáveis aos quais aplicativos e usuários podem se conectar para obter dados da cadeia e enviar transações.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
@@ -148,7 +148,7 @@ As flags do `docker run` podem ser ajustadas conforme suas preferências e hardw
 - **--database=paritydb** - usa ParityDB como backend otimizado para desempenho de nó RPC
 - **--unsafe-rpc-external** - permite conexões externas ao RPC; exige medidas adicionais de segurança em produção (proxy reverso, autenticação, firewall)
 
-!!! atenção
+!!! warning
     A flag `--unsafe-rpc-external` expõe seu nó RPC externamente. Em produção, proteja com firewall, proxy reverso, autenticação e limitação de taxa.
 
 Você pode visualizar todas as flags disponíveis executando:
@@ -170,6 +170,8 @@ Você pode visualizar todas as flags disponíveis executando:
 Na primeira execução, o processo de sincronização exibirá muitos logs do nó e da cadeia. Alguns erros iniciais são esperados e desaparecem quando a cadeia alcança o último bloco.
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
+
+Quando o processo de sincronização terminar, seu nó estará pronto para atender solicitações de API.
 
 ## Testando Seu Nó {: #testing-your-rpc-node }
 

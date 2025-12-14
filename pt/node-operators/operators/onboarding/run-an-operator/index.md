@@ -21,7 +21,7 @@ Hardware recomendado:
 - **RAM Recomendada** - 32 GB ECC RAM
 - **Rede Recomendada** - Conexão de 1 Gbps
 
-!!! atenção
+!!! warning
 Como operador, você é responsável tanto pelo seu próprio stake quanto pelo de seus delegadores. Manter o desempenho do seu nó, mantê-lo atualizado e garantir sua segurança são cruciais para maximizar as recompensas e construir uma forte reputação na rede Tanssi.
 
 ### Portas de Rede Necessárias

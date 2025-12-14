@@ -1,11 +1,11 @@
 ---
-title: Como adicionar RainbowKit a uma rede EVM do Tanssi
+title: Como Adicionar RainbowKit a uma Rede EVM do Tanssi
 description: Saiba como integrar o RainbowKit a uma rede compatível com Ethereum implantada via Tanssi, facilitando a adição de uma ótima experiência de carteira ao seu dApp.
 icon: material-wallet-outline
 categories: EVM-Template
 ---
 
-# Integrar RainbowKit a uma rede Tanssi
+# Integrar RainbowKit a uma Rede Tanssi
 
 ## Introdução
 
@@ -22,7 +22,7 @@ Usando essas peças juntas, você evita reimplementar fluxo de conexão, persist
 
 Este guia explica como adicionar o RainbowKit a um dApp em uma rede com tecnologia Tanssi usando a CLI, além de opções para personalizar a integração.
 
-## Início rápido {: #quick-start }
+## Início Rápido {: #quick-start }
 
 Para começar um projeto novo, o RainbowKit pode gerar um esqueleto via CLI com RainbowKit e Wagmi em uma aplicação [Next.js](https://nextjs.org/docs){target=_blank}. Use o gerenciador de pacotes de sua preferência:
 
@@ -88,12 +88,11 @@ Configuração para a rede EVM demo do Tanssi:
 
 Atualize `wagmi.ts` conforme acima para suportar a rede demo. A próxima seção mostra como obter o `projectId` do WalletConnect.
 
-## Configuração manual
+## Configuração Manual
 
 As seções seguintes mostram como integrar o RainbowKit em um app React existente: instalar dependências, configurar cadeias, disponibilizar o RainbowKit no dApp, definir a cadeia padrão do **Connect Wallet** e personalizar o tema. O exemplo usa a rede EVM demo do Tanssi, mas pode ser adaptado mudando o RPC.
 
-### Verificando pré-requisitos {: #checking-prerequisites }
-
+### Verificando Pré-requisitos {: #checking-prerequisites }
 - Uma rede compatível com EVM no Tanssi
 - Um dApp existente em [React](https://react.dev/){target=_blank}
 - Exemplos do [repositório RainbowKit](https://github.com/rainbow-me/rainbowkit/tree/main/examples){target=_blank} (há templates para vários frameworks)
@@ -222,7 +221,7 @@ Depois, edite `app/layout.tsx` para usar `Providers`:
 --8<-- 'code/builders/toolkit/wallet-integrations/rainbowkit/layout.tsx'
 ```
 
-### Adicionar o botão Connect
+### Adicionar o Botão Connect
 
 Use o componente `ConnectButton` (pode ficar em `page.tsx` ou em um header/nav):
 
@@ -238,7 +237,7 @@ Se você tiver vários botões ou páginas, considere criar um componente compar
 
 O RainbowKit facilita a conexão e permite customizar UI/UX. Veja todas as opções na [docs do RainbowKit](https://rainbowkit.com/docs/introduction){target=_blank}. Aqui vamos definir a cadeia inicial e aplicar tema customizado.
 
-### Definir cadeia inicial
+### Definir Cadeia Inicial
 
 O RainbowKit conecta na primeira cadeia da lista do Wagmi. Melhor é usar `initialChain` no `RainbowKitProvider`. Em `providers.tsx`, defina:
 
@@ -248,7 +247,7 @@ O RainbowKit conecta na primeira cadeia da lista do Wagmi. Melhor é usar `initi
 
 Isso força conectar primeiro na Demo EVM Chain.
 
-### Definir cores de tema
+### Definir Cores de Tema
 
 Use `lightTheme`, `darkTheme` ou `midnightTheme`. Exemplo com tema escuro customizado (adicione `darkTheme` ao import):
 
@@ -265,10 +264,10 @@ Campos:
 
 Você pode ainda ajustar ícones, textos do modal e posição do botão criando um tema customizado ou sobrescrevendo componentes via props do `ConnectButton`.
 
-!!! conselho
+!!! tip
     Teste temas e cores para combinar com o estilo do seu dApp.
 
-## Lidar com desconexões
+## Lidar com Desconexões
 
 ### Desconectar no dApp {: #disconnect-from-dapp }
 

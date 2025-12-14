@@ -15,7 +15,7 @@ Este guia rápido mostra como criar um projeto Squid e configurá-lo para indexa
 
 Para um tutorial mais completo para redes EVM, confira [Indexando Transferências ERC-20 em uma Rede EVM Tanssi](/pt/builders/toolkit/integrations/indexers/sqd/erc20-transfers/){target=_blank}.
 
-## Verificando pré-requisitos {: #checking-prerequisites }
+## Verificando Pré-requisitos {: #checking-prerequisites }
 
 Para os exemplos deste guia, você vai precisar de:
 
@@ -23,7 +23,7 @@ Para os exemplos deste guia, você vai precisar de:
 - [Docker](https://docs.docker.com/get-started/get-docker/){target=_blank}
 - [Squid CLI](https://docs.sqd.ai/squid-cli/installation/){target=_blank}
 
-## Indexar uma rede Substrate Tanssi {: #index-substrate-networks }
+## Indexar uma Rede Substrate Tanssi {: #index-substrate-networks }
 
 Para começar a indexar dados Substrate na sua rede Tanssi, crie um projeto Squid e configure-o para sua rede com estes passos:
 
@@ -80,7 +80,7 @@ Para começar a indexar dados Substrate na sua rede Tanssi, crie um projeto Squi
 
 Pronto! Agora você pode atualizar `schema.graphql`, `src/main.ts`, `typegen.json` e `src/processor.ts` para indexar os dados que precisa.
 
-## Indexar uma rede EVM Tanssi {: #index-evm-networks }
+## Indexar uma Rede EVM Tanssi {: #index-evm-networks }
 
 Para indexar dados EVM em uma rede EVM Tanssi, crie um projeto Squid e configure-o assim:
 
@@ -118,7 +118,7 @@ Para indexar dados EVM em uma rede EVM Tanssi, crie um projeto Squid e configure
     })
     ```
 
-    !!! nota
+    !!! note
         Para testar na rede EVM de demonstração, você pode usar este RPC:
 
         ```text

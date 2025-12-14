@@ -13,7 +13,7 @@ categories: RPC-Data-Preservers
 
 Neste guia, você aprenderá como iniciar rapidamente um nó appchain Tanssi usando [Docker](https://www.docker.com){target=_blank} em um computador Linux. Ele pode ser adaptado para outros sistemas operacionais.
 
-!!! nota
+!!! note
     Não é possível executar um nó RPC para appchains de teste rápidas, pois elas rodam em uma rede privada e, portanto, não estão acessíveis para sincronização.
 
 ## Verificação de Pré-requisitos {: #checking-prerequisites }
@@ -117,7 +117,7 @@ Para iniciar seu nó, execute a imagem Docker com `docker run`. Altere conforme 
         --8<-- 'code/node-operators/network-node/rpc-docker/docker-command-testnet.md'
         ```
 
-!!! nota
+!!! note
     Por padrão, apenas o estado histórico dos últimos 256 blocos finalizados é mantido. Para executar um nó de arquivo completo, defina a flag `--state-pruning archive`. Mais informações na [seção de sinalizadores](#run-flags).
 
 --8<-- 'text/pt/node-operators/network-node/fetching-bootnode-section.md'
@@ -176,5 +176,5 @@ Após iniciar, o processo de sincronização exibirá muitos logs do nó e da ap
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
-!!! nota
+!!! note
     A duração da sincronização é proporcional ao tamanho da cadeia que está sendo sincronizada.

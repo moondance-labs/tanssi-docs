@@ -9,121 +9,124 @@ categories: Basics
 
 ## Introdução {: #introduction }
 
-Uma das propostas centrais da Tanssi é simplificar a complexidade de infraestrutura das redes. Um componente crucial é iniciar um conjunto descentralizado de sequenciadores, que a Tanssi oferece por sua arquitetura e mecânica de staking.
+Uma das propostas centrais da Tanssi é simplificar a complexidade de infraestrutura das redes. Um componente crucial é iniciar um conjunto descentralizado de sequenciadores, que a Tanssi oferece por meio de sua arquitetura e mecânica de staking.
 
-O staking da Tanssi garante que os sequenciadores das redes com tecnologia Tanssi sejam escolhidos de forma descentralizada e trustless, além de incentivar a comunidade a delegar para sequenciadores de melhor desempenho.
+A mecânica de staking da Tanssi garante que os sequenciadores das redes com tecnologia Tanssi sejam escolhidos de forma descentralizada e trustless, além de incentivar a comunidade a delegar para sequenciadores de melhor desempenho ou mais engajados.
 
 Este conteúdo apresenta os conceitos fundamentais do staking da Tanssi e como ele mantém um conjunto descentralizado de produção de blocos que garante a disponibilidade das redes.
 
 <div style="text-align: center; justify-content:center;" class="row hero-buttons">
   <a href="https://www.tanssi.network/post/staking-tanssi" aria-label="Learn How to Stake on Tanssi Apps" style="margin: .5em;">
-    <button class="md-button primary-button" style="padding: 1em; font-size: 1em;">
-Aprenda como Fazer Estacas -></button>
+    <button class="md-button primary-button" style="padding: 1em; font-size: 1em;">Learn How to Stake -></button>
   </a>
 </div>
 
 ## Conceitos Básicos {: #core-concepts }
 
-A mecânica de staking da Tanssi se inspira no conceito de tokens de pool de liquidez (LP tokens) em AMMs como o Uniswap V2.
+A mecânica do módulo de staking da Tanssi foi inspirada no conceito de tokens de pool de liquidez (LP tokens) em AMMs tradicionais como Uniswap V2.
 
-Cada sequenciador tem quatro pools de liquidez pelos quais os delegadores passam ao realizar operações de staking: entrando, recebendo recompensas manuais, recompensas com auto-compound e saindo. Diferentemente dos LP tokens tradicionais, os tokens de participação nesses pools não são transferíveis.
+Cada sequenciador possui quatro pools de liquidez pelos quais os delegadores passam ao realizar diferentes operações de staking. Cada pool representa um estado do processo: ingresso, recompensas manuais, recompensas com auto-compound e saída. Diferente dos LP tokens tradicionais, os tokens de participação nesses pools não são transferíveis.
 
-Há quatro operações simples para que o delegador alterne entre estados (pools): delegar (para recompensas manuais ou auto-compound), undelegar, trocar entre pools e executar operações pendentes. Exemplo: ao delegar para um dos pools de recompensas, o usuário entra no **Joining Pool**; após um atraso, qualquer pessoa pode executar a operação pendente e mover os fundos para o pool escolhido. Depois disso, é possível trocar entre pools de recompensas. Para sair, o usuário usa *undelegate* e, após o atraso, executa a operação pendente para resgatar tokens.
+O delegador tem quatro transações simples para percorrer os estados (pools): delegar (para recompensas manuais ou auto-compound), undelegar, trocar e executar operações pendentes. Por exemplo, para entrar em um dos pools de recompensas, o usuário delega e entra no Joining Pool imediatamente. Após um atraso, o próprio usuário (ou qualquer pessoa) pode executar a operação pendente e entrar no pool de recompensas escolhido. Depois, pode trocar entre pools de recompensa quando quiser. Por fim, quem está em um pool de recompensas pode usar *undelegate* para ir ao Leaving Pool e remover o stake; após o atraso, qualquer pessoa pode executar a operação pendente e concluir a saída.
 
-Pools mantêm um conjunto de **shares** (análogas a LP tokens). As shares recebidas dependem do tipo de pool, quantidade delegada, total de shares e total delegado no pool.
+Pools de liquidez possuem shares, análogas a LP tokens em AMMs. Ao entrar em um novo pool, o usuário recebe shares conforme o tipo de pool, a quantidade delegada, o total de shares e o total delegado nesse pool.
 
-Recompensas são atribuídas aos pools de recompensas (Manual ou Auto-Compound) quando a Tanssi atesta que o slot de produção de blocos do sequenciador foi cumprido com sucesso.
+Recompensas são atribuídas aos pools Manual ou Auto-Compound de um sequenciador quando a Tanssi atesta que o slot de produção de blocos designado foi cumprido com sucesso.
 
-Todas as recompensas ficam em uma conta do protocolo, mas o protocolo rastreia internamente o saldo de cada pool. A diferença entre os pools de recompensas é como as recompensas são distribuídas: no **Manual Rewards Pool** o usuário precisa reivindicar; no **Auto-Compound Rewards Pool** as recompensas são reinvestidas automaticamente a cada bloco Tanssi.
+Todas as recompensas (de todos os pools) ficam em uma conta do protocolo, mas o protocolo rastreia internamente os tokens nativos de cada pool. A diferença entre pools Manual e Auto-Compound é como as recompensas são distribuídas: no **Manual Rewards Pool**, o usuário precisa reivindicar; no **Auto-Compound Rewards Pool**, as recompensas são automaticamente reinvestidas a cada bloco da Tanssi.
 
-As chamadas de delegar e undelegar precisam ser enviadas pelo próprio delegador (sinalizam a intenção). Após o atraso configurado em sessões, qualquer pessoa pode executar a operação pendente para efetivar a entrada/saída do pool.
+As operações de delegar e undelegar precisam ser enviadas pelo próprio delegador, sinalizando a intenção e pedindo ao protocolo para realizar as verificações necessárias. Essas ações só podem ser executadas depois de um número de sessões, mas qualquer participante pode realizar a segunda etapa por meio da transação *execute pending operation*.
 
 O diagrama a seguir resume o fluxo de delegar e undelegar para um sequenciador; ações do usuário em ciano e pools em coral.
 
-![Tanssi Staking Flow](/images/learn/tanssi/staking/staking-1.webp)
+![Visão geral do mecanismo de staking da Tanssi](/images/learn/tanssi/staking/staking-1.webp)
 
-## Visão Geral do Módulo {: #pallet-overview }
+## Parâmetros de Staking {: #staking-parameters }
 
-O módulo de staking da Tanssi mantém um inventário de sequenciadores, delegadores e permissões, além das pools de recompensas. As principais estruturas (em inglês para corresponder ao código) são:
+=== "Tanssi MainNet"
+    |   Variável    |                                                         Valor                                                         |
+    |:-------------:|:---------------------------------------------------------------------------------------------------------------------:|
+    | Joining Delay | {{ networks.mainnet.staking.joining_delay_blocks }} blocos ({{ networks.mainnet.staking.joining_delay_hours }} horas) |
+    | Leaving Delay | {{ networks.mainnet.staking.leaving_delay_blocks }} blocos ({{ networks.mainnet.staking.leaving_delay_hours }} horas) |
+  
+=== "Dancelight TestNet"
+    |   Variável    |                                                            Valor                                                            |
+    |:-------------:|:---------------------------------------------------------------------------------------------------------------------------:|
+    | Joining Delay | {{ networks.dancelight.staking.joining_delay_blocks }} blocos ({{ networks.dancelight.staking.joining_delay_hours }} horas) |
+    | Leaving Delay | {{ networks.dancelight.staking.leaving_delay_blocks }} blocos ({{ networks.dancelight.staking.leaving_delay_hours }} horas) |
 
-- **`SequencerBalance`**: registra stake do sequenciador, delegadores permitidos e pools do sequenciador.
-- **`RewardPools`**: mantém recompensas disponíveis para o sequenciador, e rewards acumulados (pending) em cada pool.
-- **`PoolData`**: metadados de cada pool (shares, delegado total, contas do pool, epoch de entrada).
-- **`JoiningPools`**: operações pendentes de entrada em um sequenciador; usuários movem fundos aqui antes de irem ao pool de destino.
-- **`LeavingPool`**: operações pendentes de saída; delegadores movem fundos para sair de todos os pools.
+## Pools de Staking {: #staking-pools}
 
-![Tanssi Staking Pallet Overview](/images/learn/tanssi/staking/staking-2.webp)
+Esta seção detalha cada pool que representa uma etapa do processo de staking.
 
-## Fluxo de Entradas e Saídas {: #delegator-in-and-out }
+### Joining Pool {: #joining-pool}
 
-O fluxo de delegação/saída acontece em duas etapas:
+Ao delegar para iniciar o staking, o usuário escolhe o mecanismo de recompensas: manual ou auto-compound (cada um é um pool). Após a transação, o usuário entra no Joining Pool e recebe shares proporcionais ao valor delegado. Esse pool oferece estabilidade aos sequenciadores, impondo um atraso entre delegar e receber recompensas (pelo menos uma sessão).
 
-- **Sinalizar**: o usuário envia *delegate* ou *undelegate* e os fundos entram no Joining Pool ou Leaving Pool. Nessa etapa o protocolo valida permissões (limites de delegadores por sequenciador, autodelegação etc.).
-- **Executar**: após o atraso configurado, qualquer pessoa pode chamar *execute_pending_operation* para mover os fundos para o pool de destino (manual ou auto-compound) ou completar a saída para o delegador.
+Exemplo prático: Alice inicia o staking mirando o Manual Rewards Pool e entra no Joining Pool no meio de uma sessão; ela deve esperar até o fim da sessão seguinte para executar a operação pendente e começar a receber recompensas.
 
-## Pools de Recompensa {: #reward-pools }
+Joining Pools têm proporção 1:1 entre shares e tokens delegados. Se Alice delega 100 tokens, recebe 100 shares do Joining Pool. Quando a operação pendente de delegate é executada, o protocolo consome as shares do Joining Pool em troca dos tokens nativos, que são imediatamente convertidos em shares do Manual ou Auto-Compound Rewards Pool.
 
-Há três pools de recompensa por sequenciador:
+O diagrama abaixo supõe que o usuário está direcionando stake para o Manual Rewards Pool.
 
-- **Joining Pool**: estágio intermediário antes de alocar em Manual ou Auto-Compound.
-- **Manual Rewards Pool**: recompensas precisam ser reivindicadas manualmente.
-- **Auto-Compound Rewards Pool**: recompensas são automaticamente reinvestidas a cada bloco Tanssi.
+![Visão geral do Joining Pool no staking](/images/learn/tanssi/staking/staking-2.webp)
 
-![Tanssi Reward Pools](/images/learn/tanssi/staking/staking-3.webp)
+### Manual Rewards Pool {: #manual-rewards-pool}
 
-## Distribuição de Recompensas {: #reward-distribution }
+Ao entrar no Manual Rewards Pool, o protocolo destrói as shares do Joining Pool em favor do token nativo. No mesmo bloco, calcula quantas shares do Manual Pool podem ser cunhadas com esse valor, com base no preço da share:
 
-Ao final de cada sessão, a Tanssi calcula recompensas do sequenciador e distribui para os pools Manual e Auto-Compound do sequenciador:
+```mathematica
+SharePrice [Tokens/Shares] = NumberOfTokensInPool / NumberOfSharesInPool 
+```
 
-- Valor do pool manual:
-  ```math
-  reward\_manual = (total\_reward * weight\_manual) / (weight\_manual + weight\_auto)
-  ```
-- Valor do pool auto-compound:
-  ```math
-  reward\_auto = total\_reward - reward\_manual
-  ```
-- Rewards são somados a `available_rewards` de cada pool; depois, no block hook, `available_rewards` é movido para `pending_rewards` e, em seguida, distribuído proporcionalmente às shares dos delegadores.
+Shares não têm decimais; qualquer resto de tokens ao adquirir shares é devolvido ao usuário. O preço da share não muda com novas entradas, pois a razão é mantida. Com shares do Manual Rewards Pool, o usuário passa a acumular recompensas (na mesma sessão) que precisam ser reivindicadas manualmente.
 
-### Como as Shares Evoluem {: #shares-evolution }
+Ao contrário do Auto-Compound, a distribuição no Manual ocorre por um mecanismo de checkpoint de recompensas. Ele rastreia o histórico de tokens nativos por share atribuído pelo protocolo naquele Manual Rewards Pool em um momento específico. Quando a Tanssi atesta um bloco produzido por um sequenciador, novas recompensas são atribuídas ao Manual Rewards Pool para os usuários reivindicarem, e o contador de recompensas aumenta. Assim, as recompensas são refletidas na razão de tokens por share, diferença entre o contador atual do pool e o checkpoint do usuário.
 
-- Quando um delegador entra em um pool:
-  ```math
-  shares = (stake\_amount * total\_shares) / total\_stake\_in\_pool
-  ```
-- Quando rewards são adicionadas, o total de stake no pool aumenta, mas o total de shares não muda; isso faz o valor por share subir.
-- Na saída, o usuário recebe:
-  ```math
-  payout = (user\_shares * total\_stake\_in\_pool) / total\_shares
-  ```
+O contador de recompensas por share é essencial para calcular o valor devido ao reivindicar. Após calcular, o protocolo envia os tokens para o usuário e redefine o checkpoint dele para o contador atual do pool, garantindo alinhamento e zero recompensas pendentes.
 
-### Auto-Compound x Manual {: #auto-vs-manual }
+De forma semelhante, ao adicionar ou remover stake, as recompensas são reivindicadas automaticamente e o checkpoint é redefinido, pois a condição de recompensas para aquele montante muda e precisa ser sincronizada com o pool.
 
-- **Manual**: usuário reivindica quando quiser; valor por share cresce apenas quando `pending_rewards` é distribuído.
-- **Auto-Compound**: a cada bloco, `pending_rewards` é reinvestido automaticamente no pool, aumentando o valor por share continuamente.
+![Visão geral do Manual Rewards Pool no staking](/images/learn/tanssi/staking/staking-3.webp)
 
-## Operações de Usuário {: #user-actions }
+### Auto-Compound Rewards Pool {: #autocompounded-rewards-pool}
 
-- **delegate(sequencer_id, amount, autocompound?)**
-  - Envia fundos para o Joining Pool do sequenciador (destino manual ou auto).
-  - Após `join_delay`, executar operação pendente move fundos para o pool de destino.
-- **execute_pending_operation(target_account?)**
-  - Qualquer pessoa pode chamar; move operações do Joining/Leaving Pool após os atrasos.
-- **swap_pool(sequencer_id)**
-  - Troca entre Manual e Auto-Compound; adiciona entrada no Joining Pool e saída do pool atual; após atraso, execução pendente efetiva a troca.
-- **undelegate(sequencer_id)**
-  - Move shares para o Leaving Pool; após `leaving_delay`, execução pendente devolve tokens ao delegador.
+Ao entrar no Auto-Compound Rewards Pool, o protocolo destrói as shares do Joining Pool em favor do token nativo. No mesmo bloco, calcula quantas shares de Auto-Compound podem ser cunhadas com esse valor, com base no preço da share:
 
-## Parâmetros Importantes {: #parameters }
+```mathematica
+SharePrice [Tokens/Shares] = NumberOfTokensInPool / NumberOfSharesInPool 
+```
 
-- **join_delay**: número de sessões antes de entrar no pool de destino.
-- **leave_delay**: número de sessões antes de concluir a saída.
-- **max\_delegators**: limite de delegadores por sequenciador.
-- **weights de recompensa**: definem quanto vai para Manual vs Auto-Compound.
+Shares não têm decimais; qualquer resto é devolvido ao usuário. O preço da share não muda na entrada. Com shares do Auto-Compound Rewards Pool, o usuário acumula recompensas na mesma sessão.
 
-## Resumo {: #summary }
+Ao contrário do Manual, as recompensas em tokens nativos no Auto-Compound são atribuídas automaticamente a cada bloco da Tanssi em que o protocolo atesta o sequenciador designado. Como o número de tokens no pool cresce e o de shares permanece, o preço da share sobe; ao resgatar, o usuário recebe mais tokens por share do que na entrada.
 
-- Delegadores interagem com pools por operações em duas etapas (sinalizar, executar).
-- Recompensas são alocadas entre pools Manual e Auto-Compound a cada sessão; Auto-Compound reinveste automaticamente.
-- Shares não são transferíveis e definem a fração de cada pool; valor por share aumenta com recompensas.
+![Visão geral do Auto-Compound Rewards Pool no staking](/images/learn/tanssi/staking/staking-4.webp)
 
+As recompensas são reinvestidas como novo stake no Auto-Compound Rewards Pool, caracterizando o auto-compound.
+
+Contudo, quando recompensas auto-compound são atribuídas, elas não ficam no saldo reservado do usuário; ainda estão na conta do protocolo, e o aumento do stake é representado pelo aumento do preço da share. Em alguns cenários, o usuário pode querer que esse saldo conste no estado como saldo reservado (por exemplo, governança).
+
+Por isso, o protocolo oferece uma chamada específica para atualizar o saldo reservado de qualquer delegado, movendo as recompensas auto-compound da conta do protocolo para o saldo reservado do usuário. Isso também é executado automaticamente ao remover liquidez do Auto-Compound Rewards Pool.
+
+### Leaving Pool {: #leaving-pool}
+
+Ao sair de posições no Manual ou Auto-Compound, o usuário pode iniciar uma undelegation. Como na entrada, é um processo em duas etapas: assina a intenção de remover a delegação e aguarda pelo menos uma sessão antes de a operação ser executada por qualquer pessoa.
+
+Ao executar a intenção de saída, o protocolo troca shares do pool específico por tokens nativos ao preço atual. Para o Manual Rewards Pool, recompensas não reivindicadas são atribuídas ao usuário. Em seguida, o protocolo compra shares do Leaving Pool em proporção 1:1 aos tokens nativos recebidos, garantindo que o usuário entre no Leaving Pool com shares equivalentes ao valor a ser retirado.
+
+Após uma sessão, qualquer usuário pode executar a operação pendente; o protocolo então troca shares do Leaving Pool por tokens nativos em proporção 1:1.
+
+O objetivo principal do Leaving Pool é fornecer um buffer para saídas, permitindo implementar mecanismos de slashing para coibir mau comportamento. O slashing não está implementado atualmente, mas pode ser adicionado no futuro.
+
+O diagrama a seguir supõe que o usuário está saindo do Manual Rewards Pool.
+
+![Visão geral do Leaving Pool no staking](/images/learn/tanssi/staking/staking-5.webp)
+
+### Trocar entre Pools de Recompensa {: #swap-rewards-pool}
+
+O módulo de staking da Tanssi permite trocar o stake de um pool de recompensas para outro, total ou parcialmente, sem passar novamente pelos pools de entrada e saída.
+
+Primeiro, todas as recompensas pendentes do Manual Rewards Pool são reivindicadas em nível de protocolo, pois a liquidez está sendo alterada e o checkpoint precisa ser sincronizado. Em seguida, shares do pool original são consumidas e trocadas por tokens nativos ao preço atual; então, shares do novo pool são adquiridas ao preço do novo pool. Qualquer “poeira” restante é convertida em shares do Leaving Pool. Tudo ocorre no mesmo bloco; não há atraso para começar a receber recompensas no novo pool. A poeira no Leaving Pool pode ser reivindicada após os atrasos necessários.
+
+![Visão geral da troca entre pools Manual e Auto-Compound no staking](/images/learn/tanssi/staking/staking-6.webp)

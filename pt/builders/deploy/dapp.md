@@ -67,7 +67,7 @@ O [template EVM](/pt/builders/build/templates/evm/){target=\_blank} adiciona a c
 
 Você precisará de um ID de cadeia EVM exclusivo ([EIP-155](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-155.md){target=\_blank}). Verifique se o ID está livre em [Chainlist](https://chainid.network){target=\_blank}. Ao lançar em produção, abra um PR para reservar o ID no repositório [`ethereum-lists/chains`](https://github.com/ethereum-lists/chains){target=\_blank} assim que o endpoint RPC estiver ativo.
 
-!!! nota
+!!! note
     Um ID de cadeia EVM registrado é necessário apenas na MainNet. Para testes na TestNet, use qualquer ID disponível.
 
 Para configurar:
@@ -183,7 +183,7 @@ Depois, selecione o template **Custom** e envie o arquivo JSON de especificaçã
 
 ![Enviar especificação customizada no Tanssi dApp](/images/builders/deploy/dapp/dapp-6.webp)
 
-!!! nota
+!!! note
     O arquivo de especificação bruta não deve exceder 2 MB.
 
 ## Checar Saldos {:  #check-balances}
@@ -207,7 +207,7 @@ Saldos mínimos para lançar:
     |:------------------:|:----------------:|
     |   Tanssi TestNet   |     100 STAR     |
 
-!!! nota
+!!! note
     Appchains de teste rápido usam uma camada adicional de orquestração e, portanto, requerem SNAP e UNIT. Para appchains dedicadas, apenas STAR é necessário.
 
 ## Reserve Seu ID de Appchain {: #reserve-appchain-id }

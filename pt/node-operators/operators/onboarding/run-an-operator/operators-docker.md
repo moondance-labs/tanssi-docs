@@ -145,17 +145,9 @@ Substitua `INSERT_YOUR_TANSSI_NODE_NAME` por um nome legível e `INSERT_YOUR_IP_
 
 ### Flags de Execução {: #run-flags }
 
-As flags do `docker run` podem ser ajustadas conforme preferências e hardware. Algumas das principais:
+As flags usadas no comando `docker run` podem ser ajustadas conforme suas preferências e configuração de hardware. Algumas das principais são:
 
-- **--state-pruning=archive** - mantém todos os dados de estado (necessário para consultas históricas)
-- **--blocks-pruning=archive** - mantém todos os blocos (necessário para dados históricos de blocos)
-- **--database=paritydb** - usa ParityDB como backend otimizado para desempenho do nó RPC
-- **--unsafe-rpc-external** - permite conexões externas ao RPC; requer medidas adicionais de segurança (proxy reverso, autenticação, firewall)
-
-!!! atenção
-    A flag `--unsafe-rpc-external` expõe seu nó RPC externamente. Em produção, proteja com firewall, proxy reverso, autenticação e limitação de taxa.
-
-Você pode visualizar todas as flags disponíveis executando:
+--8<-- 'text/node-operators/network-node/run-flags.md'
 
 === "Tanssi MainNet"
 

@@ -20,7 +20,7 @@ Os tokens {{ networks.dancelight.token_symbol }} servem como a moeda nativa dent
 2. Preencha o formulário, fornecendo informações básicas e seu endereço baseado em Substrate.
 3. Em até um dia útil após o envio do formulário, você receberá tokens {{ networks.dancelight.token_symbol }} para testes.
 
-!!! nota
+!!! note
     Os tokens {{ networks.dancelight.token_symbol }} não têm valor. Por favor, não envie solicitações desnecessárias.
 
 ## Pontos de Extremidade da Rede {: #dancelight-network-endpoints }

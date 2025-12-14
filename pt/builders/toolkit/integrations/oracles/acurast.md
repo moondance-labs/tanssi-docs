@@ -1,11 +1,11 @@
 ---
-title: Usando Acurast para oráculos de feeds de preço
+title: Usando Acurast para Oráculos de Feeds de Preço
 description: Aprenda a usar a nuvem serverless descentralizada da Acurast para obter feeds de preço confiáveis na sua rede EVM com tecnologia Tanssi.
 icon: octicons-eye-24
 categories: EVM-Template
 ---
 
-# Acessando feeds de preço com Acurast
+# Acessando Feeds de Preço com Acurast
 
 ## Introdução {: #introduction }
 
@@ -17,7 +17,7 @@ Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-pric
 
 Acurast é uma nuvem descentralizada e sem servidor em que qualquer pessoa pode contribuir poder de computação (inclusive com celulares) e receber recompensas. Esses Processors formam uma rede distribuída mundialmente. Processors e desenvolvedores interagem pelo [Acurast Console](https://console.acurast.com){target=_blank}.
 
-## Obter dados de preço {: #fetch-price-data }
+## Obter Dados de Preço {: #fetch-price-data }
 
 Você pode desenhar o feed de preço Acurast como quiser. Os dados ficam em uma série de contratos (um por feed) e podem ser consultados via a interface do agregador. O feed demo usa a mesma interface de preço da Chainlink:
 
@@ -29,7 +29,7 @@ Você pode desenhar o feed de preço Acurast como quiser. Os dados ficam em uma 
 
 Na interface, cinco funções retornam dados: `decimals`, `description`, `version`, `getRoundData` e `latestRoundData`. Consulte a [referência da Chainlink](https://docs.chain.link/data-feeds/api-reference){target=_blank} para detalhes.
 
-## Interagir com feeds na rede EVM demo do Tanssi {: #interacting-with-price-feeds-demo-evm-network }
+## Interagir com Feeds na Rede EVM Demo do Tanssi {: #interacting-with-price-feeds-demo-evm-network }
 
 Vamos usar o feed BTC/USDT já implantado (veja [Ativos suportados](#supported-assets)). O contrato do agregador no Blockscout:
 
@@ -60,7 +60,7 @@ Para consultar:
 
 Lembre-se de ajustar pelo número de decimais informado por `decimals()`. Ex.: se o feed retorna `51933620000` e `decimals = 6`, o preço é `51,933.62`.
 
-### Ativos suportados {: #supported-assets }
+### Ativos Suportados {: #supported-assets }
 
 Exemplo de chamada de API usada no demo:
 
@@ -72,7 +72,7 @@ Saída de exemplo:
 
 --8<-- 'code/builders/toolkit/integrations/oracles/acurast/terminal/api.md'
 
-!!! nota
+!!! note
     Este exemplo usa apenas uma fonte (uma exchange). É possível construir scripts que agreguem múltiplas fontes.
 
 Por design, a Acurast pode suportar o feed de qualquer ativo acessível por API.
@@ -91,7 +91,7 @@ Feeds implantados na rede EVM demo:
 
 Esses endereços estão disponíveis para testes, mas você pode implantar feeds adicionais para outros pares conforme necessário.
 
-## Criar e lançar seu próprio feed de preço {: #designing-and-launching-your-own-price-feed }
+## Criar e Lançar Seu Próprio Feed de Preço {: #designing-and-launching-your-own-price-feed }
 
 Você pode criar seu próprio feed Acurast na rede EVM do Tanssi. Este tutorial é apenas demonstrativo; para produção, [contate a equipe Acurast](https://acurast.com){target=_blank}.
 
@@ -105,12 +105,12 @@ O contrato de demo `InsecureDummyPriceFeed.sol` emite eventos quando o preço é
     --8<-- 'code/builders/toolkit/integrations/oracles/acurast/InsecureDummyPriceFeed.sol'
     ```
 
-!!! atenção
+!!! warning
     O contrato de demonstração tem vulnerabilidades e não possui controles de acesso; não use em produção.
 
 Antes de prosseguir, implante o contrato do seu feed na rede EVM do Tanssi (ou na rede demo). Guarde o endereço, pois será usado no script Acurast.
 
-### Construindo o script Acurast
+### Construindo o Script Acurast
 
 O script Acurast atualiza o oracle on-chain com os preços, fazendo a ponte entre o feed de preço da rede Tanssi e a rede Acurast. No console você define parâmetros como frequência, agenda e recompensa dos Processors. Para publicar jobs você precisará de tokens cACU (pegue no [faucet](https://faucet.acurast.com){target=_blank}) — eles são a moeda nativa da rede Canary da Acurast.
 

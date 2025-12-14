@@ -408,6 +408,8 @@ increment();
     --8<-- 'code/builders/toolkit/ethereum-api/libraries/ethersjs/increment.js'
     ```
 
+--8<-- 'code/builders/toolkit/ethereum-api/libraries/ethers/terminal/increment.md'
+
 `reset.js`:
 
 1. Importe `contractFile`

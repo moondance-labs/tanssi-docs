@@ -5,7 +5,7 @@ icon: simple-docker
 categories: Operadores
 ---
 
-# Atualize seu Nó em Execução via Docker
+# Atualize Seu Nó em Execução via Docker
 
 ## Introdução {: #introduction }
 

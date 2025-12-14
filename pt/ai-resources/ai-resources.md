@@ -24,5 +24,5 @@ Cada arquivo por categoria inclui o conteúdo básico das categorias **Basics** 
 | Operadores         | Como configurar e executar um nó para proteger o ecossistema Tanssi                                                                    | `llms-operators.txt`           | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-operators.txt" } [:octicons-download-16:](/llms-files/llms-operators.txt){ download="llms-operators.txt" }                           |
 | Sequenciadores     | Como executar um sequencer para fornecer serviços de produção de blocos às appchains                                                   | `llms-sequencers.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-sequencers.txt" } [:octicons-download-16:](/llms-files/llms-sequencers.txt){ download="llms-sequencers.txt" }                        |
 
-!!! nota
+!!! note
     O arquivo `llms-full.txt` pode exceder o limite de entrada de alguns modelos de linguagem devido ao seu tamanho. Se você encontrar limitações, considere usar os arquivos por categoria.

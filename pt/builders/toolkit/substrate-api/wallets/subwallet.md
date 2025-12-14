@@ -30,7 +30,7 @@ Você será solicitado a fazer backup de sua frase semente. Esta é uma etapa im
 
 ![Faça backup de sua frase semente no SubWallet](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-3.webp)
 
-!!! nota
+!!! note
     Você nunca deve compartilhar sua frase semente (mnemônico) ou chave privada com ninguém. Isso lhes dá acesso direto aos seus fundos. Este guia é apenas para fins educacionais.
 
 ## Importando uma Conta Substrate Existente {: #importing-an-existing-substrate-account }

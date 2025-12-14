@@ -128,7 +128,7 @@ Passos:
 --8<-- 'code/builders/toolkit/ethereum-api/libraries/web3py/compile.py'
 ```
 
-!!! nota
+!!! note
     Se aparecer erro de solc não instalado, descomente a etapa 2 no snippet.
 
 ### Script de Deploy {: #deploy-contract-script }

@@ -16,6 +16,6 @@ As principais características dos indexadores incluem:
 - **Capacidades de consulta aprimoradas** - usar métodos de consulta sofisticados, como filtragem, classificação e paginação
 - **Atualizações de dados em tempo real** - a sincronização com o blockchain permite que as aplicações acessem as informações mais recentes assim que estiverem disponíveis
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

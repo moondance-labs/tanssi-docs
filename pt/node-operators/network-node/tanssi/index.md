@@ -22,7 +22,7 @@ Hardware recomendado:
 - **RAM Recomendada** - 32 GB de RAM ECC
 - **Rede Recomendada** - conexão de 1 Gbps
 
-!!! atenção
+!!! warning
     Manter o desempenho do seu Nó Tanssi, mantê-lo atualizado e garantir sua segurança são cruciais para uma operação confiável.
 
 ### Portas de Rede Necessárias

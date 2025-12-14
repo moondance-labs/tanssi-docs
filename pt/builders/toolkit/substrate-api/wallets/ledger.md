@@ -27,7 +27,7 @@ Agora, com seu Ledger já iniciado, instale o aplicativo _Polkadot_ seguindo est
 
 Por fim, procure o aplicativo **Polkadot (DOT)** no Ledger Live e instale-o em seu dispositivo.
 
-!!! nota
+!!! note
     Por que Polkadot? Tanssi é construído usando Substrate, a mesma estrutura que alimenta Polkadot. Como resultado, embora Tanssi e Polkadot sejam redes separadas, eles compartilham o mesmo esquema de assinatura criptográfica. Isso significa que o aplicativo Ledger chamado **Polkadot (DOT)** é totalmente compatível com Tanssi.
 
 ![Instalar Polkadot no Ledger Live](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-1.webp)

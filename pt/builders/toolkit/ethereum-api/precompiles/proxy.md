@@ -14,7 +14,7 @@ A Proxy Precompile permite que as contas definam contas proxy por meio da API Et
 
 Se um usuário quisesse fornecer a outro usuário acesso a um número limitado de ações em seu nome, tradicionalmente, o único método para fazê-lo seria compartilhar a chave privada dessa conta. No entanto, as redes EVM com tecnologia Tanssi incluem o módulo proxy, fornecendo uma camada adicional de segurança. Com proxies, muitas contas podem realizar ações para uma conta primária, e tais permissões podem ser revogadas a qualquer momento. Isto é melhor se, por exemplo, um usuário quiser manter sua carteira segura em armazenamento a frio, mas ainda quiser acessar partes da funcionalidade da carteira, como governança ou staking.
 
-!!! nota
+!!! note
     O Proxy Precompile só pode ser chamado de uma Externally Owned Account (EOA) ou pela [Batch Precompile](/pt/builders/toolkit/ethereum-api/precompiles/batch/){target=\_blank}.
 
 Para saber mais sobre contas proxy e como configurá-las para seus próprios propósitos sem o uso do Proxy Precompile, visite a página [Proxy Accounts](/pt/builders/account-management/proxy-accounts/){target=\_blank}.
@@ -128,7 +128,7 @@ Há vários tipos de funções de proxy que podem ser delegadas a contas, repres
 - **CancelProxy** - o proxy de cancelamento permitirá que a conta proxy rejeite e remova anúncios de proxy atrasados ​​(da conta principal). Atualmente, esta não é uma ação suportada pelo Proxy Precompile
 - **Balances** - o proxy de saldos permitirá que a conta proxy faça apenas transferências de saldo para EOAs
 
-!!! nota
+!!! note
     A interface Solidity contém mais tipos de proxy do que os listados acima. A lista anterior inclui apenas os tipos de proxy implementados no [baseline EVM Template](/builders/build/templates/evm/){target=\_blank}.
 
 ## Interaja com a interface Solidity via Remix {: #interact-with-the-solidity-interface-via-remix }
@@ -175,7 +175,7 @@ Você pode adicionar proxies para sua conta chamando as funções de precompila�
 4. Clique em **transact**
 5. O MetaMask aparecerá e você será solicitado a revisar os detalhes da transação. Clique em Confirmar para executar a transação
 
-!!! nota
+!!! note
     Ao construir a transação no Remix, o **proxyType** é representado como um `uint8`, em vez do enum `ProxyType` esperado. Em Solidity, os enums são compilados como `uint8`, então, quando você passa `0` para **proxyType**, você indica o primeiro elemento no enum `ProxyType`, que é o proxy `any`.
 
 ![Chamar a função addProxy](/images/builders/toolkit/ethereum-api/precompiles/proxy/proxy-3.webp)

@@ -15,7 +15,7 @@ O modo de manutenção filtra (ignora) todas as chamadas fora da governança e s
 
 Por exemplo, imagine descobrir uma exploração crítica em sua rede que poderia resultar em perdas financeiras significativas se atores mal-intencionados a explorassem. Embora você possa resolver o problema implementando uma atualização de tempo de execução, o processo leva tempo - tempo precioso durante o qual sua rede permanece vulnerável a ataques. Uma solução potencial é ativar o modo de manutenção em sua rede, concluir a atualização do tempo de execução e sair do modo de manutenção assim que a correção for verificada.
 
-!!! atenção
+!!! warning
     Habilitar o modo de manutenção em uma rede de produção pode impactar significativamente os contratos em sua cadeia. Enquanto o modo de manutenção estiver ativado, nenhuma transação de contrato inteligente é processada, por isso é fundamental considerar as possíveis ramificações antes de ativá-lo.
 
 ## Verificando os Pré-requisitos {: #checking-prerequisites }

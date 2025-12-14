@@ -2,7 +2,7 @@
 title: Executar um Nó Operador Usando Systemd
 description: Aprenda como configurar e executar um nó operador (validador) para as redes Tanssi usando Systemd, permitindo participar do protocolo e ganhar recompensas.
 icon: simple-linux
-categories: Operators
+categories: Operadores
 ---
 
 # Executar um Nó Operador Usando Systemd
@@ -11,19 +11,19 @@ categories: Operators
 
 Os operadores são cruciais no ecossistema Tanssi, fornecendo segurança e validação para redes baseadas em Tanssi. Como operador, você participa do consenso que protege a rede e ganha recompensas.
 
-Conforme apresentado na [seção de integração](/pt/node-operators/operators/onboarding/){target=_blank}, executar o nó é o primeiro passo da sua participação ativa no protocolo.
+Conforme apresentado na [seção de integração](/pt/node-operators/operators/onboarding/){target=\_blank}, executar o nó é o primeiro passo da sua participação ativa no protocolo.
 
-Neste guia, você aprenderá a iniciar um operador Tanssi usando o binário estável mais recente e gerenciar o serviço com [Systemd](https://systemd.io){target=_blank} em sistemas Linux.
+Neste guia, você aprenderá a iniciar um operador Tanssi usando o binário estável mais recente e gerenciar o serviço com [Systemd](https://systemd.io){target=\_blank} em sistemas Linux.
 
 O artigo segue a boa prática de executar o serviço com uma conta não-root e conceder a essa conta acesso de gravação a um diretório específico. Adapte as etapas conforme sua configuração e políticas de segurança.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
-Você precisará de acesso a um computador Ubuntu Linux com [Landlock](https://docs.kernel.org/security/landlock.html){target=_blank} habilitado e privilégios de root. Também precisará de:
+Você precisará de acesso a um computador Ubuntu Linux com [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} habilitado e privilégios de root. Também precisará de:
 
-- **Arquivos binários do nó** - o operador precisa de três binários: `tanssi-relay`, `tanssi-relay-execute-worker` e `tanssi-relay-prepare-worker`.
+- **Arquivos binários do nó** - o operador precisa de três binários: `tanssi-relay`, `tanssi-relay-execute-worker` e `tanssi-relay-prepare-worker`
 
-As instruções usam a [versão estável mais recente](https://github.com/moondance-labs/tanssi/releases/latest){target=_blank}. Você pode compilar seu próprio arquivo a partir do [código fonte](https://github.com/moondance-labs/tanssi){target=_blank}.
+As instruções usam a [versão estável mais recente](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank}. Você pode compilar seu próprio arquivo a partir do [código fonte](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
 ## Verificar Suporte Landlock {: #check-landlock }
 
@@ -134,15 +134,7 @@ Baixe os binários mais recentes e torne-os executáveis:
 
 As flags usadas no `ExecStart` podem ser ajustadas conforme preferências e hardware. Algumas das principais:
 
-- **--state-pruning=archive** - mantém todos os dados de estado (necessário para consultas históricas)
-- **--blocks-pruning=archive** - mantém todos os blocos (necessário para dados históricos de blocos)
-- **--database=paritydb** - usa ParityDB como backend otimizado para desempenho de nó RPC
-- **--unsafe-rpc-external** - permite conexões externas ao RPC; requer medidas adicionais de segurança (proxy reverso, autenticação, firewall)
-
-!!! atenção
-    A flag `--unsafe-rpc-external` expõe o nó RPC externamente. Em produção, proteja com firewall, proxy reverso, autenticação e limitação de taxa.
-
-Você pode visualizar todas as flags disponíveis executando:
+--8<-- 'text/node-operators/network-node/run-flags.md'
 
 === "Tanssi MainNet"
 

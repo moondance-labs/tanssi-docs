@@ -26,7 +26,7 @@ A arquitetura de um nó Substrate contém dois componentes principais:
 
 Da perspectiva do usuário final, toda a interação com a rede Tanssi é geralmente feita através de dApps ou diretamente através dos endpoints RPC do nó, por exemplo, usando uma carteira. Quando um usuário aciona uma solicitação para buscar dados ou envia transações para um nó, o cliente core é responsável por responder ou enfileirar as transações até a execução no runtime. Ainda assim, todos esses aspectos internos do design do nó são mantidos transparentes para o usuário.
 
-![Basic substrate node architecture](/images/learn/framework/architecture/architecture-1.webp)
+![Arquitetura básica de um nó Substrate](/images/learn/framework/architecture/architecture-1.webp)
 
 ## O Cliente Core {: #core-client }
 

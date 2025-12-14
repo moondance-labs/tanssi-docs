@@ -32,10 +32,10 @@ graph LR
 
 | Precompile          | Endereço                                                      |
 |---------------------|--------------------------------------------------------------|
-| Native Token ERC-20 | <pre>`0x0000000000000000000000000000000000000800`</pre>  |
-| Call Permit         | <pre>`0x0000000000000000000000000000000000000802`</pre>  |
-| Proxy               | <pre>`0x0000000000000000000000000000000000000805`</pre>  |
-| Batch Transactions  | <pre>`0x0000000000000000000000000000000000000801`</pre>  |
+| Native Token ERC-20 | <pre>```0x0000000000000000000000000000000000000800```</pre>  |
+| Call Permit         | <pre>```0x0000000000000000000000000000000000000802```</pre>  |
+| Proxy               | <pre>```0x0000000000000000000000000000000000000805```</pre>  |
+| Batch Transactions  | <pre>```0x0000000000000000000000000000000000000801```</pre>  |
 
 Para saber mais sobre cada precompile, confira os guias listados na seção a seguir.
 

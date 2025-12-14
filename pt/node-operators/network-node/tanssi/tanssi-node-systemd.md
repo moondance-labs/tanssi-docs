@@ -9,17 +9,18 @@ categories: RPC-Data-Preservers
 
 ## Introdução {: #introduction }
 
-Neste guia, você aprenderá a iniciar um Nó Tanssi usando o binário estável mais recente e gerenciar o serviço com [Systemd](https://systemd.io){target=_blank} em sistemas Linux. Os nós fornecem endpoints de API essenciais para que aplicações e usuários interajam com a rede Tanssi.
+Neste guia, você aprenderá a iniciar um Nó Tanssi usando o binário estável mais recente e gerenciar o serviço com [Systemd](https://systemd.io){target=\_blank} em sistemas Linux. Os nós fornecem endpoints de API essenciais para que aplicações e usuários interajam com a rede Tanssi.
 
 O artigo segue a boa prática de executar o serviço com uma conta não-root e conceder a essa conta acesso de gravação a um diretório específico. Você pode adaptar as etapas à sua configuração, preferências e políticas de segurança.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
-Para começar, você precisará de acesso a um computador executando Ubuntu Linux com [Landlock](https://docs.kernel.org/security/landlock.html){target=_blank} habilitado e privilégios de root. Você também precisará de:
+Para começar, você precisará de acesso a um computador executando Ubuntu Linux com [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} habilitado e privilégios de root. Você também precisará de:
 
 - **Arquivos binários do Nó** - um nó requer três binários: `tanssi-relay`, `tanssi-relay-execute-worker` e `tanssi-relay-prepare-worker`
+``
 
-As instruções executam a [versão estável mais recente](https://github.com/moondance-labs/tanssi/releases/latest){target=_blank}. Você pode compilar seu próprio arquivo a partir do [código-fonte](https://github.com/moondance-labs/tanssi){target=_blank}.
+As instruções executam a [versão estável mais recente](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank}. Você pode compilar seu próprio arquivo a partir do [código-fonte](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
 ## Verificar Suporte Landlock {: #check-landlock }
 
@@ -135,7 +136,7 @@ As flags usadas no `ExecStart` podem ser ajustadas conforme suas preferências e
 - **--database=paritydb** - usa ParityDB como back-end otimizado para desempenho de nó RPC
 - **--unsafe-rpc-external** - permite conexões externas ao RPC; requer medidas adicionais de segurança em produção (proxy reverso, autenticação, firewall)
 
-!!! atenção
+!!! warning
     A flag `--unsafe-rpc-external` expõe o RPC externamente. Em produção, proteja com firewall, proxy reverso, autenticação e limitação de taxa.
 
 Você pode visualizar todas as flags disponíveis executando:

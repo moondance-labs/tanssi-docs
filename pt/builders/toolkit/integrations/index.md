@@ -15,6 +15,6 @@ Pronto para começar a construir? Confira as seguintes integrações:
 - **Indexadores** - [SQD](/pt/builders/toolkit/integrations/indexers/sqd/quick-start/)
 - **Carteiras** - [RainbowKit](/pt/builders/toolkit/integrations/wallet-integrations/rainbowkit/)
 
-## Explore esta seção
+## Explore Esta Seção
 
 :::INSERT_GENERATED_CARDS:::

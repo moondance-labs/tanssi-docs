@@ -20,7 +20,7 @@ Essas informações que a especificação da cadeia contém podem ser armazenada
 
 Este artigo aborda as seções e atributos dentro de um arquivo de especificação de cadeia e explica como obtê-lo, caso você queira lançar sua rede Tanssi carregando um arquivo de especificações personalizadas.
 
-!!! nota "Nota do Editor (Atualização de 2025)"
+!!! note "Nota do Editor (Atualização de 2025)"
     Este guia explica como personalizar os arquivos de especificação da cadeia em redes baseadas em Substrate. Alguns campos (por exemplo, cadeia de retransmissão, ID da parachain) vêm do SDK do Substrate e são incluídos para fins de compatibilidade ou modelo.
 
     Esses atributos não significam que uma rede com tecnologia Tanssi é uma parachain Polkadot. Tanssi é um protocolo de infraestrutura de appchain independente, construído com Substrate e alinhado com a segurança apoiada pelo Ethereum. Você pode encontrar termos relacionados ao Polkadot em arquivos de configuração por causa das origens compartilhadas do Substrate, mas as appchains com tecnologia Tanssi não exigem slots Polkadot ou mecânica de cadeia de retransmissão.
@@ -97,7 +97,7 @@ Após executar a última etapa, o terminal exibe apenas uma linha de log:
 
 E agora o arquivo `chain_spec.json` contendo a especificação do cliente e o estado da gênese é criado na pasta atual.
 
-!!! nota
+!!! note
     As especificações da cadeia JSON podem ser geradas em duas versões diferentes: a legível por humanos, que é a gerada seguindo as etapas anteriores, e a versão bruta, que é a necessária para implantar a rede por meio do Tanssi. Mais sobre como gerar a versão bruta [posteriormente](#generating-raw-specs-file) neste artigo.
 
 ### Editando o Arquivo de Especificação da Cadeia JSON {: #editing-json-chain-specs }

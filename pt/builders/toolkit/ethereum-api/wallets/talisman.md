@@ -39,7 +39,7 @@ Após criar sua primeira conta, você será solicitado a fazer backup de sua fra
 
 ![Faça backup de sua frase de semente](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-4.webp)
 
-!!! nota
+!!! note
     Você nunca deve compartilhar sua frase de semente (mnemônico) ou chave privada com ninguém. Isso lhes dá acesso direto aos seus fundos. Este guia é apenas para fins educacionais.
 
 ## Importando uma Conta EVM Existente {: #importing-an-existing-evm-account }
