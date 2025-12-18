@@ -2,7 +2,7 @@
 title: Atualize seu Nó Docker Sequencer
 description: Siga estas instruções para atualizar seu nó sequencer Tanssi em execução via Docker para a versão mais recente do software cliente Tanssi.
 icon: simple-docker
-categories: Operadores
+categories: Operators
 ---
 
 # Atualize Seu Nó em Execução via Docker

@@ -41,7 +41,7 @@ Cole o contrato abaixo no editor:
 
 ![Cole o contrato no editor](/images/builders/toolkit/ethereum-api/dev-environments/remix/remix-3.webp)
 
-É um ERC-20 simples baseado no [modelo atual do OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol){target=_blank}. Cria `MyToken` com símbolo `MYTOK` e cunha todo o fornecimento inicial para o criador.
+É um ERC-20 simples baseado no [Template atual do OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol){target=_blank}. Cria `MyToken` com símbolo `MYTOK` e cunha todo o fornecimento inicial para o criador.
 
 Para compilar:
 

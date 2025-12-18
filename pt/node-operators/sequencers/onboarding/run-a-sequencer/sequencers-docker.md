@@ -1,17 +1,17 @@
 ---
-title: Executar um Sequenciador Usando Docker
-description: Saiba como configurar e executar um sequenciador (também conhecido como produtor de blocos) para as appchains com tecnologia Tanssi, usando Docker para participar do protocolo e ganhar recompensas.
+title: Executar um Sequencer Usando Docker
+description: Saiba como configurar e executar um Sequencer (também conhecido como produtor de blocos) para as appchains com tecnologia Tanssi, usando Docker para participar do protocolo e ganhar recompensas.
 icon: simple-docker
 categories: Sequencers
 ---
 
-# Executar um Sequenciador em Tanssi Usando Docker
+# Executar um Sequencer em Tanssi Usando Docker
 
 ## Introdução {: #introduction }
 
 --8<-- 'text/pt/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
 
-Neste guia, você aprenderá como iniciar um sequenciador Tanssi para fazer parte do pool compartilhado de sequenciadores usando [Docker](https://www.docker.com){target=\_blank} em um computador Linux. No entanto, ele pode ser adaptado a outros sistemas operacionais.
+Neste guia, você aprenderá como iniciar um Sequencer Tanssi para fazer parte do pool compartilhado de Sequencers usando [Docker](https://www.docker.com){target=\_blank} em um computador Linux. No entanto, ele pode ser adaptado a outros sistemas operacionais.
 
 ## Verificando os Pré-requisitos {: #checking-prerequisites }
 
@@ -19,7 +19,7 @@ Neste guia, você aprenderá como iniciar um sequenciador Tanssi para fazer part
 
 ## Puxando a Imagem Docker {: #pulling-docker-image }
 
-Uma imagem Docker é construída e publicada em cada lançamento, contendo todas as dependências necessárias que um sequenciador Tanssi precisa e o próprio arquivo binário.
+Uma imagem Docker é construída e publicada em cada lançamento, contendo todas as dependências necessárias que um Sequencer Tanssi precisa e o próprio arquivo binário.
 
 Uma imagem Docker combina o binário correspondente à versão estável mais recente do [nó cliente](/pt/learn/framework/architecture/#architecture){target=\_blank}, junto com o arquivo de especificação do orquestrador Tanssi.
 
@@ -76,7 +76,7 @@ Para iniciar seu nó, você deve executar a imagem Docker com o comando `docker 
 Observe que o comando contém duas seções, divididas por `-- \`:
 
 - **Seção do protocolo Tanssi** - contém os flags para executar o nó Tanssi
-- **Seção do Sequenciador** - contém os flags para executar o nó sequenciador. É abstrato o suficiente para ser adaptado dinamicamente em tempo de execução à cadeia específica que o nó servirá
+- **Seção do Sequencer** - contém os flags para executar o nó Sequencer. É abstrato o suficiente para ser adaptado dinamicamente em Runtime à cadeia específica que o nó servirá
 
 Dê um nome legível a cada seção, substituindo as tags `INSERT_YOUR_TANSSI_NODE_NAME` e `INSERT_YOUR_SEQUENCER_NODE_NAME` nos flags `--name`. Esses nomes serão úteis para conectar as entradas de registro e as métricas com o nó que as gera.
     
@@ -167,4 +167,4 @@ A primeira vez que seu nó é iniciado, o processo de sincronização exibe muit
 
 --8<-- 'code/node-operators/terminal/syncing-process.md'
 
-Quando a sincronização com o orquestrador Tanssi for concluída, o nó ainda precisará ser sincronizado com a rede a que foi designado. A sincronização com a cadeia servida pelo nó sequenciador acontecerá toda vez que o sequenciador for rotacionado.
+Quando a sincronização com o orquestrador Tanssi for concluída, o nó ainda precisará ser sincronizado com a rede a que foi designado. A sincronização com a cadeia servida pelo nó Sequencer acontecerá toda vez que o Sequencer for rotacionado.

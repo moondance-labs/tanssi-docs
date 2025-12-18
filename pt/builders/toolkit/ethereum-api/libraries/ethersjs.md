@@ -1,6 +1,6 @@
 ---
 title: Transações e Contratos EVM com Ethers.js
-description: Aprenda a usar a biblioteca Ethers.js para enviar transações e implantar contratos Solidity na sua rede compatível com Ethereum alimentada pela Tanssi.
+description: Aprenda a usar a biblioteca Ethers.js para enviar transações e implantar contratos Solidity na sua rede compatível com Ethereum Powered by Tanssi.
 icon: octicons-code-24
 categories: EVM-Template
 ---
@@ -11,7 +11,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-A biblioteca [Ethers.js](https://docs.ethers.org/v6/){target=\_blank} fornece ferramentas para interagir com nós Ethereum usando JavaScript, semelhante à [Web3.js](/pt/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}. As redes EVM alimentadas pela Tanssi oferecem uma API compatível com Ethereum/JSON-RPC, então você pode usar Ethers.js para interagir com uma rede EVM da Tanssi como faria no Ethereum. Para mais detalhes, consulte a [documentação oficial](https://docs.ethers.org/v6){target=\_blank}.
+A biblioteca [Ethers.js](https://docs.ethers.org/v6/){target=\_blank} fornece ferramentas para interagir com nós Ethereum usando JavaScript, semelhante à [Web3.js](/pt/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}. As redes EVM Powered by Tanssi oferecem uma API compatível com Ethereum/JSON-RPC, então você pode usar Ethers.js para interagir com uma rede EVM da Tanssi como faria no Ethereum. Para mais detalhes, consulte a [documentação oficial](https://docs.ethers.org/v6){target=\_blank}.
 
 Neste guia você aprenderá a usar Ethers.js na sua rede EVM da Tanssi. Para demonstrar, enviaremos uma transação e implantaremos um contrato em uma appchain EVM de demonstração rodando no [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank}. Para sua própria appchain Tanssi, basta trocar o endpoint.
 

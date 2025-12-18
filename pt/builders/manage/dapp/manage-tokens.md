@@ -1,6 +1,6 @@
 ---
 title: Gerenciar Tokens
-description: Aprenda como o governador da rede pode gerenciar o token de uma rede alimentada pela Tanssi usando o dApp para cunhá-lo, configurar o mercado de taxas EIP-1559 e muito mais.
+description: Aprenda como o governador da rede pode gerenciar o token de uma rede Powered by Tanssi usando o dApp para cunhá-lo, configurar o mercado de taxas EIP-1559 e muito mais.
 icon: octicons-database-24
 categories: Appchain
 ---
@@ -9,7 +9,7 @@ categories: Appchain
 
 ## Introdução {: #introduction }
 
-Qualquer rede implantada através da Tanssi é soberana e livre para definir o modelo de governança que melhor se adapta ao seu caso de uso. O governador da rede tem superpoderes sobre a administração da cadeia. Consequentemente, eles podem chamar funções privilegiadas, como atualizar o tempo de execução e gerenciar operações relacionadas a tokens nativos, entre outras ações.
+Qualquer rede implantada através da Tanssi é soberana e livre para definir o Template de governança que melhor se adapta ao seu caso de uso. O governador da rede tem superpoderes sobre a administração da cadeia. Consequentemente, eles podem chamar funções privilegiadas, como atualizar o Runtime e gerenciar operações relacionadas a tokens nativos, entre outras ações.
 
 Existem algumas ações relacionadas ao gerenciamento de tokens nativos que estão disponíveis para o governador da rede na Tanssi dApp:
 

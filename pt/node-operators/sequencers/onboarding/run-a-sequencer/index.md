@@ -1,17 +1,17 @@
 ---
-title: Executar um Sequenciador
-description: Aprenda como configurar e executar um nó de sequenciador usando Docker ou Systemd para participar do protocolo, fornecendo serviços de produção de blocos e ganhando recompensas.
+title: Executar um Sequencer
+description: Aprenda como configurar e executar um nó de Sequencer usando Docker ou Systemd para participar do protocolo, fornecendo serviços de produção de blocos e ganhando recompensas.
 icon: octicons-server-24
 template: index-page.html
 ---
 
-# Executar um Nó Sequenciador
+# Executar um Nó Sequencer
 
-A configuração de um nó sequenciador é um passo importante para participar da rede Tanssi. Você tem duas opções: _Docker_ ou _Systemd_. Seja qual for o caminho escolhido, fornecemos tutoriais passo a passo para orientá-lo durante o processo e garantir que seu nó atenda aos requisitos necessários para produzir blocos e manter uma conexão segura com a rede.
+A configuração de um nó Sequencer é um passo importante para participar da rede Tanssi. Você tem duas opções: _Docker_ ou _Systemd_. Seja qual for o caminho escolhido, fornecemos tutoriais passo a passo para orientá-lo durante o processo e garantir que seu nó atenda aos requisitos necessários para produzir blocos e manter uma conexão segura com a rede.
 
 ### Requisitos de Hardware
 
-Para executar um nó sequenciador com sucesso, o uso de hardware de alto desempenho é essencial. Configurações subótimas podem levar a atrasos, rodadas de autoria perdidas e perda de recompensas. Como a produção e o processo de importação de blocos dependem fortemente do desempenho de um único thread, recomenda-se priorizar CPUs com fortes capacidades de thread único em vez de contagens de núcleos mais altas.
+Para executar um nó Sequencer com sucesso, o uso de hardware de alto desempenho é essencial. Configurações subótimas podem levar a atrasos, rodadas de autoria perdidas e perda de recompensas. Como a produção e o processo de importação de blocos dependem fortemente do desempenho de um único thread, recomenda-se priorizar CPUs com fortes capacidades de thread único em vez de contagens de núcleos mais altas.
 
 Hardware Recomendado:
 
@@ -20,7 +20,7 @@ Hardware Recomendado:
 - **RAM Recomendada** - 32 GB RAM
 
 !!! warning
-    Como um sequenciador, você é responsável por sua própria participação e pela de seus delegadores. Manter o desempenho do seu nó, mantê-lo atualizado e garantir sua segurança são essenciais para maximizar as recompensas e construir uma forte reputação na rede Tanssi.
+    Como um Sequencer, você é responsável por sua própria participação e pela de seus delegadores. Manter o desempenho do seu nó, mantê-lo atualizado e garantir sua segurança são essenciais para maximizar as recompensas e construir uma forte reputação na rede Tanssi.
 
 ### Portas de Rede Necessárias
 

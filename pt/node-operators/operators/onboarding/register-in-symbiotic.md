@@ -2,7 +2,7 @@
 title: Registrar no Symbiotic
 description: Aprenda como registrar seu nó no registro Symbiotic como o primeiro passo para participar do protocolo, protegendo as redes Tanssi e ganhando recompensas.
 icon: octicons-shield-check-24
-categories: Operadores
+categories: Operators
 ---
 
 # Registrar no Symbiotic
@@ -22,7 +22,7 @@ Antes de se registrar, certifique-se de já ter [configurado o nó](/pt/node-ope
 Para seguir este guia, você deverá interagir com contratos inteligentes.
 --8<-- 'text/pt/node-operators/operators/onboarding/run-an-operator/prerequisites.md'
 
-## Registrar como Operador {: #registering-operator }
+## Registrar como Operator {: #registering-operator }
 
 O protocolo Symbiotic mantém um registro de todos os operadores. Antes de proteger redes Tanssi, registre-se usando um dos métodos abaixo.
 

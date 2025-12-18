@@ -8,7 +8,7 @@ categories: Basics
 
 ## Introdução {: #introduction }
 
-Todas as redes alimentadas por Tanssi têm uma capacidade inerente de se comunicar e interagir com qualquer outra rede no ecossistema. Esse recurso de comunicação cross-chain nativo é possível graças à infraestrutura exclusiva sobre a qual as redes são construídas, alavancando o formato de Mensagem Cross-Consensus (XCM para abreviar), que facilita a comunicação entre diferentes sistemas de consenso.
+Todas as redes Powered by Tanssi têm uma capacidade inerente de se comunicar e interagir com qualquer outra rede no ecossistema. Esse recurso de comunicação cross-chain nativo é possível graças à infraestrutura exclusiva sobre a qual as redes são construídas, alavancando o formato de Mensagem Cross-Consensus (XCM para abreviar), que facilita a comunicação entre diferentes sistemas de consenso.
 
 XCM é uma linguagem de mensagens projetada para ser genérica. Ela não faz nenhuma suposição sobre a cadeia de destino e pode comunicar diferentes intenções entre sistemas de consenso soberanos.
 

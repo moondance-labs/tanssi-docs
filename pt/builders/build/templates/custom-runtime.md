@@ -19,7 +19,7 @@ Runtimes Substrate já existentes precisam implementar pelo menos o [framework](
 
 No entanto, as equipes podem já ter implementado certos módulos que podem colidir com algumas funcionalidades relacionadas à Tanssi, por exemplo, produção de blocos, atribuição de autoridade de bloco e consenso.
 
-Os seguintes módulos são incluídos por padrão em muitos modelos populares e devem ser removidos junto com sua configuração:
+Os seguintes módulos são incluídos por padrão em muitos Templates populares e devem ser removidos junto com sua configuração:
 
 ```rust
 Authorship: pallet_authorship = 20,
@@ -33,7 +33,7 @@ Em qualquer caso, certifique-se de verificar seu runtime e remover todos os mód
 
 ## Integrando Sua Cadeia Stand-Alone {: #adding-cumulus-support }
 
-Se seu runtime existente estiver configurado como uma cadeia stand-alone, você precisará adicionar um mecanismo de consenso para integrar no ecossistema Tanssi. Verifique qualquer um dos modelos disponíveis no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank} para uma configuração de referência ou a [documentação do framework](https://paritytech.github.io/polkadot-sdk/master/polkadot_sdk_docs/polkadot_sdk/cumulus/index.html){target=\_blank}.
+Se seu runtime existente estiver configurado como uma cadeia stand-alone, você precisará adicionar um mecanismo de consenso para integrar no ecossistema Tanssi. Verifique qualquer um dos Templates disponíveis no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank} para uma configuração de referência ou a [documentação do framework](https://paritytech.github.io/polkadot-sdk/master/polkadot_sdk_docs/polkadot_sdk/cumulus/index.html){target=\_blank}.
 
 ## Adicionando Suporte ao Protocolo Tanssi {: #adding-tanssi-support }
 Para suportar o protocolo Tanssi, será necessário adicionar dois módulos através das seguintes etapas:
@@ -105,7 +105,7 @@ Para suportar o protocolo Tanssi, será necessário adicionar dois módulos atra
     pub type BlockNumber = u32; 
     ```
 
-5. Adicione o executor do bloco, para permitir que os operadores na rede Tanssi validem que os autores são os sequenciadores atribuídos pela Tanssi (e não um ator mal-intencionado)
+5. Adicione o executor do bloco, para permitir que os operadores na rede Tanssi validem que os autores são os Sequencers atribuídos pela Tanssi (e não um ator mal-intencionado)
 
   ```rust
     cumulus_pallet_parachain_system::register_validate_block! {

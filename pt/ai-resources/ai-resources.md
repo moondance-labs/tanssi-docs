@@ -5,7 +5,7 @@ description: Baixe arquivos otimizados para LLM com a documentação Tanssi, inc
 
 # Recursos de IA
 
-A Tanssi fornece arquivos `.txt` contendo o conteúdo da documentação e a estrutura de navegação, otimizados para uso com modelos de linguagem (LLMs) e ferramentas de IA. Esses recursos ajudam a criar assistentes de IA, potencializam buscas em código ou permitem ferramentas personalizadas treinadas na documentação da Tanssi.
+A Tanssi fornece arquivos `.txt` contendo o conteúdo da documentação e a estrutura de navegação, otimizados para uso com Templates de linguagem (LLMs) e ferramentas de IA. Esses recursos ajudam a criar assistentes de IA, potencializam buscas em código ou permitem ferramentas personalizadas treinadas na documentação da Tanssi.
 
 Cada arquivo por categoria inclui o conteúdo básico das categorias **Basics** e **Reference** para garantir que os LLMs tenham o contexto necessário.
 
@@ -21,8 +21,8 @@ Cada arquivo por categoria inclui o conteúdo básico das categorias **Basics** 
 | Runtime Personalizado | Como personalizar o runtime da sua appchain                                                                                             | `llms-custom-runtime.txt`      | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-custom-runtime.txt" } [:octicons-download-16:](/llms-files/llms-custom-runtime.txt){ download="llms-custom-runtime.txt" }            |
 | Template EVM       | Use o template EVM para lançar appchains compatíveis com Ethereum e conhecer seu tooling associado (carteiras, integrações etc.)       | `llms-evm-template.txt`        | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-evm-template.txt" } [:octicons-download-16:](/llms-files/llms-evm-template.txt){ download="llms-evm-template.txt" }                  |
 | Template Substrate | Use o template Substrate básico e o tooling associado (carteiras, integrações etc.) para lançar appchains                              | `llms-substrate-template.txt`  | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-substrate-template.txt" } [:octicons-download-16:](/llms-files/llms-substrate-template.txt){ download="llms-substrate-template.txt" }|
-| Operadores         | Como configurar e executar um nó para proteger o ecossistema Tanssi                                                                    | `llms-operators.txt`           | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-operators.txt" } [:octicons-download-16:](/llms-files/llms-operators.txt){ download="llms-operators.txt" }                           |
-| Sequenciadores     | Como executar um sequencer para fornecer serviços de produção de blocos às appchains                                                   | `llms-sequencers.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-sequencers.txt" } [:octicons-download-16:](/llms-files/llms-sequencers.txt){ download="llms-sequencers.txt" }                        |
+| Operators         | Como configurar e executar um nó para proteger o ecossistema Tanssi                                                                    | `llms-operators.txt`           | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-operators.txt" } [:octicons-download-16:](/llms-files/llms-operators.txt){ download="llms-operators.txt" }                           |
+| Sequencers     | Como executar um sequencer para fornecer serviços de produção de blocos às appchains                                                   | `llms-sequencers.txt`          | [:octicons-copy-16:](){ .llms data-action="copy" data-value="llms-sequencers.txt" } [:octicons-download-16:](/llms-files/llms-sequencers.txt){ download="llms-sequencers.txt" }                        |
 
 !!! note
-    O arquivo `llms-full.txt` pode exceder o limite de entrada de alguns modelos de linguagem devido ao seu tamanho. Se você encontrar limitações, considere usar os arquivos por categoria.
+    O arquivo `llms-full.txt` pode exceder o limite de entrada de alguns Templates de linguagem devido ao seu tamanho. Se você encontrar limitações, considere usar os arquivos por categoria.

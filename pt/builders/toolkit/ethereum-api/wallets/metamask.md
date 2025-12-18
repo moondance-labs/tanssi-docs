@@ -1,6 +1,6 @@
 ---
 title: Como Conectar a MetaMask
-description: Este guia mostra como conectar a MetaMask, uma carteira Ethereum baseada em navegador, à sua rede compatível com EVM alimentada pela Tanssi e como transferir fundos.
+description: Este guia mostra como conectar a MetaMask, uma carteira Ethereum baseada em navegador, à sua rede compatível com EVM Powered by Tanssi e como transferir fundos.
 icon: material-wallet-outline
 categories: EVM-Template
 ---
@@ -9,7 +9,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-Desenvolvedores que constroem dApps em cima de redes EVM alimentadas por Tanssi podem aproveitar seus recursos de compatibilidade Ethereum integrando carteiras Ethereum conhecidas, como [MetaMask](https://metamask.io){target=\_blank}. Ao fazer isso, eles podem usar a biblioteca injetada que MetaMask fornece para interagir com a rede EVM Tanssi.
+Desenvolvedores que constroem dApps em cima de redes EVM Powered by Tanssi podem aproveitar seus recursos de compatibilidade Ethereum integrando carteiras Ethereum conhecidas, como [MetaMask](https://metamask.io){target=\_blank}. Ao fazer isso, eles podem usar a biblioteca injetada que MetaMask fornece para interagir com a rede EVM Tanssi.
 
 Este guia leva você por todas as etapas necessárias: desde a instalação da Metamask, configuração de uma carteira e, finalmente, conectando-a à sua rede EVM Tanssi.
 

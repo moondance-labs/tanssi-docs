@@ -1,6 +1,6 @@
 ---
 title: Usando Ledger com Sua Substrate do Appchain
-description: Este guia orienta você na configuração e uso de um dispositivo Ledger para interagir com a rede Tanssi ou qualquer uma das appchains Substrate alimentadas pela Tanssi.
+description: Este guia orienta você na configuração e uso de um dispositivo Ledger para interagir com a rede Tanssi ou qualquer uma das appchains Substrate Powered by Tanssi.
 icon: material-wallet-outline
 categories: Substrate-Template
 ---
@@ -9,7 +9,7 @@ categories: Substrate-Template
 
 ## Introdução {: #introduction }
 
-Desenvolvedores e usuários de redes Substrate, como a rede Tanssi ou appchains Substrate não-EVM alimentadas pela Tanssi, têm uma variedade de opções quando se trata de carteiras. Em relação às carteiras frias, que armazenam suas chaves privadas em um ambiente seguro e offline, [Ledger](https://www.ledger.com/){target=\_blank} é uma das opções mais populares. Ledger oferece suporte total para blockchains Substrate, como a rede Tanssi.
+Desenvolvedores e usuários de redes Substrate, como a rede Tanssi ou appchains Substrate não-EVM Powered by Tanssi, têm uma variedade de opções quando se trata de carteiras. Em relação às carteiras frias, que armazenam suas chaves privadas em um ambiente seguro e offline, [Ledger](https://www.ledger.com/){target=\_blank} é uma das opções mais populares. Ledger oferece suporte total para blockchains Substrate, como a rede Tanssi.
 
 Os dispositivos Ledger são carteiras de hardware projetadas para armazenar as chaves privadas offline. Eles são usados para verificar e assinar as transações, mas ainda precisam de uma camada de software para fornecer a interface do usuário que interage com as redes, constrói as transações e envia as transações assinadas de volta para a rede assim que o usuário as verifica.
 
@@ -32,7 +32,7 @@ Por fim, procure o aplicativo **Polkadot (DOT)** no Ledger Live e instale-o em s
 
 ![Instalar Polkadot no Ledger Live](/images/builders/toolkit/substrate-api/wallets/ledger/ledger-1.webp)
 
-E é isso. Seu dispositivo agora possui uma conta Substrate e é capaz de assinar transações na Tanssi e em qualquer appchain não-EVM alimentada pela Tanssi.
+E é isso. Seu dispositivo agora possui uma conta Substrate e é capaz de assinar transações na Tanssi e em qualquer appchain não-EVM Powered by Tanssi.
 
 ## Adicionando o Ledger a uma Carteira Quente {: #adding-Ledger-hot-wallet }
 

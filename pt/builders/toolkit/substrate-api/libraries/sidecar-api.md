@@ -511,7 +511,7 @@ Trajetos relevantes:
 
 ### Transaction Weight {: #transaction-weight }
 
-`TransactionWeight` mede o tempo de execução de uma transação no bloco. Para todos os tipos, pode ser obtido no evento da extrínseca em que:
+`TransactionWeight` mede o Runtime de uma transação no bloco. Para todos os tipos, pode ser obtido no evento da extrínseca em que:
 
 ```text
 pallet: "system", method: "ExtrinsicSuccess"

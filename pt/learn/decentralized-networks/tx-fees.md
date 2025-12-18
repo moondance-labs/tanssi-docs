@@ -11,11 +11,11 @@ categories: Basics
 
 Redes com tecnologia Tanssi são construídas com um [framework modular](/pt/learn/framework/){target=\_blank} chamado [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. Com esse framework, você pode criar formas próprias de lidar com taxas de transação. Por exemplo, a maioria das transações usa um módulo específico chamado [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. Contudo, em redes Tanssi compatíveis com EVM, as taxas podem ser cobradas no nível da execução EVM, contornando outros módulos relacionados a taxas.
 
-Sob o capô, para tempo de execução, em vez de um mecanismo baseado em gas, todas as redes Tanssi usam um [mecanismo baseado em weight](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refere-se ao tempo (em picosegundos) para validar um bloco. De modo geral, para redes Tanssi EVM e não EVM, todas as chamadas têm um weight associado, que define limites de entrada/saída de storage e de computação. Para redes Tanssi EVM, há um mapeamento gas-to-weight totalmente compatível com os requisitos de gas esperados por ferramentas baseadas na Ethereum API.
+Sob o capô, para Runtime, em vez de um mecanismo baseado em gas, todas as redes Tanssi usam um [mecanismo baseado em weight](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refere-se ao tempo (em picosegundos) para validar um bloco. De modo geral, para redes Tanssi EVM e não EVM, todas as chamadas têm um weight associado, que define limites de entrada/saída de storage e de computação. Para redes Tanssi EVM, há um mapeamento gas-to-weight totalmente compatível com os requisitos de gas esperados por ferramentas baseadas na Ethereum API.
 
-Um esquema de taxas é aplicado sobre o mecanismo de weight para alinhar incentivos econômicos, limitando tempo de execução, computação e número de chamadas (leituras/gravações). Taxas são fundamentais para evitar spam, pois representam o custo de usar o serviço da rede Tanssi. Assim, um usuário que interage com a rede por meio de uma chamada paga uma taxa determinada por um algoritmo de taxa base.
+Um esquema de taxas é aplicado sobre o mecanismo de weight para alinhar incentivos econômicos, limitando Runtime, computação e número de chamadas (leituras/gravações). Taxas são fundamentais para evitar spam, pois representam o custo de usar o serviço da rede Tanssi. Assim, um usuário que interage com a rede por meio de uma chamada paga uma taxa determinada por um algoritmo de taxa base.
 
-Esta página aborda os fundamentos das taxas em redes Tanssi. Primeiro cobre a arquitetura subjacente de taxas e como ela é adaptada a um modelo totalmente compatível com EIP-1559 para redes Tanssi EVM.
+Esta página aborda os fundamentos das taxas em redes Tanssi. Primeiro cobre a arquitetura subjacente de taxas e como ela é adaptada a um Template totalmente compatível com EIP-1559 para redes Tanssi EVM.
 
 ## Baseline Fees Calculation {: #baseline-fees }
 
@@ -29,16 +29,16 @@ Esta seção apresenta os diferentes conceitos associados às taxas em redes Tan
 
 ### Weight {: #baseline-weight}
 
-De forma ampla, weight refere-se ao tempo de execução para validar um bloco, medido em picosegundos. O weight se divide em duas variáveis:
+De forma ampla, weight refere-se ao Runtime para validar um bloco, medido em picosegundos. O weight se divide em duas variáveis:
 
 - **`refTime`** - peso associado a tempo de computação e leituras/gravações em banco de dados
-- **`proofSize`** - peso associado ao tamanho da Prova de Validade (PoV). A PoV se relaciona ao estado relevante de uma transação, e é o que o sequenciador da rede Tanssi compartilha com os operadores do provedor de segurança para validar e finalizar um bloco como parte do [fluxo de transações da rede](/pt/learn/decentralized-networks/overview/#network-transaction-flow){target=\_blank}
+- **`proofSize`** - peso associado ao tamanho da Prova de Validade (PoV). A PoV se relaciona ao estado relevante de uma transação, e é o que o Sequencer da rede Tanssi compartilha com os operadores do provedor de segurança para validar e finalizar um bloco como parte do [fluxo de transações da rede](/pt/learn/decentralized-networks/overview/#network-transaction-flow){target=\_blank}
 
 Para descobrir os weights de todas as chamadas, elas são benchmarked em hardware de referência, e valores aproximados de `refTime` e `proofSize` são definidos. Esse processo se repete para todas as chamadas que consomem espaço de bloco e afetam a PoV.
 
 Para transações em que as taxas são tratadas pelo módulo [transaction payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}, todos os parâmetros baseados em weight passam por um algoritmo _weight to fee_ que converte tudo em um valor final, deduzido da conta do remetente ao executar a chamada. O algoritmo pode ser personalizado, mas redes Tanssi definem um valor constante.
 
-Para transações EVM, o gas é convertido em weight por meio de um algoritmo gas-to-weight, para que todas as chamadas EVM possam ser mapeadas para o tempo de execução do bloco. Ainda assim, as taxas são tratadas no nível da execução EVM.
+Para transações EVM, o gas é convertido em weight por meio de um algoritmo gas-to-weight, para que todas as chamadas EVM possam ser mapeadas para o Runtime do bloco. Ainda assim, as taxas são tratadas no nível da execução EVM.
 
 ### Baseline Transaction Fees {: #baseline-transaction-fees}
 
@@ -50,12 +50,12 @@ Com todas as chamadas benchmarked, a taxa de transação para cada chamada espec
     - **`ExtrinsicBaseWeight`** - valor constante que representa o weight da sobrecarga de inclusão
     - **`WeightToFee`** - função polinomial que converte weight em taxa
 - **`WeightFee`** - taxa definida por dois parâmetros:
-    - **`BenchmarkedWeight`** - weight que reflete a complexidade (tempo de execução) de uma chamada específica
+    - **`BenchmarkedWeight`** - weight que reflete a complexidade (Runtime) de uma chamada específica
     - **`CongestionMultiplier`** - função que converte weight em taxa e pode ser ajustada para considerar a congestão da rede (weight consumido no bloco anterior). A estratégia padrão nas redes Tanssi é [`SlowAdjustingFeeUpdate`](https://research.web3.foundation/Polkadot/overview/token-economics#2-slow-adjusting-mechanism){target=\_blank}, que ajusta esse multiplicador lentamente conforme a carga da rede
 - **`LengthFee`** - taxa correlacionada ao tamanho em bytes da chamada. Definida por dois parâmetros:
     - **`ByteLengthFunctionCall`** - tamanho em bytes da chamada
     - **`LengthToFee`** - função que define o algoritmo de taxa por byte. Nas redes Tanssi, é um valor constante
-- **`Tip`** - valor opcional que aumenta a taxa total, elevando a prioridade da transação ao incentivar sequenciadores a incluí-la no próximo bloco
+- **`Tip`** - valor opcional que aumenta a taxa total, elevando a prioridade da transação ao incentivar Sequencers a incluí-la no próximo bloco
 
 Assim, em termos gerais, a taxa de transação pode ser calculada pela equação:
 
@@ -71,7 +71,7 @@ InclusionFee = BaseFee + WeightFee + LengthFee
 FinalFee = InclusionFee + Tip
 ```
 
-Todas as chamadas não EVM disponíveis aos desenvolvedores usam esses cálculos básicos para taxas. Redes Tanssi EVM adicionam uma camada extra para traduzir esse esquema para algo semelhante ao modelo Ethereum do ponto de vista da Ethereum JSON-RPC e da EVM.
+Todas as chamadas não EVM disponíveis aos desenvolvedores usam esses cálculos básicos para taxas. Redes Tanssi EVM adicionam uma camada extra para traduzir esse esquema para algo semelhante ao Template Ethereum do ponto de vista da Ethereum JSON-RPC e da EVM.
 
 ### EVM Transaction Fees {: #evm-transaction-fees }
 
@@ -95,7 +95,7 @@ Por padrão, redes Tanssi compatíveis com EVM têm os seguintes parâmetros:
 !!! note
     Uma diferença importante na implementação EIP-1559 das redes Tanssi EVM é que as taxas são calculadas usando o `baseFee` do bloco anterior.
 
-O custo de taxa de transação para chamadas EVM nas redes Tanssi é capturado no nível de execução EVM. Ainda assim, transações EVM consomem tempo de execução de bloco. Portanto, é necessário um algoritmo gas-to-weight para contabilizar o weight consumido por uma chamada em relação ao gas usado.
+O custo de taxa de transação para chamadas EVM nas redes Tanssi é capturado no nível de execução EVM. Ainda assim, transações EVM consomem Runtime de bloco. Portanto, é necessário um algoritmo gas-to-weight para contabilizar o weight consumido por uma chamada em relação ao gas usado.
 
 <!-- https://github.com/moondance-labs/tanssi/blob/master/container-chains/templates/frontier/runtime/src/lib.rs#L825 -->
 <!-- https://github.com/polkadot-evm/frontier/blob/272fe8839f87161ed89350de166b379f1f4c6136/primitives/evm/src/lib.rs#L253-L265 -->

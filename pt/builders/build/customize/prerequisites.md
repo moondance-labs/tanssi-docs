@@ -11,7 +11,7 @@ Categories: Custom-Runtime
 
 A implantação de uma rede através da Tanssi é um passo bastante simples, onde o único requisito é ter uma [especificação de cadeia](https://docs.polkadot.com/develop/parachains/deployment/generate-chain-specs/){target=\_blank} válida para fazer upload.
 
-Embora a Tanssi forneça especificações de cadeia para os [modelos disponíveis](/pt/learn/decentralized-networks/included-templates/), pode ser necessário gerar uma nova para corresponder a quaisquer alterações que o caso de uso possa precisar ser implementado no tempo de execução.
+Embora a Tanssi forneça especificações de cadeia para os [Templates disponíveis](/pt/learn/decentralized-networks/included-templates/), pode ser necessário gerar uma nova para corresponder a quaisquer alterações que o caso de uso possa precisar ser implementado no Runtime.
 
 As seções a seguir deste artigo cobrirão o software mínimo necessário e seu processo de instalação para obter um ambiente de desenvolvimento adequado para compilar um nó Substrate e gerar a especificação da cadeia.
 
@@ -53,7 +53,7 @@ Há outros métodos para instalar o Rust, como usar um gerenciador de pacotes. O
 
 ## Instalação do Git {: #installing-git }
 
-[Git](https://git-scm.com){target=\_blank} é recomendado para clonar o [repositório de código](https://github.com/moondance-labs/tanssi){target=\_blank} da Tanssi, onde os modelos de nó podem ser encontrados. O Git provavelmente é fornecido na configuração de instalação padrão do sistema operacional ou incluído em outras ferramentas, como o Xcode no MacOS.
+[Git](https://git-scm.com){target=\_blank} é recomendado para clonar o [repositório de código](https://github.com/moondance-labs/tanssi){target=\_blank} da Tanssi, onde os Templates de nó podem ser encontrados. O Git provavelmente é fornecido na configuração de instalação padrão do sistema operacional ou incluído em outras ferramentas, como o Xcode no MacOS.
 
 Se o Git não estiver presente no sistema, o seguinte comando o instalará usando um gerenciador de pacotes:
 
@@ -83,9 +83,9 @@ Para verificar a instalação correta do Git, executar o seguinte comando em um 
     git --version
     ```
 
-## Construindo um Modelo Tanssi {: #building-tanssi-template  }
+## Construindo um Template Tanssi {: #building-tanssi-template  }
 
-Para construir um nó Substrate, como os modelos incluídos no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank}, é necessário instalar componentes de desenvolvimento adicionais no sistema:
+Para construir um nó Substrate, como os Templates incluídos no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank}, é necessário instalar componentes de desenvolvimento adicionais no sistema:
 
 === "Linux"
 
@@ -109,7 +109,7 @@ git clone https://github.com/moondance-labs/tanssi
 cd tanssi
 ```
 
-3. Construa o modelo de rede Tanssi
+3. Construa o Template de rede Tanssi
 === "Baseline EVM"
 
     ```bash
@@ -122,4 +122,4 @@ cd tanssi
     cargo build -p container-chain-simple-node --release
     ```
 
-Ter um ambiente de desenvolvimento saudável será necessário para construir um tempo de execução personalizado e, finalmente, gerar o arquivo de especificação da cadeia que será usado para implantar sua rede Tanssi.
+Ter um ambiente de desenvolvimento saudável será necessário para construir um Runtime personalizado e, finalmente, gerar o arquivo de especificação da cadeia que será usado para implantar sua rede Tanssi.

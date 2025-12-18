@@ -1,4 +1,4 @@
-title: Introdução ao Tanssi
+title: Introdução à Tanssi
 hide: false
 nav:
   - index.md
@@ -6,6 +6,6 @@ nav:
   - Serviços da Rede: network-services
   - Provedores de Segurança Externos: external-security-providers
   - Recursos da Rede: network-features
-  - Tipos de Conta no Tanssi: account-types.md
+  - Tipos de Conta na Tanssi: account-types.md
   - Ponte Tanssi-Ethereum: tanssi-ethereum-bridge.md
   - Glossário: glossary.md

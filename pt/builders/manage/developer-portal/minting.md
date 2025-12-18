@@ -1,6 +1,6 @@
 ---
 title: Cunhagem de Tokens Nativos com Sudo
-description: Aprenda a usar a chave Sudo para gerenciar sua rede alimentada pela Tanssi e executar a ação privilegiada de cunhar tokens nativos, alterando a emissão total.
+description: Aprenda a usar a chave Sudo para gerenciar sua rede Powered by Tanssi e executar a ação privilegiada de cunhar tokens nativos, alterando a emissão total.
 icon: material-creation-outline
 categories: Appchain
 ---
@@ -9,7 +9,7 @@ categories: Appchain
 
 ## Introdução {: #introduction }
 
-[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} é um módulo que permite que chamadas de tempo de execução privilegiadas sejam despachadas quando chamadas da conta Sudo. Sudo é, por vezes, referido coloquialmente como um superusuário ou uma conta semelhante a um deus. Isso permite que você realize ações privilegiadas no curso do gerenciamento de sua rede, como cunhar novos tokens nativos.
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} é um módulo que permite que chamadas de Runtime privilegiadas sejam despachadas quando chamadas da conta Sudo. Sudo é, por vezes, referido coloquialmente como um superusuário ou uma conta semelhante a um deus. Isso permite que você realize ações privilegiadas no curso do gerenciamento de sua rede, como cunhar novos tokens nativos.
 
 Neste guia, você aprenderá como usar Sudo para cunhar corretamente novos tokens nativos. Este guia abrangente mostra como verificar o saldo de uma conta existente antes de atribuir a ela um novo saldo com acesso Sudo.
 

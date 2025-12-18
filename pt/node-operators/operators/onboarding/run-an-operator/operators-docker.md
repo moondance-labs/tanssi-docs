@@ -1,11 +1,11 @@
 ---
-title: Executar um Nó Operador Usando Docker
+title: Executar um Nó Operator Usando Docker
 description: Aprenda como configurar e executar um operador (também conhecido como validador) para a rede Tanssi usando o Docker, participando do protocolo, protegendo redes e ganhando recompensas.
 icon: simple-docker
-categories: Operadores
+categories: Operators
 ---
 
-# Executar um Nó Operador Usando Docker
+# Executar um Nó Operator Usando Docker
 
 ## Introdução {: #introduction }
 

@@ -1,8 +1,8 @@
 ---
-title: Atualize seu Nó Operador Systemd
+title: Atualize seu Nó Operator Systemd
 description: Siga estas instruções para atualizar seu nó operador Tanssi em execução via Systemd para a versão mais recente do software cliente Tanssi.
 icon: simple-linux
-categories: Operadores
+categories: Operators
 ---
 
 # Atualize seu Nó em Execução via Systemd

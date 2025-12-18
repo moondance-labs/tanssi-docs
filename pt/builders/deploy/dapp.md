@@ -75,7 +75,7 @@ Para configurar:
 1. Em **Network Details**, informe o nome do projeto, o ID de cadeia EVM e a categoria
 2. Em **Gas Token**, informe o símbolo do token nativo (18 casas decimais fixas)
 3. Opcional: ajuste configurações [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559){target=\_blank} em **Advanced** (base fee e variação máxima)
-4. Em **Accounts**, forneça o endereço (estilo Ethereum) da conta sudo e o saldo inicial. Só existe uma conta sudo por vez; ela pode ser trocada depois e a rede pode migrar para um modelo descentralizado
+4. Em **Accounts**, forneça o endereço (estilo Ethereum) da conta sudo e o saldo inicial. Só existe uma conta sudo por vez; ela pode ser trocada depois e a rede pode migrar para um Template descentralizado
 5. Opcional: em **Advanced**, clique em **Add** para adicionar contas e saldos de gênese
 6. Opcional: em **Genesis Smart Contracts**, clique em **Add** para incluir contratos gênese (remova `0x` do bytecode)
 7. Ao finalizar o template, clique em **Continue** e siga para [Checar saldos](#check-balances)
@@ -231,7 +231,7 @@ Antes de implantar, gere três arquivos:
 
 - [A especificação da cadeia bruta](/pt/builders/build/customize/customizing-chain-specs/#generating-raw-specs-file){target=\_blank} - uma versão compacta do arquivo de especificação JSON, que define as configurações iniciais e o estado que todos os nós participantes da rede devem concordar para alcançar consenso e produzir blocos
 - [O cabeçalho do estado gênese](/pt/builders/build/customize/customizing-chain-specs/#genesis-state){target=\_blank} - define o estado inicial sobre o qual todas as transações e transições de estado são executadas
-- [O Gênesis Wasm](/pt/learn/framework/architecture/#runtime){target=\_blank} - um objeto WebAssembly (Wasm) que define a lógica de tempo de execução.
+- [O Gênesis Wasm](/pt/learn/framework/architecture/#runtime){target=\_blank} - um objeto WebAssembly (Wasm) que define a lógica de Runtime.
 Eles são gerados automaticamente com base no seu ID e configurações. Clique em **Generate**.
 
 ![Gerar arquivos da appchain](/images/builders/deploy/dapp/dapp-10.webp)

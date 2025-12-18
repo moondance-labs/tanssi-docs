@@ -1,11 +1,11 @@
 ---
-title: Executar um Operador
+title: Executar um Operator
 description: Aprenda como configurar e executar um nó operador (também conhecido como validadores) usando Docker ou Systemd para participar do protocolo que protege o ecossistema.
 icon: octicons-server-24
 template: index-page.html
 ---
 
-# Executar um Nó Operador
+# Executar um Nó Operator
 
 A configuração de um nó operador é um passo importante para participar da rede Tanssi. Você tem duas opções de configuração: usar _Docker_ ou _Systemd._ Qualquer que seja o caminho que você escolher, fornecemos tutoriais passo a passo para guiá-lo pelo processo e garantir que seu nó atenda aos requisitos necessários para validar as transações da rede Tanssi e fornecer segurança ao ecossistema.
 

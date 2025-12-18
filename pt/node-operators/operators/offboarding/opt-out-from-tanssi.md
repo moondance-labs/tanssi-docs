@@ -3,7 +3,7 @@ title: Cancelar a Participação na Tanssi
 description: Saiba como iniciar o processo de desligamento de uma rede Tanssi, cancelando a participação por vários métodos e como verificar seu status.
 icon: octicons-sign-out-24
 template: main.html
-categories: Operadores
+categories: Operators
 ---
 
 # Cancelar a Participação na Tanssi

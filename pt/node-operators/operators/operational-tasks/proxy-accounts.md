@@ -1,11 +1,11 @@
 ---
-title: Configurar uma Conta Proxy de Operador
+title: Configurar uma Conta Proxy de Operator
 description: Siga este guia passo a passo para habilitar contas proxy e executar tarefas operacionais (como rotação de chaves) em nome da sua conta de operador com segurança.
 icon: octicons-shield-lock-24
 categories: Operators
 ---
 
-# Configurar uma Conta Proxy de Operador
+# Configurar uma Conta Proxy de Operator
 
 ## Introdução {: #introduction }
 

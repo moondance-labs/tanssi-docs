@@ -13,7 +13,7 @@ A tecnologia blockchain baseia-se na criptografia de chaves [público-privadas](
 
 ## Tipos de Conta no Protocolo Tanssi {: #key-types-in-tanssi-protocol }
 
-| **Tipo de Conta** | **Algoritmo Subjacente** | **Uso Principal no Tanssi** |
+| **Tipo de Conta** | **Algoritmo Subjacente** | **Uso Principal na Tanssi** |
 | --- | --- | --- |
 | [Sr25519](https://wiki.polkadot.com/learn/learn-cryptography/){target=\_blank} | Assinaturas Schnorr no grupo Ristretto | Esquema padrão de assinatura para transações baseadas em Substrate e identidade de operador. |
 | [Ed25519](https://wiki.polkadot.com/learn/learn-cryptography/){target=\_blank} | EdDSA usando Curve25519 | Usado para funções específicas de consenso (ex.: produção de blocos, finalidade) no Substrate. |
@@ -27,13 +27,13 @@ A Tanssi, construída com o framework Substrate, utiliza esquemas criptográfico
 
 **Ed25519 (Algoritmo de Assinatura Digital de Curva Edwards)** – enquanto Sr25519 cuida da identidade e transações gerais, Ed25519 é usado por seu alto desempenho em assinatura criptográfica, ideal para operações de consenso. **Na Tanssi, contas Ed25519 são usadas por operadores de nó para mecanismos críticos, como produção de blocos e finalidade.** Usuários comuns normalmente não criam ou usam diretamente contas Ed25519, mas elas são fundamentais para a segurança e operação da rede.
 
-Operadores de nó na Tanssi precisam de uma conta Substrate para registrar suas atividades, incluindo validadores que protegem a rede e sequenciadores que produzem blocos. Esta conta também rastreia recompensas, com chaves de sessão mapeadas para ela para maior segurança.
+Operators de nó na Tanssi precisam de uma conta Substrate para registrar suas atividades, incluindo validadores que protegem a rede e Sequencers que produzem blocos. Esta conta também rastreia recompensas, com chaves de sessão mapeadas para ela para maior segurança.
 
 ## Segurança e Recompensas no Ethereum {: #security-and-rewards-on-ethereum }
 
 O Algoritmo de Assinatura Digital de Curva Elíptica (ECDSA) é fundamental para o Ethereum e é usado pela Tanssi para integrar-se à rede Ethereum via Symbiotic. Essa parceria alavanca a segurança do Ethereum para redes com tecnologia Tanssi.
 
-Operadores Tanssi precisam de uma conta ECDSA para receber recompensas distribuídas no Ethereum, geralmente via protocolo Symbiotic. A necessidade de contas Substrate e ECDSA destaca o design híbrido da Tanssi, em que as operações são baseadas em Substrate, e a segurança e as recompensas estão vinculadas ao Ethereum.
+Operators Tanssi precisam de uma conta ECDSA para receber recompensas distribuídas no Ethereum, geralmente via protocolo Symbiotic. A necessidade de contas Substrate e ECDSA destaca o design híbrido da Tanssi, em que as operações são baseadas em Substrate, e a segurança e as recompensas estão vinculadas ao Ethereum.
 
 ## Mapeamentos de Conta na Tanssi {: #account-mappings-in-tanssi }
 

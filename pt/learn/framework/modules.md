@@ -1,6 +1,6 @@
 ---
-title: Módulos de Rede para o Seu Tempo de Execução
-description: O Substrate é um framework modular de desenvolvimento de blockchain com um conjunto extenso de componentes prontos para uso que podem ser associados à lógica personalizada no Tempo de Execução da rede.
+title: Módulos de Rede para o Seu Runtime
+description: O Substrate é um framework modular de desenvolvimento de blockchain com um conjunto extenso de componentes prontos para uso que podem ser associados à lógica personalizada no Runtime da rede.
 icon: material-puzzle-outline
 categories: Custom-Runtime, Basics
 ---
@@ -11,9 +11,9 @@ categories: Custom-Runtime, Basics
 
 O framework Substrate fornece implementações completas e prontas para uso das funções principais que uma rede Tanssi precisa para funcionar corretamente, incluindo criptografia, consenso, governança e assim por diante. Estas implementações são totalmente personalizáveis e podem ser substituídas por lógica personalizada, se necessário.
 
-Ao criar o Tempo de Execução, que define as regras de transição de estado entre dois blocos aplicados a um conjunto de transações, o comportamento e as funcionalidades pretendidas da blockchain precisam de ser definidos ao determinar as regras da transição de estado.
+Ao criar o Runtime, que define as regras de transição de estado entre dois blocos aplicados a um conjunto de transações, o comportamento e as funcionalidades pretendidas da blockchain precisam de ser definidos ao determinar as regras da transição de estado.
 
-Para construir o Tempo de Execução, o Substrate fornece muitos módulos integrados (também conhecidos como pallets) que podem ser livremente usados como blocos de construção para compor e interagir com quaisquer outros módulos feitos sob medida, permitindo que as equipas criem comportamentos únicos de acordo com os requisitos específicos da sua rede Tanssi.
+Para construir o Runtime, o Substrate fornece muitos módulos integrados (também conhecidos como pallets) que podem ser livremente usados como blocos de construção para compor e interagir com quaisquer outros módulos feitos sob medida, permitindo que as equipas criem comportamentos únicos de acordo com os requisitos específicos da sua rede Tanssi.
 
 ![Módulos embutidos](/images/learn/framework/modules/modules-1.webp)
 
@@ -40,7 +40,7 @@ Além daqueles já listados, outros módulos como [identity](https://paritytech.
 
 Os desenvolvedores que criam novos módulos desfrutam de total liberdade para expressar qualquer comportamento desejado na lógica principal da blockchain, como expor novas transações, armazenar informações sensíveis e validar e impor lógica de negócios.
 
-Como explicado no artigo [Arquitetura](/pt/learn/framework/architecture/#client-runtime-communication){target=\_blank}, um módulo precisa ser capaz de se comunicar com o cliente principal, expondo e integrando com uma API muito específica que permite que o tempo de execução exponha transações, acesse o armazenamento e code e decodifique informações armazenadas na cadeia. Também precisa incluir muitos outros códigos de ligação necessários que fazem o módulo funcionar no nó.
+Como explicado no artigo [Arquitetura](/pt/learn/framework/architecture/#client-runtime-communication){target=\_blank}, um módulo precisa ser capaz de se comunicar com o cliente principal, expondo e integrando com uma API muito específica que permite que o Runtime exponha transações, acesse o armazenamento e code e decodifique informações armazenadas na cadeia. Também precisa incluir muitos outros códigos de ligação necessários que fazem o módulo funcionar no nó.
 
 Para melhorar a experiência do desenvolvedor ao escrever módulos, o Substrate depende muito de [macros Rust](https://doc.rust-lang.org/book/ch19-06-macros.html){target=\_blank}. As macros são instruções especiais que se expandem automaticamente para o código Rust pouco antes do tempo de compilação, permitindo que os módulos mantenham até sete vezes a quantidade de código fora da vista dos desenvolvedores. Isto permite que os desenvolvedores se concentrem nos requisitos funcionais específicos ao escrever módulos, em vez de lidar com tecnicidades e o código de suporte necessário.
 
@@ -48,7 +48,7 @@ Todos os módulos no Substrate, incluindo os feitos sob medida, implementam esta
 
 --8<-- 'text/pt/builders/build/customize/custom-made-module/pallets-macros-descriptions.md'
 
-Todas estas macros atuam como atributos que devem ser aplicados ao código logo acima dos módulos, funções, estruturas, enums, tipos, etc., Rust, permitindo que o módulo seja construído e adicionado ao tempo de execução, que, com o tempo, irá expor a lógica personalizada ao mundo exterior, conforme exposto na seção seguinte.
+Todas estas macros atuam como atributos que devem ser aplicados ao código logo acima dos módulos, funções, estruturas, enums, tipos, etc., Rust, permitindo que o módulo seja construído e adicionado ao Runtime, que, com o tempo, irá expor a lógica personalizada ao mundo exterior, conforme exposto na seção seguinte.
 
 ### Exemplo de Módulo Personalizado { #custom-module-example }
 
@@ -62,4 +62,4 @@ Como exemplo de um módulo personalizado, o seguinte código (não destinado a u
 --8<-- 'code/builders/build/customize/custom-made-module/lottery-example.rs'
 ```
 
-Para mais informações sobre o processo passo a passo de criação de um módulo feito sob medida para o tempo de execução, consulte [Adicionar um módulo personalizado](/pt/builders/build/customize/adding-custom-made-module/){target=\_blank} na secção de Construtor.
+Para mais informações sobre o processo passo a passo de criação de um módulo feito sob medida para o Runtime, consulte [Adicionar um módulo personalizado](/pt/builders/build/customize/adding-custom-made-module/){target=\_blank} na secção de Builder.

@@ -34,7 +34,7 @@ Puxe a imagem correspondente ao tipo de appchain que você deseja executar.
 
 ### Appchains Compatíveis com EVM {: #pulling-evm-docker-image }
 
-Se a appchain foi registrada escolhendo o modelo EVM ou enviando uma especificação personalizada compatível com EVM, execute:
+Se a appchain foi registrada escolhendo o Template EVM ou enviando uma especificação personalizada compatível com EVM, execute:
 
 === "Tanssi MainNet"
 
@@ -54,7 +54,7 @@ O comando fará download e extração da imagem e exibirá o status após a exec
 
 ### Appchains Substrate Simples {: #pulling-substrate-docker-image }
 
-Se a appchain foi registrada escolhendo o modelo Substrate básico ou enviando uma especificação personalizada Substrate, execute:
+Se a appchain foi registrada escolhendo o Template Substrate básico ou enviando uma especificação personalizada Substrate, execute:
 
 === "Tanssi MainNet"
 

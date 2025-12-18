@@ -21,7 +21,7 @@ Esta seção aborda os fundamentos de uma rede Tanssi, sua arquitetura, módulos
 
 Como mencionado, as redes implantadas via Tanssi são blockchains customizáveis que, entre outras características, recebem produção de blocos como serviço e herdam segurança com finalização determinística em segundos de um provedor externo de segurança.
 
-As redes com tecnologia Tanssi são totalmente descentralizadas. Essa natureza descentralizada aumenta consideravelmente a resiliência e a tolerância a falhas, já que não dependem de uma autoridade única para garantir disponibilidade, segurança e desempenho, mas sim de protocolos trustless e descentralizados. Por exemplo, recebem serviços de produção de blocos de um conjunto descentralizado e incentivado de sequenciadores gerenciados pela Tanssi.
+As redes com tecnologia Tanssi são totalmente descentralizadas. Essa natureza descentralizada aumenta consideravelmente a resiliência e a tolerância a falhas, já que não dependem de uma autoridade única para garantir disponibilidade, segurança e desempenho, mas sim de protocolos trustless e descentralizados. Por exemplo, recebem serviços de produção de blocos de um conjunto descentralizado e incentivado de Sequencers gerenciados pela Tanssi.
 
 O protocolo Tanssi funciona com um [provedor externo de segurança](/pt/learn/tanssi/external-security-providers/){target=\_blank}, que possui um conjunto de operadores (validadores) com ativos em stake, validando as transações da própria rede Tanssi e de todas as redes implantadas via Tanssi. Assim, todas as redes com tecnologia Tanssi herdam a segurança econômica do protocolo Tanssi e, indiretamente, dos operadores, que verificam cada transação de cada rede. As redes Tanssi não precisam manter seu próprio conjunto de operadores nem fazer bootstrapping de liquidez para proteger o protocolo.
 
@@ -49,9 +49,9 @@ flowchart TB
 
 Uma transação enviada a uma rede Tanssi segue um caminho complexo porém transparente, desde o envio até a inclusão no bloco e finalização. A infraestrutura da rede, a Tanssi e o [provedor de segurança](/pt/learn/tanssi/external-security-providers/){target=\_blank} escolhido atuam em níveis diferentes para que o processo ocorra o mais rápido possível, geralmente em cerca de 30 segundos. Uma transação em uma rede Tanssi atinge finalização determinística; uma vez final, torna-se irreversível e imutável, e a transição de estado resultante é definitiva.
 
-Por exemplo, um usuário inicia uma transação ao interagir com um aplicativo implantado em uma rede Tanssi. O provedor RPC compartilha a transação, que permanece no pool de transações da cadeia, com todos os participantes. Um sequenciador designado pela Tanssi para essa rede capturará a transação e a incluirá no próximo bloco.
+Por exemplo, um usuário inicia uma transação ao interagir com um aplicativo implantado em uma rede Tanssi. O provedor RPC compartilha a transação, que permanece no pool de transações da cadeia, com todos os participantes. Um Sequencer designado pela Tanssi para essa rede capturará a transação e a incluirá no próximo bloco.
 
-Em seguida, o sequenciador compartilhará com os operadores do provedor de segurança:
+Em seguida, o Sequencer compartilhará com os operadores do provedor de segurança:
 
 - O bloco em si com as transições de estado
 - Os componentes de armazenamento no banco de dados da rede Tanssi que o bloco está modificando

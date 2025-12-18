@@ -29,13 +29,13 @@ Felizmente, não há necessidade de construir esses componentes de blockchain do
 
 Substrate é uma estrutura extremamente performática, flexível, modular e altamente personalizável para construir blockchains. Essa estrutura é a base e o motor que impulsionam muitos projetos no ecossistema Web3, incluindo a própria rede Tanssi e as redes implantadas por meio da Tanssi.
 
-Muitos de seus ótimos recursos, como desempenho, facilidade de uso e modularidade, resultam da linguagem de programação escolhida para seu desenvolvimento. É aqui que a [Linguagem de Programação Rust](#rust-programming-language) se destaca: ela é rápida, portátil e fornece um modelo maravilhoso para lidar com a memória, entre outros motivos detalhados na [próxima seção](#rust-programming-language).
+Muitos de seus ótimos recursos, como desempenho, facilidade de uso e modularidade, resultam da linguagem de programação escolhida para seu desenvolvimento. É aqui que a [Linguagem de Programação Rust](#rust-programming-language) se destaca: ela é rápida, portátil e fornece um Template maravilhoso para lidar com a memória, entre outros motivos detalhados na [próxima seção](#rust-programming-language).
 
 Ao desenvolver uma rede, Substrate representa uma grande vantagem ao fornecer um conjunto de implementações prontas para uso dos principais blocos de construção que um projeto precisa:
 
 - **Algoritmos de Consenso** - existem vários mecanismos de consenso integrados, como Aura (Prova de Autoridade), Babe (Prova de Participação) e Grandpa (finalidade de bloco), mas devido ao alto grau de personalização que Substrate oferece, as equipes podem sempre optar por desenvolver seu consenso específico para se adaptar às necessidades do caso de uso, como a equipe Moonbeam fez com a [Estrutura de Consenso Nimbus Parachain](https://docs.moonbeam.network/learn/features/consensus){target=\_blank}
 
-- **Módulos de Tempo de Execução** - muitos módulos integrados (explicados em detalhes na seção [modules](/pt/learn/framework/modules/){target=\_blank}) podem ser selecionados e configurados em sua rede, como contas, saldos, staking, governança, identidade e muito mais
+- **Módulos de Runtime** - muitos módulos integrados (explicados em detalhes na seção [modules](/pt/learn/framework/modules/){target=\_blank}) podem ser selecionados e configurados em sua rede, como contas, saldos, staking, governança, identidade e muito mais
 
 - **Rede** - protocolos e bibliotecas integradas para estabelecer conexões, propagar transações e blocos, sincronizar o estado da blockchain e gerenciar interações de rede
 
@@ -43,7 +43,7 @@ Ao desenvolver uma rede, Substrate representa uma grande vantagem ao fornecer um
 
 - **Fila de Transações** - sistema de fila de transações integrado que gerencia a validação, priorização e inclusão de transações em blocos, garantindo a consistência e integridade do estado da rede
 
-- **APIs RPC** - Substrate fornece APIs de Chamada de Procedimento Remoto (RPC) que permitem que aplicativos externos interajam com a rede, consultando dados da blockchain, enviando transações e acessando várias funcionalidades expostas pelo tempo de execução
+- **APIs RPC** - Substrate fornece APIs de Chamada de Procedimento Remoto (RPC) que permitem que aplicativos externos interajam com a rede, consultando dados da blockchain, enviando transações e acessando várias funcionalidades expostas pelo Runtime
 
 Cada recurso que o Substrate oferece pode ser usado como está, estendido, personalizado ou substituído para atender aos requisitos específicos do caso de uso da rede.
 
@@ -57,11 +57,11 @@ Além de fornecer uma ótima experiência para os desenvolvedores, o Rust se des
 
 - **Segurança da memória** - O compilador Rust impõe verificações estritas em tempo de compilação para evitar erros de programação comuns, como desreferências de ponteiros nulos, estouros de buffer e condições de corrida de dados. Além disso, a memória é gerenciada por meio de um novo sistema de propriedade (verificado pelo compilador), que elimina a necessidade de um coletor de lixo
 
-- **Desempenho** - Rust atinge um desempenho comparável ao de C e C++, fornecendo controle de baixo nível sobre os recursos do sistema e minimizando a sobrecarga de tempo de execução. Ele tem um princípio de abstração de custo zero, semelhante a "o que você não usa, você não paga" de C++, o que significa que as abstrações não têm sobrecarga extra
+- **Desempenho** - Rust atinge um desempenho comparável ao de C e C++, fornecendo controle de baixo nível sobre os recursos do sistema e minimizando a sobrecarga de Runtime. Ele tem um princípio de abstração de custo zero, semelhante a "o que você não usa, você não paga" de C++, o que significa que as abstrações não têm sobrecarga extra
 
-- **Concorrência** - Rust possui recursos integrados que facilitam a escrita de código concorrente e paralelo sem introduzir condições de corrida de dados. Ele fornece threads leves (tarefas) e um modelo de propriedade poderoso que garante o compartilhamento seguro de dados entre threads
+- **Concorrência** - Rust possui recursos integrados que facilitam a escrita de código concorrente e paralelo sem introduzir condições de corrida de dados. Ele fornece threads leves (tarefas) e um Template de propriedade poderoso que garante o compartilhamento seguro de dados entre threads
 
-- **Abstrações expressivas e seguras** - Rust oferece um rico conjunto de recursos de linguagem modernos, como correspondência de padrões, tipos de dados algébricos, closures e inferência de tipos, permitindo que os desenvolvedores escrevam e leiam código expressivo e conciso. O compilador Rust impõe o forte sistema de tipos, evitando muitos erros em tempo de execução em tempo de compilação
+- **Abstrações expressivas e seguras** - Rust oferece um rico conjunto de recursos de linguagem modernos, como correspondência de padrões, tipos de dados algébricos, closures e inferência de tipos, permitindo que os desenvolvedores escrevam e leiam código expressivo e conciso. O compilador Rust impõe o forte sistema de tipos, evitando muitos erros em Runtime em tempo de compilação
 
 - **Compatibilidade entre plataformas** - Rust foi projetado para funcionar bem em uma variedade de plataformas e arquiteturas. Ele suporta os principais sistemas operacionais como Windows, macOS e Linux, bem como sistemas embarcados e WebAssembly. Essa versatilidade permite que os desenvolvedores escrevam código que pode ser implantado em diferentes ambientes
 

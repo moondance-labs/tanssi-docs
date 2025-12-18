@@ -9,7 +9,7 @@ categories: Custom-Runtime
   
 ## Introdução {:  #introduction }
   
-Ao fornecer uma biblioteca abrangente de módulos pré-construídos que abordam muitos requisitos comuns, a estrutura simplifica enormemente o processo de construção de um blockchain e acelera a implantação e evolução em uma rede com tecnologia Tanssi. No entanto, abordar um caso de uso inovador geralmente exige um esforço de desenvolvimento para atender totalmente aos requisitos e, no Substrate, adicionar lógica personalizada se traduz em escrever e integrar módulos de tempo de execução.
+Ao fornecer uma biblioteca abrangente de módulos pré-construídos que abordam muitos requisitos comuns, a estrutura simplifica enormemente o processo de construção de um blockchain e acelera a implantação e evolução em uma rede com tecnologia Tanssi. No entanto, abordar um caso de uso inovador geralmente exige um esforço de desenvolvimento para atender totalmente aos requisitos e, no Substrate, adicionar lógica personalizada se traduz em escrever e integrar módulos de Runtime.
   
 O exemplo apresentado no artigo [Modularidade](/pt/learn/framework/modules/#custom-module-example){target=\_blank} mostra um módulo de loteria simples que expõe duas transações:
   
@@ -18,12 +18,12 @@ O exemplo apresentado no artigo [Modularidade](/pt/learn/framework/modules/#cust
   
 A implementação dessas transações também usa armazenamento, emite eventos, define erros personalizados e depende de outros módulos para lidar com a moeda (para cobrar pelos bilhetes e transferir o valor total para o vencedor) e aleatorizar a seleção do vencedor.
   
-Neste artigo, as seguintes etapas, necessárias para construir e adicionar o módulo de exemplo ao tempo de execução, serão abordadas:
+Neste artigo, as seguintes etapas, necessárias para construir e adicionar o módulo de exemplo ao Runtime, serão abordadas:
 
 1. Criar os arquivos do módulo de loteria (pacote).
 2. Configurar as dependências do módulo.
 3. Adicionar lógica personalizada.
-4. Configurar o tempo de execução com o novo módulo.
+4. Configurar o Runtime com o novo módulo.
 
 --8<-- 'text/pt/_common/not-for-production-code-guard.md'
 
@@ -77,7 +77,7 @@ pub(super) type Participants<T: Config> = StorageValue<
 >;
 ```
 
-Este arquivo também define as dependências do módulo, como a funcionalidade principal que permite a integração perfeita com o tempo de execução e outros módulos, acesso ao armazenamento, emissão de eventos e muito mais.
+Este arquivo também define as dependências do módulo, como a funcionalidade principal que permite a integração perfeita com o Runtime e outros módulos, acesso ao armazenamento, emissão de eventos e muito mais.
 
 O exemplo completo do arquivo `Cargo.toml` define, além dos atributos, as dependências exigidas pelo Substrate:
 
@@ -95,7 +95,7 @@ Conforme apresentado na seção [módulo personalizado](/pt/learn/framework/modu
 
 ### Implementando a Estrutura Básica do Módulo {: #implementing-basic-structure }
 
-As duas primeiras macros obrigatórias, `#[frame_support::pallet]` e `#[pallet::pallet]`, fornecem a estrutura básica do módulo e são necessárias para habilitar o módulo a ser usado em um tempo de execução Substrate.
+As duas primeiras macros obrigatórias, `#[frame_support::pallet]` e `#[pallet::pallet]`, fornecem a estrutura básica do módulo e são necessárias para habilitar o módulo a ser usado em um Runtime Substrate.
 
 A seguir, é apresentada a estrutura geral de um módulo Substrate personalizado.
 
@@ -114,14 +114,14 @@ A próxima etapa seria adicionar a terceira macro obrigatória (`#[pallet::confi
 
 ### Implementando a Configuração do Módulo {: #implementing-module-configuration }
 
-Para tornar os módulos altamente adaptáveis, sua configuração é abstrata o suficiente para permitir que sejam adaptados aos requisitos específicos do caso de uso que o tempo de execução implementa.
+Para tornar os módulos altamente adaptáveis, sua configuração é abstrata o suficiente para permitir que sejam adaptados aos requisitos específicos do caso de uso que o Runtime implementa.
 
-A implementação da macro `#[pallet::config]` é obrigatória e define a dependência do módulo em outros módulos e os tipos e valores especificados pelas configurações específicas do tempo de execução.
+A implementação da macro `#[pallet::config]` é obrigatória e define a dependência do módulo em outros módulos e os tipos e valores especificados pelas configurações específicas do Runtime.
 
-No módulo `lottery-example` personalizado que você está construindo, o módulo depende de outros módulos para gerenciar a moeda e a função aleatória para selecionar o vencedor. O módulo também lê e usa o preço do bilhete e o número máximo de participantes diretamente das configurações do tempo de execução. Consequentemente, a configuração precisa incluir essas dependências:
+No módulo `lottery-example` personalizado que você está construindo, o módulo depende de outros módulos para gerenciar a moeda e a função aleatória para selecionar o vencedor. O módulo também lê e usa o preço do bilhete e o número máximo de participantes diretamente das configurações do Runtime. Consequentemente, a configuração precisa incluir essas dependências:
 
-- **Events** - o módulo depende da definição de um evento do tempo de execução para poder emiti-los
-- **Currency** - o módulo `lottery-example` precisa poder transferir fundos, portanto, precisa da definição do sistema monetário do tempo de execução
+- **Events** - o módulo depende da definição de um evento do Runtime para poder emiti-los
+- **Currency** - o módulo `lottery-example` precisa poder transferir fundos, portanto, precisa da definição do sistema monetário do Runtime
 - **Randomness** - este módulo é usado para selecionar de forma justa o vencedor do prêmio da lista de participantes. Ele gera os números aleatórios usando os hashes de bloco anteriores e o número do bloco atual como semente
 - **Ticket coste** - o preço a ser cobrado dos compradores que participam da loteria
 - **Maximum number of participants** - o limite máximo de participantes permitido em cada rodada da loteria
@@ -161,7 +161,7 @@ Esta definição abstrata de dependências é crucial para evitar o acoplamento 
 
 ### Implementando Transações {: #implementing-transactions }
 
-Chamadas representam o comportamento que um tempo de execução expõe na forma de transações que podem ser despachadas para processamento, expondo a lógica personalizada adicionada ao módulo.
+Chamadas representam o comportamento que um Runtime expõe na forma de transações que podem ser despachadas para processamento, expondo a lógica personalizada adicionada ao módulo.
 
 Cada chamada está incluída na macro `#[pallet::call]` e apresenta os seguintes elementos:
 
@@ -230,7 +230,7 @@ Aqui está a implementação completa das chamadas com a lógica da loteria pers
                     
 ### Implementando Erros Personalizados {: #implementing-custom-errors}
 
-A macro `#[pallet::error]` é usada para anotar uma enumeração de erros potenciais que poderiam ocorrer durante a execução. É crucial para a segurança garantir que todas as situações de erro sejam tratadas com elegância, sem causar a falha do tempo de execução.
+A macro `#[pallet::error]` é usada para anotar uma enumeração de erros potenciais que poderiam ocorrer durante a execução. É crucial para a segurança garantir que todas as situações de erro sejam tratadas com elegância, sem causar a falha do Runtime.
 
 O exemplo a seguir desta implementação de macro mostra os erros que podem ocorrer no módulo da loteria:
 
@@ -246,7 +246,7 @@ pub enum `Error`<T> {
 
 ### Implementando Eventos {: #implementing-events }
 
-A macro `#[pallet::event]` é aplicada a uma enumeração de eventos para informar o usuário sobre quaisquer alterações no estado ou ações importantes que ocorreram durante a execução no tempo de execução.
+A macro `#[pallet::event]` é aplicada a uma enumeração de eventos para informar o usuário sobre quaisquer alterações no estado ou ações importantes que ocorreram durante a execução no Runtime.
 
 Como exemplo, para o módulo `lottery-example`, esta macro pode ser configurada com os seguintes eventos:
 
@@ -266,7 +266,7 @@ pub enum Event<T: Config> {
     
 ### Implementando o Armazenamento para Persistência de Estado {: #implementing-storage }
 
-A macro `#[pallet::storage]` inicializa uma estrutura de armazenamento de tempo de execução. No ambiente altamente restrito de blockchains, decidir o que armazenar e qual estrutura usar pode ser fundamental em termos de desempenho. Mais sobre esse tópico é abordado na [documentação Substrate](https:/docs.polkadot.com/develop/parachains/customize-parachain/make-custom-pallet/#pallet-storage){target=\_blank}.
+A macro `#[pallet::storage]` inicializa uma estrutura de armazenamento de Runtime. No ambiente altamente restrito de blockchains, decidir o que armazenar e qual estrutura usar pode ser fundamental em termos de desempenho. Mais sobre esse tópico é abordado na [documentação Substrate](https:/docs.polkadot.com/develop/parachains/customize-parachain/make-custom-pallet/#pallet-storage){target=\_blank}.
 
 Neste exemplo, o módulo `lottery-example` precisa de uma estrutura de armazenamento de valor básica para persistir a lista de participantes em um vetor de capacidade limitada ([BoundedVec](https:/crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=\_blank}). Isso pode ser inicializado da seguinte forma:
 
@@ -282,7 +282,7 @@ pub(super) type Participants<T: Config> = StorageValue<
 
 ### O Módulo Completo {: #complete-module }
 
-Para juntar todas as peças, após implementar todas as macros necessárias e adicionar a lógica personalizada, o módulo agora está completo e pronto para ser usado no tempo de execução.
+Para juntar todas as peças, após implementar todas as macros necessárias e adicionar a lógica personalizada, o módulo agora está completo e pronto para ser usado no Runtime.
 
 ??? code "Ver o arquivo do módulo completo"
     
@@ -290,9 +290,9 @@ Para juntar todas as peças, após implementar todas as macros necessárias e ad
     --8<-- 'code/builders/build/customize/custom-made-module/lottery-example.rs'
     ```
     
-## Configurar o Tempo de Execução {: #configure-runtime }
+## Configurar o Runtime {: #configure-runtime }
 
-Finalmente, com o módulo finalizado, ele pode ser incluído no tempo de execução. Ao fazer isso, as transações `buy_tickets` e `award_prize` serão chamáveis pelos usuários. Isso também significa que a [API Polkadot.js](pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} será decorada com este módulo e todas as chamadas disponíveis que ele contém.\n\nPara configurar o tempo de execução, abra o arquivo `lib.rs`, que contém a definição para o tempo de execução do modelo incluído e está localizado (no caso de usar o compatível com EVM) na pasta:
+Finalmente, com o módulo finalizado, ele pode ser incluído no Runtime. Ao fazer isso, as transações `buy_tickets` e `award_prize` serão chamáveis pelos usuários. Isso também significa que a [API Polkadot.js](pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} será decorada com este módulo e todas as chamadas disponíveis que ele contém.\n\nPara configurar o Runtime, abra o arquivo `lib.rs`, que contém a definição para o Runtime do Template incluído e está localizado (no caso de usar o compatível com EVM) na pasta:
 
 ```text
 */container-chains/templates/frontier/runtime/src/
@@ -321,14 +321,14 @@ impl pallet_lottery_example::Config for Runtime {
     type MyRandomness = RandomCollectiveFlip;
     }
 ```
-Com os módulos configurados, adicione a macro `construct_runtime!` (que define os módulos que serão incluídos ao construir o tempo de execução) e os módulos de aleatoriedade e loteria.
+Com os módulos configurados, adicione a macro `construct_runtime!` (que define os módulos que serão incluídos ao construir o Runtime) e os módulos de aleatoriedade e loteria.
     
     
 ```rust
 construct_runtime!(
     pub struct Runtime {
         ...
-        // Inclua a lógica personalizada do pallet-template no tempo de execução.
+        // Inclua a lógica personalizada do pallet-template no Runtime.
         RandomCollectiveFlip: pallet_insecure_randomness_collective_flip,
         Lottery: pallet_lottery_example,
         ...

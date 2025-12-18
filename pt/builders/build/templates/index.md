@@ -5,29 +5,29 @@ icon: octicons-copy-24
 template: index-page.html
 ---
 
-# Modelos de Rede
+# Templates de Rede
 
-Comece o desenvolvimento de sua rede com nossos modelos abrangentes. Projetados para implantação rápida, esses modelos fornecem uma base sólida para soluções EVM e não-EVM, acelerando a sua jornada de produção.
+Comece o desenvolvimento de sua rede com nossos Templates abrangentes. Projetados para implantação rápida, esses Templates fornecem uma base sólida para soluções EVM e não-EVM, acelerando a sua jornada de produção.
 
-## Escolha um Modelo
+## Escolha um Template
 
-A Tanssi oferece dois modelos para dar início ao processo de desenvolvimento:
+A Tanssi oferece dois Templates para dar início ao processo de desenvolvimento:
 
-- **Modelo de rede Tanssi Básico** - um modelo que fornece a plataforma básica para começar a adicionar lógica personalizada
+- **Template de rede Tanssi Básico** - um Template que fornece a plataforma básica para começar a adicionar lógica personalizada
     <br>
 
-    [:octicons-arrow-right-24: Saiba mais sobre o que este modelo fornece](/pt/learn/decentralized-networks/included-templates#baseline-network-template)
+    [:octicons-arrow-right-24: Saiba mais sobre o que este Template fornece](/pt/learn/decentralized-networks/included-templates#baseline-network-template)
 
-    [:octicons-arrow-right-24: Comece a construir com este modelo](/pt/builders/build/templates/substrate/)
+    [:octicons-arrow-right-24: Comece a construir com este Template](/pt/builders/build/templates/substrate/)
 
-- **Modelo de Rede EVM (Máquina Virtual Ethereum) Tanssi Básico** - um modelo que fornece compatibilidade total com o Ethereum
+- **Template de Rede EVM (Máquina Virtual Ethereum) Tanssi Básico** - um Template que fornece compatibilidade total com o Ethereum
     <br>
 
-    [:octicons-arrow-right-24: Saiba mais sobre o que este modelo fornece](/pt/learn/decentralized-networks/included-templates/#baseline-evm-template)
+    [:octicons-arrow-right-24: Saiba mais sobre o que este Template fornece](/pt/learn/decentralized-networks/included-templates/#baseline-evm-template)
 
-    [:octicons-arrow-right-24: Comece a construir com este modelo](/pt/builders/build/templates/evm/)
+    [:octicons-arrow-right-24: Comece a construir com este Template](/pt/builders/build/templates/evm/)
 
-Para saber mais sobre os requisitos mínimos para que sua cadeia funcione na Tanssi e quais módulos são incluídos automaticamente, consulte a página [Visão geral do modelo](/pt/builders/build/templates/overview/).
+Para saber mais sobre os requisitos mínimos para que sua cadeia funcione na Tanssi e quais módulos são incluídos automaticamente, consulte a página [Visão geral do Template](/pt/builders/build/templates/overview/).
 
 ## Explore Esta Seção
 

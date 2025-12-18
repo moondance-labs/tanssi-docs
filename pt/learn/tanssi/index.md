@@ -9,7 +9,7 @@ template: index-page.html
 
 Com Tanssi, os desenvolvedores podem contar com a produção contínua de blocos, integração com ferramentas essenciais e a flexibilidade de escolher provedores de segurança que melhor se adequem ao seu ambiente de blockchain, capacitando-os a se concentrar na inovação, e não nos obstáculos técnicos.
 
-A estrutura modular, a personalização de tempo de execução, o gerenciamento de transações e a interoperabilidade da Tanssi transformam o desenvolvimento de rede em um processo acessível e eficiente, reduzindo drasticamente o tempo de lançamento no mercado, garantindo, ao mesmo tempo, alto desempenho e escalabilidade.
+A estrutura modular, a personalização de Runtime, o gerenciamento de transações e a interoperabilidade da Tanssi transformam o desenvolvimento de rede em um processo acessível e eficiente, reduzindo drasticamente o tempo de lançamento no mercado, garantindo, ao mesmo tempo, alto desempenho e escalabilidade.
 
 Esta seção inclui uma visão geral dos principais recursos da Tanssi que suportam o desenvolvimento da rede, cobrindo tudo, desde infraestrutura e segurança até integrações essenciais.
 

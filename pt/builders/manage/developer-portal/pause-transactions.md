@@ -9,7 +9,7 @@ categories: Appchain
 
 ## Introdução {: #introduction }
 
-O [módulo de Pausa de Transação](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} é um dos [módulos embutidos](/pt/learn/framework/modules/#built-in-modules){target=\_blank} incluídos no Polkadot SDK, e está disponível em qualquer rede alimentada por Tanssi baseada nos [modelos oficiais](/pt/builders/build/templates/overview/){target=\_blank} versão [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} ou superior.
+O [módulo de Pausa de Transação](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} é um dos [módulos embutidos](/pt/learn/framework/modules/#built-in-modules){target=\_blank} incluídos no Polkadot SDK, e está disponível em qualquer rede Powered by Tanssi baseada nos [Templates oficiais](/pt/builders/build/templates/overview/){target=\_blank} versão [400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-400-templates){target=\_blank} ou superior.
 
 Este módulo permite que um governador de rede evite temporariamente a execução de um conjunto de transações selecionadas, enquanto o restante das transações continua normalmente. Esse recurso é útil em vários cenários, como desabilitar uma funcionalidade em que uma ameaça à segurança foi descoberta, habilitar uma funcionalidade sazonal somente quando necessário e habilitar um conjunto de transações exatamente na data de lançamento.
 
@@ -22,19 +22,19 @@ Em um cenário de emergência, quando um exploit crítico é descoberto, este m�
 
 Para os exemplos deste guia, você precisará ter o seguinte:
 
-- Uma rede alimentada por Tanssi (Quick Trial ou Dedicada) com o módulo Pausa de Transação. Qualquer nova implantação de rede baseada em um dos modelos servirá; caso contrário, certifique-se de [incluir o módulo](/pt/builders/build/customize/adding-built-in-module/){target=\_blank} em seu runtime de rede personalizado
+- Uma rede Powered by Tanssi (Quick Trial ou Dedicada) com o módulo Pausa de Transação. Qualquer nova implantação de rede baseada em um dos Templates servirá; caso contrário, certifique-se de [incluir o módulo](/pt/builders/build/customize/adding-built-in-module/){target=\_blank} em seu runtime de rede personalizado
 - A conta Sudo da sua rede conectada aos seus Polkadot.js Apps da rede. Você pode consultar o guia [Managing Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar sua conta Sudo no Polkadot.js Apps
 
 --8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
 ## Nomes de Módulo e Transação {: #modules-transaction-names }
 
-O [módulo Pausa de Transação](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} funciona filtrando a execução de transações específicas contidas nos módulos incluídos no tempo de execução da rede. Para fazer isso, ele mantém uma lista interna das transações banidas, identificadas por nome de módulo e transação. Esta lista diferencia maiúsculas de minúsculas e só funciona quando há uma correspondência exata entre um item na lista de transações pausadas e a transação que está sendo processada. Portanto, o uso dos nomes exatos dos módulos e das transações é crucial.
+O [módulo Pausa de Transação](https://github.com/paritytech/polkadot-sdk/blob/master/substrate/frame/tx-pause/src/lib.rs){target=\_blank} funciona filtrando a execução de transações específicas contidas nos módulos incluídos no Runtime da rede. Para fazer isso, ele mantém uma lista interna das transações banidas, identificadas por nome de módulo e transação. Esta lista diferencia maiúsculas de minúsculas e só funciona quando há uma correspondência exata entre um item na lista de transações pausadas e a transação que está sendo processada. Portanto, o uso dos nomes exatos dos módulos e das transações é crucial.
 
-Para descobrir os nomes dos módulos disponíveis em seu tempo de execução, você precisa ler a seção `construct_runtime!()` no arquivo `lib.rs` do seu tempo de execução de rede no repositório do seu projeto. Se sua rede for baseada em um dos modelos oficiais, você encontrará o arquivo no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank}:
+Para descobrir os nomes dos módulos disponíveis em seu Runtime, você precisa ler a seção `construct_runtime!()` no arquivo `lib.rs` do seu Runtime de rede no repositório do seu projeto. Se sua rede for baseada em um dos Templates oficiais, você encontrará o arquivo no [repositório Tanssi](https://github.com/moondance-labs/tanssi){target=\_blank}:
 
-- Para redes baseadas no modelo EVM: [o arquivo lib.rs](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}
-- Para redes baseadas no modelo Substrate: [o arquivo lib.rs](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}
+- Para redes baseadas no Template EVM: [o arquivo lib.rs](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/frontier/src/lib.rs){target=\_blank}
+- Para redes baseadas no Template Substrate: [o arquivo lib.rs](https://github.com/moondance-labs/tanssi/blob/master/chains/container-chains/runtime-templates/simple/src/lib.rs){target=\_blank}
 
 O snippet a seguir é um exemplo de como a seção `construct_runtime!()` se parece. Os nomes dos módulos são os localizados à esquerda dos dois pontos.
 
@@ -66,7 +66,7 @@ pub fn transfer_allow_death(
 
 ### Alguns Módulos e Transações Usados com Frequência {: #frequently-used-modules-transactions }
 
-Ao usar qualquer um dos módulos Substrate embutidos, o nome com o qual ele é referenciado no tempo de execução é totalmente de responsabilidade do desenvolvedor, mas os nomes das transações não são personalizáveis. Aqui está uma lista de alguns dos módulos mais comumente usados com as transações mais comumente usadas que eles contêm. Esses são os nomes das transações a serem usados neste módulo Pausa de Transação.
+Ao usar qualquer um dos módulos Substrate embutidos, o nome com o qual ele é referenciado no Runtime é totalmente de responsabilidade do desenvolvedor, mas os nomes das transações não são personalizáveis. Aqui está uma lista de alguns dos módulos mais comumente usados com as transações mais comumente usadas que eles contêm. Esses são os nomes das transações a serem usados neste módulo Pausa de Transação.
 
 ???+ function "[**pallet-ethereum**](https://github.com/polkadot-evm/frontier/blob/master/frame/ethereum/src/lib.rs){target=\_blank} — Este módulo, junto com o módulo EVM, fornece compatibilidade total com o Ethereum para a rede"
 
@@ -136,7 +136,7 @@ Ao usar qualquer um dos módulos Substrate embutidos, o nome com o qual ele é r
 
 Como você sabe, a conta Sudo [pode executar ações privilegiadas](/pt/builders/manage/developer-portal/sudo/){target=\_blank}, como atualizações de rede, criação de novos tokens e, neste caso, pausar e despausar transações.
 
-Para pausar uma transação, navegue até a guia **Desenvolvedor** do Polkadot.js Apps para sua rede alimentada por Tanssi e clique em **Sudo**. Se você não vir **Sudo** neste menu, não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada por sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Em seguida, siga as seguintes etapas:
+Para pausar uma transação, navegue até a guia **Desenvolvedor** do Polkadot.js Apps para sua rede Powered by Tanssi e clique em **Sudo**. Se você não vir **Sudo** neste menu, não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada por sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Em seguida, siga as seguintes etapas:
 
 1. Selecione o módulo **txPause**
 2. Selecione o método **pause**
@@ -157,7 +157,7 @@ Para verificar se a transação foi efetivamente pausada, tente executá-la. Voc
 
 ## Despausando Transações {: #unpausing-transactions }
 
-Para despausar uma transação e retorná-la à operação normal, navegue até a guia **Desenvolvedor** do Polkadot.js Apps para sua rede alimentada por Tanssi e clique em **Sudo**. Se você não vir **Sudo** neste menu, você não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada por sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Em seguida, siga as seguintes etapas:
+Para despausar uma transação e retorná-la à operação normal, navegue até a guia **Desenvolvedor** do Polkadot.js Apps para sua rede Powered by Tanssi e clique em **Sudo**. Se você não vir **Sudo** neste menu, você não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada por sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Em seguida, siga as seguintes etapas:
 
 1. Selecione o módulo **txPause**
 2. Selecione o método **unpause**

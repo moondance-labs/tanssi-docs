@@ -3,7 +3,7 @@ title: Exclusão Voluntária de Vault
 description: Opcionalmente, cancele sua participação em um vault Tanssi. Aprenda a usar CLI, Etherscan ou Safe e verifique seu status de exclusão.
 icon: octicons-sign-out-24
 template: main.html
-categories: Operadores
+categories: Operators
 ---
 
 # Exclusão Voluntária de Vault (Opcional)

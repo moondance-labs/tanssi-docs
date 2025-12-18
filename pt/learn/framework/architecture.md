@@ -9,7 +9,7 @@ categories: Basics
 
 ## Introdução {: #introduction }
 
-Substrate é um kit de desenvolvimento de software (SDK) para a construção de blockchains. Este framework é a base e o motor que impulsionam muitos projetos em todo o ecossistema Web3, incluindo a própria rede Tanssi e as redes implantadas através do Tanssi.
+Substrate é um kit de desenvolvimento de software (SDK) para a construção de blockchains. Este framework é a base e o motor que impulsionam muitos projetos em todo o ecossistema Web3, incluindo a própria rede Tanssi e as redes implantadas através da Tanssi.
 
 Escrito na linguagem Rust e projetado com uma arquitetura modular, o Substrate é extremamente performático, flexível e altamente personalizável, tornando-o a melhor opção para o desenvolvimento de blockchains.
 

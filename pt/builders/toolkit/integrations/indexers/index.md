@@ -1,13 +1,13 @@
 ---
 title: Indexadores de Dados de Blockchain EVM
-description: Aprenda a usar indexadores de blockchain para ingerir, processar, refinar e consultar dados do Ethereum (EVM) em sua rede compatível com EVM alimentada pela Tanssi.
+description: Aprenda a usar indexadores de blockchain para ingerir, processar, refinar e consultar dados do Ethereum (EVM) em sua rede compatível com EVM Powered by Tanssi.
 icon: octicons-codescan-24
 template: index-page.html
 ---
 
 # Indexadores
 
-Os indexadores permitem a ingestão, o processamento e a consulta eficientes de dados de blockchain, fornecendo aos desenvolvedores ferramentas poderosas para criar aplicações responsivas e ricas em dados em redes alimentadas pela Tanssi.
+Os indexadores permitem a ingestão, o processamento e a consulta eficientes de dados de blockchain, fornecendo aos desenvolvedores ferramentas poderosas para criar aplicações responsivas e ricas em dados em redes Powered by Tanssi.
 
 As principais características dos indexadores incluem:
 

@@ -13,7 +13,7 @@ Explore tudo o que precisa para construir, implementar e gerir redes dentro do e
 <div class="grid cards" markdown>
 
 - <h2 class="title">Por Onde Começar?</h2>
-  [:octicons-arrow-right-24: Construir uma rede do zero usando um modelo](/pt/builders/build/templates/)
+  [:octicons-arrow-right-24: Construir uma rede do zero usando um Template](/pt/builders/build/templates/)
 
     [:octicons-arrow-right-24: Configurar um runtime existente baseado em Substrate para ser compatível com Tanssi](/pt/builders/build/templates/custom-runtime/)
 

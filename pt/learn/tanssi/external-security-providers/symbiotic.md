@@ -11,7 +11,7 @@ categories: Basics
 
 O protocolo Tanssi cuida de componentes críticos de infraestrutura, facilitando que desenvolvedores lancem suas redes em poucos minutos. Além da produção de blocos, recuperabilidade de dados e integrações com ferramentas essenciais como carteiras, endpoints RPC, exploradores de blocos e outras, outro grande desafio é fornecer segurança para a rede.
 
-O Tanssi foi criado para oferecer aos desenvolvedores um modelo de segurança compartilhada, evitando que eles tenham de buscar segurança econômica suficiente ou negociar com operadores para rodar nós que façam opt-in para suas redes. Ao implantar redes por meio do Tanssi e escolher o [Symbiotic](https://symbiotic.fi/){target=\_blank} como provedor de segurança, os desenvolvedores se beneficiam de segurança em nível de Ethereum, aproveitando bilhões de dólares em segurança compartilhada de ETH em stake.
+O Tanssi foi criado para oferecer aos desenvolvedores um Template de segurança compartilhada, evitando que eles tenham de buscar segurança econômica suficiente ou negociar com operadores para rodar nós que façam opt-in para suas redes. Ao implantar redes por meio da Tanssi e escolher o [Symbiotic](https://symbiotic.fi/){target=\_blank} como provedor de segurança, os desenvolvedores se beneficiam de segurança em nível de Ethereum, aproveitando bilhões de dólares em segurança compartilhada de ETH em stake.
 
 As seções a seguir descrevem como funciona o protocolo Symbiotic e como as redes Tanssi podem aproveitá-lo como mecanismo de consenso.
 
@@ -35,8 +35,8 @@ flowchart TD
     %% Operators subgraph
     subgraph Operators
         direction BT
-        operators["Operadores (Validadores)"]
-        node_operators["Operadores de Nós"]
+        operators["Operators (Validadores)"]
+        node_operators["Operators de Nós"]
         node_operators -- Operam --> operators
     end
 
@@ -73,7 +73,7 @@ Como os operadores recebem stake delegado do vault e podem ser alvo de slashing,
 
 Os gerentes de vault também designam [resolvers](https://docs.symbiotic.fi/modules/counterparties/resolvers){target=\_blank}, responsáveis por aprovar ou vetar [eventos de slashing](https://docs.symbiotic.fi/modules/vault/slasher){target=\_blank} causados por operadores em redes com suporte a [veto-slashing](https://docs.symbiotic.fi/modules/vault/slasher#veto-slashing){target=\_blank}, como a Tanssi Network.
 
-### Operadores {: #operators }
+### Operators {: #operators }
 
 Os [operadores de nós](/pt/node-operators/){target=\_blank} são entidades ou indivíduos responsáveis por executar os [nós (também conhecidos como operadores ou validadores)](https://docs.symbiotic.fi/modules/counterparties/operators){target=\_blank}, que são os componentes computacionais que validam as transações das redes. Eles são responsáveis pela configuração dos nós, setup de hardware, disponibilidade e desempenho.
 
@@ -88,15 +88,15 @@ As [Redes](https://docs.symbiotic.fi/modules/counterparties/networks){target=\_b
 Como os operadores fazem opt-in para prestar serviços às redes e os gerentes de vault precisam aceitar as redes, os desenvolvedores são responsáveis por definir, controlar e adaptar sua metodologia para onboarding, recompensa e slashing de operadores.
 
 !!! note
-    As redes implantadas por meio do Tanssi não precisam trabalhar o relacionamento com vaults e operadores, pois o protocolo Tanssi lida com essas complexidades.
+    As redes implantadas por meio da Tanssi não precisam trabalhar o relacionamento com vaults e operadores, pois o protocolo Tanssi lida com essas complexidades.
 
 ## Tanssi com Symbiotic {: #tanssi-symbiotic }
 
-Desenvolvedores que lançam redes por meio do Tanssi se beneficiam dos [serviços de produção de blocos](/pt/learn/tanssi/network-services/block-production/){target=\_blank}, recuperabilidade de dados como serviço e do modelo de segurança compartilhada derivado de todos os vaults que fazem opt-in para suportar o protocolo Tanssi. Isso elimina o obstáculo de lidar com componentes de infraestrutura e segurança que, de outra forma, os desenvolvedores precisariam assumir.
+Desenvolvedores que lançam redes por meio da Tanssi se beneficiam dos [serviços de produção de blocos](/pt/learn/tanssi/network-services/block-production/){target=\_blank}, recuperabilidade de dados como serviço e do Template de segurança compartilhada derivado de todos os vaults que fazem opt-in para suportar o protocolo Tanssi. Isso elimina o obstáculo de lidar com componentes de infraestrutura e segurança que, de outra forma, os desenvolvedores precisariam assumir.
 
 Gerentes de vaults podem se candidatar a oferecer os colaterais em restaking como segurança econômica para a Tanssi Network. Como as redes Tanssi rodam em um ambiente semelhante a um sandbox, e o protocolo Tanssi gerencia todas as responsabilidades relacionadas às redes, os gerentes de vaults só precisam analisar e fazer opt-in para o protocolo Tanssi, independentemente da qualidade e quantidade de redes que estejam rodando pelo protocolo Tanssi em qualquer momento.
 
-Operadores que fazem opt-in para prestar serviços ao protocolo Tanssi (desde que participem de um vault que suporta o protocolo Tanssi) têm a vantagem de rodar o mesmo setup para fornecer serviços de produção de blocos e validação para a Tanssi Network e, consequentemente, para todas as redes implantadas via Tanssi. Essa arquitetura única facilita todas as tarefas relacionadas a executar e manter os operadores, já que não há mudanças no setup quando uma nova rede Tanssi é lançada ou desativada.
+Operators que fazem opt-in para prestar serviços ao protocolo Tanssi (desde que participem de um vault que suporta o protocolo Tanssi) têm a vantagem de rodar o mesmo setup para fornecer serviços de produção de blocos e validação para a Tanssi Network e, consequentemente, para todas as redes implantadas via Tanssi. Essa arquitetura única facilita todas as tarefas relacionadas a executar e manter os operadores, já que não há mudanças no setup quando uma nova rede Tanssi é lançada ou desativada.
 
 !!! note
     O protocolo Tanssi efetivamente abstrai os detalhes do conjunto ativo de redes para longe dos gerentes de vaults e operadores. Particularidades das redes não exigem qualquer configuração adicional dos operadores nem representam riscos aos ativos do vault.
@@ -145,15 +145,15 @@ class Relayer relayerNode;
 
 - **`Relayer`** - é o software que monitora continuamente ambas as blockchains e transmite mensagens. Ele habilita comunicação bidirecional confiável entre Tanssi e Ethereum, servindo como a camada de conexão que garante que mensagens sejam entregues corretamente entre as redes
 
-- **`Gateway`** - opera no lado Ethereum da ponte e cumpre três funções essenciais. Ele recebe, verifica e encaminha mensagens recebidas do Tanssi para garantir que sejam processadas corretamente. O contrato aceita mensagens de saída destinadas à rede Tanssi, preparando-as para o relay. Por fim, lida com funcionalidades de aplicação de nível superior, principalmente transferências de tokens entre as duas redes, fornecendo uma interface segura para movimentação de ativos entre cadeias
+- **`Gateway`** - opera no lado Ethereum da ponte e cumpre três funções essenciais. Ele recebe, verifica e encaminha mensagens recebidas da Tanssi para garantir que sejam processadas corretamente. O contrato aceita mensagens de saída destinadas à rede Tanssi, preparando-as para o relay. Por fim, lida com funcionalidades de aplicação de nível superior, principalmente transferências de tokens entre as duas redes, fornecendo uma interface segura para movimentação de ativos entre cadeias
 
-- **`Middleware`** - é a implementação do Tanssi para lidar com eventos e operações da rede. Ele é o elo crítico entre o `Gateway` e o protocolo central do Tanssi
+- **`Middleware`** - é a implementação da Tanssi para lidar com eventos e operações da rede. Ele é o elo crítico entre o `Gateway` e o protocolo central da Tanssi
 
-O `Middleware` desempenha um papel central na coordenação da rede entre Tanssi e Symbiotic. Ele distribui recompensas a operadores e vaults com base em suas contribuições para segurança e desempenho da rede. O contrato ordena os operadores por stake para criar um sistema de ranking meritocrático para sua seleção e transmite a lista de chaves de operadores ordenadas ao Tanssi para atribuição. Além disso, facilita os processos de registro de operadores e gerencia os protocolos de recompensa e slashing que mantêm o alinhamento de incentivos da rede.
+O `Middleware` desempenha um papel central na coordenação da rede entre Tanssi e Symbiotic. Ele distribui recompensas a operadores e vaults com base em suas contribuições para segurança e desempenho da rede. O contrato ordena os operadores por stake para criar um sistema de ranking meritocrático para sua seleção e transmite a lista de chaves de operadores ordenadas à Tanssi para atribuição. Além disso, facilita os processos de registro de operadores e gerencia os protocolos de recompensa e slashing que mantêm o alinhamento de incentivos da rede.
 
 #### De Ethereum para Tanssi {: #from-ethereum-tanssi }
 
-O `Middleware` transmite informações sobre o conjunto de operadores para o Tanssi para atribuição de sessões por meio da ponte. Ele envia detalhes sobre operadores ativos para cada época, ordenando-os por seu stake total agregado em todos os vaults. O Tanssi então usa essas informações para atribuir operadores para as próximas sessões, garantindo que os mais alinhados economicamente protejam a rede. Esse mecanismo cria um processo de seleção de operadores ponderado por stake, em que a segurança econômica no Ethereum se traduz em segurança operacional no Tanssi.
+O `Middleware` transmite informações sobre o conjunto de operadores para a Tanssi para atribuição de sessões por meio da ponte. Ele envia detalhes sobre operadores ativos para cada época, ordenando-os por seu stake total agregado em todos os vaults. O Tanssi então usa essas informações para atribuir operadores para as próximas sessões, garantindo que os mais alinhados economicamente protejam a rede. Esse mecanismo cria um processo de seleção de operadores ponderado por stake, em que a segurança econômica no Ethereum se traduz em segurança operacional na Tanssi.
 
 #### De Tanssi para Ethereum {: #from-tanssi-ethereum }
 
@@ -161,7 +161,7 @@ O Tanssi envia dados operacionais de volta ao Ethereum através do mesmo canal d
 
 ### Recompensas {: #rewards }
 
-Operadores e restakers bem-comportados são recompensados por sua participação com tokens TANSSI. O processo de recompensa consiste em duas fases principais: [Fase de Distribuição de Recompensas](#reward-distribution-phase) e [Fase de Reivindicação de Recompensas](#reward-claiming-phase).
+Operators e restakers bem-comportados são recompensados por sua participação com tokens TANSSI. O processo de recompensa consiste em duas fases principais: [Fase de Distribuição de Recompensas](#reward-distribution-phase) e [Fase de Reivindicação de Recompensas](#reward-claiming-phase).
 
 #### Fase de Distribuição de Recompensas {: #reward-distribution-phase }
 
@@ -169,7 +169,7 @@ A fase de distribuição de recompensas calcula e aloca recompensas por meio de 
 
 1. **Cálculo de Recompensas** - o Tanssi calcula recompensas com base na atividade de operadores e stakers e então cria uma [raiz de Merkle](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. Essa raiz de Merkle é uma impressão digital criptográfica que resume as alocações de recompensas, indicando quem recebe o quê. Stakers são recompensados de acordo com seu stake em cada vault
 2. **Dados de Recompensa Enviados via XCM** - os dados de alocação de recompensas são enviados usando [XCM](https://wiki.polkadot.com/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), um protocolo padronizado para comunicação entre blockchains. A [Snowbridge](https://docs.snowbridge.network/){target=\_blank} atua como uma ponte sem confiança entre Tanssi e Ethereum
-3. **Recepção da Mensagem no Ethereum** - uma vez que a mensagem é encaminhada para o contrato `Gateway`, esse contrato serve como ponto de entrada autorizado do Tanssi no Ethereum para a ponte Snowbridge
+3. **Recepção da Mensagem no Ethereum** - uma vez que a mensagem é encaminhada para o contrato `Gateway`, esse contrato serve como ponto de entrada autorizado da Tanssi no Ethereum para a ponte Snowbridge
 4. **Processamento e Validação da Mensagem** - o `Gateway` encaminha os dados para o [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, que é responsável por várias tarefas, incluindo passar as informações para o contrato `OperatorReward`
 5. **Armazenamento e Distribuição de Recompensas** - este é o destino final dos dados. O contrato [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} armazena a árvore de Merkle das alocações de recompensa e lida com a transferência de tokens de recompensa quando um claim é feito
 
@@ -193,7 +193,7 @@ sequenceDiagram
 
 Na fase de reivindicação de recompensas, operadores e stakers podem reivindicar recompensas com base em sua participação na rede. O Tanssi determina a divisão para operadores e stakers, atualmente fixada em 20% para operadores e 80% para stakers.
 
-1. **Reivindicação de Recompensa pelo Operador** - operadores podem reivindicar sua parcela chamando o contrato `OperatorRewards` usando um recibo criptográfico que comprova seu direito
+1. **Reivindicação de Recompensa pelo Operator** - operadores podem reivindicar sua parcela chamando o contrato `OperatorRewards` usando um recibo criptográfico que comprova seu direito
 2. **Liberação de Tokens** - a chamada do operador aciona a liberação de tokens, e o `OperatorRewards` envia o valor estabelecido ao operador
 3. **Distribuição de Tokens aos Stakers** - as recompensas restantes são encaminhadas ao contrato `StakerRewards` para posterior reivindicação dos stakers
 4. **Alocação dos Stakers** - os 80% restantes das recompensas são direcionados automaticamente ao contrato [`StakerRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultStakerRewards.sol){target=\_blank}, onde os stakers podem reivindicar recompensas proporcionais ao seu stake nos vaults
@@ -201,13 +201,13 @@ Na fase de reivindicação de recompensas, operadores e stakers podem reivindica
 ```mermaid
 %%{init: {'sequence': {'mirrorActors': false}}}%%
 sequenceDiagram
- participant Operador
+ participant Operator
  participant OperatorRewards
  participant StakerRewards
  participant Stakers
 
- Operador->>OperatorRewards: 1. Reivindicação de recompensa pelo operador
- OperatorRewards->>Operador: 2. Liberar recompensas para o operador
+ Operator->>OperatorRewards: 1. Reivindicação de recompensa pelo operador
+ OperatorRewards->>Operator: 2. Liberar recompensas para o operador
  OperatorRewards->>StakerRewards: 3. Encaminhar o restante para o StakerRewards
  Stakers->>StakerRewards: 4. Stakers reivindicam recompensas individuais
 ```
@@ -235,9 +235,9 @@ O método de slashing recebe um identificador exclusivo para a identidade do ope
 O processo de slashing consiste nas seguintes etapas:
 
 1. **Slash Reportado** - o Tanssi envia a solicitação de slashing ao `Middleware` com os parâmetros `operatorKey`, `percentage` e `epoch`
-2. **Validação do Operador** - o `Middleware` valida a identidade do operador e verifica se ele está sujeito ao slashing
+2. **Validação do Operator** - o `Middleware` valida a identidade do operador e verifica se ele está sujeito ao slashing
 3. **Recuperar Vaults Ativos** - o `Middleware` percorre todos os vaults ativos durante a época da infração, ignorando qualquer vault inativo
-4. **Recuperar Stake do Operador** - para cada vault ativo, o `Middleware` recupera o stake do operador infrator
+4. **Recuperar Stake do Operator** - para cada vault ativo, o `Middleware` recupera o stake do operador infrator
 5. **Calcular Valor do Slash** - o `Middleware` calcula o valor do slashing aplicando a porcentagem de corte ao stake do operador em cada vault
 6. **Slashing** - dependendo da implementação de slashing do vault, existem duas rotas possíveis
 

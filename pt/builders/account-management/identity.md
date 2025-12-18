@@ -23,7 +23,7 @@ Para armazenar suas informações on-chain, você deve vincular alguns fundos, q
 
 - **Campos personalizados incluem** - quaisquer outras informações relevantes
 
-- **Subcontas** - Você pode vincular subcontas sob uma conta primária. Por exemplo, um serviço de sequenciador que está executando vários nós de sequenciador diferentes pode estabelecer subcontas para demonstrar um link oficial entre os nós
+- **Subcontas** - Você pode vincular subcontas sob uma conta primária. Por exemplo, um serviço de Sequencer que está executando vários nós de Sequencer diferentes pode estabelecer subcontas para demonstrar um link oficial entre os nós
 
 === "Tanssi MainNet"
 

@@ -1,21 +1,21 @@
 ---
-title: Configurar uma Conta Proxy Sequenciadora
-description: Siga estas instruções passo a passo para configurar uma conta proxy para gerenciar as atividades do sequenciador em nome de sua conta sequenciadora primária.
+title: Configurar uma Conta Proxy Sequencera
+description: Siga estas instruções passo a passo para configurar uma conta proxy para gerenciar as atividades do Sequencer em nome de sua conta Sequencera primária.
 icon: octicons-shield-lock-24
-categories: Sequenciadores
+categories: Sequencers
 ---
 
 # Configurar uma Conta Proxy
 
 ## Introdução {: #introduction }
 
-Contas proxy podem ser configuradas para realizar um número limitado de ações em nome de contas primárias e ajudar a manter as contas subjacentes seguras. Como sequenciador no Tanssi, é uma boa ideia aproveitar as contas proxy para interagir com a rede em vez de sua conta sequenciadora.
+Contas proxy podem ser configuradas para realizar um número limitado de ações em nome de contas primárias e ajudar a manter as contas subjacentes seguras. Como Sequencer na Tanssi, é uma boa ideia aproveitar as contas proxy para interagir com a rede em vez de sua conta Sequencera.
 
-O tipo de proxy de staking permite convenientemente que a conta proxy gerencie atividades de staking, como delegar e rotacionar chaves de sessão, em nome da conta sequenciadora primária, transformando-a efetivamente em uma "hot wallet" para realizar tarefas regulares de manutenção em nome de sua conta sequenciadora "cold wallet". Para maior segurança, você pode rotacionar regularmente a conta proxy.
+O tipo de proxy de staking permite convenientemente que a conta proxy gerencie atividades de staking, como delegar e rotacionar chaves de sessão, em nome da conta Sequencera primária, transformando-a efetivamente em uma "hot wallet" para realizar tarefas regulares de manutenção em nome de sua conta Sequencera "cold wallet". Para maior segurança, você pode rotacionar regularmente a conta proxy.
 
 Contas proxy também podem ajudá-lo a implementar o princípio de privilégio mínimo para controle de acesso. Por exemplo, se você tiver vários membros da equipe, poderá fornecer a eles o acesso mínimo necessário para realizar suas tarefas por meio de uma conta proxy específica.
 
-Este tutorial irá guiá-lo pela configuração de uma conta proxy de staking no [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank} especificamente para operações como um sequenciador. Em seguida, demonstrará como iniciar uma delegação usando o novo proxy de staking criado.
+Este tutorial irá guiá-lo pela configuração de uma conta proxy de staking no [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank} especificamente para operações como um Sequencer. Em seguida, demonstrará como iniciar uma delegação usando o novo proxy de staking criado.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
@@ -23,7 +23,7 @@ Para acompanhar este tutorial, você precisará ter:
 
 - O [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} aberto e conectado ao Dancelight
 - Criar ou ter duas contas acessíveis no portal do desenvolvedor
-- Ambas as contas precisarão ser financiadas, e a conta do sequenciador precisará de pelo menos a autodelegação mínima necessária para se tornar um sequenciador ativo ({{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} para Dancelight)
+- Ambas as contas precisarão ser financiadas, e a conta do Sequencer precisará de pelo menos a autodelegação mínima necessária para se tornar um Sequencer ativo ({{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} para Dancelight)
 
 Se você precisar de ajuda para importar suas contas para o portal do desenvolvedor, consulte o guia [Conectando-se ao Portal do Desenvolvedor](/pt/builders/toolkit/substrate-api/wallets/talisman/#connecting-to-polkadotjs){target=\_blank}.
 ## Criando uma Conta Proxy de Staking {: #creating-a-staking-proxy-account }
@@ -96,7 +96,7 @@ Uma janela pop-up aparecerá onde você pode ver uma visão geral de todas as su
 
 ## Executando uma Transação Proxy {: #executing-a-proxy-transaction }
 
-Agora que você criou uma conta proxy e verificou que ela foi configurada com sucesso, você pode executar uma transação usando a conta proxy de staking em nome de sua conta sequenciadora, também conhecida como conta primária ou conta que está sendo proxyada. O exemplo a seguir demonstrará como iniciar uma autodelegação. A configuração de proxy mostrada é um exemplo realista de como você pode ter seu próprio proxy configurado para sua conta primária do portal do desenvolvedor.
+Agora que você criou uma conta proxy e verificou que ela foi configurada com sucesso, você pode executar uma transação usando a conta proxy de staking em nome de sua conta Sequencera, também conhecida como conta primária ou conta que está sendo proxyada. O exemplo a seguir demonstrará como iniciar uma autodelegação. A configuração de proxy mostrada é um exemplo realista de como você pode ter seu próprio proxy configurado para sua conta primária do portal do desenvolvedor.
 
 Para executar uma transação, você pode navegar de volta para a [página **Extrinsics**](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/extrinsics){target=\_blank} e seguir as seguintes etapas:
 
@@ -107,17 +107,17 @@ Para executar uma transação, você pode navegar de volta para a [página **Ext
 5. Selecione a conta primária no menu suspenso **real**
 6. Selecione a chamada **pooledStaking**
 7. Escolha a extrínseca **requestDelegate**
-8. Digite o endereço do **candidate**, que é a conta do sequenciador
+8. Digite o endereço do **candidate**, que é a conta do Sequencer
 9. Selecione **AutoCompounding** ou **ManualRewards** no campo **pool**
 10. Digite o valor a ser apostado. Esse valor deve atender ao mínimo, que, para Dancelight, é {{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} tokens. Você precisará enviar o valor incluindo as doze casas decimais que a Tanssi Network usa, portanto, para um valor de {{ networks.dancelight.sequencers.minimum_self_delegation }}, você precisará digitar `{{ networks.dancelight.sequencers.minimum_self_delegation }}000000000000`
 11. Clique em **Submit Transaction**
 
 ![Execute uma transação proxy na página Extrinsics dos Polkadot.js Apps](/images/node-operators/sequencers/operational-tasks/proxy-accounts/proxy-8.webp)
 
-Uma janela pop-up aparecerá para que você autorize e assine a transação. Digite sua senha para a conta proxy e clique em **Sign and Submit**. Para confirmar a solicitação de delegação, você precisará executar a solicitação pendente após duas sessões. Consulte as instruções para [executar solicitações pendentes](/pt/node-operators/sequencers/onboarding/account-setup/#execute-pending-request){target=\_blank} para obter um guia passo a passo. Você também pode [mapear suas chaves de sessão para sua conta de sequenciador](/pt/node-operators/sequencers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
+Uma janela pop-up aparecerá para que você autorize e assine a transação. Digite sua senha para a conta proxy e clique em **Sign and Submit**. Para confirmar a solicitação de delegação, você precisará executar a solicitação pendente após duas sessões. Consulte as instruções para [executar solicitações pendentes](/pt/node-operators/sequencers/onboarding/account-setup/#execute-pending-request){target=\_blank} para obter um guia passo a passo. Você também pode [mapear suas chaves de sessão para sua conta de Sequencer](/pt/node-operators/sequencers/onboarding/account-setup/#map-session-keys){target=\_blank} via proxy.
 
-Depois de mapear suas chaves de sessão e executar a solicitação de delegação pendente, você pode [verificar se seu sequenciador está na lista de candidatos elegíveis](/pt/node-operators/sequencers/onboarding/account-setup/#verify){target=\_blank}.
+Depois de mapear suas chaves de sessão e executar a solicitação de delegação pendente, você pode [verificar se seu Sequencer está na lista de candidatos elegíveis](/pt/node-operators/sequencers/onboarding/account-setup/#verify){target=\_blank}.
 
-É isso! Você executou com sucesso uma transação usando uma conta proxy em nome de sua conta sequenciadora primária.
+É isso! Você executou com sucesso uma transação usando uma conta proxy em nome de sua conta Sequencera primária.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

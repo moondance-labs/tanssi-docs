@@ -1,11 +1,11 @@
 ---
-title: Executar um Nó Operador Usando Systemd
+title: Executar um Nó Operator Usando Systemd
 description: Aprenda como configurar e executar um nó operador (validador) para as redes Tanssi usando Systemd, permitindo participar do protocolo e ganhar recompensas.
 icon: simple-linux
-categories: Operadores
+categories: Operators
 ---
 
-# Executar um Nó Operador Usando Systemd
+# Executar um Nó Operator Usando Systemd
 
 ## Introdução {: #introduction }
 

@@ -62,7 +62,7 @@ A rede EVM de demonstração tem um [ID de cadeia](https://chainlist.org/chain/{
 
 ## Início Rápido {: #quick-start }
 
-Você pode interagir com uma rede EVM alimentada por Tanssi usando bibliotecas Ethereum padrão, como [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank} e [Web3.py](/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}. Para começar rapidamente, você precisará criar um provedor conectado a uma rede EVM Tanssi:
+Você pode interagir com uma rede EVM Powered by Tanssi usando bibliotecas Ethereum padrão, como [Ethers.js](/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank} e [Web3.py](/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}. Para começar rapidamente, você precisará criar um provedor conectado a uma rede EVM Tanssi:
 // Insira sua URL RPC aqui
 
 === "Ethers.js"

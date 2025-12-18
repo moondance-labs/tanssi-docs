@@ -67,7 +67,7 @@ Ao criar uma conta proxy, você deve escolher um tipo de proxy que definirá com
 - **`Registrar`** - permite que a conta proxy faça apenas transações relacionadas à palete do registrador.
 - **`SudoRegistrar`** - permite que a conta proxy faça apenas transações relacionadas à palete do registrador que precisam ser chamadas por Sudo.
 - **`CancelProxy`** - permite que a conta proxy rejeite e remova quaisquer chamadas proxy anunciadas.
-- **`Staking`** - permite que a conta proxy execute transações relacionadas a staking, como funções de sequenciador e `session()`.
+- **`Staking`** - permite que a conta proxy execute transações relacionadas a staking, como funções de Sequencer e `session()`.
 - **`SessionKeyManagement`** - permite que a conta proxy faça transações relacionadas ao gerenciamento de chaves incluídas na palete de sessão.
 
 Para este guia, você configurará uma conta proxy usando o tipo de proxy de saldos. Como este tipo permite que o proxy gaste fundos em nome da conta primária, você deve ter cuidado e fornecer acesso apenas a contas em que confia. O proxy terá acesso para transferir todos os fundos dentro da conta primária e, se não for confiável, o proxy poderá drenar a conta primária. Certifique-se de manter a supervisão de suas contas proxy e remover todos os proxies que não forem mais necessários.

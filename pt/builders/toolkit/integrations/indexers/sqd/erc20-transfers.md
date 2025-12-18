@@ -306,7 +306,7 @@ O `main.ts` vai percorrer cada bloco processado em busca de eventos `Transfer` e
 1. `main.ts` roda o processor e refina os dados coletados. Em `processor.run`, o processor percorre os blocos selecionados e busca logs de `Transfer`, armazenando-os em um array de eventos de transferência para processamento posterior
 2. A interface `transferEvent` define a estrutura que guarda os dados extraídos dos logs
 3. `getTransfer` é um helper que extrai e decodifica dados do evento `Transfer` de um log, retornando um objeto `TransferEvent` com ID da transação, número do bloco, remetente, destinatário e valor. É chamado ao armazenar os eventos relevantes no array
-4. `processTransfers` enriquece os dados e insere os registros no banco TypeORM usando `ctx.store`. O modelo `account`, embora não estritamente necessário, permite introduzir outra entidade no schema para demonstrar múltiplas entidades no Squid
+4. `processTransfers` enriquece os dados e insere os registros no banco TypeORM usando `ctx.store`. O Template `account`, embora não estritamente necessário, permite introduzir outra entidade no schema para demonstrar múltiplas entidades no Squid
 5. `getAccount` é um helper que recupera/cria objetos de conta. Dado um ID e um mapa de contas existentes, retorna a conta correspondente; se não existir, cria, adiciona ao mapa e retorna
 
 Mostraremos uma query de exemplo adiante. Copie o código abaixo para `main.ts`:

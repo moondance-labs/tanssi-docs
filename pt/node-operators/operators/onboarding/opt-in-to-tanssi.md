@@ -1,11 +1,11 @@
 ---
-title: Optar pelo Tanssi
+title: Optar pela Tanssi
 description: Saiba como fazer opt-in com seu nó registrado em cofres Symbiotic habilitados para Tanssi e na rede Tanssi para participar do protocolo e ganhar recompensas.
 icon: octicons-plus-circle-24
-categories: Operadores
+categories: Operators
 ---
 
-# Optar pelo Tanssi
+# Optar pela Tanssi
 
 ## Introdução {: #introduction }
 

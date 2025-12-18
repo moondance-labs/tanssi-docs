@@ -1,8 +1,8 @@
 ---
-title: Configure Sua Conta de Operador
-description: Aprenda a mapear a conta do seu nó com sua conta stash, tornando-o elegível para proteger o Tanssi e as redes alimentadas pelo Tanssi e receber recompensas.
+title: Configure Sua Conta de Operator
+description: Aprenda a mapear a conta do seu nó com sua conta stash, tornando-o elegível para proteger o Tanssi e as redes Powered by Tanssi e receber recompensas.
 icon: octicons-tools-24
-categories: Operadores
+categories: Operators
 ---
 
 # Configure Sua Conta para Proteger o Ecossistema Tanssi

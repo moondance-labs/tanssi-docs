@@ -17,7 +17,7 @@ Neste guia, a utilidade do token e as diferenças entre suas duas representaçõ
 
 A Tanssi é um protocolo de infraestrutura descentralizado que facilita a implantação de appchains com lógica personalizada. Ele permite que os desenvolvedores se concentrem no caso de uso, em vez de desviar tempo e energia para gerenciar [os vários componentes necessários](/pt/learn/tanssi/overview/#what-tanssi-provides){target=\_blank} para que uma rede funcione sem problemas.
 
-A execução de um protocolo descentralizado saudável não só requer um mecanismo de governança robusto para garantir que as decisões sejam tomadas de forma transparente, mas também o alinhamento de incentivos e coordenação entre vários atores do ecossistema, incluindo desenvolvedores de appchain, operadores de nós, operadores de sequenciadores, disponibilidade de dados e provedores de RPC, bem como usuários em geral. O token Tanssi serve como a espinha dorsal, fornecendo os mecanismos econômicos necessários para coordenar, incentivar o comportamento adequado e proteger todo o ecossistema. Ele permite uma evolução de protocolo verificável e imposta por código por meio de um processo de tomada de decisão totalmente na cadeia.
+A execução de um protocolo descentralizado saudável não só requer um mecanismo de governança robusto para garantir que as decisões sejam tomadas de forma transparente, mas também o alinhamento de incentivos e coordenação entre vários atores do ecossistema, incluindo desenvolvedores de appchain, operadores de nós, operadores de Sequencers, disponibilidade de dados e provedores de RPC, bem como usuários em geral. O token Tanssi serve como a espinha dorsal, fornecendo os mecanismos econômicos necessários para coordenar, incentivar o comportamento adequado e proteger todo o ecossistema. Ele permite uma evolução de protocolo verificável e imposta por código por meio de um processo de tomada de decisão totalmente na cadeia.
 
 O token tem várias utilidades:
 
@@ -25,7 +25,7 @@ O token tem várias utilidades:
 - **Implantação de Appchain**: use o token para registrar e lançar seu appchain em minutos.
 - **Pagamento do serviço de sequenciamento**: use o token para manter seu appchain ativo.
 - **Recompensa de serviços de sequenciamento e operador**: obtenha tokens como recompensas pelos serviços de seus nós.
-- **Staking em sequenciadores**: os detentores de tokens podem apostar em sequenciadores, recebendo recompensas sem risco de corte.
+- **Staking em Sequencers**: os detentores de tokens podem apostar em Sequencers, recebendo recompensas sem risco de corte.
 - **Staking em operadores**: os detentores de tokens podem apostar em operadores, recebendo recompensas por seus serviços de validação.
 - **Pagamento de taxas**: use o token para pagar as taxas de interação com a rede Tanssi.
 
@@ -46,8 +46,8 @@ flowchart LR
         Tanssi_Substrate["$TANSSI (Substrate)"]
         Tanssi_Substrate_Utility["✓ Governança on-chain
         ✓ Implantação de Appchain
-        ✓ Recompensas de sequenciadores
-        ✓ Staking em sequenciadores
+        ✓ Recompensas de Sequencers
+        ✓ Staking em Sequencers
         ✓ Pagamento de taxas
         "]
         Tanssi_Substrate --> Tanssi_Substrate_Utility
@@ -103,6 +103,6 @@ Para entender melhor as diferenças entre as duas representações de token, a t
 | **Casas Decimais**     | Doze (12) decimais                                                                                                                                                                                                    | Doze (12) decimais                                                                                                                                                                              |
 | **Tipo de Conta**       | [Sr25519](https://wiki.polkadot.com/learn/learn-cryptography/#keypairs-and-signing){target=\_blank}                                                                                                                  | [ECDSA](https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm){target=\_blank}                                                                                                  |
 | **Carteiras Compatíveis** | [Talisman](/pt/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}, [SubWallet](/pt/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank} e outros                                              | [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}, [Talisman](/pt/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank} e outras carteiras compatíveis com Ethereum |
-| **Principais Utilidades**  | - Participação na governança on-chain<br/>- Registro e implantação de Appchain<br/>- Pagamento de serviços de sequenciamento<br/>- Taxas de transação na rede Tanssi<br/>- Staking em sequenciadores<br/>- Recompensas de operação do sequenciador | - Recompensas de validação do operador<br/>- Staking em operadores                                                                                                                                          |
-| **Opções de Staking**    | Staking de sequenciador (para manter a atividade da appchain)                                                                                                                                        | Staking de operador (para validar/proteger todo o ecossistema Tanssi)                                                                                                                            |
+| **Principais Utilidades**  | - Participação na governança on-chain<br/>- Registro e implantação de Appchain<br/>- Pagamento de serviços de sequenciamento<br/>- Taxas de transação na rede Tanssi<br/>- Staking em Sequencers<br/>- Recompensas de operação do Sequencer | - Recompensas de validação do operador<br/>- Staking em operadores                                                                                                                                          |
+| **Opções de Staking**    | Staking de Sequencer (para manter a atividade da appchain)                                                                                                                                        | Staking de operador (para validar/proteger todo o ecossistema Tanssi)                                                                                                                            |
 | **Conversão de Ponte**  | Pode ser ponteado para ERC-20, pagando taxas em $TANSSI (Substrate)                                                                                                                                                            | Pode ser ponteado para Substrate, pagando taxas em $ETH                                                                                                                                                  |

@@ -1,17 +1,17 @@
 ---
-title: Executar um Sequenciador com Systemd
-description: Saiba como configurar e executar um nó de sequenciador (produtor de blocos) para as redes Tanssi usando Systemd, permitindo que você participe do protocolo e ganhe recompensas.
+title: Executar um Sequencer com Systemd
+description: Saiba como configurar e executar um nó de Sequencer (produtor de blocos) para as redes Tanssi usando Systemd, permitindo que você participe do protocolo e ganhe recompensas.
 icon: simple-linux
 categories: Sequencers
 ---
 
-# Executar um Nó de Sequenciador com Systemd
+# Executar um Nó de Sequencer com Systemd
 
 ## Introdução {: #introduction }
 
 --8<-- 'text/pt/node-operators/sequencers/onboarding/run-a-sequencer/intro.md'
 
-Neste guia, você aprenderá como iniciar um sequenciador Tanssi para fazer parte do pool compartilhado de sequenciadores usando o binário estável mais recente e gerenciando o serviço com [Systemd](https://systemd.io){target=\_blank} em sistemas Linux.
+Neste guia, você aprenderá como iniciar um Sequencer Tanssi para fazer parte do pool compartilhado de Sequencers usando o binário estável mais recente e gerenciando o serviço com [Systemd](https://systemd.io){target=\_blank} em sistemas Linux.
 
 O artigo segue a boa prática de executar o serviço com uma conta não root e conceder a essa conta acesso de escrita a um diretório específico. Você pode adaptar as etapas e instruções deste artigo à configuração da sua infraestrutura, preferências e políticas de segurança.
 

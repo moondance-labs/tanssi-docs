@@ -1,5 +1,5 @@
 ---
-title: Tarefas Operacionais - Operadores
+title: Tarefas Operacionais - Operators
 description: Aprenda como gerenciar suas atividades como operador no protocolo de rede Tanssi, incluindo o gerenciamento de sua conta, a atualização de seu nó e muito mais.
 icon: octicons-arrow-switch-24
 template: index-page.html

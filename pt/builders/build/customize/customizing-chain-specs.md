@@ -21,13 +21,13 @@ Essas informações que a especificação da cadeia contém podem ser armazenada
 Este artigo aborda as seções e atributos dentro de um arquivo de especificação de cadeia e explica como obtê-lo, caso você queira lançar sua rede Tanssi carregando um arquivo de especificações personalizadas.
 
 !!! note "Nota do Editor (Atualização de 2025)"
-    Este guia explica como personalizar os arquivos de especificação da cadeia em redes baseadas em Substrate. Alguns campos (por exemplo, cadeia de retransmissão, ID da parachain) vêm do SDK do Substrate e são incluídos para fins de compatibilidade ou modelo.
+    Este guia explica como personalizar os arquivos de especificação da cadeia em redes baseadas em Substrate. Alguns campos (por exemplo, cadeia de retransmissão, ID da parachain) vêm do SDK do Substrate e são incluídos para fins de compatibilidade ou Template.
 
     Esses atributos não significam que uma rede com tecnologia Tanssi é uma parachain Polkadot. Tanssi é um protocolo de infraestrutura de appchain independente, construído com Substrate e alinhado com a segurança apoiada pelo Ethereum. Você pode encontrar termos relacionados ao Polkadot em arquivos de configuração por causa das origens compartilhadas do Substrate, mas as appchains com tecnologia Tanssi não exigem slots Polkadot ou mecânica de cadeia de retransmissão.
 
 ## A Especificação do Cliente {: #client-specification }
 
-A especificação do cliente contém a configuração da rede e outras configurações (excluindo as relacionadas ao estado do tempo de execução):
+A especificação do cliente contém a configuração da rede e outras configurações (excluindo as relacionadas ao estado do Runtime):
 
 - **Name** - nome para as especificações
 - **Id** - um ID simples exclusivo para a rede usado para definir o caminho de armazenamento no nó
@@ -38,7 +38,7 @@ A especificação do cliente contém a configuração da rede e outras configura
 - **Protocol ID** - um nome exclusivo que define o protocolo de rede
 - **Relay Chain** - define a ID da cadeia de orquestração com a qual a rede Tanssi interage
 - **Parachain ID** - define uma ID exclusiva que identifica a rede Tanssi
-- **Code Substitutes** - um recurso de emergência para substituir o tempo de execução quando uma rede Tanssi não consegue executar uma atualização de tempo de execução
+- **Code Substitutes** - um recurso de emergência para substituir o Runtime quando uma rede Tanssi não consegue executar uma atualização de Runtime
 - **Properties** - propriedades chave-valor que podem ser personalizadas e são úteis para melhorar a experiência do usuário
 
 No atributo `properties`, as seguintes configurações são usadas por várias bibliotecas front-end, incluindo a [API Polkadot.js](/pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
@@ -50,15 +50,15 @@ No atributo `properties`, as seguintes configurações são usadas por várias b
 
 ## O Estado da Gênese {: #genesis-state }
 
-Todos os sequenciadores atribuídos à rede Tanssi devem concordar com o estado inicial para que possam executar as extrínsecas de entrada, chegar aos mesmos resultados e, finalmente, chegar a um consenso sobre o novo estado válido.
+Todos os Sequencers atribuídos à rede Tanssi devem concordar com o estado inicial para que possam executar as extrínsecas de entrada, chegar aos mesmos resultados e, finalmente, chegar a um consenso sobre o novo estado válido.
 
-Este estado da gênese definirá o ponto de partida da rede Tanssi. Ele inclui um valor inicial para os elementos que os módulos incluídos no tempo de execução precisam persistir e o código Wasm inicial do tempo de execução, que é armazenado na cadeia.
+Este estado da gênese definirá o ponto de partida da rede Tanssi. Ele inclui um valor inicial para os elementos que os módulos incluídos no Runtime precisam persistir e o código Wasm inicial do Runtime, que é armazenado na cadeia.
 
-Por exemplo, nos modelos incluídos, a especificação da cadeia define as contas iniciais e os saldos de tokens no módulo `Balances`. Além disso, o template também tem uma conta sudo (que **deve ser modificado**) para o módulo `Sudo`, que fornece privilégios exclusivos à conta fornecida, e que pode ser removido assim que um módulo de democracia na cadeia for conectado.
+Por exemplo, nos Templates incluídos, a especificação da cadeia define as contas iniciais e os saldos de tokens no módulo `Balances`. Além disso, o template também tem uma conta sudo (que **deve ser modificado**) para o módulo `Sudo`, que fornece privilégios exclusivos à conta fornecida, e que pode ser removido assim que um módulo de democracia na cadeia for conectado.
 
 ## Gerando um Arquivo de Especificação de Cadeia JSON {: #generating-json-chain-specs}
 
-Os seguintes comandos construirão e gerarão a especificação da cadeia para o modelo compatível com EVM com base na configuração expressa em `chain_spec.rs`, localizado em `*/container-chains/templates/frontier/node/src/chain_spec.rs`. Este exemplo pode ser adaptado a qualquer outro modelo ou tempo de execução personalizado.
+Os seguintes comandos construirão e gerarão a especificação da cadeia para o Template compatível com EVM com base na configuração expressa em `chain_spec.rs`, localizado em `*/container-chains/templates/frontier/node/src/chain_spec.rs`. Este exemplo pode ser adaptado a qualquer outro Template ou Runtime personalizado.
 
 Para construir e gerar as especificações da cadeia, siga estas etapas:
 
@@ -74,7 +74,7 @@ Para construir e gerar as especificações da cadeia, siga estas etapas:
     cd tanssi
     ```
 
-3. Construa o modelo da rede compatível com EVM Tanssi
+3. Construa o Template da rede compatível com EVM Tanssi
 
     ```bash
     cargo build -p container-chain-frontier-node --release
@@ -82,7 +82,7 @@ Para construir e gerar as especificações da cadeia, siga estas etapas:
 
    Esta etapa é bastante detalhada e pode levar um tempo para ser concluída. A captura de tela a seguir mostra o terminal após concluir com sucesso o processo de construção (observe que o tempo de conclusão é superior a 35 minutos):
 
-   ![Criando o modelo](/images/builders/build/customize/customizing-chain-specs/customizing-chain-specs-1.webp)
+   ![Criando o Template](/images/builders/build/customize/customizing-chain-specs/customizing-chain-specs-1.webp)
 
 4. Gerar a especificação da cadeia
 
@@ -204,7 +204,7 @@ A outra seção importante do arquivo está dentro do atributo `genesis`, que co
 }
 ```
 
-Um exemplo de um atributo não editável manualmente é o tempo de execução Wasm (na seção de estado da gênese), que é uma representação hexadecimal de um blob binário gerado pelo compilador. Ainda assim, além disso, a maioria das propriedades são fáceis de editar antes de iniciar a rede.
+Um exemplo de um atributo não editável manualmente é o Runtime Wasm (na seção de estado da gênese), que é uma representação hexadecimal de um blob binário gerado pelo compilador. Ainda assim, além disso, a maioria das propriedades são fáceis de editar antes de iniciar a rede.
 
 ## Gerando um Arquivo de Especificação de Cadeia JSON Bruto {: #generating-raw-specs-file }
 

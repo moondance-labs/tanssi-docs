@@ -1,6 +1,6 @@
 ---
 title: Transações e Contratos EVM com Web3.py
-description: Aprenda a usar a biblioteca Ethereum Web3.py para enviar transações e implantar contratos Solidity na sua rede compatível com Ethereum alimentada pela Tanssi.
+description: Aprenda a usar a biblioteca Ethereum Web3.py para enviar transações e implantar contratos Solidity na sua rede compatível com Ethereum Powered by Tanssi.
 icon: octicons-code-24
 categories: EVM-Template
 ---

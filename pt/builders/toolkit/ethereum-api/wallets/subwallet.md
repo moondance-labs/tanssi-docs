@@ -1,6 +1,6 @@
 ---
 title: Como Conectar a SubWallet à Tanssi
-description: Este guia mostra como conectar o SubWallet, uma carteira abrangente para Polkadot, Substrate e Ethereum, à sua rede compatível com EVM alimentada pela Tanssi.
+description: Este guia mostra como conectar o SubWallet, uma carteira abrangente para Polkadot, Substrate e Ethereum, à sua rede compatível com EVM Powered by Tanssi.
 icon: material-wallet-outline
 categories: EVM-Template
 ---
@@ -9,7 +9,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-Desenvolvedores e usuários de redes EVM alimentadas por Tanssi têm uma variedade de opções quando se trata de carteiras. Graças à sua compatibilidade perfeita com o Ethereum, as redes EVM Tanssi suportam uma grande variedade de carteiras populares, incluindo SubWallet.
+Desenvolvedores e usuários de redes EVM Powered by Tanssi têm uma variedade de opções quando se trata de carteiras. Graças à sua compatibilidade perfeita com o Ethereum, as redes EVM Tanssi suportam uma grande variedade de carteiras populares, incluindo SubWallet.
 
 SubWallet é uma carteira Web3 abrangente que suporta nativamente contas Substrate (Polkadot) e Ethereum. Este tutorial se concentra na API do Ethereum, mas você pode consultar um [tutorial semelhante para interagir com o SubWallet usando a API do Substrate](/pt/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank}. A extensão da carteira do navegador SubWallet [pode ser baixada](https://www.subwallet.app/download.html){target=\_blank} para todos os navegadores suportados, incluindo Chrome, Brave, Firefox e MS Edge. O SubWallet também possui um aplicativo móvel para iOS e Android, mas isso está além do escopo deste guia. Um painel de ativos online completo é acessível em [web.subwallet.app](https://web.subwallet.app){target=\_blank}.
 
@@ -49,7 +49,7 @@ Na tela seguinte, você poderá fornecer a frase semente relevante, a chave priv
 
 ## Configurando o SubWallet para Sua Rede EVM {: #configuring-subwallet-for-your-evm-network }
 
-Para configurar o SubWallet para sua rede EVM alimentada por Tanssi, pressione o ícone **Mais opções** no canto superior esquerdo. Em seguida, clique em **Gerenciar redes**. Pressione o ícone **+**. Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede Tanssi. Para fins de demonstração, a rede EVM de demonstração é usada aqui, mas você pode substituir esses detalhes pelos detalhes da sua própria rede Tanssi. Para adicionar sua rede Tanssi ao SubWallet, siga estas etapas:
+Para configurar o SubWallet para sua rede EVM Powered by Tanssi, pressione o ícone **Mais opções** no canto superior esquerdo. Em seguida, clique em **Gerenciar redes**. Pressione o ícone **+**. Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede Tanssi. Para fins de demonstração, a rede EVM de demonstração é usada aqui, mas você pode substituir esses detalhes pelos detalhes da sua própria rede Tanssi. Para adicionar sua rede Tanssi ao SubWallet, siga estas etapas:
 
 1. Cole a URL HTTPS RPC de sua rede Tanssi. A URL RPC da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_rpc_url }}`. Outros parâmetros serão preenchidos automaticamente
 2. Cole a URL do explorador de blocos de sua rede Tanssi. A URL do explorador de blocos da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`

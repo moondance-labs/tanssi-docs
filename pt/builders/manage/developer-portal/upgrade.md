@@ -9,9 +9,9 @@ categories: Appchain
 
 ## Introdução {: #introduction }
 
-[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} é um módulo que permite que chamadas de tempo de execução privilegiadas sejam despachadas quando chamadas da conta Sudo. Sudo é por vezes coloquialmente referido como um superusuário ou uma conta semelhante a um deus. Isso permite que você realize ações privilegiadas no curso do gerenciamento da sua appchain, como a atualização do tempo de execução da sua appchain com tecnologia Tanssi.
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} é um módulo que permite que chamadas de Runtime privilegiadas sejam despachadas quando chamadas da conta Sudo. Sudo é por vezes coloquialmente referido como um superusuário ou uma conta semelhante a um deus. Isso permite que você realize ações privilegiadas no curso do gerenciamento da sua appchain, como a atualização do Runtime da sua appchain com tecnologia Tanssi.
 
-Neste guia, você aprenderá como usar o Sudo para atualizar o runtime da sua appchain. Com acesso Sudo, atualizar sua cadeia é um processo rápido e fácil. Observe que as equipas de appchain em produção terão a opção de eliminar gradualmente o acesso Sudo e confiar na governança para processar as atualizações de tempo de execução.
+Neste guia, você aprenderá como usar o Sudo para atualizar o runtime da sua appchain. Com acesso Sudo, atualizar sua cadeia é um processo rápido e fácil. Observe que as equipas de appchain em produção terão a opção de eliminar gradualmente o acesso Sudo e confiar na governança para processar as atualizações de Runtime.
 
 ## Verificando os Pré-Requisitos {: #checking-prerequisites }
 
@@ -25,9 +25,9 @@ Para o exemplo neste guia, você precisará ter o seguinte:
 
 ## Obtendo o Runtime Wasm {: #obtaining-wasm-runtime }
 
-Se a sua cadeia for baseada em um dos modelos oficiais, você pode baixar o arquivo binário oficial de runtime Wasm na tabela abaixo. Os lançamentos oficiais são publicados na [seção de lançamentos](https://github.com/moondance-labs/tanssi/releases){target_blank} no repositório Tanssi.
+Se a sua cadeia for baseada em um dos Templates oficiais, você pode baixar o arquivo binário oficial de runtime Wasm na tabela abaixo. Os lançamentos oficiais são publicados na [seção de lançamentos](https://github.com/moondance-labs/tanssi/releases){target_blank} no repositório Tanssi.
 
-|                                               Versão                                                |                                                                             Modelo EVM                                                                              |                                                                            Modelo Substrate                                                                             |
+|                                               Versão                                                |                                                                             Template EVM                                                                              |                                                                            Template Substrate                                                                             |
 |:----------------------------------------------------------------------------------------------------:|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
 | [1400](https://github.com/moondance-labs/tanssi/releases/tag/runtime-1400-templates){target=\_blank} | [Download EVM V1400 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1400-templates/frontier-template-runtime-1400.wasm){target=\_blank} | [Download Substrate V1400 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1400-templates/simple-template-runtime-1400.wasm){target=\_blank} |
 | [1300](https://github.com/moondance-labs/tanssi/releases/tag/runtime-1300-templates){target=\_blank} | [Download EVM V1300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1300-templates/frontier-template-runtime-1300.wasm){target=\_blank} | [Download Substrate V1300 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-1300-templates/simple-template-runtime-1300.wasm){target=\_blank} |
@@ -45,13 +45,13 @@ Se a sua cadeia for baseada em um dos modelos oficiais, você pode baixar o arqu
 |  [101](https://github.com/moondance-labs/tanssi/releases/tag/runtime-101-templates){target=\_blank}  |  [Download EVM V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/frontier-template-runtime-101.wasm){target=\_blank}   |  [Download Substrate V101 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-101-templates/simple-template-runtime-101.wasm){target=\_blank}   |
 |  [100](https://github.com/moondance-labs/tanssi/releases/tag/runtime-100-templates){target=\_blank}  |  [Download EVM V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/frontier-template-runtime-100.wasm){target=\_blank}   |  [Download Substrate V100 Wasm file](https://github.com/moondance-labs/tanssi/releases/download/runtime-100-templates/simple-template-runtime-100.wasm){target=\_blank}   |
 
-Você deve sempre atualizar o tempo de execução seguindo as versões de forma ordenada, aplicando uma versão após a outra sem pular nenhuma delas. Para isso, você precisa saber a versão atual do tempo de execução da sua appchain, que você encontrará no seu [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} na seção **Propriedades**. Por exemplo, se a versão do seu tempo de execução for `1000`, você deverá atualizar primeiro para `1100`, depois para `1201`, depois para `1300` e assim por diante até a versão mais recente disponível.
+Você deve sempre atualizar o Runtime seguindo as versões de forma ordenada, aplicando uma versão após a outra sem pular nenhuma delas. Para isso, você precisa saber a versão atual do Runtime da sua appchain, que você encontrará no seu [Tanssi Dashboard](https://apps.tanssi.network){target=\_blank} na seção **Propriedades**. Por exemplo, se a versão do seu Runtime for `1000`, você deverá atualizar primeiro para `1100`, depois para `1201`, depois para `1300` e assim por diante até a versão mais recente disponível.
 
 !!! warning
     Aplicar as atualizações em ordem garante que as alterações (migrações) nas estruturas de dados internas sejam aplicadas, preservando a consistência dos dados. Caso contrário, pode **paralisar** sua appchain.
 
 !!! note
-    Se estiver compilando o tempo de execução manualmente, certifique-se de usar a versão Wasm `compact` e `compressed`, que é otimizada e mais leve.
+    Se estiver compilando o Runtime manualmente, certifique-se de usar a versão Wasm `compact` e `compressed`, que é otimizada e mais leve.
 
 ## Atualizando Seu Runtime {: #upgrading-your-runtime }
 
@@ -60,9 +60,9 @@ Para começar, acesse o portal do desenvolvedor da sua appchain Tanssi, que pode
 ![Localizar seu Link do Portal do Desenvolvedor em apps.tanssi.network](/images/builders/manage/developer-portal/upgrade/upgrade-1.webp)
 
 !!! warning
-    Se a sua appchain foi implantada usando um modelo oficial e a atualização pretendida é um runtime personalizado, certifique-se de ter alterado o nome padrão da especificação (*frontier-template* ou *container-chain-template*) para um diferente antes de construir o arquivo Wasm. Você também precisará executar a extrínseca `setCodeWithoutChecks` em vez de `setCode`.
+    Se a sua appchain foi implantada usando um Template oficial e a atualização pretendida é um runtime personalizado, certifique-se de ter alterado o nome padrão da especificação (*frontier-template* ou *container-chain-template*) para um diferente antes de construir o arquivo Wasm. Você também precisará executar a extrínseca `setCodeWithoutChecks` em vez de `setCode`.
 
-Com o seu [tempo de execução Wasm](/learn/framework/architecture/#runtime){target=\_blank} pronto para ser carregado e a sua [conta Sudo acessível no portal do desenvolvedor](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}, siga as seguintes etapas:
+Com o seu [Runtime Wasm](/learn/framework/architecture/#runtime){target=\_blank} pronto para ser carregado e a sua [conta Sudo acessível no portal do desenvolvedor](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}, siga as seguintes etapas:
 
 1. Navegue até a aba **Desenvolvedor** do portal do desenvolvedor da sua appchain Tanssi.
 2. Clique em **Sudo**. Se você não vir **Sudo** neste menu, é porque você não associou a conta Sudo ao portal do desenvolvedor. Certifique-se de que a sua [conta Sudo está injetada pela sua carteira e conectada ao portal do desenvolvedor](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}.

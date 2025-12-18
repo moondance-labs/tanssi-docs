@@ -8,11 +8,11 @@ icon: octicons-book-24
 
 ## Introdução {: #introduction }
 
-O protocolo Tanssi oferece uma ampla gama de recursos e arquitetura em camadas, tornando-o rico e complexo. Há uma grande quantidade de terminologia específica para Tanssi, Appchains, Symbiotic e o espaço web3 em geral. Compilamos uma lista de termos que você vai querer conhecer ao revisar a documentação do Tanssi.
+O protocolo Tanssi oferece uma ampla gama de recursos e arquitetura em camadas, tornando-o rico e complexo. Há uma grande quantidade de terminologia específica para Tanssi, Appchains, Symbiotic e o espaço web3 em geral. Compilamos uma lista de termos que você vai querer conhecer ao revisar a documentação da Tanssi.
 
 ## Appchain {: #appchain }
 
-Um blockchain personalizável específico para aplicações implantado através do Tanssi que entra em operação em minutos, beneficiando-se da segurança compartilhada, serviços de produção de blocos, bridging integrado e outros serviços.
+Um blockchain personalizável específico para aplicações implantado através da Tanssi que entra em operação em minutos, beneficiando-se da segurança compartilhada, serviços de produção de blocos, bridging integrado e outros serviços.
 
 ## BEEFY {: #beefy }
 
@@ -24,7 +24,7 @@ Uma bridge no contexto web3 conecta dois blockchains soberanos diferentes. Tanss
 
 ## Dancelight {: #dancelight }
 
-A TestNet oficial do Tanssi para implantação e experimentação rápida de redes.
+A TestNet oficial da Tanssi para implantação e experimentação rápida de redes.
 
 ## Data Preservers {: #data-preservers }
 
@@ -40,7 +40,7 @@ ECDSA significa _Elliptic Curve Digital Signature Algorithm_, que é o esquema c
 
 ## Gateway Contract {: #gateway }
 
-Um dos componentes da bridge Tanssi-Ethereum. Ele serve como o ponto central de mensagens do Ethereum que recebe e valida mensagens do Tanssi.
+Um dos componentes da bridge Tanssi-Ethereum. Ele serve como o ponto central de mensagens do Ethereum que recebe e valida mensagens da Tanssi.
 
 ## Light Client {: #light-client }
 

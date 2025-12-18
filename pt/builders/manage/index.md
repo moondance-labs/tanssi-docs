@@ -14,10 +14,10 @@ A Tanssi dApp e o portal do desenvolvedor servem a propósitos diferentes ao ger
   - [Pagamento por serviços de produção de blocos](/pt/builders/manage/dapp/services-payment/)
   - [Gerenciamento de tokens](/pt/builders/manage/dapp/manage-tokens/) (ou seja, cunhagem e transferência de tokens, atualização de saldos e muito mais)
 
-- **Developer portal** - construído sobre Polkadot.js Apps, o portal do desenvolvedor fornece ferramentas avançadas para gerenciamento de rede, incluindo atualizações de tempo de execução, cunhagem de tokens e muito mais. É ideal para tarefas que exigem controle e personalização precisos. Algumas ações que podem ser executadas através do portal do desenvolvedor incluem:
+- **Developer portal** - construído sobre Polkadot.js Apps, o portal do desenvolvedor fornece ferramentas avançadas para gerenciamento de rede, incluindo atualizações de Runtime, cunhagem de tokens e muito mais. É ideal para tarefas que exigem controle e personalização precisos. Algumas ações que podem ser executadas através do portal do desenvolvedor incluem:
 
   - [Gerenciamento da conta Sudo](/pt/builders/manage/developer-portal/sudo/)
-  - [Despacho de atualizações de tempo de execução](/pt/builders/manage/developer-portal/upgrade/)
+  - [Despacho de atualizações de Runtime](/pt/builders/manage/developer-portal/upgrade/)
   - [Cunhagem de tokens](/pt/builders/manage/developer-portal/minting/)
   - [Pausar transações](/pt/builders/manage/developer-portal/pause-transactions/) ou [habilitar modo de manutenção](/pt/builders/manage/developer-portal/maintenance/) em emergências
 

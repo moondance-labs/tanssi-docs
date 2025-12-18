@@ -1,6 +1,6 @@
 ---
 title: Como Conectar Talisman à Tanssi
-description: Este guia mostra como conectar o Talisman, uma carteira abrangente compatível com Polkadot, Substrate e Ethereum, à sua rede compatível com EVM alimentada pela Tanssi.
+description: Este guia mostra como conectar o Talisman, uma carteira abrangente compatível com Polkadot, Substrate e Ethereum, à sua rede compatível com EVM Powered by Tanssi.
 icon: material-wallet-outline
 categories: EVM-Template
 ---
@@ -9,7 +9,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-Desenvolvedores e usuários de redes EVM alimentadas pela Tanssi têm uma variedade de opções quando se trata de carteiras. Graças à sua compatibilidade perfeita com o Ethereum, as redes EVM Tanssi suportam uma grande variedade de carteiras populares, como a Talisman.
+Desenvolvedores e usuários de redes EVM Powered by Tanssi têm uma variedade de opções quando se trata de carteiras. Graças à sua compatibilidade perfeita com o Ethereum, as redes EVM Tanssi suportam uma grande variedade de carteiras populares, como a Talisman.
 
 A Talisman é uma carteira Web3 que suporta nativamente contas Substrate (Polkadot) e Ethereum. Este tutorial se concentra na API Ethereum, mas você pode conferir um [tutorial semelhante para interagir com a Talisman usando a API Substrate](/pt/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}. A extensão de navegador da carteira Talisman está disponível no [Google Chrome](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank} e [Brave](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, e um painel de ativos correspondente está acessível em [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
@@ -72,10 +72,10 @@ Para configurar o Talisman para sua rede EVM Tanssi, abra a extensão Talisman e
 
 ![Adicionar Rede no Talisman](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-6.webp)
 
-Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede alimentada pela Tanssi. Para fins de demonstração, a rede EVM de demonstração é usada aqui, mas você pode substituir esses detalhes por sua própria rede. Para adicionar sua rede ao Talisman, siga as seguintes etapas:
+Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede Powered by Tanssi. Para fins de demonstração, a rede EVM de demonstração é usada aqui, mas você pode substituir esses detalhes por sua própria rede. Para adicionar sua rede ao Talisman, siga as seguintes etapas:
 
-1. Cole a URL RPC da sua rede alimentada pela Tanssi. A URL RPC da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_rpc_url }}`. Outros parâmetros serão preenchidos automaticamente
-2. Cole a URL do explorador de blocos da sua rede alimentada pela Tanssi. A URL do explorador de blocos da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`
+1. Cole a URL RPC da sua rede Powered by Tanssi. A URL RPC da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_rpc_url }}`. Outros parâmetros serão preenchidos automaticamente
+2. Cole a URL do explorador de blocos da sua rede Powered by Tanssi. A URL do explorador de blocos da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`
 3. Marque a caixa **Esta é uma testnet**, se aplicável
 4. Pressione **Adicionar Rede**
 
@@ -95,6 +95,6 @@ Para transferir o token nativo da sua rede Tanssi, siga as seguintes etapas:
 
 ![Envie fundos em sua rede EVM](/images/builders/toolkit/ethereum-api/wallets/talisman/talisman-8.webp)
 
-Este guia se concentrou especificamente na configuração do Talisman para trabalhar com sua rede EVM alimentada pela Tanssi, mas o Talisman também é uma carteira completa para contas Substrate (Polkadot). Na seção da API Substrate, você encontrará um tutorial semelhante para configurar o Talisman para trabalhar com cadeias baseadas em Substrate.
+Este guia se concentrou especificamente na configuração do Talisman para trabalhar com sua rede EVM Powered by Tanssi, mas o Talisman também é uma carteira completa para contas Substrate (Polkadot). Na seção da API Substrate, você encontrará um tutorial semelhante para configurar o Talisman para trabalhar com cadeias baseadas em Substrate.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

@@ -1,15 +1,15 @@
 ---
-title: Modelo EVM Base
-description: O repositório Tanssi inclui um modelo EVM que fornece todas as configurações necessárias para lançar uma rede totalmente compatível com o Ethereum.
+title: Template EVM Base
+description: O repositório Tanssi inclui um Template EVM que fornece todas as configurações necessárias para lançar uma rede totalmente compatível com o Ethereum.
 icon: material-ethereum
 categories: EVM-Template
 ---
 
-# Modelo EVM Base {: #baseline-evm-template }
+# Template EVM Base {: #baseline-evm-template }
 
 ## Introdução {: #introduction }
 
-O modelo de rede EVM (Ethereum Virtual Machine) da Tanssi foi projetado para equipes que desenvolvem suas aplicações em cima de contratos inteligentes EVM. Ele inclui todos os componentes essenciais necessários para uma rede totalmente compatível com o Ethereum:
+O Template de rede EVM (Ethereum Virtual Machine) da Tanssi foi projetado para equipes que desenvolvem suas aplicações em cima de contratos inteligentes EVM. Ele inclui todos os componentes essenciais necessários para uma rede totalmente compatível com o Ethereum:
 
 - **EVM** - adiciona uma camada de execução da Ethereum Virtual Machine para aplicações de contratos inteligentes baseados em EVM
 - **Suporte Etherum JSON RPC** - as redes EVM da Tanssi são totalmente compatíveis com [Ethereum JSON RPC](https://ethereum.org/developers/docs/apis/json-rpc/){target=\_blank}. Consequentemente, todas as ferramentas baseadas em Ethereum como [MetaMask](https://metamask.io){target=\_blank}, [Ethers.js](https://docs.ethers.org/v6/){target=\_blank}, [Viem](https://viem.sh){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Foundry](https://getfoundry.sh/){target=\_blank} e muito mais, funcionam perfeitamente
@@ -17,9 +17,9 @@ O modelo de rede EVM (Ethereum Virtual Machine) da Tanssi foi projetado para equ
 
 ## EVM Network Template {: #evm-network-template }
 
-O modelo já inclui a configuração necessária para integração perfeita com o protocolo Tanssi e o provedor de segurança escolhido, por exemplo, [Symbiotic](https://symbiotic.fi/){target=\_blank} no Ethereum. Portanto, este modelo não requer alterações adicionais no tempo de execução se o aplicativo for construído em cima do EVM.
+O Template já inclui a configuração necessária para integração perfeita com o protocolo Tanssi e o provedor de segurança escolhido, por exemplo, [Symbiotic](https://symbiotic.fi/){target=\_blank} no Ethereum. Portanto, este Template não requer alterações adicionais no Runtime se o aplicativo for construído em cima do EVM.
 
-Isso significa que este modelo está pronto para ser implantado como está através da Tanssi, desbloqueando muitos recursos, como:
+Isso significa que este Template está pronto para ser implantado como está através da Tanssi, desbloqueando muitos recursos, como:
 
 - Utilizar a [produção de blocos como serviço](/pt/learn/tanssi/network-services/block-production/){target=\_blank} da Tanssi
 - Obter finalidade de transação determinística em segundos
@@ -31,7 +31,7 @@ Isso significa que este modelo está pronto para ser implantado como está atrav
 
 ## Módulos Incluídos {: #included-modules }
 
-Alem dos módulos e configurações que tornam o modelo de rede Tanssi EVM compatível com o protocolo Tanssi, ele também inclui [muitos módulos](/pt/builders/build/templates/overview/#included-modules){target=\_blank} para fornecer funcionalidades básicas.
+Alem dos módulos e configurações que tornam o Template de rede Tanssi EVM compatível com o protocolo Tanssi, ele também inclui [muitos módulos](/pt/builders/build/templates/overview/#included-modules){target=\_blank} para fornecer funcionalidades básicas.
 
 Para atingir a compatibilidade total com o Ethereum, esses módulos específicos também estão incluídos:
 

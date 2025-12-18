@@ -7,7 +7,7 @@ template: index-page.html
 
 # Usando o Portal do Desenvolvedor
 
-O portal do desenvolvedor permite que você gerencie com eficiência suas operações de rede, segurança e personalização alimentadas pela Tanssi. Com ferramentas intuitivas à sua disposição, você pode garantir um gerenciamento tranquilo e adaptar sua rede para atender aos requisitos exclusivos do seu projeto.
+O portal do desenvolvedor permite que você gerencie com eficiência suas operações de rede, segurança e personalização Powered by Tanssi. Com ferramentas intuitivas à sua disposição, você pode garantir um gerenciamento tranquilo e adaptar sua rede para atender aos requisitos exclusivos do seu projeto.
 
 ## Como Conectar ao Portal do Desenvolvedor
 
@@ -15,7 +15,7 @@ Antes de começar, você precisa recuperar a WS URL da sua rede. Esta informaç�
 
 ![Recupere sua URL WS do painel Tanssi](/images/builders/manage/developer-portal/index-1.webp)
 
-Agora você está pronto para conectar sua rede alimentada pela Tanssi ao portal do desenvolvedor. Navegue até [Polkadot.js Apps](https://polkadot.js.org/apps/){target=\_blank} e clique nas informações da chain no canto superior esquerdo para mudar para a sua rede.
+Agora você está pronto para conectar sua rede Powered by Tanssi ao portal do desenvolvedor. Navegue até [Polkadot.js Apps](https://polkadot.js.org/apps/){target=\_blank} e clique nas informações da chain no canto superior esquerdo para mudar para a sua rede.
 
 ![Recupere sua URL WS do painel Tanssi](/images/builders/manage/developer-portal/index-2.webp)
 

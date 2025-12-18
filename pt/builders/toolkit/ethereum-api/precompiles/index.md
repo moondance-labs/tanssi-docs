@@ -9,7 +9,7 @@ template: index-page.html
 
 Precompiles são módulos de blockchain integrados, projetados para lidar com tarefas específicas de forma mais eficiente do que contratos inteligentes padrão. Esses módulos são pré-implantados em endereços fixos e fornecem soluções otimizadas para operações como funções criptográficas, processamento de transações em lote e gerenciamento de tokens.
 
-Como as redes alimentadas pela Tanssi são baseadas em Substrate, os contratos precompilados podem suportar funções compatíveis com Ethereum e operações específicas para a cadeia Substrate subjacente. Essa abordagem dupla garante que os desenvolvedores possam interagir com ferramentas Ethereum familiares, ao mesmo tempo em que aproveitam o desempenho e a flexibilidade exclusivos oferecidos pelo Substrate.
+Como as redes Powered by Tanssi são baseadas em Substrate, os contratos precompilados podem suportar funções compatíveis com Ethereum e operações específicas para a cadeia Substrate subjacente. Essa abordagem dupla garante que os desenvolvedores possam interagir com ferramentas Ethereum familiares, ao mesmo tempo em que aproveitam o desempenho e a flexibilidade exclusivos oferecidos pelo Substrate.
 
 ## Fluxo de Interação com Precompiles
 
