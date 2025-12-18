@@ -67,7 +67,7 @@ O MetaMask solicitará a confirmação da importação. Revise os detalhes e cli
 
 ![Confirmar e importar tokens](/images/builders/toolkit/ethereum-api/precompiles/erc20/erc-3.webp)
 
-Pronto! Você adicionou o token UNIT como um ERC-20 personalizado na sua rede EVM do Tanssi.
+Pronto! Você adicionou o token UNIT como um ERC-20 personalizado na sua rede EVM da Tanssi.
 
 ### Configuração do Remix {: #remix-set-up }
 

@@ -63,7 +63,7 @@ Ao criar uma conta proxy, você deve escolher um tipo de proxy que definirá com
 - **`Any`** - permite que a conta proxy use qualquer função suportada pela palete proxy. Não há filtragem de chamadas.
 - **`NonTransfer`** - este tipo de conta proxy é permitido para enviar qualquer tipo de transação, com exceção de transferências de saldo.
 - **`Balances`** - permite que a conta proxy faça apenas transações relacionadas ao envio de fundos.
-- **`Governance`** - permite que a conta proxy faça apenas transações relacionadas à palete de governança, como votação ou criação de propostas de democracia. Observe que a governança ainda não está habilitada no Tanssi. Você pode criar contas proxy de governança, mas elas não poderão tomar nenhuma ação até que a governança seja habilitada.
+- **`Governance`** - permite que a conta proxy faça apenas transações relacionadas à palete de governança, como votação ou criação de propostas de democracia. Observe que a governança ainda não está habilitada na Tanssi. Você pode criar contas proxy de governança, mas elas não poderão tomar nenhuma ação até que a governança seja habilitada.
 - **`Registrar`** - permite que a conta proxy faça apenas transações relacionadas à palete do registrador.
 - **`SudoRegistrar`** - permite que a conta proxy faça apenas transações relacionadas à palete do registrador que precisam ser chamadas por Sudo.
 - **`CancelProxy`** - permite que a conta proxy rejeite e remova quaisquer chamadas proxy anunciadas.

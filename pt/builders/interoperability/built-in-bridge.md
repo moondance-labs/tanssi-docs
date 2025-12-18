@@ -13,7 +13,7 @@ O protocolo Tanssi orquestra componentes de infraestrutura, permitindo que os de
 
 O [token TANSSI](/pt/builders/tanssi-network/tanssi-token/){target=\_blank} é o motor que permite a integração de diferentes componentes de infraestrutura com [provedores de segurança externos](/pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} e alinha incentivos entre vários atores, incluindo detentores de tokens, operadores de nós e construtores de appchain. Para atender a diferentes casos de uso, o token tem duas versões: a moeda nativa da rede Tanssi, TANSSI (Substrate), e sua versão ERC-20, no Ethereum.
 
-Os usuários podem converter de uma versão para outra do token usando uma [ponte sem confiança integrada do Tanssi](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
+Os usuários podem converter de uma versão para outra do token usando uma [ponte sem confiança integrada da Tanssi](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
 
 Neste guia, você aprenderá como mover seus ativos de Tanssi para Ethereum e vice-versa por meio de uma interface web segura e fácil de usar disponível no [Tanssi dApp](https://apps.tanssi.network/bridge){target=\_blank}, tornando as transferências entre cadeias acessíveis a todos.
 

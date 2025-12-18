@@ -9,7 +9,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-Como apresentado no artigo [Comunicação Cross-Chain Nativa](/learn/framework/xcm/){target=\_blank}, as redes implantadas através do Tanssi podem se comunicar e interagir com qualquer outra rede no ecossistema. Este ambiente multi-chain leva a um mundo multi-ativo, onde a transferência perfeita de ativos, dados e valor entre diferentes redes amplia as possibilidades de construir casos de uso em diversos setores, como finanças (DeFi), ativos do mundo real (RWAs) e outros.
+Como apresentado no artigo [Comunicação Cross-Chain Nativa](/learn/framework/xcm/){target=\_blank}, as redes implantadas através da Tanssi podem se comunicar e interagir com qualquer outra rede no ecossistema. Este ambiente multi-chain leva a um mundo multi-ativo, onde a transferência perfeita de ativos, dados e valor entre diferentes redes amplia as possibilidades de construir casos de uso em diversos setores, como finanças (DeFi), ativos do mundo real (RWAs) e outros.
 
 Ativos externos são tokens nativos de outra blockchain, ou, em outras palavras, ativos cuja cadeia de reserva não é a cadeia com a qual você está interagindo. As redes Tanssi podem registrar ativos externos para permitir sua entrada. Para fazer isso, é necessário [estabelecer um canal XCM](/learn/framework/xcm/#channel-registration){target=\_blank} com a outra cadeia e, em seguida, registrar um de seus ativos nativos como um ativo externo. Os ativos externos registrados se comportam, em certa medida, da mesma forma que os locais.
 

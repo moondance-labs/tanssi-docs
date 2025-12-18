@@ -98,7 +98,7 @@ Após executar a última etapa, o terminal exibe apenas uma linha de log:
 E agora o arquivo `chain_spec.json` contendo a especificação do cliente e o estado da gênese é criado na pasta atual.
 
 !!! note
-    As especificações da cadeia JSON podem ser geradas em duas versões diferentes: a legível por humanos, que é a gerada seguindo as etapas anteriores, e a versão bruta, que é a necessária para implantar a rede por meio do Tanssi. Mais sobre como gerar a versão bruta [posteriormente](#generating-raw-specs-file) neste artigo.
+    As especificações da cadeia JSON podem ser geradas em duas versões diferentes: a legível por humanos, que é a gerada seguindo as etapas anteriores, e a versão bruta, que é a necessária para implantar a rede por meio da Tanssi. Mais sobre como gerar a versão bruta [posteriormente](#generating-raw-specs-file) neste artigo.
 
 ### Editando o Arquivo de Especificação da Cadeia JSON {: #editing-json-chain-specs }
 
@@ -217,4 +217,4 @@ Depois de passar pelas [etapas para gerar o arquivo de especificação da cadeia
     build-spec --chain=chain_spec.json --raw > raw_chain_spec.json
 ```
 
-Agora que este arquivo foi configurado e personalizado e está no formato JSON bruto correto, ele pode ser carregado para inicializar uma nova rede no Tanssi.
+Agora que este arquivo foi configurado e personalizado e está no formato JSON bruto correto, ele pode ser carregado para inicializar uma nova rede na Tanssi.

@@ -1,6 +1,6 @@
 ---
 title: Implante Sua Appchain 
-description: Aprenda como implantar sua appchain no Tanssi como um teste rápido para testes de curto prazo ou como uma dedicada para testes de longo prazo usando o Tanssi dApp.
+description: Aprenda como implantar sua appchain na Tanssi como um teste rápido para testes de curto prazo ou como uma dedicada para testes de longo prazo usando o Tanssi dApp.
 template: index-page.html
 icon: octicons-rocket-24
 ---
@@ -17,12 +17,12 @@ A implantação de uma appchain com tecnologia Tanssi via [Tanssi dApp](https://
 2. Satisfaça os saldos mínimos de token necessários
 3. Reserve seu Tanssi appchain ID
 4. Gere seus arquivos de appchain personalizados
-5. Registre sua appchain no Tanssi
+5. Registre sua appchain na Tanssi
 
 ![Um diagrama mostrando as etapas para implantar uma appchain Tanssi com o Tanssi dApp.](/images/builders/deploy/deploy-1.webp)
 
 !!! note
-    Para implantações de _Quick Trial appchains_ e _Dedicated appchains_ no Tanssi TestNet, a equipe Tanssi concluirá a verificação manualmente. Após a verificação, geralmente leva cerca de dez minutos para sua quick trial appchain ficar pronta e cerca de duas horas para uma dedicada. Para o Tanssi MainNet, o processo será totalmente descentralizado e sem permissão.
+    Para implantações de _Quick Trial appchains_ e _Dedicated appchains_ na Tanssi TestNet, a equipe Tanssi concluirá a verificação manualmente. Após a verificação, geralmente leva cerca de dez minutos para sua quick trial appchain ficar pronta e cerca de duas horas para uma dedicada. Para o Tanssi MainNet, o processo será totalmente descentralizado e sem permissão.
 
 Para começar, visite [Usando o Tanssi DApp](/pt/builders/deploy/dapp/).
 

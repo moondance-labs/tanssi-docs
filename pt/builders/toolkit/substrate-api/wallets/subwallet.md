@@ -1,5 +1,5 @@
 --- 
-title: Como Conectar SubWallet ao Tanssi Substrate 
+title: Como Conectar SubWallet à Tanssi Substrate 
 description: Este guia mostra como conectar SubWallet, uma carteira abrangente para Polkadot, Substrate e Ethereum, à sua rede Substrate com tecnologia Tanssi. 
 icon: material-wallet-outline 
 categories: Substrate-Template

@@ -5,7 +5,7 @@ icon: octicons-browser-24
 categories: Appchain
 ---
 
-# Implemente Sua Appchain Através do Tanssi DApp
+# Implemente Sua Appchain Através da Tanssi DApp
 
 <style>.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='https://www.youtube.com/embed/W40oqavpZJ8' frameborder='0' allowfullscreen></iframe></div>
 <style>.caption { font-family: Open Sans, sans-serif; font-size: 0.9em; color: rgba(170, 170, 170, 1); font-style: italic; letter-spacing: 0px; position: relative;}</style>
@@ -44,12 +44,12 @@ Se você implantar uma appchain EVM com tecnologia Tanssi, os usuários poderão
 
 ### Conecte Sua Carteira ao DApp {: #connect-wallet  }
 
-Para conectar sua carteira ao Tanssi dApp, clique em **Connect Wallet** no canto superior direito e escolha o tipo de carteira. Depois:
+Para conectar sua carteira à Tanssi dApp, clique em **Connect Wallet** no canto superior direito e escolha o tipo de carteira. Depois:
 
 1. Escolha sua conta no menu suspenso
-2. Assine a mensagem solicitada para fazer login no Tanssi dApp
+2. Assine a mensagem solicitada para fazer login na Tanssi dApp
 
-![Botão Connect Wallet no Tanssi dApp](/images/builders/deploy/dapp/dapp-3.webp)
+![Botão Connect Wallet na Tanssi dApp](/images/builders/deploy/dapp/dapp-3.webp)
 
 Após conectar, seu endereço aparecerá no canto superior direito. Se tiver várias contas conectadas, clique no endereço para trocar.
 
@@ -80,7 +80,7 @@ Para configurar:
 6. Opcional: em **Genesis Smart Contracts**, clique em **Add** para incluir contratos gênese (remova `0x` do bytecode)
 7. Ao finalizar o template, clique em **Continue** e siga para [Checar saldos](#check-balances)
 
-![Criar appchain EVM no Tanssi dApp](/images/builders/deploy/dapp/dapp-4.webp)
+![Criar appchain EVM na Tanssi dApp](/images/builders/deploy/dapp/dapp-4.webp)
 
 ### Template Substrate {: #substrate-template }
 
@@ -94,7 +94,7 @@ Para configurar:
 4. Opcional: em **Advanced**, clique em **Add** para adicionar contas e saldos de gênese
 5. Clique em **Continue** para seguir para [Checar saldos](#check-balances)
 
-![Criar appchain Substrate no Tanssi dApp](/images/builders/deploy/dapp/dapp-5.webp)
+![Criar appchain Substrate na Tanssi dApp](/images/builders/deploy/dapp/dapp-5.webp)
 
 ### Personalizado {: #custom }
 
@@ -181,7 +181,7 @@ Ajuste também conforme o tipo de appchain:
 
 Depois, selecione o template **Custom** e envie o arquivo JSON de especificação bruta.
 
-![Enviar especificação customizada no Tanssi dApp](/images/builders/deploy/dapp/dapp-6.webp)
+![Enviar especificação customizada na Tanssi dApp](/images/builders/deploy/dapp/dapp-6.webp)
 
 !!! note
     O arquivo de especificação bruta não deve exceder 2 MB.
@@ -219,7 +219,7 @@ Para reservar o seu ID de appchain Tanssi, será necessário enviar uma transaç
 1. Clique em **Reserve Network ID**
 2. Assine a transação na sua carteira
 
-![Reservar ID da appchain no Tanssi dApp](/images/builders/deploy/dapp/dapp-8.webp)
+![Reservar ID da appchain na Tanssi dApp](/images/builders/deploy/dapp/dapp-8.webp)
 
 Após a transação, o ID aparecerá no dApp; clique em **Continue**. Parte dos tokens UNIT (ou STAR, para appchain dedicada) ficará reservada.
 
@@ -260,6 +260,6 @@ Por fim, para registrar sua appchain na Tanssi, siga estas etapas:
 
 Quando a transação for concluída, o dApp exibirá o registro da appchain. No painel, você poderá acompanhar o status, blocos, endpoints RPC/WS e outras informações.
 
-![Dashboard da appchain no Tanssi dApp](/images/builders/deploy/dapp/dapp-13.webp)
+![Dashboard da appchain na Tanssi dApp](/images/builders/deploy/dapp/dapp-13.webp)
 
 E pronto! Você registrou sua appchain Tanssi. O processo de lançamento iniciará automaticamente após a verificação da equipe Tanssi. Depois de ativa, volte ao **Dashboard** para ver o RPC e demais dados da rede.

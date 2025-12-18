@@ -1,5 +1,5 @@
 ---
-title: Como Adicionar RainbowKit a uma Rede EVM do Tanssi
+title: Como Adicionar RainbowKit a uma Rede EVM da Tanssi
 description: Saiba como integrar o RainbowKit a uma rede compatível com Ethereum implantada via Tanssi, facilitando a adição de uma ótima experiência de carteira ao seu dApp.
 icon: material-wallet-outline
 categories: EVM-Template
@@ -77,9 +77,9 @@ Você verá a tela inicial:
 
 Abra o projeto no editor e veja o arquivo `wagmi.ts`. É nele que você configura as cadeias disponíveis para conexão.
 
-Como a [rede EVM demo](https://apps.tanssi.network/demo/){target=_blank} é uma rede personalizada do Tanssi, ela não pode ser importada direto de `wagmi/chains`. Defina a cadeia manualmente em `wagmi.ts`.
+Como a [rede EVM demo](https://apps.tanssi.network/demo/){target=_blank} é uma rede personalizada da Tanssi, ela não pode ser importada direto de `wagmi/chains`. Defina a cadeia manualmente em `wagmi.ts`.
 
-Configuração para a rede EVM demo do Tanssi:
+Configuração para a rede EVM demo da Tanssi:
 
 === "Demo EVM Network"
     ```js title="src/wagmi.ts"
@@ -90,10 +90,10 @@ Atualize `wagmi.ts` conforme acima para suportar a rede demo. A próxima seção
 
 ## Configuração Manual
 
-As seções seguintes mostram como integrar o RainbowKit em um app React existente: instalar dependências, configurar cadeias, disponibilizar o RainbowKit no dApp, definir a cadeia padrão do **Connect Wallet** e personalizar o tema. O exemplo usa a rede EVM demo do Tanssi, mas pode ser adaptado mudando o RPC.
+As seções seguintes mostram como integrar o RainbowKit em um app React existente: instalar dependências, configurar cadeias, disponibilizar o RainbowKit no dApp, definir a cadeia padrão do **Connect Wallet** e personalizar o tema. O exemplo usa a rede EVM demo da Tanssi, mas pode ser adaptado mudando o RPC.
 
 ### Verificando Pré-requisitos {: #checking-prerequisites }
-- Uma rede compatível com EVM no Tanssi
+- Uma rede compatível com EVM na Tanssi
 - Um dApp existente em [React](https://react.dev/){target=_blank}
 - Exemplos do [repositório RainbowKit](https://github.com/rainbow-me/rainbowkit/tree/main/examples){target=_blank} (há templates para vários frameworks)
 - Para seguir este guia, crie um projeto Next.js (Typescript + App Router) seguindo a instalação automática em [Next.js](https://nextjs.org/docs){target=_blank}
@@ -150,7 +150,7 @@ Suba o servidor de desenvolvimento:
 
 Abra `http://localhost:3000`.
 
-Para testar, conecte a carteira MetaMask na rede EVM demo do Tanssi. Adicione a rede no MetaMask:
+Para testar, conecte a carteira MetaMask na rede EVM demo da Tanssi. Adicione a rede no MetaMask:
 
 1. Configurações > Redes > Adicionar Rede
 2. Preencha:
@@ -256,7 +256,7 @@ Use `lightTheme`, `darkTheme` ou `midnightTheme`. Exemplo com tema escuro custom
 ```
 
 Campos:
-- `accentColor` — cor primária (ex.: #189B9B do Tanssi)
+- `accentColor` — cor primária (ex.: #189B9B da Tanssi)
 - `accentColorForeground` — cor do texto sobre a primária
 - `borderRadius` — arredondamento
 - `fontStack` — fontes (ex.: `system`)

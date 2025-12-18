@@ -1,6 +1,6 @@
 ---
-title: Como Conectar a SubWallet ao Tanssi
-description: Este guia mostra como conectar o SubWallet, uma carteira abrangente para Polkadot, Substrate e Ethereum, à sua rede compatível com EVM alimentada pelo Tanssi.
+title: Como Conectar a SubWallet à Tanssi
+description: Este guia mostra como conectar o SubWallet, uma carteira abrangente para Polkadot, Substrate e Ethereum, à sua rede compatível com EVM alimentada pela Tanssi.
 icon: material-wallet-outline
 categories: EVM-Template
 ---
@@ -55,7 +55,7 @@ Para configurar o SubWallet para sua rede EVM alimentada por Tanssi, pressione o
 2. Cole a URL do explorador de blocos de sua rede Tanssi. A URL do explorador de blocos da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`
 3. Pressione **Salvar**
 
-![Adicione os Detalhes da Rede Alimentada pelo Tanssi no SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-6.webp)
+![Adicione os Detalhes da Rede Alimentada pela Tanssi no SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-6.webp)
 
 Por padrão, todos os saldos são ocultos no SubWallet, mas se você pressionar o ícone de olho, poderá alternar a visibilidade do saldo.
 

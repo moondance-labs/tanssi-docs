@@ -1,6 +1,6 @@
 ---
 title: Como Conectar a MetaMask
-description: Este guia mostra como conectar a MetaMask, uma carteira Ethereum baseada em navegador, à sua rede compatível com EVM alimentada pelo Tanssi e como transferir fundos.
+description: Este guia mostra como conectar a MetaMask, uma carteira Ethereum baseada em navegador, à sua rede compatível com EVM alimentada pela Tanssi e como transferir fundos.
 icon: material-wallet-outline
 categories: EVM-Template
 ---

@@ -49,7 +49,7 @@ Para acompanhar este guia, você precisará do seguinte:
 
 === "Tanssi MainNet"
 
-    - O [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} aberto e conectado ao Tanssi MainNet.
+    - O [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/accounts){target=\_blank} aberto e conectado à Tanssi MainNet.
     - Pelo menos uma conta financiada com tokens `{{ networks.mainnet.token_symbol }}`.
 
 === "Dancelight TestNet"

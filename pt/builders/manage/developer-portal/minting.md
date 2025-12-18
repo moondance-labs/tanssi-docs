@@ -1,6 +1,6 @@
 ---
 title: Cunhagem de Tokens Nativos com Sudo
-description: Aprenda a usar a chave Sudo para gerenciar sua rede alimentada pelo Tanssi e executar a ação privilegiada de cunhar tokens nativos, alterando a emissão total.
+description: Aprenda a usar a chave Sudo para gerenciar sua rede alimentada pela Tanssi e executar a ação privilegiada de cunhar tokens nativos, alterando a emissão total.
 icon: material-creation-outline
 categories: Appchain
 ---

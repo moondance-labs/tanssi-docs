@@ -1,6 +1,6 @@
 ---
 title: Adicionar Módulos Externos
-description: Aprenda a resolver problemas de referência duplicada de dependências ao personalizar seu template de rede alimentado pelo Tanssi com a ferramenta em Rust chamada Diener.
+description: Aprenda a resolver problemas de referência duplicada de dependências ao personalizar seu template de rede alimentado pela Tanssi com a ferramenta em Rust chamada Diener.
 icon: octicons-plug-24
 categories: Custom-Runtime
 ---

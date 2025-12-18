@@ -13,7 +13,7 @@ categories: EVM-Template
 
 A Phala não é, por si só, uma rede de oráculos; ela habilita várias capacidades de computação off-chain, incluindo uma rede descentralizada de oráculos. A Phala também oferece o [Phala Bricks](https://bricks.phala.network){target=_blank}, um conjunto de ferramentas que facilita lançar rapidamente esse tipo de funcionalidade sem precisar construir tudo do zero.
 
-Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-price-data) habilitados por Phat Contracts na rede EVM de demonstração do Tanssi. Em seguida, você verá como [implantar feeds de preço na sua rede EVM com tecnologia Tanssi](#launching-price-feeds-on-an-evm-network). Para produção, é altamente recomendável [contatar a equipe Phala](https://dashboard.phala.network){target=_blank} para auxiliar no lançamento e garantir a integridade do processo.
+Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-price-data) habilitados por Phat Contracts na rede EVM de demonstração da Tanssi. Em seguida, você verá como [implantar feeds de preço na sua rede EVM com tecnologia Tanssi](#launching-price-feeds-on-an-evm-network). Para produção, é altamente recomendável [contatar a equipe Phala](https://dashboard.phala.network){target=_blank} para auxiliar no lançamento e garantir a integridade do processo.
 
 Se você já usa outro provedor de oráculos, a Phala serve como camada de execução confidencial para trazer esses dados para sua rede Tanssi. É possível adaptar o fluxo descrito aqui para outros feeds ou APIs, mantendo a mesma interface de consumo no contrato EVM.
 
@@ -99,7 +99,7 @@ Caso esteja depurando valores inesperados, valide se o `decimals()` retornado co
 
 ## Lançando Feeds de Preço em uma Rede EVM {: #launching-price-feeds-on-an-evm-network }
 
-É fácil lançar feeds em uma rede EVM do Tanssi! As etapas a seguir funcionam para redes Trial e dedicadas em [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=_blank}. Este guia é demonstrativo; para produção, [contate a equipe Phala](https://dashboard.phala.network){target=_blank}.
+É fácil lançar feeds em uma rede EVM da Tanssi! As etapas a seguir funcionam para redes Trial e dedicadas em [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=_blank}. Este guia é demonstrativo; para produção, [contate a equipe Phala](https://dashboard.phala.network){target=_blank}.
 
 ### Setup {: #setup }
 

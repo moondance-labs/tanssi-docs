@@ -11,7 +11,7 @@ categories: EVM-Template
 
 [Acurast](https://acurast.com){target=_blank} oferece computação permissionless, confiável e acessível para implantar aplicações. Um dos usos é permitir que desenvolvedores criem oráculos push/pull, consultando APIs off-chain para trazer preços on-chain. Os dados são processados de forma confidencial pelos Processors e enviados a contratos de redes EVM compatíveis com Tanssi via a [interface padrão Chainlink Aggregator](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=_blank}.
 
-Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-price-data) fornecidos pela Acurast na [rede EVM de demonstração do Tanssi](/builders/tanssi-network/testnet/demo-evm-network/){target=_blank}. Você também pode implantar seus próprios feeds na sua rede EVM com tecnologia Tanssi. Para produção, é altamente recomendável contatar a [equipe Acurast](https://acurast.com){target=_blank} para auxiliar no lançamento e garantir a integridade do processo.
+Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-price-data) fornecidos pela Acurast na [rede EVM de demonstração da Tanssi](/builders/tanssi-network/testnet/demo-evm-network/){target=_blank}. Você também pode implantar seus próprios feeds na sua rede EVM com tecnologia Tanssi. Para produção, é altamente recomendável contatar a [equipe Acurast](https://acurast.com){target=_blank} para auxiliar no lançamento e garantir a integridade do processo.
 
 ## O que é Acurast? {: #what-is-acurast }
 
@@ -29,7 +29,7 @@ Você pode desenhar o feed de preço Acurast como quiser. Os dados ficam em uma 
 
 Na interface, cinco funções retornam dados: `decimals`, `description`, `version`, `getRoundData` e `latestRoundData`. Consulte a [referência da Chainlink](https://docs.chain.link/data-feeds/api-reference){target=_blank} para detalhes.
 
-## Interagir com Feeds na Rede EVM Demo do Tanssi {: #interacting-with-price-feeds-demo-evm-network }
+## Interagir com Feeds na Rede EVM Demo da Tanssi {: #interacting-with-price-feeds-demo-evm-network }
 
 Vamos usar o feed BTC/USDT já implantado (veja [Ativos suportados](#supported-assets)). O contrato do agregador no Blockscout:
 
@@ -93,7 +93,7 @@ Esses endereços estão disponíveis para testes, mas você pode implantar feeds
 
 ## Criar e Lançar Seu Próprio Feed de Preço {: #designing-and-launching-your-own-price-feed }
 
-Você pode criar seu próprio feed Acurast na rede EVM do Tanssi. Este tutorial é apenas demonstrativo; para produção, [contate a equipe Acurast](https://acurast.com){target=_blank}.
+Você pode criar seu próprio feed Acurast na rede EVM da Tanssi. Este tutorial é apenas demonstrativo; para produção, [contate a equipe Acurast](https://acurast.com){target=_blank}.
 
 São necessários dois componentes: contrato e script. No exemplo anterior de [interação com BTC/USD](#interacting-with-price-feeds-demo-evm-network) usamos a interface Chainlink porque é simples de demonstrar. O contrato subjacente segue a [interface Chainlink Aggregator](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=_blank}, mas o demo adiciona eventos e lógica exemplo. Código de contrato e script estão no [repositório da Acurast](https://github.com/Acurast/acurast-evm-oracle-sample/tree/main){target=_blank}.
 
@@ -108,7 +108,7 @@ O contrato de demo `InsecureDummyPriceFeed.sol` emite eventos quando o preço é
 !!! warning
     O contrato de demonstração tem vulnerabilidades e não possui controles de acesso; não use em produção.
 
-Antes de prosseguir, implante o contrato do seu feed na rede EVM do Tanssi (ou na rede demo). Guarde o endereço, pois será usado no script Acurast.
+Antes de prosseguir, implante o contrato do seu feed na rede EVM da Tanssi (ou na rede demo). Guarde o endereço, pois será usado no script Acurast.
 
 ### Construindo o Script Acurast
 

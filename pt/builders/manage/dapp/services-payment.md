@@ -1,6 +1,6 @@
 ---
 title: Pagamento dos Serviços de Produção de Blocos
-description: As redes implantadas através do Tanssi beneficiam dos serviços de produção de blocos fornecidos por um conjunto de operadores de nós, que são compensados com tokens Tanssi.
+description: As redes implantadas através da Tanssi beneficiam dos serviços de produção de blocos fornecidos por um conjunto de operadores de nós, que são compensados com tokens Tanssi.
 icon: octicons-server-24
 categories: Appchain
 ---

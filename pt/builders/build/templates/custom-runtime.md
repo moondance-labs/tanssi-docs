@@ -1,6 +1,6 @@
 ---
 title: Runtime Personalizado
-description: Qualquer runtime personalizado pode ser adaptado para ser implantado pelo Tanssi, desde que módulos específicos sejam implementados e as configurações necessárias sejam definidas.
+description: Qualquer runtime personalizado pode ser adaptado para ser implantado pela Tanssi, desde que módulos específicos sejam implementados e as configurações necessárias sejam definidas.
 icon: octicons-file-binary-24
 categories: Custom-Runtime
 ---
@@ -15,9 +15,9 @@ A falha em fazê-lo pode levar à interoperabilidade reduzida e exposição desn
 
 ## Requisitos Mínimos
 
-Runtimes Substrate já existentes precisam implementar pelo menos o [framework](#adding-cumulus-support) para se comunicar dentro do ecossistema Tanssi, juntamente com os [módulos específicos do Tanssi](#adding-tanssi-support).
+Runtimes Substrate já existentes precisam implementar pelo menos o [framework](#adding-cumulus-support) para se comunicar dentro do ecossistema Tanssi, juntamente com os [módulos específicos da Tanssi](#adding-tanssi-support).
 
-No entanto, as equipes podem já ter implementado certos módulos que podem colidir com algumas funcionalidades relacionadas ao Tanssi, por exemplo, produção de blocos, atribuição de autoridade de bloco e consenso.
+No entanto, as equipes podem já ter implementado certos módulos que podem colidir com algumas funcionalidades relacionadas à Tanssi, por exemplo, produção de blocos, atribuição de autoridade de bloco e consenso.
 
 Os seguintes módulos são incluídos por padrão em muitos modelos populares e devem ser removidos junto com sua configuração:
 
@@ -105,7 +105,7 @@ Para suportar o protocolo Tanssi, será necessário adicionar dois módulos atra
     pub type BlockNumber = u32; 
     ```
 
-5. Adicione o executor do bloco, para permitir que os operadores na rede Tanssi validem que os autores são os sequenciadores atribuídos pelo Tanssi (e não um ator mal-intencionado)
+5. Adicione o executor do bloco, para permitir que os operadores na rede Tanssi validem que os autores são os sequenciadores atribuídos pela Tanssi (e não um ator mal-intencionado)
 
   ```rust
     cumulus_pallet_parachain_system::register_validate_block! {

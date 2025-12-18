@@ -9,15 +9,15 @@ categories: Noções básicas, Appchain
 
 ## Introdução {: #introduction }
 
-As redes implantadas através do Tanssi são blockchains totalmente personalizáveis, beneficiando-se de um conjunto compartilhado de sequenciadores e da segurança de um provedor de sua escolha. Os modelos apresentados neste artigo implementam as funcionalidades e configurações necessárias para suportar o protocolo Tanssi, tornando o desenvolvimento mais fácil.
+As redes implantadas através da Tanssi são blockchains totalmente personalizáveis, beneficiando-se de um conjunto compartilhado de sequenciadores e da segurança de um provedor de sua escolha. Os modelos apresentados neste artigo implementam as funcionalidades e configurações necessárias para suportar o protocolo Tanssi, tornando o desenvolvimento mais fácil.
 
 ## Configuração Base para Suportar o Protocolo Tanssi {: #base-setup-supporting-tanssi }
-As redes Tanssi devem implementar os seguintes módulos para suportar o protocolo e se beneficiar com segurança da produção de blocos do Tanssi como um serviço:
+As redes Tanssi devem implementar os seguintes módulos para suportar o protocolo e se beneficiar com segurança da produção de blocos da Tanssi como um serviço:
 
-- **Author Noting** - registra o conjunto de sequenciadores atribuídos à rede pelo Tanssi
+- **Author Noting** - registra o conjunto de sequenciadores atribuídos à rede pela Tanssi
 - **Author Inherent** - permite que o sequenciador que está criando o bloco inclua sua identidade para ser validado e recompensado
 
-Se você não incluir esses módulos no tempo de execução da rede Tanssi, não haverá um método para confirmar que os blocos estão sendo gerados por sequenciadores confiáveis designados pelo orquestrador Tanssi. Isso poderia criar uma vulnerabilidade para que atores mal-intencionados explorem e comprometam a rede. Para obter mais informações sobre a produção de blocos do Tanssi como um serviço, consulte o artigo [Serviços de Produção de Blocos](/pt/learn/tanssi/network-services/block-production/){target=\_blank}.
+Se você não incluir esses módulos no tempo de execução da rede Tanssi, não haverá um método para confirmar que os blocos estão sendo gerados por sequenciadores confiáveis designados pelo orquestrador Tanssi. Isso poderia criar uma vulnerabilidade para que atores mal-intencionados explorem e comprometam a rede. Para obter mais informações sobre a produção de blocos da Tanssi como um serviço, consulte o artigo [Serviços de Produção de Blocos](/pt/learn/tanssi/network-services/block-production/){target=\_blank}.
 
 Além da produção de blocos, há outros aspectos essenciais para qualquer rede coberta nos modelos, como:
 
@@ -46,7 +46,7 @@ Esta abordagem tem algumas vantagens, como:
 
 - Construir sobre a versão mais recente e estável
 - Obter o protocolo Tanssi já configurado e incluído no tempo de execução do modelo
-- Mantenha sua bifurcação atualizada sincronizando com o repositório upstream do Tanssi
+- Mantenha sua bifurcação atualizada sincronizando com o repositório upstream da Tanssi
 - Execute os testes incluídos, garantindo que a produção de blocos em sua rede Tanssi funcione conforme o esperado
 - Execute um ambiente local completo com a configuração [Zombienet](https://paritytech.github.io/zombienet){target=\_blank} incluída
 
