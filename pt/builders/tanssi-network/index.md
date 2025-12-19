@@ -7,14 +7,14 @@ template: index-page.html
 
 # Fundamentos da Rede
 
-Saiba mais sobre a rede Tanssi, as TestNets disponíveis e as principais funcionalidades e aspectos para começar com o desenvolvimento e a interação com ela.
+Conheça a rede Tanssi, as TestNets disponíveis e as principais funcionalidades e aspectos essenciais para começar a desenvolver e interagir com o ecossistema.
 
 ## Visão Geral da Rede
 
 - **Token TANSSI**: o token utilitário nativo das redes Tanssi e sua representação ERC-20.
 - **Dancelight**: a TestNet oficial da Tanssi para implantação e experimentação rápidas de rede.
 - **Redes com tecnologia Tanssi**: redes construídas na plataforma Tanssi, alavancando seus recursos para criar blockchains personalizadas.
-- **Rede Demo EVM**: uma rede compatível com Ethereum de amostra que demonstra uma rede totalmente operacional com tecnologia Tanssi.
+- **Rede Demo EVM**: uma rede compatível com Ethereum que exemplifica uma rede totalmente operacional impulsionada pela Tanssi.
 
 ## Explore Esta Seção
 

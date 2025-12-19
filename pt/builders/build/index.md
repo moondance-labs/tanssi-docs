@@ -7,7 +7,7 @@ template: index-page.html
 
 # Construa Sua Rede
 
-Lançar sua rede com tecnologia Tanssi oferece a flexibilidade de escolher entre Templates pré-configurados ou soluções totalmente personalizadas. Seja você buscando simplicidade ou controle preciso, a Tanssi fornece as ferramentas e orientações para dar vida à sua visão. Esta seção cobre tudo, desde a seleção de um Template até a personalização de módulos, testes e implantação de sua rede.
+Lançar sua rede com tecnologia Tanssi oferece a flexibilidade de escolher entre Templates pré-configurados ou soluções totalmente personalizadas. Estaja você buscando simplicidade ou controle refinado, a Tanssi fornece as ferramentas e orientações para transformar sua visão em realidade. Esta seção cobre tudo, desde a seleção de um Template até a personalização de módulos, testes e implantação de sua rede.
 
 ## O Caminho para Implantação
 

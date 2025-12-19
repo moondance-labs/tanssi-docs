@@ -1,6 +1,6 @@
 ---
 title: Personalize Sua Rede com Tanssi
-description: Configure seu ambiente local e comece a usar os templates para construir sua rede com Substrate, um framework blockchain poderoso e modular baseado em Rust.
+description: Configure seu ambiente e comece a usar os templates para construir sua rede com Substrate, um framework de blockchain modular e poderoso, baseado em Rust.
 icon: octicons-code-24
 template: index-page.html
 ---

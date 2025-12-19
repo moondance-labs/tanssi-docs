@@ -1,6 +1,6 @@
 ---
 title: Templates para Desenvolvimento de Rede
-description: Saiba mais sobre os templates de rede básicos (EVM e não-EVM) que suportam Tanssi imediatamente para ajudar a iniciar o desenvolvimento da sua rede.
+description: Saiba mais sobre os modelos básicos de rede que já vêm prontos para uso com a Tanssi e ajudam você a dar início ao desenvolvimento da sua rede.so
 icon: octicons-copy-24
 template: index-page.html
 ---

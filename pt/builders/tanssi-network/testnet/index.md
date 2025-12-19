@@ -1,6 +1,6 @@
 ---
 title: Redes de Teste
-description: Saiba mais sobre Dancelight, a Tanssi TestNet e a rede EVM de demonstração implantada no Dancelight e como começar a desenvolver e interagir com cada rede.
+description: Conheça a Dancelight, a TestNet da Tanssi, e a rede EVM de demonstração executada sobre a Dancelight, além de como começar a desenvolver e interagir com cada uma dessas redes.
 icon: octicons-telescope-24
 template: index-page.html
 ---

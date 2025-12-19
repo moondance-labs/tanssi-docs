@@ -1,6 +1,6 @@
 ---
 title: Usando a Ponte Tanssi Integrada
-description: Saiba como usar a ponte Tanssi integrada que conecta Tanssi e Ethereum para converter tokens TANSSI entre sua forma nativa e ERC-20 e vice-versa.
+description: Saiba como usar a ponte Tanssi integrada que conecta Tanssi e Ethereum para converter tokens TANSSI entre sua forma nativa e ERC-20, e vice-versa.
 icon: octicons-arrow-switch-24
 categories: Basics
 ---
