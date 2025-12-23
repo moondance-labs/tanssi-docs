@@ -105,7 +105,7 @@ Para suportar o protocolo Tanssi, será necessário adicionar dois módulos atra
     pub type BlockNumber = u32; 
     ```
 
-5. Adicione o executor do bloco, para permitir que os operadores na rede Tanssi validem que os autores são os Sequencers atribuídos pela Tanssi (e não um ator mal-intencionado)
+5. Adicione o executor do bloco, para permitir que os operators na rede Tanssi validem que os autores são os Sequencers atribuídos pela Tanssi (e não um ator mal-intencionado)
 
   ```rust
     cumulus_pallet_parachain_system::register_validate_block! {

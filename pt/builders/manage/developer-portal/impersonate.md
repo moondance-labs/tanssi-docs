@@ -20,7 +20,7 @@ Neste guia, aprenderá como usar Sudo para personificar outras contas. Por exemp
 
 Para os exemplos neste guia, precisará do seguinte:
 
-- Uma rede com tecnologia Tanssi (Quick Trial ou Dedicated)
+- Uma rede powered by Tanssi (Quick Trial ou Dedicated)
 - A conta Sudo da sua rede conectada aos Polkadot.js Apps da sua rede. Pode consultar o [Guia de Gerenciamento do Sudo](/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar a sua conta Sudo nos Polkadot.js Apps
 
 --8<-- 'text/pt/builders/manage/locate-sudo-account.md'
@@ -29,7 +29,7 @@ Para os exemplos neste guia, precisará do seguinte:
 
 Como sabe, a conta Sudo pode executar funções privilegiadas, incluindo a personificação de outras contas. Ao enviar uma chamada através de `sudoAs`, o Runtime primeiro autenticará a chave Sudo e, em seguida, despachará a chamada de função desejada com a origem `Signed` de uma determinada conta. No exemplo a seguir, o método `sudoAs` orquestrará o envio de alguns tokens para outra conta. Embora o resultado seja semelhante ao uso do Sudo com uma chamada `forceBalanceTransfer`, o exemplo a seguir usa uma chamada de transferência de saldo regular, onde a origem é a conta do remetente e não a conta Sudo.
 
-Para fazer uma chamada `sudoAs` para personificar outra conta, navegue para o separador **Developer** (Desenvolvedor) dos Polkadot.js Apps para a sua rede com tecnologia Tanssi e clique em **Sudo**. Se não vir **Sudo** neste menu, não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que a sua conta Sudo está injetada pela sua carteira e conectada aos Polkadot.js Apps. Em seguida, siga os seguintes passos:
+Para fazer uma chamada `sudoAs` para personificar outra conta, navegue para o separador **Developer** (Desenvolvedor) dos Polkadot.js Apps para a sua rede powered by Tanssi e clique em **Sudo**. Se não vir **Sudo** neste menu, não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que a sua conta Sudo está injetada pela sua carteira e conectada aos Polkadot.js Apps. Em seguida, siga os seguintes passos:
 
 1. Selecione a paleta **Sudo**
 2. Selecione o método **sudoAs**
@@ -50,7 +50,7 @@ A outra conta tinha um saldo inicial de `1.000` tokens antes da chamada e, subse
 
 A secção a seguir demonstrará o uso do Sudo para despachar chamadas de uma origem arbitrária. Ao enviar uma chamada desta forma, o Runtime primeiro autenticará a chave Sudo e, em seguida, despachará a chamada usando a paleta `utility` e a função `dispatchAs`, permitindo que a origem da transação seja exatamente o que deseja.
 
-Para fazer isso, navegue para o separador **Developer** (Desenvolvedor) dos Polkadot.js Apps para a sua rede com tecnologia Tanssi e clique em **Sudo**. Se não vir **Sudo** neste menu, não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que a sua [conta Sudo está injetada pela sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Em seguida, siga os seguintes passos:
+Para fazer isso, navegue para o separador **Developer** (Desenvolvedor) dos Polkadot.js Apps para a sua rede powered by Tanssi e clique em **Sudo**. Se não vir **Sudo** neste menu, não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que a sua [conta Sudo está injetada pela sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Em seguida, siga os seguintes passos:
 
 1. Selecione a paleta **Sudo**
 2. Selecione o método **Sudo**

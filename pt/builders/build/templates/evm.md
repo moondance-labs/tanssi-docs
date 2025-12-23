@@ -35,7 +35,7 @@ Alem dos módulos e configurações que tornam o Template de rede Tanssi EVM com
 
 Para atingir a compatibilidade total com o Ethereum, esses módulos específicos também estão incluídos:
 
-- **[EVM](https://docs.rs/pallet-evm/latest/pallet_evm){target=\_blank}** - adiciona suporte para execução de bytecode EVM não modificado em uma rede com tecnologia Tanssi. Ele usa o [SputnikVM](https://github.com/rust-ethereum/evm){target=\_blank} baseado em Rust como o mecanismo EVM subjacente
+- **[EVM](https://docs.rs/pallet-evm/latest/pallet_evm){target=\_blank}** - adiciona suporte para execução de bytecode EVM não modificado em uma rede powered by Tanssi. Ele usa o [SputnikVM](https://github.com/rust-ethereum/evm){target=\_blank} baseado em Rust como o mecanismo EVM subjacente
 - **[Ethereum](https://docs.rs/pallet-ethereum/latest/pallet_ethereum){target=\_blank}** - funciona em conjunto com o módulo EVM para fornecer emulação completa para o processamento de blocos Ethereum. Entre muitas outras tarefas, é responsável por criar blocos Ethereum emulados para componentes específicos do Ethereum, como logs EVM
 
-Ambos os módulos fazem parte do projeto [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank}, que é a espinha dorsal das redes com tecnologia Tanssi compatíveis com Ethereum.
+Ambos os módulos fazem parte do projeto [Frontier](https://github.com/polkadot-evm/frontier){target=\_blank}, que é a espinha dorsal das redes powered by Tanssi compatíveis com Ethereum.

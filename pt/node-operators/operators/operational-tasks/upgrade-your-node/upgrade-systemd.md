@@ -1,6 +1,6 @@
 ---
-title: Atualize seu Nó Operator Systemd
-description: Siga estas instruções para atualizar seu nó operador Tanssi em execução via Systemd para a versão mais recente do software cliente Tanssi.
+title: Atualize seu Node Operator Systemd
+description: Siga estas instruções para atualizar seu node operator Tanssi em execução via Systemd para a versão mais recente do software cliente Tanssi.
 icon: simple-linux
 categories: Operators
 ---
@@ -9,15 +9,15 @@ categories: Operators
 
 ## Introdução {: #introduction }
 
-A manutenção do seu nó atualizado é uma parte importante de ser um operador Tanssi. Isso não só ajuda a garantir que seu nó permaneça saudável, mas também contribui para manter toda a Rede Tanssi funcionando sem problemas.
+A manutenção do seu nó atualizado é uma parte importante de ser um operator Tanssi. Isso não só ajuda a garantir que seu nó permaneça saudável, mas também contribui para manter toda a Rede Tanssi funcionando sem problemas.
 
-Este tutorial aborda a atualização do seu nó operador Tanssi que foi configurado usando o Systemd. Ele pressupõe que você já configurou sua conta e iniciou um [nó operador usando Systemd](/pt/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
+Este tutorial aborda a atualização do seu node operator Tanssi que foi configurado usando o Systemd. Ele pressupõe que você já configurou sua conta e iniciou um [node operator usando Systemd](/pt/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
 --8<-- 'text/pt/node-operators/github-release-notifications.md'
 
 ## Atualizando Seu Nó Systemd {: #upgrading-your-systemd-node }
 
-Se você estiver executando seu operador via o serviço Systemd, você deve tomar medidas para atualizar seu nó corretamente. Em resumo, você precisará parar o serviço, substituir o binário Tanssi pela versão atualizada e reiniciar o serviço.
+Se você estiver executando seu operator via o serviço Systemd, você deve tomar medidas para atualizar seu nó corretamente. Em resumo, você precisará parar o serviço, substituir o binário Tanssi pela versão atualizada e reiniciar o serviço.
 
 Você pode parar seu serviço Tanssi Systemd com o seguinte comando:
 

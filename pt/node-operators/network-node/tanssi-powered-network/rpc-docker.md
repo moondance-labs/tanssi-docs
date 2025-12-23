@@ -1,6 +1,6 @@
 ---
 title: Executar um Nó Appchain Usando Docker
-description: Descubra como configurar e operar um nó appchain com tecnologia Tanssi usando Docker, permitindo hospedar seu próprio endpoint RPC para interagir com sua appchain.
+description: Descubra como configurar e operar um nó appchain powered by Tanssi usando Docker, permitindo hospedar seu próprio endpoint RPC para interagir com sua appchain.
 icon: material-docker
 categories: RPC-Data-Preservers
 ---

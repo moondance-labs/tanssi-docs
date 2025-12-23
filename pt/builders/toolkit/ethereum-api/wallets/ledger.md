@@ -1,19 +1,19 @@
 ---
 title: Usando Ledger com Sua EVM Appchain
-description: Aprenda a configurar e usar carteiras de hardware Ledger com EVM appchains com tecnologia Tanssi para armazenamento seguro de chaves offline e assinatura de transações.
+description: Aprenda a configurar e usar carteiras de hardware Ledger com EVM appchains powered by Tanssi para armazenamento seguro de chaves offline e assinatura de transações.
 icon: material-wallet-outline
 categories: EVM-Template
 ---
 
-# Interagindo com EVM appchains com Tecnologia Tanssi Usando Ledger
+# Interagindo com EVM appchains powered by Tanssi Usando Ledger
 
 ## Introdução {: #introduction }
 
-Desenvolvedores e usuários de EVM appchains com tecnologia Tanssi, como a [demonstração Tanssi](https://apps.tanssi.network/demo){target=\_blank}, têm uma variedade de opções quando se trata de carteiras. Em relação às carteiras frias, que armazenam suas chaves privadas em um ambiente seguro e offline, [Ledger](https://www.ledger.com/){target=\_blank} é uma das opções mais populares. A Ledger oferece suporte total para blockchains Substrate, como a rede Tanssi.
+Desenvolvedores e usuários de EVM appchains powered by Tanssi, como a [demonstração Tanssi](https://apps.tanssi.network/demo){target=\_blank}, têm uma variedade de opções quando se trata de carteiras. Em relação às carteiras frias, que armazenam suas chaves privadas em um ambiente seguro e offline, [Ledger](https://www.ledger.com/){target=\_blank} é uma das opções mais populares. A Ledger oferece suporte total para blockchains Substrate, como a rede Tanssi.
 
 Os dispositivos Ledger são carteiras de hardware projetadas para armazenar as chaves privadas offline. Eles são usados para verificar e assinar as transações, mas ainda precisam de uma camada de software para fornecer a interface do usuário que interage com as redes, constrói as transações e envia as transações assinadas de volta para a rede assim que o usuário as tiver verificado.
 
-Este guia leva você por todas as etapas necessárias para usar seu dispositivo Ledger com EVM appchains com tecnologia Tanssi.
+Este guia leva você por todas as etapas necessárias para usar seu dispositivo Ledger com EVM appchains powered by Tanssi.
 
 ## Configurando Seu Dispositivo Ledger {: #setting-up-ledger-device }
 
@@ -29,7 +29,7 @@ Por fim, procure o aplicativo **Ethereum (ETH)** no Ledger Live e instale-o em s
 
 ![Instale Ethereum no Ledger Live](/images/builders/toolkit/ethereum-api/wallets/ledger/ledger-1.webp)
 
-E é isso. Seu dispositivo agora tem uma conta Ethereum e é capaz de assinar transações em qualquer EVM appchain com tecnologia Tanssi.
+E é isso. Seu dispositivo agora tem uma conta Ethereum e é capaz de assinar transações em qualquer EVM appchain powered by Tanssi.
 
 ## Adicionando o Ledger a uma Carteira Quente {: #adding-Ledger-hot-wallet }
 

@@ -19,7 +19,7 @@ Depois que os canais de comunicação da sua rede forem estabelecidos, você pod
 
 Para os exemplos deste guia, você precisará ter o seguinte:
 
-- Uma rede com tecnologia Tanssi (Dedicada) executando [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} ou superior
+- Uma rede powered by Tanssi (Dedicada) executando [runtime 500](https://github.com/moondance-labs/tanssi/releases/tag/runtime-500){target=\_blank} ou superior
   --8<-- 'text/pt/builders/manage/dapp/prerequisites.md'
 
 ## Acessando o Painel de Registro de Ativos Externos {: #accesing-external-assets-management-panel }

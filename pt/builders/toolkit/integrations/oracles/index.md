@@ -1,6 +1,6 @@
 ---
 title: Oracles
-description: Aprenda a integrar ferramentas especializadas como Oracles de feed de preço descentralizados para fornecer feeds de preço de ativos aos construtores e usuários da sua rede Tanssi.
+description: Aprenda a integrar ferramentas especializadas como Oracles de feed de preço descentralizados para fornecer feeds de preço de ativos aos builders e usuários da sua rede Tanssi.
 icon: octicons-eye-24
 template: index-page.html
 ---

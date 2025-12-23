@@ -1,6 +1,6 @@
 --- 
 title: Como Conectar SubWallet à Tanssi Substrate 
-description: Este guia mostra como conectar SubWallet, uma carteira abrangente para Polkadot, Substrate e Ethereum, à sua rede Substrate com tecnologia Tanssi. 
+description: Este guia mostra como conectar SubWallet, uma carteira abrangente para Polkadot, Substrate e Ethereum, à sua rede Substrate powered by Tanssi. 
 icon: material-wallet-outline 
 categories: Substrate-Template
 ---
@@ -10,7 +10,7 @@ categories: Substrate-Template
 
 ## Introdução {: #introduction }
 
-Desenvolvedores e usuários de redes Substrate com tecnologia Tanssi têm uma variedade de opções quando se trata de carteiras. SubWallet é uma carteira Web3 abrangente que suporta nativamente contas Substrate (Polkadot) e Ethereum. Este tutorial se concentra na API Substrate, mas você pode consultar um [tutorial semelhante para interagir com SubWallet usando a API Ethereum](/pt/builders/toolkit/ethereum-api/wallets/subwallet/){target=\_blank}.
+Desenvolvedores e usuários de redes Substrate powered by Tanssi têm uma variedade de opções quando se trata de carteiras. SubWallet é uma carteira Web3 abrangente que suporta nativamente contas Substrate (Polkadot) e Ethereum. Este tutorial se concentra na API Substrate, mas você pode consultar um [tutorial semelhante para interagir com SubWallet usando a API Ethereum](/pt/builders/toolkit/ethereum-api/wallets/subwallet/){target=\_blank}.
 
 A extensão de navegador da carteira SubWallet [pode ser baixada](https://www.subwallet.app/download.html){target=\_blank} para todos os navegadores suportados, incluindo Chrome, Brave, Firefox e MS Edge. SubWallet também possui um aplicativo móvel para iOS e Android, mas isso está além do escopo deste guia. Um painel de ativos online completo é acessível em [web.subwallet.app](https://web.subwallet.app){target=\_blank}.
 
@@ -50,7 +50,7 @@ Na tela seguinte, você poderá fornecer a frase semente relevante, o arquivo JS
 
 ## Conectando SubWallet ao Dancelight {: #connecting-Subwallet-to-dancelight }
 
-O SubWallet vem pré-configurado com suporte para Dancelight, a Tanssi TestNet, mas pode não estar habilitado por padrão. Você só precisa ir para a página **Gerenciar redes** para ativá-lo. Lembre-se de que [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank} em si é a rede baseada em Substrate que orquestra e gerencia o lançamento de redes com tecnologia Tanssi. Para configurar seu SubWallet para funcionar com Dancelight, pressione o ícone **Mais opções** no canto superior esquerdo. Em seguida, clique em **Gerenciar redes** e siga estas etapas:
+O SubWallet vem pré-configurado com suporte para Dancelight, a Tanssi TestNet, mas pode não estar habilitado por padrão. Você só precisa ir para a página **Gerenciar redes** para ativá-lo. Lembre-se de que [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank} em si é a rede baseada em Substrate que orquestra e gerencia o lançamento de redes powered by Tanssi. Para configurar seu SubWallet para funcionar com Dancelight, pressione o ícone **Mais opções** no canto superior esquerdo. Em seguida, clique em **Gerenciar redes** e siga estas etapas:
 
 1. Procure por **Dancelight**
 2. Ative o controle deslizante para habilitar o suporte para Dancelight

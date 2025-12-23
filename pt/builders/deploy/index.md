@@ -11,7 +11,7 @@ Com o Tanssi, lançar sua appchain é simples e eficiente. A plataforma simplifi
 
 ## Visão Geral Rápida da Implantação via Tanssi DApp
 
-A implantação de uma appchain com tecnologia Tanssi via [Tanssi dApp](https://apps.tanssi.network){target=\_blank} é realizada como um fluxo único e simplificado, consistindo em cinco etapas distintas:
+A implantação de uma appchain powered by Tanssi via [Tanssi dApp](https://apps.tanssi.network){target=\_blank} é realizada como um fluxo único e simplificado, consistindo em cinco etapas distintas:
 
 1. Selecione um [template](/pt/builders/build/templates/overview/){target=\_blank} e configure-o
 2. Atender aos saldos mínimos exigidos de tokens

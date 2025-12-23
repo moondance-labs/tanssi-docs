@@ -1,6 +1,6 @@
 ---
 title: Como usar a biblioteca viem Ethereum
-description: Neste tutorial, use a interface TypeScript do viem para enviar transações e implantar contratos Solidity na sua rede EVM com tecnologia Tanssi.
+description: Neste tutorial, use a interface TypeScript do viem para enviar transações e implantar contratos Solidity na sua rede EVM powered by Tanssi.
 icon: octicons-code-24
 categories: EVM-Template
 ---

@@ -1,11 +1,11 @@
 ---
-title: Atualizar um Nó Operator
+title: Atualizar um Node Operator
 description: Siga estas etapas para atualizar seu nó para a versão mais recente do software cliente Tanssi, garantindo operações contínuas no protocolo de rede Tanssi.
 icon: octicons-rocket-24
 template: index-page.html
 ---
 
-# Atualizar um Nó Operator
+# Atualizar um Node Operator
 
 Manter seu nó atualizado é fundamental para manter a compatibilidade com as últimas alterações do protocolo Tanssi e garantir o desempenho ideal. Nós desatualizados podem levar à dessincronização, redução de eficiência ou até mesmo à incapacidade de participar do protocolo. Ao se manter atualizado com os lançamentos de clientes, você pode garantir que seu nó opere com segurança e confiabilidade dentro da rede.
 

@@ -1,6 +1,6 @@
 ---
 title:  Pré-compilado ERC-20 do Token Nativo
-description: Saiba como acessar e interagir com a representação ERC-20 do token nativo em redes EVM com tecnologia Tanssi por meio da Interface ERC-20 pré-compilada.
+description: Saiba como acessar e interagir com a representação ERC-20 do token nativo em redes EVM powered by Tanssi por meio da Interface ERC-20 pré-compilada.
 keywords: solidity, ethereum, token nativo, erc20, tanssi, precompiled, contracts
 icon: material-circle-outline
 categories: EVM-Template
@@ -10,7 +10,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-O contrato pré-compilado ERC-20 do token nativo em redes EVM com tecnologia Tanssi permite que desenvolvedores interajam com o token nativo do protocolo por meio de uma interface ERC-20. Embora o token nativo da sua rede não seja um ERC-20, agora você pode interagir com ele como se fosse um ERC-20 padrão.
+O contrato pré-compilado ERC-20 do token nativo em redes EVM powered by Tanssi permite que desenvolvedores interajam com o token nativo do protocolo por meio de uma interface ERC-20. Embora o token nativo da sua rede não seja um ERC-20, agora você pode interagir com ele como se fosse um ERC-20 padrão.
 
 Um dos principais benefícios desse precompile é eliminar a necessidade de ter uma representação embrulhada do token do protocolo como um smart contract ERC-20, como o WETH no Ethereum. Além disso, minimiza a necessidade de múltiplas representações embrulhadas do mesmo token do protocolo. Consequentemente, dApps que precisam interagir com o token do protocolo via uma interface ERC-20 podem fazê-lo sem precisar de um contrato separado.
 

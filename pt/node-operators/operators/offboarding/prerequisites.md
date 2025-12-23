@@ -1,6 +1,6 @@
 ---
 title: Pré-requisitos para Offboarding
-description: Antes de remover seu operador Tanssi, garanta que você tenha acesso à carteira e ETH suficiente para gás. Este guia descreve os pré-requisitos cruciais.
+description: Antes de remover seu operator Tanssi, garanta que você tenha acesso à carteira e ETH suficiente para gás. Este guia descreve os pré-requisitos cruciais.
 icon: octicons-arrow-down-right-24
 template: main.html
 categories: Operators
@@ -10,9 +10,9 @@ categories: Operators
 
 ## Introdução {: #introduction }
 
-O offboarding de operador é o processo formal pelo qual os operadores de nós saem do protocolo Tanssi de forma segura e transparente. Ele garante a integridade, segurança e estabilidade da rede, fornecendo etapas claras para os operadores que desejam deixar de participar.
+O offboarding de operator é o processo formal pelo qual os node operators saem do protocolo Tanssi de forma segura e transparente. Ele garante a integridade, segurança e estabilidade da rede, fornecendo etapas claras para os operators que desejam deixar de participar.
 
-Os operadores desempenham um papel crítico no consenso e nas operações da rede. Desligar abruptamente um nó sem seguir os procedimentos adequados pode impactar negativamente os operadores, potencialmente resultando em slashing.
+Os operators desempenham um papel crítico no consenso e nas operações da rede. Desligar abruptamente um nó sem seguir os procedimentos adequados pode impactar negativamente os operators, potencialmente resultando em slashing.
 
 Este guia descreve os **pré-requisitos** para o offboarding, e guias subsequentes o guiarão pelo processo.
 
@@ -22,12 +22,12 @@ Se você tiver dúvidas durante qualquer parte do processo de offboarding, a equ
 
 Antes de iniciar o processo de offboarding, certifique-se de ter o seguinte:
 
-- Acesso à carteira Ethereum (EVM) que controla sua conta de operador
+- Acesso à carteira Ethereum (EVM) que controla sua conta de operator
 - ETH suficiente em sua carteira para cobrir as taxas de gás para as transações
 
 ### Por que a Interação com Contratos Inteligentes é Necessária {: #why-smart-contracts }
 
-Como muitos sistemas descentralizados, o protocolo Tanssi utiliza contratos inteligentes na blockchain Ethereum para gerenciar operações críticas, incluindo registro e staking de operador. Quando um operador decide sair, ele muda seu status e relacionamento com esses contratos principais do protocolo.
+Como muitos sistemas descentralizados, o protocolo Tanssi utiliza contratos inteligentes na blockchain Ethereum para gerenciar operações críticas, incluindo registro e staking de operator. Quando um operator decide sair, ele muda seu status e relacionamento com esses contratos principais do protocolo.
 As principais etapas de offboarding, como sinalizar sua intenção de sair ou cancelar formalmente o registro, envolvem transações que atualizam o estado registrado nesses contratos inteligentes.
 
 ### Métodos de Interação

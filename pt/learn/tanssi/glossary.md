@@ -28,7 +28,7 @@ A TestNet oficial da Tanssi para implantação e experimentação rápida de red
 
 ## Data Preservers {: #data-preservers }
 
-Nós de arquivamento completo que garantem a disponibilidade de dados e fornecem infraestrutura RPC para as redes Tanssi e com tecnologia Tanssi.
+Nós de arquivamento completo que garantem a disponibilidade de dados e fornecem infraestrutura RPC para as redes Tanssi e powered by Tanssi.
 
 ## ECDSA {: #ecdsa }
 
@@ -36,7 +36,7 @@ ECDSA significa _Elliptic Curve Digital Signature Algorithm_, que é o esquema c
 
 ## Ed25519 {: #ed25519 }
 
-É o esquema criptográfico para produzir assinaturas digitais usado por operadores de nós para mecanismos de consenso como produção de blocos.
+É o esquema criptográfico para produzir assinaturas digitais usado por node operators para mecanismos de consenso como produção de blocos.
 
 ## Gateway Contract {: #gateway }
 
@@ -82,7 +82,7 @@ Uma estrutura de desenvolvimento de blockchain modular e de alto desempenho usad
 
 ## Symbiotic {: #symbiotic }
 
-Um protocolo de restaking baseado em Ethereum, fornecendo serviços de restaking e segurança econômica para Tanssi e appchains com tecnologia Tanssi.
+Um protocolo de restaking baseado em Ethereum, fornecendo serviços de restaking e segurança econômica para Tanssi e appchains powered by Tanssi.
 
 ## $TANSSI(Substrate) {: #tanssi-substrate }
 
@@ -90,7 +90,7 @@ O token de utilidade nativo do protocolo Tanssi. É usado para staking, governan
 
 ## $TANSSI(ERC20) {: #tanssi-erc20 }
 
-A representação ERC20 Ethereum do token Tanssi. É usado para pagar recompensas aos operadores e muito mais.
+A representação ERC20 Ethereum do token Tanssi. É usado para pagar recompensas aos operators e muito mais.
 
 ## Trustless {: #trustless }
 
@@ -98,7 +98,7 @@ Assim como uma _bridge sem confiança_, ela permite a operação sem exigir conf
 
 ## Vault {: #vault }
 
-Um componente Symbiotic que recebe e gerencia colaterais em restaking, delegando aos operadores e fornecendo segurança econômica às redes.
+Um componente Symbiotic que recebe e gerencia colaterais em restaking, delegando aos operators e fornecendo segurança econômica às redes.
 
 ## Verifier {: #verifier }
 

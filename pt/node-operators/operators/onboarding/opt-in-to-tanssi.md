@@ -18,7 +18,7 @@ Este guia percorre as etapas para fazer opt-in com sucesso em um cofre habilitad
 Antes de fazer opt-in em um cofre habilitado para Tanssi e na rede Tanssi, certifique-se de que:
 
 - Você tem um nó corretamente [configurado e em execução](/pt/node-operators/operators/onboarding/run-an-operator/){target=\_blank}
-- Você [se registrou como operador](/pt/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} no registro Symbiotic
+- Você [se registrou como operator](/pt/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} no registro Symbiotic
 
 Para seguir este guia, você deve interagir com contratos inteligentes: um do protocolo principal da Symbiotic e outro da integração da Tanssi com a Symbiotic.
 
@@ -26,7 +26,7 @@ Para seguir este guia, você deve interagir com contratos inteligentes: um do pr
 
 ## Optar por Cofres Habilitados para Tanssi {: #opt-in-tanssi-vaults }
 
-Antes de habilitar seu operador para estar ativo na rede Tanssi, você deve fazer opt-in em pelo menos um dos cofres habilitados para Tanssi. As seções a seguir descrevem várias formas de optar pelos cofres.
+Antes de habilitar seu operator para estar ativo na rede Tanssi, você deve fazer opt-in em pelo menos um dos cofres habilitados para Tanssi. As seções a seguir descrevem várias formas de optar pelos cofres.
 
 ### Optar Usando a Symbiotic CLI {: #opt-in-tanssi-vaults-with-cli }
 
@@ -44,7 +44,7 @@ Se você instalou corretamente a [Symbiotic CLI](#set-up-the-cli) e deseja assin
     python3 symb.py --chain sepolia opt-in-vault {{ networks.symbiotic.contracts.sepolia.vault }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS
     ```
 
-Se quiser assinar a transação diretamente usando a chave privada da conta do operador, execute o comando abaixo, substituindo o parâmetro `INSERT_PRIVATE_KEY`:
+Se quiser assinar a transação diretamente usando a chave privada da conta do operator, execute o comando abaixo, substituindo o parâmetro `INSERT_PRIVATE_KEY`:
 
 === "MainNet"
 
@@ -88,7 +88,7 @@ Após a conexão:
 2. Insira o `VAULT_ADDRESS` (`{{ networks.symbiotic.contracts.sepolia.vault }}` no TestNet Sepolia)
 3. Clique em **Write** e assine a transação
 
-![Registrar o operador](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)
+![Registrar o operator](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-2.webp)
 
 ### Optar Usando o Safe para Configurações Multisig {: #opt-in-tanssi-vaults-with-safe }
 
@@ -119,15 +119,15 @@ Você pode verificar rapidamente seu status de registro no Etherscan. Abra o seg
 Na página do contrato:
 
 1. Selecione a função **`isOptedIn`**
-2. Cole a conta do seu operador no campo **who**
+2. Cole a conta do seu operator no campo **who**
 3. Insira o `VAULT_ADDRESS` no campo **where**
 4. Clique em **Query**
 
-Você obterá um resultado `true` se seu operador foi registrado corretamente e `false` caso contrário.
+Você obterá um resultado `true` se seu operator foi registrado corretamente e `false` caso contrário.
 
 ![Verificar o status do registro](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-3.webp)
 
-Você também pode verificar o status do seu registro usando a Symbiotic CLI executando o comando abaixo, que imprime `true` ou `false` para qualquer endereço de operador em um cofre habilitado para Tanssi:
+Você também pode verificar o status do seu registro usando a Symbiotic CLI executando o comando abaixo, que imprime `true` ou `false` para qualquer endereço de operator em um cofre habilitado para Tanssi:
 
 === "MainNet"
     
@@ -152,7 +152,7 @@ E a saída se parece com:
 
 ## Optar pela Rede Tanssi {: #opt-in-tanssi }
 
-Antes de habilitar seu operador para estar ativo na rede Tanssi, você deve fazer opt-in na rede e ser aprovado pela equipe Tanssi. As seções a seguir descrevem várias formas de optar pela rede.
+Antes de habilitar seu operator para estar ativo na rede Tanssi, você deve fazer opt-in na rede e ser aprovado pela equipe Tanssi. As seções a seguir descrevem várias formas de optar pela rede.
 
 !!! note
     O endereço da Tanssi Network na MainNet será divulgado no lançamento.
@@ -173,7 +173,7 @@ Se você instalou corretamente a [Symbiotic CLI](#set-up-the-cli) e deseja assin
     python3 symb.py --chain sepolia opt-in-network {{ networks.symbiotic.contracts.sepolia.tanssi_network }} --ledger --ledger-account INSERT_OPERATOR_ADDRESS
     ```
 
-Se você quiser assinar a transação diretamente usando a chave privada da conta do operador, execute o comando abaixo, substituindo o parâmetro `INSERT_PRIVATE_KEY`:
+Se você quiser assinar a transação diretamente usando a chave privada da conta do operator, execute o comando abaixo, substituindo o parâmetro `INSERT_PRIVATE_KEY`:
 
 === "MainNet"
 
@@ -217,7 +217,7 @@ Após a conexão:
 2. Insira o `TANSSI_NETWORK_ADDRESS`. Se estiver fazendo opt-in para a Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. Para TestNet, use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 3. Clique em **Write** e assine a transação
 
-![Registrar o operador](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
+![Registrar o operator](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-5.webp)
 
 ### Optar Usando o Safe para Configurações Multisig {: #opt-in-tanssi-with-safe }
 
@@ -248,15 +248,15 @@ Você pode verificar rapidamente seu status de registro no Etherscan. Abra o seg
 Na página do contrato:
 
 1. Selecione a função **`isOptedIn`**
-2. Cole a conta do seu operador no campo **who**
+2. Cole a conta do seu operator no campo **who**
 3. Insira o `TANSSI_NETWORK_ADDRESS` no campo **where**. Se estiver optando pela Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. Para TestNet, use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 4. Clique em **Query**
 
-Você obterá um resultado `true` se seu operador foi registrado corretamente e `false` caso contrário.
+Você obterá um resultado `true` se seu operator foi registrado corretamente e `false` caso contrário.
 
 ![Verificar o status do registro](/images/node-operators/operators/onboarding/opt-in-to-tanssi/opt-in-to-tanssi-6.webp)
 
-Você também pode verificar o status do seu registro usando a Symbiotic CLI executando o comando a seguir, que imprime `true` ou `false` para qualquer endereço de operador na Rede Tanssi:
+Você também pode verificar o status do seu registro usando a Symbiotic CLI executando o comando a seguir, que imprime `true` ou `false` para qualquer endereço de operator na Rede Tanssi:
 
 === "MainNet"
     

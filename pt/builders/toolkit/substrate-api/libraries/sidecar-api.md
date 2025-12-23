@@ -9,7 +9,7 @@ categories: Substrate-Template
 
 ## Introdução {: #introduction }
 
-O Substrate API Sidecar permite que aplicações acessem blocos, saldo de contas e outras informações de blockchains baseadas em Substrate por meio de uma API REST. Isso é útil para exchanges, carteiras ou outras aplicações que precisam acompanhar saldo e mudanças de estado em uma rede com tecnologia Tanssi. Esta página descreve como instalar e executar o Substrate API Sidecar para uma rede Tanssi e os endpoints mais usados.
+O Substrate API Sidecar permite que aplicações acessem blocos, saldo de contas e outras informações de blockchains baseadas em Substrate por meio de uma API REST. Isso é útil para exchanges, carteiras ou outras aplicações que precisam acompanhar saldo e mudanças de estado em uma rede powered by Tanssi. Esta página descreve como instalar e executar o Substrate API Sidecar para uma rede Tanssi e os endpoints mais usados.
 
 
 ## Instalando e Executando o Substrate API Sidecar {: #installing-and-running-substrate-api-sidecar }

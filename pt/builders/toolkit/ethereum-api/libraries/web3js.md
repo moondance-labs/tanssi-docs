@@ -1,6 +1,6 @@
 ---
 title: Transações e Contratos EVM com Web3.js
-description: Aprenda a usar a biblioteca Ethereum Web3.js para enviar transações e implantar contratos inteligentes Solidity na sua rede EVM compatível e com tecnologia Tanssi.
+description: Aprenda a usar a biblioteca Ethereum Web3.js para enviar transações e implantar contratos inteligentes Solidity na sua rede EVM compatível e powered by Tanssi.
 icon: octicons-code-24
 categories: EVM-Template
 ---
@@ -9,7 +9,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-[Web3.js](https://web3js.readthedocs.io){target=\_blank} é um conjunto de bibliotecas que permite que desenvolvedores interajam com nós Ethereum usando os protocolos HTTP, IPC ou WebSocket em JavaScript. As redes EVM com tecnologia Tanssi têm uma API semelhante à do Ethereum, totalmente compatível com chamadas JSON RPC no estilo Ethereum. Portanto, os desenvolvedores podem aproveitar essa compatibilidade e usar a biblioteca Web3.js para interagir com um nó EVM da Tanssi como se estivessem no Ethereum. Para saber mais sobre Web3.js, consulte o [site de documentação](https://web3js.readthedocs.io/en/v1.10.0){target=\_blank}.
+[Web3.js](https://web3js.readthedocs.io){target=\_blank} é um conjunto de bibliotecas que permite que desenvolvedores interajam com nós Ethereum usando os protocolos HTTP, IPC ou WebSocket em JavaScript. As redes EVM powered by Tanssi têm uma API semelhante à do Ethereum, totalmente compatível com chamadas JSON RPC no estilo Ethereum. Portanto, os desenvolvedores podem aproveitar essa compatibilidade e usar a biblioteca Web3.js para interagir com um nó EVM da Tanssi como se estivessem no Ethereum. Para saber mais sobre Web3.js, consulte o [site de documentação](https://web3js.readthedocs.io/en/v1.10.0){target=\_blank}.
 
 Neste guia, você aprenderá a configurar a biblioteca Web3.js para sua rede EVM da Tanssi. Em seguida, para mostrar a biblioteca em ação, você usará Web3.js para enviar uma transação e implantar um contrato em uma rede EVM de demonstração da Tanssi executando no [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank}. Este guia pode ser adaptado para sua própria rede EVM da Tanssi simplesmente trocando o endpoint.
 
@@ -222,7 +222,7 @@ Em seguida, crie o script deste arquivo seguindo estes passos:
 4. Salve o `bytecode` e o `abi` do contrato compilado
 5. Crie a função assíncrona `deploy` que será usada para implantar o contrato
 6. Crie a instância do contrato usando a função `web3.eth.Contract`
-7. Crie o construtor e passe o `bytecode` e o valor inicial do incrementer. Neste exemplo, defina o valor inicial como `5`
+7. Crie o builder e passe o `bytecode` e o valor inicial do incrementer. Neste exemplo, defina o valor inicial como `5`
 8. Crie e assine a transação usando a função `web3.eth.accounts.signTransaction`. Informe o `data` e o `gas` da transação, além da `privateKey` do remetente
 9. Envie a transação assinada usando o método `web3.eth.sendSignedTransaction` e passe a transação bruta. Em seguida, use `await` para aguardar o processamento e o retorno do recibo
 10. Por fim, execute a função `deploy`
@@ -251,7 +251,7 @@ const deploy = async () => {
   // 6. Crie a instância do contrato
   const incrementer = new web3.eth.Contract(abi);
 
-  // 7. Crie a transação do construtor
+  // 7. Crie a transação do builder
   const incrementerTx = incrementer.deploy({
     data: bytecode,
     arguments: [5],

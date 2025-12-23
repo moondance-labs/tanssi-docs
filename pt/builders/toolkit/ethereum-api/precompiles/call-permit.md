@@ -1,6 +1,6 @@
 ---
 title: O Call Permit Precompile 
-description: Aprenda a usar o Call Permit Precompile em redes EVM com tecnologia Tanssi para assinar um permit para qualquer chamada EVM que possa ser despachada por qualquer pessoa ou contrato inteligente.
+description: Aprenda a usar o Call Permit Precompile em redes EVM powered by Tanssi para assinar um permit para qualquer chamada EVM que possa ser despachada por qualquer pessoa ou contrato inteligente.
 keywords: solidity, ethereum, call permit, permit, gasless transaction, moonbeam, precompiled, contracts, tanssi
 icon: octicons-arrow-up-right-24
 categories: EVM-Template
@@ -10,7 +10,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-O Call Permit Precompile em redes EVM com tecnologia Tanssi permite que um usuário assine um permit, uma mensagem assinada [EIP-712](https://eips.ethereum.org/EIPS/eip-712){target=\_blank}, para qualquer chamada EVM, podendo ser despachada por qualquer pessoa ou contrato inteligente. É semelhante ao Permit Signing das aprovações ERC-20 introduzidas no [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612){target=\_blank}, exceto que se aplica a qualquer chamada EVM em vez de apenas aprovações.
+O Call Permit Precompile em redes EVM powered by Tanssi permite que um usuário assine um permit, uma mensagem assinada [EIP-712](https://eips.ethereum.org/EIPS/eip-712){target=\_blank}, para qualquer chamada EVM, podendo ser despachada por qualquer pessoa ou contrato inteligente. É semelhante ao Permit Signing das aprovações ERC-20 introduzidas no [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612){target=\_blank}, exceto que se aplica a qualquer chamada EVM em vez de apenas aprovações.
 
 Quando o call permit é despachado, isso é feito em nome do usuário que assinou o permit e o usuário ou contrato que despacha o permit é responsável por pagar as taxas de transação. Assim, o precompile pode ser usado para realizar transações sem gás para o signatário.
 
@@ -151,7 +151,7 @@ Depois, em vez de implantar o contrato, basta acessá-lo informando o endereço 
 1. Clique na aba **Deploy and Run**, logo abaixo da aba **Compile** no Remix. Observação: aqui você não implanta um contrato; apenas acessa um contrato pré-compilado já implantado
 2. Certifique-se de que **Injected Provider - Metamask** está selecionado no menu **ENVIRONMENT**
 3. Garanta que **CallPermit.sol** esteja selecionado no menu **CONTRACT**. Como é um contrato pré-compilado, não há etapa de deployment. Forneça o endereço do precompile no campo **At Address**
-4. Forneça o endereço do Call Permit Precompile para redes EVM com tecnologia Tanssi: `{{networks.demo_evm.precompiles.call_permit}}` e clique em **At Address**
+4. Forneça o endereço do Call Permit Precompile para redes EVM powered by Tanssi: `{{networks.demo_evm.precompiles.call_permit}}` e clique em **At Address**
 5. O Call Permit Precompile aparecerá na lista de **Deployed Contracts**
 
 ![Provide the address](/images/builders/toolkit/ethereum-api/precompiles/call-permit/call-5.webp)

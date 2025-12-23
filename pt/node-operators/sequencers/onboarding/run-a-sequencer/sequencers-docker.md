@@ -1,6 +1,6 @@
 ---
 title: Executar um Sequencer Usando Docker
-description: Saiba como configurar e executar um Sequencer (também conhecido como produtor de blocos) para as appchains com tecnologia Tanssi, usando Docker para participar do protocolo e ganhar recompensas.
+description: Saiba como configurar e executar um Sequencer (também conhecido como produtor de blocos) para as appchains powered by Tanssi, usando Docker para participar do protocolo e ganhar recompensas.
 icon: simple-docker
 categories: Sequencers
 ---

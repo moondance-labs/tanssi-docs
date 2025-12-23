@@ -11,7 +11,7 @@ categories: Basics
 
 As redes implantadas via Tanssi têm [muitos benefícios](/pt/learn/tanssi/overview/#what-tanssi-provides){target=\_blank} devido à sua [arquitetura](/pt/learn/tanssi/overview/#tanssi-architecture){target=\_blank} exclusiva.
 
-Além disso, redes com tecnologia Tanssi são únicas pelo [framework](/pt/learn/framework/){target=\_blank} (Substrate) em que são construídas, que oferece características que os desenvolvedores podem aproveitar para ajustar comportamentos específicos no runtime.
+Além disso, redes powered by Tanssi são únicas pelo [framework](/pt/learn/framework/){target=\_blank} (Substrate) em que são construídas, que oferece características que os desenvolvedores podem aproveitar para ajustar comportamentos específicos no runtime.
 
 Esta seção aborda alguns desses recursos essenciais de runtime em redes Tanssi, incluindo as diferentes origens que uma transação pode ter, os diferentes tipos de transação e como são executadas e incluídas em um bloco, a conta especial conhecida como _SUDO_ e o recurso bastante singular das redes Tanssi: os upgrades de runtime sem fork.
 
@@ -36,7 +36,7 @@ Redes Tanssi possuem três tipos principais de transações:
 
 - **Signed Transactions** - incluem um payload assinado solicitando executar alguma chamada de runtime. Em geral, a assinatura está associada a um par de chaves privada/pública. Dependendo da lógica do runtime, a conta associada à assinatura paga a taxa de transação
 - **Unsigned Transactions** - incluem um payload não assinado solicitando executar alguma chamada de runtime. Como são não assinadas, não há conta associada. Portanto, os runtimes precisam definir condições específicas para evitar spam ou replay, pois não há mecanismo de taxa para impedir comportamentos maliciosos. Um exemplo de transação não assinada é executar ações pré-aprovadas, como um upgrade de runtime
-- **Inherent Transactions** - transação não assinada que um Sequencer insere em um bloco ao iniciar sua construção. Elas fazem parte do bloco e não ficam no pool de transações nem são compartilhadas entre participantes. Além disso, os dados inseridos por transações inherents podem pular validação de runtime, ficando a cargo dos operadores aceitá-los. Um exemplo é o timestamp do bloco, injetado por uma transação inherent; operadores podem aceitar ou rejeitar o bloco com base em o timestamp estar dentro de um intervalo aceitável
+- **Inherent Transactions** - transação não assinada que um Sequencer insere em um bloco ao iniciar sua construção. Elas fazem parte do bloco e não ficam no pool de transações nem são compartilhadas entre participantes. Além disso, os dados inseridos por transações inherents podem pular validação de runtime, ficando a cargo dos operators aceitá-los. Um exemplo é o timestamp do bloco, injetado por uma transação inherent; operators podem aceitar ou rejeitar o bloco com base em o timestamp estar dentro de um intervalo aceitável
 
 ## Execução de Transações {: #transaction-execution}
 
@@ -57,7 +57,7 @@ Durante a construção do bloco, um Sequencer usa um [sistema de prioridade](htt
 
 Redes implantadas via Tanssi têm um recurso empolgante: [forkless upgrades](https://docs.polkadot.com/develop/parachains/maintenance/runtime-upgrades/){target=\_blank}. Eles permitem alterar a função de transição de estado que governa a cadeia sem criar um fork, como já visto várias vezes na Ethereum. Além disso, se a rede Tanssi estiver configurada com governança on-chain, upgrades podem ocorrer de forma realmente descentralizada e trustless.
 
-Os forkless upgrades são possíveis porque a função de transição de estado fica armazenada como um blob Wasm tanto na rede Tanssi quanto na rede com tecnologia Tanssi. Quando um novo runtime é agendado por uma chamada na rede com tecnologia Tanssi, a rede Tanssi valida esse bloco e se prepara para validar blocos usando a função mais recente. Após um período de atraso configurado para o upgrade, um Sequencer na rede com tecnologia Tanssi constrói um bloco que referencia um bloco da rede Tanssi, sinalizando que o novo runtime pode ser aplicado. Assim, essa nova função de transição de estado é usada para aquele bloco. Como todos os participantes usam o blob Wasm on-chain, cada operador de nó da rede Tanssi pode validar novos blocos com a função mais recente.
+Os forkless upgrades são possíveis porque a função de transição de estado fica armazenada como um blob Wasm tanto na rede Tanssi quanto na rede powered by Tanssi. Quando um novo runtime é agendado por uma chamada na rede powered by Tanssi, a rede Tanssi valida esse bloco e se prepara para validar blocos usando a função mais recente. Após um período de atraso configurado para o upgrade, um Sequencer na rede powered by Tanssi constrói um bloco que referencia um bloco da rede Tanssi, sinalizando que o novo runtime pode ser aplicado. Assim, essa nova função de transição de estado é usada para aquele bloco. Como todos os participantes usam o blob Wasm on-chain, cada node operator da rede Tanssi pode validar novos blocos com a função mais recente.
 
 Um resumo em alto nível do processo de upgrade de runtime está no diagrama a seguir:
 

@@ -145,7 +145,7 @@ Passos:
 2. Inclua o provedor.
 3. Defina `account_from`/`private_key` (**não salve chaves reais em Python**).
 4. Crie instância do contrato com ABI/bytecode.
-5. Construa a tx do construtor (valor inicial 5) com `build_transaction`, incluindo `from` e `nonce`.
+5. Construa a tx do builder (valor inicial 5) com `build_transaction`, incluindo `from` e `nonce`.
 6. Assine com `sign_transaction`.
 7. Envie com `send_raw_transaction` e aguarde recibo com `wait_for_transaction_receipt`.
 

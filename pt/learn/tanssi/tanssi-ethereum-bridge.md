@@ -13,7 +13,7 @@ Blockchains tradicionais frequentemente criam silos, limitando a interoperabilid
 
 A ponte é mais do que uma troca de ativos. É um protocolo seguro e padronizado para interação direta entre cadeias, sem intermediários centralizados. Seu design sem confiança evita os riscos de pontos centrais de falha que muitas outras pontes enfrentam.
 
-Este artigo apresenta a ponte Tanssi-Ethereum como uma camada fundamental de interoperabilidade entre as duas redes. Você aprenderá como ela funciona, incluindo sua arquitetura, gestão de operadores, Template econômico, mecanismos de slashing e transferências de ativos.
+Este artigo apresenta a ponte Tanssi-Ethereum como uma camada fundamental de interoperabilidade entre as duas redes. Você aprenderá como ela funciona, incluindo sua arquitetura, gestão de operators, Template econômico, mecanismos de slashing e transferências de ativos.
 
 Você também conhecerá as camadas de consenso que protegem a comunicação ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} em [Tanssi](/pt/learn/tanssi/){target=\_blank} e a [Beacon Chain do Ethereum](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), além dos papéis de provers, verifiers e relayers, oferecendo uma visão clara de como ativos e mensagens se movem com segurança entre Tanssi e Ethereum.
 
@@ -21,9 +21,9 @@ Você também conhecerá as camadas de consenso que protegem a comunicação ([B
 
 A ponte facilita várias operações críticas entre Tanssi e Ethereum:
 
-- **Gestão de Operators** - mantém informações de stake de operadores no Ethereum via o protocolo [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/#tanssi-symbiotic){target=\_blank}, fornecendo esses dados à Tanssi para selecionar operadores ativos, descentralizados e economicamente alinhados a cada era
-- **Operações Econômicas** - distribui [recompensas](/pt/learn/tanssi/external-security-providers/symbiotic/#rewards){target=\_blank} da Tanssi para stakers e operadores no Ethereum
-- **Slashing** - processa [solicitações de slashing](/pt/learn/tanssi/external-security-providers/symbiotic/#slashing){target=\_blank} da Tanssi para o Ethereum quando operadores violam as regras do protocolo
+- **Gestão de Operators** - mantém informações de stake de operators no Ethereum via o protocolo [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/#tanssi-symbiotic){target=\_blank}, fornecendo esses dados à Tanssi para selecionar operators ativos, descentralizados e economicamente alinhados a cada era
+- **Operações Econômicas** - distribui [recompensas](/pt/learn/tanssi/external-security-providers/symbiotic/#rewards){target=\_blank} da Tanssi para stakers e operators no Ethereum
+- **Slashing** - processa [solicitações de slashing](/pt/learn/tanssi/external-security-providers/symbiotic/#slashing){target=\_blank} da Tanssi para o Ethereum quando operators violam as regras do protocolo
 - **Transferência de Ativos** - permite transferências bilaterais e sem confiança de ativos entre Tanssi e Ethereum, aumentando a liquidez.
 
 Essa interoperabilidade amplia o potencial de aplicações descentralizadas e melhora significativamente a liquidez e a usabilidade de ativos em blockchain.

@@ -17,7 +17,7 @@ Neste guia, você aprenderá como usar Sudo para cunhar corretamente novos token
 
 Para os exemplos deste guia, você precisará do seguinte:
 
-- Uma rede com tecnologia Tanssi (Quick Trial ou Dedicated)
+- Uma rede powered by Tanssi (Quick Trial ou Dedicated)
 - A conta Sudo da sua rede conectada aos seus Polkadot.js Apps. Você pode consultar o [guia de gerenciamento do Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar sua conta Sudo nos Polkadot.js Apps
 
 --8<-- 'text/pt/builders/manage/locate-sudo-account.md'
@@ -27,7 +27,7 @@ Para os exemplos deste guia, você precisará do seguinte:
 Como você sabe, a conta Sudo tem a capacidade de realizar funções privilegiadas, incluindo a cunhagem de tokens adicionais. Ao configurar sua rede no [Tanssi dApp](https://apps.tanssi.network){target=\_blank}, você pode especificar os saldos da conta genesis. Em outras palavras, você tem a capacidade de dotar as contas com saldos iniciais ao iniciar sua rede Tanssi. No entanto, você também pode cunhar novos tokens após o lançamento com a ajuda da conta Sudo.
 
 !!! note
-    Este tutorial demonstra a atribuição de saldos de tokens arbitrários em uma rede TestNet que não tem valor. Você deve considerar cuidadosamente as ramificações de criar tokens adicionais em sua própria rede com tecnologia Tanssi.
+    Este tutorial demonstra a atribuição de saldos de tokens arbitrários em uma rede TestNet que não tem valor. Você deve considerar cuidadosamente as ramificações de criar tokens adicionais em sua própria rede powered by Tanssi.
 
 ### Verificando o Saldo da Conta Existente {: #checking-existing-account-balance }
 
@@ -50,7 +50,7 @@ Para atribuir um saldo de conta a uma conta, certifique-se de ter sua conta Sudo
 1. Selecione o pallet **balances**
 1. Selecione o método **forceSetBalance**
 1. Cole o endereço da conta para dotar com tokens ou selecione-o no menu suspenso
-1. Insira a quantidade de tokens para dotar a conta. Neste exemplo, especificamos `9000000000000000000` para nove tokens nativos. Lembre-se que as redes EVM com tecnologia Tanssi têm 18 decimais, enquanto as redes Substrate ou personalizadas configuram os decimais ao lançar a cadeia. Se você não tiver certeza de quantos decimais sua rede tem, navegue até a guia **Settings** e clique em **Metadata**
+1. Insira a quantidade de tokens para dotar a conta. Neste exemplo, especificamos `9000000000000000000` para nove tokens nativos. Lembre-se que as redes EVM powered by Tanssi têm 18 decimais, enquanto as redes Substrate ou personalizadas configuram os decimais ao lançar a cadeia. Se você não tiver certeza de quantos decimais sua rede tem, navegue até a guia **Settings** e clique em **Metadata**
 1. Pressione **Submit Sudo** (Enviar Sudo) e confirme a transação em sua carteira
 
 ![Forçar a atribuição de saldos no Polkadot.js Apps](/images/builders/manage/developer-portal/minting/minting-3.webp)

@@ -98,23 +98,23 @@ Quando uma nova sessão começa, o protocolo Tanssi colocará a atribuição na 
 
 Como discutido anteriormente, o protocolo Tanssi atribui Sequencers às redes Tanssi, e o resultado desta atribuição é armazenado no estado da cadeia. Além de executar o nó da rede, os Sequencers também executam o Tanssi. Portanto, ao acessar os dados armazenados nos blocos finalizados da Rede Tanssi, eles podem aprender sua atribuição para a sessão, e as redes Tanssi podem confirmar que um determinado grupo de Sequencers foi atribuído a elas.
 
-À medida que as redes Tanssi produzem blocos, esses blocos precisam ser validados e finalizados por um provedor de segurança externo. Depois que um operador verifica um bloco, uma pequena prova de validade é produzida e armazenada na Tanssi, mantendo o controle das provas para cada bloco de cada cadeia. Esta pequena representação da prova de validade é chamada de [recibo de candidato](https://polkadot.com/blog/the-path-of-a-parachain-block/#candidate-receipts){target=\_blank} e é composta por um conjunto de valores, incluindo a raiz do estado, que pode ser usada para verificar provas de estado.
+À medida que as redes Tanssi produzem blocos, esses blocos precisam ser validados e finalizados por um provedor de segurança externo. Depois que um operator verifica um bloco, uma pequena prova de validade é produzida e armazenada na Tanssi, mantendo o controle das provas para cada bloco de cada cadeia. Esta pequena representação da prova de validade é chamada de [recibo de candidato](https://polkadot.com/blog/the-path-of-a-parachain-block/#candidate-receipts){target=\_blank} e é composta por um conjunto de valores, incluindo a raiz do estado, que pode ser usada para verificar provas de estado.
 
 Finalmente, o Tanssi pode verificar se o autor de um bloco de rede foi o esperado e recompensá-lo de acordo.
 
-O diagrama a seguir mostra um Template simplificado dos dados que o Tanssi armazena em seu estado interno. Para cada rede ativa (neste exemplo, duas), o Tanssi armazena os Sequencers atribuídos, que são os únicos autorizados a produzir blocos em nome da rede, prova de validade (recibos de candidatos) estendidos pelos operadores do provedor de segurança, a raiz do estado mais recente e o Sequencer mais recente.
+O diagrama a seguir mostra um Template simplificado dos dados que o Tanssi armazena em seu estado interno. Para cada rede ativa (neste exemplo, duas), o Tanssi armazena os Sequencers atribuídos, que são os únicos autorizados a produzir blocos em nome da rede, prova de validade (recibos de candidatos) estendidos pelos operators do provedor de segurança, a raiz do estado mais recente e o Sequencer mais recente.
 
 ![Estado interno da Tanssi](/images/learn/tanssi/network-services/block-production/block-production-2.webp)
 
-### O Papel da Rede com Tecnologia Tanssi {: #network }
+### O Papel da Rede powered by Tanssi {: #network }
 
-Como um Sequencer atribuído a uma rede com tecnologia Tanssi inclui funcionalidade de nó Tanssi integrada, é tecnicamente viável ler o estado da Rede Tanssi.
+Como um Sequencer atribuído a uma rede powered by Tanssi inclui funcionalidade de nó Tanssi integrada, é tecnicamente viável ler o estado da Rede Tanssi.
 
-Aproveitando essa capacidade de acessar os estados, o Sequencer atual com a autoridade para produzir um bloco lerá o estado do último bloco produzido na cadeia Tanssi. Ele prosseguirá para incluir este estado no bloco da rede, o conjunto atual de Sequencers atribuídos à rede e sua assinatura pública, permitindo que o Tanssi saiba quem produziu o bloco e recompense o operador do nó.
+Aproveitando essa capacidade de acessar os estados, o Sequencer atual com a autoridade para produzir um bloco lerá o estado do último bloco produzido na cadeia Tanssi. Ele prosseguirá para incluir este estado no bloco da rede, o conjunto atual de Sequencers atribuídos à rede e sua assinatura pública, permitindo que o Tanssi saiba quem produziu o bloco e recompense o operator do nó.
 
-Depois que o bloco for preenchido com as transações da rede, ele será proposto como candidato e entregue à cadeia Tanssi, onde os operadores do provedor de segurança garantirão que as provas de estado incluídas correspondam às provas de estado do último estado da Tanssi (impedindo a produção não autorizada de blocos) e que as transações produziram transições de estado válidas. Tendo verificado o trabalho do Sequencer, os operadores finalizarão o bloco proposto, incluindo seu recibo de candidato em um bloco de rede Tanssi.
+Depois que o bloco for preenchido com as transações da rede, ele será proposto como candidato e entregue à cadeia Tanssi, onde os operators do provedor de segurança garantirão que as provas de estado incluídas correspondam às provas de estado do último estado da Tanssi (impedindo a produção não autorizada de blocos) e que as transações produziram transições de estado válidas. Tendo verificado o trabalho do Sequencer, os operators finalizarão o bloco proposto, incluindo seu recibo de candidato em um bloco de rede Tanssi.
 
-![Bloco de rede com tecnologia Tanssi](/images/learn/tanssi/network-services/block-production/block-production-3.webp)
+![Bloco de rede powered by Tanssi](/images/learn/tanssi/network-services/block-production/block-production-3.webp)
 
 ## Taxas de Produção de Blocos  {: #block-production-fees }
 

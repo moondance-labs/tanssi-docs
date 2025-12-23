@@ -20,7 +20,7 @@ Este guia te orienta na geração de chaves de sessão para o seu nó, mapeando-
 Antes de configurar sua conta, certifique-se de que:
 
 - Você tem um nó corretamente [configurado e em execução](/pt/node-operators/operators/onboarding/run-an-operator/){target=\_blank}
-- Você [se registrou como operador](/pt/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} no registro Symbiotic
+- Você [se registrou como operator](/pt/node-operators/operators/onboarding/register-in-symbiotic/){target=\_blank} no registro Symbiotic
 - Você [optou pela Rede Tanssi e um cofre habilitado para Tanssi](/pt/node-operators/operators/onboarding/opt-in-to-tanssi/){target=\_blank}
 
 ## Mapear uma Conta para Seu Nó {: #map-account }

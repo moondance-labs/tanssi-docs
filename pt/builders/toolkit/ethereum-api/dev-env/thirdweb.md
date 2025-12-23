@@ -56,7 +56,7 @@ Para criar um novo smart contract usando a [CLI do thirdweb](https://portal.thir
 
     - Importar o contrato `ERC721Base`
     - Declarar que seu contrato herda `ERC721Base`
-    - Implementar os métodos necessários, como o construtor
+    - Implementar os métodos necessários, como o builder
 
 5. Depois de ajustar seu contrato com a lógica desejada, você pode implantá-lo em uma rede EVM da Tanssi usando o [Deploy](#deploy-contract). Isso é coberto na próxima seção!
 

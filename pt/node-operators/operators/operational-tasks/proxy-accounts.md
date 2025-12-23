@@ -1,6 +1,6 @@
 ---
 title: Configurar uma Conta Proxy de Operator
-description: Siga este guia passo a passo para habilitar contas proxy e executar tarefas operacionais (como rotação de chaves) em nome da sua conta de operador com segurança.
+description: Siga este guia passo a passo para habilitar contas proxy e executar tarefas operacionais (como rotação de chaves) em nome da sua conta de operator com segurança.
 icon: octicons-shield-lock-24
 categories: Operators
 ---
@@ -9,13 +9,13 @@ categories: Operators
 
 ## Introdução {: #introduction }
 
-Contas proxy podem ser configuradas para executar um número limitado de ações em nome de contas primárias e ajudar a manter as contas subjacentes seguras. Como operador na Tanssi, é benéfico usar contas proxy para interagir com a rede em vez da sua conta.
+Contas proxy podem ser configuradas para executar um número limitado de ações em nome de contas primárias e ajudar a manter as contas subjacentes seguras. Como operator na Tanssi, é benéfico usar contas proxy para interagir com a rede em vez da sua conta.
 
-O tipo de proxy `SessionKeyManagement` permite que a conta gire chaves de sessão em nome da conta primária. Ele transforma a proxy em uma “hot wallet” que executa tarefas de manutenção regulares em nome da sua “cold wallet” de operador. Para maior segurança, você pode rotacionar a conta proxy regularmente.
+O tipo de proxy `SessionKeyManagement` permite que a conta gire chaves de sessão em nome da conta primária. Ele transforma a proxy em uma “hot wallet” que executa tarefas de manutenção regulares em nome da sua “cold wallet” de operator. Para maior segurança, você pode rotacionar a conta proxy regularmente.
 
 Contas proxy também ajudam a aplicar o princípio do menor privilégio para controle de acesso. Por exemplo, se você tiver vários membros na equipe, pode conceder a eles apenas o acesso mínimo necessário para executar suas funções via uma conta proxy específica.
 
-Este tutorial orienta na configuração de uma conta proxy `SessionKeyManagement` no [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank} especificamente para ações de operador e demonstra como rotacionar suas novas chaves usando o proxy.
+Este tutorial orienta na configuração de uma conta proxy `SessionKeyManagement` no [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank} especificamente para ações de operator e demonstra como rotacionar suas novas chaves usando o proxy.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
@@ -131,7 +131,7 @@ Para executar uma transação, volte à página **Extrinsics** e siga estes pass
 5. No menu **real**, selecione a conta primária
 6. Selecione a chamada **Session**
 7. Escolha a entrada **setKeys**
-8. Insira as chaves do nó que deseja mapear para a conta de operador
+8. Insira as chaves do nó que deseja mapear para a conta de operator
 9. Insira `0x` em **proof**
 10. Clique em **Submit Transaction**
 
@@ -139,6 +139,6 @@ Para executar uma transação, volte à página **Extrinsics** e siga estes pass
 
 Uma janela pop-up solicitará que você autorize e assine a transação; clique em **Sign and Submit**.
 
-Pronto! Você executou uma transação usando uma conta proxy em nome da sua conta de operador primária.
+Pronto! Você executou uma transação usando uma conta proxy em nome da sua conta de operator primária.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

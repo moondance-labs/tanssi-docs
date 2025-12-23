@@ -1,6 +1,6 @@
 ---
 title: Carteiras da API Ethereum
-description: Saiba como interagir com sua rede EVM com tecnologia Tanssi por meio da API Ethereum, incluindo a configuração de carteiras, a adição de URLs RPC e o envio de fundos.
+description: Saiba como interagir com sua rede EVM powered by Tanssi por meio da API Ethereum, incluindo a configuração de carteiras, a adição de URLs RPC e o envio de fundos.
 icon: material-wallet-outline
 template: index-page.html
 ---

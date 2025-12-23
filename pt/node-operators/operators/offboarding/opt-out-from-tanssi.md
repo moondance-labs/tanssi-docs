@@ -10,12 +10,12 @@ categories: Operators
 
 ## Introdução {: #introduction }
 
-A capacidade de gerenciar a participação dos operadores de nós no ecossistema Tanssi é crucial. Este guia aborda a etapa inicial do processo de desligamento: cancelar a participação na rede Tanssi. Essa ação sinaliza sua intenção de retirada e permite que o protocolo Tanssi verifique sua identidade como o operador legítimo.
+A capacidade de gerenciar a participação dos node operators no ecossistema Tanssi é crucial. Este guia aborda a etapa inicial do processo de desligamento: cancelar a participação na rede Tanssi. Essa ação sinaliza sua intenção de retirada e permite que o protocolo Tanssi verifique sua identidade como o operator legítimo.
 
-Durante o processo de onboarding, uma etapa foi fazer opt-in na rede Tanssi para se tornar um operador. Este guia o conduz pelo processo de opt-out. Há várias maneiras de interagir com os contratos inteligentes envolvidos. Consulte o [artigo de pré-requisitos](/pt/node-operators/operators/offboarding/prerequisites/){target=\_blank} para avaliar qual alternativa se adapta melhor a você.
+Durante o processo de onboarding, uma etapa foi fazer opt-in na rede Tanssi para se tornar um operator. Este guia o conduz pelo processo de opt-out. Há várias maneiras de interagir com os contratos inteligentes envolvidos. Consulte o [artigo de pré-requisitos](/pt/node-operators/operators/offboarding/prerequisites/){target=\_blank} para avaliar qual alternativa se adapta melhor a você.
 
 !!! note "Validação de identidade"
-    Ao cancelar a participação, você assina a transação usando a chave privada ou o dispositivo Ledger associado à sua conta de operador. Essa assinatura serve como prova criptográfica de que você é o proprietário legítimo da conta do operador, garantindo que apenas operadores autorizados possam iniciar o processo de desligamento.
+    Ao cancelar a participação, você assina a transação usando a chave privada ou o dispositivo Ledger associado à sua conta de operator. Essa assinatura serve como prova criptográfica de que você é o proprietário legítimo da conta do operator, garantindo que apenas operators autorizados possam iniciar o processo de desligamento.
 
 ## Métodos para Cancelar a Participação de uma Rede Tanssi {: #methods-for-opting-out }
 
@@ -75,10 +75,10 @@ Certifique-se de selecionar **Contract** e **Write Contract**, depois clique em 
 2. Insira o `TANSSI_NETWORK_ADDRESS` no campo **where**. Se você estiver cancelando a participação na Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. Para a TestNet, use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 3. Clique em **Write** e assine a transação
 
-![Cancelar operador](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
+![Cancelar operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-2.webp)
 
 !!! warning
-    Após enviar sua transação de cancelamento, salve o hash da transação. Você precisará desse hash posteriormente para verificação no [formulário de desligamento de operador](https://www.tanssi.network/operator-offboarding){target=\_blank}.
+    Após enviar sua transação de cancelamento, salve o hash da transação. Você precisará desse hash posteriormente para verificação no [formulário de desligamento de operator](https://www.tanssi.network/operator-offboarding){target=\_blank}.
 
 ### Usando Safe para Configurações Multisig {: #opt-out-network-with-safe }
 
@@ -96,7 +96,7 @@ Em seguida, escolha a função optOut, insira o `TANSSI_NETWORK_ADDRESS` no qual
 
 ## Verificando Seu Status de Cancelamento {: #verify-opt-out-status }
 
-Depois de enviar a transação de cancelamento, é importante confirmar se a ação foi bem-sucedida e se seu operador não está mais participando da rede. Você pode verificar esse status usando os métodos a seguir.
+Depois de enviar a transação de cancelamento, é importante confirmar se a ação foi bem-sucedida e se seu operator não está mais participando da rede. Você pode verificar esse status usando os métodos a seguir.
 
 ### Usando Etherscan para Verificar {: #verify-opt-out-etherscan }
 
@@ -114,13 +114,13 @@ Na página do contrato:
 
 1. Selecione a guia **Read Contract**
 2. Localize e expanda a função **isOptedIn**
-3. Cole o endereço da conta do seu operador no campo **who**
+3. Cole o endereço da conta do seu operator no campo **who**
 4. Insira o `TANSSI_NETWORK_ADDRESS` no campo **where**. Para Tanssi MainNet, use `{{ networks.symbiotic.contracts.mainnet.tanssi_network }}`. Para TestNet, use `{{ networks.symbiotic.contracts.sepolia.tanssi_network }}`
 5. Clique em **Query**
 
 ![Verifique o status do cadastro](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-3.webp)
 
-Você obterá um resultado `false` se o operador tiver cancelado a participação com sucesso e `true` se ainda estiver participando.
+Você obterá um resultado `false` se o operator tiver cancelado a participação com sucesso e `true` se ainda estiver participando.
 
 ### Usando a CLI Symbiotic para Verificar {: #verify-opt-out-cli }
 
@@ -142,19 +142,19 @@ A saída mostrará `false` se você tiver cancelado a participação com sucesso
 
 ## Entre em Contato com a Equipe Tanssi {: #contact-tanssi-team }
 
-Após o opt-out da rede, a próxima etapa do desligamento do operador Tanssi envolve notificar formalmente a equipe Tanssi. Esta página orienta você sobre como enviar o formulário de desligamento necessário e o que esperar durante o processo final de remoção.
+Após o opt-out da rede, a próxima etapa do desligamento do operator Tanssi envolve notificar formalmente a equipe Tanssi. Esta página orienta você sobre como enviar o formulário de desligamento necessário e o que esperar durante o processo final de remoção.
 
-Após cancelar a participação na rede, informe à equipe Tanssi sua intenção de parar de operar. Para isso, preencha o [formulário de desligamento do operador](https://www.tanssi.network/operator-offboarding){target=\_blank} e aguarde a confirmação da conclusão do pedido pela equipe Tanssi.
+Após cancelar a participação na rede, informe à equipe Tanssi sua intenção de parar de operar. Para isso, preencha o [formulário de desligamento do operator](https://www.tanssi.network/operator-offboarding){target=\_blank} e aguarde a confirmação da conclusão do pedido pela equipe Tanssi.
 
-Ao receber sua solicitação, a remoção do seu operador será agendada. Essa etapa é semiautomática e pode levar algum tempo para ser concluída. Você será notificado por e-mail quando for seguro desativar o nó. Não desative seu nó até receber essa notificação.
+Ao receber sua solicitação, a remoção do seu operator será agendada. Essa etapa é semiautomática e pode levar algum tempo para ser concluída. Você será notificado por e-mail quando for seguro desativar o nó. Não desative seu nó até receber essa notificação.
 
 !!! note "Fornecer feedback"
     Considere fornecer feedback no [formulário](https://www.tanssi.network/operator-offboarding){target=\_blank} de desligamento sobre sua experiência para ajudar a melhorar a rede Tanssi.
 
 ## Pausar Operações (Opcional) {: #pause-operations }
 
-Depois de receber a confirmação da remoção do seu operador pela equipe Tanssi, você pode parar com segurança quaisquer serviços em execução relacionados ao operador. Se necessário, faça backup de arquivos de configuração importantes, logs ou quaisquer dados relevantes antes de excluí-los. Em seguida, você pode reaproveitar, encerrar ou desligar toda a sua infraestrutura.
+Depois de receber a confirmação da remoção do seu operator pela equipe Tanssi, você pode parar com segurança quaisquer serviços em execução relacionados ao operator. Se necessário, faça backup de arquivos de configuração importantes, logs ou quaisquer dados relevantes antes de excluí-los. Em seguida, você pode reaproveitar, encerrar ou desligar toda a sua infraestrutura.
 
 ## Próximas Etapas (Opcional) {: #next-steps-vault-opt-out }
 
-Após cancelar a participação na rede e informar a equipe Tanssi enviando o formulário de desligamento, você pode dar um passo opcional adicional e [cancelar a participação em quaisquer cofres específicos](/pt/node-operators/operators/offboarding/vault-opt-out/){target=\_blank} com os quais seu operador possa estar associado.
+Após cancelar a participação na rede e informar a equipe Tanssi enviando o formulário de desligamento, você pode dar um passo opcional adicional e [cancelar a participação em quaisquer cofres específicos](/pt/node-operators/operators/offboarding/vault-opt-out/){target=\_blank} com os quais seu operator possa estar associado.

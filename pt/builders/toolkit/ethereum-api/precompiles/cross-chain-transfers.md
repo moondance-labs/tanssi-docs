@@ -1,6 +1,6 @@
 ---
 title: Transferências Nativas de Tokens Entre Cadeias
-description: Aprenda a usar o precompile da interface XCM para transferir tokens de qualquer rede EVM com tecnologia Tanssi, aproveitando as capacidades nativas de interoperabilidade.
+description: Aprenda a usar o precompile da interface XCM para transferir tokens de qualquer rede EVM powered by Tanssi, aproveitando as capacidades nativas de interoperabilidade.
 categories: EVM-Template
 ---
 
@@ -8,7 +8,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-Como apresentado no artigo sobre [Comunicação Nativa Entre Cadeias](/pt/learn/framework/xcm/){target=\_blank} na seção Learn, redes com tecnologia Tanssi contam com a capacidade nativa de se comunicar e interoperar com qualquer outra rede do ecossistema. Essa comunicação entre cadeias permite transferências de tokens seguras e rápidas usando o formato Cross-Consensus Message (XCM), que facilita a comunicação entre diferentes sistemas de consenso.
+Como apresentado no artigo sobre [Comunicação Nativa Entre Cadeias](/pt/learn/framework/xcm/){target=\_blank} na seção Learn, redes powered by Tanssi contam com a capacidade nativa de se comunicar e interoperar com qualquer outra rede do ecossistema. Essa comunicação entre cadeias permite transferências de tokens seguras e rápidas usando o formato Cross-Consensus Message (XCM), que facilita a comunicação entre diferentes sistemas de consenso.
 
 O protocolo de comunicação que possibilita as transferências é construído sobre o [Substrate](/pt/learn/framework/overview/#substrate-framework){target=\_blank} e opera em um nível mais baixo que o EVM, o que dificulta o acesso direto para desenvolvedores EVM.
 

@@ -1,6 +1,6 @@
 ---
 title: Indexando uma Rede Tanssi com SQD
-description: Aprenda a usar o Squid SDK, um framework de query node para cadeias baseadas em Substrate, para indexar e processar dados em uma rede EVM ou Substrate com tecnologia Tanssi.
+description: Aprenda a usar o Squid SDK, um framework de query node para cadeias baseadas em Substrate, para indexar e processar dados em uma rede EVM ou Substrate powered by Tanssi.
 icon: octicons-rocket-24
 categories: EVM-Template, Substrate-Template
 ---
@@ -11,7 +11,7 @@ categories: EVM-Template, Substrate-Template
 
 [SQD](https://www.sqd.ai/){target=_blank} é uma rede de dados que permite recuperar dados de blockchain de mais de 100 cadeias de forma rápida e econômica usando o data lake descentralizado da SQD e o SDK open-source. Em termos simples, o SQD funciona como uma ferramenta ETL (extrair, transformar e carregar) com um servidor GraphQL incluído. Ele oferece filtragem abrangente, paginação e até pesquisa de texto completo. O SQD tem suporte nativo e completo para dados EVM e Substrate, até no mesmo projeto.
 
-Este guia rápido mostra como criar um projeto Squid e configurá-lo para indexar dados em uma rede com tecnologia Tanssi. Há uma seção para [redes Substrate](#index-substrate-networks) e outra para [redes EVM](#index-evm-networks). Se você estiver em uma rede EVM, pode usar a seção Substrate caso também precise indexar dados Substrate.
+Este guia rápido mostra como criar um projeto Squid e configurá-lo para indexar dados em uma rede powered by Tanssi. Há uma seção para [redes Substrate](#index-substrate-networks) e outra para [redes EVM](#index-evm-networks). Se você estiver em uma rede EVM, pode usar a seção Substrate caso também precise indexar dados Substrate.
 
 Para um tutorial mais completo para redes EVM, confira [Indexando Transferências ERC-20 em uma Rede EVM Tanssi](/pt/builders/toolkit/integrations/indexers/sqd/erc20-transfers/){target=_blank}.
 

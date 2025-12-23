@@ -1,6 +1,6 @@
 ---
 title: Executar um Nó Operator Usando Docker
-description: Aprenda como configurar e executar um operador (também conhecido como validador) para a rede Tanssi usando o Docker, participando do protocolo, protegendo redes e ganhando recompensas.
+description: Aprenda como configurar e executar um operator (também conhecido como validador) para a rede Tanssi usando o Docker, participando do protocolo, protegendo redes e ganhando recompensas.
 icon: simple-docker
 categories: Operators
 ---
@@ -9,11 +9,11 @@ categories: Operators
 
 ## Introdução {: #introduction }
 
-Os operadores são fundamentais no ecossistema Tanssi, fornecendo segurança e validação para redes baseadas em Tanssi. Como operador, você participa do consenso que protege a rede e ganha recompensas.
+Os operators são fundamentais no ecossistema Tanssi, fornecendo segurança e validação para redes baseadas em Tanssi. Como operator, você participa do consenso que protege a rede e ganha recompensas.
 
 Conforme apresentado na [seção de integração](/pt/node-operators/operators/onboarding/){target=_blank}, executar o nó é o primeiro passo da sua participação ativa no protocolo.
 
-Este guia mostra como iniciar um operador Tanssi usando a imagem oficial com [Docker](https://www.docker.com){target=_blank} em sistemas Linux.
+Este guia mostra como iniciar um operator Tanssi usando a imagem oficial com [Docker](https://www.docker.com){target=_blank} em sistemas Linux.
 
 ## Verificando Pré-Requisitos {: #checking-prerequisites }
 
@@ -21,7 +21,7 @@ Este guia mostra como iniciar um operador Tanssi usando a imagem oficial com [Do
 
 ### Puxar a Imagem Docker {: #pull-docker-image }
 
-Uma imagem Docker é construída e publicada em cada versão, contendo todas as dependências necessárias e o binário do operador.
+Uma imagem Docker é construída e publicada em cada versão, contendo todas as dependências necessárias e o binário do operator.
 
 A imagem combina o binário estável mais recente do [nó cliente](/pt/learn/framework/architecture/#architecture){target=_blank} com o arquivo de especificação do orquestrador Tanssi.
 

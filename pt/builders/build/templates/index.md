@@ -1,6 +1,6 @@
 ---
 title: Templates para Desenvolvimento de Rede
-description: Saiba mais sobre os modelos básicos de rede que já vêm prontos para uso com a Tanssi e ajudam você a dar início ao desenvolvimento da sua rede.so
+description: Saiba mais sobre os templates básicos de rede que já vêm prontos para uso com a Tanssi e ajudam você a dar início ao desenvolvimento da sua rede.so
 icon: octicons-copy-24
 template: index-page.html
 ---

@@ -43,7 +43,7 @@ home:
   hero:
     video_fallback: Seu navegador não suporta a tag de vídeo.
     title_html: Site Tanssi <span class="shadow">&lt;Dev&gt;</span>
-    subtitle: Crie, lance e escale redes Simbióticas mais rápido com a infraestrutura,
+    subtitle: Crie, lance e escale redes Symbiotic mais rápido com a infraestrutura,
       as ferramentas e as integrações da Tanssi.
     cards:
       launch:

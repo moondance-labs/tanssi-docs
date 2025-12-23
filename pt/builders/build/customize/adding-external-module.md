@@ -34,7 +34,7 @@ Você pode visitar a [documentação do diener](https://docs.rs/crate/diener/lat
 
 ## Exemplo do Problema de Dupla Referência {: #double-reference-issue }
 
-Para ilustrar a situação, as seguintes etapas adicionam um [módulo externo](https://github.com/papermoonio/pallet-toggle){target=\_blank} de demonstração a um Runtime personalizado com base no [Template de rede com tecnologia Tanssi de linha de base](/pt/builders/build/templates/substrate/){target=\_blank}. Uma maneira de seguir este tutorial é clonar o [repositório Tanssi Github](https://github.com/moondance-labs/tanssi){target=\_blank}, que atuará como o repositório raiz do projeto.
+Para ilustrar a situação, as seguintes etapas adicionam um [módulo externo](https://github.com/papermoonio/pallet-toggle){target=\_blank} de demonstração a um Runtime personalizado com base no [Template de rede powered by Tanssi de linha de base](/pt/builders/build/templates/substrate/){target=\_blank}. Uma maneira de seguir este tutorial é clonar o [repositório Tanssi Github](https://github.com/moondance-labs/tanssi){target=\_blank}, que atuará como o repositório raiz do projeto.
 
 Este tutorial gerará um erro de tempo de compilação de referência múltipla. Finalmente, as etapas mostrarão como corrigir o erro de compilação corrigindo as dependências com a ferramenta `diener`, o Runtime será compilado com sucesso e funcionará conforme o esperado.
 

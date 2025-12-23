@@ -13,7 +13,7 @@ Substrate é uma estrutura de desenvolvimento de software poderosa e modular inc
 
 O que diferencia o Substrate é sua arquitetura modular, que permite a integração perfeita de [módulos embutidos](https://github.com/paritytech/polkadot-sdk/tree/master/substrate/frame){target=\_blank} e a criação de módulos personalizados, facilitando o desenvolvimento de protocolos de blockchain.
 
-Para casos que exigem apenas compatibilidade com EVM (Ethereum Virtual Machine), o template fornecido no [repositório Tanssi](https://github.com/moondance-labs/tanssi#container-chain-templates){target=\_blank} atende aos requisitos sem outras modificações. No entanto, as equipes que desejam construir uma rede Substrate devem adicionar e configurar módulos embutidos e personalizados dentro do runtime. Isso envolve compilar, gerar a especificação da cadeia e implantar por meio do protocolo Tanssi para transformá-lo em uma rede ao vivo com tecnologia Tanssi.
+Para casos que exigem apenas compatibilidade com EVM (Ethereum Virtual Machine), o template fornecido no [repositório Tanssi](https://github.com/moondance-labs/tanssi#container-chain-templates){target=\_blank} atende aos requisitos sem outras modificações. No entanto, as equipes que desejam construir uma rede Substrate devem adicionar e configurar módulos embutidos e personalizados dentro do runtime. Isso envolve compilar, gerar a especificação da cadeia e implantar por meio do protocolo Tanssi para transformá-lo em uma rede ao vivo powered by Tanssi.
 
 Este artigo enfoca as etapas necessárias para adicionar um módulo embutido ao template EVM.
 
@@ -36,7 +36,7 @@ cargo build -p container-chain-frontier-node --release
 
 Como introduzido no artigo de [modularidade](/pt/learn/framework/modules/){target=\_blank}, o framework Substrate já inclui muitos módulos embutidos que abordam uma ampla gama de funcionalidades, prontos para serem usados em seu runtime.
 
-Os módulos são projetados para fornecer a funcionalidade necessária em casos de uso muito diferentes, como DeFi, NFTs ou qualquer outro, e, portanto, são blocos de construção básicos que são inerentemente abstratos e podem ser configurados de acordo com as necessidades específicas da rede com tecnologia Tanssi.
+Os módulos são projetados para fornecer a funcionalidade necessária em casos de uso muito diferentes, como DeFi, NFTs ou qualquer outro, e, portanto, são blocos de construção básicos que são inerentemente abstratos e podem ser configurados de acordo com as necessidades específicas da rede powered by Tanssi.
 
 Para adicionar um módulo, as seguintes etapas são necessárias:
 
@@ -50,7 +50,7 @@ No exemplo a seguir, o popular módulo Substrate `pallet-assets` é adicionado a
 
 ### Declarar a Dependência {: #declare-dependency }
 
-Cada pacote contém um arquivo de manifesto chamado `Cargo.toml` que declara, entre outras coisas, todas as dependências em que o pacote se baseia, e o runtime da rede com tecnologia Tanssi não é exceção.
+Cada pacote contém um arquivo de manifesto chamado `Cargo.toml` que declara, entre outras coisas, todas as dependências em que o pacote se baseia, e o runtime da rede powered by Tanssi não é exceção.
 
 Portanto, a primeira etapa é declarar a dependência e torná-la disponível para o runtime. Abra o arquivo `Cargo.toml` localizado na pasta `container-chains/templates/frontier/runtime` com um editor de texto e adicione o módulo, referenciando o código no Polkadot SDK:
 
@@ -72,7 +72,7 @@ pallet-assets = {
 
 No Cargo, as flags de “recursos” fornecem um mecanismo para dizer ao compilador para incluir ou omitir determinadas partes do código, o que é um mecanismo útil para otimizar o tempo de compilação, minimizar os tamanhos dos arquivos binários ou desabilitar determinado comportamento (por exemplo, não incluir testes unitários ou funcionalidade de benchmarking no runtime pretendido para produção).
 
-Para compilar os recursos padrão para o módulo Assets dentro do runtime, o mesmo arquivo `Cargo.toml` na pasta `runtime` deve ser editado, ativando a flag. Tudo o que está listado nesta seção garantirá que esteja disponível para o compilador ao construir o binário do runtime, que é, em última análise, o arquivo que contém todas as informações para executar sua rede com tecnologia Tanssi inicialmente.
+Para compilar os recursos padrão para o módulo Assets dentro do runtime, o mesmo arquivo `Cargo.toml` na pasta `runtime` deve ser editado, ativando a flag. Tudo o que está listado nesta seção garantirá que esteja disponível para o compilador ao construir o binário do runtime, que é, em última análise, o arquivo que contém todas as informações para executar sua rede powered by Tanssi inicialmente.
 
 ```toml
 [features]

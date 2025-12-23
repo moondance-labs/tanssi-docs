@@ -20,7 +20,7 @@ Desenvolver um Runtime de rede normalmente envolve duas etapas principais:
 1. [Incorporar módulos internos pré-existentes](/pt/builders/build/customize/adding-built-in-module/){target=\_blank} no Runtime
 2. [Criar módulos personalizados](/pt/builders/build/customize/adding-custom-made-module/){target=\_blank} adaptados às necessidades específicas do seu aplicativo
 
-Como o Template fornecido já inclui as configurações essenciais para uma integração perfeita com o protocolo Tanssi e o provedor de segurança (por exemplo, [Symbiotic](https://symbiotic.fi/){target=\_blank} no Ethereum), as equipes interessadas em construir uma rede inovadora com tecnologia Tanssi podem usar este Template como ponto de partida para adicionar sua lógica personalizada.
+Como o Template fornecido já inclui as configurações essenciais para uma integração perfeita com o protocolo Tanssi e o provedor de segurança (por exemplo, [Symbiotic](https://symbiotic.fi/){target=\_blank} no Ethereum), as equipes interessadas em construir uma rede inovadora powered by Tanssi podem usar este Template como ponto de partida para adicionar sua lógica personalizada.
 
 Aqui estão alguns dos recursos que vêm com este Template:
 

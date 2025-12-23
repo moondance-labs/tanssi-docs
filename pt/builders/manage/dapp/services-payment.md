@@ -1,6 +1,6 @@
 ---
 title: Pagamento dos Serviços de Produção de Blocos
-description: As redes implantadas através da Tanssi beneficiam dos serviços de produção de blocos fornecidos por um conjunto de operadores de nós, que são compensados com tokens Tanssi.
+description: As redes implantadas através da Tanssi beneficiam dos serviços de produção de blocos fornecidos por um conjunto de node operators, que são compensados com tokens Tanssi.
 icon: octicons-server-24
 categories: Appchain
 ---
@@ -20,7 +20,7 @@ Neste guia, você aprenderá como usar o [Tanssi dApp](https://apps.tanssi.netwo
 
 Para os exemplos neste guia, você precisará do seguinte:
 
-- Uma rede com tecnologia Tanssi (Teste Rápido ou Dedicado)
+- Uma rede powered by Tanssi (Teste Rápido ou Dedicado)
 - A conta que você usou ao registrar a rede, importada em qualquer uma das [carteiras suportadas](/pt/builders/deploy/dapp/#supported-wallets){target=\_blank}
 
 --8<-- 'text/pt/builders/manage/dapp/locate-registration-account.md'

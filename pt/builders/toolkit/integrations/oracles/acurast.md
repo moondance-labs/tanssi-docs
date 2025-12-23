@@ -1,6 +1,6 @@
 ---
 title: Usando Acurast para Oráculos de Feeds de Preço
-description: Aprenda a usar a nuvem serverless descentralizada da Acurast para obter feeds de preço confiáveis na sua rede EVM com tecnologia Tanssi.
+description: Aprenda a usar a nuvem serverless descentralizada da Acurast para obter feeds de preço confiáveis na sua rede EVM powered by Tanssi.
 icon: octicons-eye-24
 categories: EVM-Template
 ---
@@ -11,7 +11,7 @@ categories: EVM-Template
 
 [Acurast](https://acurast.com){target=_blank} oferece computação permissionless, confiável e acessível para implantar aplicações. Um dos usos é permitir que desenvolvedores criem oráculos push/pull, consultando APIs off-chain para trazer preços on-chain. Os dados são processados de forma confidencial pelos Processors e enviados a contratos de redes EVM compatíveis com Tanssi via a [interface padrão Chainlink Aggregator](https://github.com/smartcontractkit/chainlink-evm/blob/develop/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol){target=_blank}.
 
-Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-price-data) fornecidos pela Acurast na [rede EVM de demonstração da Tanssi](/builders/tanssi-network/testnet/demo-evm-network/){target=_blank}. Você também pode implantar seus próprios feeds na sua rede EVM com tecnologia Tanssi. Para produção, é altamente recomendável contatar a [equipe Acurast](https://acurast.com){target=_blank} para auxiliar no lançamento e garantir a integridade do processo.
+Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-price-data) fornecidos pela Acurast na [rede EVM de demonstração da Tanssi](/builders/tanssi-network/testnet/demo-evm-network/){target=_blank}. Você também pode implantar seus próprios feeds na sua rede EVM powered by Tanssi. Para produção, é altamente recomendável contatar a [equipe Acurast](https://acurast.com){target=_blank} para auxiliar no lançamento e garantir a integridade do processo.
 
 ## O que é Acurast? {: #what-is-acurast }
 

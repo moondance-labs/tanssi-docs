@@ -1,6 +1,6 @@
 ---
 title: Executar um Nó Operator Usando Systemd
-description: Aprenda como configurar e executar um nó operador (validador) para as redes Tanssi usando Systemd, permitindo participar do protocolo e ganhar recompensas.
+description: Aprenda como configurar e executar um nó operator (validador) para as redes Tanssi usando Systemd, permitindo participar do protocolo e ganhar recompensas.
 icon: simple-linux
 categories: Operators
 ---
@@ -9,11 +9,11 @@ categories: Operators
 
 ## Introdução {: #introduction }
 
-Os operadores são cruciais no ecossistema Tanssi, fornecendo segurança e validação para redes baseadas em Tanssi. Como operador, você participa do consenso que protege a rede e ganha recompensas.
+Os operators são cruciais no ecossistema Tanssi, fornecendo segurança e validação para redes baseadas em Tanssi. Como operator, você participa do consenso que protege a rede e ganha recompensas.
 
 Conforme apresentado na [seção de integração](/pt/node-operators/operators/onboarding/){target=\_blank}, executar o nó é o primeiro passo da sua participação ativa no protocolo.
 
-Neste guia, você aprenderá a iniciar um operador Tanssi usando o binário estável mais recente e gerenciar o serviço com [Systemd](https://systemd.io){target=\_blank} em sistemas Linux.
+Neste guia, você aprenderá a iniciar um operator Tanssi usando o binário estável mais recente e gerenciar o serviço com [Systemd](https://systemd.io){target=\_blank} em sistemas Linux.
 
 O artigo segue a boa prática de executar o serviço com uma conta não-root e conceder a essa conta acesso de gravação a um diretório específico. Adapte as etapas conforme sua configuração e políticas de segurança.
 
@@ -21,13 +21,13 @@ O artigo segue a boa prática de executar o serviço com uma conta não-root e c
 
 Você precisará de acesso a um computador Ubuntu Linux com [Landlock](https://docs.kernel.org/security/landlock.html){target=\_blank} habilitado e privilégios de root. Também precisará de:
 
-- **Arquivos binários do nó** - o operador precisa de três binários: `tanssi-relay`, `tanssi-relay-execute-worker` e `tanssi-relay-prepare-worker`
+- **Arquivos binários do nó** - o operator precisa de três binários: `tanssi-relay`, `tanssi-relay-execute-worker` e `tanssi-relay-prepare-worker`
 
 As instruções usam a [versão estável mais recente](https://github.com/moondance-labs/tanssi/releases/latest){target=\_blank}. Você pode compilar seu próprio arquivo a partir do [código fonte](https://github.com/moondance-labs/tanssi){target=\_blank}.
 
 ## Verificar Suporte Landlock {: #check-landlock }
 
-Os operadores Tanssi usam o recurso Landlock do kernel Linux como medida de segurança para restringir o acesso a recursos do sistema.
+Os operators Tanssi usam o recurso Landlock do kernel Linux como medida de segurança para restringir o acesso a recursos do sistema.
 
 Verifique o suporte Landlock executando:
 

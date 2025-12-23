@@ -1,6 +1,6 @@
 ---
 title: Como conectar Talisman à Tanssi
-description: Este guia explica como conectar Talisman, uma carteira Substrate e Ethereum, à rede Tanssi ou à sua appchain Substrate com tecnologia Tanssi.
+description: Este guia explica como conectar Talisman, uma carteira Substrate e Ethereum, à rede Tanssi ou à sua appchain Substrate powered by Tanssi.
 icon: material-wallet-outline
 categories: Substrate-Template
 ---
@@ -9,7 +9,7 @@ categories: Substrate-Template
 
 ## Introdução {: #introduction }
 
-Desenvolvedores e usuários de redes Substrate, como a rede Tanssi ou appchains Substrate com tecnologia Tanssi, têm uma variedade de opções quando se trata de carteiras. Talisman é uma ótima opção, pois oferece suporte nativo total para contas Substrate e Ethereum. Este guia se concentra na API Substrate. Você também pode conferir um [guia semelhante para configurar o Talisman para uso com sua rede Tanssi EVM](/pt/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
+Desenvolvedores e usuários de redes Substrate, como a rede Tanssi ou appchains Substrate powered by Tanssi, têm uma variedade de opções quando se trata de carteiras. Talisman é uma ótima opção, pois oferece suporte nativo total para contas Substrate e Ethereum. Este guia se concentra na API Substrate. Você também pode conferir um [guia semelhante para configurar o Talisman para uso com sua rede Tanssi EVM](/pt/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank}.
 
 Talisman é uma carteira Web3 que suporta nativamente contas Substrate e Ethereum. A extensão do navegador da carteira Talisman está disponível no [Google Chrome, Brave e outros navegadores baseados em Chromium](https://chromewebstore.google.com/detail/talisman-wallet/fijngjgcjhjmmpcmkeiomlglpeiijkld){target=\_blank}, bem como no [Firefox](https://addons.mozilla.org/en-US/firefox/addon/talisman-wallet-extension/){target=\_blank}. Um painel de ativos é acessível em [app.talisman.xyz](https://app.talisman.xyz){target=\_blank}
 
@@ -37,7 +37,7 @@ Para criar sua primeira conta Substrate no Talisman, siga as seguintes etapas:
 3. Pressione **Criar**.
 
 !!! note
-    Por que Polkadot? Tanssi e appchains com tecnologia Tanssi são construídos usando Substrate, a mesma estrutura que alimenta Polkadot. Como resultado, embora Tanssi e Polkadot sejam redes separadas, eles compartilham o mesmo esquema de assinatura criptográfica.
+    Por que Polkadot? Tanssi e appchains powered by Tanssi são construídos usando Substrate, a mesma estrutura que alimenta Polkadot. Como resultado, embora Tanssi e Polkadot sejam redes separadas, eles compartilham o mesmo esquema de assinatura criptográfica.
 
 ![Crie sua primeira conta Polkadot no Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-3.webp)
 
@@ -84,7 +84,7 @@ Se você tiver um saldo de tokens Tanssi MainNet ou Dancelight, verá o saldo da
 
 ## Conectando o Talisman à Sua Rede Substrate {: #connecting-talisman-to-your-substrate-network }
 
-Para configurar o Talisman para sua rede Substrate com tecnologia Tanssi, abra a extensão Talisman e clique na guia **Mais Opções**. Clique em **Configurações** > **Redes e Tokens** > **Gerenciar Redes**.
+Para configurar o Talisman para sua rede Substrate powered by Tanssi, abra a extensão Talisman e clique na guia **Mais Opções**. Clique em **Configurações** > **Redes e Tokens** > **Gerenciar Redes**.
 
 1. Deslize o controle deslizante da rede para **Polkadot**.
 2. Marque a caixa **Habilitar testnets**.
@@ -99,7 +99,7 @@ Na página seguinte, você será solicitado a inserir os detalhes da rede para s
 3. Marque a caixa **Esta é uma testnet**, se aplicável.
 4. Pressione **Adicionar Rede**.
 
-![Adicione seus Detalhes de Rede com Tecnologia Tanssi](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-8.webp)
+![Adicione seus Detalhes de Rede powered by Tanssi](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-8.webp)
 
 ## Conectando ao Polkadot.js {: #connecting-to-polkadotjs}
 

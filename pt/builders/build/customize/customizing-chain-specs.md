@@ -1,6 +1,6 @@
 ---
 title: Customizando as Especificações da Cadeia
-description: Revise as seções e atributos de um arquivo de especificação de cadeia e como obtê-lo para lançar sua rede com tecnologia Tanssi com uma especificação personalizada.
+description: Revise as seções e atributos de um arquivo de especificação de cadeia e como obtê-lo para lançar sua rede powered by Tanssi com uma especificação personalizada.
 icon: octicons-link-24
 categories: Appchain
 ---
@@ -9,7 +9,7 @@ categories: Appchain
 
 ## Introdução {: #introduction }
 
-A especificação da cadeia refere-se a um conjunto de parâmetros e configurações que definem as características e o comportamento de uma nova rede com tecnologia Tanssi. Ela define as configurações e o estado iniciais sobre os quais todos os nós participantes da rede devem concordar para alcançar o consenso e produzir blocos. Muitas configurações iniciais não podem ser alteradas após o lançamento da rede sem gerar uma cadeia completamente diferente.
+A especificação da cadeia refere-se a um conjunto de parâmetros e configurações que definem as características e o comportamento de uma nova rede powered by Tanssi. Ela define as configurações e o estado iniciais sobre os quais todos os nós participantes da rede devem concordar para alcançar o consenso e produzir blocos. Muitas configurações iniciais não podem ser alteradas após o lançamento da rede sem gerar uma cadeia completamente diferente.
 
 A especificação contém duas seções principais:
 
@@ -23,7 +23,7 @@ Este artigo aborda as seções e atributos dentro de um arquivo de especificaç�
 !!! note "Nota do Editor (Atualização de 2025)"
     Este guia explica como personalizar os arquivos de especificação da cadeia em redes baseadas em Substrate. Alguns campos (por exemplo, cadeia de retransmissão, ID da parachain) vêm do SDK do Substrate e são incluídos para fins de compatibilidade ou Template.
 
-    Esses atributos não significam que uma rede com tecnologia Tanssi é uma parachain Polkadot. Tanssi é um protocolo de infraestrutura de appchain independente, construído com Substrate e alinhado com a segurança apoiada pelo Ethereum. Você pode encontrar termos relacionados ao Polkadot em arquivos de configuração por causa das origens compartilhadas do Substrate, mas as appchains com tecnologia Tanssi não exigem slots Polkadot ou mecânica de cadeia de retransmissão.
+    Esses atributos não significam que uma rede powered by Tanssi é uma parachain Polkadot. Tanssi é um protocolo de infraestrutura de appchain independente, construído com Substrate e alinhado com a segurança apoiada pelo Ethereum. Você pode encontrar termos relacionados ao Polkadot em arquivos de configuração por causa das origens compartilhadas do Substrate, mas as appchains powered by Tanssi não exigem slots Polkadot ou mecânica de cadeia de retransmissão.
 
 ## A Especificação do Cliente {: #client-specification }
 

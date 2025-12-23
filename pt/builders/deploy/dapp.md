@@ -12,7 +12,7 @@ categories: Appchain
 
 ## Introdução {: #introduction }
 
-A Tanssi tem como objetivo reduzir a barreira de entrada para a construção de appchains descentralizadas, simplificando o processo de integração e abstraindo os detalhes técnicos do lançamento de uma appchain com tecnologia Tanssi. O [Tanssi dApp](https://apps.tanssi.network){target=\_blank} permite que você inicie uma appchain em apenas alguns minutos. Este guia mostra as etapas necessárias para lançar uma appchain na Dancelight, a Tanssi TestNet, usando o Tanssi dApp.
+A Tanssi tem como objetivo reduzir a barreira de entrada para a construção de appchains descentralizadas, simplificando o processo de integração e abstraindo os detalhes técnicos do lançamento de uma appchain powered by Tanssi. O [Tanssi dApp](https://apps.tanssi.network){target=\_blank} permite que você inicie uma appchain em apenas alguns minutos. Este guia mostra as etapas necessárias para lançar uma appchain na Dancelight, a Tanssi TestNet, usando o Tanssi dApp.
 
 ## Testes Rápidos vs. Appchains Dedicadas {: #quick-trial-vs-dedicated-appchains  }
 
@@ -21,7 +21,7 @@ A Tanssi tem como objetivo reduzir a barreira de entrada para a construção de 
 - Teste rápido: uma appchain temporária que se autodestrói após 48 horas
 - Dedicada: uma appchain de longa duração para builders do ecossistema Tanssi
 
-Ambos os tipos se comportam de forma idêntica; a diferença é a natureza temporária do teste rápido. Em geral, o teste rápido é o melhor para quem quer experimentar uma appchain com tecnologia Tanssi. Se precisar de um ambiente de teste de longa duração, a equipe Tanssi pode ajudar a configurar uma appchain dedicada.
+Ambos os tipos se comportam de forma idêntica; a diferença é a natureza temporária do teste rápido. Em geral, o teste rápido é o melhor para quem quer experimentar uma appchain powered by Tanssi. Se precisar de um ambiente de teste de longa duração, a equipe Tanssi pode ajudar a configurar uma appchain dedicada.
 
 As capturas de tela e o conteúdo deste guia usam appchains de teste rápido, mas o processo é o mesmo para configurar uma appchain dedicada.
 
@@ -38,7 +38,7 @@ Como a Tanssi é construída com Substrate, você precisará de uma carteira com
 - [Enkrypt](https://www.enkrypt.com){target=\_blank}
 - [Extensão Polkadot.js](https://polkadot.js.org/extension){target=\_blank}
 
-Se você implantar uma appchain EVM com tecnologia Tanssi, os usuários poderão usar carteiras Ethereum, como [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}, sem precisar de carteira Substrate.
+Se você implantar uma appchain EVM powered by Tanssi, os usuários poderão usar carteiras Ethereum, como [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}, sem precisar de carteira Substrate.
 
 ![Tela de conexão para várias carteiras Substrate](/images/builders/deploy/dapp/dapp-2.webp)
 

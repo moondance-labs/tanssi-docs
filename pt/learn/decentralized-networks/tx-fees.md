@@ -9,7 +9,7 @@ categories: Basics
 
 ## Introdução {: #introduction}
 
-Redes com tecnologia Tanssi são construídas com um [framework modular](/pt/learn/framework/){target=\_blank} chamado [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. Com esse framework, você pode criar formas próprias de lidar com taxas de transação. Por exemplo, a maioria das transações usa um módulo específico chamado [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. Contudo, em redes Tanssi compatíveis com EVM, as taxas podem ser cobradas no nível da execução EVM, contornando outros módulos relacionados a taxas.
+Redes powered by Tanssi são construídas com um [framework modular](/pt/learn/framework/){target=\_blank} chamado [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. Com esse framework, você pode criar formas próprias de lidar com taxas de transação. Por exemplo, a maioria das transações usa um módulo específico chamado [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. Contudo, em redes Tanssi compatíveis com EVM, as taxas podem ser cobradas no nível da execução EVM, contornando outros módulos relacionados a taxas.
 
 Sob o capô, para Runtime, em vez de um mecanismo baseado em gas, todas as redes Tanssi usam um [mecanismo baseado em weight](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refere-se ao tempo (em picosegundos) para validar um bloco. De modo geral, para redes Tanssi EVM e não EVM, todas as chamadas têm um weight associado, que define limites de entrada/saída de storage e de computação. Para redes Tanssi EVM, há um mapeamento gas-to-weight totalmente compatível com os requisitos de gas esperados por ferramentas baseadas na Ethereum API.
 
@@ -32,7 +32,7 @@ Esta seção apresenta os diferentes conceitos associados às taxas em redes Tan
 De forma ampla, weight refere-se ao Runtime para validar um bloco, medido em picosegundos. O weight se divide em duas variáveis:
 
 - **`refTime`** - peso associado a tempo de computação e leituras/gravações em banco de dados
-- **`proofSize`** - peso associado ao tamanho da Prova de Validade (PoV). A PoV se relaciona ao estado relevante de uma transação, e é o que o Sequencer da rede Tanssi compartilha com os operadores do provedor de segurança para validar e finalizar um bloco como parte do [fluxo de transações da rede](/pt/learn/decentralized-networks/overview/#network-transaction-flow){target=\_blank}
+- **`proofSize`** - peso associado ao tamanho da Prova de Validade (PoV). A PoV se relaciona ao estado relevante de uma transação, e é o que o Sequencer da rede Tanssi compartilha com os operators do provedor de segurança para validar e finalizar um bloco como parte do [fluxo de transações da rede](/pt/learn/decentralized-networks/overview/#network-transaction-flow){target=\_blank}
 
 Para descobrir os weights de todas as chamadas, elas são benchmarked em hardware de referência, e valores aproximados de `refTime` e `proofSize` são definidos. Esse processo se repete para todas as chamadas que consomem espaço de bloco e afetam a PoV.
 

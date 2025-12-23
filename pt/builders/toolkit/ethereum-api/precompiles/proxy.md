@@ -12,7 +12,7 @@ categories: EVM-Template
 
 A Proxy Precompile permite que as contas definam contas proxy por meio da API Ethereum. As contas proxy podem realizar ações limitadas em nome da conta com proxy, como governança, transferências de saldo, gerenciamento ou transações privilegiadas, entre outras.
 
-Se um usuário quisesse fornecer a outro usuário acesso a um número limitado de ações em seu nome, tradicionalmente, o único método para fazê-lo seria compartilhar a chave privada dessa conta. No entanto, as redes EVM com tecnologia Tanssi incluem o módulo proxy, fornecendo uma camada adicional de segurança. Com proxies, muitas contas podem realizar ações para uma conta primária, e tais permissões podem ser revogadas a qualquer momento. Isto é melhor se, por exemplo, um usuário quiser manter sua carteira segura em armazenamento a frio, mas ainda quiser acessar partes da funcionalidade da carteira, como governança ou staking.
+Se um usuário quisesse fornecer a outro usuário acesso a um número limitado de ações em seu nome, tradicionalmente, o único método para fazê-lo seria compartilhar a chave privada dessa conta. No entanto, as redes EVM powered by Tanssi incluem o módulo proxy, fornecendo uma camada adicional de segurança. Com proxies, muitas contas podem realizar ações para uma conta primária, e tais permissões podem ser revogadas a qualquer momento. Isto é melhor se, por exemplo, um usuário quiser manter sua carteira segura em armazenamento a frio, mas ainda quiser acessar partes da funcionalidade da carteira, como governança ou staking.
 
 !!! note
     O Proxy Precompile só pode ser chamado de uma Externally Owned Account (EOA) ou pela [Batch Precompile](/pt/builders/toolkit/ethereum-api/precompiles/batch/){target=\_blank}.
@@ -31,7 +31,7 @@ A Proxy Precompile está localizada no seguinte endereço:
 
 Para acompanhar o conteúdo deste guia, você precisará:
 
-- Acesso a uma rede EVM com tecnologia Tanssi executando [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} ou superior
+- Acesso a uma rede EVM powered by Tanssi executando [runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank} ou superior
 - Uma [carteira compatível com EVM](/pt/builders/toolkit/ethereum-api/wallets/){target=\_blank} configurada para funcionar com sua rede. Você também pode conectar sua carteira à [rede EVM de demonstração](https://apps.tanssi.network/demo){target=\_blank}
 - Uma conta com fundos suficientes para pagar as taxas e depósitos necessários
 - Uma segunda conta que você controla para usar como proxy
@@ -133,7 +133,7 @@ Há vários tipos de funções de proxy que podem ser delegadas a contas, repres
 
 ## Interaja com a interface Solidity via Remix {: #interact-with-the-solidity-interface-via-remix }
 
-Esta seção irá guiá-lo pelas etapas para criar um proxy, verificar sua criação e revogar os privilégios do proxy. Estes exemplos são baseados na [Tanssi demo EVM Network](https://apps.tanssi.network/demo){target=\_blank} e usam [Metamask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}. Este guia pode ser adaptado para sua própria rede EVM com tecnologia Tanssi adicionando a URL RPC da sua rede para a carteira EVM de sua escolha.
+Esta seção irá guiá-lo pelas etapas para criar um proxy, verificar sua criação e revogar os privilégios do proxy. Estes exemplos são baseados na [Tanssi demo EVM Network](https://apps.tanssi.network/demo){target=\_blank} e usam [Metamask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}. Este guia pode ser adaptado para sua própria rede EVM powered by Tanssi adicionando a URL RPC da sua rede para a carteira EVM de sua escolha.
 
 ### Configuração do Remix {: #remix-set-up }
 

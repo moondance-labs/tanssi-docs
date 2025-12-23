@@ -1,13 +1,13 @@
 ---
 title: Construa Sua Rede
-description: Instale o software para compilar sua rede com tecnologia Tanssi, configure o estado genesis e as funções principais, teste localmente e prepare-se para a implantação.
+description: Instale o software para compilar sua rede powered by Tanssi, configure o estado genesis e as funções principais, teste localmente e prepare-se para a implantação.
 icon: material-widgets-outline
 template: index-page.html
 ---
 
 # Construa Sua Rede
 
-Lançar sua rede com tecnologia Tanssi oferece a flexibilidade de escolher entre Templates pré-configurados ou soluções totalmente personalizadas. Estaja você buscando simplicidade ou controle refinado, a Tanssi fornece as ferramentas e orientações para transformar sua visão em realidade. Esta seção cobre tudo, desde a seleção de um Template até a personalização de módulos, testes e implantação de sua rede.
+Lançar sua rede powered by Tanssi oferece a flexibilidade de escolher entre Templates pré-configurados ou soluções totalmente personalizadas. Estaja você buscando simplicidade ou controle refinado, a Tanssi fornece as ferramentas e orientações para transformar sua visão em realidade. Esta seção cobre tudo, desde a seleção de um Template até a personalização de módulos, testes e implantação de sua rede.
 
 ## O Caminho para Implantação
 

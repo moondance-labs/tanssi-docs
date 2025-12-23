@@ -1,6 +1,6 @@
 ---
 title: Atualize o Runtime da Sua Appchain
-description: Aprenda como usar a conta Sudo para realizar a ação privilegiada de atualização do runtime da sua appchain com tecnologia Tanssi através do portal do desenvolvedor.
+description: Aprenda como usar a conta Sudo para realizar a ação privilegiada de atualização do runtime da sua appchain powered by Tanssi através do portal do desenvolvedor.
 icon: octicons-arrow-up-24
 categories: Appchain
 ---
@@ -9,7 +9,7 @@ categories: Appchain
 
 ## Introdução {: #introduction }
 
-[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} é um módulo que permite que chamadas de Runtime privilegiadas sejam despachadas quando chamadas da conta Sudo. Sudo é por vezes coloquialmente referido como um superusuário ou uma conta semelhante a um deus. Isso permite que você realize ações privilegiadas no curso do gerenciamento da sua appchain, como a atualização do Runtime da sua appchain com tecnologia Tanssi.
+[Sudo](https://paritytech.github.io/polkadot-sdk/master/pallet_sudo/index.html){target=\_blank} é um módulo que permite que chamadas de Runtime privilegiadas sejam despachadas quando chamadas da conta Sudo. Sudo é por vezes coloquialmente referido como um superusuário ou uma conta semelhante a um deus. Isso permite que você realize ações privilegiadas no curso do gerenciamento da sua appchain, como a atualização do Runtime da sua appchain powered by Tanssi.
 
 Neste guia, você aprenderá como usar o Sudo para atualizar o runtime da sua appchain. Com acesso Sudo, atualizar sua cadeia é um processo rápido e fácil. Observe que as equipas de appchain em produção terão a opção de eliminar gradualmente o acesso Sudo e confiar na governança para processar as atualizações de Runtime.
 
@@ -17,7 +17,7 @@ Neste guia, você aprenderá como usar o Sudo para atualizar o runtime da sua ap
 
 Para o exemplo neste guia, você precisará ter o seguinte:
 
-- Uma appchain com tecnologia Tanssi (Quick Trial, Dedicated ou MainNet).
+- Uma appchain powered by Tanssi (Quick Trial, Dedicated ou MainNet).
 - A conta Sudo da sua appchain conectada ao portal do desenvolvedor da sua appchain. Você pode consultar o [guia de Gerenciamento do Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar a sua conta Sudo no portal do desenvolvedor.
 - O novo ficheiro binário de [runtime Wasm](/pt/learn/framework/architecture/#runtime){target=\_blank}, compilado com uma versão superior à atual.
 
@@ -73,7 +73,7 @@ Com o seu [Runtime Wasm](/learn/framework/architecture/#runtime){target=\_blank}
 7. Pressione **Enviar Sudo** e confirme a transação na sua carteira.
 ![Atualizando seu Runtime no Portal do Desenvolvedor](/images/builders/manage/developer-portal/upgrade/upgrade-2.webp)
 
-Você pode verificar se a atualização do seu runtime foi bem-sucedida verificando a versão do runtime no canto superior esquerdo. Nesse caso, você pode ver que o runtime da appchain com tecnologia Tanssi foi atualizado com sucesso para a versão `400`.
+Você pode verificar se a atualização do seu runtime foi bem-sucedida verificando a versão do runtime no canto superior esquerdo. Nesse caso, você pode ver que o runtime da appchain powered by Tanssi foi atualizado com sucesso para a versão `400`.
 
 ![Verificar a versão do Runtime no Polkadot.js Apps](/images/builders/manage/developer-portal/upgrade/upgrade-3.webp)
 

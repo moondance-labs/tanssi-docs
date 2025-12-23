@@ -22,14 +22,14 @@ Por exemplo, imagine descobrir uma exploração crítica em sua rede que poderia
 
 Para os exemplos deste guia, você precisará ter o seguinte:
 
-- Uma rede com tecnologia Tanssi (Teste Rápido ou Dedicado)
+- Uma rede powered by Tanssi (Teste Rápido ou Dedicado)
 - A conta Sudo da sua rede conectada aos seus Polkadot.js Apps da rede. Você pode consultar o [guia de Gerenciamento do Sudo](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank} para obter instruções sobre como injetar sua conta Sudo nos Polkadot.js Apps
 
 --8<-- 'text/pt/builders/manage/locate-sudo-account.md'
 
 ## Habilitando o Modo de Manutenção {: #enabling-maintenance-mode }
 
-Ainda, a conta Sudo pode realizar funções privilegiadas, como habilitar e desabilitar o modo de manutenção. Para entrar no modo de manutenção e interromper o processamento regular de transações, navegue até a guia **Developer** do Polkadot.js Apps para sua rede com tecnologia Tanssi e clique em **Sudo**. Se você não vir **Sudo** neste menu, você não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada pela sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Então, siga os seguintes passos:
+Ainda, a conta Sudo pode realizar funções privilegiadas, como habilitar e desabilitar o modo de manutenção. Para entrar no modo de manutenção e interromper o processamento regular de transações, navegue até a guia **Developer** do Polkadot.js Apps para sua rede powered by Tanssi e clique em **Sudo**. Se você não vir **Sudo** neste menu, você não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada pela sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Então, siga os seguintes passos:
 
 1. Selecione a paleta **maintenanceMode**
 2. Selecione o método **enterMaintenanceMode**
@@ -43,7 +43,7 @@ Para verificar se o modo de manutenção foi habilitado, você pode verificar a 
 
 ## Saída do Modo de Manutenção {: #exiting-maintenance-mode }
 
-Para sair do modo de manutenção e retornar sua rede à operação normal, navegue até a guia **Developer** do Polkadot.js Apps para sua rede com tecnologia Tanssi e clique em **Sudo**. Se você não vir **Sudo** neste menu, você não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada pela sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Siga os seguintes passos:
+Para sair do modo de manutenção e retornar sua rede à operação normal, navegue até a guia **Developer** do Polkadot.js Apps para sua rede powered by Tanssi e clique em **Sudo**. Se você não vir **Sudo** neste menu, você não associou a conta Sudo aos Polkadot.js Apps. Certifique-se de que sua [conta Sudo seja injetada pela sua carteira e conectada aos Polkadot.js Apps](/pt/builders/manage/developer-portal/sudo/#configuring-polkadotjs-apps){target=\_blank}. Siga os seguintes passos:
 
 1. Selecione a paleta **maintenanceMode**
 2. Selecione o método **resumeNormalOperation**
@@ -56,6 +56,6 @@ Para verificar se o modo de manutenção foi desabilitado, você pode verificar 
 
 Lembre-se que o uso do modo de manutenção é uma ação de emergência que só deve ser ativada quando sua cadeia estiver em risco extremo. Pode valer a pena estabelecer uma política para sua rede que defina gatilhos específicos de disjuntor para determinar quando o modo de manutenção será habilitado. O estabelecimento de uma política com antecedência também simplificará a tomada de decisões durante uma potencial emergência.
 
-E é isso! A seção [Portal do Desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerenciar sua rede com tecnologia Tanssi.
+E é isso! A seção [Portal do Desenvolvedor](/pt/builders/manage/developer-portal/) tem muitos mais guias sobre como gerenciar sua rede powered by Tanssi.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

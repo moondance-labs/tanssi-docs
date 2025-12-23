@@ -11,9 +11,9 @@ categories: Operators
 
 Como apresentado na [seção de integração](/pt/node-operators/operators/onboarding/){target=_blank}, registrar no Symbiotic é o segundo passo do processo. Você já deve ter o nó sincronizado e em execução, seja usando [Docker](/pt/node-operators/operators/onboarding/run-an-operator/operators-docker/){target=_blank} ou [Systemd](/pt/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=_blank}.
 
-O protocolo Tanssi fornece às suas appchains segurança de nível Ethereum desde o início, confiando em provedores externos como o [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/){target=_blank}. Para participar como operador no ecossistema Tanssi, você deve primeiro registrar seu nó no protocolo Symbiotic. O processo de registro estabelece seu nó como operador reconhecido.
+O protocolo Tanssi fornece às suas appchains segurança de nível Ethereum desde o início, confiando em provedores externos como o [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/){target=_blank}. Para participar como operator no ecossistema Tanssi, você deve primeiro registrar seu nó no protocolo Symbiotic. O processo de registro estabelece seu nó como operator reconhecido.
 
-Este guia mostra as etapas para registrar seu nó como operador Symbiotic, permitindo escolher entre vários métodos: CLI Symbiotic, interação direta via Etherscan ou uso do Safe para configurações multisig.
+Este guia mostra as etapas para registrar seu nó como operator Symbiotic, permitindo escolher entre vários métodos: CLI Symbiotic, interação direta via Etherscan ou uso do Safe para configurações multisig.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
@@ -24,7 +24,7 @@ Para seguir este guia, você deverá interagir com contratos inteligentes.
 
 ## Registrar como Operator {: #registering-operator }
 
-O protocolo Symbiotic mantém um registro de todos os operadores. Antes de proteger redes Tanssi, registre-se usando um dos métodos abaixo.
+O protocolo Symbiotic mantém um registro de todos os operators. Antes de proteger redes Tanssi, registre-se usando um dos métodos abaixo.
 
 ### Registrar usando a CLI Symbiotic {: #register-with-cli }
 
@@ -85,7 +85,7 @@ Depois de conectado:
 1. Expanda a função **`registerOperator`**
 2. Clique em **Write** e assine a transação
 
-![Registrar o operador](/images/node-operators/operators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
+![Registrar o operator](/images/node-operators/operators/onboarding/register-in-symbiotic/register-in-symbiotic-2.webp)
 
 ### Registrar Usando o Safe para Multisig {: #register-with-safe }
 
@@ -116,10 +116,10 @@ Você pode verificar rapidamente seu status de registro no Etherscan. Abra:
 Na página do contrato:
 
 1. Selecione a função **`isEntity`**
-2. Cole a conta do seu operador
+2. Cole a conta do seu operator
 3. Clique em **Query**
 
-Se o operador foi registrado corretamente, o resultado será `true`; caso contrário, `false`.
+Se o operator foi registrado corretamente, o resultado será `true`; caso contrário, `false`.
 
 ![Verificar o status do registro](/images/node-operators/operators/onboarding/register-in-symbiotic/register-in-symbiotic-3.webp)
 
@@ -150,20 +150,20 @@ E a saída se parece com:
 
 Após o registro, você pode adicionar metadados (por exemplo, logotipo) para melhorar a visibilidade no [site Symbiotic](https://app.symbiotic.fi){target=_blank}.
 
-Para enviar os metadados do operador, acesse o repositório de metadados Symbiotic:
+Para enviar os metadados do operator, acesse o repositório de metadados Symbiotic:
 
 === "MainNet"
 
     [Repositório MainNet](https://github.com/symbioticfi/metadata-mainnet){target=_blank}
 
-Crie um fork do repositório e, no diretório `operators`, crie uma pasta com o endereço do seu operador. Dentro dela, adicione `logo.png` e um arquivo `info.json` com os campos abaixo (substitua pelos seus valores):
+Crie um fork do repositório e, no diretório `operators`, crie uma pasta com o endereço do seu operator. Dentro dela, adicione `logo.png` e um arquivo `info.json` com os campos abaixo (substitua pelos seus valores):
 
 ```json title="info.json"
 {
-	"name": "INSERIR_SEU_NOME_DO_OPERADOR",
-	"description": "INSERIR_SUA_DESCRIÇÃO_DO_OPERADOR",
+	"name": "INSERIR_SEU_NOME_DO_OPERATOR",
+	"description": "INSERIR_SUA_DESCRIÇÃO_DO_OPERATOR",
 	"tags": [
-		"operador"
+		"operator"
 	],
 	"links": [
 		{

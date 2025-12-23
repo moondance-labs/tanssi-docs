@@ -5,7 +5,7 @@ icon: octicons-gear-24
 template: index-page.html
 ---
 
-# Gerenciando sua Rede com Tecnologia Tanssi
+# Gerenciando sua Rede powered by Tanssi
 
 A Tanssi dApp e o portal do desenvolvedor servem a propósitos diferentes ao gerenciar sua rede, oferecendo benefícios exclusivos adaptados às suas necessidades:
 
@@ -21,7 +21,7 @@ A Tanssi dApp e o portal do desenvolvedor servem a propósitos diferentes ao ger
   - [Cunhagem de tokens](/pt/builders/manage/developer-portal/minting/)
   - [Pausar transações](/pt/builders/manage/developer-portal/pause-transactions/) ou [habilitar modo de manutenção](/pt/builders/manage/developer-portal/maintenance/) em emergências
 
-Passe para as seções abaixo para explorar como cada ferramenta ajuda você a gerenciar sua rede com tecnologia Tanssi de forma eficiente.
+Passe para as seções abaixo para explorar como cada ferramenta ajuda você a gerenciar sua rede powered by Tanssi de forma eficiente.
 
 ## Explore Esta Seção
 

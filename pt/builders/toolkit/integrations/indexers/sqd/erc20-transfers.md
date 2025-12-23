@@ -1,6 +1,6 @@
 ---
 title: Indexar Transferências ERC-20 em uma Rede EVM
-description: Aprenda a usar o Squid SDK, um framework de query node que indexa dados Substrate e EVM, para processar dados on-chain da sua rede com tecnologia Tanssi.
+description: Aprenda a usar o Squid SDK, um framework de query node que indexa dados Substrate e EVM, para processar dados on-chain da sua rede powered by Tanssi.
 icon: octicons-arrow-switch-24
 categories: EVM-Template
 ---
@@ -11,7 +11,7 @@ categories: EVM-Template
 
 [SQD](https://www.sqd.ai/){target=\_blank} é uma rede de dados que permite recuperar informações de blockchain de mais de 100 cadeias de forma rápida e econômica usando o data lake descentralizado da SQD e seu SDK open source. Em termos simples, o SQD funciona como uma ferramenta ETL (extract, transform, load) com um servidor [GraphQL](https://graphql.org){target=\_blank} incluído, permitindo filtragem, paginação e até busca full-text.
 
-O SQD tem suporte nativo e completo para dados EVM e Substrate, oferecendo um Archive e um Processor para cada. O Substrate Archive e o Processor podem indexar dados Substrate e EVM, permitindo extrair dados on-chain de qualquer rede com tecnologia Tanssi e processar logs EVM e entidades Substrate (eventos, extrínsecos e itens de armazenamento) em um único projeto, servindo tudo em um único endpoint GraphQL. Se quiser indexar apenas dados EVM, use o EVM Archive e o Processor.
+O SQD tem suporte nativo e completo para dados EVM e Substrate, oferecendo um Archive e um Processor para cada. O Substrate Archive e o Processor podem indexar dados Substrate e EVM, permitindo extrair dados on-chain de qualquer rede powered by Tanssi e processar logs EVM e entidades Substrate (eventos, extrínsecos e itens de armazenamento) em um único projeto, servindo tudo em um único endpoint GraphQL. Se quiser indexar apenas dados EVM, use o EVM Archive e o Processor.
 
 Este tutorial passo a passo mostra como construir um Squid para indexar dados EVM do início ao fim. O ideal é seguir cada passo, mas você também pode conferir a [versão completa do Squid deste tutorial no repositório tanssiSquid](https://github.com/themacexpert/tanssiSquid){target=\_blank}.
 
@@ -50,7 +50,7 @@ Antes de criar o projeto, instale algumas dependências: o [plugin Hardhat Ether
     yarn add @nomicfoundation/hardhat-ethers ethers @openzeppelin/contracts
     ```
 
-Agora edite `hardhat.config.js` para incluir as configurações de rede e conta. Substitua os valores da rede EVM de demonstração pelos parâmetros da sua rede com tecnologia Tanssi, que podem ser encontrados em [apps.tanssi.network](https://apps.tanssi.network){target=\_blank}.
+Agora edite `hardhat.config.js` para incluir as configurações de rede e conta. Substitua os valores da rede EVM de demonstração pelos parâmetros da sua rede powered by Tanssi, que podem ser encontrados em [apps.tanssi.network](https://apps.tanssi.network){target=\_blank}.
 
 ???+ code "hardhat.config.js"
 

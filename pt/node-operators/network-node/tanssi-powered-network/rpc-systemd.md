@@ -1,6 +1,6 @@
 ---
 title: Execute um Nó Appchain Usando Systemd
-description: Aprenda a configurar e executar um nó appchain com tecnologia Tanssi usando Systemd, que permite ter seu próprio endpoint RPC para interagir com seu appchain.
+description: Aprenda a configurar e executar um nó appchain powered by Tanssi usando Systemd, que permite ter seu próprio endpoint RPC para interagir com seu appchain.
 icon: simple-linux
 categories: RPC-Data-Preservers
 ---

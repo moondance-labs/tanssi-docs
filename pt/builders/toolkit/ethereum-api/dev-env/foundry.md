@@ -9,7 +9,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-[Foundry](https://github.com/foundry-rs/foundry){target=\_blank} é um ambiente de desenvolvimento Ethereum escrito em Rust que ajuda a gerenciar dependências, compilar projetos, executar testes, implantar contratos e interagir com blockchains pela linha de comando. O Foundry pode interagir diretamente com a API Ethereum de redes EVM com tecnologia Tanssi, portanto pode ser usado para implantar e interagir com contratos inteligentes na sua rede Tanssi.
+[Foundry](https://github.com/foundry-rs/foundry){target=\_blank} é um ambiente de desenvolvimento Ethereum escrito em Rust que ajuda a gerenciar dependências, compilar projetos, executar testes, implantar contratos e interagir com blockchains pela linha de comando. O Foundry pode interagir diretamente com a API Ethereum de redes EVM powered by Tanssi, portanto pode ser usado para implantar e interagir com contratos inteligentes na sua rede Tanssi.
 
 Quatro ferramentas compõem o Foundry:
 
@@ -111,7 +111,7 @@ Após a compilação, duas pastas serão criadas: `out` e `cache`. A ABI e o byt
 
 ## Implantando o Contrato {: #deploying-the-contract }
 
-Implantar o contrato com Forge exige apenas um comando, mas você precisa incluir um endpoint RPC, uma chave privada financiada e argumentos do construtor. `MyToken.sol` pede uma oferta inicial de tokens em seu construtor, portanto o comando inclui 100 como argumento do construtor. Você pode implantar o contrato `MyToken.sol` usando o comando abaixo (ajuste para a rede correta):
+Implantar o contrato com Forge exige apenas um comando, mas você precisa incluir um endpoint RPC, uma chave privada financiada e argumentos do builder. `MyToken.sol` pede uma oferta inicial de tokens em seu builder, portanto o comando inclui 100 como argumento do builder. Você pode implantar o contrato `MyToken.sol` usando o comando abaixo (ajuste para a rede correta):
 
 ```bash
 forge create --rpc-url {{ networks.dancelight.demo_evm_rpc_url }} \

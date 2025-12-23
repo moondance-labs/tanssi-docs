@@ -9,7 +9,7 @@ categories: Sequencers
 
 ## Introdução {: #introduction }
 
-Antes de começar a produzir blocos em redes com tecnologia Tanssi, você precisará configurar sua conta e estabelecer sua elegibilidade.
+Antes de começar a produzir blocos em redes powered by Tanssi, você precisará configurar sua conta e estabelecer sua elegibilidade.
 
 Você deve ter iniciado um [nó Sequencer](/pt/node-operators/sequencers/onboarding/run-a-sequencer/){target=\_blank} para realizar as etapas de configuração da conta neste guia.
 
@@ -25,7 +25,7 @@ Ao estabelecer a elegibilidade para produzir blocos, existem algumas variáveis 
 
 - **Autodelegação mínima** - há um valor mínimo que você deve autodelegar para ser considerado elegível
 - **Sessão** - um período que tem um conjunto constante de Sequencers
-- **Sequencers de rede por sessão** - o número de Sequencers atribuídos a uma rede com tecnologia Tanssi por sessão
+- **Sequencers de rede por sessão** - o número de Sequencers atribuídos a uma rede powered by Tanssi por sessão
 
 === "Tanssi MainNet"
 |            Variável            |                                             Valor                                             |
@@ -93,7 +93,7 @@ Usando o método `session.keyOwner`, você pode verificar se suas chaves de sess
 
 ## Enviar Autodelegação {: #submit-self-delegation }
 
-A próxima etapa para se tornar elegível para produzir blocos em redes com tecnologia Tanssi é delegar à sua própria conta. Para fazer isso, você precisará enviar um mínimo de tokens, conforme listado na seção [variáveis importantes](#important-variables).
+A próxima etapa para se tornar elegível para produzir blocos em redes powered by Tanssi é delegar à sua própria conta. Para fazer isso, você precisará enviar um mínimo de tokens, conforme listado na seção [variáveis importantes](#important-variables).
 
 Depois de enviar a solicitação para delegar, você precisará esperar um mínimo de sessões antes de poder executar a solicitação pendente. No caso da Tanssi MainNet, o número de sessões é configurado para {{ networks.mainnet.staking.joining_delay_sessions_text }}. Existem {{ networks.mainnet.session.blocks }} blocos em uma sessão. Portanto, {{ networks.mainnet.staking.joining_delay_sessions_text }} sessões são {{ networks.mainnet.staking.joining_delay_blocks }} blocos, o que pode levar cerca de {{ networks.mainnet.staking.joining_delay_hours_text }} horas.
 

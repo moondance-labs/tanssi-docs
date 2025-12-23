@@ -9,9 +9,9 @@ categories: Operators
 
 ## Introdução {: #introduction }
 
-A manutenção do seu nó atualizado é uma parte importante de ser um operador Tanssi. Isso não apenas ajuda a garantir que seu nó permaneça em bom estado, mas também contribui para manter toda a Rede Tanssi funcionando sem problemas.
+A manutenção do seu nó atualizado é uma parte importante de ser um operator Tanssi. Isso não apenas ajuda a garantir que seu nó permaneça em bom estado, mas também contribui para manter toda a Rede Tanssi funcionando sem problemas.
 
-Este tutorial aborda a atualização do seu nó operador Tanssi que foi configurado usando o Docker. Ele pressupõe que você já configurou sua conta e lançou um [nó operador usando o Systemd](/pt/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
+Este tutorial aborda a atualização do seu node operator Tanssi que foi configurado usando o Docker. Ele pressupõe que você já configurou sua conta e lançou um [node operator usando o Systemd](/pt/node-operators/operators/onboarding/run-an-operator/operators-systemd/){target=\_blank}.
 
 --8<-- 'text/pt/node-operators/github-release-notifications.md'
 
@@ -19,7 +19,7 @@ Este tutorial aborda a atualização do seu nó operador Tanssi que foi configur
 
 A atualização do seu nó é tão simples quanto parar o contêiner em execução e reiniciá-lo com a nova tag de versão.
 
-Primeiro, obtenha o ID do contêiner do seu nó operador Tanssi com o seguinte comando:
+Primeiro, obtenha o ID do contêiner do seu node operator Tanssi com o seguinte comando:
 
 ```bash
 docker ps -a

@@ -11,7 +11,7 @@ categories: EVM-Template
 
 [Band Protocol](https://www.bandprotocol.com/){target=\_blank} é uma rede de oráculos descentralizada que fornece dados confiáveis, seguros e em tempo real para contratos inteligentes em várias redes blockchain.
 
-O protocolo é construído sobre o BandChain, uma rede projetada para ser compatível com a maioria das cadeias compatíveis com EVM, como as redes EVM com tecnologia Tanssi, e com frameworks de desenvolvimento. O protocolo busca oferecer uma solução:
+O protocolo é construído sobre o BandChain, uma rede projetada para ser compatível com a maioria das cadeias compatíveis com EVM, como as redes EVM powered by Tanssi, e com frameworks de desenvolvimento. O protocolo busca oferecer uma solução:
 
 - Descentralizada, aproveitando o poder computacional de uma rede de validadores
 - Flexível, suportando ampla variedade de fontes e formatos de dados, facilitando integrações

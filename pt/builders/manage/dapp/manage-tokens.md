@@ -24,7 +24,7 @@ Neste guia, você aprenderá como executar as ações listadas anteriormente usa
 
 Para os exemplos neste guia, você precisará ter o seguinte:
 
-- Uma rede com tecnologia Tanssi (Teste Rápido ou Dedicado)
+- Uma rede powered by Tanssi (Teste Rápido ou Dedicado)
 --8<-- 'text/pt/builders/manage/dapp/prerequisites.md'
 
 ## Acessando o Painel de Gerenciamento de Tokens {: #accesing-token-management-panel }
@@ -102,7 +102,7 @@ Você será solicitado a assinar a transação com a conta do governador da rede
 !!! note
     Esta opção se aplica apenas a redes compatíveis com EVM.
 
-O governador de uma rede compatível com EVM com tecnologia Tanssi pode alterar sua configuração [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank}, afetando o mecanismo de precificação da transação. Para fazer isso, no painel **Token Management**, clique no botão **Gas Dynamics** e, em seguida:
+O governador de uma rede compatível com EVM powered by Tanssi pode alterar sua configuração [EIP-1559](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-1559.md){target=\_blank}, afetando o mecanismo de precificação da transação. Para fazer isso, no painel **Token Management**, clique no botão **Gas Dynamics** e, em seguida:
 
 1. Insira a nova taxa base, expressa em unidades Wei (10<sup>-18</sup>)
 2. Insira o valor da elasticidade

@@ -10,7 +10,7 @@ categories: Operators
 
 ## Introdução {: #introduction }
 
-Esta página detalha a etapa final opcional no processo de desligamento Tanssi: a exclusão voluntária de um vault específico. Embora não seja obrigatória, esta ação permite que os operadores desassocie suas contas de vaults individuais. Antes de prosseguir com esta etapa, certifique-se de ter cumprido todas as condições descritas no guia de [pré-requisitos](/pt/node-operators/operators/offboarding/prerequisites/){target=\_blank}.
+Esta página detalha a etapa final opcional no processo de desligamento Tanssi: a exclusão voluntária de um vault específico. Embora não seja obrigatória, esta ação permite que os operators desassocie suas contas de vaults individuais. Antes de prosseguir com esta etapa, certifique-se de ter cumprido todas as condições descritas no guia de [pré-requisitos](/pt/node-operators/operators/offboarding/prerequisites/){target=\_blank}.
 
 Este guia fornece instruções sobre como cancelar a participação usando um dos métodos disponíveis e como verificar a conclusão bem-sucedida dessa ação.
 
@@ -70,7 +70,7 @@ Certifique-se de selecionar **Contract** e **Write Contract**, depois clique em 
 2. Insira o `VAULT_ADDRESS` no campo **where** (por exemplo, `{{ networks.symbiotic.contracts.sepolia.vault }}` no Sepolia TestNet)
 3. Clique em **Write** e assine a transação
 
-![Cancelar operador](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-5.webp)
+![Cancelar operator](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-5.webp)
 
 ### Usando o Safe {: #opt-out-vault-with-safe }
 
@@ -107,11 +107,11 @@ Na página do contrato:
 Certifique-se de selecionar **Contract** e **Write Contract**, depois clique em **Connect to Web3** e selecione sua carteira preferida (por exemplo, MetaMask):
 1. Selecione a guia **Read Contract**
 2. Localize e expanda a função **isOptedIn**
-3. Cole a conta do seu operador no campo **who**
+3. Cole a conta do seu operator no campo **who**
 4. Insira o endereço do vault no campo **where**
 5. Clique em **Query**
 
-Você obterá um resultado `false` se o operador tiver cancelado a participação no vault com sucesso e `true` se ainda estiver inscrito.
+Você obterá um resultado `false` se o operator tiver cancelado a participação no vault com sucesso e `true` se ainda estiver inscrito.
 
 ![Verifique o status do registro](/images/node-operators/operators/offboarding/offboarding-process/offboarding-process-6.webp)
 

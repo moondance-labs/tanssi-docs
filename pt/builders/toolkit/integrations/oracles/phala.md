@@ -1,6 +1,6 @@
 ---
 title: Usando Phala para Oráculos de Feeds de Preço
-description: Aprenda a usar a rede de computação off-chain da Phala para obter feeds de preço Chainlink (Ethereum Mainnet) na sua rede EVM com tecnologia Tanssi.
+description: Aprenda a usar a rede de computação off-chain da Phala para obter feeds de preço Chainlink (Ethereum Mainnet) na sua rede EVM powered by Tanssi.
 icon: octicons-eye-24
 categories: EVM-Template
 ---
@@ -13,7 +13,7 @@ categories: EVM-Template
 
 A Phala não é, por si só, uma rede de oráculos; ela habilita várias capacidades de computação off-chain, incluindo uma rede descentralizada de oráculos. A Phala também oferece o [Phala Bricks](https://bricks.phala.network){target=_blank}, um conjunto de ferramentas que facilita lançar rapidamente esse tipo de funcionalidade sem precisar construir tudo do zero.
 
-Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-price-data) habilitados por Phat Contracts na rede EVM de demonstração da Tanssi. Em seguida, você verá como [implantar feeds de preço na sua rede EVM com tecnologia Tanssi](#launching-price-feeds-on-an-evm-network). Para produção, é altamente recomendável [contatar a equipe Phala](https://dashboard.phala.network){target=_blank} para auxiliar no lançamento e garantir a integridade do processo.
+Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-price-data) habilitados por Phat Contracts na rede EVM de demonstração da Tanssi. Em seguida, você verá como [implantar feeds de preço na sua rede EVM powered by Tanssi](#launching-price-feeds-on-an-evm-network). Para produção, é altamente recomendável [contatar a equipe Phala](https://dashboard.phala.network){target=_blank} para auxiliar no lançamento e garantir a integridade do processo.
 
 Se você já usa outro provedor de oráculos, a Phala serve como camada de execução confidencial para trazer esses dados para sua rede Tanssi. É possível adaptar o fluxo descrito aqui para outros feeds ou APIs, mantendo a mesma interface de consumo no contrato EVM.
 
@@ -21,7 +21,7 @@ Além disso, por usar enclaves seguros, a Phala reduz a superfície de ataque ao
 
 ## Como a Phala Habilita Feeds de Preço {: #how-phala-enables-price-feeds }
 
-A Phala espelha os [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds){target=_blank} do Ethereum Mainnet. Esses feeds são amplamente adotados e sua coleta/agragação é feita por vários operadores de nó independentes, evitando dependência de uma única fonte de verdade e reduzindo risco de manipulação.
+A Phala espelha os [Chainlink Price Feeds](https://docs.chain.link/data-feeds/price-feeds){target=_blank} do Ethereum Mainnet. Esses feeds são amplamente adotados e sua coleta/agragação é feita por vários node operators independentes, evitando dependência de uma única fonte de verdade e reduzindo risco de manipulação.
 
 O componente central do desenho do sistema é o [Secure Enclave](https://docs.phala.com/network/tech-specs/blockchain/overview#the-architecture){target=_blank}, que processa as mensagens recebidas da blockchain Phala (fila de mensagens criptografada) e garante execução fiel mesmo com trabalhadores maliciosos. A blockchain Phala solicita a atualização do feed; os workers off-chain buscam os preços no Ethereum Mainnet e devolvem para a blockchain Phala.
 

@@ -1,6 +1,6 @@
 ---
 title: Integrações de Carteiras
-description: Saiba como adicionar integrações de carteiras ao seu dApp em redes com tecnologia Tanssi para que os utilizadores possam ligar-se automaticamente às suas carteiras.
+description: Saiba como adicionar integrações de carteiras ao seu dApp em redes powered by Tanssi para que os utilizadores possam ligar-se automaticamente às suas carteiras.
 icon: material-wallet-outline
 template: index-page.html
 ---

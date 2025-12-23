@@ -23,7 +23,7 @@ Além da produção de blocos, há outros aspectos essenciais para qualquer rede
 
 - **Consenso** - as redes têm a funcionalidade necessária para permitir que os Sequencers produzam blocos, fofoquem e validem-nos e coordenem com o provedor de segurança para serem notificados sobre a finalidade do bloco
 - **Interoperabilidade de Redes** - lida com a ingestão e envio de mensagens descendentes e laterais de entrada, permitindo que uma rede Tanssi se comunique e interaja com as outras cadeias dentro do ecossistema
-- **Atualizações de Runtime** - uma atualização de Runtime em uma rede Tanssi deve ser informada aos operadores do provedor de segurança para permitir que eles verifiquem os blocos produzidos pelos Sequencers das redes Tanssi
+- **Atualizações de Runtime** - uma atualização de Runtime em uma rede Tanssi deve ser informada aos operators do provedor de segurança para permitir que eles verifiquem os blocos produzidos pelos Sequencers das redes Tanssi
 
 ## Módulos Incluídos {: #included-modules  }
 

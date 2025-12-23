@@ -1,6 +1,6 @@
 ---
 title: Staking para Produção de Blocos
-description: Saiba como a Tanssi implementa um mecanismo de staking para prover disponibilidade por meio de um conjunto descentralizado e trustless de Sequencers para todas as redes com tecnologia Tanssi.
+description: Saiba como a Tanssi implementa um mecanismo de staking para prover disponibilidade por meio de um conjunto descentralizado e trustless de Sequencers para todas as redes powered by Tanssi.
 icon: material-hand-coin-outline
 categories: Basics
 ---
@@ -11,7 +11,7 @@ categories: Basics
 
 Uma das propostas centrais da Tanssi é simplificar a complexidade de infraestrutura das redes. Um componente crucial é iniciar um conjunto descentralizado de Sequencers, que a Tanssi oferece por meio de sua arquitetura e mecânica de staking.
 
-A mecânica de staking da Tanssi garante que os Sequencers das redes com tecnologia Tanssi sejam escolhidos de forma descentralizada e trustless, além de incentivar a comunidade a delegar para Sequencers de melhor desempenho ou mais engajados.
+A mecânica de staking da Tanssi garante que os Sequencers das redes powered by Tanssi sejam escolhidos de forma descentralizada e trustless, além de incentivar a comunidade a delegar para Sequencers de melhor desempenho ou mais engajados.
 
 Este conteúdo apresenta os conceitos fundamentais do staking da Tanssi e como ele mantém um conjunto descentralizado de produção de blocos que garante a disponibilidade das redes.
 

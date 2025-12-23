@@ -20,7 +20,7 @@ O RainbowKit agrupa várias ferramentas para simplificar a conexão de carteiras
 
 Usando essas peças juntas, você evita reimplementar fluxo de conexão, persistência de sessão, atualização de saldo e troca de redes, acelerando a entrega do dApp.
 
-Este guia explica como adicionar o RainbowKit a um dApp em uma rede com tecnologia Tanssi usando a CLI, além de opções para personalizar a integração.
+Este guia explica como adicionar o RainbowKit a um dApp em uma rede powered by Tanssi usando a CLI, além de opções para personalizar a integração.
 
 ## Início Rápido {: #quick-start }
 

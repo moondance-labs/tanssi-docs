@@ -1,6 +1,6 @@
 ---
 title: Pré-compilado Batch
-description: Aprenda a combinar várias transferências e interações de contrato por meio de uma interface Solidity usando o Batch Precompile na sua rede EVM com tecnologia Tanssi.
+description: Aprenda a combinar várias transferências e interações de contrato por meio de uma interface Solidity usando o Batch Precompile na sua rede EVM powered by Tanssi.
 keywords: solidity, ethereum, batch, transação, tanssi, precompiled, contratos
 icon: octicons-stack-24
 categories: EVM-Template
@@ -10,7 +10,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-O contrato Batch Precompile em redes EVM com tecnologia Tanssi permite agrupar várias chamadas EVM em uma só.
+O contrato Batch Precompile em redes EVM powered by Tanssi permite agrupar várias chamadas EVM em uma só.
 
 Normalmente, fazer o usuário interagir com vários contratos exige várias confirmações de transação na carteira. Um exemplo seria aprovar o acesso de um contrato a um token e logo em seguida transferi-lo. Com o Batch Precompile, você melhora a experiência do usuário com transações em lote, pois reduz o número de confirmações necessárias. Além disso, as taxas de gás podem diminuir, já que o batching evita múltiplas taxas base (as 21000 unidades iniciais de gás de cada transação).
 
@@ -235,7 +235,7 @@ Há três subtransações que correspondem a três endereços no array `to`. O p
 ]
 ```
 
-Também haverá três valores para o array `value`. O primeiro endereço em `to` indica `1000000000000000000` wei ou `1` UNIT do token nativo. Lembre que os tokens nativos de redes EVM com tecnologia Tanssi têm [18 casas decimais, assim como no Ethereum](https://eth-converter.com){target=\_blank}. Os dois valores seguintes são `0` porque a função com que suas subtransações interagem não aceita nem exige moeda nativa.  
+Também haverá três valores para o array `value`. O primeiro endereço em `to` indica `1000000000000000000` wei ou `1` UNIT do token nativo. Lembre que os tokens nativos de redes EVM powered by Tanssi têm [18 casas decimais, assim como no Ethereum](https://eth-converter.com){target=\_blank}. Os dois valores seguintes são `0` porque a função com que suas subtransações interagem não aceita nem exige moeda nativa.  
 
 ```text
 ["1000000000000000000", "0", "0"]
