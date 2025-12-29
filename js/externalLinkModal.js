@@ -3,7 +3,21 @@ const main = document.querySelector('main');
 
 /** Simple i18n for modal strings */
 const lang = (document.documentElement.lang || 'en').toLowerCase();
-const injected = (window.__externalLinkModalStrings && window.__externalLinkModalStrings[lang]) || {};
+let injected = {};
+const injectedScript = document.getElementById('external-link-modal-strings');
+if (injectedScript) {
+  try {
+    const parsed = JSON.parse(injectedScript.textContent || '{}');
+    if (parsed && parsed[lang]) {
+      injected = parsed[lang];
+    }
+  } catch (err) {
+    injected = {};
+  }
+}
+if (!Object.keys(injected).length) {
+  injected = (window.__externalLinkModalStrings && window.__externalLinkModalStrings[lang]) || {};
+}
 const fallback = {
   header: `You're Leaving the Tanssi Documentation Website`,
   message: `A new tab will open and you'll be sent to an independent, third-party website that is not affiliated with Tanssi.`,
@@ -39,14 +53,14 @@ closeExternalLinkModal.className = 'close-modal';
 externalLinkModalContainer.style.display = 'none';
 
 /** Set text inside the modal */
-externalLinkModalHeader.innerHTML = t.header;
-externalLinkModalMessage.innerHTML = t.message;
+externalLinkModalHeader.textContent = t.header;
+externalLinkModalMessage.textContent = t.message;
 
 /** Set button text and classes */
-cancelButton.innerHTML = t.cancel;
+cancelButton.textContent = t.cancel;
 cancelButton.classList.add('md-button');
 
-continueToExternalButton.innerHTML = t.continue;
+continueToExternalButton.textContent = t.continue;
 continueToExternalButton.classList.add('md-button--primary', 'md-button');
 
 buttonWrapper.classList.add('row', 'modal-buttons', 'md-typeset');

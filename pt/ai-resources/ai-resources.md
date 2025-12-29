@@ -5,7 +5,7 @@ description: Baixe arquivos otimizados para LLM com a documentação Tanssi, inc
 
 # Recursos de IA
 
-A Tanssi fornece arquivos `.txt` contendo o conteúdo da documentação e a estrutura de navegação, otimizados para uso com Templates de linguagem (LLMs) e ferramentas de IA. Esses recursos ajudam a criar assistentes de IA, potencializam buscas em código ou permitem ferramentas personalizadas treinadas na documentação da Tanssi.
+A Tanssi fornece arquivos `.txt` contendo o conteúdo da documentação e a estrutura de navegação, otimizados para uso com modelos de linguagem (LLMs) e ferramentas de IA. Esses recursos ajudam a criar assistentes de IA, potencializam buscas em código ou permitem ferramentas personalizadas treinadas na documentação da Tanssi.
 
 Cada arquivo por categoria inclui o conteúdo básico das categorias **Basics** e **Reference** para garantir que os LLMs tenham o contexto necessário.
 

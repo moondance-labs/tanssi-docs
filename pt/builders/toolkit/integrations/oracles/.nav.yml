@@ -2,6 +2,6 @@ title: Oracles
 hide: false
 nav:
   - index.md
-  - 'Feeds de preços com Acurast': 'acurast.md'
-  - 'Feeds de preços com Band Protocol': 'band.md'
-  - 'Feeds de preços com Phala': 'phala.md'
+  - 'Feeds de Preços com Acurast': 'acurast.md'
+  - 'Feeds de Preços com Band Protocol': 'band.md'
+  - 'Feeds de Preços com Phala': 'phala.md'

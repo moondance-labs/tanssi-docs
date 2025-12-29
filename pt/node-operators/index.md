@@ -4,7 +4,7 @@ description: Esta secção oferece guias para configurar infraestruturas e nós 
 template: root-index-page.html
 ---
 
-# Operators de Nós
+# Node Operators
 
 A operação de nós é uma parte crucial para manter um ecossistema de blockchain, e o Tanssi garante que esse processo seja o mais perfeito possível. Da execução de nós de rede e gerenciamento de Sequencers à integração de operators, esta seção fornece tudo o que você precisa para começar e operar com eficiência.
 
