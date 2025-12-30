@@ -95,16 +95,16 @@ jobs:
       ROSE_N8N_RECEIVING_TOKEN: ${{ secrets.N8N_RECEIVING_TOKEN || '' }}
       ROSE_N8N_ALLOWED_HOST: ${{ vars.N8N_ALLOWED_HOST || '' }}
       ROSE_QUIET: "1"
-      ROSE_INCLUDE_FILES: ${{ github.event_name == 'workflow_dispatch' && inputs.file_filter || '' }}
-      ROSE_INCLUDE_FULL: ${{ github.event_name == 'workflow_dispatch' && inputs.include_full || '' }}
-      ROSE_LANGUAGES: ${{ vars.ROSE_LANGUAGES }}
+      N8N_ROSE_INCLUDE_FILES: ${{ github.event_name == 'workflow_dispatch' && inputs.file_filter || '' }}
+      N8N_ROSE_INCLUDE_FULL: ${{ github.event_name == 'workflow_dispatch' && inputs.include_full || '' }}
+      N8N_ROSE_LANGUAGES: ${{ vars.ROSE_LANGUAGES }}
       ROSE_TRANSLATION_BRANCH: rose/translations
     steps:
       - name: Determine translation parameters
         id: refs
         shell: bash
         run: |
-          DEFAULT_LANGS="${ROSE_LANGUAGES:-es fr pt}"
+          DEFAULT_LANGS="${N8N_ROSE_LANGUAGES:-${ROSE_LANGUAGES:-es fr pt}}"
           normalize_ref() {
             local ref="$1"
             if [[ -z "$ref" ]]; then

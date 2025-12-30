@@ -746,10 +746,10 @@ def _cleanup_pycache() -> None:
 
 def _run_pipeline(args: argparse.Namespace) -> int:
 
-    env_include_files = os.environ.get("ROSE_INCLUDE_FILES")
+    env_include_files = os.environ.get("N8N_ROSE_INCLUDE_FILES") or os.environ.get("ROSE_INCLUDE_FILES")
     if env_include_files and env_include_files.strip().lower() == "none":
         env_include_files = ""
-    env_include_full = os.environ.get("ROSE_INCLUDE_FULL")
+    env_include_full = os.environ.get("N8N_ROSE_INCLUDE_FULL") or os.environ.get("ROSE_INCLUDE_FULL")
     if env_include_full and not args.include_full:
         args.include_full = env_include_full.lower() in {"1", "true", "yes", "on"}
     if env_include_files and not args.include_files:
