@@ -82,8 +82,8 @@ msgstr "Site Tanssi <span class=\"shadow\">&lt;Dev&gt;</span>"
 
 msgid "home.hero.subtitle"
 msgstr ""
-"Crie, lance e escale redes Symbiotic mais rápido com a infraestrutura, as "
-"ferramentas e as integrações da Tanssi."
+"Construa, lance e escale redes Symbiotic mais rápido com a infraestrutura, "
+"as ferramentas e as integrações da Tanssi."
 
 msgid "home.hero.cards.launch.title"
 msgstr "Lance uma rede movida pela Tanssi"
@@ -196,3 +196,6 @@ msgstr ""
 "href=\"https://github.com/moondance-labs/tanssi-"
 "docs/issues/new/?title=[Feedback]+{title}+-+{url}\" target=\"_blank\" "
 "rel=\"noopener\">feedback adicional</a>."
+
+msgid "home.feature.heading.suffix"
+msgstr "Tanssi"

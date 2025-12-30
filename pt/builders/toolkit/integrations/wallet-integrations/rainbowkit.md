@@ -13,9 +13,9 @@ categories: EVM-Template
 
 O RainbowKit agrupa várias ferramentas para simplificar a conexão de carteiras em um dApp:
 
-- [Wagmi](https://wagmi.sh/){target=_blank} — hooks React para contas, carteiras, contratos, transações, assinatura, ENS e mais
-- [viem](https://viem.sh/){target=_blank} — interface TypeScript com primitivas de baixo nível para interagir com Ethereum
-- [WalletConnect](https://walletconnect.com/){target=_blank} — adiciona conexões criptografadas e UX aprimorada (ex.: conectar carteira móvel via QR)
+- [Wagmi](https://wagmi.sh/){target=\_blank} — hooks React para contas, carteiras, contratos, transações, assinatura, ENS e mais
+- [viem](https://viem.sh/){target=\_blank} — interface TypeScript com primitivas de baixo nível para interagir com Ethereum
+- [WalletConnect](https://walletconnect.com/){target=\_blank} — adiciona conexões criptografadas e UX aprimorada (ex.: conectar carteira móvel via QR)
 - [TanStack Query](https://tanstack.com/query/latest/docs/framework/react/overview){target=_blank} — ajuda a gerenciar e atualizar estado de servidor no app
 
 Usando essas peças juntas, você evita reimplementar fluxo de conexão, persistência de sessão, atualização de saldo e troca de redes, acelerando a entrega do dApp.
@@ -24,7 +24,7 @@ Este guia explica como adicionar o RainbowKit a um dApp em uma rede powered by T
 
 ## Início Rápido {: #quick-start }
 
-Para começar um projeto novo, o RainbowKit pode gerar um esqueleto via CLI com RainbowKit e Wagmi em uma aplicação [Next.js](https://nextjs.org/docs){target=_blank}. Use o gerenciador de pacotes de sua preferência:
+Para começar um projeto novo, o RainbowKit pode gerar um esqueleto via CLI com RainbowKit e Wagmi em uma aplicação [Next.js](https://nextjs.org/docs){target=\_blank}. Use o gerenciador de pacotes de sua preferência:
 
 === "npm"
 
@@ -77,7 +77,7 @@ Você verá a tela inicial:
 
 Abra o projeto no editor e veja o arquivo `wagmi.ts`. É nele que você configura as cadeias disponíveis para conexão.
 
-Como a [rede EVM demo](https://apps.tanssi.network/demo/){target=_blank} é uma rede personalizada da Tanssi, ela não pode ser importada direto de `wagmi/chains`. Defina a cadeia manualmente em `wagmi.ts`.
+Como a [rede EVM demo](https://apps.tanssi.network/demo/){target=\_blank} é uma rede personalizada da Tanssi, ela não pode ser importada direto de `wagmi/chains`. Defina a cadeia manualmente em `wagmi.ts`.
 
 Configuração para a rede EVM demo da Tanssi:
 
@@ -235,7 +235,7 @@ Se você tiver vários botões ou páginas, considere criar um componente compar
 
 ## Personalizar o RainbowKit
 
-O RainbowKit facilita a conexão e permite customizar UI/UX. Veja todas as opções na [docs do RainbowKit](https://rainbowkit.com/docs/introduction){target=_blank}. Aqui vamos definir a cadeia inicial e aplicar tema customizado.
+O RainbowKit facilita a conexão e permite customizar UI/UX. Veja todas as opções na [docs do RainbowKit](https://rainbowkit.com/docs/introduction){target=\_blank}. Aqui vamos definir a cadeia inicial e aplicar tema customizado.
 
 ### Definir Cadeia Inicial
 
@@ -290,6 +290,6 @@ Se desejar suportar redes adicionais, basta adicioná-las em `wagmi.ts` e fornec
 
 ![Customização de tema no modal](/images/builders/toolkit/integrations/wallet-integrations/rainbowkit/rainbowkit-3.webp)
 
-Mais opções estão na [docs do RainbowKit](https://rainbowkit.com/docs/introduction){target=_blank}. Código completo no repositório [rainbowkit-manual-build-demo](https://github.com/papermoonio/rainbowkit-manual-build-demo){target=_blank}.
+Mais opções estão na [docs do RainbowKit](https://rainbowkit.com/docs/introduction){target=_blank}. Código completo no repositório [rainbowkit-manual-build-demo](https://github.com/papermoonio/rainbowkit-manual-build-demo){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'

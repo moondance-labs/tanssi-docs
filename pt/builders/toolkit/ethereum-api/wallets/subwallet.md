@@ -52,7 +52,7 @@ Na tela seguinte, você poderá fornecer a frase semente relevante, a chave priv
 Para configurar o SubWallet para sua rede EVM Powered by Tanssi, pressione o ícone **Mais opções** no canto superior esquerdo. Em seguida, clique em **Gerenciar redes**. Pressione o ícone **+**. Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede Tanssi. Para fins de demonstração, a rede EVM de demonstração é usada aqui, mas você pode substituir esses detalhes pelos detalhes da sua própria rede Tanssi. Para adicionar sua rede Tanssi ao SubWallet, siga estas etapas:
 
 1. Cole a URL HTTPS RPC de sua rede Tanssi. A URL RPC da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_rpc_url }}`. Outros parâmetros serão preenchidos automaticamente
-2. Cole a URL do explorador de blocos de sua rede Tanssi. A URL do explorador de blocos da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`
+2. Cole a URL do block explorer de sua rede Tanssi. A URL do block explorer da rede EVM de demonstração é `{{ networks.dancelight.demo_evm_blockscout_url }}`
 3. Pressione **Salvar**
 
 ![Adicione os Detalhes da Rede Alimentada pela Tanssi no SubWallet](/images/builders/toolkit/ethereum-api/wallets/subwallet/subwallet-6.webp)

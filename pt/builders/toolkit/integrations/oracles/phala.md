@@ -1,5 +1,5 @@
 ---
-title: Usando Phala para Oráculos de Feeds de Preço
+title: Usando Phala para Oracles de Feeds de Preço
 description: Aprenda a usar a rede de computação off-chain da Phala para obter feeds de preço Chainlink (Ethereum Mainnet) na sua rede EVM powered by Tanssi.
 icon: octicons-eye-24
 categories: EVM-Template
@@ -11,11 +11,11 @@ categories: EVM-Template
 
 [Phala Network](https://phala.com/){target=_blank} é uma rede de computação off-chain apoiada por [Secure Enclaves](https://docs.phala.com/network/tech-specs/blockchain/overview#the-architecture){target=_blank} que permite a desenvolvedores criar contratos inteligentes potentes conectados a componentes off-chain, chamados Phat Contracts. Os Phat Contracts foram projetados para oferecer funcionalidades que superam as limitações de contratos tradicionais (armazenamento, custo, computação), mantendo-se trustless, verificáveis e sem permissão. Para saber mais sobre a arquitetura da Phala, consulte a [documentação](https://docs.phala.com/overview/phala-network){target=_blank}.
 
-A Phala não é, por si só, uma rede de oráculos; ela habilita várias capacidades de computação off-chain, incluindo uma rede descentralizada de oráculos. A Phala também oferece o [Phala Bricks](https://bricks.phala.network){target=_blank}, um conjunto de ferramentas que facilita lançar rapidamente esse tipo de funcionalidade sem precisar construir tudo do zero.
+A Phala não é, por si só, uma rede de oracles; ela habilita várias capacidades de computação off-chain, incluindo uma rede descentralizada de oracles. A Phala também oferece o [Phala Bricks](https://bricks.phala.network){target=_blank}, um conjunto de ferramentas que facilita lançar rapidamente esse tipo de funcionalidade sem precisar construir tudo do zero.
 
 Este tutorial mostra um demo de [como interagir com feeds de preço](#fetch-price-data) habilitados por Phat Contracts na rede EVM de demonstração da Tanssi. Em seguida, você verá como [implantar feeds de preço na sua rede EVM powered by Tanssi](#launching-price-feeds-on-an-evm-network). Para produção, é altamente recomendável [contatar a equipe Phala](https://dashboard.phala.network){target=_blank} para auxiliar no lançamento e garantir a integridade do processo.
 
-Se você já usa outro provedor de oráculos, a Phala serve como camada de execução confidencial para trazer esses dados para sua rede Tanssi. É possível adaptar o fluxo descrito aqui para outros feeds ou APIs, mantendo a mesma interface de consumo no contrato EVM.
+Se você já usa outro provedor de oracles, a Phala serve como camada de execução confidencial para trazer esses dados para sua rede Tanssi. É possível adaptar o fluxo descrito aqui para outros feeds ou APIs, mantendo a mesma interface de consumo no contrato EVM.
 
 Além disso, por usar enclaves seguros, a Phala reduz a superfície de ataque ao processar dados sensíveis ou agregados de múltiplas fontes, reforçando a confiança no resultado final consumido pelos dApps.
 
@@ -25,9 +25,9 @@ A Phala espelha os [Chainlink Price Feeds](https://docs.chain.link/data-feeds/pr
 
 O componente central do desenho do sistema é o [Secure Enclave](https://docs.phala.com/network/tech-specs/blockchain/overview#the-architecture){target=_blank}, que processa as mensagens recebidas da blockchain Phala (fila de mensagens criptografada) e garante execução fiel mesmo com trabalhadores maliciosos. A blockchain Phala solicita a atualização do feed; os workers off-chain buscam os preços no Ethereum Mainnet e devolvem para a blockchain Phala.
 
-Além de replicar oráculos existentes, é possível criar novos oráculos buscando dados off-chain via Phat Contracts. No [exemplo de Phat-EVM Oracle](https://github.com/Phala-Network/phat-offchain-rollup/blob/main/EvmRollup.md){target=_blank}, os preços vêm da API do CoinGecko e podem ser enviados continuamente (push) ou solicitados pelo contrato EVM (pull).
+Além de replicar oracles existentes, é possível criar novos oracles buscando dados off-chain via Phat Contracts. No [exemplo de Phat-EVM Oracle](https://github.com/Phala-Network/phat-offchain-rollup/blob/main/EvmRollup.md){target=_blank}, os preços vêm da API do CoinGecko e podem ser enviados continuamente (push) ou solicitados pelo contrato EVM (pull).
 
-Em resumo: a Phala funciona como uma ponte segura entre dados externos e sua rede EVM, permitindo reutilizar feeds consolidados da Chainlink ou construir integrações sob medida usando Phat Contracts.
+Em resumo: a Phala funciona como uma bridge segura entre dados externos e sua rede EVM, permitindo reutilizar feeds consolidados da Chainlink ou construir integrações sob medida usando Phat Contracts.
 
 ## Buscar Dados de Preço {: #fetch-price-data }
 

@@ -1,6 +1,6 @@
 ---
-title: Usando o Band Protocol para Oráculos de Feed de Preços
-description: Aprenda a usar a rede de oráculos descentralizada do Band Protocol para obter preços de tokens confiáveis, permitindo acesso seguro a dados para sua rede EVM da Tanssi.
+title: Usando o Band Protocol para Oracles de Feed de Preços
+description: Aprenda a usar a rede de oracles descentralizada do Band Protocol para obter preços de tokens confiáveis, permitindo acesso seguro a dados para sua rede EVM da Tanssi.
 icon: octicons-eye-24
 categories: EVM-Template
 ---
@@ -9,7 +9,7 @@ categories: EVM-Template
 
 ## Introdução {: #introduction }
 
-[Band Protocol](https://www.bandprotocol.com/){target=\_blank} é uma rede de oráculos descentralizada que fornece dados confiáveis, seguros e em tempo real para contratos inteligentes em várias redes blockchain.
+[Band Protocol](https://www.bandprotocol.com/){target=\_blank} é uma rede de oracles descentralizada que fornece dados confiáveis, seguros e em tempo real para contratos inteligentes em várias redes blockchain.
 
 O protocolo é construído sobre o BandChain, uma rede projetada para ser compatível com a maioria das cadeias compatíveis com EVM, como as redes EVM powered by Tanssi, e com frameworks de desenvolvimento. O protocolo busca oferecer uma solução:
 

@@ -78,7 +78,7 @@ Aqui, você pode configurar a MetaMask para as seguintes redes:
 |          RPC URL          |    `{{ networks.dancelight.demo_evm_rpc_url }}`     |
 |         Chain ID          |    `{{ networks.dancelight.demo_evm_chain_id }}`    |
 |     Símbolo (Opcional)     |  `{{ networks.dancelight.demo_evm_token_symbol }}`  |
-| Explorador de Blocos (Opcional) | `{{ networks.dancelight.demo_evm_blockscout_url }}` |
+| Block Explorer (Opcional) | `{{ networks.dancelight.demo_evm_blockscout_url }}` |
 
 Para fazer isso, preencha as seguintes informações:
 
@@ -86,7 +86,7 @@ Para fazer isso, preencha as seguintes informações:
 2. **RPC URL** - Endpoint RPC da rede
 3. **Chain ID** - ID da cadeia da rede compatível com Ethereum
 4. **Símbolo** - (opcional) símbolo do token nativo da rede
-5. **Explorador de Blocos** - (opcional) URL do explorador de blocos
+5. **Block Explorer** - (opcional) URL do block explorer
 6. Depois de verificar todas as informações, clique em **Salvar**
 ![Adicionar rede na Metamask](/images/builders/toolkit/ethereum-api/wallets/metamask/metamask-8.webp)
 

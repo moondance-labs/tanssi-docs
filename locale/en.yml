@@ -34,6 +34,7 @@ home:
     heading:
       prefix: The One Stop-Hub For Tanssi
       accent: Builders
+      suffix: ""
     description: Explore more ways to engage with the Tanssi ecosystem—access funding,
       resources, and visibility for your project.
     cards:

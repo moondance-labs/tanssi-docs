@@ -44,7 +44,7 @@ Ao longo deste guia, você criará vários scripts com funções diferentes, com
 Para configurar um provedor Web3, siga estes passos:
 
 1. Importe a biblioteca `Web3`.
-2. Crie o provedor Web3 e defina a URL RPC. Você pode configurar Web3.js para funcionar com a rede EVM de demonstração da Tanssi executando no Dancelight ou com sua própria rede EVM da Tanssi apenas alterando o endpoint.
+2. Crie o provedor Web3 e defina a URL RPC. Você pode configurar Web3.js para funcionar com a rede EVM de demonstração da Tanssi executando na Dancelight ou com sua própria rede EVM da Tanssi apenas alterando o endpoint.
 
 ```js
 // 1. Importe o Web3

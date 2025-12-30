@@ -21,7 +21,7 @@ Este tutorial irá guiá-lo pela configuração de uma conta proxy de staking no
 
 Para acompanhar este tutorial, você precisará ter:
 
-- O [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} aberto e conectado ao Dancelight
+- O [portal do desenvolvedor](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank} aberto e conectado à Dancelight
 - Criar ou ter duas contas acessíveis no portal do desenvolvedor
 - Ambas as contas precisarão ser financiadas, e a conta do Sequencer precisará de pelo menos a autodelegação mínima necessária para se tornar um Sequencer ativo ({{ networks.dancelight.sequencers.minimum_self_delegation }} {{ networks.dancelight.token_symbol }} para Dancelight)
 

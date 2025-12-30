@@ -199,7 +199,7 @@ Note que o comando `ExecStart` tem parâmetros que precisam ser ajustados para s
 
 ### Exemplo de Configuração Completa para a Rede EVM de Demonstração {: #example-demo-evm-network }
 
-O exemplo a seguir implanta um nó de arquivo completo e funcional para a [rede EVM de demonstração](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=_blank} implantada no Dancelight com ID `2001`.
+O exemplo a seguir implanta um nó de arquivo completo e funcional para a [rede EVM de demonstração](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=_blank} implantada na Dancelight com ID `2001`.
 
 O arquivo de especificação de cadeia bruta é necessário para executar o nó e pode ser baixado deste [repositório público no GitHub](https://github.com/papermoonio/external-files/blob/main/Tanssi/Demo-EVM-Appchain){target=_blank}. Baixe o arquivo e coloque-o em `/var/lib/dancelight-data/`.
 

@@ -124,7 +124,7 @@ Para iniciar seu nó, execute a imagem Docker com `docker run`. Altere conforme 
 
 ### Exemplo de Nó Completo para Demo EVM Appchain {: #example-demo-evm-appchain }
 
-O exemplo abaixo inicia um nó RPC de arquivo completo para a [rede demo EVM](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=_blank} implantada no Dancelight (ID `2001`). Assume que os arquivos de specs estão na pasta de dados.
+O exemplo abaixo inicia um nó RPC de arquivo completo para a [rede demo EVM](/pt/builders/tanssi-network/testnet/demo-evm-network/){target=_blank} implantada na Dancelight (ID `2001`). Assume que os arquivos de specs estão na pasta de dados.
 
 === "Demo EVM Appchain (Dancelight)"
 

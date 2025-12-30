@@ -7,9 +7,9 @@ template: index-page.html
 
 # Oracles
 
-Oráculos de blockchain são serviços que permitem que blockchains interajam com fontes de dados externas, preenchendo a lacuna entre contratos inteligentes e informações do mundo real. Os oráculos são essenciais para aplicações dinâmicas que dependem de dados fora da cadeia precisos e oportunos.
+Oracles de blockchain são serviços que permitem que blockchains interajam com fontes de dados externas, preenchendo a lacuna entre contratos inteligentes e informações do mundo real. Os oracles são essenciais para aplicações dinâmicas que dependem de dados fora da cadeia precisos e oportunos.
 
-As principais características dos oráculos incluem:
+As principais características dos oracles incluem:
 
 - **Conectividade externa** - permitindo que contratos inteligentes busquem e utilizem dados do mundo real
 - **Automação** - acionar a execução de contratos com base em condições externas

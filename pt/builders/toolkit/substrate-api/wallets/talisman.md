@@ -70,7 +70,7 @@ Na tela seguinte, siga as seguintes etapas:
 
 ## Conectando o Talisman à Rede Tanssi {: #connecting-talisman-to-the-tanssi-network }
 
-Talisman já vem pré-configurado com suporte para Tanssi MainNet e [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}. Para se conectar ao Dancelight, você primeiro precisa garantir que ativou o suporte para TestNets no Talisman. Para fazer isso, siga as seguintes etapas:
+Talisman já vem pré-configurado com suporte para Tanssi MainNet e [Dancelight](/builders/tanssi-network/testnet/dancelight/){target=\_blank}. Para se conectar à Dancelight, você primeiro precisa garantir que ativou o suporte para TestNets no Talisman. Para fazer isso, siga as seguintes etapas:
 
 1. Abra a extensão Talisman e clique no logotipo do Talisman.
 2. Selecione **Configurações**.
@@ -92,10 +92,10 @@ Para configurar o Talisman para sua rede Substrate powered by Tanssi, abra a ext
 
 ![Adicionar Rede no Talisman](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-7.webp)
 
-Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede Tanssi. Para fins de demonstração, o Dancelight é usado aqui, mas você pode substituir esses detalhes pela sua própria rede Tanssi. Para adicionar sua rede Tanssi ao Talisman, siga as seguintes etapas:
+Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede Tanssi. Para fins de demonstração, a Dancelight é usada aqui, mas você pode substituir esses detalhes pela sua própria rede Tanssi. Para adicionar sua rede Tanssi ao Talisman, siga as seguintes etapas:
 
 1. Cole a URL RPC da sua rede Tanssi. Outros parâmetros serão preenchidos automaticamente.
-2. Opcionalmente, insira a URL do explorador de blocos da sua rede Tanssi, se aplicável.
+2. Opcionalmente, insira a URL do block explorer da sua rede Tanssi, se aplicável.
 3. Marque a caixa **Esta é uma testnet**, se aplicável.
 4. Pressione **Adicionar Rede**.
 
@@ -103,7 +103,7 @@ Na página seguinte, você será solicitado a inserir os detalhes da rede para s
 
 ## Conectando ao Polkadot.js {: #connecting-to-polkadotjs}
 
-Para conectar sua rede Substrate Tanssi aos Polkadot.js Apps, primeiro acesse \[Polkadot.js Apps\](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. Neste exemplo, os Polkadot.js Apps estão conectados ao Dancelight, mas você pode apontar o Polkadot.js para sua rede Tanssi clicando no menu suspenso da rede e preenchendo o endpoint WSS da sua rede Tanssi no campo de **endpoint personalizado**.
+Para conectar sua rede Substrate Tanssi aos Polkadot.js Apps, primeiro acesse \[Polkadot.js Apps\](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. Neste exemplo, os Polkadot.js Apps estão conectados à Dancelight, mas você pode apontar o Polkadot.js para sua rede Tanssi clicando no menu suspenso da rede e preenchendo o endpoint WSS da sua rede Tanssi no campo de **endpoint personalizado**.
 
 ![Conecte-se aos Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/talisman/talisman-9.webp)
 

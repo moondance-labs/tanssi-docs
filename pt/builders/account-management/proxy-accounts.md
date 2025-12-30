@@ -13,7 +13,7 @@ As contas proxy podem ser configuradas para executar um número limitado de aç�
 
 As contas proxy também podem ajudá-lo a implementar o princípio do privilégio mínimo para controle de acesso. Por exemplo, se você tiver vários membros da equipe, poderá fornecer a eles o nível mínimo de acesso necessário para realizar suas tarefas por meio de um tipo específico de conta proxy.
 
-Este tutorial o guiará pela configuração de uma conta proxy no Dancelight, o Tanssi TestNet, especificamente para transferências de saldo. Em seguida, demonstrará como realizar uma transferência de saldo usando o proxy recém-criado.
+Este tutorial o guiará pela configuração de uma conta proxy na Dancelight, o Tanssi TestNet, especificamente para transferências de saldo. Em seguida, demonstrará como realizar uma transferência de saldo usando o proxy recém-criado.
 
 ## Verificando os Pré-requisitos {: #verifying-prerequisites }
 

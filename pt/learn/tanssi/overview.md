@@ -19,7 +19,7 @@ As appchains powered by Tanssi também se beneficiam de uma pilha de tecnologia 
 
 Os desenvolvedores que buscam construir appchains descentralizadas geralmente têm que lidar com os seguintes problemas:
 
-- **Gerenciamento de Infraestrutura Complexo**: As implantações de appchain normalmente exigem o manuseio de numerosos componentes de infraestrutura, incluindo bootstrapping de Sequencers, operators (também conhecidos como validadores), carteiras, exploradores de blocos, oráculos, indexadores, endpoints RPC e muito mais. O gerenciamento adequado desses componentes consome tempo e recursos.
+- **Gerenciamento de Infraestrutura Complexo**: As implantações de appchain normalmente exigem o manuseio de numerosos componentes de infraestrutura, incluindo bootstrapping de Sequencers, operators (também conhecidos como validadores), carteiras, exploradores de blocos, oracles, indexadores, endpoints RPC e muito mais. O gerenciamento adequado desses componentes consome tempo e recursos.
 
 - **Segurança Fraca e Ineficiente**: As appchains geralmente sofrem por ter um pequeno conjunto de operators ou segurança econômica fraca. Projetos em estágio inicial geralmente carecem de apoio econômico suficiente para oferecer suporte a um mecanismo de consenso robusto. Além disso, os desenvolvedores geralmente têm que pagar pela validação total da capacidade do blockchain, mesmo quando podem não ter alcançado o ajuste produto-mercado, e os blocos podem estar quase vazios. Isso essencialmente significa que os operators estão sendo super pagos, e há um custo de oportunidade significativo, pois esses recursos poderiam ser usados em outros lugares para desenvolver o protocolo.
 
@@ -35,7 +35,7 @@ Tanssi aborda os pontos problemáticos mais comuns da appchain:
 
 - **Segurança Econômica por Meio de Provedores Externos**: As appchains implantadas por meio da Tanssi aproveitam a segurança de um provedor de escolha (por exemplo, [Symbiotic](https://symbiotic.fi/){target=\_blank} para Ethereum). O protocolo foi projetado para finalizar as transações de forma determinística em segundos por meio de um conjunto descentralizado de operators.
 
-- **Tanssi/Ethereum Bridge**: Mova a liquidez de e para o Ethereum usando a [ponte integrada](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} com base no Snowbridge.
+- **Tanssi/Ethereum Bridge**: Mova a liquidez de e para o Ethereum usando a [bridge integrada](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} com base no Snowbridge.
 
 - **Integrações Chave**: As appchains construídas com Tanssi podem acessar componentes de infraestrutura importantes, juntamente com a produção de blocos, de forma totalmente automatizada e padronizada. As appchains powered by Tanssi vêm com suporte integrado para ferramentas essenciais, incluindo carteiras, exploradores de blocos, indexadores, provedores RPC e muito mais, economizando o esforço dos desenvolvedores de integrar esses componentes.
 

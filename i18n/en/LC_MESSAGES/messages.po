@@ -193,3 +193,6 @@ msgstr "Cancel"
 
 msgid "external_link_modal.continue"
 msgstr "Continue to External Site"
+
+msgid "home.feature.heading.suffix"
+msgstr ""

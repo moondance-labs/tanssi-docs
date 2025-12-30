@@ -34,7 +34,7 @@ A Tanssi MainNet possui dois tipos de endpoints disponíveis para os usuários s
 
 ## Exploradores de Blocos {: #tanssi-block-explorers }
 
-Para a Tanssi MainNet, você pode usar o seguinte explorador de blocos:
+Para a Tanssi MainNet, você pode usar o seguinte block explorer:
 
 - [Tanssi Network Subscan]({{ networks.mainnet.subscan_url }}){target=\_blank}
 - [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss://{{ networks.mainnet.dns_name }}#/explorer){target=\_blank}

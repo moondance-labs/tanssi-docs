@@ -9,7 +9,7 @@ categories: Basics
 
 ## Introdução {: #introduction }
 
-O token da rede Tanssi é o token de utilidade que alimenta o protocolo Tanssi. Considerando a [arquitetura da Tanssi](/pt/learn/tanssi/overview/#tanssi-architecture){target=\_blank}, o token existe em duas representações distintas, mas interconectadas: Substrate nativo e ERC-20 Ethereum. As duas versões podem ser interligadas através da [ponte Tanssi-Ethereum](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
+O token da rede Tanssi é o token de utilidade que alimenta o protocolo Tanssi. Considerando a [arquitetura da Tanssi](/pt/learn/tanssi/overview/#tanssi-architecture){target=\_blank}, o token existe em duas representações distintas, mas interconectadas: Substrate nativo e ERC-20 Ethereum. As duas versões podem ser interligadas através da [bridge Tanssi-Ethereum](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
 
 Neste guia, a utilidade do token e as diferenças entre suas duas representações são abordadas, o que é crucial para operators de rede, stakers, gerentes de appchain e usuários em geral que desejam participar do ecossistema Tanssi.
 
@@ -38,7 +38,7 @@ A rede Tanssi é construída usando a estrutura Substrate, aproveitando sua arqu
 
 Além disso, o protocolo Tanssi conta com [provedores de segurança externos](/pt/learn/tanssi/external-security-providers/){target=\_blank}, como o [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}, para proteger o ecossistema por meio de ativos reapostados. Esse mecanismo de reaposta é implementado no Ethereum; portanto, uma versão ERC-20 do token também existe para cobrir casos de uso no lado Ethereum.
 
-Aproveitando os [recursos de bridging integrados à](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} Tanssi, o token pode ser convertido para (e de) a representação ERC-20 no Ethereum. Quando o token é ponteado para Ethereum, os tokens são travados na conta soberana da ponte, e uma mensagem é enviada ao contrato Ethereum para cunhar a quantia equivalente em ERC-20. Esse mecanismo de travamento e cunhagem garante que a versão ERC-20 seja criada por meio de um mecanismo de bridging sem confiança, mantendo um relacionamento 1:1 com o token nativo.
+Aproveitando os [recursos de bridging integrados à](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} Tanssi, o token pode ser convertido para (e de) a representação ERC-20 no Ethereum. Quando o token é ponteado para Ethereum, os tokens são travados na conta soberana da bridge, e uma mensagem é enviada ao contrato Ethereum para cunhar a quantia equivalente em ERC-20. Esse mecanismo de travamento e cunhagem garante que a versão ERC-20 seja criada por meio de um mecanismo de bridging sem confiança, mantendo um relacionamento 1:1 com o token nativo.
 
 ```mermaid
 flowchart LR
@@ -85,7 +85,7 @@ Este token usa como [conta do tipo Substrate Sr25519](/pt/learn/tanssi/account-t
 
 ### Tanssi (ERC-20) - Representação Ethereum {: #tanssi-erc-20 }
 
-A versão ERC-20 da Tanssi é um token Ethereum padrão que representa o token nativo na rede Ethereum. Essa versão é criada por meio do mecanismo de ponte sem confiança, utilizando uma estratégia de bloqueio e cunhagem, mantendo assim um relacionamento 1:1 com o token nativo.
+A versão ERC-20 da Tanssi é um token Ethereum padrão que representa o token nativo na rede Ethereum. Essa versão é criada por meio do mecanismo de bridge sem confiança, utilizando uma estratégia de bloqueio e cunhagem, mantendo assim um relacionamento 1:1 com o token nativo.
 
 Este token, como qualquer outro ativo Ethereum, usa uma [conta ECDSA](/pt/learn/tanssi/account-types/#key-types-in-tanssi-protocol){target=\_blank}, então requer uma carteira como [Metamask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} ou qualquer outra [carteira compatível com Ethereum](/pt/builders/toolkit/ethereum-api/wallets/){target=\_blank}.
 
@@ -105,4 +105,4 @@ Para entender melhor as diferenças entre as duas representações de token, a t
 | **Carteiras Compatíveis** | [Talisman](/pt/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}, [SubWallet](/pt/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank} e outros                                              | [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}, [Talisman](/pt/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank} e outras carteiras compatíveis com Ethereum |
 | **Principais Utilidades**  | - Participação na governança on-chain<br/>- Registro e implantação de Appchain<br/>- Pagamento de serviços de sequenciamento<br/>- Taxas de transação na rede Tanssi<br/>- Staking em Sequencers<br/>- Recompensas de operação do Sequencer | - Recompensas de validação do operator<br/>- Staking em operators                                                                                                                                          |
 | **Opções de Staking**    | Staking de Sequencer (para manter a atividade da appchain)                                                                                                                                        | Staking de operator (para validar/proteger todo o ecossistema Tanssi)                                                                                                                            |
-| **Conversão de Ponte**  | Pode ser ponteado para ERC-20, pagando taxas em $TANSSI (Substrate)                                                                                                                                                            | Pode ser ponteado para Substrate, pagando taxas em $ETH                                                                                                                                                  |
+| **Conversão de Bridge**  | Pode ser ponteado para ERC-20, pagando taxas em $TANSSI (Substrate)                                                                                                                                                            | Pode ser ponteado para Substrate, pagando taxas em $ETH                                                                                                                                                  |

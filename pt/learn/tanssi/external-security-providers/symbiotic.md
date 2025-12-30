@@ -120,7 +120,7 @@ flowchart LR
 
 ### Comunicação Tanssi-Ethereum {: #tanssi-ethereum-communication }
 
-É importante entender como Tanssi e Ethereum trocam dados para compreender a mecânica do protocolo. Eles se conectam por meio de uma ponte bidirecional que permite que se comuniquem entre si. Cada protocolo tem um papel específico para viabilizar operações cross-chain.
+É importante entender como Tanssi e Ethereum trocam dados para compreender a mecânica do protocolo. Eles se conectam por meio de uma bridge bidirecional que permite que se comuniquem entre si. Cada protocolo tem um papel específico para viabilizar operações cross-chain.
 
 Existem três componentes-chave entre Symbiotic e Tanssi:
 
@@ -145,7 +145,7 @@ class Relayer relayerNode;
 
 - **`Relayer`** - é o software que monitora continuamente ambas as blockchains e transmite mensagens. Ele habilita comunicação bidirecional confiável entre Tanssi e Ethereum, servindo como a camada de conexão que garante que mensagens sejam entregues corretamente entre as redes
 
-- **`Gateway`** - opera no lado Ethereum da ponte e cumpre três funções essenciais. Ele recebe, verifica e encaminha mensagens recebidas da Tanssi para garantir que sejam processadas corretamente. O contrato aceita mensagens de saída destinadas à rede Tanssi, preparando-as para o relay. Por fim, lida com funcionalidades de aplicação de nível superior, principalmente transferências de tokens entre as duas redes, fornecendo uma interface segura para movimentação de ativos entre cadeias
+- **`Gateway`** - opera no lado Ethereum da bridge e cumpre três funções essenciais. Ele recebe, verifica e encaminha mensagens recebidas da Tanssi para garantir que sejam processadas corretamente. O contrato aceita mensagens de saída destinadas à rede Tanssi, preparando-as para o relay. Por fim, lida com funcionalidades de aplicação de nível superior, principalmente transferências de tokens entre as duas redes, fornecendo uma interface segura para movimentação de ativos entre cadeias
 
 - **`Middleware`** - é a implementação da Tanssi para lidar com eventos e operações da rede. Ele é o elo crítico entre o `Gateway` e o protocolo central da Tanssi
 
@@ -153,7 +153,7 @@ O `Middleware` desempenha um papel central na coordenação da rede entre Tanssi
 
 #### De Ethereum para Tanssi {: #from-ethereum-tanssi }
 
-O `Middleware` transmite informações sobre o conjunto de operators para a Tanssi para atribuição de sessões por meio da ponte. Ele envia detalhes sobre operators ativos para cada época, ordenando-os por seu stake total agregado em todos os vaults. O Tanssi então usa essas informações para atribuir operators para as próximas sessões, garantindo que os mais alinhados economicamente protejam a rede. Esse mecanismo cria um processo de seleção de operators ponderado por stake, em que a segurança econômica no Ethereum se traduz em segurança operacional na Tanssi.
+O `Middleware` transmite informações sobre o conjunto de operators para a Tanssi para atribuição de sessões por meio da bridge. Ele envia detalhes sobre operators ativos para cada época, ordenando-os por seu stake total agregado em todos os vaults. O Tanssi então usa essas informações para atribuir operators para as próximas sessões, garantindo que os mais alinhados economicamente protejam a rede. Esse mecanismo cria um processo de seleção de operators ponderado por stake, em que a segurança econômica no Ethereum se traduz em segurança operacional na Tanssi.
 
 #### De Tanssi para Ethereum {: #from-tanssi-ethereum }
 
@@ -168,8 +168,8 @@ Operators e restakers bem-comportados são recompensados por sua participação 
 A fase de distribuição de recompensas calcula e aloca recompensas por meio de cinco etapas principais que envolvem operators, restakers e contratos inteligentes. As etapas são:
 
 1. **Cálculo de Recompensas** - o Tanssi calcula recompensas com base na atividade de operators e stakers e então cria uma [raiz de Merkle](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. Essa raiz de Merkle é uma impressão digital criptográfica que resume as alocações de recompensas, indicando quem recebe o quê. Stakers são recompensados de acordo com seu stake em cada vault
-2. **Dados de Recompensa Enviados via XCM** - os dados de alocação de recompensas são enviados usando [XCM](https://wiki.polkadot.com/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), um protocolo padronizado para comunicação entre blockchains. A [Snowbridge](https://docs.snowbridge.network/){target=\_blank} atua como uma ponte sem confiança entre Tanssi e Ethereum
-3. **Recepção da Mensagem no Ethereum** - uma vez que a mensagem é encaminhada para o contrato `Gateway`, esse contrato serve como ponto de entrada autorizado da Tanssi no Ethereum para a ponte Snowbridge
+2. **Dados de Recompensa Enviados via XCM** - os dados de alocação de recompensas são enviados usando [XCM](https://wiki.polkadot.com/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), um protocolo padronizado para comunicação entre blockchains. A [Snowbridge](https://docs.snowbridge.network/){target=\_blank} atua como uma bridge sem confiança entre Tanssi e Ethereum
+3. **Recepção da Mensagem no Ethereum** - uma vez que a mensagem é encaminhada para o contrato `Gateway`, esse contrato serve como ponto de entrada autorizado da Tanssi no Ethereum para a bridge Snowbridge
 4. **Processamento e Validação da Mensagem** - o `Gateway` encaminha os dados para o [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, que é responsável por várias tarefas, incluindo passar as informações para o contrato `OperatorReward`
 5. **Armazenamento e Distribuição de Recompensas** - este é o destino final dos dados. O contrato [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} armazena a árvore de Merkle das alocações de recompensa e lida com a transferência de tokens de recompensa quando um claim é feito
 
@@ -228,7 +228,7 @@ As seguintes ações podem acionar eventos de slashing:
 
 #### Processo de Slashing {: #slashing-process }
 
-O processo de slashing segue um caminho semelhante ao das recompensas. Quando um operator se comporta mal, a Tanssi Network envia uma mensagem de solicitação de slashing para a ponte sem confiança (Snowbridge). A mensagem passa pelo `Gateway` e chega ao `Middleware`, onde o método de slashing é chamado.
+O processo de slashing segue um caminho semelhante ao das recompensas. Quando um operator se comporta mal, a Tanssi Network envia uma mensagem de solicitação de slashing para a bridge sem confiança (Snowbridge). A mensagem passa pelo `Gateway` e chega ao `Middleware`, onde o método de slashing é chamado.
 
 O método de slashing recebe um identificador exclusivo para a identidade do operator, a severidade do slash como uma porcentagem do stake do operator atribuído em cada vault e o contexto temporal em que a infração ocorreu.
 

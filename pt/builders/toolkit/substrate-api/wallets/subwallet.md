@@ -48,7 +48,7 @@ Na tela seguinte, selecione o método pelo qual você gostaria de importar a con
 
 Na tela seguinte, você poderá fornecer a frase semente relevante, o arquivo JSON ou o código QR, e poderá começar a usar sua nova conta imediatamente.
 
-## Conectando SubWallet ao Dancelight {: #connecting-Subwallet-to-dancelight }
+## Conectando SubWallet à Dancelight {: #connecting-Subwallet-to-dancelight }
 
 O SubWallet vem pré-configurado com suporte para Dancelight, a Tanssi TestNet, mas pode não estar habilitado por padrão. Você só precisa ir para a página **Gerenciar redes** para ativá-lo. Lembre-se de que [Dancelight](/pt/builders/tanssi-network/testnet/dancelight/){target=\_blank} em si é a rede baseada em Substrate que orquestra e gerencia o lançamento de redes powered by Tanssi. Para configurar seu SubWallet para funcionar com Dancelight, pressione o ícone **Mais opções** no canto superior esquerdo. Em seguida, clique em **Gerenciar redes** e siga estas etapas:
 
@@ -63,7 +63,7 @@ Se você tiver um saldo de tokens Dancelight, verá o saldo da sua conta na pág
 
 ## Conectando SubWallet à Sua Rede Substrate {: #connecting-Subwallet-to-your-substrate-network }
 
-Para configurar o SubWallet para sua rede Substrate, pressione o ícone **Mais opções** no canto superior esquerdo. Em seguida, clique em **Gerenciar redes**. Pressione o ícone **+**. Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede Tanssi. Para fins de demonstração, o Dancelight é usado aqui; no entanto, você pode substituir esses detalhes por sua própria rede Tanssi. Para adicionar sua rede Tanssi ao SubWallet, siga estas etapas:
+Para configurar o SubWallet para sua rede Substrate, pressione o ícone **Mais opções** no canto superior esquerdo. Em seguida, clique em **Gerenciar redes**. Pressione o ícone **+**. Na página seguinte, você será solicitado a inserir os detalhes da rede para sua rede Tanssi. Para fins de demonstração, a Dancelight é usada aqui; no entanto, você pode substituir esses detalhes por sua própria rede Tanssi. Para adicionar sua rede Tanssi ao SubWallet, siga estas etapas:
 
 1. Cole a URL WSS da sua rede Tanssi. Outros parâmetros, como a ID da parachain e as casas decimais dos tokens, podem ser preenchidos automaticamente
 2. Forneça um nome para sua rede Tanssi
@@ -73,7 +73,7 @@ Para configurar o SubWallet para sua rede Substrate, pressione o ícone **Mais o
 
 ## Conectando ao Polkadot.js {: #connecting-to-polkadotjs}
 
-Para conectar sua rede Tanssi Substrate ao Polkadot.js Apps, primeiro vá para [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. Neste exemplo, Polkadot.js Apps está conectado ao Dancelight, mas você pode apontar o Polkadot.js para sua rede Tanssi clicando no menu suspenso da rede e preenchendo o endpoint WSS da sua rede Tanssi no campo **endpoint personalizado**.
+Para conectar sua rede Tanssi Substrate ao Polkadot.js Apps, primeiro vá para [Polkadot.js Apps](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2F{{ networks.dancelight.dns_name }}#/accounts){target=\_blank}. Neste exemplo, Polkadot.js Apps está conectado à Dancelight, mas você pode apontar o Polkadot.js para sua rede Tanssi clicando no menu suspenso da rede e preenchendo o endpoint WSS da sua rede Tanssi no campo **endpoint personalizado**.
 
 ![Conectar ao Polkadot.js Apps](/images/builders/toolkit/substrate-api/wallets/subwallet/subwallet-9.webp)
 
@@ -111,4 +111,3 @@ Você também pode enviar uma transação por meio da API Substrate diretamente 
 Este guia se concentrou especificamente na configuração do SubWallet para funcionar com sua rede Tanssi Substrate, mas o SubWallet também é uma carteira completa para contas EVM. Na seção da API Ethereum, você encontrará um [guia semelhante para configurar o SubWallet para uso com sua rede Tanssi EVM](/pt/builders/toolkit/ethereum-api/wallets/subwallet/){target=\_blank}.
 
 --8<-- 'text/_disclaimers/third-party-content.md'
-

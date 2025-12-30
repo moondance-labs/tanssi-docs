@@ -1,25 +1,25 @@
 ---
-title: Ponte Tanssi-Ethereum
-description: Descubra como a ponte Tanssi permite interoperabilidade segura e sem confiança, facilitando transferências de ativos e mensagens entre Tanssi e Ethereum.
+title: Bridge Tanssi-Ethereum
+description: Descubra como a bridge Tanssi permite interoperabilidade segura e sem confiança, facilitando transferências de ativos e mensagens entre Tanssi e Ethereum.
 icon: octicons-link-24
 categories: Basics
 ---
 
-# Ponte Tanssi-Ethereum {: #tanssi-ethereum-bridge }
+# Bridge Tanssi-Ethereum {: #tanssi-ethereum-bridge }
 
 ## Introdução {: #introduction }
 
-Blockchains tradicionais frequentemente criam silos, limitando a interoperabilidade de ativos e funcionalidades. A ponte Tanssi-Ethereum supera essas limitações ao permitir operações multichain contínuas que beneficiam ambos os ecossistemas.
+Blockchains tradicionais frequentemente criam silos, limitando a interoperabilidade de ativos e funcionalidades. A bridge Tanssi-Ethereum supera essas limitações ao permitir operações multichain contínuas que beneficiam ambos os ecossistemas.
 
-A ponte é mais do que uma troca de ativos. É um protocolo seguro e padronizado para interação direta entre cadeias, sem intermediários centralizados. Seu design sem confiança evita os riscos de pontos centrais de falha que muitas outras pontes enfrentam.
+A bridge é mais do que uma troca de ativos. É um protocolo seguro e padronizado para interação direta entre cadeias, sem intermediários centralizados. Seu design sem confiança evita os riscos de pontos centrais de falha que muitas outras pontes enfrentam.
 
-Este artigo apresenta a ponte Tanssi-Ethereum como uma camada fundamental de interoperabilidade entre as duas redes. Você aprenderá como ela funciona, incluindo sua arquitetura, gestão de operators, Template econômico, mecanismos de slashing e transferências de ativos.
+Este artigo apresenta a bridge Tanssi-Ethereum como uma camada fundamental de interoperabilidade entre as duas redes. Você aprenderá como ela funciona, incluindo sua arquitetura, gestão de operators, Template econômico, mecanismos de slashing e transferências de ativos.
 
 Você também conhecerá as camadas de consenso que protegem a comunicação ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} em [Tanssi](/pt/learn/tanssi/){target=\_blank} e a [Beacon Chain do Ethereum](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), além dos papéis de provers, verifiers e relayers, oferecendo uma visão clara de como ativos e mensagens se movem com segurança entre Tanssi e Ethereum.
 
 ## Funções Principais {: #core-functions }
 
-A ponte facilita várias operações críticas entre Tanssi e Ethereum:
+A bridge facilita várias operações críticas entre Tanssi e Ethereum:
 
 - **Gestão de Operators** - mantém informações de stake de operators no Ethereum via o protocolo [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/#tanssi-symbiotic){target=\_blank}, fornecendo esses dados à Tanssi para selecionar operators ativos, descentralizados e economicamente alinhados a cada era
 - **Operações Econômicas** - distribui [recompensas](/pt/learn/tanssi/external-security-providers/symbiotic/#rewards){target=\_blank} da Tanssi para stakers e operators no Ethereum
@@ -28,9 +28,9 @@ A ponte facilita várias operações críticas entre Tanssi e Ethereum:
 
 Essa interoperabilidade amplia o potencial de aplicações descentralizadas e melhora significativamente a liquidez e a usabilidade de ativos em blockchain.
 
-## Arquitetura da Ponte {: #bridge-architecture }
+## Arquitetura da Bridge {: #bridge-architecture }
 
-Entender a funcionalidade de consenso da ponte requer examinar seus componentes principais: provers, verifiers e relayers. Provers geram provas criptográficas, verifiers as validam e relayers transportam dados entre as cadeias.
+Entender a funcionalidade de consenso da bridge requer examinar seus componentes principais: provers, verifiers e relayers. Provers geram provas criptográficas, verifiers as validam e relayers transportam dados entre as cadeias.
 
 Os provers incluem o módulo [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} da Tanssi e o consenso da Beacon Chain do Ethereum. Eles produzem dados de consenso transmitidos por relayers especializados.
 
@@ -38,7 +38,7 @@ Cada cadeia executa um [light client](https://ethereum.org/developers/docs/nodes
 
 ### Consenso de Tanssi para Ethereum  {: #tanssi-ethereum-consensus }
 
-BEEFY (Bridge Efficiency Enabling Finality Yielder) é o protocolo de consenso da Tanssi, atuando como prover. Ele foi projetado para ponte sem confiança e eficiente para cadeias como o Ethereum, que não são nativamente construídas para interoperabilidade.
+BEEFY (Bridge Efficiency Enabling Finality Yielder) é o protocolo de consenso da Tanssi, atuando como prover. Ele foi projetado para bridge sem confiança e eficiente para cadeias como o Ethereum, que não são nativamente construídas para interoperabilidade.
 
 ```mermaid
 sequenceDiagram
@@ -60,7 +60,7 @@ sequenceDiagram
 
 ### Consenso de Ethereum para Tanssi {: #ethereum-tanssi-consensus }
 
-Para a ponte de Ethereum para Tanssi, o consenso da Beacon Chain do Ethereum é o prover. Ele fornece ao light client on-chain da Tanssi a prova do estado finalizado do Ethereum, incluindo eventos ou mensagens destinadas à Tanssi.
+Para a bridge de Ethereum para Tanssi, o consenso da Beacon Chain do Ethereum é o prover. Ele fornece ao light client on-chain da Tanssi a prova do estado finalizado do Ethereum, incluindo eventos ou mensagens destinadas à Tanssi.
 
 ```mermaid
 sequenceDiagram
@@ -79,7 +79,7 @@ sequenceDiagram
     deactivate Tanssi_EthClient
 ```
 
-Do ponto de vista das mensagens, a ponte usa sua camada de verificação de consenso para comunicação multichain segura. Relayers dedicados transportam mensagens: o Execution Relay para Ethereum → Tanssi e o Tanssi Relay para Tanssi → Ethereum.
+Do ponto de vista das mensagens, a bridge usa sua camada de verificação de consenso para comunicação multichain segura. Relayers dedicados transportam mensagens: o Execution Relay para Ethereum → Tanssi e o Tanssi Relay para Tanssi → Ethereum.
 
 Relayers são stateless e apenas submetem provas. Eles não podem forjar mensagens ou roubar fundos, pois o mecanismo de consenso revalida cada prova on-chain. Vários relayers em paralelo melhoram a responsividade sem centralizar poder.
 
@@ -137,7 +137,7 @@ A `Fila de Entrada` processa mensagens vindas do Ethereum. Ela recebe e verifica
 
 ## Fluxo de Transferência de Tokens {: #token-transfers-flow }
 
-Esta seção explica como a ponte move ativos e mensagens. Ela envolve o bloqueio/cunhagem de ativos em uma cadeia e uma ação complementar na outra, protegida por provas verificadas. A seguir, são descritas as sequências típicas de transferência.
+Esta seção explica como a bridge move ativos e mensagens. Ela envolve o bloqueio/cunhagem de ativos em uma cadeia e uma ação complementar na outra, protegida por provas verificadas. A seguir, são descritas as sequências típicas de transferência.
 
 1. **Início (Cadeia de Origem)** - o usuário inicia a transferência de ativos
 2. **Prova via Relay** - relayers off-chain coletam o evento e enviam provas criptográficas para a cadeia de destino
@@ -148,18 +148,18 @@ Esta seção explica como a ponte move ativos e mensagens. Ela envolve o bloquei
 
 Esta seção detalha a movimentação de ativos do Ethereum para a Tanssi (como ativos derivativos).
 
-1. **Bloquear no Ethereum** - um usuário deposita ativos no contrato da Ponte do Ethereum. O contrato bloqueia os tokens e emite um evento de depósito
-2. **Enviar Prova à Tanssi** - um relayer off-chain detecta o evento finalizado, cria um pacote de prova (incluindo o cabeçalho do bloco do Ethereum e a prova de Merkle do depósito) e o envia para a `Fila de Entrada` da Ponte da Tanssi
-3. **Verificar na Tanssi** - o módulo `EthereumClient` da Ponte da Tanssi (um light client on-chain) recebe a prova da `Fila de Entrada`. Ele verifica a finalização/validade do cabeçalho do bloco do Ethereum e a autenticidade da prova de Merkle
+1. **Bloquear no Ethereum** - um usuário deposita ativos no contrato da Bridge do Ethereum. O contrato bloqueia os tokens e emite um evento de depósito
+2. **Enviar Prova à Tanssi** - um relayer off-chain detecta o evento finalizado, cria um pacote de prova (incluindo o cabeçalho do bloco do Ethereum e a prova de Merkle do depósito) e o envia para a `Fila de Entrada` da Bridge da Tanssi
+3. **Verificar na Tanssi** - o módulo `EthereumClient` da Bridge da Tanssi (um light client on-chain) recebe a prova da `Fila de Entrada`. Ele verifica a finalização/validade do cabeçalho do bloco do Ethereum e a autenticidade da prova de Merkle
 4. **Cunhar na Tanssi** - após a verificação bem-sucedida pelo `EthereumClient`, a `Fila de Entrada` é notificada e cunha o ativo correspondente na Tanssi
 
 ```mermaid
 sequenceDiagram
     %%{init: {'sequence': {'mirrorActors': false}}}%%
     participant User
-    participant EBridge as Contrato da Ponte <br/> no Ethereum
+    participant EBridge as Contrato da Bridge <br/> no Ethereum
     participant Relayer
-    participant TBP as Ponte da Tanssi<br/> (Fila de Entrada + Cliente ETH)
+    participant TBP as Bridge da Tanssi<br/> (Fila de Entrada + Cliente ETH)
     participant TAH as Tanssi
 
     User->>EBridge: 1. Depositar ativo
@@ -185,12 +185,12 @@ sequenceDiagram
 
 Este fluxo descreve o processo inverso, movendo ativos da Tanssi para o Ethereum.
 
-1. **Iniciar e Confirmar na Tanssi** - o usuário inicia uma transferência na Tanssi. Uma mensagem com os detalhes da transferência vai para a `Fila de Saída` da Ponte. A fila processa, agrupa o payload e confirma sua raiz de Merkle no cabeçalho do bloco da Tanssi, representando todas as mensagens de saída nesse bloco
+1. **Iniciar e Confirmar na Tanssi** - o usuário inicia uma transferência na Tanssi. Uma mensagem com os detalhes da transferência vai para a `Fila de Saída` da Bridge. A fila processa, agrupa o payload e confirma sua raiz de Merkle no cabeçalho do bloco da Tanssi, representando todas as mensagens de saída nesse bloco
 2. **Enviar Prova ao Ethereum** - um relayer off-chain monitora o Tanssi em busca de blocos finalizados com raízes de Merkle da `Fila de Saída`. Ele obtém as provas: um compromisso BEEFY (declaração assinada de cabeçalhos de bloco finalizados da Tanssi) e uma prova de Merkle do payload da transferência do usuário sob a raiz confirmada
 3. **Submeter Compromisso no Ethereum** - o relayer envia o compromisso BEEFY e a prova de Merkle para o contrato `Gateway` do Ethereum
 4. **Verificar no Ethereum** - o contrato Beefy Client do Ethereum (light client on-chain da Tanssi) recebe o compromisso BEEFY do `Gateway` e verifica sua validade (incluindo assinaturas)
 5. **Validar Payload** - após a verificação do compromisso, o `Gateway` valida a prova de Merkle do payload do usuário
-6. **Executar no Ethereum** - com ambas as provas verificadas, o contrato `Gateway` executa a ação, normalmente liberando ativos bloqueados pelo contrato principal da Ponte para o destinatário ou executando uma chamada para o contrato-alvo no Ethereum
+6. **Executar no Ethereum** - com ambas as provas verificadas, o contrato `Gateway` executa a ação, normalmente liberando ativos bloqueados pelo contrato principal da Bridge para o destinatário ou executando uma chamada para o contrato-alvo no Ethereum
 
 O diagrama a seguir ilustra a fase de início e confirmação do processo de transferência de ativos na Tanssi.
 
@@ -199,7 +199,7 @@ sequenceDiagram
     %%{init: {'sequence': {'mirrorActors': false}}}%%
     participant User
     participant TAH as Tanssi
-    participant TBP as Ponte da Tanssi<br/> (Fila de Saída)
+    participant TBP as Bridge da Tanssi<br/> (Fila de Saída)
     participant Relayer
 
     User->>TAH: 1. Iniciar transferência e depositar ativo
@@ -223,7 +223,7 @@ sequenceDiagram
     participant Relayer
     participant EGateway as Contrato Gateway <br/> do Ethereum
     participant EBeefy as Contrato Beefy Client <br/> do Ethereum
-    participant EBridge as Contrato da Ponte <br/> do Ethereum
+    participant EBridge as Contrato da Bridge <br/> do Ethereum
     participant User
 
     Relayer->>EGateway: 3. Submeter compromisso BEEFY + prova de Merkle
