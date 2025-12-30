@@ -97,7 +97,7 @@ jobs:
       ROSE_QUIET: "1"
       N8N_ROSE_INCLUDE_FILES: ${{ github.event_name == 'workflow_dispatch' && inputs.file_filter || '' }}
       N8N_ROSE_INCLUDE_FULL: ${{ github.event_name == 'workflow_dispatch' && inputs.include_full || '' }}
-      N8N_ROSE_LANGUAGES: ${{ vars.ROSE_LANGUAGES }}
+      N8N_ROSE_LANGUAGES: ${{ vars.N8N_ROSE_LANGUAGES }}
       ROSE_TRANSLATION_BRANCH: rose/translations
     steps:
       - name: Determine translation parameters
