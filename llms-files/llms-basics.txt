@@ -2930,7 +2930,7 @@ flowchart LR
 
 ### Comunicação Tanssi-Ethereum {: #tanssi-ethereum-communication }
 
-É importante entender como Tanssi e Ethereum trocam dados para compreender a mecânica do protocolo. Eles se conectam por meio de uma ponte bidirecional que permite que se comuniquem entre si. Cada protocolo tem um papel específico para viabilizar operações cross-chain.
+É importante entender como Tanssi e Ethereum trocam dados para compreender a mecânica do protocolo. Eles se conectam por meio de uma bridge bidirecional que permite que se comuniquem entre si. Cada protocolo tem um papel específico para viabilizar operações cross-chain.
 
 Existem três componentes-chave entre Symbiotic e Tanssi:
 
@@ -2955,7 +2955,7 @@ class Relayer relayerNode;
 
 - **`Relayer`** - é o software que monitora continuamente ambas as blockchains e transmite mensagens. Ele habilita comunicação bidirecional confiável entre Tanssi e Ethereum, servindo como a camada de conexão que garante que mensagens sejam entregues corretamente entre as redes
 
-- **`Gateway`** - opera no lado Ethereum da ponte e cumpre três funções essenciais. Ele recebe, verifica e encaminha mensagens recebidas da Tanssi para garantir que sejam processadas corretamente. O contrato aceita mensagens de saída destinadas à rede Tanssi, preparando-as para o relay. Por fim, lida com funcionalidades de aplicação de nível superior, principalmente transferências de tokens entre as duas redes, fornecendo uma interface segura para movimentação de ativos entre cadeias
+- **`Gateway`** - opera no lado Ethereum da bridge e cumpre três funções essenciais. Ele recebe, verifica e encaminha mensagens recebidas da Tanssi para garantir que sejam processadas corretamente. O contrato aceita mensagens de saída destinadas à rede Tanssi, preparando-as para o relay. Por fim, lida com funcionalidades de aplicação de nível superior, principalmente transferências de tokens entre as duas redes, fornecendo uma interface segura para movimentação de ativos entre cadeias
 
 - **`Middleware`** - é a implementação da Tanssi para lidar com eventos e operações da rede. Ele é o elo crítico entre o `Gateway` e o protocolo central da Tanssi
 
@@ -2963,7 +2963,7 @@ O `Middleware` desempenha um papel central na coordenação da rede entre Tanssi
 
 #### De Ethereum para Tanssi {: #from-ethereum-tanssi }
 
-O `Middleware` transmite informações sobre o conjunto de operators para a Tanssi para atribuição de sessões por meio da ponte. Ele envia detalhes sobre operators ativos para cada época, ordenando-os por seu stake total agregado em todos os vaults. O Tanssi então usa essas informações para atribuir operators para as próximas sessões, garantindo que os mais alinhados economicamente protejam a rede. Esse mecanismo cria um processo de seleção de operators ponderado por stake, em que a segurança econômica no Ethereum se traduz em segurança operacional na Tanssi.
+O `Middleware` transmite informações sobre o conjunto de operators para a Tanssi para atribuição de sessões por meio da bridge. Ele envia detalhes sobre operators ativos para cada época, ordenando-os por seu stake total agregado em todos os vaults. O Tanssi então usa essas informações para atribuir operators para as próximas sessões, garantindo que os mais alinhados economicamente protejam a rede. Esse mecanismo cria um processo de seleção de operators ponderado por stake, em que a segurança econômica no Ethereum se traduz em segurança operacional na Tanssi.
 
 #### De Tanssi para Ethereum {: #from-tanssi-ethereum }
 
@@ -2978,8 +2978,8 @@ Operators e restakers bem-comportados são recompensados por sua participação 
 A fase de distribuição de recompensas calcula e aloca recompensas por meio de cinco etapas principais que envolvem operators, restakers e contratos inteligentes. As etapas são:
 
 1. **Cálculo de Recompensas** - o Tanssi calcula recompensas com base na atividade de operators e stakers e então cria uma [raiz de Merkle](https://en.wikipedia.org/wiki/Merkle_tree){target=\_blank}. Essa raiz de Merkle é uma impressão digital criptográfica que resume as alocações de recompensas, indicando quem recebe o quê. Stakers são recompensados de acordo com seu stake em cada vault
-2. **Dados de Recompensa Enviados via XCM** - os dados de alocação de recompensas são enviados usando [XCM](https://wiki.polkadot.com/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), um protocolo padronizado para comunicação entre blockchains. A [Snowbridge](https://docs.snowbridge.network/){target=\_blank} atua como uma ponte sem confiança entre Tanssi e Ethereum
-3. **Recepção da Mensagem no Ethereum** - uma vez que a mensagem é encaminhada para o contrato `Gateway`, esse contrato serve como ponto de entrada autorizado da Tanssi no Ethereum para a ponte Snowbridge
+2. **Dados de Recompensa Enviados via XCM** - os dados de alocação de recompensas são enviados usando [XCM](https://wiki.polkadot.com/learn/learn-xcm/){target=\_blank} (Cross-Consensus Messaging), um protocolo padronizado para comunicação entre blockchains. A [Snowbridge](https://docs.snowbridge.network/){target=\_blank} atua como uma bridge sem confiança entre Tanssi e Ethereum
+3. **Recepção da Mensagem no Ethereum** - uma vez que a mensagem é encaminhada para o contrato `Gateway`, esse contrato serve como ponto de entrada autorizado da Tanssi no Ethereum para a bridge Snowbridge
 4. **Processamento e Validação da Mensagem** - o `Gateway` encaminha os dados para o [`Middleware`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/middleware/Middleware.sol){target=\_blank}, que é responsável por várias tarefas, incluindo passar as informações para o contrato `OperatorReward`
 5. **Armazenamento e Distribuição de Recompensas** - este é o destino final dos dados. O contrato [`OperatorRewards`](https://github.com/moondance-labs/tanssi-symbiotic/blob/main/src/contracts/rewarder/ODefaultOperatorRewards.sol){target=\_blank} armazena a árvore de Merkle das alocações de recompensa e lida com a transferência de tokens de recompensa quando um claim é feito
 
@@ -3038,7 +3038,7 @@ As seguintes ações podem acionar eventos de slashing:
 
 #### Processo de Slashing {: #slashing-process }
 
-O processo de slashing segue um caminho semelhante ao das recompensas. Quando um operator se comporta mal, a Tanssi Network envia uma mensagem de solicitação de slashing para a ponte sem confiança (Snowbridge). A mensagem passa pelo `Gateway` e chega ao `Middleware`, onde o método de slashing é chamado.
+O processo de slashing segue um caminho semelhante ao das recompensas. Quando um operator se comporta mal, a Tanssi Network envia uma mensagem de solicitação de slashing para a bridge sem confiança (Snowbridge). A mensagem passa pelo `Gateway` e chega ao `Middleware`, onde o método de slashing é chamado.
 
 O método de slashing recebe um identificador exclusivo para a identidade do operator, a severidade do slash como uma porcentagem do stake do operator atribuído em cada vault e o contexto temporal em que a infração ocorreu.
 
@@ -3428,7 +3428,7 @@ As appchains powered by Tanssi também se beneficiam de uma pilha de tecnologia 
 
 Os desenvolvedores que buscam construir appchains descentralizadas geralmente têm que lidar com os seguintes problemas:
 
-- **Gerenciamento de Infraestrutura Complexo**: As implantações de appchain normalmente exigem o manuseio de numerosos componentes de infraestrutura, incluindo bootstrapping de Sequencers, operators (também conhecidos como validadores), carteiras, exploradores de blocos, oráculos, indexadores, endpoints RPC e muito mais. O gerenciamento adequado desses componentes consome tempo e recursos.
+- **Gerenciamento de Infraestrutura Complexo**: As implantações de appchain normalmente exigem o manuseio de numerosos componentes de infraestrutura, incluindo bootstrapping de Sequencers, operators (também conhecidos como validadores), carteiras, exploradores de blocos, oracles, indexadores, endpoints RPC e muito mais. O gerenciamento adequado desses componentes consome tempo e recursos.
 
 - **Segurança Fraca e Ineficiente**: As appchains geralmente sofrem por ter um pequeno conjunto de operators ou segurança econômica fraca. Projetos em estágio inicial geralmente carecem de apoio econômico suficiente para oferecer suporte a um mecanismo de consenso robusto. Além disso, os desenvolvedores geralmente têm que pagar pela validação total da capacidade do blockchain, mesmo quando podem não ter alcançado o ajuste produto-mercado, e os blocos podem estar quase vazios. Isso essencialmente significa que os operators estão sendo super pagos, e há um custo de oportunidade significativo, pois esses recursos poderiam ser usados em outros lugares para desenvolver o protocolo.
 
@@ -3444,7 +3444,7 @@ Tanssi aborda os pontos problemáticos mais comuns da appchain:
 
 - **Segurança Econômica por Meio de Provedores Externos**: As appchains implantadas por meio da Tanssi aproveitam a segurança de um provedor de escolha (por exemplo, [Symbiotic](https://symbiotic.fi/){target=\_blank} para Ethereum). O protocolo foi projetado para finalizar as transações de forma determinística em segundos por meio de um conjunto descentralizado de operators.
 
-- **Tanssi/Ethereum Bridge**: Mova a liquidez de e para o Ethereum usando a [ponte integrada](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} com base no Snowbridge.
+- **Tanssi/Ethereum Bridge**: Mova a liquidez de e para o Ethereum usando a [bridge integrada](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} com base no Snowbridge.
 
 - **Integrações Chave**: As appchains construídas com Tanssi podem acessar componentes de infraestrutura importantes, juntamente com a produção de blocos, de forma totalmente automatizada e padronizada. As appchains powered by Tanssi vêm com suporte integrado para ferramentas essenciais, incluindo carteiras, exploradores de blocos, indexadores, provedores RPC e muito mais, economizando o esforço dos desenvolvedores de integrar esses componentes.
 
@@ -3489,27 +3489,27 @@ Embora os Sequencers que fornecem serviços de produção de blocos sejam rotaci
 Doc-Content: https://docs.tanssi.network/pt/learn/tanssi/tanssi-ethereum-bridge/
 --- BEGIN CONTENT ---
 ---
-title: Ponte Tanssi-Ethereum
-description: Descubra como a ponte Tanssi permite interoperabilidade segura e sem confiança, facilitando transferências de ativos e mensagens entre Tanssi e Ethereum.
+title: Bridge Tanssi-Ethereum
+description: Descubra como a bridge Tanssi permite interoperabilidade segura e sem confiança, facilitando transferências de ativos e mensagens entre Tanssi e Ethereum.
 icon: octicons-link-24
 categories: Basics
 ---
 
-# Ponte Tanssi-Ethereum {: #tanssi-ethereum-bridge }
+# Bridge Tanssi-Ethereum {: #tanssi-ethereum-bridge }
 
 ## Introdução {: #introduction }
 
-Blockchains tradicionais frequentemente criam silos, limitando a interoperabilidade de ativos e funcionalidades. A ponte Tanssi-Ethereum supera essas limitações ao permitir operações multichain contínuas que beneficiam ambos os ecossistemas.
+Blockchains tradicionais frequentemente criam silos, limitando a interoperabilidade de ativos e funcionalidades. A bridge Tanssi-Ethereum supera essas limitações ao permitir operações multichain contínuas que beneficiam ambos os ecossistemas.
 
-A ponte é mais do que uma troca de ativos. É um protocolo seguro e padronizado para interação direta entre cadeias, sem intermediários centralizados. Seu design sem confiança evita os riscos de pontos centrais de falha que muitas outras pontes enfrentam.
+A bridge é mais do que uma troca de ativos. É um protocolo seguro e padronizado para interação direta entre cadeias, sem intermediários centralizados. Seu design sem confiança evita os riscos de pontos centrais de falha que muitas outras pontes enfrentam.
 
-Este artigo apresenta a ponte Tanssi-Ethereum como uma camada fundamental de interoperabilidade entre as duas redes. Você aprenderá como ela funciona, incluindo sua arquitetura, gestão de operators, Template econômico, mecanismos de slashing e transferências de ativos.
+Este artigo apresenta a bridge Tanssi-Ethereum como uma camada fundamental de interoperabilidade entre as duas redes. Você aprenderá como ela funciona, incluindo sua arquitetura, gestão de operators, Template econômico, mecanismos de slashing e transferências de ativos.
 
 Você também conhecerá as camadas de consenso que protegem a comunicação ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} em [Tanssi](/pt/learn/tanssi/){target=\_blank} e a [Beacon Chain do Ethereum](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), além dos papéis de provers, verifiers e relayers, oferecendo uma visão clara de como ativos e mensagens se movem com segurança entre Tanssi e Ethereum.
 
 ## Funções Principais {: #core-functions }
 
-A ponte facilita várias operações críticas entre Tanssi e Ethereum:
+A bridge facilita várias operações críticas entre Tanssi e Ethereum:
 
 - **Gestão de Operators** - mantém informações de stake de operators no Ethereum via o protocolo [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/#tanssi-symbiotic){target=\_blank}, fornecendo esses dados à Tanssi para selecionar operators ativos, descentralizados e economicamente alinhados a cada era
 - **Operações Econômicas** - distribui [recompensas](/pt/learn/tanssi/external-security-providers/symbiotic/#rewards){target=\_blank} da Tanssi para stakers e operators no Ethereum
@@ -3518,9 +3518,9 @@ A ponte facilita várias operações críticas entre Tanssi e Ethereum:
 
 Essa interoperabilidade amplia o potencial de aplicações descentralizadas e melhora significativamente a liquidez e a usabilidade de ativos em blockchain.
 
-## Arquitetura da Ponte {: #bridge-architecture }
+## Arquitetura da Bridge {: #bridge-architecture }
 
-Entender a funcionalidade de consenso da ponte requer examinar seus componentes principais: provers, verifiers e relayers. Provers geram provas criptográficas, verifiers as validam e relayers transportam dados entre as cadeias.
+Entender a funcionalidade de consenso da bridge requer examinar seus componentes principais: provers, verifiers e relayers. Provers geram provas criptográficas, verifiers as validam e relayers transportam dados entre as cadeias.
 
 Os provers incluem o módulo [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} da Tanssi e o consenso da Beacon Chain do Ethereum. Eles produzem dados de consenso transmitidos por relayers especializados.
 
@@ -3528,7 +3528,7 @@ Cada cadeia executa um [light client](https://ethereum.org/developers/docs/nodes
 
 ### Consenso de Tanssi para Ethereum  {: #tanssi-ethereum-consensus }
 
-BEEFY (Bridge Efficiency Enabling Finality Yielder) é o protocolo de consenso da Tanssi, atuando como prover. Ele foi projetado para ponte sem confiança e eficiente para cadeias como o Ethereum, que não são nativamente construídas para interoperabilidade.
+BEEFY (Bridge Efficiency Enabling Finality Yielder) é o protocolo de consenso da Tanssi, atuando como prover. Ele foi projetado para bridge sem confiança e eficiente para cadeias como o Ethereum, que não são nativamente construídas para interoperabilidade.
 
 ```mermaid
 sequenceDiagram
@@ -3550,7 +3550,7 @@ sequenceDiagram
 
 ### Consenso de Ethereum para Tanssi {: #ethereum-tanssi-consensus }
 
-Para a ponte de Ethereum para Tanssi, o consenso da Beacon Chain do Ethereum é o prover. Ele fornece ao light client on-chain da Tanssi a prova do estado finalizado do Ethereum, incluindo eventos ou mensagens destinadas à Tanssi.
+Para a bridge de Ethereum para Tanssi, o consenso da Beacon Chain do Ethereum é o prover. Ele fornece ao light client on-chain da Tanssi a prova do estado finalizado do Ethereum, incluindo eventos ou mensagens destinadas à Tanssi.
 
 ```mermaid
 sequenceDiagram
@@ -3569,7 +3569,7 @@ sequenceDiagram
     deactivate Tanssi_EthClient
 ```
 
-Do ponto de vista das mensagens, a ponte usa sua camada de verificação de consenso para comunicação multichain segura. Relayers dedicados transportam mensagens: o Execution Relay para Ethereum → Tanssi e o Tanssi Relay para Tanssi → Ethereum.
+Do ponto de vista das mensagens, a bridge usa sua camada de verificação de consenso para comunicação multichain segura. Relayers dedicados transportam mensagens: o Execution Relay para Ethereum → Tanssi e o Tanssi Relay para Tanssi → Ethereum.
 
 Relayers são stateless e apenas submetem provas. Eles não podem forjar mensagens ou roubar fundos, pois o mecanismo de consenso revalida cada prova on-chain. Vários relayers em paralelo melhoram a responsividade sem centralizar poder.
 
@@ -3627,7 +3627,7 @@ A `Fila de Entrada` processa mensagens vindas do Ethereum. Ela recebe e verifica
 
 ## Fluxo de Transferência de Tokens {: #token-transfers-flow }
 
-Esta seção explica como a ponte move ativos e mensagens. Ela envolve o bloqueio/cunhagem de ativos em uma cadeia e uma ação complementar na outra, protegida por provas verificadas. A seguir, são descritas as sequências típicas de transferência.
+Esta seção explica como a bridge move ativos e mensagens. Ela envolve o bloqueio/cunhagem de ativos em uma cadeia e uma ação complementar na outra, protegida por provas verificadas. A seguir, são descritas as sequências típicas de transferência.
 
 1. **Início (Cadeia de Origem)** - o usuário inicia a transferência de ativos
 2. **Prova via Relay** - relayers off-chain coletam o evento e enviam provas criptográficas para a cadeia de destino
@@ -3638,18 +3638,18 @@ Esta seção explica como a ponte move ativos e mensagens. Ela envolve o bloquei
 
 Esta seção detalha a movimentação de ativos do Ethereum para a Tanssi (como ativos derivativos).
 
-1. **Bloquear no Ethereum** - um usuário deposita ativos no contrato da Ponte do Ethereum. O contrato bloqueia os tokens e emite um evento de depósito
-2. **Enviar Prova à Tanssi** - um relayer off-chain detecta o evento finalizado, cria um pacote de prova (incluindo o cabeçalho do bloco do Ethereum e a prova de Merkle do depósito) e o envia para a `Fila de Entrada` da Ponte da Tanssi
-3. **Verificar na Tanssi** - o módulo `EthereumClient` da Ponte da Tanssi (um light client on-chain) recebe a prova da `Fila de Entrada`. Ele verifica a finalização/validade do cabeçalho do bloco do Ethereum e a autenticidade da prova de Merkle
+1. **Bloquear no Ethereum** - um usuário deposita ativos no contrato da Bridge do Ethereum. O contrato bloqueia os tokens e emite um evento de depósito
+2. **Enviar Prova à Tanssi** - um relayer off-chain detecta o evento finalizado, cria um pacote de prova (incluindo o cabeçalho do bloco do Ethereum e a prova de Merkle do depósito) e o envia para a `Fila de Entrada` da Bridge da Tanssi
+3. **Verificar na Tanssi** - o módulo `EthereumClient` da Bridge da Tanssi (um light client on-chain) recebe a prova da `Fila de Entrada`. Ele verifica a finalização/validade do cabeçalho do bloco do Ethereum e a autenticidade da prova de Merkle
 4. **Cunhar na Tanssi** - após a verificação bem-sucedida pelo `EthereumClient`, a `Fila de Entrada` é notificada e cunha o ativo correspondente na Tanssi
 
 ```mermaid
 sequenceDiagram
     %%{init: {'sequence': {'mirrorActors': false}}}%%
     participant User
-    participant EBridge as Contrato da Ponte <br/> no Ethereum
+    participant EBridge as Contrato da Bridge <br/> no Ethereum
     participant Relayer
-    participant TBP as Ponte da Tanssi<br/> (Fila de Entrada + Cliente ETH)
+    participant TBP as Bridge da Tanssi<br/> (Fila de Entrada + Cliente ETH)
     participant TAH as Tanssi
 
     User->>EBridge: 1. Depositar ativo
@@ -3675,12 +3675,12 @@ sequenceDiagram
 
 Este fluxo descreve o processo inverso, movendo ativos da Tanssi para o Ethereum.
 
-1. **Iniciar e Confirmar na Tanssi** - o usuário inicia uma transferência na Tanssi. Uma mensagem com os detalhes da transferência vai para a `Fila de Saída` da Ponte. A fila processa, agrupa o payload e confirma sua raiz de Merkle no cabeçalho do bloco da Tanssi, representando todas as mensagens de saída nesse bloco
+1. **Iniciar e Confirmar na Tanssi** - o usuário inicia uma transferência na Tanssi. Uma mensagem com os detalhes da transferência vai para a `Fila de Saída` da Bridge. A fila processa, agrupa o payload e confirma sua raiz de Merkle no cabeçalho do bloco da Tanssi, representando todas as mensagens de saída nesse bloco
 2. **Enviar Prova ao Ethereum** - um relayer off-chain monitora o Tanssi em busca de blocos finalizados com raízes de Merkle da `Fila de Saída`. Ele obtém as provas: um compromisso BEEFY (declaração assinada de cabeçalhos de bloco finalizados da Tanssi) e uma prova de Merkle do payload da transferência do usuário sob a raiz confirmada
 3. **Submeter Compromisso no Ethereum** - o relayer envia o compromisso BEEFY e a prova de Merkle para o contrato `Gateway` do Ethereum
 4. **Verificar no Ethereum** - o contrato Beefy Client do Ethereum (light client on-chain da Tanssi) recebe o compromisso BEEFY do `Gateway` e verifica sua validade (incluindo assinaturas)
 5. **Validar Payload** - após a verificação do compromisso, o `Gateway` valida a prova de Merkle do payload do usuário
-6. **Executar no Ethereum** - com ambas as provas verificadas, o contrato `Gateway` executa a ação, normalmente liberando ativos bloqueados pelo contrato principal da Ponte para o destinatário ou executando uma chamada para o contrato-alvo no Ethereum
+6. **Executar no Ethereum** - com ambas as provas verificadas, o contrato `Gateway` executa a ação, normalmente liberando ativos bloqueados pelo contrato principal da Bridge para o destinatário ou executando uma chamada para o contrato-alvo no Ethereum
 
 O diagrama a seguir ilustra a fase de início e confirmação do processo de transferência de ativos na Tanssi.
 
@@ -3689,7 +3689,7 @@ sequenceDiagram
     %%{init: {'sequence': {'mirrorActors': false}}}%%
     participant User
     participant TAH as Tanssi
-    participant TBP as Ponte da Tanssi<br/> (Fila de Saída)
+    participant TBP as Bridge da Tanssi<br/> (Fila de Saída)
     participant Relayer
 
     User->>TAH: 1. Iniciar transferência e depositar ativo
@@ -3713,7 +3713,7 @@ sequenceDiagram
     participant Relayer
     participant EGateway as Contrato Gateway <br/> do Ethereum
     participant EBeefy as Contrato Beefy Client <br/> do Ethereum
-    participant EBridge as Contrato da Ponte <br/> do Ethereum
+    participant EBridge as Contrato da Bridge <br/> do Ethereum
     participant User
 
     Relayer->>EGateway: 3. Submeter compromisso BEEFY + prova de Merkle
@@ -4581,7 +4581,7 @@ As contas proxy podem ser configuradas para executar um número limitado de aç�
 
 As contas proxy também podem ajudá-lo a implementar o princípio do privilégio mínimo para controle de acesso. Por exemplo, se você tiver vários membros da equipe, poderá fornecer a eles o nível mínimo de acesso necessário para realizar suas tarefas por meio de um tipo específico de conta proxy.
 
-Este tutorial o guiará pela configuração de uma conta proxy no Dancelight, o Tanssi TestNet, especificamente para transferências de saldo. Em seguida, demonstrará como realizar uma transferência de saldo usando o proxy recém-criado.
+Este tutorial o guiará pela configuração de uma conta proxy na Dancelight, o Tanssi TestNet, especificamente para transferências de saldo. Em seguida, demonstrará como realizar uma transferência de saldo usando o proxy recém-criado.
 
 ## Verificando os Pré-requisitos {: #verifying-prerequisites }
 
@@ -4786,13 +4786,13 @@ Depois que a transação for enviada com sucesso, você pode revisar seus proxie
 Doc-Content: https://docs.tanssi.network/pt/builders/interoperability/built-in-bridge/
 --- BEGIN CONTENT ---
 ---
-title: Usando a Ponte Tanssi Integrada
-description: Saiba como usar a ponte Tanssi integrada que conecta Tanssi e Ethereum para converter tokens TANSSI entre sua forma nativa e ERC-20, e vice-versa.
+title: Usando a Bridge Tanssi Integrada
+description: Saiba como usar a bridge Tanssi integrada que conecta Tanssi e Ethereum para converter tokens TANSSI entre sua forma nativa e ERC-20, e vice-versa.
 icon: octicons-arrow-switch-24
 categories: Basics
 ---
 
-# Usando a Ponte Tanssi Integrada
+# Usando a Bridge Tanssi Integrada
 
 ## Introdução {: #introduction }
 
@@ -4800,30 +4800,30 @@ O protocolo Tanssi orquestra componentes de infraestrutura, permitindo que os de
 
 O [token TANSSI](/pt/builders/tanssi-network/tanssi-token/){target=\_blank} é o motor que permite a integração de diferentes componentes de infraestrutura com [provedores de segurança externos](/pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank} e alinha incentivos entre vários atores, incluindo detentores de tokens, node operators e builders de appchain. Para atender a diferentes casos de uso, o token tem duas versões: a moeda nativa da rede Tanssi, TANSSI (Substrate), e sua versão ERC-20, no Ethereum.
 
-Os usuários podem converter de uma versão para outra do token usando uma [ponte sem confiança integrada da Tanssi](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
+Os usuários podem converter de uma versão para outra do token usando uma [bridge sem confiança integrada da Tanssi](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
 
 Neste guia, você aprenderá como mover seus ativos de Tanssi para Ethereum e vice-versa por meio de uma interface web segura e fácil de usar disponível no [Tanssi dApp](https://apps.tanssi.network/bridge){target=\_blank}, tornando as transferências entre cadeias acessíveis a todos.
 
 ## Pré-requisitos {: #prerequisites }
 
-Antes de usar a ponte Tanssi, certifique-se de ter:
+Antes de usar a bridge Tanssi, certifique-se de ter:
 
-Para fazer a ponte de Tanssi para Ethereum:
+Para fazer a bridge de Tanssi para Ethereum:
 
 - Uma [carteira compatível com Substrate](/pt/builders/toolkit/substrate-api/wallets/){target=\_blank}, como [Talisman](/pt/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}.
-- Saldo TANSSI (Substrate) para transferir e pagar as taxas de ponte.
+- Saldo TANSSI (Substrate) para transferir e pagar as taxas de bridge.
 - A conta de destino do tipo Ethereum.
 
-Para fazer a ponte de Ethereum para Tanssi:
+Para fazer a bridge de Ethereum para Tanssi:
 
 - Uma [carteira compatível com Ethereum](/pt/builders/toolkit/ethereum-api/wallets/){target=\_blank}, como [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}.
 - Saldo TANSSI (ERC-20) para transferir.
-- Saldo ETH para pagar as taxas de ponte.
+- Saldo ETH para pagar as taxas de bridge.
 - A conta de destino do tipo Substrate.
 
-## Fazendo a Ponte de Tokens TANSSI para Ethereum {: #bridge-to-ethereum}
+## Fazendo a Bridge de Tokens TANSSI para Ethereum {: #bridge-to-ethereum}
 
-Se você deseja converter seus tokens TANSSI (Substrate) para TANSSI (ERC-20) no Ethereum, acesse o Tanssi dApp, abra a [seção da ponte](https://apps.tanssi.network/bridge){target=\_blank} e siga estas etapas:
+Se você deseja converter seus tokens TANSSI (Substrate) para TANSSI (ERC-20) no Ethereum, acesse o Tanssi dApp, abra a [seção da bridge](https://apps.tanssi.network/bridge){target=\_blank} e siga estas etapas:
 
 1. Selecione **Mainnet** no menu suspenso **From**.
 2. Clique em **Connect Wallet**. Uma janela pop-up aparecerá, permitindo que você selecione sua carteira Substrate preferida e escolha a conta correspondente.
@@ -4833,7 +4833,7 @@ Se você deseja converter seus tokens TANSSI (Substrate) para TANSSI (ERC-20) no
 Agora, com sua carteira conectada:
 
 1. Selecione a conta de destino no menu suspenso **Select recipient address** ou escolha o item **Enter a custom address** e insira manualmente a conta para onde deseja receber os tokens ERC-20.
-2. Insira o valor a ser transferido no campo **Balance**. As taxas estimadas de ponte e transação serão exibidas junto com o valor que a conta de destino receberá.
+2. Insira o valor a ser transferido no campo **Balance**. As taxas estimadas de bridge e transação serão exibidas junto com o valor que a conta de destino receberá.
 3. Clique em **Send** e assine a transação.
 
 ![Executar a Transação](/images/builders/interoperability/built-in-bridge/built-in-bridge-2.webp)
@@ -4844,9 +4844,9 @@ E é isso! Seus tokens serão transferidos quando a próxima sessão começar. V
     - Você pode adicionar facilmente o endereço do contrato TANSSI ERC-20 à sua carteira clicando no ícone **+** mostrado ao lado do seu saldo.
     - As taxas para converter seus tokens TANSSI (Substrate) para TANSSI (ERC-20) podem flutuar ao longo do tempo e devem ser pagas usando TANSSI.
 
-## Fazendo a Ponte de ERC-20 TANSSI para a Rede Tanssi {: #bridge-to-tanssi }
+## Fazendo a Bridge de ERC-20 TANSSI para a Rede Tanssi {: #bridge-to-tanssi }
 
-Se você deseja converter seus tokens TANSSI (ERC-20) para TANSSI (Substrate) nativo na rede Tanssi, acesse o Tanssi dApp, abra a [seção da ponte](https://apps.tanssi.network/bridge){target=\_blank} e siga estas etapas:
+Se você deseja converter seus tokens TANSSI (ERC-20) para TANSSI (Substrate) nativo na rede Tanssi, acesse o Tanssi dApp, abra a [seção da bridge](https://apps.tanssi.network/bridge){target=\_blank} e siga estas etapas:
 
 1. Selecione **Ethereum** no menu suspenso **From**.
 2. Clique em **Connect Wallet**, selecione sua carteira Ethereum preferida e escolha a conta.
@@ -4856,7 +4856,7 @@ Se você deseja converter seus tokens TANSSI (ERC-20) para TANSSI (Substrate) na
 Agora, com sua carteira conectada:
 
 1. Insira a conta de destino Substrate no campo **Recipient**.
-2. Insira o valor a ser transferido no campo **Balance**. As taxas estimadas de ponte e transação serão exibidas junto com o valor que a conta de destino receberá.
+2. Insira o valor a ser transferido no campo **Balance**. As taxas estimadas de bridge e transação serão exibidas junto com o valor que a conta de destino receberá.
 3. Clique em **Send** e assine a transação.
 
 ![Executar a Transação](/images/builders/interoperability/built-in-bridge/built-in-bridge-4.webp)
@@ -4880,7 +4880,7 @@ categories: Basics
 
 ## Introdução {: #introduction }
 
-O token da rede Tanssi é o token de utilidade que alimenta o protocolo Tanssi. Considerando a [arquitetura da Tanssi](/pt/learn/tanssi/overview/#tanssi-architecture){target=\_blank}, o token existe em duas representações distintas, mas interconectadas: Substrate nativo e ERC-20 Ethereum. As duas versões podem ser interligadas através da [ponte Tanssi-Ethereum](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
+O token da rede Tanssi é o token de utilidade que alimenta o protocolo Tanssi. Considerando a [arquitetura da Tanssi](/pt/learn/tanssi/overview/#tanssi-architecture){target=\_blank}, o token existe em duas representações distintas, mas interconectadas: Substrate nativo e ERC-20 Ethereum. As duas versões podem ser interligadas através da [bridge Tanssi-Ethereum](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank}.
 
 Neste guia, a utilidade do token e as diferenças entre suas duas representações são abordadas, o que é crucial para operators de rede, stakers, gerentes de appchain e usuários em geral que desejam participar do ecossistema Tanssi.
 
@@ -4909,7 +4909,7 @@ A rede Tanssi é construída usando a estrutura Substrate, aproveitando sua arqu
 
 Além disso, o protocolo Tanssi conta com [provedores de segurança externos](/pt/learn/tanssi/external-security-providers/){target=\_blank}, como o [Symbiotic](/pt/learn/tanssi/external-security-providers/symbiotic/){target=\_blank}, para proteger o ecossistema por meio de ativos reapostados. Esse mecanismo de reaposta é implementado no Ethereum; portanto, uma versão ERC-20 do token também existe para cobrir casos de uso no lado Ethereum.
 
-Aproveitando os [recursos de bridging integrados à](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} Tanssi, o token pode ser convertido para (e de) a representação ERC-20 no Ethereum. Quando o token é ponteado para Ethereum, os tokens são travados na conta soberana da ponte, e uma mensagem é enviada ao contrato Ethereum para cunhar a quantia equivalente em ERC-20. Esse mecanismo de travamento e cunhagem garante que a versão ERC-20 seja criada por meio de um mecanismo de bridging sem confiança, mantendo um relacionamento 1:1 com o token nativo.
+Aproveitando os [recursos de bridging integrados à](/pt/learn/tanssi/tanssi-ethereum-bridge/){target=\_blank} Tanssi, o token pode ser convertido para (e de) a representação ERC-20 no Ethereum. Quando o token é ponteado para Ethereum, os tokens são travados na conta soberana da bridge, e uma mensagem é enviada ao contrato Ethereum para cunhar a quantia equivalente em ERC-20. Esse mecanismo de travamento e cunhagem garante que a versão ERC-20 seja criada por meio de um mecanismo de bridging sem confiança, mantendo um relacionamento 1:1 com o token nativo.
 
 ```mermaid
 flowchart LR
@@ -4956,7 +4956,7 @@ Este token usa como [conta do tipo Substrate Sr25519](/pt/learn/tanssi/account-t
 
 ### Tanssi (ERC-20) - Representação Ethereum {: #tanssi-erc-20 }
 
-A versão ERC-20 da Tanssi é um token Ethereum padrão que representa o token nativo na rede Ethereum. Essa versão é criada por meio do mecanismo de ponte sem confiança, utilizando uma estratégia de bloqueio e cunhagem, mantendo assim um relacionamento 1:1 com o token nativo.
+A versão ERC-20 da Tanssi é um token Ethereum padrão que representa o token nativo na rede Ethereum. Essa versão é criada por meio do mecanismo de bridge sem confiança, utilizando uma estratégia de bloqueio e cunhagem, mantendo assim um relacionamento 1:1 com o token nativo.
 
 Este token, como qualquer outro ativo Ethereum, usa uma [conta ECDSA](/pt/learn/tanssi/account-types/#key-types-in-tanssi-protocol){target=\_blank}, então requer uma carteira como [Metamask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} ou qualquer outra [carteira compatível com Ethereum](/pt/builders/toolkit/ethereum-api/wallets/){target=\_blank}.
 
@@ -4976,5 +4976,5 @@ Para entender melhor as diferenças entre as duas representações de token, a t
 | **Carteiras Compatíveis** | [Talisman](/pt/builders/toolkit/substrate-api/wallets/talisman/){target=\_blank}, [SubWallet](/pt/builders/toolkit/substrate-api/wallets/subwallet/){target=\_blank} e outros                                              | [MetaMask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank}, [Talisman](/pt/builders/toolkit/ethereum-api/wallets/talisman/){target=\_blank} e outras carteiras compatíveis com Ethereum |
 | **Principais Utilidades**  | - Participação na governança on-chain<br/>- Registro e implantação de Appchain<br/>- Pagamento de serviços de sequenciamento<br/>- Taxas de transação na rede Tanssi<br/>- Staking em Sequencers<br/>- Recompensas de operação do Sequencer | - Recompensas de validação do operator<br/>- Staking em operators                                                                                                                                          |
 | **Opções de Staking**    | Staking de Sequencer (para manter a atividade da appchain)                                                                                                                                        | Staking de operator (para validar/proteger todo o ecossistema Tanssi)                                                                                                                            |
-| **Conversão de Ponte**  | Pode ser ponteado para ERC-20, pagando taxas em $TANSSI (Substrate)                                                                                                                                                            | Pode ser ponteado para Substrate, pagando taxas em $ETH                                                                                                                                                  |
+| **Conversão de Bridge**  | Pode ser ponteado para ERC-20, pagando taxas em $TANSSI (Substrate)                                                                                                                                                            | Pode ser ponteado para Substrate, pagando taxas em $ETH                                                                                                                                                  |
 --- END CONTENT ---
