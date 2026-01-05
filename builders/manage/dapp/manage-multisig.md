@@ -33,7 +33,7 @@ In the first step to [deploy a new Tanssi-powered appchain](/builders/deploy/dap
 
 ![Accounts section](/images/builders/manage/dapp/multisig/multisig-1.webp)
 
-In the **Sudo Address** field, you can enter any account, though when you select it, a menu with the option **Create Multisig** Account will appear.
+In the **Sudo Address** field, you can enter any account, though when you select it, a menu with the option **Create Multisig Account** will appear.
 
 ![Accounts section](/images/builders/manage/dapp/multisig/multisig-2.webp)
 
@@ -59,7 +59,7 @@ The **Transfer Sudo** panel will be presented.
 
 ![Transfer Sudo](/images/builders/manage/dapp/multisig/multisig-6.webp)
 
-When you select the **New Sudo Address** field, a menu will show displaying the following entries: the multisigs you might have already created, the accounts you have connected to the dApp, and the **Create Multisig Account** action. 
+When you select the **New Sudo Address** field, a menu will be shown displaying the following entries: the multisigs you might have already created, the accounts you have connected to the dApp, and the **Create Multisig Account** action. 
 
 ![Transfer Sudo](/images/builders/manage/dapp/multisig/multisig-7.webp)
 
