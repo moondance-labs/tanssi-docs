@@ -3097,7 +3097,7 @@ Your multisig is now saved and can be used as sudo for your new chain.
 If you already have a live Tanssi-powered appchain, you can easily transfer the sudo rights to a multisig setup. To do so, head to the [dashboard](https://apps.tanssi.network/dashboard){target=\_blank} and on your appchain's card:
 
 1. Click on **Manage**.
-2. Click **Transfer Sudo** button in the panel on the right.
+2. Click the **Transfer Sudo** button in the panel on the right.
 
 ![Transfer Sudo](/images/builders/manage/dapp/multisig/multisig-5.webp)
 
@@ -3129,7 +3129,7 @@ The dApp's management panel allows you to dispatch privileged transactions throu
 
 When appchain management is configured with a multisig account as sudo, the process involves several steps because the transaction will be executed only when the threshold of valid signatures is met.
 
-The smallest multisig that can be configured is a two-out-of-three. In this setup, the user creating the transaction provides one valid signature, and a second user, holding any of the remaining two valid addresses, signs and executes the transaction, completing the multisig flow.
+The smallest recommended multisig that can be configured is a two-out-of-three. In this setup, the user creating the transaction provides one valid signature, and a second user, holding any of the remaining two valid addresses, signs and executes the transaction, completing the multisig flow.
 
 The following sections show how to create and execute a privileged transaction.
 
@@ -3157,7 +3157,7 @@ Once the multisig is created, your dashboard will show that there's a new ongoin
 
 ### Signing a Multisig Transaction {: #sign-multisig-transaction }
 
-With a multisig participant address connected to the dApp, your dashboard will display the multisig transactions that are awaiting your review & approval. Click on the **View Details** button, review the transaction details, and sign it.
+With a multisig participant address connected to the dApp, your dashboard will display the multisig transactions that are awaiting your review and approval. Click on the **View Details** button, review the transaction details, and sign it.
 
 ![Multisig approved](/images/builders/manage/dapp/multisig/multisig-12.webp)
 

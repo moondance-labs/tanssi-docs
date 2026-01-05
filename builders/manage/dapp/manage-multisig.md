@@ -75,7 +75,7 @@ The dApp's management panel allows you to dispatch privileged transactions throu
 
 When appchain management is configured with a multisig account as sudo, the process involves several steps because the transaction will be executed only when the threshold of valid signatures is met.
 
-The smallest multisig that can be configured is a two-out-of-three. In this setup, the user creating the transaction provides one valid signature, and a second user, holding any of the remaining two valid addresses, signs and executes the transaction, completing the multisig flow.
+The smallest recommended multisig that can be configured is a two-out-of-three. In this setup, the user creating the transaction provides one valid signature, and a second user, holding any of the remaining two valid addresses, signs and executes the transaction, completing the multisig flow.
 
 The following sections show how to create and execute a privileged transaction.
 
