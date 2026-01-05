@@ -51,7 +51,7 @@ Your multisig is now saved and can be used as sudo for your new chain.
 If you already have a live Tanssi-powered appchain, you can easily transfer the sudo rights to a multisig setup. To do so, head to the [dashboard](https://apps.tanssi.network/dashboard){target=\_blank} and on your appchain's card:
 
 1. Click on **Manage**.
-2. Click **Transfer Sudo** button in the panel on the right.
+2. Click the **Transfer Sudo** button in the panel on the right.
 
 ![Transfer Sudo](/images/builders/manage/dapp/multisig/multisig-5.webp)
 
@@ -103,7 +103,7 @@ Once the multisig is created, your dashboard will show that there's a new ongoin
 
 ### Signing a Multisig Transaction {: #sign-multisig-transaction }
 
-With a multisig participant address connected to the dApp, your dashboard will display the multisig transactions that are awaiting your review & approval. Click on the **View Details** button, review the transaction details, and sign it.
+With a multisig participant address connected to the dApp, your dashboard will display the multisig transactions that are awaiting your review and approval. Click on the **View Details** button, review the transaction details, and sign it.
 
 ![Multisig approved](/images/builders/manage/dapp/multisig/multisig-12.webp)
 
