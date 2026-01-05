@@ -1,4 +1,4 @@
-To create a new multisig, click on the **Create Multisig Account** button and follow the steps in the modal windows that will show up:
+To create a new multisig, click **Create Multisig Account** and follow the steps in the modal windows that appear:
 
 1. Set your multisig's name.
 2. Insert the addresses that will be part of the signing set.

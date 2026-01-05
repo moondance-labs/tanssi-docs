@@ -1,6 +1,6 @@
 ---
 title: Manage Your Chain Using a Multisig
-description: Learn how the configure and use a Multisig to manage your chain and execute privileged actions, such as upgrading the runtime, minting tokens, and more.
+description: Learn how to configure and use a Multisig to manage your chain and execute privileged actions, such as upgrading the runtime, minting tokens, and more.
 icon: octicons-key-24
 categories: Appchain
 ---
@@ -65,19 +65,19 @@ When you select the **New Sudo Address** field, a menu will show displaying the 
 
 --8<-- 'text/builders/manage/dapp/multisig/create-multisig.md'
 
-Your multisig is now saved and can be used as sudo for your new chain.. Select your newly created multisig, click on **Transfer Sudo**, sign the transaction, and that's it!
+Your multisig is now saved and can be used as sudo for your new chain. Select your newly created multisig, click on **Transfer Sudo**, sign the transaction, and that's it!
 
 ![Accounts section](/images/builders/manage/dapp/multisig/multisig-8.webp)
 
 ## Executing Privileged Actions With a Multisig Setup {: #multisig-transactions }
 
-The dApp's management panel allows you to dispatch privileged transactions through a user-friendly interface. Among those privileged actions, we can find some related to token management (such as minting tokens or changing the gas dynamics), dispatching runtime upgrades, opening interoperability channels, and others.
+The dApp's management panel allows you to dispatch privileged transactions through a user-friendly interface. Among those privileged actions are those related to token management (such as minting tokens or changing the gas dynamics), dispatching runtime upgrades, opening interoperability channels, and others.
 
 When appchain management is configured with a multisig account as sudo, the process involves several steps because the transaction will be executed only when the threshold of valid signatures is met.
 
 The smallest multisig that can be configured is a two-out-of-three. In this setup, the user creating the transaction provides one valid signature, and a second user, holding any of the remaining two valid addresses, signs and executes the transaction, completing the multisig flow.
 
-In the following sections, an example of how to create and execute a privileged transaction is shown.
+The following sections show how to create and execute a privileged transaction.
 
 !!! note
     A multisig transaction created through the Tanssi dApp's UI can only be completed using the Tanssi dApp's UI. Similarly, a multisig transaction created with an external tool will not be shown and cannot be completed in the Tanssi dApp.
