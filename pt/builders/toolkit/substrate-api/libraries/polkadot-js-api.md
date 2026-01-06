@@ -346,7 +346,7 @@ Há mais exemplos de transferências neste [gist](https://gist.github.com/crysta
 
 A API Polkadot.js inclui utilitários para primitivas criptográficas e funções de hash.
 
-O exemplo a seguir calcula o hash determinístico de uma transação Ethereum legacy crua: primeiro gera a codificação RLP ([Recursive Length Prefix](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/){target=\_blank}) e depois aplica keccak256.
+O exemplo a seguir calcula o hash determinístico de uma transação Ethereum legacy crua: primeiro gera a codificação RLP ([Recursive Length Prefix](https://ethereum.org/developers/docs/data-structures-and-encoding/rlp/){target=\_blank}) e depois aplica keccak256.
 
 ```typescript
 import { encode } from '@polkadot/util-rlp';

@@ -28,7 +28,7 @@ Métodos básicos da API Ethereum suportados:
 - **[eth_getStorageAt](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — conteúdo do storage em um endereço
 - **[eth_getBlockByHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — informações do bloco por hash, incluindo `baseFeePerGas` em blocos pós-London
 - **[eth_getBlockByNumber](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — informações do bloco por número, incluindo `baseFeePerGas` em blocos pós-London
-- **[eth_getBlockReceipts](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — todos os receipts de transações de um bloco
+- **[eth_getBlockReceipts](https://www.alchemy.com/docs/chains/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — todos os receipts de transações de um bloco.
 - **[eth_getTransactionCount](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — número de transações (nonce) enviadas pelo endereço
 - **[eth_getBlockTransactionCountByHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — número de transações em um bloco por hash
 - **[eth_getBlockTransactionCountByNumber](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — número de transações em um bloco por número
@@ -39,7 +39,7 @@ Métodos básicos da API Ethereum suportados:
 - **[eth_sendRawTransaction](https://ethereum.org/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — cria transação de chamada ou criação para transações assinadas. Retorna hash ou zero hash se ainda não disponível
 - **[eth_call](https://ethereum.org/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executa chamada sem criar transação, retornando o valor da execução
 - **[eth_estimateGas](https://ethereum.org/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — estima o gas necessário para uma transação. Pode receber `gasPrice` ou `maxFeePerGas` e `maxPriorityFeePerGas`
-- **[eth_feeHistory](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — retorna `baseFeePerGas`, `gasUsedRatio`, `oldestBlock` e `reward` para um intervalo de até 1024 blocos
+- **[eth_feeHistory](https://www.alchemy.com/docs/chains/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — retorna `baseFeePerGas`, `gasUsedRatio`, `oldestBlock` e `reward` para um intervalo de até 1024 blocos
 - **[eth_getTransactionByHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — informações de uma transação por hash; transações EIP-1559 incluem `maxPriorityFeePerGas` e `maxFeePerGas`
 - **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — informações de uma transação por hash do bloco e índice; inclui campos EIP-1559
 - **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — informações de uma transação por número do bloco e índice; inclui campos EIP-1559
