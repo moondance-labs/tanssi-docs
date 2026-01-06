@@ -3024,8 +3024,8 @@ Those critical actions can be performed by a special account called [sudo](/buil
 
 A multisig is one way to make your appchain's management safer. It allows defining an M-of-N threshold, requiring at least M valid signatures from N designated accounts to execute privileged transactions. Using a multisig increases the security of your appchain governance by: 
 
-- Completely removing the single point of failure: Losing one account doesn't mean losing the appchain. Also, a compromised account is not enough to execute malicious actions. 
-- Reducing the human error factor: Transactions must be reviewed and approved by at least one other person, thereby reducing the risk of executing a wrong transaction, an unintended update, sending funds to the wrong address, and other common mistakes.
+- **Completely removing the single point of failure**: Losing one account doesn't mean losing the appchain. Also, a compromised account is not enough to execute malicious actions. 
+- **Reducing the human error factor**: Transactions must be reviewed and approved by at least one other person, thereby reducing the risk of executing a wrong transaction, an unintended update, sending funds to the wrong address, and other common mistakes.
 
 For appchains where the sudo account is not disabled in favor of another governance mechanism, setting up a multisig is strongly advised. This article shows how to set it up and execute multisig transactions.
 
@@ -3065,7 +3065,7 @@ If you're unsure what your Tanssi network's Sudo account is, you can find it in 
 !!! warning
     It's critical to protect your Sudo account key with the utmost security precautions, as it grants privileged access to your Tanssi network.
 
-## Setting Up a Multisig for a New Appchain  {: #multisig-new-appchain }
+## Set Up a Multisig for a New Appchain  {: #multisig-new-appchain }
 
 In the first step to [deploy a new Tanssi-powered appchain](/builders/deploy/dapp/){target=\_blank}, you must define the account that will have sudo privileges in the **Accounts** section.
 
@@ -3092,7 +3092,7 @@ Your multisig is now saved and can be used as sudo for your new chain.
 !!! note
     Your multisig has a unique address derived from the addresses in the signing set. Hence, you'll see a different account in the **Sudo Address**.
 
-## Going Multisig on an Already Live Appchain  {: #multisig-live-appchain }
+## Switch to Multisig on an Already Live Appchain  {: #multisig-live-appchain }
 
 If you already have a live Tanssi-powered appchain, you can easily transfer the sudo rights to a multisig setup. To do so, head to the [dashboard](https://apps.tanssi.network/dashboard){target=\_blank} and on your appchain's card:
 
@@ -3123,7 +3123,7 @@ Your multisig is now saved and can be used as sudo for your new chain. Select yo
 
 ![Accounts section](/images/builders/manage/dapp/multisig/multisig-8.webp)
 
-## Executing Privileged Actions With a Multisig Setup {: #multisig-transactions }
+## Execute Privileged Actions With a Multisig Setup {: #multisig-transactions }
 
 The dApp's management panel allows you to dispatch privileged transactions through a user-friendly interface. Among those privileged actions are those related to token management (such as minting tokens or changing the gas dynamics), dispatching runtime upgrades, opening interoperability channels, and others.
 
@@ -3136,7 +3136,7 @@ The following sections show how to create and execute a privileged transaction.
 !!! note
     A multisig transaction created through the Tanssi dApp's UI can only be completed using the Tanssi dApp's UI. Similarly, a multisig transaction created with an external tool will not be shown and cannot be completed in the Tanssi dApp.
 
-### Creating a Multisig Transaction {: #create-multisig-transaction }
+### Create a Multisig Transaction {: #create-multisig-transaction }
 
 To create a privileged transaction, head to the [Tanssi dApp](https://apps.tanssi.network/dashboard){target=\_blank} and connect one of the multisig addresses.
 
@@ -3155,7 +3155,7 @@ Once the multisig is created, your dashboard will show that there's a new ongoin
 !!! note
     The **Approve** button is disabled for the multisig transaction creator, since their signature has already been submitted.
 
-### Signing a Multisig Transaction {: #sign-multisig-transaction }
+### Sign a Multisig Transaction {: #sign-multisig-transaction }
 
 With a multisig participant address connected to the dApp, your dashboard will display the multisig transactions that are awaiting your review and approval. Click on the **View Details** button, review the transaction details, and sign it.
 
