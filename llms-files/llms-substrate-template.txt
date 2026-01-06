@@ -3263,7 +3263,7 @@ Há mais exemplos de transferências neste [gist](https://gist.github.com/crysta
 
 A API Polkadot.js inclui utilitários para primitivas criptográficas e funções de hash.
 
-O exemplo a seguir calcula o hash determinístico de uma transação Ethereum legacy crua: primeiro gera a codificação RLP ([Recursive Length Prefix](https://ethereum.org/en/developers/docs/data-structures-and-encoding/rlp/){target=\_blank}) e depois aplica keccak256.
+O exemplo a seguir calcula o hash determinístico de uma transação Ethereum legacy crua: primeiro gera a codificação RLP ([Recursive Length Prefix](https://ethereum.org/developers/docs/data-structures-and-encoding/rlp/){target=\_blank}) e depois aplica keccak256.
 
 ```typescript
 import { encode } from '@polkadot/util-rlp';
@@ -7440,7 +7440,7 @@ Quando uma nova sessão começa, o protocolo Tanssi colocará a atribuição na 
 
 Como discutido anteriormente, o protocolo Tanssi atribui Sequencers às redes Tanssi, e o resultado desta atribuição é armazenado no estado da cadeia. Além de executar o nó da rede, os Sequencers também executam o Tanssi. Portanto, ao acessar os dados armazenados nos blocos finalizados da Rede Tanssi, eles podem aprender sua atribuição para a sessão, e as redes Tanssi podem confirmar que um determinado grupo de Sequencers foi atribuído a elas.
 
-À medida que as redes Tanssi produzem blocos, esses blocos precisam ser validados e finalizados por um provedor de segurança externo. Depois que um operator verifica um bloco, uma pequena prova de validade é produzida e armazenada na Tanssi, mantendo o controle das provas para cada bloco de cada cadeia. Esta pequena representação da prova de validade é chamada de [recibo de candidato](https://polkadot.com/blog/the-path-of-a-parachain-block/#candidate-receipts){target=\_blank} e é composta por um conjunto de valores, incluindo a raiz do estado, que pode ser usada para verificar provas de estado.
+À medida que as redes Tanssi produzem blocos, esses blocos precisam ser validados e finalizados por um provedor de segurança externo. Depois que um operator verifica um bloco, uma pequena prova de validade é produzida e armazenada na Tanssi, mantendo o controle das provas para cada bloco de cada cadeia. Esta pequena representação da prova de validade é chamada de [recibo de candidato](https://wiki.polkadot.com/learn/learn-parachains-protocol/#candidate-receipts){target=\_blank} e é composta por um conjunto de valores, incluindo a raiz do estado, que pode ser usada para verificar provas de estado.
 
 Finalmente, o Tanssi pode verificar se o autor de um bloco de rede foi o esperado e recompensá-lo de acordo.
 
@@ -9354,7 +9354,7 @@ Métodos básicos da API Ethereum suportados:
 - **[eth_getStorageAt](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getstorageat){target=\_blank}** — conteúdo do storage em um endereço
 - **[eth_getBlockByHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblockbyhash){target=\_blank}** — informações do bloco por hash, incluindo `baseFeePerGas` em blocos pós-London
 - **[eth_getBlockByNumber](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblockbynumber){target=\_blank}** — informações do bloco por número, incluindo `baseFeePerGas` em blocos pós-London
-- **[eth_getBlockReceipts](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — todos os receipts de transações de um bloco
+- **[eth_getBlockReceipts](https://www.alchemy.com/docs/chains/ethereum/ethereum-api-endpoints/eth-get-block-receipts){target=\_blank}** — todos os receipts de transações de um bloco.
 - **[eth_getTransactionCount](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactioncount){target=\_blank}** — número de transações (nonce) enviadas pelo endereço
 - **[eth_getBlockTransactionCountByHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbyhash){target=\_blank}** — número de transações em um bloco por hash
 - **[eth_getBlockTransactionCountByNumber](https://ethereum.org/developers/docs/apis/json-rpc/#eth_getblocktransactioncountbynumber){target=\_blank}** — número de transações em um bloco por número
@@ -9365,7 +9365,7 @@ Métodos básicos da API Ethereum suportados:
 - **[eth_sendRawTransaction](https://ethereum.org/developers/docs/apis/json-rpc/#eth_sendrawtransaction){target=\_blank}** — cria transação de chamada ou criação para transações assinadas. Retorna hash ou zero hash se ainda não disponível
 - **[eth_call](https://ethereum.org/developers/docs/apis/json-rpc/#eth_call){target=\_blank}** — executa chamada sem criar transação, retornando o valor da execução
 - **[eth_estimateGas](https://ethereum.org/developers/docs/apis/json-rpc/#eth_estimategas){target=\_blank}** — estima o gas necessário para uma transação. Pode receber `gasPrice` ou `maxFeePerGas` e `maxPriorityFeePerGas`
-- **[eth_feeHistory](https://www.alchemy.com/docs/node/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — retorna `baseFeePerGas`, `gasUsedRatio`, `oldestBlock` e `reward` para um intervalo de até 1024 blocos
+- **[eth_feeHistory](https://www.alchemy.com/docs/chains/ethereum/ethereum-api-endpoints/eth-fee-history){target=\_blank}** — retorna `baseFeePerGas`, `gasUsedRatio`, `oldestBlock` e `reward` para um intervalo de até 1024 blocos
 - **[eth_getTransactionByHash](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionbyhash){target=\_blank}** — informações de uma transação por hash; transações EIP-1559 incluem `maxPriorityFeePerGas` e `maxFeePerGas`
 - **[eth_getTransactionByBlockHashAndIndex](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionbyblockhashandindex){target=\_blank}** — informações de uma transação por hash do bloco e índice; inclui campos EIP-1559
 - **[eth_getTransactionByBlockNumberAndIndex](https://ethereum.org/developers/docs/apis/json-rpc/#eth_gettransactionbyblocknumberandindex){target=\_blank}** — informações de uma transação por número do bloco e índice; inclui campos EIP-1559
