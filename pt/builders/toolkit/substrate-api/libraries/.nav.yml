@@ -1,0 +1,6 @@
+title: Libraries
+hide: false
+nav:
+  - index.md
+  - 'API do Polkadot.js': 'polkadot-js-api.md'
+  - 'API do Sidecar': 'sidecar-api.md'

@@ -1,0 +1,198 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tanssi-docs\n"
+"Language: en\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "meta.home_title"
+msgstr "Documentation for the Tanssi Network"
+
+msgid "footer.llms_full_label"
+msgstr "llms-full.txt"
+
+msgid "footer.made_with_html"
+msgstr ""
+"Made with 🩵 by <a href=\"https://papermoon.io/\" "
+"target=\"_blank\">PaperMoon</a>"
+
+msgid "footer.privacy_policy"
+msgstr "Privacy Policy"
+
+msgid "footer.terms_of_use"
+msgstr "Terms of Use"
+
+msgid "footer.material_attribution_html"
+msgstr ""
+"Made with <a href=\"https://squidfunk.github.io/mkdocs-material/\" "
+"target=\"_blank\" rel=\"noopener\">Material for MkDocs</a>"
+
+msgid "error.404_title"
+msgstr "404 – Not found"
+
+msgid "home.meta.title"
+msgstr "Tanssi Docs"
+
+msgid "home.hero.video_fallback"
+msgstr "Your browser does not support the video tag."
+
+msgid "home.hero.title_html"
+msgstr "Tanssi <span class=\"shadow\">&lt;Dev&gt;</span> Site"
+
+msgid "home.hero.subtitle"
+msgstr ""
+"Build, launch, and scale Symbiotic Networks faster with Tanssi's "
+"infrastructure, tools, and integrations."
+
+msgid "home.hero.cards.launch.title"
+msgstr "Launch a Tanssi-Powered Network"
+
+msgid "home.hero.cards.launch.description"
+msgstr "Get tools and guides to launch your network in minutes."
+
+msgid "home.hero.cards.launch.button"
+msgstr "Get Started"
+
+msgid "home.hero.cards.evm.title"
+msgstr "Develop using EVM Tools"
+
+msgid "home.hero.cards.evm.description"
+msgstr "Leverage popular EVM tools to accelerate your development."
+
+msgid "home.hero.cards.evm.button"
+msgstr "Learn More"
+
+msgid "home.hero.cards.learn.title"
+msgstr "Explore Technical Concepts"
+
+msgid "home.hero.cards.learn.description"
+msgstr "Learn Tanssi's features, services, and security via Symbiotic."
+
+msgid "home.hero.cards.learn.button"
+msgstr "Learn More"
+
+msgid "home.feature.heading.prefix"
+msgstr "The One Stop-Hub For Tanssi"
+
+msgid "home.feature.heading.accent"
+msgstr "Builders"
+
+msgid "home.feature.description"
+msgstr ""
+"Explore more ways to engage with the Tanssi ecosystem—access funding, "
+"resources, and visibility for your project."
+
+msgid "home.feature.cards.one.badge"
+msgstr "Ecosystem"
+
+msgid "home.feature.cards.one.title"
+msgstr "Apply for a Grant"
+
+msgid "home.feature.cards.one.arrow_alt"
+msgstr "Navigate to the Apply for a Grant page"
+
+msgid "home.feature.cards.two.badge"
+msgstr "Start Building"
+
+msgid "home.feature.cards.two.title"
+msgstr "Visit the TestNet"
+
+msgid "home.feature.cards.two.arrow_alt"
+msgstr "Navigate to the TestNet page"
+
+msgid "home.feature.cards.three.badge"
+msgstr "Industry Insights"
+
+msgid "home.feature.cards.three.title"
+msgstr "Ecosystem Updates"
+
+msgid "home.feature.cards.three.arrow_alt"
+msgstr "Navigate to the Ecosystem Updates page"
+
+msgid "home.feature.separator_alt"
+msgstr "Multicolor decorative design of Tanssi"
+
+msgid "home.community.heading.prefix"
+msgstr "Join the Tanssi"
+
+msgid "home.community.heading.accent"
+msgstr "Dev"
+
+msgid "home.community.heading.suffix"
+msgstr "Community"
+
+msgid "home.community.buttons.discord"
+msgstr "Join Discord"
+
+msgid "home.community.buttons.subscribe"
+msgstr "Subscribe"
+
+msgid "action.edit"
+msgstr "Edit this page"
+
+msgid "action.view"
+msgstr "View source"
+
+msgid "feedback.title"
+msgstr "Was this page helpful?"
+
+msgid "feedback.ratings.helpful.name"
+msgstr "This page was helpful"
+
+msgid "feedback.ratings.helpful.note"
+msgstr "Thanks for your feedback!"
+
+msgid "feedback.ratings.unhelpful.name"
+msgstr "This page could be improved"
+
+msgid "feedback.ratings.unhelpful.note"
+msgstr ""
+"Thanks for your feedback! Help us improve this page by submitting <a "
+"href=\"https://github.com/moondance-labs/tanssi-"
+"docs/issues/new/?title=[Feedback]+{title}+-+{url}\" target=\"_blank\" "
+"rel=\"noopener\">additional feedback</a>."
+
+msgid "disclaimer.third_party"
+msgstr ""
+"The information presented herein has been provided by third parties and is "
+"made available solely for general information purposes. Tanssi does not "
+"endorse any project listed and described on the Tanssi Doc Website "
+"(https://docs.tanssi.network/). Tanssi Foundation does not warrant the "
+"accuracy, completeness or usefulness of this information. Any reliance you "
+"place on such information is strictly at your own risk. Tanssi Foundation "
+"disclaims all liability and responsibility arising from any reliance placed "
+"on this information by you or by anyone who may be informed of any of its "
+"contents. All statements and/or opinions expressed in these materials are "
+"solely the responsibility of the person or entity providing those materials "
+"and do not necessarily represent the opinion of Tanssi Foundation. The "
+"information should not be construed as professional or financial advice of "
+"any kind. Advice from a suitably qualified professional should always be "
+"sought in relation to any particular matter or circumstance. The information"
+" herein may link to or integrate with other websites operated or content "
+"provided by third parties, and such other websites may link to this website."
+" Tanssi Foundation has no control over any such other websites or their "
+"content and will have no liability arising out of or related to such "
+"websites or their content. The existence of any such link does not "
+"constitute an endorsement of such websites, the content of the websites, or "
+"the operators of the websites. These links are being provided to you only as"
+" a convenience and you release and hold Tanssi Foundation harmless from any "
+"and all liability arising from your use of this information or the "
+"information provided by any third-party website or service."
+
+msgid "external_link_modal.header"
+msgstr "You're Leaving the Tanssi Documentation Website"
+
+msgid "external_link_modal.message"
+msgstr ""
+"A new tab will open and you'll be sent to an independent, third-party "
+"website that is not affiliated with Tanssi."
+
+msgid "external_link_modal.cancel"
+msgstr "Cancel"
+
+msgid "external_link_modal.continue"
+msgstr "Continue to External Site"
+
+msgid "home.feature.heading.suffix"
+msgstr ""

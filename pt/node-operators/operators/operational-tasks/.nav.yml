@@ -1,0 +1,6 @@
+title: Operational Tasks
+hide: false
+nav:
+  - index.md
+  - upgrade-your-node
+  - 'Configurando uma Conta de Proxy': 'proxy-accounts.md'

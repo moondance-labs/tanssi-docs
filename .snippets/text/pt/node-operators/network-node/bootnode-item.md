@@ -1,0 +1,1 @@
+- `Bootnode` - é um nó arquivo completo usado para sincronizar a rede do zero. Você precisará [recuperar o bootnode da sua rede Tanssi](#fetching-bootnode-information) e substituir `INSERT_YOUR_NETWORK_BOOTNODES` pela informação real de bootnode.

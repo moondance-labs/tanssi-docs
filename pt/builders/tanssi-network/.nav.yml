@@ -1,0 +1,8 @@
+title: Essenciais da Rede
+hide: false
+nav:
+  - index.md
+  - Token TANSSI: tanssi-token.md
+  - MainNet Tanssi: mainnet.md
+  - testnet
+  - Endpoints da Rede: endpoints.md

@@ -1,6 +1,36 @@
 /** Grab the body so we can append the modal to it */
 const main = document.querySelector('main');
 
+/** Simple i18n for modal strings */
+const lang = (document.documentElement.lang || 'en').toLowerCase();
+let injected = {};
+const injectedScript = document.getElementById('external-link-modal-strings');
+if (injectedScript) {
+  try {
+    const parsed = JSON.parse(injectedScript.textContent || '{}');
+    if (parsed && parsed[lang]) {
+      injected = parsed[lang];
+    }
+  } catch (err) {
+    injected = {};
+  }
+}
+if (!Object.keys(injected).length) {
+  injected = (window.__externalLinkModalStrings && window.__externalLinkModalStrings[lang]) || {};
+}
+const fallback = {
+  header: `You're Leaving the Tanssi Documentation Website`,
+  message: `A new tab will open and you'll be sent to an independent, third-party website that is not affiliated with Tanssi.`,
+  cancel: 'Cancel',
+  continue: 'Continue to External Site'
+};
+const t = {
+  header: injected.header || fallback.header,
+  message: injected.message || fallback.message,
+  cancel: injected.cancel || fallback.cancel,
+  continue: injected.continue || fallback.continue
+};
+
 /** Create the modal */
 const externalLinkModalContainer = document.createElement('div');
 const externalLinkModal = document.createElement('div');
@@ -23,15 +53,14 @@ closeExternalLinkModal.className = 'close-modal';
 externalLinkModalContainer.style.display = 'none';
 
 /** Set text inside the modal */
-externalLinkModalHeader.innerHTML = `You're Leaving the Tanssi Documentation Website`;
-externalLinkModalMessage.innerHTML =
-  `A new tab will open and you'll be sent to an independent, third-party website that is not affiliated with Tanssi.`;
+externalLinkModalHeader.textContent = t.header;
+externalLinkModalMessage.textContent = t.message;
 
 /** Set button text and classes */
-cancelButton.innerHTML = 'Cancel';
+cancelButton.textContent = t.cancel;
 cancelButton.classList.add('md-button');
 
-continueToExternalButton.innerHTML = 'Continue to External Site';
+continueToExternalButton.textContent = t.continue;
 continueToExternalButton.classList.add('md-button--primary', 'md-button');
 
 buttonWrapper.classList.add('row', 'modal-buttons', 'md-typeset');
