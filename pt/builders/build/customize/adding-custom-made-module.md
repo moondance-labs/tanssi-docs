@@ -292,7 +292,7 @@ Para juntar todas as peças, após implementar todas as macros necessárias e ad
     
 ## Configurar o Runtime {: #configure-runtime }
 
-Finalmente, com o módulo finalizado, ele pode ser incluído no Runtime. Ao fazer isso, as transações `buy_tickets` e `award_prize` serão chamáveis pelos usuários. Isso também significa que a [API Polkadot.js](pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} será decorada com este módulo e todas as chamadas disponíveis que ele contém.\n\nPara configurar o Runtime, abra o arquivo `lib.rs`, que contém a definição para o Runtime do Template incluído e está localizado (no caso de usar o compatível com EVM) na pasta:
+Finalmente, com o módulo finalizado, ele pode ser incluído no Runtime. Ao fazer isso, as transações `buy_tickets` e `award_prize` serão chamáveis pelos usuários. Isso também significa que a [API Polkadot.js](/pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} será decorada com este módulo e todas as chamadas disponíveis que ele contém.\n\nPara configurar o Runtime, abra o arquivo `lib.rs`, que contém a definição para o Runtime do Template incluído e está localizado (no caso de usar o compatível com EVM) na pasta:
 
 ```text
 */container-chains/templates/frontier/runtime/src/

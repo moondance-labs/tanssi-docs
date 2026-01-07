@@ -26,7 +26,7 @@ Isso significa que este Template está pronto para ser implantado como está atr
 - Escolher o provedor de segurança que melhor se adapta às suas necessidades. Por exemplo, aproveitar a segurança de nível Ethereum do [Symbiotic](https://symbiotic.fi/){target=\_blank}
 - Construir dApps interagindo com sua rede através de uma [API](/pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}
 - Conectar qualquer carteira Ethereum, como [Metamask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} e Ledger
-- Usar bibliotecas Ethereum bem conhecidas como [Ethers.js](/pt/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](pt/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, [Web3.py](/pt/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, e mais
+- Usar bibliotecas Ethereum bem conhecidas como [Ethers.js](/pt/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](/pt/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, [Web3.py](/pt/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, e mais
 - Implantar contratos inteligentes EVM com ferramentas como [Remix](https://remix.ethereum.org){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, e mais
 
 ## Módulos Incluídos {: #included-modules }
