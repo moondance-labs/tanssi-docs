@@ -26370,7 +26370,7 @@ pub mod pallet {
     
 ## Configurar o Runtime {: #configure-runtime }
 
-Finalmente, com o módulo finalizado, ele pode ser incluído no Runtime. Ao fazer isso, as transações `buy_tickets` e `award_prize` serão chamáveis pelos usuários. Isso também significa que a [API Polkadot.js](pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} será decorada com este módulo e todas as chamadas disponíveis que ele contém.\n\nPara configurar o Runtime, abra o arquivo `lib.rs`, que contém a definição para o Runtime do Template incluído e está localizado (no caso de usar o compatível com EVM) na pasta:
+Finalmente, com o módulo finalizado, ele pode ser incluído no Runtime. Ao fazer isso, as transações `buy_tickets` e `award_prize` serão chamáveis pelos usuários. Isso também significa que a [API Polkadot.js](/pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank} será decorada com este módulo e todas as chamadas disponíveis que ele contém.\n\nPara configurar o Runtime, abra o arquivo `lib.rs`, que contém a definição para o Runtime do Template incluído e está localizado (no caso de usar o compatível com EVM) na pasta:
 
 ```text
 */container-chains/templates/frontier/runtime/src/
@@ -27186,7 +27186,7 @@ Isso significa que este Template está pronto para ser implantado como está atr
 - Escolher o provedor de segurança que melhor se adapta às suas necessidades. Por exemplo, aproveitar a segurança de nível Ethereum do [Symbiotic](https://symbiotic.fi/){target=\_blank}
 - Construir dApps interagindo com sua rede através de uma [API](/pt/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}
 - Conectar qualquer carteira Ethereum, como [Metamask](/pt/builders/toolkit/ethereum-api/wallets/metamask/){target=\_blank} e Ledger
-- Usar bibliotecas Ethereum bem conhecidas como [Ethers.js](/pt/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](pt/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, [Web3.py](/pt/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, e mais
+- Usar bibliotecas Ethereum bem conhecidas como [Ethers.js](/pt/builders/toolkit/ethereum-api/libraries/ethersjs/){target=\_blank}, [Web3.js](/pt/builders/toolkit/ethereum-api/libraries/web3js/){target=\_blank}, [Web3.py](/pt/builders/toolkit/ethereum-api/libraries/web3py/){target=\_blank}, e mais
 - Implantar contratos inteligentes EVM com ferramentas como [Remix](https://remix.ethereum.org){target=\_blank}, [Hardhat](https://hardhat.org){target=\_blank}, [Foundry](https://github.com/foundry-rs/foundry){target=\_blank}, e mais
 
 ## Módulos Incluídos {: #included-modules }
@@ -43255,7 +43255,7 @@ A bridge é mais do que uma troca de ativos. É um protocolo seguro e padronizad
 
 Este artigo apresenta a bridge Tanssi-Ethereum como uma camada fundamental de interoperabilidade entre as duas redes. Você aprenderá como ela funciona, incluindo sua arquitetura, gestão de operators, Template econômico, mecanismos de slashing e transferências de ativos.
 
-Você também conhecerá as camadas de consenso que protegem a comunicação ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} em [Tanssi](/pt/learn/tanssi/){target=\_blank} e a [Beacon Chain do Ethereum](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), além dos papéis de provers, verifiers e relayers, oferecendo uma visão clara de como ativos e mensagens se movem com segurança entre Tanssi e Ethereum.
+Você também conhecerá as camadas de consenso que protegem a comunicação ([BEEFY](https://docs.tanssi.network/learn/tanssi/){target=\_blank} em [Tanssi](/pt/learn/tanssi/){target=\_blank} e a [Beacon Chain do Ethereum](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), além dos papéis de provers, verifiers e relayers, oferecendo uma visão clara de como ativos e mensagens se movem com segurança entre Tanssi e Ethereum.
 
 ## Funções Principais {: #core-functions }
 
@@ -43272,7 +43272,7 @@ Essa interoperabilidade amplia o potencial de aplicações descentralizadas e me
 
 Entender a funcionalidade de consenso da bridge requer examinar seus componentes principais: provers, verifiers e relayers. Provers geram provas criptográficas, verifiers as validam e relayers transportam dados entre as cadeias.
 
-Os provers incluem o módulo [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} da Tanssi e o consenso da Beacon Chain do Ethereum. Eles produzem dados de consenso transmitidos por relayers especializados.
+Os provers incluem o módulo [BEEFY](https://docs.tanssi.network/learn/tanssi/){target=\_blank} da Tanssi e o consenso da [Beacon Chain do Ethereum](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}. Eles produzem dados de consenso transmitidos por relayers especializados.
 
 Cada cadeia executa um [light client](https://ethereum.org/developers/docs/nodes-and-clients/light-clients/){target=\_blank} da outra, atuando como verificador on-chain da legitimidade dos dados. Por exemplo, quando o Tanssi envia uma mensagem ao Ethereum, ele gera provas compactas de eventos ou mudanças de estado baseadas em seu consenso. O light client do Ethereum verifica essas provas antes de agir. Esse método eficiente evita processar todo o estado da cadeia de origem, confiando em vez disso na verificação de provas criptográficas concisas.
 

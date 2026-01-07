@@ -6908,7 +6908,7 @@ A bridge é mais do que uma troca de ativos. É um protocolo seguro e padronizad
 
 Este artigo apresenta a bridge Tanssi-Ethereum como uma camada fundamental de interoperabilidade entre as duas redes. Você aprenderá como ela funciona, incluindo sua arquitetura, gestão de operators, Template econômico, mecanismos de slashing e transferências de ativos.
 
-Você também conhecerá as camadas de consenso que protegem a comunicação ([BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} em [Tanssi](/pt/learn/tanssi/){target=\_blank} e a [Beacon Chain do Ethereum](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), além dos papéis de provers, verifiers e relayers, oferecendo uma visão clara de como ativos e mensagens se movem com segurança entre Tanssi e Ethereum.
+Você também conhecerá as camadas de consenso que protegem a comunicação ([BEEFY](https://docs.tanssi.network/learn/tanssi/){target=\_blank} em [Tanssi](/pt/learn/tanssi/){target=\_blank} e a [Beacon Chain do Ethereum](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}), além dos papéis de provers, verifiers e relayers, oferecendo uma visão clara de como ativos e mensagens se movem com segurança entre Tanssi e Ethereum.
 
 ## Funções Principais {: #core-functions }
 
@@ -6925,7 +6925,7 @@ Essa interoperabilidade amplia o potencial de aplicações descentralizadas e me
 
 Entender a funcionalidade de consenso da bridge requer examinar seus componentes principais: provers, verifiers e relayers. Provers geram provas criptográficas, verifiers as validam e relayers transportam dados entre as cadeias.
 
-Os provers incluem o módulo [BEEFY](https://docs.snowbridge.network/architecture/components#beefyclient){target=\_blank} da Tanssi e o consenso da Beacon Chain do Ethereum. Eles produzem dados de consenso transmitidos por relayers especializados.
+Os provers incluem o módulo [BEEFY](https://docs.tanssi.network/learn/tanssi/){target=\_blank} da Tanssi e o consenso da [Beacon Chain do Ethereum](https://ethereum.org/roadmap/beacon-chain/){target=\_blank}. Eles produzem dados de consenso transmitidos por relayers especializados.
 
 Cada cadeia executa um [light client](https://ethereum.org/developers/docs/nodes-and-clients/light-clients/){target=\_blank} da outra, atuando como verificador on-chain da legitimidade dos dados. Por exemplo, quando o Tanssi envia uma mensagem ao Ethereum, ele gera provas compactas de eventos ou mudanças de estado baseadas em seu consenso. O light client do Ethereum verifica essas provas antes de agir. Esse método eficiente evita processar todo o estado da cadeia de origem, confiando em vez disso na verificação de provas criptográficas concisas.
 
