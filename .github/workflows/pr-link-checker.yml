@@ -12,6 +12,6 @@ jobs:
       docs_checkout: tanssi-docs
       url: https://docs.tanssi.network
       # Exclude paths (for example, for languages) '["pt/.*", "es/.*", "cn/.*"]'
-      exclude_paths: '["**/pt/**"]' 
+      exclude_paths: '["pt"]' 
     secrets:
       GH_TOKEN: ${{ secrets.GH_PR_404_CHECKER }}
