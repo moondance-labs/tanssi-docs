@@ -10,7 +10,7 @@ msgid "meta.home_title"
 msgstr "Documentation for the Tanssi Network"
 
 msgid "footer.llms_full_label"
-msgstr "llms-full.txt"
+msgstr "llms-full.jsonl"
 
 msgid "footer.made_with_html"
 msgstr ""
