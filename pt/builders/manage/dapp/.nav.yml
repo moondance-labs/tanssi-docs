@@ -1,0 +1,8 @@
+title: Uso da DApp Tanssi
+hide: false
+nav:
+  - index.md
+  - Pagamento de Serviços de Produção de Blocos: services-payment.md
+  - Gerenciar Tokens: manage-tokens.md
+  # - 'Manage Cross-Chain Communication Channels': 'xcm-channels.md'
+  # - 'Register External Assets': 'register-external-assets.md'

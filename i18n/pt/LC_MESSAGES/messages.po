@@ -1,0 +1,201 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: tanssi-docs\n"
+"Language: pt\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "meta.home_title"
+msgstr "Documentação da rede Tanssi"
+
+msgid "footer.llms_full_label"
+msgstr "llms-full.txt"
+
+msgid "footer.made_with_html"
+msgstr ""
+"Feito com 🩵 por <a href=\"https://papermoon.io/\" "
+"target=\"_blank\">PaperMoon</a>"
+
+msgid "footer.privacy_policy"
+msgstr "Política de privacidade"
+
+msgid "footer.terms_of_use"
+msgstr "Termos de uso"
+
+msgid "footer.material_attribution_html"
+msgstr ""
+"Feito com <a href=\"https://squidfunk.github.io/mkdocs-material/\" "
+"target=\"_blank\" rel=\"noopener\">Material for MkDocs</a>"
+
+msgid "disclaimer.third_party"
+msgstr ""
+"As informações apresentadas aqui foram fornecidas por terceiros e estão "
+"disponíveis apenas para fins informativos gerais. A Tanssi não endossa "
+"nenhum projeto listado e descrito no Site de Documentação da Tanssi "
+"(https://docs.tanssi.network/). A Tanssi Foundation não garante a precisão, "
+"integridade ou utilidade dessas informações. Qualquer confiança depositada "
+"nelas é de sua exclusiva responsabilidade. A Tanssi Foundation se exime de "
+"toda responsabilidade decorrente de qualquer confiança que você ou qualquer "
+"outra pessoa possa ter em qualquer parte deste conteúdo. Todas as "
+"declarações e/ou opiniões expressas nesses materiais são de responsabilidade"
+" exclusiva da pessoa ou entidade que as fornece e não representam "
+"necessariamente a opinião da Tanssi Foundation. As informações aqui não "
+"devem ser interpretadas como aconselhamento profissional ou financeiro de "
+"qualquer tipo. Sempre busque orientação de um profissional devidamente "
+"qualificado em relação a qualquer assunto ou circunstância em particular. As"
+" informações aqui podem conter links ou integração com outros sites operados"
+" ou conteúdo fornecido por terceiros, e tais sites podem apontar para este "
+"site. A Tanssi Foundation não tem controle sobre esses sites ou seu conteúdo"
+" e não terá responsabilidade decorrente ou relacionada a eles. A existência "
+"de qualquer link não constitui endosso desses sites, de seu conteúdo ou de "
+"seus operadores. Esses links são fornecidos apenas para sua conveniência, e "
+"você isenta e exonera a Tanssi Foundation de qualquer responsabilidade "
+"decorrente do uso dessas informações ou das informações fornecidas por "
+"qualquer site ou serviço de terceiros."
+
+msgid "external_link_modal.header"
+msgstr "Você está saindo do site de documentação da Tanssi"
+
+msgid "external_link_modal.message"
+msgstr ""
+"Uma nova aba será aberta e você será direcionado a um site independente de "
+"terceiros, que não é afiliado à Tanssi."
+
+msgid "external_link_modal.cancel"
+msgstr "Cancelar"
+
+msgid "external_link_modal.continue"
+msgstr "Continuar para o site externo"
+
+msgid "error.404_title"
+msgstr "404 - Não encontrado"
+
+msgid "home.meta.title"
+msgstr "Tanssi Docs"
+
+msgid "home.hero.video_fallback"
+msgstr "Seu navegador não suporta a tag de vídeo."
+
+msgid "home.hero.title_html"
+msgstr "Site Tanssi <span class=\"shadow\">&lt;Dev&gt;</span>"
+
+msgid "home.hero.subtitle"
+msgstr ""
+"Construa, lance e escale redes Symbiotic mais rápido com a infraestrutura, "
+"as ferramentas e as integrações da Tanssi."
+
+msgid "home.hero.cards.launch.title"
+msgstr "Lance uma rede movida pela Tanssi"
+
+msgid "home.hero.cards.launch.description"
+msgstr "Obtenha ferramentas e guias para lançar sua rede em minutos."
+
+msgid "home.hero.cards.launch.button"
+msgstr "Começar"
+
+msgid "home.hero.cards.evm.title"
+msgstr "Desenvolva com ferramentas EVM"
+
+msgid "home.hero.cards.evm.description"
+msgstr ""
+"Aproveite as ferramentas EVM mais populares para acelerar seu "
+"desenvolvimento."
+
+msgid "home.hero.cards.evm.button"
+msgstr "Saiba mais"
+
+msgid "home.hero.cards.learn.title"
+msgstr "Explore conceitos técnicos"
+
+msgid "home.hero.cards.learn.description"
+msgstr ""
+"Conheça os recursos, os serviços e a segurança da Tanssi por meio da "
+"Symbiotic."
+
+msgid "home.hero.cards.learn.button"
+msgstr "Saiba mais"
+
+msgid "home.feature.heading.prefix"
+msgstr "O hub completo da Tanssi"
+
+msgid "home.feature.heading.accent"
+msgstr "Construtores"
+
+msgid "home.feature.description"
+msgstr ""
+"Explore mais maneiras de se engajar com o ecossistema Tanssi - obtenha "
+"financiamento, recursos e visibilidade para o seu projeto."
+
+msgid "home.feature.cards.one.badge"
+msgstr "Ecossistema"
+
+msgid "home.feature.cards.one.title"
+msgstr "Solicite um grant"
+
+msgid "home.feature.cards.one.arrow_alt"
+msgstr "Ir para a página Solicite um grant"
+
+msgid "home.feature.cards.two.badge"
+msgstr "Comece a construir"
+
+msgid "home.feature.cards.two.title"
+msgstr "Visite o TestNet"
+
+msgid "home.feature.cards.two.arrow_alt"
+msgstr "Ir para a página do TestNet"
+
+msgid "home.feature.cards.three.badge"
+msgstr "Insights do setor"
+
+msgid "home.feature.cards.three.title"
+msgstr "Atualizações do ecossistema"
+
+msgid "home.feature.cards.three.arrow_alt"
+msgstr "Ir para a página Atualizações do ecossistema"
+
+msgid "home.feature.separator_alt"
+msgstr "Design decorativo multicolorido da Tanssi"
+
+msgid "home.community.heading.prefix"
+msgstr "Junte-se à comunidade"
+
+msgid "home.community.heading.accent"
+msgstr "Dev"
+
+msgid "home.community.heading.suffix"
+msgstr "da Tanssi"
+
+msgid "home.community.buttons.discord"
+msgstr "Entrar no Discord"
+
+msgid "home.community.buttons.subscribe"
+msgstr "Assinar"
+
+msgid "action.edit"
+msgstr "Editar esta página"
+
+msgid "action.view"
+msgstr "Ver fonte"
+
+msgid "feedback.title"
+msgstr "Esta página foi útil?"
+
+msgid "feedback.ratings.helpful.name"
+msgstr "Esta página foi útil"
+
+msgid "feedback.ratings.helpful.note"
+msgstr "Obrigado pelo seu feedback!"
+
+msgid "feedback.ratings.unhelpful.name"
+msgstr "Esta página pode ser aprimorada"
+
+msgid "feedback.ratings.unhelpful.note"
+msgstr ""
+"Obrigado pelo seu feedback! Ajude-nos a melhorar esta página enviando <a "
+"href=\"https://github.com/moondance-labs/tanssi-"
+"docs/issues/new/?title=[Feedback]+{title}+-+{url}\" target=\"_blank\" "
+"rel=\"noopener\">feedback adicional</a>."
+
+msgid "home.feature.heading.suffix"
+msgstr "Tanssi"

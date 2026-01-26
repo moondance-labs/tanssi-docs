@@ -1,0 +1,5 @@
+title: Recursos da Rede
+hide: false
+nav:
+  - index.md
+  - 'Staking para Produção de Blocos': 'staking.md'

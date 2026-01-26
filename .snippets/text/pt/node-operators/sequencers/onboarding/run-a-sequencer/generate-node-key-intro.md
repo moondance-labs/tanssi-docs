@@ -1,0 +1,1 @@
+A partir da [versão runtime 700](https://github.com/moondance-labs/tanssi/releases/tag/runtime-700){target=\_blank}, os nós sequenciadores do Tanssi não geram as chaves de sessão automaticamente na inicialização. Para gerar e armazenar em disco as chaves de sessão que serão referenciadas no comando de start, execute:

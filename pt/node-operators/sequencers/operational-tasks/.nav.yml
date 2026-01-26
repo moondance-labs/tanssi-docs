@@ -1,0 +1,6 @@
+title: Tarefas Operacionais
+hide: false
+nav:
+  - index.md
+  - upgrade-your-node
+  - 'Use uma Conta Proxy': 'proxy-accounts.md'

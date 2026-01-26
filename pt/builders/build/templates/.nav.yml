@@ -1,0 +1,8 @@
+title: Templates de Rede
+hide: false
+nav:
+  - index.md
+  - Visão Geral: overview.md
+  - Substrate: substrate.md
+  - EVM: evm.md
+  - Runtime Personalizado: custom-runtime.md

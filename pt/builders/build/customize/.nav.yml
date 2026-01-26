@@ -1,0 +1,9 @@
+title: Personalize Sua Rede
+hide: false
+nav:
+  - index.md
+  - Pré-requisitos: prerequisites.md
+  - Adicionar um Módulo Integrado: adding-built-in-module.md
+  - Adicionar um Módulo Personalizado: adding-custom-made-module.md
+  - Adicionar um Módulo Externo: adding-external-module.md
+  - Especificações da Cadeia: customizing-chain-specs.md
