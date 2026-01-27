@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .addEventListener('click', async (event) => {
       try {
         const response = await fetch(
-          'https://docs.tanssi.network/llms-full.jsonl'
+          'https://docs.tanssi.network/ai/llms-full.jsonl'
         );
         const text = await response.text();
         await navigator.clipboard.writeText(text);
