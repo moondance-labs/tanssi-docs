@@ -13,46 +13,22 @@
   if (typeof window === 'undefined') {
     return;
   }
-  function buildSlugFromPath(pathname) {
+
+  function buildSlugFromPath(pathname, toggleFilename) {
     const route = (pathname || '').replace(/^\/+|\/+$/g, '');
-    return route.split('/').filter(Boolean).join('-');
-  }
 
-  function getScopeUrl() {
-    try {
-      const scope = window.__md_scope;
-      if (scope instanceof URL) {
-        return scope;
-      }
-      return new URL('.', window.location);
-    } catch (error) {
-      return null;
+    if (toggleFilename) {
+      return (
+        route.split('/').filter(Boolean).slice(0, -1).join('-') +
+        `-${toggleFilename}`
+      );
+    } else {
+      return route.split('/').filter(Boolean).join('-');
     }
-  }
-
-  function stripBasePath(pathname) {
-    const scopeUrl = getScopeUrl();
-    if (!scopeUrl) {
-      return pathname;
-    }
-    const basePath = scopeUrl.pathname.replace(/\/+$/, '');
-    if (!basePath || basePath === '/') {
-      return pathname;
-    }
-    if (pathname.startsWith(basePath)) {
-      const stripped = pathname.slice(basePath.length);
-      return stripped || '/';
-    }
-    return pathname;
-  }
-
-  function getPageSlug() {
-    return buildSlugFromPath(stripBasePath(window.location.pathname));
   }
 
   function getMarkdownUrl(slug) {
-    const baseUrl = getScopeUrl() || new URL(window.location.href);
-    return new URL(`ai/pages/${slug}.md`, baseUrl).href;
+    return `${window.location.origin}/ai/pages/${slug}.md`;
   }
 
   const NO_MARKDOWN_MESSAGE = 'No Markdown file available.';
@@ -323,18 +299,7 @@
   }
 
   // Mount UI next to the first H1 (skip if already rendered or on the home page).
-  function addSectionCopyButtons() {
-    const slug = getPageSlug();
-    const isHomePage = !slug || slug === 'index';
-    if (isHomePage) {
-      return;
-    }
-
-    if (document.querySelector('.copy-to-llm-split-container')) {
-      return;
-    }
-
-    const mainTitle = document.querySelector('.md-content h1');
+  function addSectionCopyButtons(mainTitle, toggleFilename) {
     if (mainTitle) {
       const wrapper = document.createElement('div');
       wrapper.className = 'h1-copy-wrapper';
@@ -399,9 +364,12 @@
         }
 
         let copySucceeded = false;
-        const slug = getPageSlug();
+        const slug = buildSlugFromPath(
+          window.location.pathname,
+          toggleFilename
+        );
 
-        const { text } = await fetchMarkdown(slug);
+        const { text, status } = await fetchMarkdown(slug);
 
         if (text) {
           copySucceeded = await copyToClipboard(
@@ -409,6 +377,12 @@
             copyButton,
             'markdown_content'
           );
+        }
+
+        else {
+          if (status === 404) {
+            showToast(NO_MARKDOWN_MESSAGE);
+          }
         }
 
         if (!text || !copySucceeded) {
@@ -461,14 +435,17 @@
         }
 
         const action = item.dataset.action;
-        const slug = getPageSlug();
+        const slug = buildSlugFromPath(
+          window.location.pathname,
+          toggleFilename
+        );
 
         // Each dropdown option maps to one of the shared helpers or a new-tab prompt.
         switch (action) {
           case 'view-markdown': {
             trackButtonClick('view_page_markdown');
             const mdUrl = getMarkdownUrl(slug);
-            window.open(mdUrl, '_blank', 'noopener');
+            window.open(mdUrl, '_blank', 'noopener,noreferrer');
             break;
           }
           case 'download-markdown': {
@@ -485,10 +462,11 @@
           }
           case 'open-chatgpt': {
             trackButtonClick('open_chatgpt');
-            const currentUrl = window.location.href;
-            const jinaUrl = `https://r.jina.ai/${currentUrl}`;
-            const prompt = `Analyze the documentation at ${jinaUrl}. Focus on the technical implementation details and code examples. I want to ask you questions about implementing these protocols.`;
-            const chatGPTUrl = `https://chatgpt.com/?q=${encodeURIComponent(prompt)}`;
+            const mdUrl = getMarkdownUrl(slug);
+            const prompt = `Read ${mdUrl} so I can ask questions about it.`;
+            const chatGPTUrl = `https://chatgpt.com/?hints=search&q=${encodeURIComponent(
+              prompt
+            )}`;
             window.open(chatGPTUrl, '_blank');
             break;
           }
@@ -534,7 +512,44 @@
   }
 
   function initialize() {
-    addSectionCopyButtons();
+    // Don't show the llm dropdown on 404 pages
+    if (document.querySelector('h1.not-found')) {
+      return;
+    }
+
+    // Before initializing the copy buttons, we need to check for page-level toggles.
+    // In the case where there are no toggles, we have a single page we need to initialize.
+    // Where there are toggles, we have more than one page to initialize
+    const toggleContainers = document.querySelectorAll('.toggle-container');
+
+    // CASE 1: No toggles at all → single page
+    if (toggleContainers.length === 0) {
+      const title = document.querySelector('.md-content h1');
+      if (title) {
+        addSectionCopyButtons(title, null);
+      }
+      return;
+    }
+
+    // CASE 2: One or more toggle groups
+    toggleContainers.forEach((container) => {
+      const headerVariants = container.querySelectorAll(
+        '.toggle-header > span[data-variant]'
+      );
+
+      headerVariants.forEach((headerSpan) => {
+        const h1 = headerSpan.querySelector('h1');
+        if (!h1) return;
+
+        const variant = headerSpan.dataset.variant;
+        const button = container.querySelector(
+          `.toggle-btn[data-variant="${variant}"]`
+        );
+
+        const toggleFilename = button?.dataset.filename || null;
+        addSectionCopyButtons(h1, toggleFilename);
+      });
+    });
   }
 
   if (document.readyState === 'loading') {
