@@ -35,13 +35,13 @@ In the first step to [deploy a new Tanssi-powered appchain](/builders/deploy/dap
 
 In the **Sudo Address** field, you can enter any account, though when you select it, a menu with the option **Create Multisig Account** will appear.
 
-![Accounts section](/images/builders/manage/dapp/multisig/multisig-2.webp)
+![Create Multisig](/images/builders/manage/dapp/multisig/multisig-2.webp){: .browser-extension}
 
 --8<-- 'text/builders/manage/dapp/multisig/create-multisig.md'
 
 Your multisig is now saved and can be used as sudo for your new chain.
 
-![Accounts section](/images/builders/manage/dapp/multisig/multisig-4.webp)
+![Multisig selection](/images/builders/manage/dapp/multisig/multisig-4.webp){: .browser-extension}
 
 !!! note
     Your multisig has a unique address derived from the addresses in the signing set. Hence, you'll see a different account in the **Sudo Address**.
@@ -57,17 +57,17 @@ If you already have a live Tanssi-powered appchain, you can easily transfer the 
 
 The **Transfer Sudo** panel will be presented.
 
-![Transfer Sudo](/images/builders/manage/dapp/multisig/multisig-6.webp)
+![Transfer Sudo panel](/images/builders/manage/dapp/multisig/multisig-6.webp)
 
 When you select the **New Sudo Address** field, a menu will be shown displaying the following entries: the multisigs you might have already created, the accounts you have connected to the dApp, and the **Create Multisig Account** action. 
 
-![Transfer Sudo](/images/builders/manage/dapp/multisig/multisig-7.webp)
+![Transfer Sudo form](/images/builders/manage/dapp/multisig/multisig-7.webp){: .browser-extension}
 
 --8<-- 'text/builders/manage/dapp/multisig/create-multisig.md'
 
 Your multisig is now saved and can be used as sudo for your new chain. Select your newly created multisig, click on **Transfer Sudo**, sign the transaction, and that's it!
 
-![Accounts section](/images/builders/manage/dapp/multisig/multisig-8.webp)
+![Transfer Sudo confirmation](/images/builders/manage/dapp/multisig/multisig-8.webp){: .browser-extension}
 
 ## Execute Privileged Actions With a Multisig Setup {: #multisig-transactions }
 

@@ -6,4 +6,4 @@ To create a new multisig, click **Create Multisig Account** and follow the steps
 4. Define the threshold of signatures to approve the transaction. The minimum threshold is two.
 5. Click on **Create**.
 
-![Accounts section](/images/builders/manage/dapp/multisig/multisig-3.webp)
+![Create Mutisig form](/images/builders/manage/dapp/multisig/multisig-3.webp){: .browser-extension}
