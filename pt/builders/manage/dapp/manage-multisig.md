@@ -63,7 +63,7 @@ Ao selecionar o campo **New Sudo Address**, um menu será exibido mostrando as s
 
 ![Formulário Transferir Sudo](/images/builders/manage/dapp/multisig/multisig-7.webp){: .browser-extension}
 
---8<-- '/text/pt/builders/manage/dapp/multisig/create-multisig.md'
+--8<-- 'text/pt/builders/manage/dapp/multisig/create-multisig.md'
 
 Seu multisig agora está salvo e pode ser usado como sudo para sua nova cadeia. Selecione seu multisig recém-criado, clique em **Transfer Sudo**, assine a transação e pronto!
 ![Confirmação Transferir Sudo](/images/builders/manage/dapp/multisig/multisig-8.webp){: .browser-extension}
