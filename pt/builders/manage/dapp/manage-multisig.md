@@ -9,7 +9,7 @@ categories: Appchain
 
 ## Introdução {: #introduction }
 
-As Appchains implantadas por meio do Tanssi são soberanas. Isso significa que o governador da appchain é livre para definir e gerenciar os aspetos críticos da appchain, como tokenomics, lógica de tempo de execução, dinâmica de gás e outros.
+As Appchains implantadas por meio do Tanssi são soberanas. Isso significa que o governador da appchain é livre para definir e gerenciar os aspectos críticos da appchain, como tokenomics, lógica de tempo de execução, dinâmica de gás e outros.
 
 Essas ações críticas podem ser executadas por uma conta especial chamada [sudo](/pt/builders/manage/developer-portal/sudo/){target=\_blank}. Esta conta deve ser protegida com o máximo de precauções, pois perder o acesso ou um agente malicioso obter acesso a ela pode ser catastrófico, e a cadeia pode não se recuperar do evento.
 
