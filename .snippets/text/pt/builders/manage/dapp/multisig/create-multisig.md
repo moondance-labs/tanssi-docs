@@ -6,4 +6,4 @@ Para criar uma nova multisig, clique em **Create Multisig Account** e siga os pa
 1. Defina o limite de assinaturas para aprovar a transação. O limite mínimo é dois.
 1. Clique em **Create**.
 
-![Create Mutisig form](/images/builders/manage/dapp/multisig/multisig-3.webp){: .browser-extension}
+![Create Multisig form](/images/builders/manage/dapp/multisig/multisig-3.webp){: .browser-extension}
