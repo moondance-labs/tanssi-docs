@@ -44,9 +44,7 @@ Seu multisig agora está salvo e pode ser usado como sudo para sua nova cadeia.
 ![Seleção Multisig](/images/builders/manage/dapp/multisig/multisig-4.webp){: .browser-extension}
 
 !!! note
-Seu multisig tem um endereço exclusivo derivado dos endereços no conjunto de assinatura. Portanto, você verá uma conta diferente no **Sudo Address**.
-
-. No commentary.
+    Seu multisig tem um endereço exclusivo derivado dos endereços no conjunto de assinatura. Portanto, você verá uma conta diferente no **Sudo Address**.
 
 ## Alternar para Multisig em uma Appchain já ativa {: #multisig-live-appchain }
 
@@ -81,7 +79,7 @@ A menor multisig recomendada que pode ser configurada é uma de dois em três. N
 As seções a seguir mostram como criar e executar uma transação privilegiada.
 
 !!! note
-Uma transação multisig criada através da UI do Tanssi dApp só pode ser concluída usando a UI do Tanssi dApp. Da mesma forma, uma transação multisig criada com uma ferramenta externa não será mostrada e não poderá ser concluída no Tanssi dApp.
+    Uma transação multisig criada através da UI do Tanssi dApp só pode ser concluída usando a UI do Tanssi dApp. Da mesma forma, uma transação multisig criada com uma ferramenta externa não será mostrada e não poderá ser concluída no Tanssi dApp.
 
 ### Criar uma Transação Multisig {: #create-multisig-transaction }
 
@@ -99,7 +97,7 @@ Uma vez que o multisig é criado, seu painel mostrará que há uma nova transaç
 ![Multisig criado](/images/builders/manage/dapp/multisig/multisig-11.webp)
 
 !!! note
-O botão **Approve** está desativado para o criador da transação multisig, pois sua assinatura já foi enviada.
+    O botão **Approve** está desativado para o criador da transação multisig, pois sua assinatura já foi enviada.
 
 ### Assinar uma Transação Multisig {: #sign-multisig-transaction }
 
