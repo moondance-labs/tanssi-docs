@@ -28002,7 +28002,7 @@ categories: Appchain
 
 ## Introdução {: #introduction }
 
-As Appchains implantadas por meio do Tanssi são soberanas. Isso significa que o governador da appchain é livre para definir e gerenciar os aspetos críticos da appchain, como tokenomics, lógica de tempo de execução, dinâmica de gás e outros.
+As Appchains implantadas por meio do Tanssi são soberanas. Isso significa que o governador da appchain é livre para definir e gerenciar os aspectos críticos da appchain, como tokenomics, lógica de tempo de execução, dinâmica de gás e outros.
 
 Essas ações críticas podem ser executadas por uma conta especial chamada [sudo](/pt/builders/manage/developer-portal/sudo/){target=\_blank}. Esta conta deve ser protegida com o máximo de precauções, pois perder o acesso ou um agente malicioso obter acesso a ela pode ser catastrófico, e a cadeia pode não se recuperar do evento.
 
@@ -28011,7 +28011,7 @@ Uma multisig é uma maneira de tornar o gerenciamento da sua appchain mais segur
 - **Remover completamente o único ponto de falha**: Perder uma conta não significa perder a appchain. Além disso, uma conta comprometida não é suficiente para executar ações maliciosas.
 - **Reduzir o fator de erro humano**: As transações devem ser revistas e aprovadas por pelo menos outra pessoa, reduzindo assim o risco de executar uma transação incorreta, uma atualização não intencional, enviar fundos para o endereço errado e outros erros comuns.
 
-Para appchains onde a conta sudo não está desativada em favor de outro mecanismo de governação, configurar um multisig é fortemente recomendado. Este artigo mostra como configurá-lo e executar transações multisig.
+Para appchains onde a conta sudo não está desativada em favor de outro mecanismo de governança, configurar um multisig é fortemente recomendado. Este artigo mostra como configurá-lo e executar transações multisig.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
@@ -28067,7 +28067,7 @@ Para criar uma nova multisig, clique em **Create Multisig Account** e siga os pa
 1. Defina o limite de assinaturas para aprovar a transação. O limite mínimo é dois.
 1. Clique em **Create**.
 
-![Create Mutisig form](/images/builders/manage/dapp/multisig/multisig-3.webp){: .browser-extension}
+![Create Multisig form](/images/builders/manage/dapp/multisig/multisig-3.webp){: .browser-extension}
 
 Seu multisig agora está salvo e pode ser usado como sudo para sua nova cadeia.
 
@@ -28093,7 +28093,15 @@ Ao selecionar o campo **New Sudo Address**, um menu será exibido mostrando as s
 
 ![Formulário Transferir Sudo](/images/builders/manage/dapp/multisig/multisig-7.webp){: .browser-extension}
 
-/text/pt/builders/manage/dapp/multisig/create-multisig.md
+Para criar uma nova multisig, clique em **Create Multisig Account** e siga os passos nas janelas modais que aparecem:
+
+1. Defina o nome da sua multisig.
+1. Insira os endereços que farão parte do conjunto de assinatura.
+1. Adicione ou remova endereços do conjunto. O número mínimo de endereços para um conjunto é dois.
+1. Defina o limite de assinaturas para aprovar a transação. O limite mínimo é dois.
+1. Clique em **Create**.
+
+![Create Multisig form](/images/builders/manage/dapp/multisig/multisig-3.webp){: .browser-extension}
 
 Seu multisig agora está salvo e pode ser usado como sudo para sua nova cadeia. Selecione seu multisig recém-criado, clique em **Transfer Sudo**, assine a transação e pronto!
 ![Confirmação Transferir Sudo](/images/builders/manage/dapp/multisig/multisig-8.webp){: .browser-extension}
