@@ -18,7 +18,7 @@ Uma multisig é uma maneira de tornar o gerenciamento da sua appchain mais segur
 - **Remover completamente o único ponto de falha**: Perder uma conta não significa perder a appchain. Além disso, uma conta comprometida não é suficiente para executar ações maliciosas.
 - **Reduzir o fator de erro humano**: As transações devem ser revistas e aprovadas por pelo menos outra pessoa, reduzindo assim o risco de executar uma transação incorreta, uma atualização não intencional, enviar fundos para o endereço errado e outros erros comuns.
 
-Para appchains onde a conta sudo não está desativada em favor de outro mecanismo de governação, configurar um multisig é fortemente recomendado. Este artigo mostra como configurá-lo e executar transações multisig.
+Para appchains onde a conta sudo não está desativada em favor de outro mecanismo de governança, configurar um multisig é fortemente recomendado. Este artigo mostra como configurá-lo e executar transações multisig.
 
 ## Verificando Pré-requisitos {: #checking-prerequisites }
 
