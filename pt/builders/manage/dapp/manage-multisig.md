@@ -11,7 +11,7 @@ categories: Appchain
 
 As Appchains implantadas por meio do Tanssi são soberanas. Isso significa que o governador da appchain é livre para definir e gerenciar os aspetos críticos da appchain, como tokenomics, lógica de tempo de execução, dinâmica de gás e outros.
 
-Essas ações críticas podem ser executadas por uma conta especial chamada [sudo](pt/builders/manage/developer-portal/sudo/){target=\_blank}. Esta conta deve ser protegida com o máximo de precauções, pois perder o acesso ou um agente malicioso obter acesso a ela pode ser catastrófico, e a cadeia pode não se recuperar do evento.
+Essas ações críticas podem ser executadas por uma conta especial chamada [sudo](/pt/builders/manage/developer-portal/sudo/){target=\_blank}. Esta conta deve ser protegida com o máximo de precauções, pois perder o acesso ou um agente malicioso obter acesso a ela pode ser catastrófico, e a cadeia pode não se recuperar do evento.
 
 Uma multisig é uma maneira de tornar o gerenciamento da sua appchain mais seguro. Ele permite definir um limite M-de-N, exigindo pelo menos M assinaturas válidas de N contas designadas para executar transações privilegiadas. Usar um multisig aumenta a segurança do governo da sua appchain por:
 
@@ -24,27 +24,27 @@ Para appchains onde a conta sudo não está desativada em favor de outro mecanis
 
 Para os exemplos neste guia, você pode configurar o multisig durante o processo de registro ou, se você já tiver uma rede alimentada por Tanssi (Teste Rápido ou Dedicado), você precisará ter o seguinte:
 
-- As contas incluídas na configuração multisig, importadas para qualquer uma das [carteiras suportadas](pt/builders/deploy/dapp/#supported-wallets){target=\_blank}
-  --8<-- 'text/builders/manage/dapp/prerequisites.md'
+- As contas incluídas na configuração multisig, importadas para qualquer uma das [carteiras suportadas](/pt/builders/deploy/dapp/#supported-wallets){target=\_blank}
+
+--8<-- 'text/pt/builders/manage/dapp/prerequisites.md'
 
 ## Configurar um Multisig para uma Nova Appchain {: #multisig-new-appchain }
 
-Na primeira etapa para [implantar uma nova appchain com tecnologia Tanssi](pt/builders/deploy/dapp/){target=\_blank}, você deve definir a conta que terá privilégios de sudo na seção **Contas**.
-
+Na primeira etapa para [implantar uma nova appchain com tecnologia Tanssi](/pt/builders/deploy/dapp/){target=\_blank}, você deve definir a conta que terá privilégios de sudo na seção **Contas**.
 ![Seção Contas](/images/builders/manage/dapp/multisig/multisig-1.webp)
 
-No campo **Endereço Sudo**, você pode inserir qualquer conta, embora, ao selecioná-la, um menu com a opção **Criar Conta Multisig** será exibido.
+No campo **Sudo Address**, você pode inserir qualquer conta, embora, ao selecioná-la, um menu com a opção **Create Multisig Account** será exibido.
 
 ![Criar Multisig](/images/builders/manage/dapp/multisig/multisig-2.webp){: .browser-extension}
 
---8<-- 'text/builders/manage/dapp/multisig/create-multisig.md'
+--8<-- 'text/pt/builders/manage/dapp/multisig/create-multisig.md'
 
 Seu multisig agora está salvo e pode ser usado como sudo para sua nova cadeia.
 
 ![Seleção Multisig](/images/builders/manage/dapp/multisig/multisig-4.webp){: .browser-extension}
 
 !!! note
-Seu multisig tem um endereço exclusivo derivado dos endereços no conjunto de assinatura. Portanto, você verá uma conta diferente no **Endereço Sudo**.
+Seu multisig tem um endereço exclusivo derivado dos endereços no conjunto de assinatura. Portanto, você verá uma conta diferente no **Sudo Address**.
 
 . No commentary.
 
@@ -52,23 +52,22 @@ Seu multisig tem um endereço exclusivo derivado dos endereços no conjunto de a
 
 Se você já tem uma appchain ativa alimentada por Tanssi, pode transferir facilmente os direitos de sudo para uma configuração multisig. Para fazer isso, vá para o [painel](https://apps.tanssi.network/dashboard){target=\_blank} e no cartão da sua appchain:
 
-1. Clique em **Gerenciar**.
-1. Clique no botão **Transferir Sudo** no painel à direita.
+1. Clique em **Manage**.
+1. Clique no botão **Transfer Sudo** no painel à direita.
 
 ![Transferir Sudo](/images/builders/manage/dapp/multisig/multisig-5.webp)
 
-O painel **Transferir Sudo** será apresentado.
+O painel **Transfer Sudo** será apresentado.
 
 ![Painel Transferir Sudo](/images/builders/manage/dapp/multisig/multisig-6.webp)
 
-Ao selecionar o campo **Novo Endereço Sudo**, um menu será exibido mostrando as seguintes entradas: os multisigs que você já pode ter criado, as contas que você conectou ao dApp e a ação **Criar Conta Multisig**.
+Ao selecionar o campo **New Sudo Address**, um menu será exibido mostrando as seguintes entradas: os multisigs que você já pode ter criado, as contas que você conectou ao dApp e a ação **Create Multisig Account**.
 
 ![Formulário Transferir Sudo](/images/builders/manage/dapp/multisig/multisig-7.webp){: .browser-extension}
 
---8<-- 'text/builders/manage/dapp/multisig/create-multisig.md'
+--8<-- '/text/pt/builders/manage/dapp/multisig/create-multisig.md'
 
-Seu multisig agora está salvo e pode ser usado como sudo para sua nova cadeia. Selecione seu multisig recém-criado, clique em **Transferir Sudo**, assine a transação e pronto!
-
+Seu multisig agora está salvo e pode ser usado como sudo para sua nova cadeia. Selecione seu multisig recém-criado, clique em **Transfer Sudo**, assine a transação e pronto!
 ![Confirmação Transferir Sudo](/images/builders/manage/dapp/multisig/multisig-8.webp){: .browser-extension}
 
 ## Executar Ações Privilegiadas com uma Configuração Multisig {: #multisig-transactions }
@@ -88,25 +87,23 @@ Uma transação multisig criada através da UI do Tanssi dApp só pode ser concl
 
 Para criar uma transação privilegiada, vá para o [Tanssi dApp](https://apps.tanssi.network/dashboard){target=\_blank} e conecte um dos endereços multisig.
 
-Com um endereço de participante multisig conectado ao dApp, o botão **Gerenciar** estará visível, concedendo acesso ao painel de gerenciamento, onde você pode iniciar transações privilegiadas.
+Com um endereço de participante multisig conectado ao dApp, o botão **Manage** estará visível, concedendo acesso ao painel de gerenciamento, onde você pode iniciar transações privilegiadas.
 
 ![Acesso de gerenciamento](/images/builders/manage/dapp/multisig/multisig-9.webp)
 
-Neste exemplo, o tempo de execução da appchain está desatualizado e uma atualização está disponível. Iniciamos a atualização de tempo de execução clicando no botão **Atualizar** e assinando a transação.
-
+Neste exemplo, o tempo de execução da appchain está desatualizado e uma atualização está disponível. Iniciamos a atualização de tempo de execução clicando no botão **Update** e assinando a transação.
 ![Atualizar tempo de execução](/images/builders/manage/dapp/multisig/multisig-10.webp)
 
-Uma vez que o multisig é criado, seu painel mostrará que há uma nova transação multisig em andamento. Clique em **Ver Detalhes** para verificar os detalhes do multisig no painel direito.
+Uma vez que o multisig é criado, seu painel mostrará que há uma nova transação multisig em andamento. Clique em **View Details** para verificar os detalhes do multisig no painel direito.
 
 ![Multisig criado](/images/builders/manage/dapp/multisig/multisig-11.webp)
 
 !!! note
-O botão **Aprovar** está desativado para o criador da transação multisig, pois sua assinatura já foi enviada.
+O botão **Approve** está desativado para o criador da transação multisig, pois sua assinatura já foi enviada.
 
 ### Assinar uma Transação Multisig {: #sign-multisig-transaction }
 
-Com um endereço de participante multisig conectado ao dApp, seu painel exibirá as transações multisig que aguardam sua análise e aprovação. Clique no botão **Ver Detalhes**, revise os detalhes da transação e assine-a.
-
+Com um endereço de participante multisig conectado ao dApp, seu painel exibirá as transações multisig que aguardam sua análise e aprovação. Clique no botão **View Details**, revise os detalhes da transação e assine-a.
 ![Multisig approved](/images/builders/manage/dapp/multisig/multisig-12.webp)
 
 Depois de assinar a transação e atingir o limite mínimo de multisig, ela é executada imediatamente, concluindo a ação.
