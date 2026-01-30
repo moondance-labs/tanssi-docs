@@ -4,5 +4,6 @@ nav:
   - index.md
   - Pagamento de Serviços de Produção de Blocos: services-payment.md
   - Gerenciar Tokens: manage-tokens.md
+  - Gerenciar Usando um Multisig: manage-multisig.md
   # - 'Manage Cross-Chain Communication Channels': 'xcm-channels.md'
   # - 'Register External Assets': 'register-external-assets.md'
