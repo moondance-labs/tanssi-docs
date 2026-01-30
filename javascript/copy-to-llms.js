@@ -517,6 +517,12 @@
       return;
     }
 
+    // Don't show the llm dropdown on index pages (navigational pages)
+    // We detect this by checking for a specific marker element added via index-page.html
+    if (document.querySelector('.is-index-page')) {
+      return;
+    }
+
     // Before initializing the copy buttons, we need to check for page-level toggles.
     // In the case where there are no toggles, we have a single page we need to initialize.
     // Where there are toggles, we have more than one page to initialize
