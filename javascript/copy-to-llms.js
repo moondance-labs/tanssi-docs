@@ -27,15 +27,27 @@
     }
   }
 
-  function getLangPrefix() {
-    const path = window.location.pathname;
-    // Check for recognized path prefix for Portuguese
-    if (/^\/pt(\/|$)/.test(path)) return '/pt';
+  // Must match 'supported_translations' in llms_config.json
+  const SUPPORTED_TRANSLATIONS = ['pt'];
 
-    // Fallback: check <html> lang attribute
-    const lang = document.documentElement.lang || 'en';
-    const code = lang.split('-')[0];
-    return code === 'pt' ? '/pt' : '';
+  function getLangPrefix() {
+    // Check <html> lang attribute first
+    const langAttr = document.documentElement.lang || 'en';
+    const code = langAttr.split('-')[0];
+
+    if (SUPPORTED_TRANSLATIONS.includes(code)) {
+      return `/${code}`;
+    }
+
+    // Fallback: Check path for any supported translation prefix
+    const path = window.location.pathname;
+    for (const lang of SUPPORTED_TRANSLATIONS) {
+      if (new RegExp(`^/${lang}(\\/|$)`).test(path)) {
+        return `/${lang}`;
+      }
+    }
+
+    return '';
   }
 
   function getMarkdownUrl(slug) {
