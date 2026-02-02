@@ -27,8 +27,20 @@
     }
   }
 
+  function getLangPrefix() {
+    const path = window.location.pathname;
+    // Check for recognized path prefix for Portuguese
+    if (/^\/pt(\/|$)/.test(path)) return '/pt';
+
+    // Fallback: check <html> lang attribute
+    const lang = document.documentElement.lang || 'en';
+    const code = lang.split('-')[0];
+    return code === 'pt' ? '/pt' : '';
+  }
+
   function getMarkdownUrl(slug) {
-    return `${window.location.origin}/ai/pages/${slug}.md`;
+    const prefix = getLangPrefix();
+    return `${window.location.origin}${prefix}/ai/pages/${slug}.md`;
   }
 
   const NO_MARKDOWN_MESSAGE = 'No Markdown file available.';

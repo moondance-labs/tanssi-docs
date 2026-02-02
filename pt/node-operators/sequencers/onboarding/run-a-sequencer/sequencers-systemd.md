@@ -302,7 +302,7 @@ Você pode verificar se o serviço está em execução corretamente:
     systemctl status dancelight.service
     ```
 
---8<-- 'tanssi-docs/.snippets/code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
+--8<-- 'code/node-operators/network-node/rpc-systemd/terminal/check-status.md'
 
 Se precisar verificar os logs, use:
 
