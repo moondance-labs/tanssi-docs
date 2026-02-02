@@ -27,8 +27,10 @@
     }
   }
 
-  // Must match 'supported_translations' in llms_config.json
-  const SUPPORTED_TRANSLATIONS = ['pt'];
+  // Get 'supported_translations' from llms_config.json
+  const SUPPORTED_TRANSLATIONS = (window.LLM_CONFIG && window.LLM_CONFIG.supportedTranslations) 
+    ? window.LLM_CONFIG.supportedTranslations 
+    : [];
 
   function getLangPrefix() {
     // Check <html> lang attribute first
