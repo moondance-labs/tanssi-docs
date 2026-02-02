@@ -1,7 +1,7 @@
 meta:
   home_title: Documentação da rede Tanssi
 footer:
-  llms_full_label: llms-full.txt
+  llms_full_label: llms-full.jsonl
   made_with_html: Feito com 🩵 por <a href="https://papermoon.io/" target="_blank">PaperMoon</a>
   privacy_policy: Política de privacidade
   terms_of_use: Termos de uso
