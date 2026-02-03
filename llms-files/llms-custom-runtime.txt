@@ -1090,7 +1090,7 @@ Calls represent the behavior a runtime exposes in the form of transactions that 
 Every call is enclosed within the `#[pallet::call]` macro, and present the following elements:
 
 - **Call Index** - is a mandatory unique identifier for every dispatchable call
-- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Polkadot documentation](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/#how-fees-are-calculated){target=\_blank}
+- **Weight** - is a measure of computational effort an extrinsic takes when being processed. More about weights is in the [Polkadot documentation](https://docs.polkadot.com/reference/parachains/blocks-transactions-fees/fees/#how-fees-are-calculated){target=\_blank}
 - **Origin** - identifies the signing account making the call
 - **Result** - the return value of the call, which might be an `Error` if anything goes wrong
 
@@ -1290,7 +1290,7 @@ pub enum Event<T: Config> {
 
 ### Implementing Storage for State Persistence {: #implementing-storage }
 
-The `#[pallet::storage]` macro initializes a runtime storage structure. In the heavily constrained environment of blockchains, deciding what to store and which structure to use can be critical in terms of performance. More on this topic is covered in the [Substrate documentation](https://docs.polkadot.com/develop/parachains/customize-parachain/make-custom-pallet/#pallet-storage){target=\_blank}.
+The `#[pallet::storage]` macro initializes a runtime storage structure. In the heavily constrained environment of blockchains, deciding what to store and which structure to use can be critical in terms of performance.
 
 In this example, the `lottery-example` module needs a basic value storage structure to persist the list of participants in a bounded capacity vector ([BoundedVec](https://crates.parity.io/frame_support/storage/bounded_vec/struct.BoundedVec.html){target=\_blank}). This can be initialized as follows:
 
@@ -3396,7 +3396,7 @@ During the block-building process, a sequencer uses a [priority system](https://
 
 ## Forkless Upgrades {: #forkless-upgrades}
 
-Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.polkadot.com/develop/parachains/maintenance/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
+Networks deployed through Tanssi have a thrilling feature: [forkless upgrades](https://docs.polkadot.com/parachains/runtime-maintenance/runtime-upgrades/){target=\_blank}. Forkless upgrades allow developers to change the state transition function that governs the chain without creating a network fork, as seen on Ethereum multiple times. Furthermore, if the Tanssi network is set up with an on-chain governance system, upgrades to the network can happen in a truly decentralized and trustless way.
 
 Forkless upgrades are made possible by storing the state transition function as a WebAssembly (Wasm) blob in both the Tanssi network itself and the Tanssi-powered network. When a new runtime is scheduled through a function call in the Tanssi-powered network, the Tanssi network validates this block, so it is notified and readies itself to validate incoming blocks using the most recent state transition function. Following a specified runtime upgrade delay period, a Tanssi sequencer on the Tanssi-powered network constructs a block that references a Tanssi network block, signaling to the Tanssi network that it can now apply the new runtime. Consequently, this new state transition function is utilized for that specific block. As all infrastructure participants at the network level employ the on-chain Wasm blob, every Tanssi network node operator can validate new blocks using the latest state transition function.
 
@@ -3434,7 +3434,7 @@ categories: Basics
 
 Tanssi-powered networks are built with a [modular framework](/learn/framework/){target=\_blank} called [Substrate](https://docs.polkadot.com/develop/parachains/intro-polkadot-sdk/){target=\_blank}. With this framework, you can build unique ways to handle transaction fees. For example, most transactions use a specific module called [Transaction Payment](https://docs.rs/pallet-transaction-payment/latest/pallet_transaction_payment){target=\_blank}. However, transaction fees on Tanssi-powered EVM-compatible networks can be charged at an EVM execution level, bypassing other fee-related modules.
 
-Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.polkadot.com/polkadot-protocol/parachain-basics/blocks-transactions-fees/fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
+Under the hood, for execution time, instead of working with a gas-based mechanism, all Tanssi networks work with a [weight-based mechanism](https://docs.polkadot.com/reference/parachains/blocks-transactions-fees/fees/){target=\_blank}. Weight refers to the time (in picoseconds) it takes to validate a block. Generally speaking, for both EVM and non-EVM Tanssi networks, all function calls have a weight associated with them, which sets limits on storage input/output and computation. For Tanssi EVM networks, there is a gas-to-weight mapping that fully complies with the expected gas requirements for Ethereum API-based tools.
 
 A transaction fee scheme is applied on top of the weight-based mechanism to ensure economic incentives are in line to limit the execution time, computation, and number of calls (database read/writes) to perform operations. Transaction fees are fundamental to preventing network spam, as they represent the cost of using the Tanssi network service. Consequently, a user interacting with the network through a specific function call will pay a transaction fee determined by a baseline fee algorithm.
 
