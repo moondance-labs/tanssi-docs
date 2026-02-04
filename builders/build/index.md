@@ -27,7 +27,7 @@ flowchart TD
     Test --> Deploy2[Deploy via Tanssi dApp]
 ```
 
-Now that you’ve explored the deployment paths, the next step is to [learn more about each template](/builders/build/templates) so you can choose the one that best fits your needs.
+Now that you’ve explored the deployment paths, the next step is to [learn more about each template](/builders/build/templates/) so you can choose the one that best fits your needs.
 
 ## Explore This Section
 

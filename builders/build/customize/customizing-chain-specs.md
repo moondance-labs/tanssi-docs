@@ -44,7 +44,7 @@ The client specification contains the configuration of the network and other set
 In the `properties` attribute, the following settings are used by various front-end libraries, including the [Polkadot.js API](/builders/toolkit/substrate-api/libraries/polkadot-js-api/){target=\_blank}:
 
 - **Token Symbol** - a name for your Tanssi network's own token symbol
-- **SS58 Format** - an integer that uniquely identifies the accounts in your network. [SS58 encoding](https://docs.polkadot.com/polkadot-protocol/parachain-basics/accounts/#address-formats){target=\_blank} transforms the underlying 32-byte account to a network-specific representation. This attribute doesn't apply nor interfere with the ECDSA Ethereum accounts on EVM-compatible networks
+- **SS58 Format** - an integer that uniquely identifies the accounts in your network. [SS58 encoding](https://docs.polkadot.com/reference/parachains/accounts/#address-formats){target=\_blank} transforms the underlying 32-byte account to a network-specific representation. This attribute doesn't apply or interfere with the ECDSA Ethereum accounts on EVM-compatible networks
 - **Token Decimals** - represent how divisible a token can be, and what is the smallest representation of the token. It's set to `18` for EVM-compatible networks
 - **Is Ethereum** - a boolean identifying the network as EVM compatible or not
 
